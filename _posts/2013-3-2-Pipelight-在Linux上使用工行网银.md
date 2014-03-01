@@ -33,7 +33,7 @@ tags: [linux, fedora, pipelight, wine, ActiveX]
 
 	sudo pipelight-plugin --enable npactivex
 
-5\. 启动 chrome 浏览器, 打开 <chrome://plugins/>], 应该可以看到以下内容:
+5\. 启动 chrome 浏览器, 打开 <chrome://plugins>, 应该可以看到以下内容:
 
 >ActiveX hosting plugin for NPAPI  
 >ActiveX hosting plugin for NPAPI r37  
