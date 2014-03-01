@@ -12,4 +12,4 @@ comments: yes
 - github : [https://github.com/wangjiezhe](https://github.com/wangjiezhe)
 
 
-<a target="_blank" href="http://mail.163.com/share/mail2me.htm#email=wangjiezhe@gmail.com" style="text-decoration:none;"><img src="http://mimg.127.net/xm/all/share/120111/img/mailme_5_big.png" alt="给我写信"/></a>
+<a target="_blank" href="mailto:wangjiezhe@gmail.com" style="text-decoration:none;"><img src="http://mimg.127.net/xm/all/share/120111/img/mailme_5_big.png" alt="给我写信"/></a>
