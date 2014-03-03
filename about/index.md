@@ -1,10 +1,12 @@
 ---
+
 title: About me
 layout: page
 comments: yes
+
 ---
 
-		Hello! I'm Wang Jiezhe.
+Hello! I'm Wang Jiezhe.
 
 - 邮箱:
   + wangjiezhe@gmail.com
