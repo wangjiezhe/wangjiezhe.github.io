@@ -8,9 +8,8 @@ comments: yes
 
 Hello! I'm Wang Jiezhe.
 
-- 邮箱:
-  + wangjiezhe@gmail.com
-- twitter :	[https://twitter.com/wangjiezhe](https:twitter.com/wangjiezhe)
+- 邮箱: wangjiezhe@gmail.com
+- twitter :	[https://twitter.com/wangjiezhe](https://twitter.com/wangjiezhe)
 - github : [https://github.com/wangjiezhe](https://github.com/wangjiezhe)
 
 
