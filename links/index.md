@@ -4,9 +4,11 @@ layout: page
 comments: yes
 ---
 
-- [The Internet Archive](https://archive.org/)
-- [edX online courses](https://www.edx.org//)
-- [Coursera](https://www.coursera.org/)
-- [TeX Users Group (TUG)](http://www.tug.org/)
-- [Sagemath](http://www.sagemath.org/)
-- [极客范](http://www.geekfan.net/)
+<ul>
+<li><a href=https://archive.org target=_blank>The Internet Archive</a>
+<li><a href=https://www.edx.org target=_blank>edX online courses</a>
+<li><a href=https://www.coursera.org target=_blank>Coursera</a>
+<li><a href=http://www.tug.org target=_blank>TeX Users Group (TUG)</a>
+<li><a href=http://www.sagemath.org target=_blank>Sagemath</a>
+<li><a href=http://www.geekfan.net target=_blank>极客范</a>
+</ul>
