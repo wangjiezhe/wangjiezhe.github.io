@@ -1,6 +1,7 @@
 ---
 
 layout: post
+title: Linux 随学随记 (2)
 categories: [Linux]
 tags: [linux, vim]
 
