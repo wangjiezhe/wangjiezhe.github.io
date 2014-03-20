@@ -1,6 +1,7 @@
 ---
 
 layout: post
+title: Linux 随学随记 (1)
 categories: [Linux]
 tags: [linux, shell, sed, vim]
 
