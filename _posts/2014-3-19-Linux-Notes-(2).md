@@ -16,7 +16,7 @@ tags: [linux, vim]
 
   <br />
 
-## 二、vim与系统剪贴板的交互(仅限与gvim)
+## 二、vim与系统剪贴板的交互 (仅限于gvim!!!)
 
 <span style="color:red">`"+y`</span>  复制到剪贴板  
 <span style="color:red">`"+p`</span>  从剪贴板粘贴
