@@ -3,7 +3,7 @@ permalink: /:year/:month/:title/
 author: Wang Jiezhe
 pygments: true
 paginate: 16
-url: http://wangjiezhe.github.io
+url: https://wangjiezhe.github.io
 timezone: 'Asia/Shanghai'
 gem:
     - jemoji
