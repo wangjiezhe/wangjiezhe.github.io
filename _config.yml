@@ -1,11 +1,33 @@
 markdown: redcarpet
+redcarpet: 
+    extensions: 
+        - autolink
+        - strikethrough
+        - space_after_headers
+        - superscript
+
 permalink: /:year/:month/:title/
-author: Wang Jiezhe
+
 pygments: true
+
 paginate: 16
+
 url: https://wangjiezhe.github.io
+
 timezone: 'Asia/Shanghai'
+
+encoding: utf-8
+
+author:
+    name: Wang Jiezhe
+    url: https://twitter.com/wangjiezhe
+
 gem:
     - jemoji
     - jekyll-mentions
     - jekyll-redirect-from
+
+github:
+    repo: https://github.com/wangjiezhe/wangjiezhe.github.io
+
+version: 1.0.0
