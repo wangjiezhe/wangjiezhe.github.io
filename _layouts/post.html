@@ -5,7 +5,6 @@ layout: default
 <section class="post">
 {{ content }}
 </section>
-{% include twitter_plug.md %}
 <section class="meta">
 <span class="author">
   <a href="https://wangjiezhe.github.io/about/">{{ site.author.name }}</a>
@@ -13,6 +12,10 @@ layout: default
 <span class="time">
   /
   <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date:"%Y-%m-%d" }}</time>
+</span>
+<br />
+<span class="twitter_plug">
+{% include twitter_plug.md %}
 </span>
 <br />
 <span class="license">
