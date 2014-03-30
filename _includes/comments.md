@@ -1,6 +1,4 @@
 <section class="comment">
-<h2>Comments section</h2>
-<p>Feel free to comment on the post but keep it clean and on topic.</p>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
