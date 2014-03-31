@@ -12,6 +12,5 @@ comments: yes
 <li><a href="https://www.coursera.org" target="_blank">Coursera</a>
 <li><a href="https://www.tug.org" target="_blan"k>TeX Users Group (TUG)</a>
 <li><a href="http://www.sagemath.org" target="_blank">Sagemath</a>
-<li><a href="http://it-ebooks.info/" target="_blank">IT eBooks - Free Download</a>
 <li><a href="http://www.geekfan.net" target="_blank">极客范</a>
 </ul>
