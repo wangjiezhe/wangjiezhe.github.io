@@ -99,7 +99,7 @@ tags: [linux, fedora, pipelight, wine, ActiveX]
 上面的博客还给出了其作者对支付宝的测试成功的 npactivex extension 的规则:
 
 >Mode: WildChar  
->Pattern: https://*.alipay.com/*  
+>Pattern: https://\*.alipay.com/\*  
 >User Agent: MSIE9  
 >Other helper scripts: dynamic ieevent
 
