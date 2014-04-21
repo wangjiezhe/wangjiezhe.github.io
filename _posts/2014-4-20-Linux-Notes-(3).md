@@ -90,8 +90,6 @@ add Control = Control_L
 $ xmodmap ~/.xmodmap 2>/dev/null
 ```
 
-或将命令添加到 ~/.xinitrc (Fedora 迁移到了 ~/.config/imsettings/xinputrc) 中。
-
-__不要添加到 ~/.zshrc 中，否则会重复执行使得键位回归。__
+__网上的教程都是要将命令添加到 ~/.xinitrc (Fedora 迁移到了 ~/.config/imsettings/xinputrc) 或 /etc/rc.d/rc.local 中，而不是 ~/.zshrc (我使用的是 oh\_my\_zsh，使用 bash 的话使用 ~/.bashrc)中，否则会重复执行使得键位回归。但是我的测试却是如果使用前者，新开一个 shell 时键位就会回归，而使用后者则没有问题，不知是不是与使用 zsh 有关，bash 没有测试。__
 
   <br />
