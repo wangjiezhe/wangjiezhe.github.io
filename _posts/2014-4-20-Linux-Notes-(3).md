@@ -71,17 +71,20 @@ $ setxkbmap -option ctrl:swapctrl
 
 或者把命令放到~/.zshrc中
 
-### 3. 使用xmodmap
+  <br />
+
+## 八、交换 Escape 键和右 Alt 键
+
+这时，前面两种方法都没有现成的选项可以使用，因此我们使用xmodmap
 
 建立 ~/.xmodmap，添加如下内容：
 
-```
-remove Lock = Caps_Lock
-remove Control = Control_L
-keysym Control_L = Caps_Lock
-keysym Caps_Lock = Control_L
-add Lock = Caps_Lock
-add Control = Control_L
+```xmodmap
+! 交换Escape和Alt_R
+clear mod1
+keycode   9 = Alt_R NoSymbol Alt_R
+keycode 108 = Escape NoSymbol Escape
+add    mod1 = Escape Meta_L
 ```
 
 然后运行
