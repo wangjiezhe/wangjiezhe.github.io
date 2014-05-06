@@ -79,7 +79,7 @@ $ setxkbmap -option ctrl:swapctrl
 
 建立 ~/.xmodmap，添加如下内容：
 
-```xmodmap
+```
 ! 交换Escape和Alt_R
 clear mod1
 keycode   9 = Alt_R NoSymbol Alt_R
