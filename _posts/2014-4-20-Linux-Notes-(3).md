@@ -94,7 +94,7 @@ $ xmodmap ~/.xmodmap 2>/dev/null
 
 ```bash
 # Swap Alt_R and Escape
-if [[ -n $(xmodmap|grep "mod1.*Alt_R") ]];then
+if [[ -n $DISPLAY ]] && [[ -n $(xmodmap|grep "mod1.*Alt_R") ]];then
 	xmodmap "$HOME"/.xmodmap 2>/dev/null
 fi
 ```
