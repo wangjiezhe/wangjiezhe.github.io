@@ -90,6 +90,13 @@ add Control = Control_L
 $ xmodmap ~/.xmodmap 2>/dev/null
 ```
 
-__网上的教程都是要将命令添加到 ~/.xinitrc (Fedora 迁移到了 ~/.config/imsettings/xinputrc) 或 /etc/rc.d/rc.local 中，而不是 ~/.zshrc (我使用的是 oh\_my\_zsh，使用 bash 的话使用 ~/.bashrc)中，否则会重复执行使得键位回归。但是我的测试却是如果使用前者，新开一个 shell 时键位就会回归，而使用后者则没有问题，不知是不是与使用 zsh 有关，bash 没有测试。__
+网上的教程都是要将命令添加到 ~/.xinitrc 或 /etc/rc.d/rc.local 中，而不是 ~/.zshrc (或 ~/.bashrc)中，否则会重复执行使得键位回归。但经测试，前者无法成功(有的地方解释是 xinitrc 在新版本中已不再使用)，于是我在 ~/.zshrc 中添加如下代码:
+
+```bash
+# Swap Alt_R and Escape
+if [[ -n $(xmodmap|grep "mod1.*Alt_R") ]];then
+	xmodmap "$HOME"/.xmodmap 2>/dev/null
+fi
+```
 
   <br />
