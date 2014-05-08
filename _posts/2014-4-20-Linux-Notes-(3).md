@@ -59,7 +59,7 @@ $ ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3
 
 选择 Typing > Ctrl key position > Swap Ctrl and Caps Lock 即可。
 
-(要求 `gsettings get org.gnome.settings-daemon.plugins.keyboard active` 的值为 `true`)
+(要求 `gsettings get org.gnome.settings-daemon.plugins.keyboard active` 的值为 `true`，故在 gnome 中使用 fcitx 时此方法无法使用)
 
 ### 2. 使用 setxkbmap 命令
 
@@ -69,7 +69,14 @@ $ ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3
 $ setxkbmap -option ctrl:swapctrl
 ```
 
-或者把命令放到~/.zshrc中
+或者在 ~/.zshrc 中添加如下内容：
+
+```bash
+# Swap Ctrl_L and CapsLock
+if [[ -n $DISPLAY ]]; then
+	setxkbmap -option ctrl:swapctrl
+fi
+```
 
   <br />
 
@@ -97,7 +104,7 @@ $ xmodmap ~/.xmodmap 2>/dev/null
 
 ```bash
 # Swap Alt_R and Escape
-if [[ -n $DISPLAY ]] && [[ -n $(xmodmap|grep "mod1.*Alt_R") ]];then
+if [[ -n $DISPLAY ]] && [[ -n $(xmodmap|grep "mod1.*Alt_R") ]]; then
 	xmodmap "$HOME"/.xmodmap 2>/dev/null
 fi
 ```
