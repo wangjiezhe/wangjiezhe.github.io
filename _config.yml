@@ -22,7 +22,7 @@ author:
     name: "Wang Jiezhe"
     url: https://twitter.com/wangjiezhe
 
-gem:
+gems:
     - jemoji
     - jekyll-mentions
     - jekyll-redirect-from
