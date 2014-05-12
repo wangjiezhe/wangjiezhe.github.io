@@ -8,7 +8,7 @@ redcarpet:
 
 permalink: /:year/:month/:title/
 
-pygments: true
+highlighter: pygments
 
 paginate: 16
 
