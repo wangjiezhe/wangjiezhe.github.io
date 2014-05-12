@@ -3,3 +3,4 @@ _drafts
 *~
 *.swp
 *_backup
+Gemfile.lock

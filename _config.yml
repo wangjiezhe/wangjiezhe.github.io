@@ -19,7 +19,7 @@ timezone: 'Asia/Shanghai'
 encoding: utf-8
 
 author:
-    name: Wang Jiezhe
+    name: "Wang Jiezhe"
     url: https://twitter.com/wangjiezhe
 
 gem:
