@@ -26,6 +26,7 @@ gem:
     - jemoji
     - jekyll-mentions
     - jekyll-redirect-from
+    - jekyll-sitemap
 
 github:
     repo: https://github.com/wangjiezhe/wangjiezhe.github.io
