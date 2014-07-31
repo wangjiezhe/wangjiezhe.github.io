@@ -1,10 +1,12 @@
-markdown: redcarpet
-redcarpet: 
-    extensions: 
-        - autolink
-        - strikethrough
-        - space_after_headers
-        - superscript
+markdown: kramdown
+kramdown:
+    input: GFM
+#redcarpet:
+#    extensions:
+#        - autolink
+#        - strikethrough
+#        - space_after_headers
+#        - superscript
 
 permalink: /:year/:month/:title/
 
