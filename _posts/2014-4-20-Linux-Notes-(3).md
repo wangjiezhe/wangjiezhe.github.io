@@ -47,7 +47,7 @@ Ctrl+t = Ctrl+right\_click
 
 运行以下命令之一：
 
-~~~ shell
+~~~ bash
 $ mencoder -oac mp3lame -ovc copy -of rawaudio 01.flv -o 01.mp3
 $ ffmpeg -i 01.flv -f mp3 -vn 01.mp3
 $ ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3
@@ -67,7 +67,7 @@ $ ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3
 
 运行
 
-~~~ shell
+~~~ bash
 $ setxkbmap -option ctrl:swapctrl
 ~~~
 
@@ -104,7 +104,7 @@ $ xmodmap ~/.xmodmap 2>/dev/null
 
 网上的教程都是要将命令添加到 ~/.xinitrc 或 /etc/rc.d/rc.local 中，而不是 ~/.zshrc (或 ~/.bashrc)中，否则会重复执行使得键位回归。但经测试，前者无法成功(有的地方解释是 xinitrc 在新版本中已不再使用)，于是我在 ~/.zshrc 中添加如下代码:
 
-```shell
+```bash
 # Swap Alt_R and Escape
 if [[ -n $DISPLAY ]] && [[ -n $(xmodmap|grep "mod1.*Alt_R") ]]; then
 	xmodmap "$HOME"/.xmodmap 2>/dev/null
