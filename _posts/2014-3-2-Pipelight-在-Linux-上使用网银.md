@@ -45,7 +45,7 @@ tags: [linux, fedora, pipelight, wine, ActiveX]
 >Disable  
 >MIME types:  
 >MIME type	Description	File extensions  
->application/x-itst-activex	ActiveX (*.ocx)  
+>application/x-itst-activex	ActiveX (\*.ocx)  
 >.ocx  
 >application/activex-manager	ActiveXManager
 
@@ -82,7 +82,7 @@ tags: [linux, fedora, pipelight, wine, ActiveX]
 
 如果输出包含以下内容就说明安装成功了, 否则说明以上某一步出错了
 
-> {93156467-FD99-4A30-9CA5-8563F4BB8DB3}|||icbc_netbank_client_controls
+> {93156467-FD99-4A30-9CA5-8563F4BB8DB3}|||icbc\_netbank\_client\_controls
 
 8\. 安装 np-activex extension:
 
