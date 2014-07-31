@@ -16,7 +16,7 @@ paginate: 16
 
 url: http://wangjiezhe.github.io
 
-timezone: Asia/Shanghai
+timezone: "Asia/Shanghai"
 
 encoding: utf-8
 
