@@ -45,6 +45,5 @@ iconv -f cp936 -t utf8 -o outfile infile
 
 <script src="https://gist.github.com/wangjiezhe/7841a350983a147b6d7e.js"></script>
 
-这种方法的缺点是比较慢.
 
 <br />
