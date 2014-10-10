@@ -9,6 +9,8 @@ tags: [linux, network]
 
 <br />
 
+> **Note: 在 Fedora 21 中, 默认的加密方式已改为 WPA**{: style="color: red"}
+
 NetworkManager 共享 wifi 热点时默认的加密方式是 WEP, 这种加密方式早已被证明安全性较低.而 WPA 加密的安全性则相对较高.
 
 wifi 热点的配置文件为 `/etc/NetworkManager/system-connections/Hostpot`{: style="color: red"}, 该文件须用 root 权限打开.
