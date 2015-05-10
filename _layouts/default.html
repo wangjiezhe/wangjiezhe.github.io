@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/media/css/style.css" />
     <link rel="stylesheet" href="/media/css/highlight.css" />
     <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
-	{% include mathjax.md %}
-	{% include sagecell.md %}
+    {% if page.mathjax %}
+    {% include mathjax.md %}
+    {% endif %}
+    {% if page.sagecell %}
+    {% include sagecell.md %}
+    {% endif %}
     {% include google_analytics.md %}
   </head>
   <body>
