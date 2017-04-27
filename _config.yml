@@ -1,16 +1,10 @@
 markdown: kramdown
 kramdown:
     input: GFM
-#redcarpet:
-#    extensions:
-#        - autolink
-#        - strikethrough
-#        - space_after_headers
-#        - superscript
 
 permalink: /:year/:month/:title/
 
-highlighter: pygments
+highlighter: rouge
 
 paginate: 16
 
