@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://wangjiezhe.github.io/sitemap.xml
+Sitemap: https://wangjiezhe.github.io/sitemap.xml
