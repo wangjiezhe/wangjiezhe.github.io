@@ -40,9 +40,9 @@
     
       <category term="linux" scheme="https://wangjiezhe.github.io/tags/linux/"/>
     
-      <category term="shell" scheme="https://wangjiezhe.github.io/tags/shell/"/>
-    
       <category term="vim" scheme="https://wangjiezhe.github.io/tags/vim/"/>
+    
+      <category term="shell" scheme="https://wangjiezhe.github.io/tags/shell/"/>
     
   </entry>
   
@@ -191,11 +191,11 @@
     
       <category term="linux" scheme="https://wangjiezhe.github.io/tags/linux/"/>
     
-      <category term="sed" scheme="https://wangjiezhe.github.io/tags/sed/"/>
-    
       <category term="regular expression" scheme="https://wangjiezhe.github.io/tags/regular-expression/"/>
     
       <category term="grep" scheme="https://wangjiezhe.github.io/tags/grep/"/>
+    
+      <category term="sed" scheme="https://wangjiezhe.github.io/tags/sed/"/>
     
       <category term="awk" scheme="https://wangjiezhe.github.io/tags/awk/"/>
     
@@ -259,11 +259,11 @@
     
       <category term="linux" scheme="https://wangjiezhe.github.io/tags/linux/"/>
     
-      <category term="shell" scheme="https://wangjiezhe.github.io/tags/shell/"/>
+      <category term="vim" scheme="https://wangjiezhe.github.io/tags/vim/"/>
     
       <category term="sed" scheme="https://wangjiezhe.github.io/tags/sed/"/>
     
-      <category term="vim" scheme="https://wangjiezhe.github.io/tags/vim/"/>
+      <category term="shell" scheme="https://wangjiezhe.github.io/tags/shell/"/>
     
   </entry>
   
