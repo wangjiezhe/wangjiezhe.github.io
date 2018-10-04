@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wangjiezhe.com/"/>
-  <updated>2018-10-04T21:58:32.604Z</updated>
+  <updated>2018-10-04T23:32:09.749Z</updated>
   <id>https://wangjiezhe.com/</id>
   
   <author>
@@ -21,17 +21,13 @@
     <link href="https://wangjiezhe.com//posts/2015-08-20-Linux-Notes-4.html"/>
     <id>https://wangjiezhe.com//posts/2015-08-20-Linux-Notes-4.html</id>
     <published>2015-08-19T16:00:00.000Z</published>
-    <updated>2018-10-04T21:58:32.604Z</updated>
+    <updated>2018-10-04T23:32:09.749Z</updated>
     
     <content type="html"><![CDATA[<h2>mplayer 循环播放歌曲</h2><p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mplayer -loop n ***.mp3</span><br></pre></td></tr></table></figure></p><p>n 表示重复次数，0 表示无限循环。</p><h2>vim 搜索大小写匹配</h2><p><code>set ignorecase</code>忽略正常字母的大小写</p><p><code>set smartcase</code>只包含小写字母时忽略大小写</p><p><code>\c</code>强制忽略大小写</p><p><code>\C</code>强制匹配大小写</p><h2>cd 转移</h2><p>当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法。</p><pre><code>cd directorya directoryb</code></pre><p>第一个参数是当前目录路径中需要替换的参数，第二个参数是替换字符串。</p><pre><code># 要从v7目录 切换到v8目录，只需键入cd v7 v8/programs/v7/reports/monthly &gt; cd v7 v8/programs/v8/reports/monthly &gt;# 如果历史上的每年每月都有一个对应目录，cd 转移允许从一年跳到另一年/hist/2010/april/reports &gt; cd 2010 2011/hist/2011/april/reports &gt;# 切换月份目录/hist/2011/april/reports &gt; cd april may/hist/2011/may/reports &gt;</code></pre><h2>vim 快速缩进</h2><p><code>&gt;&gt;</code>向右缩进</p><p><code>&lt;&lt;</code>向左缩进</p><p><code>:ce</code> (center)文本居中</p><p><code>:le</code> (left)文本靠左</p><p><code>:ri</code> (right)文本靠右</p><h2>vim 编辑多个文件</h2><p><code>:n</code>编辑下一个文件</p><p><code>:N</code>编辑上一个文件</p><p><code>:e#</code>回到前一个文件</p><p><code>:ls</code>列出所有编辑的文件</p><p><code>:b 2.txt</code> or <code>:b 2</code>直接进入文件 2.txt 或者编号为 2 的文件编辑</p><p><code>:bd 2.txt</code> or <code>:b 2</code>删除列表中的文件项目</p><p><code>:f</code>显示正在编辑的文件名</p><p><code>:f new.txt</code>重命名当前文件为 new.txt</p><h2>vim 加密文件</h2><p><code>$ vim -x file1</code>创建加密文档 file1</p><p><code>set cm=blowfish2</code> (newest)设置加密方式</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2&gt;mplayer 循环播放歌曲&lt;/h2&gt;
-&lt;p&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td c
-      
+      记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。
     
     </summary>
     
@@ -51,18 +47,13 @@
     <link href="https://wangjiezhe.com//posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html"/>
     <id>https://wangjiezhe.com//posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html</id>
     <published>2014-08-13T16:00:00.000Z</published>
-    <updated>2018-10-04T21:58:32.604Z</updated>
+    <updated>2018-10-04T23:32:09.749Z</updated>
     
-    <content type="html"><![CDATA[<p>在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题.</p><p>一种方法是通过 wine 安装 7z 或 haozip 来解决.</p><p>另一种方法是利用环境变量 + 7z + convmv 来解决.</p><p>用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件:</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LC_ALL=C 7z x -oOUTDIR zipfile.zip</span><br></pre></td></tr></table></figure></p><p>然后用 convmv 检测文件名的编码转换, 查看是否有乱码:</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convmv -f cp936 -t utf8-r *</span><br></pre></td></tr></table></figure></p><p>如果没有乱码, 则可以进行转换:</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convmv -f cp936 -t utf8 --notest *</span><br></pre></td></tr></table></figure></p><p>如果还要转换某个文件的编码, 则可以用 iconv :</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iconv -f cp936 -t utf8 -o outfile infile</span><br></pre></td></tr></table></figure></p><p>网上还经常提到的一种方法是用 unzip 的 -O 选项, 可惜在新版的 unzip 中这一选项被移除了, 如果需要也可以自己打补丁, 不过个人感觉很麻烦.</p><p>还有一种方法是用 python 来做. 网上有一个流传比较广的脚本, 不过功能不过完善, 下面的代码是在原代码基础上修改而成的:</p><p>&lt;script src=&quot;https://gist.github.com/wangjiezhe/7841a350983a147b6d7e.js&quot;&gt;&lt;/script&gt;</p>]]></content>
+    <content type="html"><![CDATA[<p>在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题.</p><p>一种方法是通过 wine 安装 7z 或 haozip 来解决.</p><p>另一种方法是利用环境变量 + 7z + convmv 来解决.</p><p>用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件:</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LC_ALL=C 7z x -oOUTDIR zipfile.zip</span><br></pre></td></tr></table></figure></p><p>然后用 convmv 检测文件名的编码转换, 查看是否有乱码:</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convmv -f cp936 -t utf8-r *</span><br></pre></td></tr></table></figure></p><p>如果没有乱码, 则可以进行转换:</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convmv -f cp936 -t utf8 --notest *</span><br></pre></td></tr></table></figure></p><p>如果还要转换某个文件的编码, 则可以用 iconv :</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iconv -f cp936 -t utf8 -o outfile infile</span><br></pre></td></tr></table></figure></p><p>网上还经常提到的一种方法是用 unzip 的 -O 选项, 可惜在新版的 unzip 中这一选项被移除了, 如果需要也可以自己打补丁, 不过个人感觉很麻烦.</p><p>还有一种方法是用 python 来做. 网上有一个流传比较广的脚本, 不过功能不过完善, 下面的代码是在原代码基础上修改而成的，支持解压加密的压缩文件（一个是 python3 的版本，一个是 python2 的版本）:</p><p>&lt;script src=&quot;https://gist.github.com/wangjiezhe/7841a350983a147b6d7e.js&quot;&gt;&lt;/script&gt;</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题.&lt;/p&gt;
-&lt;p&gt;一种方法是通过 wine 安装 7z 或 haozip 来解决.&lt;/p&gt;
-&lt;p&gt;另一种方法是利用环境变量 + 7z + convm
-      
+      GBK 编码的 zip 文件正常解压（unzip，7z，file-roller）都会出现乱码，本文通过一个 python 脚本来彻底解决这个问题。
     
     </summary>
     
@@ -82,19 +73,13 @@
     <link href="https://wangjiezhe.com//posts/2014-04-20-Linux-Notes-3.html"/>
     <id>https://wangjiezhe.com//posts/2014-04-20-Linux-Notes-3.html</id>
     <published>2014-04-19T16:00:00.000Z</published>
-    <updated>2018-10-04T21:58:32.604Z</updated>
+    <updated>2018-10-04T23:32:09.749Z</updated>
     
     <content type="html"><![CDATA[<p><code>^[</code>  使用Ctrl-V Esc生成（ASC ASCII值）</p><h2>二、开机自启动文件</h2><p>系统: <code>/etc/rc.d/rc.local</code>用户: <code>$HOME/.config/autostart/</code></p><h2>三、sed 替换中使用变量</h2><p>sed替换命令用双引号<code>&quot; &quot;</code> 而不是单引号 <code>' '</code>，然后里面直接用 <code>$VARIABLE</code> 就可以了。</p><h2>四、vim 保存 root 权限文件</h2><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w !sudo tee %</span><br></pre></td></tr></table></figure></p><h2>五、vim 跳转</h2><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+] = Ctrl+left\_click</span><br><span class="line">Ctrl+t = Ctrl+right\_click</span><br></pre></td></tr></table></figure></p><h2>六、从视频中提取音频</h2><p>运行以下命令之一：</p><p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mencoder -oac mp3lame -ovc copy -of rawaudio 01.flv -o 01.mp3</span><br><span class="line">$ ffmpeg -i 01.flv -f mp3 -vn 01.mp3</span><br><span class="line">$ ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3</span><br></pre></td></tr></table></figure></p><h2>七、交换 CapsLock 键和左 Ctrl 键</h2><h3>1. 使用 gnome-tweak-tool</h3><p>选择 Typing &gt; Ctrl key position &gt; Swap Ctrl and Caps Lock 即可。</p><p>（要求 <code>gsettings get org.gnome.settings-daemon.plugins.keyboard active</code> 的值为 <code>true</code>，故在 gnome 中使用 fcitx 时此方法无法使用）</p><h3>2. 使用 setxkbmap 命令</h3><p>运行</p><p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setxkbmap -option ctrl:swapctrl</span><br></pre></td></tr></table></figure></p><p>或者在 ~/.zshrc 中添加如下内容：</p><p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Swap Ctrl_L and CapsLock</span></span><br><span class="line"><span class="keyword">if</span> [[ -n <span class="variable">$DISPLAY</span> ]]; <span class="keyword">then</span></span><br><span class="line">    setxkbmap -option ctrl:swapctrl</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p><h2>八、交换 Escape 键和右 Alt 键</h2><p>这时，前面两种方法都没有现成的选项可以使用，因此我们使用xmodmap</p><p>建立 ~/.xmodmap，添加如下内容：</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">! 交换Escape和Alt_R</span><br><span class="line">clear mod1</span><br><span class="line">keycode   9 = Alt_R NoSymbol Alt_R</span><br><span class="line">keycode 108 = Escape NoSymbol Escape</span><br><span class="line">add    mod1 = Escape Meta_L</span><br></pre></td></tr></table></figure></p><p>然后运行</p><p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmodmap ~/.xmodmap 2&gt;/dev/null</span><br></pre></td></tr></table></figure></p><p>网上的教程都是要将命令添加到 ~/.xinitrc 或 /etc/rc.d/rc.local 中，而不是 ~/.zshrc (或 ~/.bashrc)中，否则会重复执行使得键位回归。但经测试，前者无法成功(有的地方解释是 xinitrc 在新版本中已不再使用)，于是我在 ~/.zshrc 中添加如下代码:</p><p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Swap Alt_R and Escape</span></span><br><span class="line"><span class="keyword">if</span> [[ -n <span class="variable">$DISPLAY</span> ]] &amp;&amp; [[ -n $(xmodmap|grep <span class="string">"mod1.*Alt_R"</span>) ]]; <span class="keyword">then</span></span><br><span class="line">    xmodmap <span class="string">"<span class="variable">$HOME</span>"</span>/.xmodmap 2&gt;/dev/null</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;code&gt;^[&lt;/code&gt;  使用Ctrl-V Esc生成（ASC ASCII值）&lt;/p&gt;
-&lt;h2&gt;二、开机自启动文件&lt;/h2&gt;
-&lt;p&gt;系统: &lt;code&gt;/etc/rc.d/rc.local&lt;/code&gt;
-用户: &lt;code&gt;$HOME/.config/autosta
-      
+      记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。
     
     </summary>
     
@@ -112,19 +97,13 @@
     <link href="https://wangjiezhe.com//posts/2014-03-22-NetworkManager-Hotspot-Setting.html"/>
     <id>https://wangjiezhe.com//posts/2014-03-22-NetworkManager-Hotspot-Setting.html</id>
     <published>2014-03-21T16:00:00.000Z</published>
-    <updated>2018-10-04T21:58:32.604Z</updated>
+    <updated>2018-10-04T23:32:09.749Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p><strong>Note: 在 Fedora 21 中, 默认的加密方式已改为 WPA</strong></p></blockquote><p>NetworkManager 共享 wifi 热点时默认的加密方式是 WEP, 这种加密方式早已被证明安全性较低.而 WPA 加密的安全性则相对较高.</p><p>wifi 热点的配置文件为 <code>/etc/NetworkManager/system-connections/Hostpot</code>, 该文件须用 root 权限打开.</p><p>修改:</p><p>ssid: wifi 名称, 可改为自己想要的.</p><p>key-mgmt: 加密方式, 有以下几种:</p><ul><li>none: WEP</li><li>ieee8021x: Dynamic WEP</li><li>wpa-none: WPA-PSK Ad-Hoc</li><li>wpa-psk: infrastructure WPA-PSK</li><li>wpa-eap: WPA-Enterprise</li></ul><p>默认为 <code>key-mgmt=none</code>, 我将其修改为 <code>key-mgmt=wpa-psk</code>.</p><p>下面原来两行</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wep-key0=</span><br><span class="line">wep-key-type=</span><br></pre></td></tr></table></figure></p><p>为WEP密码和类型, 将其删去或注释掉, 改为</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psk=your_password</span><br></pre></td></tr></table></figure></p><p>然后重启 NetworkManager 服务即可</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart NetworkManager.service</span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: 在 Fedora 21 中, 默认的加密方式已改为 WPA&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;NetworkManager 共享 wifi 热点时默认的加密方式是 WEP, 这种加密方式早已被证
-      
+      在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）
     
     </summary>
     
@@ -142,21 +121,13 @@
     <link href="https://wangjiezhe.com//posts/2014-03-19-Linux-Notes-2.html"/>
     <id>https://wangjiezhe.com//posts/2014-03-19-Linux-Notes-2.html</id>
     <published>2014-03-18T16:00:00.000Z</published>
-    <updated>2018-10-04T21:58:32.604Z</updated>
+    <updated>2018-10-04T23:32:09.749Z</updated>
     
     <content type="html"><![CDATA[<h2>一、vim切换tab:</h2><p>向后  <code>:tabn</code>向前  <code>:tabp</code></p><h2>二、vim与系统剪贴板的交互 (仅限于gvim!!!)</h2><p><code>&quot;+y</code>复制到剪贴板</p><p><code>&quot;+p</code>从剪贴板粘贴</p><h2>三、vim重复命令</h2><p><code>.</code>重复上次操作，前面可加次数</p><p><code>:[range]g[lobal]/{pattern}/[cmd]</code>在 <code>[range]</code> 界定的匹配模式 <code>{pattern}</code> 的文本行上执行Ex 命令 <code>[cmd]</code> （缺省是 <code>:p</code>）。</p><p><code>:[range]g[lobal]!/{pattern}/[cmd]</code>在 [range] 界定的_不_匹配模式 {pattern} 的文本行上执行 Ex 命令 [cmd] （缺省是 <code>:p</code>）。</p><p><code>:[range]v[global]/{pattern}/[cmd]</code>等同于 :g!。</p><h2>四、vim中tab与空格的转换 (慎用！！！)</h2><p><code>:ret[ab][!] [new_tabstop]</code>将制表符<code>&lt;TAB&gt;</code>转换为空格符，数量由<code>[new_tabstop]</code>指定。若为空或为0，则使用默认的<code>tabstop</code>。若有<code>!</code>，则将空格序列转化为<code>&lt;TAB&gt;</code>。</p><h2>五、查看中文帮助:</h2><p><strong><code>man -L zh_CN.utf8 command</code></strong></p><h2>六、查看日志:</h2><p><code>journalctl [OPTIONS...] [MATCHES...]</code></p><p>Options:</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-f --follow        Follow the journal</span><br><span class="line">   --since=DATE    Start showing entries on or newer than the specified date</span><br><span class="line">   --until=DATE    Stop showing entries on or older than the specified date</span><br><span class="line">-l --full          Do not ellipsize fields</span><br><span class="line">-u --unit=UNIT     Show data only from the specified unit</span><br><span class="line">   --disk-usage    Show total disk usage of all journal files</span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2&gt;一、vim切换tab:&lt;/h2&gt;
-&lt;p&gt;向后  &lt;code&gt;:tabn&lt;/code&gt;
-向前  &lt;code&gt;:tabp&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;二、vim与系统剪贴板的交互 (仅限于gvim!!!)&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;&amp;quot;+y&lt;/code&gt;
-复制到剪
-      
+      记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。
     
     </summary>
     
@@ -174,20 +145,13 @@
     <link href="https://wangjiezhe.com//posts/2014-03-09-intro-for-regular-expression.html"/>
     <id>https://wangjiezhe.com//posts/2014-03-09-intro-for-regular-expression.html</id>
     <published>2014-03-08T16:00:00.000Z</published>
-    <updated>2018-10-04T21:58:32.604Z</updated>
+    <updated>2018-10-04T23:32:09.749Z</updated>
     
     <content type="html"><![CDATA[<h2>元字符 (grep, sed)</h2><h3>1. 句点元字符 <code>.</code></h3><p>通配元字符，匹配任意字符，除了换行符。</p><h3>2. 反斜杠元字符 <code>\\</code></h3><p>将其后面的一个字符解释为普通字符而不是元字符。</p><h3>3. 星号元字符 <code>\*</code></h3><p>其紧挨着的之前的匹配有 0+ 次匹配机会。</p><h3>4. 位置元字符 <code>^</code>, <code>$</code></h3><p>^ 匹配字符串的最前面。$ 匹配字符串的最后面。</p><h3>5. 字符组元字符 <code>[ ]</code>, 连字符元字符 <code>-</code>, 补字号 <code>^</code></h3><p><code>[]</code> 匹配方括号内的左右字符。<code>\-</code> 连字符元字符仅在字符组元字符内有意义，表示一段连续字符范围。<code>^</code> 表示排除某些字符。</p><h3>6. 范围字符串 <code>\\{ \\}</code></h3><p><code>\\{n,m\\}</code> 匹配 n~m 次。<code>\\{n\\}</code> 匹配 n 次。<code>\\{n,\\}</code> 匹配 n+ 次。</p><h3>7. 特殊字符类</h3><p><code>[[:alpha:]]</code> 匹配任意字母字符，大写或小写<code>[[:alnum:]]</code> 匹配任意字母数字字符，0-9, a-z, A-Z<code>[[:blank:]]</code> 匹配空格或制表符字符<code>[[:digit:]]</code> 匹配任意数字字符，0-9<code>[[:lower:]]</code> 匹配任意小写字母，a-z<code>[[:print:]]</code> 匹配任意可打印字符<code>[[:punct:]]</code> 匹配任意标点<code>[[:space:]]</code> 匹配任意空白字符: 空格、制表符、NL、FF、VT、CR<code>[[:upper:]]</code> 匹配任意大写字符，A-Z</p><h2>扩展元字符 (egrep, awk)</h2><h3>1. 加号元字符 <code>+</code></h3><p>其紧挨着的之前的匹配有 <strong>1+</strong> 次匹配机会。</p><h3>2. 问号元字符 <code>?</code></h3><p>其紧挨着的之前的匹配有 <strong>0~1</strong> 次匹配机会。</p><h3>3. 竖线元字符 <code>|</code></h3><p><code>r1|r2</code> 匹配 r1 或 r2</p><h3>4. 括号元字符 <code>( )</code></h3><p><code>(r1)</code> 匹配子字符串r1(常与 * + ? | 等连用)。</p><h3>5. 范围元字符 <code>{ }</code></h3><p>与上面的范围元字符类似。</p><h2>固定元字符 (grep)</h2><h3>1. <code>\\&lt; \\&gt;</code></h3><p>严格匹配一个词(后面必须直接跟一个空格或标点符号)。</p><p>参考:</p><ul><li>Linux Command Line and shell Scripting Bible, Richard Blum</li><li>UNIX awk and sed PROGRAMMER'S INTERACTIVE WORKBOOK, Peter Patsis</li></ul>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2&gt;元字符 (grep, sed)&lt;/h2&gt;
-&lt;h3&gt;1. 句点元字符 &lt;code&gt;.&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;通配元字符，匹配任意字符，除了换行符。&lt;/p&gt;
-&lt;h3&gt;2. 反斜杠元字符 &lt;code&gt;\\&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;将其后面的一个字符解释为普通字符而
-      
+      一些常见的正则表达式的备忘录。
     
     </summary>
     
@@ -211,16 +175,13 @@
     <link href="https://wangjiezhe.com//posts/2014-03-02-Pipelight-use-eBank-on-Linux.html"/>
     <id>https://wangjiezhe.com//posts/2014-03-02-Pipelight-use-eBank-on-Linux.html</id>
     <published>2014-03-01T16:00:00.000Z</published>
-    <updated>2018-10-04T21:58:32.604Z</updated>
+    <updated>2018-10-04T23:32:09.749Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://twitter.com/felixonmars" target="_blank" rel="noopener">@felixonmars</a> 在博客 <a href="http://blog.felixc.at/2014/02/pipelight-let-linux-native-chromium-chrome-support-activex-seamlessly/" target="_blank" rel="noopener">Pipelight – 让 Linux 原生 Chromium/Chrome 无缝支持 ActiveX 控件 (看! 网银!)</a> 中对如何通过 pipelight 使用工行网银做了很详细的描述, 不过是以 Arch Linux 作为例子来介绍的. 这里以 Fedora 20 为例, 做一个详细的介绍.</p><p>二者 Pipelight 和 ActiveX 控件的配置相同, 在 Pipelight 的安装上略有不同. 另外，Fedora 在安装 wine 时没有安装 winetricks, 需要手动安装. 因此, 相同部分的步骤基本上来自上面的博客.</p><p>基本的原理：利用 Chrome 里已有的 npactivex (ActiveX for Chrome) 扩展, 配合 pipelight 提供的 npactivex NPAPI 插件, 将 ActiveX 控件本身用 wine 执行, 并且无缝地嵌入 Chrome 网页中.</p><p>1. 安装不在仓库里的微软核心字体:</p><pre><code>sudo yum install cabextractsudo rpm -i http://sourceforge.net/projects/mscorefonts2/files/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm</code></pre><p>2. 然后添加仓库, 并安装 Pipelight (对于 Fedora 18 和 Fedora 19 只需要把 Fedora_20 替换成 Fedora_18 或 Fedora_19 即可):</p><pre><code>sudo wget http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Fedora_20/home:DarkPlayer:Pipelight.repo -O /etc/yum.repos.d/pipelight.reposudo yum install pipelightsudo pipelight-plugin --update</code></pre><p>3. 解锁 pipelight 的 npactivex 插件:</p><pre><code>sudo pipelight-plugin --unlock npactivex</code></pre><p>看到 &quot;Plugin npactivex is now unlocked&quot; 即为解锁成功</p><p>4. 启用 npactivex 插件:</p><pre><code>sudo pipelight-plugin --enable npactivex</code></pre><p>5. 启动 chrome 浏览器, 打开 <a href="chrome://plugins" target="_blank" rel="noopener">chrome://plugins</a>, 应该可以看到以下内容:</p><blockquote><p>ActiveX hosting plugin for NPAPIActiveX hosting plugin for NPAPI r37Name:ActiveX hosting plugin for NPAPIDescription:ActiveX hosting plugin for NPAPI r37Version:Location:/usr/lib/pipelight/libpipelight-npactivex.soType:NPAPIDisableMIME types:MIME typeDescriptionFile extensionsapplication/x-itst-activexActiveX (*.ocx).ocxapplication/activex-managerActiveXManager</p></blockquote><p>如果看到下列错误:</p><blockquote><p>Pipelight Error (npactivex)!Something went wrong, check the terminal output</p></blockquote><p>请从终端打开 chromium/google-chrome, 观察终端出错日志</p><p>6. 安装winetricks:</p><pre><code>wget http://winetricks.googlecode.com/svn/trunk/src/winetrickssudo cp winetricks /path/to/your/bin/sudo chmod +x /path/to/your/bin/winetricks</code></pre><p>7. 安装需要的 ActiveX 控件. 下面以工行控件为例:</p><p>7.1. 下载工行网银控件安装包:</p><pre><code>wget http://www.icbc.com.cn/icbc/html/download/dkq/icbc_netbank_client_controls.exe</code></pre><p>7.2. 安装 mfc42 运行库:</p><pre><code>WINEPREFIX=~/.wine-pipelight winetricks -q mfc42</code></pre><p>7.3. 安装:</p><pre><code>WINEPREFIX=~/.wine-pipelight wine icbc_netbank_client_controls.exe</code></pre><p>故障排除: 运行</p><pre><code>WINEPREFIX=~/.wine-pipelight wine uninstaller --list</code></pre><p>如果输出包含以下内容就说明安装成功了, 否则说明以上某一步出错了</p><blockquote><p>{93156467-FD99-4A30-9CA5-8563F4BB8DB3}|||icbc_netbank_client_controls</p></blockquote><p>8. 安装 np-activex extension:</p><p>扩展可以从 Chrome Web Store 直接安装, 地址:</p><p><a href="https://chrome.google.com/webstore/detail/activex-for-chrome/lgllffgicojgllpmdbemgglaponefajn/related" target="_blank" rel="noopener">https://chrome.google.com/webstore/detail/activex-for-chrome/lgllffgicojgllpmdbemgglaponefajn/related</a></p><p>9. 设置 np-activex extension:</p><p>打开 chrome://chrome/extensions, 点击 &quot;ActiveX for Chrome&quot; 旁边的 &quot;选项&quot; (Options), 浏览到 &quot;ICBC工商银行&quot; 所在的条目, 将&quot;已禁用&quot;改为&quot;已启用&quot;.</p><p>10. 用 Chrome 打开 <a href="https://mybank.icbc.com.cn/icbc/perbank/index.jsp" target="_blank" rel="noopener">https://mybank.icbc.com.cn/icbc/perbank/index.jsp</a> 应该可以正常登陆工行网银了.</p><p>上面的博客还给出了其作者对支付宝的测试成功的 npactivex extension 的规则:</p><blockquote><p>Mode: WildCharPattern: https://*.alipay.com/*User Agent: MSIE9Other helper scripts: dynamic ieevent</p></blockquote><p>不过, 在 npactivex extension 的设置页面中虽然有农业银行的的选项，但是我还是始终没有成功......</p><p>参考:</p><ul><li><a href="http://blog.felixc.at/2014/02/pipelight-let-linux-native-chromium-chrome-support-activex-seamlessly" target="_blank" rel="noopener">Pipelight – 让 Linux 原生 Chromium/Chrome 无缝支持 ActiveX 控件 (看! 网银!)</a></li><li><a href="http://fds-team.de/cms/pipelight-installation.html" target="_blank" rel="noopener">Pipelight - Installation</a></li></ul>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://twitter.com/felixonmars&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@felixonmars&lt;/a&gt; 在博客 &lt;a href=&quot;http://blog.felixc.at/2014/02/pipe
-      
+      记录在 Fedora 上使用网银的过程。
     
     </summary>
     
@@ -244,18 +205,13 @@
     <link href="https://wangjiezhe.com//posts/2014-03-01-Linux-Notes-1.html"/>
     <id>https://wangjiezhe.com//posts/2014-03-01-Linux-Notes-1.html</id>
     <published>2014-02-28T16:00:00.000Z</published>
-    <updated>2018-10-04T21:58:32.604Z</updated>
+    <updated>2018-10-04T23:32:09.749Z</updated>
     
-    <content type="html"><![CDATA[<h2>一、vim替换</h2><p>ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令：</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:s/^/#            #用&quot;#&quot;注释当前行</span><br><span class="line">:2,50s/^/#        #在2~50行首添加&quot;#&quot;注释</span><br><span class="line">:.,+3s/^/#        #用&quot;#&quot;注释当前行和当前行后面的三行</span><br><span class="line">:%s/^/#           #用&quot;#&quot;注释所有行</span><br></pre></td></tr></table></figure></p><p>顺便说一下vim的替换，这个常用，已经牢记，其实和上面用命令注释多行是一样的，只不过是上面注释的命令里的&quot;^&quot;符号代表开始位置而已，在下面这些命令中，&quot;s&quot;代表替换，part1代表查找的内容，part2代表替换的内容，&quot;%&quot;代表所有行，&quot;g&quot;代表替换整行里所有的内容（如果不加&quot;/g&quot;则只替换每行第一个匹配part1的地方）。</p><p>p.n.关于g的用法貌似在本系统相反，虽然各处都这么说。。。</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:s/part1/part2              #用part2替换当前行中第1个part1</span><br><span class="line">:s/part1/part2/g            #用part2替换当前行中所有的part1</span><br><span class="line">:%s/part1/part2             #用part2替换所有行中每行第1个part1</span><br><span class="line">:%s/part1/part2/g           #用part2替换所有行中所有的part1</span><br><span class="line">:2,50s/part1/part2          #用part2替换第2行到第50行中每行第1个part1</span><br><span class="line">:2,50s/part1/part2/g        #用part2替换第2行到第50行中所有的part1</span><br><span class="line">:.,+3s/part1/part2          #用part2替换当前行以及当前行后面的三行中每行第1个part1</span><br><span class="line">:.,+3s/part1/part2/g        #用part2替换当前行以及当前行后面的三行中所有的part1</span><br></pre></td></tr></table></figure></p><p>BTW:在替换时要注意，某些字符是需要转译的，如空格、括号等。</p><h2>二、sed添加空行</h2><h4>（一）每行前后添加空行</h4><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sed G tmp                          #每行后面添加一行空行</span><br><span class="line">sed &apos;&#123;x;p;x;&#125;&apos; tmp                  #每行前面添加一行空行</span><br><span class="line">sed &apos;G;G&apos; tmp                       #每行后面添加两行空行</span><br><span class="line">sed &apos;&#123;x;p;x;x;p;x;&#125;&apos; tmp             #每行前面添加两行空行</span><br><span class="line">sed &apos;G;G;G&apos; tmp                     #每行后面添加三行空行</span><br><span class="line">sed &apos;&#123;x;p;x;x;p;x;x;p;x&#125;&apos; tmp        #每行前面添加三行空行</span><br></pre></td></tr></table></figure></p><p>依次类推，添加几行空行，就有几个G或者x;p;x</p><h4>（二）如果行后有空行，则删除，然后每行后面添加空行</h4><p><code>sed '/^$/d;G' tmp</code></p><h4>（三）在匹配行前后添加空行</h4><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;/shui/G&apos; tmp               #如果一行里面有如果一行里面有shui这个单词，那么在他后面会添加一个空行</span><br><span class="line">sed &apos;/shui/&#123;x;p;x;G&#125;&apos; tmp        #如果一行里面有shui这个单词，那么在他前后各添加一个空行</span><br><span class="line">sed &apos;/shui/&#123;x;p;x;&#125;&apos; tmp         #如果一行里面有shui这个单词，那么在他前面添加一个空行</span><br><span class="line">sed &apos;1&#123;x;p;x;&#125;&apos; tmp              #在第一行前面添加空行，想在第几行，命令中的1就改成几</span><br><span class="line">sed &apos;1G&apos; tmp                    #在第一行后面添加空行，想在第几行，命令中的1就改成几</span><br></pre></td></tr></table></figure></p><h4>（四）每几行后面添加一个空行</h4><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;N;/^$/d;G&apos; tmp                #每两行后面增加一个空行</span><br><span class="line">sed &apos;N;/^$/d;&#123;x;p;x;&#125;&apos; tmp          #每两行前面添加一个空行</span><br><span class="line">sed &apos;N;N;/^$/d;G&apos; tmp              #每三行后面增加一个空行</span><br><span class="line">sed &apos;N;N;/^$/d;&#123;x;p;x;&#125;&apos; tmp        #每三行前面增加一个空行</span><br></pre></td></tr></table></figure></p><h4>（五）以x为开头或以x为结尾的行前后添加空行</h4><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;/^xi/G;&apos; tmp             #以xi为开头的行后面添加空行</span><br><span class="line">sed &apos;/^xi/&#123;x;p;x;&#125;&apos; tmp        #以xi为结尾的行前面添加空行</span><br><span class="line">sed &apos;/xi$/G;&apos; tmp             #以xi为结尾的行后面添加空行</span><br><span class="line">sed &apos;/xi$/&#123;x;p;x;&#125;&apos; tmp        #以xi为结尾的行后面添加空行</span><br></pre></td></tr></table></figure></p><h2>三、sed删除行首空格</h2><p>如果确认只是空格：</p><p><code>sed 's/^ *//' infile</code></p><p>如果判断不清行首是空格还是制表符的话， 还可以用这个：</p><p><code>sed 's/^[[:space:]]*//' infile</code></p>]]></content>
+    <content type="html"><![CDATA[<h2>一、vim替换</h2><p>ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令：</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:s/^/#            #用&quot;#&quot;注释当前行</span><br><span class="line">:2,50s/^/#        #在2~50行首添加&quot;#&quot;注释</span><br><span class="line">:.,+3s/^/#        #用&quot;#&quot;注释当前行和当前行后面的三行</span><br><span class="line">:%s/^/#           #用&quot;#&quot;注释所有行</span><br></pre></td></tr></table></figure></p><p>顺便说一下vim的替换，这个常用，已经牢记，其实和上面用命令注释多行是一样的，只不过是上面注释的命令里的&quot;^&quot;符号代表开始位置而已，在下面这些命令中，&quot;s&quot;代表替换，part1代表查找的内容，part2代表替换的内容，&quot;%&quot;代表所有行，&quot;g&quot;代表替换整行里所有的内容（如果不加&quot;/g&quot;则只替换每行第一个匹配part1的地方）。</p><p>p.n.关于g的用法貌似在本系统相反，虽然各处都这么说。。。</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:s/part1/part2              #用part2替换当前行中第1个part1</span><br><span class="line">:s/part1/part2/g            #用part2替换当前行中所有的part1</span><br><span class="line">:%s/part1/part2             #用part2替换所有行中每行第1个part1</span><br><span class="line">:%s/part1/part2/g           #用part2替换所有行中所有的part1</span><br><span class="line">:2,50s/part1/part2          #用part2替换第2行到第50行中每行第1个part1</span><br><span class="line">:2,50s/part1/part2/g        #用part2替换第2行到第50行中所有的part1</span><br><span class="line">:.,+3s/part1/part2          #用part2替换当前行以及当前行后面的三行中每行第1个part1</span><br><span class="line">:.,+3s/part1/part2/g        #用part2替换当前行以及当前行后面的三行中所有的part1</span><br></pre></td></tr></table></figure></p><p>BTW:在替换时要注意，某些字符是需要转译的，如空格、括号等。</p><h2>二、sed添加空行</h2><h3>（一）每行前后添加空行</h3><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sed G tmp                          #每行后面添加一行空行</span><br><span class="line">sed &apos;&#123;x;p;x;&#125;&apos; tmp                  #每行前面添加一行空行</span><br><span class="line">sed &apos;G;G&apos; tmp                       #每行后面添加两行空行</span><br><span class="line">sed &apos;&#123;x;p;x;x;p;x;&#125;&apos; tmp             #每行前面添加两行空行</span><br><span class="line">sed &apos;G;G;G&apos; tmp                     #每行后面添加三行空行</span><br><span class="line">sed &apos;&#123;x;p;x;x;p;x;x;p;x&#125;&apos; tmp        #每行前面添加三行空行</span><br></pre></td></tr></table></figure></p><p>依次类推，添加几行空行，就有几个G或者x;p;x</p><h3>（二）如果行后有空行，则删除，然后每行后面添加空行</h3><p><code>sed '/^$/d;G' tmp</code></p><h3>（三）在匹配行前后添加空行</h3><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;/shui/G&apos; tmp               #如果一行里面有如果一行里面有shui这个单词，那么在他后面会添加一个空行</span><br><span class="line">sed &apos;/shui/&#123;x;p;x;G&#125;&apos; tmp        #如果一行里面有shui这个单词，那么在他前后各添加一个空行</span><br><span class="line">sed &apos;/shui/&#123;x;p;x;&#125;&apos; tmp         #如果一行里面有shui这个单词，那么在他前面添加一个空行</span><br><span class="line">sed &apos;1&#123;x;p;x;&#125;&apos; tmp              #在第一行前面添加空行，想在第几行，命令中的1就改成几</span><br><span class="line">sed &apos;1G&apos; tmp                    #在第一行后面添加空行，想在第几行，命令中的1就改成几</span><br></pre></td></tr></table></figure></p><h3>（四）每几行后面添加一个空行</h3><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;N;/^$/d;G&apos; tmp                #每两行后面增加一个空行</span><br><span class="line">sed &apos;N;/^$/d;&#123;x;p;x;&#125;&apos; tmp          #每两行前面添加一个空行</span><br><span class="line">sed &apos;N;N;/^$/d;G&apos; tmp              #每三行后面增加一个空行</span><br><span class="line">sed &apos;N;N;/^$/d;&#123;x;p;x;&#125;&apos; tmp        #每三行前面增加一个空行</span><br></pre></td></tr></table></figure></p><h3>（五）以x为开头或以x为结尾的行前后添加空行</h3><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;/^xi/G;&apos; tmp             #以xi为开头的行后面添加空行</span><br><span class="line">sed &apos;/^xi/&#123;x;p;x;&#125;&apos; tmp        #以xi为结尾的行前面添加空行</span><br><span class="line">sed &apos;/xi$/G;&apos; tmp             #以xi为结尾的行后面添加空行</span><br><span class="line">sed &apos;/xi$/&#123;x;p;x;&#125;&apos; tmp        #以xi为结尾的行后面添加空行</span><br></pre></td></tr></table></figure></p><h2>三、sed删除行首空格</h2><p>如果确认只是空格：</p><p><code>sed 's/^ *//' infile</code></p><p>如果判断不清行首是空格还是制表符的话， 还可以用这个：</p><p><code>sed 's/^[[:space:]]*//' infile</code></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2&gt;一、vim替换&lt;/h2&gt;
-&lt;p&gt;ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令：&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&quot;highlight pla
-      
+      记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。
     
     </summary>
     
