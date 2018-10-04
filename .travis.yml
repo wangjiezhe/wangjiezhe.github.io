@@ -35,4 +35,4 @@ branches:
 
 env:
   global:
-    - GH_REF: github.com/wangjiezhe/wagjiezhe.github.io
+    - GH_REF: github.com/wangjiezhe/wangjiezhe.github.io
