@@ -109,7 +109,7 @@
 
 
   <meta name="description" content="一、vim替换ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令： 1234:s/^/#            #用&amp;quot;#&amp;quot;注释当前行:2,50s/^/#        #在2~50行首添加&amp;quot;#&amp;quot;注释:.,+3s/^/#        #用&amp;q">
-<meta name="keywords" content="linux,vim,shell,sed">
+<meta name="keywords" content="linux,shell,sed,vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 随学随记 (1)">
 <meta property="og:url" content="https://wangjiezhe.github.io/posts/2014-03-01-Linux-Notes-1.html">
@@ -387,6 +387,18 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/2014-03-01-Linux-Notes-1.html#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/posts/2014-03-01-Linux-Notes-1.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -453,11 +465,11 @@
           
             <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/vim/" rel="tag"># vim</a>
-          
             <a href="/tags/shell/" rel="tag"># shell</a>
           
             <a href="/tags/sed/" rel="tag"># sed</a>
+          
+            <a href="/tags/vim/" rel="tag"># vim</a>
           
         </div>
       
@@ -499,6 +511,16 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -801,9 +823,30 @@
 
   
 
-
+  
+    <script id="dsq-count-scr" src="https://wangjiezhe.disqus.com/count.js" async></script>
+  
 
   
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://wangjiezhe.github.io/posts/2014-03-01-Linux-Notes-1.html';
+        this.page.identifier = '/posts/2014-03-01-Linux-Notes-1.html';
+        this.page.title = 'Linux 随学随记 (1)';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://wangjiezhe.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
 
 
 
