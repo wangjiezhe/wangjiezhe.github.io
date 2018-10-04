@@ -1,4 +1,3 @@
----
 title: Linux 随学随记 (1)
 categories:
   - Linux
