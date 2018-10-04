@@ -1,0 +1,30 @@
+language: node-js
+
+node_js: stable
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - export TZ='Asia/Shanghai'
+  - npm install hexo-cli -g
+  - chmod +x ./publish.sh
+
+install:
+  - npm install
+
+script:
+  - hexo clean
+  - hexo generate
+
+after_script:
+  - ./publish.sh
+
+branches:
+  only:
+    source
+
+env:
+  global:
+    - GH_REF: github.com/wangjiezhe/wagjiezhe.github.io
