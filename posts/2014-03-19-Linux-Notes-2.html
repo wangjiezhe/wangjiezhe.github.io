@@ -108,20 +108,22 @@
 
 
 
-  <meta name="description" content="一、vim切换tab:向后  :tabn{: style=”color: red”} or :tabnext{: style=”color: red”} or gt{: style=”color: red”}向前  :tabp{: style=”color: red”} or :tabprev{: style=”color: red”} or gT{: style=”color: red”}">
+  <meta name="description" content="一、vim切换tab:向后  :tabn向前  :tabp 二、vim与系统剪贴板的交互 (仅限于gvim!!!)&amp;quot;+y: 复制到剪贴板 &amp;quot;+p: 从剪贴板粘贴 三、vim重复命令.: 重复上次操作，前面可加次数 :[range]g[lobal]/{pattern}/[cmd]: 在 [range] 界定的匹配模式 {pattern} 的文本行上执行Ex 命令 [cmd] (缺">
 <meta name="keywords" content="linux,vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 随学随记 (2)">
 <meta property="og:url" content="https://wangjiezhe.github.io/posts/2014-03-19-Linux-Notes-2.html">
 <meta property="og:site_name" content="Jiezhe&#39;s Blog">
-<meta property="og:description" content="一、vim切换tab:向后  :tabn{: style=”color: red”} or :tabnext{: style=”color: red”} or gt{: style=”color: red”}向前  :tabp{: style=”color: red”} or :tabprev{: style=”color: red”} or gT{: style=”color: red”}">
+<meta property="og:description" content="一、vim切换tab:向后  :tabn向前  :tabp 二、vim与系统剪贴板的交互 (仅限于gvim!!!)&amp;quot;+y: 复制到剪贴板 &amp;quot;+p: 从剪贴板粘贴 三、vim重复命令.: 重复上次操作，前面可加次数 :[range]g[lobal]/{pattern}/[cmd]: 在 [range] 界定的匹配模式 {pattern} 的文本行上执行Ex 命令 [cmd] (缺">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-04T10:30:56.914Z">
+<meta property="og:updated_time" content="2018-10-04T13:45:18.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 随学随记 (2)">
-<meta name="twitter:description" content="一、vim切换tab:向后  :tabn{: style=”color: red”} or :tabnext{: style=”color: red”} or gt{: style=”color: red”}向前  :tabp{: style=”color: red”} or :tabprev{: style=”color: red”} or gT{: style=”color: red”}">
+<meta name="twitter:description" content="一、vim切换tab:向后  :tabn向前  :tabp 二、vim与系统剪贴板的交互 (仅限于gvim!!!)&amp;quot;+y: 复制到剪贴板 &amp;quot;+p: 从剪贴板粘贴 三、vim重复命令.: 重复上次操作，前面可加次数 :[range]g[lobal]/{pattern}/[cmd]: 在 [range] 界定的匹配模式 {pattern} 的文本行上执行Ex 命令 [cmd] (缺">
 
 
+
+  <link rel="alternate" href="/atom.xml" title="Jiezhe's Blog" type="application/atom+xml" />
 
 
 
@@ -360,7 +362,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-04 18:30:56" itemprop="dateModified" datetime="2018-10-04T18:30:56+08:00">2018-10-04</time>
+                <time title="修改时间：2018-10-04 21:45:18" itemprop="dateModified" datetime="2018-10-04T21:45:18+08:00">2018-10-04</time>
               
             
           </span>
@@ -423,25 +425,18 @@
       
 
       
-        <p><br></p>
-<h2 id="一、vim切换tab"><a href="#一、vim切换tab" class="headerlink" title="一、vim切换tab:"></a>一、vim切换tab:</h2><p>向后  <code>:tabn</code>{: style=”color: red”} or <code>:tabnext</code>{: style=”color: red”} or <code>gt</code>{: style=”color: red”}<br>向前  <code>:tabp</code>{: style=”color: red”} or <code>:tabprev</code>{: style=”color: red”} or <code>gT</code>{: style=”color: red”}</p>
-<p>  <br></p>
-<h2 id="二、vim与系统剪贴板的交互-仅限于gvim"><a href="#二、vim与系统剪贴板的交互-仅限于gvim" class="headerlink" title="二、vim与系统剪贴板的交互 (仅限于gvim!!!)"></a>二、vim与系统剪贴板的交互 (仅限于gvim!!!)</h2><p><code>&quot;+y</code>{: style=”color: red”}<br>: 复制到剪贴板</p>
-<p><code>&quot;+p</code>{: style=”color: red”}<br>: 从剪贴板粘贴</p>
-<p>  <br></p>
-<h2 id="三、vim重复命令"><a href="#三、vim重复命令" class="headerlink" title="三、vim重复命令"></a>三、vim重复命令</h2><p><code>.</code>{: style=”color: red”}<br>: 重复上次操作，前面可加次数</p>
-<p><code>:[range]g[lobal]/{pattern}/[cmd]</code>{: style=”color: red”}<br>: 在 [range] 界定的匹配模式 {pattern} 的文本行上执行Ex 命令 [cmd] (缺省是 “:p”)。</p>
-<p><code>:[range]g[lobal]!/{pattern}/[cmd]</code>{: style=”color: red”}<br>: 在 [range] 界定的_不_匹配模式 {pattern} 的文本行上执行 Ex 命令 [cmd] (缺省是 “:p”)。</p>
-<p><code>:[range]v[global]/{pattern}/[cmd]</code>{: style=”color: red”}<br>: 等同于 :g!。</p>
-<p>  <br></p>
-<h2 id="四、vim中tab与空格的转换-慎用！！！"><a href="#四、vim中tab与空格的转换-慎用！！！" class="headerlink" title="四、vim中tab与空格的转换 (慎用！！！)"></a>四、vim中tab与空格的转换 (慎用！！！)</h2><p><code>:ret[ab][!] [new_tabstop]</code>{: style=”color: red”}<br>: 将制表符\<tab>转换为空格符，数量由[new_tabstop]指定。若为空或为0，则使用默认的’tabstop’。<br>: 若有’!’，则将空格序列转化为\<tab>。</tab></tab></p>
-<p>  <br></p>
-<h2 id="五、查看中文帮助"><a href="#五、查看中文帮助" class="headerlink" title="五、查看中文帮助:"></a>五、查看中文帮助:</h2><p><strong><code>man -L zh_CN.utf8 command</code></strong>{: style=”color: red”}</p>
-<p>  <br></p>
-<h2 id="六、查看日志"><a href="#六、查看日志" class="headerlink" title="六、查看日志:"></a>六、查看日志:</h2><p><strong><code>journalctl</code></strong>{: style=”color: red”} [OPTIONS…] [MATCHES…]</p>
+        <h2 id="一、vim切换tab"><a href="#一、vim切换tab" class="headerlink" title="一、vim切换tab:"></a>一、vim切换tab:</h2><p>向后  <code>:tabn</code><br>向前  <code>:tabp</code></p>
+<h2 id="二、vim与系统剪贴板的交互-仅限于gvim"><a href="#二、vim与系统剪贴板的交互-仅限于gvim" class="headerlink" title="二、vim与系统剪贴板的交互 (仅限于gvim!!!)"></a>二、vim与系统剪贴板的交互 (仅限于gvim!!!)</h2><p><code>&quot;+y</code><br>: 复制到剪贴板</p>
+<p><code>&quot;+p</code><br>: 从剪贴板粘贴</p>
+<h2 id="三、vim重复命令"><a href="#三、vim重复命令" class="headerlink" title="三、vim重复命令"></a>三、vim重复命令</h2><p><code>.</code><br>: 重复上次操作，前面可加次数</p>
+<p><code>:[range]g[lobal]/{pattern}/[cmd]</code><br>: 在 [range] 界定的匹配模式 {pattern} 的文本行上执行Ex 命令 [cmd] (缺省是 “:p”)。</p>
+<p><code>:[range]g[lobal]!/{pattern}/[cmd]</code><br>: 在 [range] 界定的_不_匹配模式 {pattern} 的文本行上执行 Ex 命令 [cmd] (缺省是 “:p”)。</p>
+<p><code>:[range]v[global]/{pattern}/[cmd]</code><br>: 等同于 :g!。</p>
+<h2 id="四、vim中tab与空格的转换-慎用！！！"><a href="#四、vim中tab与空格的转换-慎用！！！" class="headerlink" title="四、vim中tab与空格的转换 (慎用！！！)"></a>四、vim中tab与空格的转换 (慎用！！！)</h2><p><code>:ret[ab][!] [new_tabstop]</code><br>: 将制表符\<tab>转换为空格符，数量由[new_tabstop]指定。若为空或为0，则使用默认的’tabstop’。<br>: 若有’!’，则将空格序列转化为\<tab>。</tab></tab></p>
+<h2 id="五、查看中文帮助"><a href="#五、查看中文帮助" class="headerlink" title="五、查看中文帮助:"></a>五、查看中文帮助:</h2><p><strong><code>man -L zh_CN.utf8 command</code></strong></p>
+<h2 id="六、查看日志"><a href="#六、查看日志" class="headerlink" title="六、查看日志:"></a>六、查看日志:</h2><p><strong><code>journalctl</code></strong> [OPTIONS…] [MATCHES…]</p>
 <p>Options:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-f --follow        Follow the journal</span><br><span class="line">   --since=DATE    Start showing entries on or newer than the specified date</span><br><span class="line">   --until=DATE    Stop showing entries on or older than the specified date</span><br><span class="line">-l --full          Do not ellipsize fields</span><br><span class="line">-u --unit=UNIT     Show data only from the specified unit</span><br><span class="line">   --disk-usage    Show total disk usage of all journal files</span><br></pre></td></tr></table></figure>
-<p>  <br></p>
 
       
     </div>
@@ -456,6 +451,20 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jiezhe Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wangjiezhe.github.io/posts/2014-03-19-Linux-Notes-2.html" title="Linux 随学随记 (2)">https://wangjiezhe.github.io/posts/2014-03-19-Linux-Notes-2.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -637,6 +646,13 @@
             </nav>
           
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           

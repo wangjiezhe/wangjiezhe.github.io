@@ -108,20 +108,22 @@
 
 
 
-  <meta name="description" content="在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题. 一种方法是通过 wine 安装 7z 或 haozip 来解决. 另一种方法是利用环境变量 + 7z + convmv 来解决. 用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件: 1LC_ALL=C 7z x -oOU">
-<meta name="keywords" content="linux,zip,乱码">
+  <meta name="description" content="在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题. 一种方法是通过 wine 安装 7z 或 haozip 来解决. 另一种方法是利用环境变量 + 7z + convmv 来解决. 用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件: 1LC_ALL=C 7z x -oOUT">
+<meta name="keywords" content="linux,zip,encode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 下 zip 解压的文件名乱码问题">
 <meta property="og:url" content="https://wangjiezhe.github.io/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html">
 <meta property="og:site_name" content="Jiezhe&#39;s Blog">
-<meta property="og:description" content="在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题. 一种方法是通过 wine 安装 7z 或 haozip 来解决. 另一种方法是利用环境变量 + 7z + convmv 来解决. 用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件: 1LC_ALL=C 7z x -oOU">
+<meta property="og:description" content="在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题. 一种方法是通过 wine 安装 7z 或 haozip 来解决. 另一种方法是利用环境变量 + 7z + convmv 来解决. 用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件: 1LC_ALL=C 7z x -oOUT">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-04T10:31:10.514Z">
+<meta property="og:updated_time" content="2018-10-04T13:37:52.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 下 zip 解压的文件名乱码问题">
-<meta name="twitter:description" content="在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题. 一种方法是通过 wine 安装 7z 或 haozip 来解决. 另一种方法是利用环境变量 + 7z + convmv 来解决. 用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件: 1LC_ALL=C 7z x -oOU">
+<meta name="twitter:description" content="在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题. 一种方法是通过 wine 安装 7z 或 haozip 来解决. 另一种方法是利用环境变量 + 7z + convmv 来解决. 用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件: 1LC_ALL=C 7z x -oOUT">
 
 
+
+  <link rel="alternate" href="/atom.xml" title="Jiezhe's Blog" type="application/atom+xml" />
 
 
 
@@ -360,7 +362,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-04 18:31:10" itemprop="dateModified" datetime="2018-10-04T18:31:10+08:00">2018-10-04</time>
+                <time title="修改时间：2018-10-04 21:37:52" itemprop="dateModified" datetime="2018-10-04T21:37:52+08:00">2018-10-04</time>
               
             
           </span>
@@ -423,8 +425,7 @@
       
 
       
-        <p><br></p>
-<p>在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题.</p>
+        <p>在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题.</p>
 <p>一种方法是通过 wine 安装 7z 或 haozip 来解决.</p>
 <p>另一种方法是利用环境变量 + 7z + convmv 来解决.</p>
 <p>用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件:</p>
@@ -440,8 +441,6 @@
 <script src="https://gist.github.com/wangjiezhe/7841a350983a147b6d7e.js"></script>
 
 
-<p><br></p>
-
       
     </div>
 
@@ -456,6 +455,20 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jiezhe Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wangjiezhe.github.io/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html" title="Linux 下 zip 解压的文件名乱码问题">https://wangjiezhe.github.io/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -465,7 +478,7 @@
           
             <a href="/tags/zip/" rel="tag"># zip</a>
           
-            <a href="/tags/乱码/" rel="tag"># 乱码</a>
+            <a href="/tags/encode/" rel="tag"># encode</a>
           
         </div>
       
@@ -629,6 +642,13 @@
             </nav>
           
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           

@@ -108,20 +108,22 @@
 
 
 
-  <meta name="description" content="元字符 (grep, sed) 1. 句点元字符 .通配元字符，匹配任意字符，除了换行符。 2. 反斜杠元字符 \将其后面的一个字符解释为普通字符而不是元字符。 3. 星号元字符 *其紧挨着的之前的匹配有 0+ 次匹配机会。 4. 位置元字符 ^, $^ 匹配字符串的最前面。$ 匹配字符串的最后面。 5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^[] 匹配方括号内的左右字符。-">
+  <meta name="description" content="元字符 (grep, sed) 1. 句点元字符 .通配元字符，匹配任意字符，除了换行符。 2. 反斜杠元字符 \将其后面的一个字符解释为普通字符而不是元字符。 3. 星号元字符 *其紧挨着的之前的匹配有 0+ 次匹配机会。 4. 位置元字符 ^, $^ 匹配字符串的最前面。$ 匹配字符串的最后面。 5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^[] 匹配方括号内的左右字符。- 连字">
 <meta name="keywords" content="linux,sed,regular expression,grep,awk">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式简介">
 <meta property="og:url" content="https://wangjiezhe.github.io/posts/2014-03-09-intro-for-regular-expression.html">
 <meta property="og:site_name" content="Jiezhe&#39;s Blog">
-<meta property="og:description" content="元字符 (grep, sed) 1. 句点元字符 .通配元字符，匹配任意字符，除了换行符。 2. 反斜杠元字符 \将其后面的一个字符解释为普通字符而不是元字符。 3. 星号元字符 *其紧挨着的之前的匹配有 0+ 次匹配机会。 4. 位置元字符 ^, $^ 匹配字符串的最前面。$ 匹配字符串的最后面。 5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^[] 匹配方括号内的左右字符。-">
+<meta property="og:description" content="元字符 (grep, sed) 1. 句点元字符 .通配元字符，匹配任意字符，除了换行符。 2. 反斜杠元字符 \将其后面的一个字符解释为普通字符而不是元字符。 3. 星号元字符 *其紧挨着的之前的匹配有 0+ 次匹配机会。 4. 位置元字符 ^, $^ 匹配字符串的最前面。$ 匹配字符串的最后面。 5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^[] 匹配方括号内的左右字符。- 连字">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-04T10:30:51.927Z">
+<meta property="og:updated_time" content="2018-10-04T13:45:39.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式简介">
-<meta name="twitter:description" content="元字符 (grep, sed) 1. 句点元字符 .通配元字符，匹配任意字符，除了换行符。 2. 反斜杠元字符 \将其后面的一个字符解释为普通字符而不是元字符。 3. 星号元字符 *其紧挨着的之前的匹配有 0+ 次匹配机会。 4. 位置元字符 ^, $^ 匹配字符串的最前面。$ 匹配字符串的最后面。 5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^[] 匹配方括号内的左右字符。-">
+<meta name="twitter:description" content="元字符 (grep, sed) 1. 句点元字符 .通配元字符，匹配任意字符，除了换行符。 2. 反斜杠元字符 \将其后面的一个字符解释为普通字符而不是元字符。 3. 星号元字符 *其紧挨着的之前的匹配有 0+ 次匹配机会。 4. 位置元字符 ^, $^ 匹配字符串的最前面。$ 匹配字符串的最后面。 5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^[] 匹配方括号内的左右字符。- 连字">
 
 
+
+  <link rel="alternate" href="/atom.xml" title="Jiezhe's Blog" type="application/atom+xml" />
 
 
 
@@ -360,7 +362,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-04 18:30:51" itemprop="dateModified" datetime="2018-10-04T18:30:51+08:00">2018-10-04</time>
+                <time title="修改时间：2018-10-04 21:45:39" itemprop="dateModified" datetime="2018-10-04T21:45:39+08:00">2018-10-04</time>
               
             
           </span>
@@ -423,8 +425,7 @@
       
 
       
-        <p>  <br></p>
-<h2 id="元字符-grep-sed"><a href="#元字符-grep-sed" class="headerlink" title="元字符 (grep, sed)"></a>元字符 (grep, sed)</h2><hr>
+        <h2 id="元字符-grep-sed"><a href="#元字符-grep-sed" class="headerlink" title="元字符 (grep, sed)"></a>元字符 (grep, sed)</h2><hr>
 <h3 id="1-句点元字符"><a href="#1-句点元字符" class="headerlink" title="1. 句点元字符 ."></a>1. 句点元字符 .</h3><p>通配元字符，匹配任意字符，除了换行符。</p>
 <h3 id="2-反斜杠元字符"><a href="#2-反斜杠元字符" class="headerlink" title="2. 反斜杠元字符 \"></a>2. 反斜杠元字符 \</h3><p>将其后面的一个字符解释为普通字符而不是元字符。</p>
 <h3 id="3-星号元字符"><a href="#3-星号元字符" class="headerlink" title="3. 星号元字符 *"></a>3. 星号元字符 *</h3><p>其紧挨着的之前的匹配有 0+ 次匹配机会。</p>
@@ -432,23 +433,18 @@
 <h3 id="5-字符组元字符-连字符元字符-补字号"><a href="#5-字符组元字符-连字符元字符-补字号" class="headerlink" title="5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^"></a>5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^</h3><p>[] 匹配方括号内的左右字符。<br>- 连字符元字符仅在字符组元字符内有意义，表示一段连续字符范围。<br>^ 表示排除某些字符。</p>
 <h3 id="6-范围字符串"><a href="#6-范围字符串" class="headerlink" title="6. 范围字符串 \{ \}"></a>6. 范围字符串 \{ \}</h3><p>\{n,m\} 匹配 n~m 次。<br>\{n\} 匹配 n 次。<br>\{n,\} 匹配 n+ 次。</p>
 <h3 id="7-特殊字符类"><a href="#7-特殊字符类" class="headerlink" title="7. 特殊字符类"></a>7. 特殊字符类</h3><p>[[:alpha:]] 匹配任意字母字符，大写或小写<br>[[:alnum:]] 匹配任意字母数字字符，0-9, a-z, A-Z<br>[[:blank:]] 匹配空格或制表符字符<br>[[:digit:]] 匹配任意数字字符，0-9<br>[[:lower:]] 匹配任意小写字母，a-z<br>[[:print:]] 匹配任意可打印字符<br>[[:punct:]] 匹配任意标点<br>[[:space:]] 匹配任意空白字符: 空格、制表符、NL、FF、VT、CR<br>[[:upper:]] 匹配任意大写字符，A-Z</p>
-<p>  <br></p>
 <h2 id="扩展元字符-egrep-awk"><a href="#扩展元字符-egrep-awk" class="headerlink" title="扩展元字符 (egrep, awk)"></a>扩展元字符 (egrep, awk)</h2><hr>
 <h3 id="1-加号元字符"><a href="#1-加号元字符" class="headerlink" title="1. 加号元字符 +"></a>1. 加号元字符 +</h3><p>其紧挨着的之前的匹配有 <strong>1+</strong> 次匹配机会。</p>
 <h3 id="2-问号元字符"><a href="#2-问号元字符" class="headerlink" title="2. 问号元字符 ?"></a>2. 问号元字符 ?</h3><p>其紧挨着的之前的匹配有 <strong>0~1</strong> 次匹配机会。</p>
 <h3 id="3-竖线元字符"><a href="#3-竖线元字符" class="headerlink" title="3. 竖线元字符 |"></a>3. 竖线元字符 |</h3><p>r1|r2 匹配 r1 或 r2</p>
 <h3 id="4-括号元字符"><a href="#4-括号元字符" class="headerlink" title="4. 括号元字符 ( )"></a>4. 括号元字符 ( )</h3><p>(r1) 匹配子字符串r1(常与 * + ? | 等连用)。</p>
 <h3 id="5-范围元字符"><a href="#5-范围元字符" class="headerlink" title="5. 范围元字符 { }"></a>5. 范围元字符 { }</h3><p>与上面的范围元字符类似。</p>
-<p>  <br></p>
 <h2 id="固定元字符-grep"><a href="#固定元字符-grep" class="headerlink" title="固定元字符 (grep)"></a>固定元字符 (grep)</h2><hr>
 <h3 id="1-lt-gt"><a href="#1-lt-gt" class="headerlink" title="1. \&lt; \&gt;"></a>1. \&lt; \&gt;</h3><p>严格匹配一个词(后面必须直接跟一个空格或标点符号)。</p>
-<p>  <br></p>
 <p>参考:</p>
 <ul>
 <li>Linux Command Line and shell Scripting Bible, Richard Blum</li>
-<li><p>UNIX awk and sed PROGRAMMER’S INTERACTIVE WORKBOOK, Peter Patsis</p>
-<p><br></p>
-</li>
+<li>UNIX awk and sed PROGRAMMER’S INTERACTIVE WORKBOOK, Peter Patsis</li>
 </ul>
 
       
@@ -464,6 +460,20 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jiezhe Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wangjiezhe.github.io/posts/2014-03-09-intro-for-regular-expression.html" title="正则表达式简介">https://wangjiezhe.github.io/posts/2014-03-09-intro-for-regular-expression.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -651,6 +661,13 @@
             </nav>
           
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
