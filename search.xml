@@ -21,9 +21,9 @@
             
             <tag> linux </tag>
             
-            <tag> vim </tag>
-            
             <tag> shell </tag>
+            
+            <tag> vim </tag>
             
         </tags>
       
@@ -150,11 +150,11 @@
             
             <tag> linux </tag>
             
+            <tag> sed </tag>
+            
             <tag> regular expression </tag>
             
             <tag> grep </tag>
-            
-            <tag> sed </tag>
             
             <tag> awk </tag>
             
@@ -212,11 +212,11 @@
             
             <tag> linux </tag>
             
-            <tag> vim </tag>
+            <tag> shell </tag>
             
             <tag> sed </tag>
             
-            <tag> shell </tag>
+            <tag> vim </tag>
             
         </tags>
       

@@ -5,9 +5,9 @@
   <subtitle>蓝田生美玉，西风栽冷香</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://wangjiezhe.github.io/"/>
+  <link href="https://wangjiezhe.com/"/>
   <updated>2018-10-04T15:10:21.519Z</updated>
-  <id>https://wangjiezhe.github.io/</id>
+  <id>https://wangjiezhe.com/</id>
   
   <author>
     <name>Jiezhe Wang</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Linux 随学随记 (4)</title>
-    <link href="https://wangjiezhe.github.io//posts/2015-08-20-Linux-Notes-4.html"/>
-    <id>https://wangjiezhe.github.io//posts/2015-08-20-Linux-Notes-4.html</id>
+    <link href="https://wangjiezhe.com//posts/2015-08-20-Linux-Notes-4.html"/>
+    <id>https://wangjiezhe.com//posts/2015-08-20-Linux-Notes-4.html</id>
     <published>2015-08-19T16:00:00.000Z</published>
     <updated>2018-10-04T15:10:21.519Z</updated>
     
@@ -35,21 +35,21 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://wangjiezhe.github.io/categories/Linux/"/>
+      <category term="Linux" scheme="https://wangjiezhe.com/categories/Linux/"/>
     
     
-      <category term="linux" scheme="https://wangjiezhe.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://wangjiezhe.com/tags/linux/"/>
     
-      <category term="vim" scheme="https://wangjiezhe.github.io/tags/vim/"/>
+      <category term="shell" scheme="https://wangjiezhe.com/tags/shell/"/>
     
-      <category term="shell" scheme="https://wangjiezhe.github.io/tags/shell/"/>
+      <category term="vim" scheme="https://wangjiezhe.com/tags/vim/"/>
     
   </entry>
   
   <entry>
     <title>Linux 下 zip 解压的文件名乱码问题</title>
-    <link href="https://wangjiezhe.github.io//posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html"/>
-    <id>https://wangjiezhe.github.io//posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html</id>
+    <link href="https://wangjiezhe.com//posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html"/>
+    <id>https://wangjiezhe.com//posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html</id>
     <published>2014-08-13T16:00:00.000Z</published>
     <updated>2018-10-04T15:10:26.395Z</updated>
     
@@ -66,21 +66,21 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://wangjiezhe.github.io/categories/Linux/"/>
+      <category term="Linux" scheme="https://wangjiezhe.com/categories/Linux/"/>
     
     
-      <category term="linux" scheme="https://wangjiezhe.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://wangjiezhe.com/tags/linux/"/>
     
-      <category term="zip" scheme="https://wangjiezhe.github.io/tags/zip/"/>
+      <category term="zip" scheme="https://wangjiezhe.com/tags/zip/"/>
     
-      <category term="encode" scheme="https://wangjiezhe.github.io/tags/encode/"/>
+      <category term="encode" scheme="https://wangjiezhe.com/tags/encode/"/>
     
   </entry>
   
   <entry>
     <title>Linux 随学随记 (3)</title>
-    <link href="https://wangjiezhe.github.io//posts/2014-04-20-Linux-Notes-3.html"/>
-    <id>https://wangjiezhe.github.io//posts/2014-04-20-Linux-Notes-3.html</id>
+    <link href="https://wangjiezhe.com//posts/2014-04-20-Linux-Notes-3.html"/>
+    <id>https://wangjiezhe.com//posts/2014-04-20-Linux-Notes-3.html</id>
     <published>2014-04-19T16:00:00.000Z</published>
     <updated>2018-10-04T15:10:14.035Z</updated>
     
@@ -97,19 +97,19 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://wangjiezhe.github.io/categories/Linux/"/>
+      <category term="Linux" scheme="https://wangjiezhe.com/categories/Linux/"/>
     
     
-      <category term="linux" scheme="https://wangjiezhe.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://wangjiezhe.com/tags/linux/"/>
     
-      <category term="shell" scheme="https://wangjiezhe.github.io/tags/shell/"/>
+      <category term="shell" scheme="https://wangjiezhe.com/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>修改 NetworkManager wifi 热点的加密方式</title>
-    <link href="https://wangjiezhe.github.io//posts/2014-03-22-NetworkManager-Hotspot-Setting.html"/>
-    <id>https://wangjiezhe.github.io//posts/2014-03-22-NetworkManager-Hotspot-Setting.html</id>
+    <link href="https://wangjiezhe.com//posts/2014-03-22-NetworkManager-Hotspot-Setting.html"/>
+    <id>https://wangjiezhe.com//posts/2014-03-22-NetworkManager-Hotspot-Setting.html</id>
     <published>2014-03-21T16:00:00.000Z</published>
     <updated>2018-10-04T15:10:10.985Z</updated>
     
@@ -127,19 +127,19 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://wangjiezhe.github.io/categories/Linux/"/>
+      <category term="Linux" scheme="https://wangjiezhe.com/categories/Linux/"/>
     
     
-      <category term="linux" scheme="https://wangjiezhe.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://wangjiezhe.com/tags/linux/"/>
     
-      <category term="network" scheme="https://wangjiezhe.github.io/tags/network/"/>
+      <category term="network" scheme="https://wangjiezhe.com/tags/network/"/>
     
   </entry>
   
   <entry>
     <title>Linux 随学随记 (2)</title>
-    <link href="https://wangjiezhe.github.io//posts/2014-03-19-Linux-Notes-2.html"/>
-    <id>https://wangjiezhe.github.io//posts/2014-03-19-Linux-Notes-2.html</id>
+    <link href="https://wangjiezhe.com//posts/2014-03-19-Linux-Notes-2.html"/>
+    <id>https://wangjiezhe.com//posts/2014-03-19-Linux-Notes-2.html</id>
     <published>2014-03-18T16:00:00.000Z</published>
     <updated>2018-10-04T15:10:07.278Z</updated>
     
@@ -156,19 +156,19 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://wangjiezhe.github.io/categories/Linux/"/>
+      <category term="Linux" scheme="https://wangjiezhe.com/categories/Linux/"/>
     
     
-      <category term="linux" scheme="https://wangjiezhe.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://wangjiezhe.com/tags/linux/"/>
     
-      <category term="vim" scheme="https://wangjiezhe.github.io/tags/vim/"/>
+      <category term="vim" scheme="https://wangjiezhe.com/tags/vim/"/>
     
   </entry>
   
   <entry>
     <title>正则表达式简介</title>
-    <link href="https://wangjiezhe.github.io//posts/2014-03-09-intro-for-regular-expression.html"/>
-    <id>https://wangjiezhe.github.io//posts/2014-03-09-intro-for-regular-expression.html</id>
+    <link href="https://wangjiezhe.com//posts/2014-03-09-intro-for-regular-expression.html"/>
+    <id>https://wangjiezhe.com//posts/2014-03-09-intro-for-regular-expression.html</id>
     <published>2014-03-08T16:00:00.000Z</published>
     <updated>2018-10-04T15:10:03.585Z</updated>
     
@@ -186,25 +186,25 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://wangjiezhe.github.io/categories/Linux/"/>
+      <category term="Linux" scheme="https://wangjiezhe.com/categories/Linux/"/>
     
     
-      <category term="linux" scheme="https://wangjiezhe.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://wangjiezhe.com/tags/linux/"/>
     
-      <category term="regular expression" scheme="https://wangjiezhe.github.io/tags/regular-expression/"/>
+      <category term="sed" scheme="https://wangjiezhe.com/tags/sed/"/>
     
-      <category term="grep" scheme="https://wangjiezhe.github.io/tags/grep/"/>
+      <category term="regular expression" scheme="https://wangjiezhe.com/tags/regular-expression/"/>
     
-      <category term="sed" scheme="https://wangjiezhe.github.io/tags/sed/"/>
+      <category term="grep" scheme="https://wangjiezhe.com/tags/grep/"/>
     
-      <category term="awk" scheme="https://wangjiezhe.github.io/tags/awk/"/>
+      <category term="awk" scheme="https://wangjiezhe.com/tags/awk/"/>
     
   </entry>
   
   <entry>
     <title>Piplight 在 Linux 上使用网银</title>
-    <link href="https://wangjiezhe.github.io//posts/2014-03-02-Pipelight-use-eBank-on-Linux.html"/>
-    <id>https://wangjiezhe.github.io//posts/2014-03-02-Pipelight-use-eBank-on-Linux.html</id>
+    <link href="https://wangjiezhe.com//posts/2014-03-02-Pipelight-use-eBank-on-Linux.html"/>
+    <id>https://wangjiezhe.com//posts/2014-03-02-Pipelight-use-eBank-on-Linux.html</id>
     <published>2014-03-01T16:00:00.000Z</published>
     <updated>2018-10-04T15:09:53.475Z</updated>
     
@@ -219,25 +219,25 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://wangjiezhe.github.io/categories/Linux/"/>
+      <category term="Linux" scheme="https://wangjiezhe.com/categories/Linux/"/>
     
     
-      <category term="linux" scheme="https://wangjiezhe.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://wangjiezhe.com/tags/linux/"/>
     
-      <category term="fedora" scheme="https://wangjiezhe.github.io/tags/fedora/"/>
+      <category term="fedora" scheme="https://wangjiezhe.com/tags/fedora/"/>
     
-      <category term="pipelight" scheme="https://wangjiezhe.github.io/tags/pipelight/"/>
+      <category term="pipelight" scheme="https://wangjiezhe.com/tags/pipelight/"/>
     
-      <category term="wine" scheme="https://wangjiezhe.github.io/tags/wine/"/>
+      <category term="wine" scheme="https://wangjiezhe.com/tags/wine/"/>
     
-      <category term="ActiveX" scheme="https://wangjiezhe.github.io/tags/ActiveX/"/>
+      <category term="ActiveX" scheme="https://wangjiezhe.com/tags/ActiveX/"/>
     
   </entry>
   
   <entry>
     <title>Linux 随学随记 (1)</title>
-    <link href="https://wangjiezhe.github.io//posts/2014-03-01-Linux-Notes-1.html"/>
-    <id>https://wangjiezhe.github.io//posts/2014-03-01-Linux-Notes-1.html</id>
+    <link href="https://wangjiezhe.com//posts/2014-03-01-Linux-Notes-1.html"/>
+    <id>https://wangjiezhe.com//posts/2014-03-01-Linux-Notes-1.html</id>
     <published>2014-02-28T16:00:00.000Z</published>
     <updated>2018-10-04T15:09:58.132Z</updated>
     
@@ -254,16 +254,16 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://wangjiezhe.github.io/categories/Linux/"/>
+      <category term="Linux" scheme="https://wangjiezhe.com/categories/Linux/"/>
     
     
-      <category term="linux" scheme="https://wangjiezhe.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://wangjiezhe.com/tags/linux/"/>
     
-      <category term="vim" scheme="https://wangjiezhe.github.io/tags/vim/"/>
+      <category term="shell" scheme="https://wangjiezhe.com/tags/shell/"/>
     
-      <category term="sed" scheme="https://wangjiezhe.github.io/tags/sed/"/>
+      <category term="sed" scheme="https://wangjiezhe.com/tags/sed/"/>
     
-      <category term="shell" scheme="https://wangjiezhe.github.io/tags/shell/"/>
+      <category term="vim" scheme="https://wangjiezhe.com/tags/vim/"/>
     
   </entry>
   
