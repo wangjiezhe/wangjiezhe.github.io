@@ -5,11 +5,9 @@ categories:
 tags:
   - linux
   - zip
-  - 乱码
+  - encode
 date: 2014-08-14 00:00:00
 ---
-
-<br />
 
 在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题.
 
@@ -47,5 +45,3 @@ iconv -f cp936 -t utf8 -o outfile infile
 
 <script src="https://gist.github.com/wangjiezhe/7841a350983a147b6d7e.js"></script>
 
-
-<br />
