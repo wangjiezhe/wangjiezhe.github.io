@@ -1,10 +1,13 @@
 ---
-
-layout: post
 title: Linux 下 zip 解压的文件名乱码问题
-categories: [Linux]
-tags: [linux, zip, 乱码]
-
+categories:
+  - Linux
+tags:
+  - linux
+  - zip
+  - 乱码
+abbrlink: 9753
+date: 2014-08-14 00:00:00
 ---
 
 <br />

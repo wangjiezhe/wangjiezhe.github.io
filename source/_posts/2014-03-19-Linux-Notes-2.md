@@ -1,10 +1,12 @@
 ---
-
-layout: post
 title: Linux 随学随记 (2)
-categories: [Linux]
-tags: [linux, vim]
-
+categories:
+  - Linux
+tags:
+  - linux
+  - vim
+abbrlink: 30901
+date: 2014-03-19 00:00:00
 ---
 
 <br />

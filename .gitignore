@@ -1,6 +1,7 @@
-_site
-_drafts
-*~
-*.swp
-*_backup
-Gemfile.lock
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
