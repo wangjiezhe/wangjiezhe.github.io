@@ -5,6 +5,7 @@ tags:
   - linux
   - network
 date: 2014-03-22 00:00:00
+description: 在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）
 ---
 
 > **Note: 在 Fedora 21 中, 默认的加密方式已改为 WPA**
