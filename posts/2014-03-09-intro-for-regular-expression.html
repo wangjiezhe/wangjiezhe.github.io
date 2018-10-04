@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="元字符 (grep, sed) 1. 句点元字符 .通配元字符，匹配任意字符，除了换行符。 2. 反斜杠元字符 \将其后面的一个字符解释为普通字符而不是元字符。 3. 星号元字符 *其紧挨着的之前的匹配有 0+ 次匹配机会。 4. 位置元字符 ^, $^ 匹配字符串的最前面。$ 匹配字符串的最后面。 5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^[] 匹配方括号内的左右字符。-">
+<meta name="keywords" content="linux,sed,regular expression,grep,awk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式简介">
+<meta property="og:url" content="https://wangjiezhe.github.io/posts/2014-03-09-intro-for-regular-expression.html">
+<meta property="og:site_name" content="Jiezhe&#39;s Blog">
+<meta property="og:description" content="元字符 (grep, sed) 1. 句点元字符 .通配元字符，匹配任意字符，除了换行符。 2. 反斜杠元字符 \将其后面的一个字符解释为普通字符而不是元字符。 3. 星号元字符 *其紧挨着的之前的匹配有 0+ 次匹配机会。 4. 位置元字符 ^, $^ 匹配字符串的最前面。$ 匹配字符串的最后面。 5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^[] 匹配方括号内的左右字符。-">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-04T10:30:51.927Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式简介">
+<meta name="twitter:description" content="元字符 (grep, sed) 1. 句点元字符 .通配元字符，匹配任意字符，除了换行符。 2. 反斜杠元字符 \将其后面的一个字符解释为普通字符而不是元字符。 3. 星号元字符 *其紧挨着的之前的匹配有 0+ 次匹配机会。 4. 位置元字符 ^, $^ 匹配字符串的最前面。$ 匹配字符串的最后面。 5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^[] 匹配方括号内的左右字符。-">
+
+
+
+
+
+
+  <link rel="canonical" href="https://wangjiezhe.github.io/posts/2014-03-09-intro-for-regular-expression.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>正则表达式简介 | Jiezhe's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jiezhe's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">蓝田生美玉，西风栽冷香</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">14</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">1</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">8</span></a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.github.io/posts/2014-03-09-intro-for-regular-expression.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiezhe Wang">
+      <meta itemprop="description" content="我想要怒放的生命。。。">
+      <meta itemprop="image" content="/images/camel.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jiezhe's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式简介
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-03-09 00:00:00" itemprop="dateCreated datePublished" datetime="2014-03-09T00:00:00+08:00">2014-03-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-04 18:30:51" itemprop="dateModified" datetime="2018-10-04T18:30:51+08:00">2018-10-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>  <br></p>
+<h2 id="元字符-grep-sed"><a href="#元字符-grep-sed" class="headerlink" title="元字符 (grep, sed)"></a>元字符 (grep, sed)</h2><hr>
+<h3 id="1-句点元字符"><a href="#1-句点元字符" class="headerlink" title="1. 句点元字符 ."></a>1. 句点元字符 .</h3><p>通配元字符，匹配任意字符，除了换行符。</p>
+<h3 id="2-反斜杠元字符"><a href="#2-反斜杠元字符" class="headerlink" title="2. 反斜杠元字符 \"></a>2. 反斜杠元字符 \</h3><p>将其后面的一个字符解释为普通字符而不是元字符。</p>
+<h3 id="3-星号元字符"><a href="#3-星号元字符" class="headerlink" title="3. 星号元字符 *"></a>3. 星号元字符 *</h3><p>其紧挨着的之前的匹配有 0+ 次匹配机会。</p>
+<h3 id="4-位置元字符"><a href="#4-位置元字符" class="headerlink" title="4. 位置元字符 ^, $"></a>4. 位置元字符 ^, $</h3><p>^ 匹配字符串的最前面。<br>$ 匹配字符串的最后面。</p>
+<h3 id="5-字符组元字符-连字符元字符-补字号"><a href="#5-字符组元字符-连字符元字符-补字号" class="headerlink" title="5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^"></a>5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^</h3><p>[] 匹配方括号内的左右字符。<br>- 连字符元字符仅在字符组元字符内有意义，表示一段连续字符范围。<br>^ 表示排除某些字符。</p>
+<h3 id="6-范围字符串"><a href="#6-范围字符串" class="headerlink" title="6. 范围字符串 \{ \}"></a>6. 范围字符串 \{ \}</h3><p>\{n,m\} 匹配 n~m 次。<br>\{n\} 匹配 n 次。<br>\{n,\} 匹配 n+ 次。</p>
+<h3 id="7-特殊字符类"><a href="#7-特殊字符类" class="headerlink" title="7. 特殊字符类"></a>7. 特殊字符类</h3><p>[[:alpha:]] 匹配任意字母字符，大写或小写<br>[[:alnum:]] 匹配任意字母数字字符，0-9, a-z, A-Z<br>[[:blank:]] 匹配空格或制表符字符<br>[[:digit:]] 匹配任意数字字符，0-9<br>[[:lower:]] 匹配任意小写字母，a-z<br>[[:print:]] 匹配任意可打印字符<br>[[:punct:]] 匹配任意标点<br>[[:space:]] 匹配任意空白字符: 空格、制表符、NL、FF、VT、CR<br>[[:upper:]] 匹配任意大写字符，A-Z</p>
+<p>  <br></p>
+<h2 id="扩展元字符-egrep-awk"><a href="#扩展元字符-egrep-awk" class="headerlink" title="扩展元字符 (egrep, awk)"></a>扩展元字符 (egrep, awk)</h2><hr>
+<h3 id="1-加号元字符"><a href="#1-加号元字符" class="headerlink" title="1. 加号元字符 +"></a>1. 加号元字符 +</h3><p>其紧挨着的之前的匹配有 <strong>1+</strong> 次匹配机会。</p>
+<h3 id="2-问号元字符"><a href="#2-问号元字符" class="headerlink" title="2. 问号元字符 ?"></a>2. 问号元字符 ?</h3><p>其紧挨着的之前的匹配有 <strong>0~1</strong> 次匹配机会。</p>
+<h3 id="3-竖线元字符"><a href="#3-竖线元字符" class="headerlink" title="3. 竖线元字符 |"></a>3. 竖线元字符 |</h3><p>r1|r2 匹配 r1 或 r2</p>
+<h3 id="4-括号元字符"><a href="#4-括号元字符" class="headerlink" title="4. 括号元字符 ( )"></a>4. 括号元字符 ( )</h3><p>(r1) 匹配子字符串r1(常与 * + ? | 等连用)。</p>
+<h3 id="5-范围元字符"><a href="#5-范围元字符" class="headerlink" title="5. 范围元字符 { }"></a>5. 范围元字符 { }</h3><p>与上面的范围元字符类似。</p>
+<p>  <br></p>
+<h2 id="固定元字符-grep"><a href="#固定元字符-grep" class="headerlink" title="固定元字符 (grep)"></a>固定元字符 (grep)</h2><hr>
+<h3 id="1-lt-gt"><a href="#1-lt-gt" class="headerlink" title="1. \&lt; \&gt;"></a>1. \&lt; \&gt;</h3><p>严格匹配一个词(后面必须直接跟一个空格或标点符号)。</p>
+<p>  <br></p>
+<p>参考:</p>
+<ul>
+<li>Linux Command Line and shell Scripting Bible, Richard Blum</li>
+<li><p>UNIX awk and sed PROGRAMMER’S INTERACTIVE WORKBOOK, Peter Patsis</p>
+<p><br></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/sed/" rel="tag"># sed</a>
+          
+            <a href="/tags/regular-expression/" rel="tag"># regular expression</a>
+          
+            <a href="/tags/grep/" rel="tag"># grep</a>
+          
+            <a href="/tags/awk/" rel="tag"># awk</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2014-03-02-Pipelight-use-eBank-on-Linux.html" rel="next" title="Piplight 在 Linux 上使用网银">
+                <i class="fa fa-chevron-left"></i> Piplight 在 Linux 上使用网银
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2014-03-19-Linux-Notes-2.html" rel="prev" title="Linux 随学随记 (2)">
+                Linux 随学随记 (2) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/camel.jpg"
+                alt="Jiezhe Wang" />
+            
+              <p class="site-author-name" itemprop="name">Jiezhe Wang</p>
+              <p class="site-description motion-element" itemprop="description">我想要怒放的生命。。。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#元字符-grep-sed"><span class="nav-number">1.</span> <span class="nav-text">元字符 (grep, sed)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-句点元字符"><span class="nav-number">1.1.</span> <span class="nav-text">1. 句点元字符 .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-反斜杠元字符"><span class="nav-number">1.2.</span> <span class="nav-text">2. 反斜杠元字符 \</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-星号元字符"><span class="nav-number">1.3.</span> <span class="nav-text">3. 星号元字符 *</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-位置元字符"><span class="nav-number">1.4.</span> <span class="nav-text">4. 位置元字符 ^, $</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-字符组元字符-连字符元字符-补字号"><span class="nav-number">1.5.</span> <span class="nav-text">5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-范围字符串"><span class="nav-number">1.6.</span> <span class="nav-text">6. 范围字符串 \{ \}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-特殊字符类"><span class="nav-number">1.7.</span> <span class="nav-text">7. 特殊字符类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展元字符-egrep-awk"><span class="nav-number">2.</span> <span class="nav-text">扩展元字符 (egrep, awk)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-加号元字符"><span class="nav-number">2.1.</span> <span class="nav-text">1. 加号元字符 +</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-问号元字符"><span class="nav-number">2.2.</span> <span class="nav-text">2. 问号元字符 ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-竖线元字符"><span class="nav-number">2.3.</span> <span class="nav-text">3. 竖线元字符 |</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-括号元字符"><span class="nav-number">2.4.</span> <span class="nav-text">4. 括号元字符 ( )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-范围元字符"><span class="nav-number">2.5.</span> <span class="nav-text">5. 范围元字符 { }</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固定元字符-grep"><span class="nav-number">3.</span> <span class="nav-text">固定元字符 (grep)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-lt-gt"><span class="nav-number">3.1.</span> <span class="nav-text">1. \&lt; \&gt;</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiezhe Wang</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
