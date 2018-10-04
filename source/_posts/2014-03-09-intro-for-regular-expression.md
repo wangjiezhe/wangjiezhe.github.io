@@ -8,7 +8,6 @@ tags:
   - grep
   - sed
   - awk
-abbrlink: 58942
 date: 2014-03-09 00:00:00
 ---
 

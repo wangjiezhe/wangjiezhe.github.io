@@ -5,7 +5,6 @@ categories:
 tags:
   - linux
   - vim
-abbrlink: 30901
 date: 2014-03-19 00:00:00
 ---
 
@@ -13,7 +12,7 @@ date: 2014-03-19 00:00:00
 
 ## 一、vim切换tab:
 
-向后  `:tabn`{: style="color: red"} or `:tabnext`{: style="color: red"} or `gt`{: style="color: red"}  
+向后  `:tabn`{: style="color: red"} or `:tabnext`{: style="color: red"} or `gt`{: style="color: red"}
 向前  `:tabp`{: style="color: red"} or `:tabprev`{: style="color: red"} or `gT`{: style="color: red"}
 
   <br />

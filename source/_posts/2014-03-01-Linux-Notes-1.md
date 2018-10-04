@@ -7,7 +7,6 @@ tags:
   - shell
   - sed
   - vim
-abbrlink: 34997
 date: 2014-03-01 00:00:00
 ---
 

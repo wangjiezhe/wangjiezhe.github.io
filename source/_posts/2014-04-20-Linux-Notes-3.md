@@ -5,7 +5,6 @@ categories:
 tags:
   - linux
   - shell
-abbrlink: 59572
 date: 2014-04-20 00:00:00
 ---
 

@@ -5,7 +5,6 @@ categories:
 tags:
   - linux
   - network
-abbrlink: 50013
 date: 2014-03-22 00:00:00
 ---
 

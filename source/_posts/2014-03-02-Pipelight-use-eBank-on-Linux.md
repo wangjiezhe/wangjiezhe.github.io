@@ -8,7 +8,6 @@ tags:
   - pipelight
   - wine
   - ActiveX
-abbrlink: 61642
 date: 2014-03-02 00:00:00
 ---
 
@@ -20,71 +19,71 @@ date: 2014-03-02 00:00:00
 
 1\. 安装不在仓库里的微软核心字体:
 
-	sudo yum install cabextract
-	sudo rpm -i http://sourceforge.net/projects/mscorefonts2/files/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+    sudo yum install cabextract
+    sudo rpm -i http://sourceforge.net/projects/mscorefonts2/files/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 
 2\. 然后添加仓库, 并安装 Pipelight (对于 Fedora 18 和 Fedora 19 只需要把 Fedora\_20 替换成 Fedora\_18 或 Fedora\_19 即可):
 
-	sudo wget http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Fedora_20/home:DarkPlayer:Pipelight.repo -O /etc/yum.repos.d/pipelight.repo
-	sudo yum install pipelight
-	sudo pipelight-plugin --update
+    sudo wget http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Fedora_20/home:DarkPlayer:Pipelight.repo -O /etc/yum.repos.d/pipelight.repo
+    sudo yum install pipelight
+    sudo pipelight-plugin --update
 
 3\. 解锁 pipelight 的 npactivex 插件:
 
-	sudo pipelight-plugin --unlock npactivex
+    sudo pipelight-plugin --unlock npactivex
 
 看到 "Plugin npactivex is now unlocked" 即为解锁成功
 
 4\. 启用 npactivex 插件:
 
-	sudo pipelight-plugin --enable npactivex
+    sudo pipelight-plugin --enable npactivex
 
 5\. 启动 chrome 浏览器, 打开 <chrome://plugins>, 应该可以看到以下内容:
 
->ActiveX hosting plugin for NPAPI  
->ActiveX hosting plugin for NPAPI r37  
->Name:	ActiveX hosting plugin for NPAPI  
->Description:	ActiveX hosting plugin for NPAPI r37  
->Version:  
->Location:	/usr/lib/pipelight/libpipelight-npactivex.so  
->Type:	NPAPI  
->Disable  
->MIME types:  
->MIME type	Description	File extensions  
->application/x-itst-activex	ActiveX (\*.ocx)  
->.ocx  
+>ActiveX hosting plugin for NPAPI
+>ActiveX hosting plugin for NPAPI r37
+>Name:	ActiveX hosting plugin for NPAPI
+>Description:	ActiveX hosting plugin for NPAPI r37
+>Version:
+>Location:	/usr/lib/pipelight/libpipelight-npactivex.so
+>Type:	NPAPI
+>Disable
+>MIME types:
+>MIME type	Description	File extensions
+>application/x-itst-activex	ActiveX (\*.ocx)
+>.ocx
 >application/activex-manager	ActiveXManager
 
 如果看到下列错误:
 
->Pipelight Error (npactivex)!  
+>Pipelight Error (npactivex)!
 >Something went wrong, check the terminal output
 
 请从终端打开 chromium/google-chrome, 观察终端出错日志
 
 6\. 安装winetricks:
 
-	wget http://winetricks.googlecode.com/svn/trunk/src/winetricks
-	sudo cp winetricks /path/to/your/bin/
-	sudo chmod +x /path/to/your/bin/winetricks
+    wget http://winetricks.googlecode.com/svn/trunk/src/winetricks
+    sudo cp winetricks /path/to/your/bin/
+    sudo chmod +x /path/to/your/bin/winetricks
 
 7\. 安装需要的 ActiveX 控件. 下面以工行控件为例:
 
 7.1. 下载工行网银控件安装包:
 
-	wget http://www.icbc.com.cn/icbc/html/download/dkq/icbc_netbank_client_controls.exe
+    wget http://www.icbc.com.cn/icbc/html/download/dkq/icbc_netbank_client_controls.exe
 
 7.2. 安装 mfc42 运行库:
 
-	WINEPREFIX=~/.wine-pipelight winetricks -q mfc42
+    WINEPREFIX=~/.wine-pipelight winetricks -q mfc42
 
 7.3. 安装:
 
-	WINEPREFIX=~/.wine-pipelight wine icbc_netbank_client_controls.exe
+    WINEPREFIX=~/.wine-pipelight wine icbc_netbank_client_controls.exe
 
 故障排除: 运行
 
-	WINEPREFIX=~/.wine-pipelight wine uninstaller --list
+    WINEPREFIX=~/.wine-pipelight wine uninstaller --list
 
 如果输出包含以下内容就说明安装成功了, 否则说明以上某一步出错了
 
@@ -104,9 +103,9 @@ date: 2014-03-02 00:00:00
 
 上面的博客还给出了其作者对支付宝的测试成功的 npactivex extension 的规则:
 
->Mode: WildChar  
->Pattern: https://\*.alipay.com/\*  
->User Agent: MSIE9  
+>Mode: WildChar
+>Pattern: https://\*.alipay.com/\*
+>User Agent: MSIE9
 >Other helper scripts: dynamic ieevent
 
 不过, 在 npactivex extension 的设置页面中虽然有农业银行的的选项，但是我还是始终没有成功......

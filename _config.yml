@@ -80,5 +80,5 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/wangjiezhe/wagjiezhe.github.io.git
+  repository: https://github.com/wangjiezhe/wangjiezhe.github.io
   branch: master
