@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://wangjiezhe.github.io/
+url: https://wangjiezhe.github.io
 root: /
 permalink: /posts/:title.html # :year/:month/:day/:title/
 permalink_defaults:
@@ -80,14 +80,15 @@ pagination_dir: page
   # - hexo-generator-category
   # - hexo-generator-feed
   # - hexo-generator-sitemap
-  # - hexo-generator-searchdb
+  # - hexo-generator-search
   # - hexo-renderer-pandoc
 
 search:
   path: search.xml
   field: post
-  format: html
-  limit: 10000
+  # format: html
+  # limit: 10000
+  content: true
 
 ## Themes: https://hexo.io/themes/
 theme: next
