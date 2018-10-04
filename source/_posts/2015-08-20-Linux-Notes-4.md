@@ -6,7 +6,6 @@ tags:
   - linux
   - shell
   - vim
-abbrlink: 55478
 date: 2015-08-20 00:00:00
 ---
 
