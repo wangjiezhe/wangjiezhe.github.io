@@ -107,7 +107,7 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repository: https://github.com/wangjiezhe/wangjiezhe.github.io
-  branch: master
+# deploy:
+  # type: git
+  # repository: https://github.com/wangjiezhe/wangjiezhe.github.io
+  # branch: master
