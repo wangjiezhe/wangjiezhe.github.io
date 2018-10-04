@@ -4,15 +4,15 @@ node_js:
   - '10'
 
 cache:
-  apt: true
+  # apt: true
   directories:
     - node_modules
 
-addons:
-  apt:
-    update: true
-    packages:
-      - pandoc
+# addons:
+  # apt:
+    # update: true
+    # packages:
+      # - pandoc
 
 before_install:
   - export TZ='Asia/Shanghai'
