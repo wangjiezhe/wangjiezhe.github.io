@@ -86,7 +86,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '6.4.2',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="mplayer 循环播放歌曲1$ mplayer -loop n ***.mp3 n 表示重复次数，0 表示无限循环。 vim 搜索大小写匹配set ignorecase忽略正常字母的大小写 set smartcase只包含小写字母时忽略大小写 \c强制忽略大小写 \C强制匹配大小写 cd 转移当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法。 cd di">
+  <meta name="description" content="mplayer 循环播放歌曲 1$ mplayer -loop n ***.mp3 n 表示重复次数，0 表示无限循环。 vim 搜索大小写匹配 set ignorecase 忽略正常字母的大小写 set smartcase 只包含小写字母时忽略大小写 \c 强制忽略大小写 \C 强制匹配大小写 cd 转移 当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法">
 <meta name="keywords" content="linux,shell,vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 随学随记 (4)">
 <meta property="og:url" content="https://wangjiezhe.github.io/posts/2015-08-20-Linux-Notes-4.html">
 <meta property="og:site_name" content="Jiezhe&#39;s Blog">
-<meta property="og:description" content="mplayer 循环播放歌曲1$ mplayer -loop n ***.mp3 n 表示重复次数，0 表示无限循环。 vim 搜索大小写匹配set ignorecase忽略正常字母的大小写 set smartcase只包含小写字母时忽略大小写 \c强制忽略大小写 \C强制匹配大小写 cd 转移当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法。 cd di">
+<meta property="og:description" content="mplayer 循环播放歌曲 1$ mplayer -loop n ***.mp3 n 表示重复次数，0 表示无限循环。 vim 搜索大小写匹配 set ignorecase 忽略正常字母的大小写 set smartcase 只包含小写字母时忽略大小写 \c 强制忽略大小写 \C 强制匹配大小写 cd 转移 当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-10-04T13:46:15.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 随学随记 (4)">
-<meta name="twitter:description" content="mplayer 循环播放歌曲1$ mplayer -loop n ***.mp3 n 表示重复次数，0 表示无限循环。 vim 搜索大小写匹配set ignorecase忽略正常字母的大小写 set smartcase只包含小写字母时忽略大小写 \c强制忽略大小写 \C强制匹配大小写 cd 转移当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法。 cd di">
+<meta name="twitter:description" content="mplayer 循环播放歌曲 1$ mplayer -loop n ***.mp3 n 表示重复次数，0 表示无限循环。 vim 搜索大小写匹配 set ignorecase 忽略正常字母的大小写 set smartcase 只包含小写字母时忽略大小写 \c 强制忽略大小写 \C 强制匹配大小写 cd 转移 当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法">
 
 
   
@@ -427,15 +427,18 @@
       
 
       
-        <h2 id="mplayer-循环播放歌曲"><a href="#mplayer-循环播放歌曲" class="headerlink" title="mplayer 循环播放歌曲"></a>mplayer 循环播放歌曲</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mplayer -loop n ***.mp3</span><br></pre></td></tr></table></figure>
+        <h2 id="mplayer-循环播放歌曲">mplayer 循环播放歌曲</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mplayer -loop n ***.mp3</span><br></pre></td></tr></table></figure>
 <p>n 表示重复次数，0 表示无限循环。</p>
-<h2 id="vim-搜索大小写匹配"><a href="#vim-搜索大小写匹配" class="headerlink" title="vim 搜索大小写匹配"></a>vim 搜索大小写匹配</h2><p><code>set ignorecase</code><br>忽略正常字母的大小写</p>
-<p><code>set smartcase</code><br>只包含小写字母时忽略大小写</p>
-<p><code>\c</code><br>强制忽略大小写</p>
-<p><code>\C</code><br>强制匹配大小写</p>
-<h2 id="cd-转移"><a href="#cd-转移" class="headerlink" title="cd 转移"></a>cd 转移</h2><p>当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法。</p>
-<pre><code>cd directorya directoryb
-</code></pre><p>第一个参数是当前目录路径中需要替换的参数，第二个参数是替换字符串。</p>
+<h2 id="vim-搜索大小写匹配">vim 搜索大小写匹配</h2>
+<p><code>set ignorecase</code> 忽略正常字母的大小写</p>
+<p><code>set smartcase</code> 只包含小写字母时忽略大小写</p>
+<p><code>\c</code> 强制忽略大小写</p>
+<p><code>\C</code> 强制匹配大小写</p>
+<h2 id="cd-转移">cd 转移</h2>
+<p>当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法。</p>
+<pre><code>cd directorya directoryb</code></pre>
+<p>第一个参数是当前目录路径中需要替换的参数，第二个参数是替换字符串。</p>
 <pre><code># 要从v7目录 切换到v8目录，只需键入cd v7 v8
 /programs/v7/reports/monthly &gt; cd v7 v8
 /programs/v8/reports/monthly &gt;
@@ -446,22 +449,25 @@
 
 # 切换月份目录
 /hist/2011/april/reports &gt; cd april may
-/hist/2011/may/reports &gt;
-</code></pre><h2 id="vim-快速缩进"><a href="#vim-快速缩进" class="headerlink" title="vim 快速缩进"></a>vim 快速缩进</h2><p><code>&gt;&gt;</code><br>向右缩进</p>
-<p><code>&lt;&lt;</code><br>向左缩进</p>
-<p><code>:ce</code> (center)<br>文本居中</p>
-<p><code>:le</code> (left)<br>文本靠左</p>
-<p><code>:ri</code> (right)<br>文本靠右</p>
-<h2 id="vim-编辑多个文件"><a href="#vim-编辑多个文件" class="headerlink" title="vim 编辑多个文件"></a>vim 编辑多个文件</h2><p><code>:n</code><br>编辑下一个文件</p>
-<p><code>:N</code><br>编辑上一个文件</p>
-<p><code>:e#</code><br>回到前一个文件</p>
-<p><code>:ls</code><br>列出所有编辑的文件</p>
-<p><code>:b 2.txt</code> or <code>:b 2</code><br>直接进入文件 2.txt 或者编号为 2 的文件编辑</p>
-<p><code>:bd 2.txt</code> or <code>:b 2</code><br>删除列表中的文件项目</p>
-<p><code>:f</code><br>显示正在编辑的文件名</p>
-<p><code>:f new.txt</code><br>重命名当前文件为 new.txt</p>
-<h2 id="vim-加密文件"><a href="#vim-加密文件" class="headerlink" title="vim 加密文件"></a>vim 加密文件</h2><p><code>$ vim -x file1</code><br>创建加密文档 file1</p>
-<p><code>set cm=blowfish2</code> (newest)<br>设置加密方式</p>
+/hist/2011/may/reports &gt;</code></pre>
+<h2 id="vim-快速缩进">vim 快速缩进</h2>
+<p><code>&gt;&gt;</code> 向右缩进</p>
+<p><code>&lt;&lt;</code> 向左缩进</p>
+<p><code>:ce</code> (center) 文本居中</p>
+<p><code>:le</code> (left) 文本靠左</p>
+<p><code>:ri</code> (right) 文本靠右</p>
+<h2 id="vim-编辑多个文件">vim 编辑多个文件</h2>
+<p><code>:n</code> 编辑下一个文件</p>
+<p><code>:N</code> 编辑上一个文件</p>
+<p><code>:e#</code> 回到前一个文件</p>
+<p><code>:ls</code> 列出所有编辑的文件</p>
+<p><code>:b 2.txt</code> or <code>:b 2</code> 直接进入文件 2.txt 或者编号为 2 的文件编辑</p>
+<p><code>:bd 2.txt</code> or <code>:b 2</code> 删除列表中的文件项目</p>
+<p><code>:f</code> 显示正在编辑的文件名</p>
+<p><code>:f new.txt</code> 重命名当前文件为 new.txt</p>
+<h2 id="vim-加密文件">vim 加密文件</h2>
+<p><code>$ vim -x file1</code> 创建加密文档 file1</p>
+<p><code>set cm=blowfish2</code> (newest) 设置加密方式</p>
 
       
     </div>
@@ -679,6 +685,20 @@
           
 
           
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wangjiezhe" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/wangjiezhe" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+            </div>
+          
 
           
           
@@ -724,7 +744,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -767,6 +787,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -908,6 +930,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

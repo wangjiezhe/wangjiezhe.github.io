@@ -86,7 +86,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '6.4.2',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="一、vim替换ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令： 1234:s/^/#            #用&amp;quot;#&amp;quot;注释当前行:2,50s/^/#        #在2~50行首添加&amp;quot;#&amp;quot;注释:.,+3s/^/#        #用&amp;qu">
+  <meta name="description" content="一、vim替换 ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令： 1234:s/^/#            #用&amp;quot;#&amp;quot;注释当前行:2,50s/^/#        #在2~50行首添加&amp;quot;#&amp;quot;注释:.,+3s/^/#        #用&amp;q">
 <meta name="keywords" content="linux,shell,sed,vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 随学随记 (1)">
 <meta property="og:url" content="https://wangjiezhe.github.io/posts/2014-03-01-Linux-Notes-1.html">
 <meta property="og:site_name" content="Jiezhe&#39;s Blog">
-<meta property="og:description" content="一、vim替换ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令： 1234:s/^/#            #用&amp;quot;#&amp;quot;注释当前行:2,50s/^/#        #在2~50行首添加&amp;quot;#&amp;quot;注释:.,+3s/^/#        #用&amp;qu">
+<meta property="og:description" content="一、vim替换 ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令： 1234:s/^/#            #用&amp;quot;#&amp;quot;注释当前行:2,50s/^/#        #在2~50行首添加&amp;quot;#&amp;quot;注释:.,+3s/^/#        #用&amp;q">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-10-04T13:46:45.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 随学随记 (1)">
-<meta name="twitter:description" content="一、vim替换ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令： 1234:s/^/#            #用&amp;quot;#&amp;quot;注释当前行:2,50s/^/#        #在2~50行首添加&amp;quot;#&amp;quot;注释:.,+3s/^/#        #用&amp;qu">
+<meta name="twitter:description" content="一、vim替换 ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令： 1234:s/^/#            #用&amp;quot;#&amp;quot;注释当前行:2,50s/^/#        #在2~50行首添加&amp;quot;#&amp;quot;注释:.,+3s/^/#        #用&amp;q">
 
 
 
@@ -425,22 +425,30 @@
       
 
       
-        <h2 id="一、vim替换"><a href="#一、vim替换" class="headerlink" title="一、vim替换"></a>一、vim替换</h2><p>ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令：</p>
+        <h2 id="一vim替换">一、vim替换</h2>
+<p>ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:s/^/#            #用&quot;#&quot;注释当前行</span><br><span class="line">:2,50s/^/#        #在2~50行首添加&quot;#&quot;注释</span><br><span class="line">:.,+3s/^/#        #用&quot;#&quot;注释当前行和当前行后面的三行</span><br><span class="line">:%s/^/#           #用&quot;#&quot;注释所有行</span><br></pre></td></tr></table></figure>
-<p>顺便说一下vim的替换，这个常用，已经牢记，其实和上面用命令注释多行是一样的，只不过是上面注释的命令里的”^”符号代表开始位置而已，在下面这些命令中，”s”代表替换，part1代表查找的内容，part2代表替换的内容，”%”代表所有行，”g”代表替换整行里所有的内容（如果不加”/g”则只替换每行第一个匹配part1的地方）。</p>
+<p>顺便说一下vim的替换，这个常用，已经牢记，其实和上面用命令注释多行是一样的，只不过是上面注释的命令里的&quot;^&quot;符号代表开始位置而已，在下面这些命令中，&quot;s&quot;代表替换，part1代表查找的内容，part2代表替换的内容，&quot;%&quot;代表所有行，&quot;g&quot;代表替换整行里所有的内容（如果不加&quot;/g&quot;则只替换每行第一个匹配part1的地方）。</p>
 <p>p.n.关于g的用法貌似在本系统相反，虽然各处都这么说。。。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:s/part1/part2              #用part2替换当前行中第1个part1</span><br><span class="line">:s/part1/part2/g            #用part2替换当前行中所有的part1</span><br><span class="line">:%s/part1/part2             #用part2替换所有行中每行第1个part1</span><br><span class="line">:%s/part1/part2/g           #用part2替换所有行中所有的part1</span><br><span class="line">:2,50s/part1/part2          #用part2替换第2行到第50行中每行第1个part1</span><br><span class="line">:2,50s/part1/part2/g        #用part2替换第2行到第50行中所有的part1</span><br><span class="line">:.,+3s/part1/part2          #用part2替换当前行以及当前行后面的三行中每行第1个part1</span><br><span class="line">:.,+3s/part1/part2/g        #用part2替换当前行以及当前行后面的三行中所有的part1</span><br></pre></td></tr></table></figure>
 <p>BTW:在替换时要注意，某些字符是需要转译的，如空格、括号等。</p>
-<h2 id="二、sed添加空行"><a href="#二、sed添加空行" class="headerlink" title="二、sed添加空行"></a>二、sed添加空行</h2><h4 id="（一）每行前后添加空行"><a href="#（一）每行前后添加空行" class="headerlink" title="（一）每行前后添加空行"></a>（一）每行前后添加空行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sed G tmp                          #每行后面添加一行空行</span><br><span class="line">sed &apos;&#123;x;p;x;&#125;&apos; tmp                  #每行前面添加一行空行</span><br><span class="line">sed &apos;G;G&apos; tmp                       #每行后面添加两行空行</span><br><span class="line">sed &apos;&#123;x;p;x;x;p;x;&#125;&apos; tmp             #每行前面添加两行空行</span><br><span class="line">sed &apos;G;G;G&apos; tmp                     #每行后面添加三行空行</span><br><span class="line">sed &apos;&#123;x;p;x;x;p;x;x;p;x&#125;&apos; tmp        #每行前面添加三行空行</span><br></pre></td></tr></table></figure>
+<h2 id="二sed添加空行">二、sed添加空行</h2>
+<h4 id="一每行前后添加空行">（一）每行前后添加空行</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sed G tmp                          #每行后面添加一行空行</span><br><span class="line">sed &apos;&#123;x;p;x;&#125;&apos; tmp                  #每行前面添加一行空行</span><br><span class="line">sed &apos;G;G&apos; tmp                       #每行后面添加两行空行</span><br><span class="line">sed &apos;&#123;x;p;x;x;p;x;&#125;&apos; tmp             #每行前面添加两行空行</span><br><span class="line">sed &apos;G;G;G&apos; tmp                     #每行后面添加三行空行</span><br><span class="line">sed &apos;&#123;x;p;x;x;p;x;x;p;x&#125;&apos; tmp        #每行前面添加三行空行</span><br></pre></td></tr></table></figure>
 <p>依次类推，添加几行空行，就有几个G或者x;p;x</p>
-<h4 id="（二）如果行后有空行，则删除，然后每行后面添加空行"><a href="#（二）如果行后有空行，则删除，然后每行后面添加空行" class="headerlink" title="（二）如果行后有空行，则删除，然后每行后面添加空行"></a>（二）如果行后有空行，则删除，然后每行后面添加空行</h4><p><code>sed &#39;/^$/d;G&#39; tmp</code></p>
-<h4 id="（三）在匹配行前后添加空行"><a href="#（三）在匹配行前后添加空行" class="headerlink" title="（三）在匹配行前后添加空行"></a>（三）在匹配行前后添加空行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;/shui/G&apos; tmp               #如果一行里面有如果一行里面有shui这个单词，那么在他后面会添加一个空行</span><br><span class="line">sed &apos;/shui/&#123;x;p;x;G&#125;&apos; tmp        #如果一行里面有shui这个单词，那么在他前后各添加一个空行</span><br><span class="line">sed &apos;/shui/&#123;x;p;x;&#125;&apos; tmp         #如果一行里面有shui这个单词，那么在他前面添加一个空行</span><br><span class="line">sed &apos;1&#123;x;p;x;&#125;&apos; tmp              #在第一行前面添加空行，想在第几行，命令中的1就改成几</span><br><span class="line">sed &apos;1G&apos; tmp                    #在第一行后面添加空行，想在第几行，命令中的1就改成几</span><br></pre></td></tr></table></figure>
-<h4 id="（四）每几行后面添加一个空行"><a href="#（四）每几行后面添加一个空行" class="headerlink" title="（四）每几行后面添加一个空行"></a>（四）每几行后面添加一个空行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;N;/^$/d;G&apos; tmp                #每两行后面增加一个空行</span><br><span class="line">sed &apos;N;/^$/d;&#123;x;p;x;&#125;&apos; tmp          #每两行前面添加一个空行</span><br><span class="line">sed &apos;N;N;/^$/d;G&apos; tmp              #每三行后面增加一个空行</span><br><span class="line">sed &apos;N;N;/^$/d;&#123;x;p;x;&#125;&apos; tmp        #每三行前面增加一个空行</span><br></pre></td></tr></table></figure>
-<h4 id="（五）以x为开头或以x为结尾的行前后添加空行"><a href="#（五）以x为开头或以x为结尾的行前后添加空行" class="headerlink" title="（五）以x为开头或以x为结尾的行前后添加空行"></a>（五）以x为开头或以x为结尾的行前后添加空行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;/^xi/G;&apos; tmp             #以xi为开头的行后面添加空行</span><br><span class="line">sed &apos;/^xi/&#123;x;p;x;&#125;&apos; tmp        #以xi为结尾的行前面添加空行</span><br><span class="line">sed &apos;/xi$/G;&apos; tmp             #以xi为结尾的行后面添加空行</span><br><span class="line">sed &apos;/xi$/&#123;x;p;x;&#125;&apos; tmp        #以xi为结尾的行后面添加空行</span><br></pre></td></tr></table></figure>
-<h2 id="三、sed删除行首空格"><a href="#三、sed删除行首空格" class="headerlink" title="三、sed删除行首空格"></a>三、sed删除行首空格</h2><p>如果确认只是空格：</p>
-<p><code>sed &#39;s/^ *//&#39; infile</code></p>
+<h4 id="二如果行后有空行则删除然后每行后面添加空行">（二）如果行后有空行，则删除，然后每行后面添加空行</h4>
+<p><code>sed '/^$/d;G' tmp</code></p>
+<h4 id="三在匹配行前后添加空行">（三）在匹配行前后添加空行</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;/shui/G&apos; tmp               #如果一行里面有如果一行里面有shui这个单词，那么在他后面会添加一个空行</span><br><span class="line">sed &apos;/shui/&#123;x;p;x;G&#125;&apos; tmp        #如果一行里面有shui这个单词，那么在他前后各添加一个空行</span><br><span class="line">sed &apos;/shui/&#123;x;p;x;&#125;&apos; tmp         #如果一行里面有shui这个单词，那么在他前面添加一个空行</span><br><span class="line">sed &apos;1&#123;x;p;x;&#125;&apos; tmp              #在第一行前面添加空行，想在第几行，命令中的1就改成几</span><br><span class="line">sed &apos;1G&apos; tmp                    #在第一行后面添加空行，想在第几行，命令中的1就改成几</span><br></pre></td></tr></table></figure>
+<h4 id="四每几行后面添加一个空行">（四）每几行后面添加一个空行</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;N;/^$/d;G&apos; tmp                #每两行后面增加一个空行</span><br><span class="line">sed &apos;N;/^$/d;&#123;x;p;x;&#125;&apos; tmp          #每两行前面添加一个空行</span><br><span class="line">sed &apos;N;N;/^$/d;G&apos; tmp              #每三行后面增加一个空行</span><br><span class="line">sed &apos;N;N;/^$/d;&#123;x;p;x;&#125;&apos; tmp        #每三行前面增加一个空行</span><br></pre></td></tr></table></figure>
+<h4 id="五以x为开头或以x为结尾的行前后添加空行">（五）以x为开头或以x为结尾的行前后添加空行</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;/^xi/G;&apos; tmp             #以xi为开头的行后面添加空行</span><br><span class="line">sed &apos;/^xi/&#123;x;p;x;&#125;&apos; tmp        #以xi为结尾的行前面添加空行</span><br><span class="line">sed &apos;/xi$/G;&apos; tmp             #以xi为结尾的行后面添加空行</span><br><span class="line">sed &apos;/xi$/&#123;x;p;x;&#125;&apos; tmp        #以xi为结尾的行后面添加空行</span><br></pre></td></tr></table></figure>
+<h2 id="三sed删除行首空格">三、sed删除行首空格</h2>
+<p>如果确认只是空格：</p>
+<p><code>sed 's/^ *//' infile</code></p>
 <p>如果判断不清行首是空格还是制表符的话， 还可以用这个：</p>
-<p><code>sed &#39;s/^[[:space:]]*//&#39; infile</code></p>
+<p><code>sed 's/^[[:space:]]*//' infile</code></p>
 
       
     </div>
@@ -660,6 +668,20 @@
           
 
           
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wangjiezhe" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/wangjiezhe" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+            </div>
+          
 
           
           
@@ -685,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、vim替换"><span class="nav-number">1.</span> <span class="nav-text">一、vim替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、sed添加空行"><span class="nav-number">2.</span> <span class="nav-text">二、sed添加空行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（一）每行前后添加空行"><span class="nav-number">2.0.1.</span> <span class="nav-text">（一）每行前后添加空行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（二）如果行后有空行，则删除，然后每行后面添加空行"><span class="nav-number">2.0.2.</span> <span class="nav-text">（二）如果行后有空行，则删除，然后每行后面添加空行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（三）在匹配行前后添加空行"><span class="nav-number">2.0.3.</span> <span class="nav-text">（三）在匹配行前后添加空行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（四）每几行后面添加一个空行"><span class="nav-number">2.0.4.</span> <span class="nav-text">（四）每几行后面添加一个空行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（五）以x为开头或以x为结尾的行前后添加空行"><span class="nav-number">2.0.5.</span> <span class="nav-text">（五）以x为开头或以x为结尾的行前后添加空行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、sed删除行首空格"><span class="nav-number">3.</span> <span class="nav-text">三、sed删除行首空格</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一vim替换"><span class="nav-number">1.</span> <span class="nav-text">一、vim替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二sed添加空行"><span class="nav-number">2.</span> <span class="nav-text">二、sed添加空行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一每行前后添加空行"><span class="nav-number">2.0.1.</span> <span class="nav-text">（一）每行前后添加空行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二如果行后有空行则删除然后每行后面添加空行"><span class="nav-number">2.0.2.</span> <span class="nav-text">（二）如果行后有空行，则删除，然后每行后面添加空行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三在匹配行前后添加空行"><span class="nav-number">2.0.3.</span> <span class="nav-text">（三）在匹配行前后添加空行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四每几行后面添加一个空行"><span class="nav-number">2.0.4.</span> <span class="nav-text">（四）每几行后面添加一个空行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五以x为开头或以x为结尾的行前后添加空行"><span class="nav-number">2.0.5.</span> <span class="nav-text">（五）以x为开头或以x为结尾的行前后添加空行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三sed删除行首空格"><span class="nav-number">3.</span> <span class="nav-text">三、sed删除行首空格</span></a></li></ol></div>
             
 
           </div>
@@ -705,7 +727,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -748,6 +770,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -889,6 +913,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   
