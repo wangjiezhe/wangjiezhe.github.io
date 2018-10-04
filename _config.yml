@@ -80,6 +80,7 @@ pagination_dir: page
   # - hexo-generator-category
   # - hexo-generator-feed
   # - hexo-generator-sitemap
+  # - hexo-generator-baidusitemap
   # - hexo-generator-search
   # - hexo-renderer-pandoc
 
@@ -89,6 +90,12 @@ pagination_dir: page
   # format: html
   # limit: 10000
   # content: true
+
+sitemap:
+  path: sitemap.xml
+
+baidusitemap:
+  path: baidusitemap
 
 ## Themes: https://hexo.io/themes/
 theme: next
