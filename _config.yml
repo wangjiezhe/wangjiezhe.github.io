@@ -72,10 +72,22 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
-plugins:
-  - hexo-generator-feed
-  - hexo-generator-sitemap
-  - hexo-renderer-pandoc
+# plugins:
+  # - hexo-server
+  # - hexo-deployer-git
+  # - hexo-generator-index
+  # - hexo-generator-tag
+  # - hexo-generator-category
+  # - hexo-generator-feed
+  # - hexo-generator-sitemap
+  # - hexo-generator-searchdb
+  # - hexo-renderer-pandoc
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 
 ## Themes: https://hexo.io/themes/
 theme: next
