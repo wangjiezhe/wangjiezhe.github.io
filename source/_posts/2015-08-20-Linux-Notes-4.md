@@ -6,6 +6,7 @@ tags:
   - shell
   - vim
 date: 2015-08-20 00:00:00
+description: 记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。
 ---
 
 ## mplayer 循环播放歌曲

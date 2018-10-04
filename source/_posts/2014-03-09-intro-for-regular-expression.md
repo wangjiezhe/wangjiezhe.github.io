@@ -8,6 +8,7 @@ tags:
   - sed
   - awk
 date: 2014-03-09 00:00:00
+description: 一些常见的正则表达式的备忘录。
 ---
 
 ## 元字符 (grep, sed)
