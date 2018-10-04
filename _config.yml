@@ -83,6 +83,7 @@ pagination_dir: page
   # - hexo-generator-baidu-sitemap
   # - hexo-generator-search
   # - hexo-renderer-pandoc
+  # - hexo-renderer-markdown-it
 
 # search:
   # path: search.xml
@@ -90,6 +91,10 @@ pagination_dir: page
   # format: html
   # limit: 10000
   # content: true
+
+markdown:
+  plugins:
+    - markdown-it-katex
 
 sitemap:
   path: sitemap.xml
