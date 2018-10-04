@@ -1,10 +1,12 @@
 ---
-
-layout: post
 title: Linux 随学随记 (3)
-categories: [Linux]
-tags: [linux, shell]
-
+categories:
+  - Linux
+tags:
+  - linux
+  - shell
+abbrlink: 59572
+date: 2014-04-20 00:00:00
 ---
 
 <br />
@@ -17,7 +19,7 @@ tags: [linux, shell]
 
 ## 二、开机自启动文件
 
-系统: `/etc/rc.d/rc.local`  
+系统: `/etc/rc.d/rc.local`
 用户: `$HOME/.config/autostart/`
 
   <br />
@@ -38,7 +40,7 @@ sed替换命令用双引号`""` 而不是单引号 `''`，然后里面直接用 
 
 ## 五、vim 跳转
 
-Ctrl+] = Ctrl+left\_click  
+Ctrl+] = Ctrl+left\_click
 Ctrl+t = Ctrl+right\_click
 
   <br />
@@ -76,7 +78,7 @@ $ setxkbmap -option ctrl:swapctrl
 ```shell
 # Swap Ctrl_L and CapsLock
 if [[ -n $DISPLAY ]]; then
-	setxkbmap -option ctrl:swapctrl
+    setxkbmap -option ctrl:swapctrl
 fi
 ```
 
@@ -107,7 +109,7 @@ $ xmodmap ~/.xmodmap 2>/dev/null
 ```bash
 # Swap Alt_R and Escape
 if [[ -n $DISPLAY ]] && [[ -n $(xmodmap|grep "mod1.*Alt_R") ]]; then
-	xmodmap "$HOME"/.xmodmap 2>/dev/null
+    xmodmap "$HOME"/.xmodmap 2>/dev/null
 fi
 ```
 

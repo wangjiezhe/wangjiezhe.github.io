@@ -1,10 +1,12 @@
 ---
-
-layout: post
 title: 修改 NetworkManager wifi 热点的加密方式
-categories: [Linux]
-tags: [linux, network]
-
+categories:
+  - Linux
+tags:
+  - linux
+  - network
+abbrlink: 50013
+date: 2014-03-22 00:00:00
 ---
 
 <br />

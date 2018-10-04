@@ -1,10 +1,14 @@
 ---
-
-layout: post
 title: Linux 随学随记 (1)
-categories: [Linux]
-tags: [linux, shell, sed, vim]
-
+categories:
+  - Linux
+tags:
+  - linux
+  - shell
+  - sed
+  - vim
+abbrlink: 34997
+date: 2014-03-01 00:00:00
 ---
 
 <br />

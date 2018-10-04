@@ -1,9 +1,15 @@
 ---
-
-layout: post
-categories: [Linux]
-tags: [linux, fedora, pipelight, wine, ActiveX]
-
+title: Piplight 在 Linux 上使用网银
+categories:
+  - Linux
+tags:
+  - linux
+  - fedora
+  - pipelight
+  - wine
+  - ActiveX
+abbrlink: 61642
+date: 2014-03-02 00:00:00
 ---
 
 [@felixonmars](https://twitter.com/felixonmars) 在博客 [Pipelight – 让 Linux 原生 Chromium/Chrome 无缝支持 ActiveX 控件 (看! 网银!)](http://blog.felixc.at/2014/02/pipelight-let-linux-native-chromium-chrome-support-activex-seamlessly/) 中对如何通过 pipelight 使用工行网银做了很详细的描述, 不过是以 Arch Linux 作为例子来介绍的. 这里以 Fedora 20 为例, 做一个详细的介绍.
