@@ -53,6 +53,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -108,27 +134,27 @@
 
 
 
-  <meta name="description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
-<meta name="keywords" content="linux,network">
+  <meta name="description" content="一些常见的正则表达式的备忘录。">
+<meta name="keywords" content="linux,sed,regular expression,grep,awk">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修改 NetworkManager wifi 热点的加密方式">
-<meta property="og:url" content="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting.html">
-<meta property="og:site_name" content="Jiezhe&#39;s Blog">
-<meta property="og:description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
+<meta property="og:title" content="正则表达式简介">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2014-03-09-intro-for-regular-expression/index.html">
+<meta property="og:site_name" content="如鱼饮水，冷暖自知">
+<meta property="og:description" content="一些常见的正则表达式的备忘录。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-04T23:32:09.749Z">
+<meta property="og:updated_time" content="2018-10-05T17:17:53.348Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修改 NetworkManager wifi 热点的加密方式">
-<meta name="twitter:description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
+<meta name="twitter:title" content="正则表达式简介">
+<meta name="twitter:description" content="一些常见的正则表达式的备忘录。">
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Jiezhe's Blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="如鱼饮水，冷暖自知" type="application/atom+xml" />
 
 
 
 
-  <link rel="canonical" href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting.html"/>
+  <link rel="canonical" href="https://wangjiezhe.com/posts/2014-03-09-intro-for-regular-expression/"/>
 
 
 
@@ -138,7 +164,7 @@
   };
 </script>
 
-  <title>修改 NetworkManager wifi 热点的加密方式 | Jiezhe's Blog</title>
+  <title>正则表达式简介 | 如鱼饮水，冷暖自知</title>
   
 
 
@@ -196,14 +222,10 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Jiezhe's Blog</span>
+        <span class="site-title">如鱼饮水，冷暖自知</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
-        <p class="site-subtitle">蓝田生美玉，西风栽冷香</p>
-      
     
   </div>
 
@@ -303,16 +325,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting.html">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2014-03-09-intro-for-regular-expression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiezhe Wang">
-      <meta itemprop="description" content="我想要怒放的生命。。。">
+      <meta itemprop="name" content="西风冷香">
+      <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
       <meta itemprop="image" content="/images/camel.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jiezhe's Blog">
+      <meta itemprop="name" content="如鱼饮水，冷暖自知">
     </span>
 
     
@@ -320,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">修改 NetworkManager wifi 热点的加密方式
+          <h1 class="post-title" itemprop="name headline">正则表达式简介
               
             
           </h1>
@@ -345,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2014-03-22 00:00:00" itemprop="dateCreated datePublished" datetime="2014-03-22T00:00:00+08:00">2014-03-22</time>
+              <time title="创建时间：2014-03-09 00:00:00" itemprop="dateCreated datePublished" datetime="2014-03-09T00:00:00+08:00">2014-03-09</time>
             
 
             
@@ -362,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-05 07:32:09" itemprop="dateModified" datetime="2018-10-05T07:32:09+08:00">2018-10-05</time>
+                <time title="修改时间：2018-10-06 01:17:53" itemprop="dateModified" datetime="2018-10-06T01:17:53+08:00">2018-10-06</time>
               
             
           </span>
@@ -394,10 +416,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/posts/2014-03-22-NetworkManager-Hotspot-Setting.html#comments" itemprop="discussionUrl">
+                <a href="/posts/2014-03-09-intro-for-regular-expression/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/posts/2014-03-22-NetworkManager-Hotspot-Setting.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="/posts/2014-03-09-intro-for-regular-expression/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -411,7 +433,7 @@
           
 
           
-              <div class="post-description">在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）</div>
+              <div class="post-description">一些常见的正则表达式的备忘录。</div>
           
 
         </div>
@@ -427,28 +449,53 @@
       
 
       
-        <blockquote>
-<p><strong>Note: 在 Fedora 21 中, 默认的加密方式已改为 WPA</strong></p>
-</blockquote>
-<p>NetworkManager 共享 wifi 热点时默认的加密方式是 WEP, 这种加密方式早已被证明安全性较低.而 WPA 加密的安全性则相对较高.</p>
-<p>wifi 热点的配置文件为 <code>/etc/NetworkManager/system-connections/Hostpot</code>, 该文件须用 root 权限打开.</p>
-<p>修改:</p>
-<p>ssid: wifi 名称, 可改为自己想要的.</p>
-<p>key-mgmt: 加密方式, 有以下几种:</p>
+        <h2>元字符 (grep, sed)</h2>
+<h3>1. 句点元字符 <code>.</code></h3>
+<p>通配元字符，匹配任意字符，除了换行符。</p>
+<h3>2. 反斜杠元字符 <code>\\</code></h3>
+<p>将其后面的一个字符解释为普通字符而不是元字符。</p>
+<h3>3. 星号元字符 <code>\*</code></h3>
+<p>其紧挨着的之前的匹配有 0+ 次匹配机会。</p>
+<h3>4. 位置元字符 <code>^</code>, <code>$</code></h3>
+<p>^ 匹配字符串的最前面。
+$ 匹配字符串的最后面。</p>
+<h3>5. 字符组元字符 <code>[ ]</code>, 连字符元字符 <code>-</code>, 补字号 <code>^</code></h3>
+<p><code>[]</code> 匹配方括号内的左右字符。
+<code>\-</code> 连字符元字符仅在字符组元字符内有意义，表示一段连续字符范围。
+<code>^</code> 表示排除某些字符。</p>
+<h3>6. 范围字符串 <code>\\{ \\}</code></h3>
+<p><code>\\{n,m\\}</code> 匹配 n~m 次。
+<code>\\{n\\}</code> 匹配 n 次。
+<code>\\{n,\\}</code> 匹配 n+ 次。</p>
+<h3>7. 特殊字符类</h3>
+<p><code>[[:alpha:]]</code> 匹配任意字母字符，大写或小写
+<code>[[:alnum:]]</code> 匹配任意字母数字字符，0-9, a-z, A-Z
+<code>[[:blank:]]</code> 匹配空格或制表符字符
+<code>[[:digit:]]</code> 匹配任意数字字符，0-9
+<code>[[:lower:]]</code> 匹配任意小写字母，a-z
+<code>[[:print:]]</code> 匹配任意可打印字符
+<code>[[:punct:]]</code> 匹配任意标点
+<code>[[:space:]]</code> 匹配任意空白字符: 空格、制表符、NL、FF、VT、CR
+<code>[[:upper:]]</code> 匹配任意大写字符，A-Z</p>
+<h2>扩展元字符 (egrep, awk)</h2>
+<h3>1. 加号元字符 <code>+</code></h3>
+<p>其紧挨着的之前的匹配有 <strong>1+</strong> 次匹配机会。</p>
+<h3>2. 问号元字符 <code>?</code></h3>
+<p>其紧挨着的之前的匹配有 <strong>0~1</strong> 次匹配机会。</p>
+<h3>3. 竖线元字符 <code>|</code></h3>
+<p><code>r1|r2</code> 匹配 r1 或 r2</p>
+<h3>4. 括号元字符 <code>( )</code></h3>
+<p><code>(r1)</code> 匹配子字符串r1(常与 * + ? | 等连用)。</p>
+<h3>5. 范围元字符 <code>{ }</code></h3>
+<p>与上面的范围元字符类似。</p>
+<h2>固定元字符 (grep)</h2>
+<h3>1. <code>\\&lt; \\&gt;</code></h3>
+<p>严格匹配一个词(后面必须直接跟一个空格或标点符号)。</p>
+<p>参考:</p>
 <ul>
-<li>none: WEP</li>
-<li>ieee8021x: Dynamic WEP</li>
-<li>wpa-none: WPA-PSK Ad-Hoc</li>
-<li>wpa-psk: infrastructure WPA-PSK</li>
-<li>wpa-eap: WPA-Enterprise</li>
+<li>Linux Command Line and shell Scripting Bible, Richard Blum</li>
+<li>UNIX awk and sed PROGRAMMER'S INTERACTIVE WORKBOOK, Peter Patsis</li>
 </ul>
-<p>默认为 <code>key-mgmt=none</code>, 我将其修改为 <code>key-mgmt=wpa-psk</code>.</p>
-<p>下面原来两行</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wep-key0=</span><br><span class="line">wep-key-type=</span><br></pre></td></tr></table></figure></p>
-<p>为WEP密码和类型, 将其删去或注释掉, 改为</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psk=your_password</span><br></pre></td></tr></table></figure></p>
-<p>然后重启 NetworkManager 服务即可</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart NetworkManager.service</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -467,10 +514,10 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Jiezhe Wang</li>
+    <strong>本文作者： </strong>西风冷香</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting.html" title="修改 NetworkManager wifi 热点的加密方式">https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting.html</a>
+    <a href="https://wangjiezhe.com/posts/2014-03-09-intro-for-regular-expression/" title="正则表达式简介">https://wangjiezhe.com/posts/2014-03-09-intro-for-regular-expression/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -485,7 +532,13 @@
           
             <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/network/" rel="tag"># network</a>
+            <a href="/tags/sed/" rel="tag"># sed</a>
+          
+            <a href="/tags/regular-expression/" rel="tag"># regular expression</a>
+          
+            <a href="/tags/grep/" rel="tag"># grep</a>
+          
+            <a href="/tags/awk/" rel="tag"># awk</a>
           
         </div>
       
@@ -498,8 +551,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/2014-03-19-Linux-Notes-2.html" rel="next" title="Linux 随学随记 (2)">
-                <i class="fa fa-chevron-left"></i> Linux 随学随记 (2)
+              <a href="/posts/2014-03-02-Pipelight-use-eBank-on-Linux/" rel="next" title="Piplight 在 Linux 上使用网银">
+                <i class="fa fa-chevron-left"></i> Piplight 在 Linux 上使用网银
               </a>
             
           </div>
@@ -508,8 +561,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/2014-04-20-Linux-Notes-3.html" rel="prev" title="Linux 随学随记 (3)">
-                Linux 随学随记 (3) <i class="fa fa-chevron-right"></i>
+              <a href="/posts/2014-03-19-Linux-Notes-2/" rel="prev" title="Linux 随学随记 (2)">
+                Linux 随学随记 (2) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -565,17 +618,26 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
                 src="/images/camel.jpg"
-                alt="Jiezhe Wang" />
+                alt="西风冷香" />
             
-              <p class="site-author-name" itemprop="name">Jiezhe Wang</p>
-              <p class="site-description motion-element" itemprop="description">我想要怒放的生命。。。</p>
+              <p class="site-author-name" itemprop="name">西风冷香</p>
+              <p class="site-description motion-element" itemprop="description">某不知名机构不知名数学老师一枚</p>
           </div>
 
           
@@ -689,6 +751,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">元字符 (grep, sed)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">1. 句点元字符 .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">2. 反斜杠元字符 \\</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">3. 星号元字符 \*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">4. 位置元字符 ^, $</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">6. 范围字符串 \\{ \\}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.7.</span> <span class="nav-text">7. 特殊字符类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">扩展元字符 (egrep, awk)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">1. 加号元字符 +</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">2. 问号元字符 ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">3. 竖线元字符 |</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">4. 括号元字符 ( )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.5.</span> <span class="nav-text">5. 范围元字符 { }</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">固定元字符 (grep)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">1. \\&lt; \\&gt;</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -706,7 +784,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Jiezhe Wang</span>
+  <span class="author" itemprop="copyrightHolder">西风冷香</span>
 
   
 
@@ -855,9 +933,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting.html';
-        this.page.identifier = '/posts/2014-03-22-NetworkManager-Hotspot-Setting.html';
-        this.page.title = '修改 NetworkManager wifi 热点的加密方式';
+        this.page.url = 'https://wangjiezhe.com/posts/2014-03-09-intro-for-regular-expression/';
+        this.page.identifier = '/posts/2014-03-09-intro-for-regular-expression/';
+        this.page.title = '正则表达式简介';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

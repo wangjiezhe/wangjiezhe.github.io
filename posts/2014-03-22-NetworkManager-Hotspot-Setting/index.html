@@ -53,6 +53,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -108,27 +134,27 @@
 
 
 
-  <meta name="description" content="GBK 编码的 zip 文件正常解压（unzip，7z，file-roller）都会出现乱码，本文通过一个 python 脚本来彻底解决这个问题。">
-<meta name="keywords" content="linux,zip,encode">
+  <meta name="description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
+<meta name="keywords" content="linux,network">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 下 zip 解压的文件名乱码问题">
-<meta property="og:url" content="https://wangjiezhe.com/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html">
-<meta property="og:site_name" content="Jiezhe&#39;s Blog">
-<meta property="og:description" content="GBK 编码的 zip 文件正常解压（unzip，7z，file-roller）都会出现乱码，本文通过一个 python 脚本来彻底解决这个问题。">
+<meta property="og:title" content="修改 NetworkManager wifi 热点的加密方式">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/index.html">
+<meta property="og:site_name" content="如鱼饮水，冷暖自知">
+<meta property="og:description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-04T23:32:09.749Z">
+<meta property="og:updated_time" content="2018-10-05T17:17:53.348Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 下 zip 解压的文件名乱码问题">
-<meta name="twitter:description" content="GBK 编码的 zip 文件正常解压（unzip，7z，file-roller）都会出现乱码，本文通过一个 python 脚本来彻底解决这个问题。">
+<meta name="twitter:title" content="修改 NetworkManager wifi 热点的加密方式">
+<meta name="twitter:description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Jiezhe's Blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="如鱼饮水，冷暖自知" type="application/atom+xml" />
 
 
 
 
-  <link rel="canonical" href="https://wangjiezhe.com/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html"/>
+  <link rel="canonical" href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/"/>
 
 
 
@@ -138,7 +164,7 @@
   };
 </script>
 
-  <title>Linux 下 zip 解压的文件名乱码问题 | Jiezhe's Blog</title>
+  <title>修改 NetworkManager wifi 热点的加密方式 | 如鱼饮水，冷暖自知</title>
   
 
 
@@ -196,14 +222,10 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Jiezhe's Blog</span>
+        <span class="site-title">如鱼饮水，冷暖自知</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
-        <p class="site-subtitle">蓝田生美玉，西风栽冷香</p>
-      
     
   </div>
 
@@ -303,16 +325,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiezhe Wang">
-      <meta itemprop="description" content="我想要怒放的生命。。。">
+      <meta itemprop="name" content="西风冷香">
+      <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
       <meta itemprop="image" content="/images/camel.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jiezhe's Blog">
+      <meta itemprop="name" content="如鱼饮水，冷暖自知">
     </span>
 
     
@@ -320,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux 下 zip 解压的文件名乱码问题
+          <h1 class="post-title" itemprop="name headline">修改 NetworkManager wifi 热点的加密方式
               
             
           </h1>
@@ -345,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2014-08-14 00:00:00" itemprop="dateCreated datePublished" datetime="2014-08-14T00:00:00+08:00">2014-08-14</time>
+              <time title="创建时间：2014-03-22 00:00:00" itemprop="dateCreated datePublished" datetime="2014-03-22T00:00:00+08:00">2014-03-22</time>
             
 
             
@@ -362,7 +384,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-05 07:32:09" itemprop="dateModified" datetime="2018-10-05T07:32:09+08:00">2018-10-05</time>
+                <time title="修改时间：2018-10-06 01:17:53" itemprop="dateModified" datetime="2018-10-06T01:17:53+08:00">2018-10-06</time>
               
             
           </span>
@@ -394,10 +416,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html#comments" itemprop="discussionUrl">
+                <a href="/posts/2014-03-22-NetworkManager-Hotspot-Setting/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="/posts/2014-03-22-NetworkManager-Hotspot-Setting/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -411,7 +433,7 @@
           
 
           
-              <div class="post-description">GBK 编码的 zip 文件正常解压（unzip，7z，file-roller）都会出现乱码，本文通过一个 python 脚本来彻底解决这个问题。</div>
+              <div class="post-description">在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）</div>
           
 
         </div>
@@ -427,20 +449,28 @@
       
 
       
-        <p>在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题.</p>
-<p>一种方法是通过 wine 安装 7z 或 haozip 来解决.</p>
-<p>另一种方法是利用环境变量 + 7z + convmv 来解决.</p>
-<p>用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件:</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LC_ALL=C 7z x -oOUTDIR zipfile.zip</span><br></pre></td></tr></table></figure></p>
-<p>然后用 convmv 检测文件名的编码转换, 查看是否有乱码:</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convmv -f cp936 -t utf8-r *</span><br></pre></td></tr></table></figure></p>
-<p>如果没有乱码, 则可以进行转换:</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convmv -f cp936 -t utf8 --notest *</span><br></pre></td></tr></table></figure></p>
-<p>如果还要转换某个文件的编码, 则可以用 iconv :</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iconv -f cp936 -t utf8 -o outfile infile</span><br></pre></td></tr></table></figure></p>
-<p>网上还经常提到的一种方法是用 unzip 的 -O 选项, 可惜在新版的 unzip 中这一选项被移除了, 如果需要也可以自己打补丁, 不过个人感觉很麻烦.</p>
-<p>还有一种方法是用 python 来做. 网上有一个流传比较广的脚本, 不过功能不过完善, 下面的代码是在原代码基础上修改而成的，支持解压加密的压缩文件（一个是 python3 的版本，一个是 python2 的版本）:</p>
-<p>&lt;script src=&quot;https://gist.github.com/wangjiezhe/7841a350983a147b6d7e.js&quot;&gt;&lt;/script&gt;</p>
+        <blockquote>
+<p><strong>Note: 在 Fedora 21 中, 默认的加密方式已改为 WPA</strong></p>
+</blockquote>
+<p>NetworkManager 共享 wifi 热点时默认的加密方式是 WEP, 这种加密方式早已被证明安全性较低.而 WPA 加密的安全性则相对较高.</p>
+<p>wifi 热点的配置文件为 <code>/etc/NetworkManager/system-connections/Hostpot</code>, 该文件须用 root 权限打开.</p>
+<p>修改:</p>
+<p>ssid: wifi 名称, 可改为自己想要的.</p>
+<p>key-mgmt: 加密方式, 有以下几种:</p>
+<ul>
+<li>none: WEP</li>
+<li>ieee8021x: Dynamic WEP</li>
+<li>wpa-none: WPA-PSK Ad-Hoc</li>
+<li>wpa-psk: infrastructure WPA-PSK</li>
+<li>wpa-eap: WPA-Enterprise</li>
+</ul>
+<p>默认为 <code>key-mgmt=none</code>, 我将其修改为 <code>key-mgmt=wpa-psk</code>.</p>
+<p>下面原来两行</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wep-key0=</span><br><span class="line">wep-key-type=</span><br></pre></td></tr></table></figure></p>
+<p>为WEP密码和类型, 将其删去或注释掉, 改为</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psk=your_password</span><br></pre></td></tr></table></figure></p>
+<p>然后重启 NetworkManager 服务即可</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart NetworkManager.service</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -459,10 +489,10 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Jiezhe Wang</li>
+    <strong>本文作者： </strong>西风冷香</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://wangjiezhe.com/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html" title="Linux 下 zip 解压的文件名乱码问题">https://wangjiezhe.com/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html</a>
+    <a href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/" title="修改 NetworkManager wifi 热点的加密方式">https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -477,9 +507,7 @@
           
             <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/zip/" rel="tag"># zip</a>
-          
-            <a href="/tags/encode/" rel="tag"># encode</a>
+            <a href="/tags/network/" rel="tag"># network</a>
           
         </div>
       
@@ -492,8 +520,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/2014-04-20-Linux-Notes-3.html" rel="next" title="Linux 随学随记 (3)">
-                <i class="fa fa-chevron-left"></i> Linux 随学随记 (3)
+              <a href="/posts/2014-03-19-Linux-Notes-2/" rel="next" title="Linux 随学随记 (2)">
+                <i class="fa fa-chevron-left"></i> Linux 随学随记 (2)
               </a>
             
           </div>
@@ -502,8 +530,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/2015-08-20-Linux-Notes-4.html" rel="prev" title="Linux 随学随记 (4)">
-                Linux 随学随记 (4) <i class="fa fa-chevron-right"></i>
+              <a href="/posts/2014-04-20-Linux-Notes-3/" rel="prev" title="Linux 随学随记 (3)">
+                Linux 随学随记 (3) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -566,10 +594,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/images/camel.jpg"
-                alt="Jiezhe Wang" />
+                alt="西风冷香" />
             
-              <p class="site-author-name" itemprop="name">Jiezhe Wang</p>
-              <p class="site-description motion-element" itemprop="description">我想要怒放的生命。。。</p>
+              <p class="site-author-name" itemprop="name">西风冷香</p>
+              <p class="site-description motion-element" itemprop="description">某不知名机构不知名数学老师一枚</p>
           </div>
 
           
@@ -700,7 +728,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Jiezhe Wang</span>
+  <span class="author" itemprop="copyrightHolder">西风冷香</span>
 
   
 
@@ -849,9 +877,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://wangjiezhe.com/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html';
-        this.page.identifier = '/posts/2014-08-14-Linux-Zipfile-Bug-in-Chinese.html';
-        this.page.title = 'Linux 下 zip 解压的文件名乱码问题';
+        this.page.url = 'https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/';
+        this.page.identifier = '/posts/2014-03-22-NetworkManager-Hotspot-Setting/';
+        this.page.title = '修改 NetworkManager wifi 热点的加密方式';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
