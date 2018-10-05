@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Jiezhe's Blog
-subtitle: 蓝田生美玉，西风栽冷香
-description: 我想要怒放的生命。。。
+title: 如鱼饮水，冷暖自知
+subtitle:
+description: 某不知名机构不知名数学老师一枚
 keywords: OE
-author: Jiezhe Wang
+author: 西风冷香
 language: zh-CN
 timezone: Asia/Shanghai
 
@@ -15,7 +15,7 @@ timezone: Asia/Shanghai
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://wangjiezhe.com
 root: /
-permalink: /posts/:title.html # :year/:month/:day/:title/
+permalink: /posts/:title/ # :year/:month/:day/:title/
 permalink_defaults:
 
 # Directory
@@ -95,6 +95,7 @@ pagination_dir: page
 markdown:
   plugins:
     - markdown-it-katex
+    - markdown-it-task-lists
 
 sitemap:
   path: sitemap.xml
