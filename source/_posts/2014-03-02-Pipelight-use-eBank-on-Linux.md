@@ -1,3 +1,4 @@
+---
 title: Piplight 在 Linux 上使用网银
 categories:
   - Linux
