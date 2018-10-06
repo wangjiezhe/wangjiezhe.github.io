@@ -195,6 +195,460 @@ textarea {
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
+html {
+  line-height: 1.3;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+ol,
+ul {
+  padding-left: 2em;
+}
+figure,
+blockquote {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+address {
+  font-style: inherit;
+}
+pre {
+  overflow: auto;
+  white-space: pre;
+  word-wrap: normal;
+}
+a {
+  text-decoration: inherit;
+}
+em:lang(zh),
+em:lang(ja) {
+  -moz-text-emphasis: filled circle;
+  -webkit-text-emphasis: filled circle;
+  text-emphasis: filled circle;
+  -moz-text-emphasis-position: under;
+  -webkit-text-emphasis-position: under;
+  text-emphasis-position: under;
+  font-style: inherit;
+  border-bottom: 2px dotted;
+  padding-bottom: .05em;
+  border-bottom-width: -webkit-calc(0px);
+  padding-bottom: -webkit-calc(0px);
+}
+em:lang(ja) {
+  -moz-text-emphasis: filled sesame;
+  -webkit-text-emphasis: filled sesame;
+  text-emphasis: filled sesame;
+  -moz-text-emphasis-position: over;
+  -webkit-text-emphasis-position: over;
+  text-emphasis-position: over;
+}
+dfn:lang(zh),
+dfn:lang(ja) {
+  font-weight: inherit;
+  font-style: inherit;
+}
+dfn:lang(zh),
+dfn:lang(ja) {
+  font-weight: bolder;
+}
+cite:lang(zh),
+cite:lang(ja) {
+  font-style: inherit;
+}
+q {
+  quotes: "\201c" "\201d" "\2018" "\2019" "\201c" "\201d" "\2018" "\2019" "\201c" "\201d" "\2018" "\2019";
+}
+q:lang(zh) {
+  quotes: "\300c" "\300d" "\300e" "\300f" "\300c" "\300d" "\300e" "\300f" "\300c" "\300d" "\300e" "\300f";
+}
+q:lang(zh-CN),
+q:lang(en) {
+  quotes: "\201c" "\201d" "\2018" "\2019" "\201c" "\201d" "\2018" "\2019" "\201c" "\201d" "\2018" "\2019";
+}
+q:lang(en-GB) {
+  quotes: "\2018" "\2019" "\201c" "\201d" "\2018" "\2019" "\201c" "\201d" "\2018" "\2019" "\201c" "\201d";
+}
+q:before {
+  content: open-quote;
+}
+q:after {
+  content: close-quote;
+}
+q:lang(ja):before,
+q:lang(ja):after {
+  content: none;
+}
+code,
+kbd,
+samp,
+pre {
+  font-family: monospace, monospace, sans-serif;
+}
+i:lang(zh),
+var:lang(zh),
+i:lang(ja),
+var:lang(ja) {
+  font-family: cursive, serif;
+  font-style: inherit;
+}
+u + u,
+ins + u,
+u + ins,
+ins + ins,
+s + s,
+del + s,
+s + del,
+del + del,
+.han-js-rendered u.adjacent,
+.han-js-rendered ins.adjacent,
+.han-js-rendered s + s.adjacent,
+.han-js-rendered del + s.adjacent,
+.han-js-rendered s + del.adjacent,
+.han-js-rendered del + del.adjacent {
+  margin-left: .125em;
+}
+u,
+ins {
+  padding-bottom: .05em;
+  border-bottom: 1px solid;
+  text-decoration: none;
+}
+ruby rtc rt {
+  display: inline;
+  font-size: inherit;
+}
+ruby.zhuyin,
+ruby.mps {
+  display: ruby;
+  -webkit-ruby-position: inter-character;
+  ruby-position: inter-character;
+}
+ruby.zhuyin > rt,
+ruby.mps > rt {
+  -moz-transform: scale(.8);
+  -ms-transform: scale(.8);
+  -webkit-transform: scale(.8);
+  transform: scale(.8);
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  font-size: .5em;
+}
+ruby.zhuyin > rt:empty,
+ruby.mps > rt:empty {
+  display: none;
+}
+.han-js-rendered u + u,
+.han-js-rendered ins + u,
+.han-js-rendered u + ins,
+.han-js-rendered ins + ins,
+.han-js-rendered s + s,
+.han-js-rendered del + s,
+.han-js-rendered s + del,
+.han-js-rendered del + del {
+  margin-left: auto;
+}
+.textemphasis em:lang(zh) h-jinze,
+.textemphasis em:lang(ja) h-jinze {
+  display: inline;
+}
+.han-js-rendered em:lang(zh),
+.han-js-rendered em:lang(ja) {
+  padding-bottom: auto;
+  border-bottom-width: 0;
+}
+.no-textemphasis em:lang(zh),
+.no-textemphasis em:lang(ja) {
+  line-height: 2;
+}
+.no-textemphasis em:lang(zh) h-char,
+.no-textemphasis em:lang(ja) h-char {
+  position: relative;
+  font-style: inherit;
+}
+.no-textemphasis em:lang(zh) h-char:after,
+.no-textemphasis em:lang(ja) h-char:after {
+  -moz-text-emphasis: none;
+  -webkit-text-emphasis: none;
+  text-emphasis: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  text-decoration: none;
+  text-indent: 0;
+  -moz-transform: scale(.5);
+  -ms-transform: scale(.5);
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -250%;
+  overflow: hidden;
+  display: inline-block;
+  height: 1em;
+  width: 500%;
+  line-height: 1;
+  text-align: center;
+  text-indent: 0;
+  font-family: Georgia, "Times New Roman", Arial, !important;
+}
+em:lang(zh) h-char.punct,
+em:lang(ja) h-char.punct,
+em:lang(zh) h-char.biaodian,
+em:lang(ja) h-char.biaodian {
+  -moz-text-emphasis: none;
+  -webkit-text-emphasis: none;
+  text-emphasis: none;
+}
+.no-textemphasis em:lang(zh) h-char.punct:after,
+.no-textemphasis em:lang(ja) h-char.punct:after,
+.no-textemphasis em:lang(zh) h-char.biaodian:after,
+.no-textemphasis em:lang(ja) h-char.biaodian:after {
+  content: none !important;
+}
+.no-textemphasis em:lang(zh) h-char:after {
+  margin-top: 1em;
+  content: "\25cf";
+}
+.no-textemphasis em:lang(ja) h-char:after {
+  margin-top: -.7em;
+  content: "\fe45";
+}
+ruby.zhuyin h-zhuyin,
+ruby.mps h-zhuyin,
+h-ruby.zhuyin h-zhuyin {
+  position: relative;
+  letter-spacing: 0;
+}
+ruby.zhuyin h-diao,
+ruby.mps h-diao,
+h-ruby.zhuyin h-diao {
+  position: absolute;
+  right: -.9em;
+  bottom: .5em;
+  display: block;
+  font-size: 1.5em;
+}
+ruby.zhuyin h-diao h-char,
+ruby.mps h-diao h-char,
+h-ruby.zhuyin h-diao h-char {
+  -webkit-writing-mode: horizontal-tb;
+  writing-mode: horizontal-tb;
+}
+ruby.zhuyin [diao="˙"] h-diao,
+ruby.mps [diao="˙"] h-diao,
+h-ruby.zhuyin [diao="˙"] h-diao {
+  top: -.3em;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  font-size: 1em;
+}
+ruby.zhuyin [diao^="ㆴ"] h-diao,
+ruby.mps [diao^="ㆴ"] h-diao,
+h-ruby.zhuyin [diao^="ㆴ"] h-diao,
+ruby.zhuyin [diao^="ㆵ"] h-diao,
+ruby.mps [diao^="ㆵ"] h-diao,
+h-ruby.zhuyin [diao^="ㆵ"] h-diao,
+ruby.zhuyin [diao^="ㆶ"] h-diao,
+ruby.mps [diao^="ㆶ"] h-diao,
+h-ruby.zhuyin [diao^="ㆶ"] h-diao,
+ruby.zhuyin [diao^="ㆷ"] h-diao,
+ruby.mps [diao^="ㆷ"] h-diao,
+h-ruby.zhuyin [diao^="ㆷ"] h-diao,
+ruby.zhuyin [diao="󳆴"] h-diao,
+ruby.mps [diao="󳆴"] h-diao,
+h-ruby.zhuyin [diao="󳆴"] h-diao,
+ruby.zhuyin [diao="󳆵"] h-diao,
+ruby.mps [diao="󳆵"] h-diao,
+h-ruby.zhuyin [diao="󳆵"] h-diao,
+ruby.zhuyin [diao="󳆶"] h-diao,
+ruby.mps [diao="󳆶"] h-diao,
+h-ruby.zhuyin [diao="󳆶"] h-diao,
+ruby.zhuyin [diao="󳆷"] h-diao,
+ruby.mps [diao="󳆷"] h-diao,
+h-ruby.zhuyin [diao="󳆷"] h-diao {
+  right: -1em;
+  bottom: -.125em;
+  font-size: 1em;
+}
+h-ru[annotation] {
+  position: relative;
+  display: inline-table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  line-height: 1.1;
+  text-align: center;
+  vertical-align: 1em;
+}
+h-ru[annotation] > h-ru[annotation] {
+  vertical-align: -.1em;
+}
+h-ru[annotation] > h-ru,
+h-ru[annotation] > rb,
+h-ru[annotation] > rt {
+  line-height: 1;
+  text-align: center;
+}
+h-ru[annotation] > rt {
+  display: table-header-group;
+  height: 1em;
+  font-size: .5em;
+  white-space: nowrap;
+  word-break: normal;
+}
+h-ru[annotation] > rt:before,
+h-ru[annotation] > rt:after {
+  content: "\2006";
+}
+h-ru[order="0"] > rt,
+h-ruby[rightangle][doubleline] h-ru[order="0"] > rt {
+  display: table-header-group;
+}
+h-ru[order="1"] > rt,
+h-ruby[rightangle] h-ru[order="0"] > rt,
+h-ruby[rightangle][doubleline] h-ru[order="1"] > rt {
+  display: table-footer-group;
+}
+h-ru[order="0"] > h-ru[order="1"] {
+  vertical-align: .15em;
+}
+h-ruby[rightangle][doubleline] h-ru[order="0"] rt {
+  line-height: 1.5;
+}
+h-ruby[rightangle][doubleline] h-ru[annotation] {
+  vertical-align: .5em;
+}
+[zhuyin] h-zhuyin {
+  -moz-text-emphasis: none;
+  -webkit-text-emphasis: none;
+  text-emphasis: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  text-decoration: none;
+  text-indent: 0;
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  width: .4em;
+  vertical-align: text-top;
+}
+[zhuyin] h-zhuyin > * {
+  -moz-transform: scale(.4);
+  -ms-transform: scale(.4);
+  -webkit-transform: scale(.4);
+  transform: scale(.4);
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+  display: inline-block;
+}
+[zhuyin] h-yin {
+  position: absolute;
+  left: 0;
+  height: 1em;
+  vertical-align: top;
+  line-height: 1;
+}
+[zhuyin] h-diao {
+  position: absolute;
+  bottom: 0;
+  right: -.9em;
+  line-height: 1;
+}
+[zhuyin] h-yin:empty,
+[zhuyin] h-diao:empty {
+  display: none;
+}
+[zhuyin] [length="0"] {
+  margin-right: 0;
+}
+[zhuyin] [length="0"] h-zhuyin {
+  display: none;
+}
+[zhuyin] [length="1"] h-yin {
+  top: .3em;
+}
+[zhuyin] [length="1"] h-diao {
+  bottom: 0;
+}
+[zhuyin] [length="2"] h-yin {
+  top: .05em;
+}
+[zhuyin] [length="2"] h-diao {
+  bottom: -.3em;
+}
+[zhuyin] [length="3"] h-yin {
+  top: -.05em;
+  line-height: .85;
+}
+[zhuyin] [length="3"] h-diao {
+  bottom: -.35em;
+}
+[zhuyin] [diao="˙"] h-diao {
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: .06em;
+}
+[zhuyin] [diao="˙"] [length="1"] h-diao {
+  top: .15em;
+}
+[zhuyin] [diao="˙"] [length="2"] h-diao {
+  top: -.05em;
+}
+[zhuyin] [diao="˙"] [length="3"] h-diao {
+  top: -.2em;
+}
+[zhuyin] [diao="˪"] h-diao,
+[zhuyin] [diao="˫"] h-diao {
+  -moz-transform: scale(.6);
+  -ms-transform: scale(.6);
+  -webkit-transform: scale(.6);
+  transform: scale(.6);
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+}
+[zhuyin] [diao^="ㆴ"] h-diao,
+[zhuyin] [diao^="ㆵ"] h-diao,
+[zhuyin] [diao^="ㆶ"] h-diao,
+[zhuyin] [diao^="ㆷ"] h-diao,
+[zhuyin] [diao="󳆴"] h-diao,
+[zhuyin] [diao="󳆵"] h-diao,
+[zhuyin] [diao="󳆶"] h-diao,
+[zhuyin] [diao="󳆷"] h-diao {
+  bottom: -.6em;
+  margin-right: .3em;
+}
+[zhuyin] {
+  margin-right: .2em;
+  display: inline-block;
+  line-height: 1.8;
+}
+[rightangle] h-ru[annotation] {
+  vertical-align: 0;
+  line-height: 1;
+}
+[rightangle] rt:after {
+  content: "";
+  display: inline-block;
+  width: 1.2em;
+}
+h-ru h-ru[zhuyin] {
+  margin-top: -.4em;
+  margin-bottom: -.2em;
+  line-height: 1.8;
+}
+h-jinze,
+h-word {
+  display: inline-block;
+  text-indent: 0;
+}
 @font-face {
   font-family: "Han Heiti";
   src: local("Hiragino Sans GB"), local("Lantinghei TC Extralight"), local("Lantinghei SC Extralight"), local(FZLTXHB--B51-0), local(FZLTZHK--GBK1-0), local("Pingfang SC Light"), local("Pingfang TC Light"), local("Pingfang-SC-Light"), local("Pingfang-TC-Light"), local("Pingfang SC"), local("Pingfang TC"), local("Heiti SC Light"), local(STHeitiSC-Light), local("Heiti SC"), local("Heiti TC Light"), local(STHeitiTC-Light), local("Heiti TC"), local("Microsoft Yahei"), local("Microsoft Jhenghei"), local("Noto Sans CJK KR"), local("Noto Sans CJK JP"), local("Noto Sans CJK SC"), local("Noto Sans CJK TC"), local("Source Han Sans K"), local("Source Han Sans KR"), local("Source Han Sans JP"), local("Source Han Sans CN"), local("Source Han Sans HK"), local("Source Han Sans TW"), local("Source Han Sans TWHK"), local("Droid Sans Fallback");
@@ -1165,4 +1619,193 @@ h-ruby.romanization rt,
 ruby [annotation] rt,
 h-ruby [annotation] rt {
   font-family: "Romanization Sans", "Helvetica Neue", Helvetica, Arial, "Han Heiti", sans-serif;
+}
+.no-kaiti i,
+.no-kaiti var {
+  padding-bottom: .05em;
+  border-bottom: 3px double #d3d3d3;
+}
+h-hws,
+h-hws[hidden] {
+  display: inline;
+  font-family: Arial;
+}
+h-hws:before,
+h-hws[hidden]:before {
+  content: " ";
+  letter-spacing: -.04em;
+}
+code h-hws,
+code h-hws[hidden],
+kbd h-hws,
+kbd h-hws[hidden],
+samp h-hws,
+samp h-hws[hidden],
+pre h-hws,
+pre h-hws[hidden],
+h-hws.quote-inner,
+h-hws[hidden].quote-inner,
+h-hws.quote-outer:lang(zh-Hans),
+h-hws[hidden].quote-outer:lang(zh-Hans),
+h-hws.quote-outer:lang(zh-CN),
+h-hws[hidden].quote-outer:lang(zh-CN) {
+  display: none;
+}
+@font-face {
+  src: url("./font/han.woff2?v3.3.0") format("woff2"), url("./font/han.woff?v3.3.0") format("woff"), url("./font/han.otf?v3.3.0") format("opentype");
+  font-family: "Han Space";
+  unicode-range: U+20;
+}
+h-char.bd-hangable:lang(zh) h-cs,
+h-char.bd-hangable:lang(zh-Hant) h-cs,
+h-char.bd-hangable:lang(zh-TW) h-cs,
+h-char.bd-hangable:lang(zh-HK) h-cs,
+h-cs,
+h-char.bd-hangable:lang(zh) h-cs[hidden],
+h-char.bd-hangable:lang(zh-Hant) h-cs[hidden],
+h-char.bd-hangable:lang(zh-TW) h-cs[hidden],
+h-char.bd-hangable:lang(zh-HK) h-cs[hidden],
+h-cs[hidden] {
+  display: inline;
+  visibility: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+h-cs.hangable-outer,
+h-cs.hangable-outer[hidden] {
+  display: inline;
+  font: 1em "Han Space";
+}
+h-cs.hangable-outer:lang(zh-Hant),
+h-cs.hangable-outer[hidden]:lang(zh-Hant),
+h-cs.hangable-outer:lang(zh-TW),
+h-cs.hangable-outer[hidden]:lang(zh-TW),
+h-cs.hangable-outer:lang(zh-HK),
+h-cs.hangable-outer[hidden]:lang(zh-HK) {
+  display: none;
+}
+h-char.bd-hangable:lang(zh-Hans),
+h-char.bd-hangable:lang(zh-CN),
+h-char.bd-hangable:lang(ja) {
+  position: relative;
+}
+h-char.bd-hangable:lang(zh-Hans):after,
+h-char.bd-hangable:lang(zh-CN):after,
+h-char.bd-hangable:lang(ja):after {
+  display: none !important;
+}
+h-char.bd-hangable:lang(zh-Hans):before,
+h-char.bd-hangable:lang(zh-CN):before,
+h-char.bd-hangable:lang(ja):before {
+  display: inline !important;
+  content: " ";
+  font: 1em "Han Space", Menlo, Consolas, Courier;
+}
+h-char.bd-hangable:lang(zh-Hans) > h-inner,
+h-char.bd-hangable:lang(zh-CN) > h-inner,
+h-char.bd-hangable:lang(ja) > h-inner {
+  -moz-text-emphasis: none;
+  -webkit-text-emphasis: none;
+  text-emphasis: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  text-decoration: none;
+  text-indent: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  line-height: 1.1;
+}
+ruby h-char.bd-hangable:lang(zh-Hans) > h-inner,
+ruby h-char.bd-hangable:lang(zh-CN) > h-inner,
+ruby h-char.bd-hangable:lang(ja) > h-inner,
+h-ru h-char.bd-hangable:lang(zh-Hans) > h-inner,
+h-ru h-char.bd-hangable:lang(zh-CN) > h-inner,
+h-ru h-char.bd-hangable:lang(ja) > h-inner {
+  position: relative;
+}
+h-char.bd-jiya.bd-open:before,
+h-char.bd-jiya.bd-end:after,
+h-cs,
+h-cs[hidden] {
+  display: none;
+  visibility: hidden;
+  content: " ";
+  font: .825em Courier;
+  letter-spacing: 0;
+  white-space: normal;
+}
+h-cs.jinze-outer,
+h-cs.jinze-outer[hidden] {
+  display: inline;
+}
+h-char.bd-jiya.bd-open > h-inner {
+  margin-left: -.5em;
+}
+h-char.bd-jiya.bd-close > h-inner,
+h-char.bd-jiya.bd-cop > h-inner,
+h-char.bd-jiya[unicode="ff0e"] > h-inner {
+  letter-spacing: -.5em;
+}
+h-char.bd-jiya.bd-open:before,
+h-char.bd-jiya.bd-close:after,
+h-char.bd-jiya.bd-cop:after,
+h-char.bd-jiya[unicode="ff0e"]:after {
+  display: inline;
+}
+h-char.bd-jiya.bd-cop:lang(zh-Hant):after,
+h-char.bd-jiya.bd-cop:lang(zh-TW):after,
+h-char.bd-jiya.bd-cop:lang(zh-HK):after {
+  display: none;
+}
+h-char.bd-jiya.bd-cop:lang(zh-Hant) > h-inner,
+h-char.bd-jiya.bd-cop:lang(zh-TW) > h-inner,
+h-char.bd-jiya.bd-cop:lang(zh-HK) > h-inner {
+  letter-spacing: inherit;
+}
+h-char.bd-consecutive.bd-end:not(.end-portion):after,
+h-char.bd-consecutive.bd-open[prev="bd-open"]:before,
+h-cs.jiya-outer.bd-end:not(.end-portion) {
+  display: none;
+}
+h-cs.jiya-outer.bd-end[next="bd-open"] {
+  display: inline;
+}
+h-char.bd-consecutive.bd-open[prev*="bd-cop"]:lang(zh-Hant):before,
+h-char.bd-consecutive.bd-open[prev*="bd-cop"]:lang(zh-TW):before,
+h-char.bd-consecutive.bd-open[prev*="bd-cop"]:lang(zh-HK):before {
+  display: none;
+}
+h-cs.jiya-outer[prev*="bd-cop"]:lang(zh-Hant),
+h-cs.jiya-outer.bd-end:lang(zh-Hant),
+h-cs.jiya-outer[prev*="bd-cop"]:lang(zh-TW),
+h-cs.jiya-outer.bd-end:lang(zh-TW),
+h-cs.jiya-outer[prev*="bd-cop"]:lang(zh-HK),
+h-cs.jiya-outer.bd-end:lang(zh-HK) {
+  display: none;
+}
+h-char.bd-consecutive[unicode="b7"]:not(.end-portion),
+h-char.bd-consecutive[unicode="30fb"]:not(.end-portion) {
+  letter-spacing: -.5em;
+}
+h-char.bd-consecutive.bd-liga:not(.end-portion) {
+  margin-right: -.25em;
+}
+h-char[display-as] {
+  position: relative;
+  display: inline-block;
+}
+h-char[display-as] h-inner {
+  color: transparent;
+}
+h-char[display-as]:after {
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  content: attr(display-as);
+}
+h-char[display-as].comb-liga:after {
+  font-family: "Romanization Sans", "Zhuyin Kaiti";
 }
