@@ -8,7 +8,7 @@ pages:
     - npm install -g hexo-cli
     - npm install
     - npm deploy
-  artirfacts:
+  artifacts:
     paths:
       - public
   only:
