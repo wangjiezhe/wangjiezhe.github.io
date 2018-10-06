@@ -7,7 +7,7 @@ pages:
   script:
     - npm install -g hexo-cli
     - npm install
-    - npm deploy
+    - hexo deploy
   artifacts:
     paths:
       - public
