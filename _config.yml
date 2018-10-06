@@ -93,9 +93,23 @@ pagination_dir: page
   # content: true
 
 markdown:
+  render:
+    html: true
+    xhtml: false
+    breaks: false
+    linkify: true
+    typographer: true
+    quotes: '「」『』'
+  anchors:
+    level: 2
+    collisionSuffix: v
+    permalink: false
+    permalinkClass: header-anchor
+    permalinkSymbel: ¶
   plugins:
     - markdown-it-katex
     - markdown-it-task-lists
+    - markdown-it-emoji
 
 sitemap:
   path: sitemap.xml
