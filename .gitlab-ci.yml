@@ -1,5 +1,8 @@
 image: node:10.11.0
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 pages:
   cache:
     paths:
@@ -7,7 +10,6 @@ pages:
   script:
     - npm install -g hexo-cli
     - npm install
-    - git submodule update --init --recursive
     - hexo deploy
   artifacts:
     paths:
