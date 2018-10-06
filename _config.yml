@@ -110,6 +110,7 @@ markdown:
     - markdown-it-katex
     - markdown-it-task-lists
     - markdown-it-emoji
+    - markdown-it-attrs
 
 sitemap:
   path: sitemap.xml

@@ -5,7 +5,7 @@ categories:
 tags:
   - linux
   - zip
-  - encode
+  - 乱码
 date: 2014-08-14 00:00:00
 description: GBK 编码的 zip 文件正常解压（unzip，7z，file-roller）都会出现乱码，本文通过一个 python 脚本来彻底解决这个问题。
 ---
