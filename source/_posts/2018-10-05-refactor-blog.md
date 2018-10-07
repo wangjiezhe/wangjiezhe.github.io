@@ -131,6 +131,14 @@ $ cat package-lock.json | jq .dependencies.\"hexo-renderer-markdown-it\"
 
 不过遗憾的是，Gemini 的博文部分是不显示背景的，好像是把底层背景覆盖了。试了一下四种方案，好像只有 Gemini 是这个样子。。。
 
+#### note
+
+可以插入提示块，效果如 [在hexo-NexT中插入note提示块][37] 中所示，还是很有用的。不过在文档中完全没有提到，要不是仔细翻看配置文件根本发现不了。
+
+#### reading-progress
+
+可以在最上方显示阅读的进度条，以前也用过，这次也就加上了。
+
 
 ### 自动部署
 
@@ -195,3 +203,4 @@ $ cat package-lock.json | jq .dependencies.\"hexo-renderer-markdown-it\"
 [34]: https://github.com/wangjiezhe/Han/commit/6e8ce2592a4786b8ad7230a2d387177030c66caf
 [35]: https://github.com/theme-next/theme-next-han
 [36]: https://github.com/hustcc/canvas-nest.js
+[37]: https://jinnsjj.github.io/uncategorized/hexo-next-note/

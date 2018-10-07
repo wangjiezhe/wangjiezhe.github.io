@@ -72,18 +72,6 @@ pagination_dir: page
 
 # Extensions
 # Plugins: https://hexo.io/plugins/
-# plugins:
-  # - hexo-server
-  # - hexo-deployer-git
-  # - hexo-generator-index
-  # - hexo-generator-tag
-  # - hexo-generator-category
-  # - hexo-generator-feed
-  # - hexo-generator-sitemap
-  # - hexo-generator-baidu-sitemap
-  # - hexo-generator-search
-  # - hexo-renderer-pandoc
-  # - hexo-renderer-markdown-it
 
 # search:
   # path: search.xml
@@ -117,6 +105,12 @@ sitemap:
 
 baidusitemap:
   path: baidusitemap
+
+symbols_count_time:
+  symbols: true
+  time: false
+  total_symbols: true
+  total_time: false
 
 ## Themes: https://hexo.io/themes/
 theme: next
