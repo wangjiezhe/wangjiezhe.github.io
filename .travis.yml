@@ -18,6 +18,7 @@ before_install:
   - export TZ='Asia/Shanghai'
   - npm install hexo-cli -g
   - chmod +x ./publish.sh
+  - sed -i -e "s/all_minifier:\ false/all_minifier:\ true/" ./_config.yml
 
 install:
   - npm install
