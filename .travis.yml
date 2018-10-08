@@ -16,7 +16,7 @@ cache:
 
 before_install:
   - export TZ='Asia/Shanghai'
-  - npm install hexo-cli -g
+  - npm install -g hexo-cli gulp
   - chmod +x ./publish.sh
 
 install:
@@ -25,6 +25,8 @@ install:
 script:
   - hexo clean
   - hexo generate
+  - glup
+  - hexo deploy
 
 after_script:
   - ./publish.sh
