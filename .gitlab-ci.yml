@@ -8,11 +8,8 @@ pages:
     paths:
       - node_modules/
   script:
-    - npm install -g hexo-cli gulp
+    - npm install -g hexo-cli
     - npm install
-    - hexo clean
-    - hexo generate
-    - gulp
     - hexo deploy
   artifacts:
     paths:
