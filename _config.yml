@@ -112,6 +112,8 @@ symbols_count_time:
   total_symbols: true
   total_time: false
 
+all_minifier: false
+
 ## Themes: https://hexo.io/themes/
 theme: next
 
