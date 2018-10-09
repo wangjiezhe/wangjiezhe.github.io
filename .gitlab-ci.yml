@@ -1,4 +1,4 @@
-image: ubuntu:latest
+image: archlinux/base
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -8,10 +8,8 @@ pages:
     paths:
       - node_modules/
   before_script:
-    - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-    - apt-get update -y
-    - apt-get install -y build-essential nodejs libpng-dev
-    - npm install -g hexo-cli
+    - pacman -Sy
+    - pacman -S nodejs npm nodejs-hexo libpng
   script:
     - npm install
     - sed -i -e "s/all_minifier:\ false/all_minifier:\ true/" ./_config.yml
