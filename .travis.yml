@@ -12,7 +12,7 @@ addons:
   apt:
     update: true
     packages:
-      - libpng-dev
+      - libpng16-dev
 
 before_install:
   - export TZ='Asia/Shanghai'
