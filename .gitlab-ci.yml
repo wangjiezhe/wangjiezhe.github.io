@@ -12,7 +12,7 @@ pages:
       - node_modules/
   before_script:
     - apt-get update -y
-    - apt-get install -y libpng16-dev
+    - apt-get install -y libpng-dev
     - npm install -g hexo-cli
   script:
     - npm install
