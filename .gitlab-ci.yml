@@ -1,4 +1,4 @@
-image: archlinux/base
+image: base/devel
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
