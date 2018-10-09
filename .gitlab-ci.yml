@@ -1,20 +1,22 @@
-image: node:10.11.0
+image: ubunut:latest
+
+services:
+  - node:latest
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
-
-before_script:
-  - apt-get update -y
-  - apt-get install -y libpng16-dev
 
 pages:
   cache:
     paths:
       - node_modules/
-  script:
-    - sed -i -e "s/all_minifier:\ false/all_minifier:\ true/" ./_config.yml
+  before_script:
+    - apt-get update -y
+    - apt-get install -y libpng16-dev
     - npm install -g hexo-cli
+  script:
     - npm install
+    - sed -i -e "s/all_minifier:\ false/all_minifier:\ true/" ./_config.yml
     - hexo clean
     - hexo deploy
   artifacts:
