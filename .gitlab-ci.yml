@@ -8,7 +8,7 @@ pages:
     # paths:
       # - node_modules/
   before_script:
-    - pacman -Sy --noconfirm nodejs npm libpng
+    - pacman -Sy --noconfirm nodejs npm libpng git
     - npm install -g hexo
   script:
     - npm install
