@@ -41,23 +41,23 @@ description: 记录在 Fedora 上使用网银的过程。
 
 5\. 启动 chrome 浏览器, 打开 <chrome://plugins>, 应该可以看到以下内容:
 
-> ActiveX hosting plugin for NPAPI  
-> ActiveX hosting plugin for NPAPI r37  
-> Name:	ActiveX hosting plugin for NPAPI  
-> Description:	ActiveX hosting plugin for NPAPI r37  
-> Version:  
-> Location:	/usr/lib/pipelight/libpipelight-npactivex.so  
-> Type:	NPAPI  
-> Disable  
-> MIME types:  
-> MIME type	Description	File extensions  
-> application/x-itst-activex	ActiveX (\*.ocx)  
-> .ocx  
+> ActiveX hosting plugin for NPAPI
+> ActiveX hosting plugin for NPAPI r37
+> Name:	ActiveX hosting plugin for NPAPI
+> Description:	ActiveX hosting plugin for NPAPI r37
+> Version:
+> Location:	/usr/lib/pipelight/libpipelight-npactivex.so
+> Type:	NPAPI
+> Disable
+> MIME types:
+> MIME type	Description	File extensions
+> application/x-itst-activex	ActiveX (\*.ocx)
+> .ocx
 > application/activex-manager	ActiveXManager
 
 如果看到下列错误:
 
-> Pipelight Error (npactivex)!  
+> Pipelight Error (npactivex)!
 > Something went wrong, check the terminal output
 
 请从终端打开 chromium/google-chrome, 观察终端出错日志
@@ -104,9 +104,9 @@ description: 记录在 Fedora 上使用网银的过程。
 
 上面的博客还给出了其作者对支付宝的测试成功的 npactivex extension 的规则:
 
-> Mode: WildChar  
-> Pattern: https://\*.alipay.com/\*  
-> User Agent: MSIE9  
+> Mode: WildChar
+> Pattern: https://\*.alipay.com/\*
+> User Agent: MSIE9
 > Other helper scripts: dynamic ieevent
 
 不过, 在 npactivex extension 的设置页面中虽然有农业银行的的选项，但是我还是始终没有成功......

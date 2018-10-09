@@ -84,10 +84,10 @@ markdown:
   render:
     html: true
     xhtml: false
-    breaks: false
+    breaks: true
     linkify: true
     typographer: true
-    quotes: '「」『』'
+    # quotes: '「」『』'
   anchors:
     level: 2
     collisionSuffix: v
