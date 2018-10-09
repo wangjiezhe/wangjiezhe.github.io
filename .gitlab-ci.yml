@@ -5,7 +5,7 @@ variables:
 
 before_script:
   - apt-get update -y
-  - apt-get install -y libpng-dev
+  - apt-get install -y libpng16-dev
 
 pages:
   cache:
