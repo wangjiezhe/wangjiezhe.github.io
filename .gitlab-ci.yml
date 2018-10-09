@@ -9,7 +9,8 @@ pages:
       - node_modules/
   before_script:
     - pacman -Sy
-    - pacman -S nodejs npm nodejs-hexo libpng
+    - pacman -S nodejs npm libpng
+    - npm install -g hexo
   script:
     - npm install
     - sed -i -e "s/all_minifier:\ false/all_minifier:\ true/" ./_config.yml
