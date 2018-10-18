@@ -123,11 +123,11 @@ live2d:
   tagMode: false
   debug: false
   model:
-    use: shizuku
+    use: mikoto
   display:
     position: left
-    width: 130
-    height: 260
+    width: 100
+    height: 200
   mobile:
     show: true
 
