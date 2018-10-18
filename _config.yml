@@ -114,6 +114,23 @@ symbols_count_time:
 
 all_minifier: false
 
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: shizuku
+  display:
+    position: left
+    width: 130
+    height: 260
+  mobile:
+    show: true
+
 ## Themes: https://hexo.io/themes/
 theme: next
 
