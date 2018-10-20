@@ -1981,7 +1981,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #beff78;
+  background: #001f26;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3247,4 +3247,8 @@ ul.breadcrumb li+li:last-child {
   margin-bottom: 10px;
   color: #999;
   border-bottom-color: #555;
+}
+code {
+  color: #f00;
+  background: #fbf7f8;
 }
