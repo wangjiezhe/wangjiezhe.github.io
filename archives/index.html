@@ -36,10 +36,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
-
 
 
 
@@ -139,7 +135,20 @@
 
   
 
-
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://wangjiezhe.com");
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
 
 
   <meta name="description" content="某不知名机构不知名数学老师一枚">
@@ -771,6 +780,169 @@
 
       
 
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/posts/2014-03-01-Linux-Notes-1/" itemprop="url">
+              
+                <span itemprop="name">Linux 随学随记 (1)</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2014-03-01T00:00:00+08:00"
+              content="2014-03-01" >
+          03-01
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2013">2013</h1>
+          </div>
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/posts/2013-05-09-Thinking-2/" itemprop="url">
+              
+                <span itemprop="name">忽然想到（二）</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2013-05-09T01:31:00+08:00"
+              content="2013-05-09" >
+          05-09
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2012">2012</h1>
+          </div>
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/posts/2012-12-20-Thinking-1/" itemprop="url">
+              
+                <span itemprop="name">忽然想到（一）</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2012-12-20T14:00:00+08:00"
+              content="2012-12-20" >
+          12-20
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2009">2009</h1>
+          </div>
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/posts/2009-07-25-Xifengfu/" itemprop="url">
+              
+                <span itemprop="name">西风赋</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2009-07-25T16:54:00+08:00"
+              content="2009-07-25" >
+          07-25
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
     </div>
   </div>
   
@@ -778,10 +950,6 @@
   
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
 
 
 
@@ -1016,7 +1184,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">24k</span>
+    <span title="站点总字数">23k</span>
   
 
   
@@ -1087,10 +1255,13 @@
     
 
     
-	
+
     
   </div>
 
+  <div class="bg_content">
+    <canvas id="canvas"></canvas>
+  </div>
   
 
 <script type="text/javascript">
@@ -1116,19 +1287,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
   
 
 
-
-
-
-
-
-
-
-
-
-  
 
 
 
@@ -1159,12 +1330,12 @@
 
   
   
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+    <script type="text/javascript" src="/lib/dynamic-background/dynamic-background.js"></script>
   
 
 
@@ -1194,6 +1365,13 @@
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
 
+
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/click-love.js"></script>
+
+  <!-- 崩溃欺诈 -->
+<script type="text/javascript" src="/js/src/crash-cheat.js"></script>
 
 
   

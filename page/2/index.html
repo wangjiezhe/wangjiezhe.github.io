@@ -36,10 +36,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
-
 
 
 
@@ -139,7 +135,20 @@
 
   
 
-
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://wangjiezhe.com");
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
 
 
   <meta name="description" content="某不知名机构不知名数学老师一枚">
@@ -476,7 +485,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -636,7 +645,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.7k</span>
+                <span title="本文字数">1.6k</span>
               
 
               
@@ -654,7 +663,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -832,7 +841,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1010,7 +1019,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1301,7 +1310,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">24k</span>
+    <span title="站点总字数">23k</span>
   
 
   
@@ -1372,10 +1381,13 @@
     
 
     
-	
+
     
   </div>
 
+  <div class="bg_content">
+    <canvas id="canvas"></canvas>
+  </div>
   
 
 <script type="text/javascript">
@@ -1401,19 +1413,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
   
 
 
-
-
-
-
-
-
-
-
-
-  
 
 
 
@@ -1444,12 +1456,12 @@
 
   
   
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+    <script type="text/javascript" src="/lib/dynamic-background/dynamic-background.js"></script>
   
 
 
@@ -1479,6 +1491,13 @@
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
 
+
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/click-love.js"></script>
+
+  <!-- 崩溃欺诈 -->
+<script type="text/javascript" src="/js/src/crash-cheat.js"></script>
 
 
   
