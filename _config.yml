@@ -129,7 +129,7 @@ live2d:
     width: 100
     height: 200
   mobile:
-    show: true
+    show: false
 
 ## Themes: https://hexo.io/themes/
 theme: next
