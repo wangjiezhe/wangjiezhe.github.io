@@ -15,10 +15,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -39,8 +39,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -59,7 +59,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -86,9 +86,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
@@ -159,19 +159,19 @@
 <meta property="og:site_name" content="如鱼饮水 冷暖自知">
 <meta property="og:description" content="重新构建了博客的页面，记录了一些遇到的问题和解决办法。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-22T19:22:39.381Z">
+<meta property="og:updated_time" content="2018-10-22T19:30:25.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客的重构与回顾">
 <meta name="twitter:description" content="重新构建了博客的页面，记录了一些遇到的问题和解决办法。">
 
 
 
-  <link rel="alternate" href="/atom.xml" title="如鱼饮水 冷暖自知" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="如鱼饮水 冷暖自知" type="application/atom+xml">
 
 
 
 
-  <link rel="canonical" href="https://wangjiezhe.com/posts/2018-10-05-refactor-blog/"/>
+  <link rel="canonical" href="https://wangjiezhe.com/posts/2018-10-05-refactor-blog/">
 
 
 
@@ -221,7 +221,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -231,7 +231,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -267,7 +267,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
   </li>
         
         
@@ -275,7 +275,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
   </li>
         
         
@@ -283,7 +283,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
   </li>
         
         
@@ -291,7 +291,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
   </li>
 
       
@@ -301,7 +301,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
@@ -321,9 +321,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -370,20 +368,20 @@
     <div class="reading-progress-bar"></div>
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2018-10-05-refactor-blog/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="西风冷香">
       <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
       <meta itemprop="image" content="/images/camel.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="如鱼饮水 冷暖自知">
     </span>
 
@@ -424,7 +422,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -435,7 +433,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a></span>
 
                 
                 
@@ -452,11 +450,10 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
+            <span class="post-meta-item-icon">
             <i class="fa fa-eye"></i>
              阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -531,7 +528,7 @@
 <p>另外吐槽一句，npmjs 上的 hexo-renderer-markdown-it 的版本太老了，直接安装 <a href="https://github.com/hexojs/hexo-renderer-markdown-it" target="_blank" rel="noopener">Github</a> 上的版本就可以了，这个插件已经更新了，但仓库里的模块还没有更新。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ cat package-lock.json | jq .dependencies.\<span class="string">"hexo-renderer-markdown-it\"</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">  "</span>version<span class="string">": "</span>github:hexojs/hexo-renderer-markdown-it<span class="comment">#89a5abe048f5a43b42328ad012fb445ded6e665b",</span></span><br><span class="line">  <span class="string">"from"</span>: <span class="string">"github:hexojs/hexo-renderer-markdown-it"</span>,</span><br><span class="line">  <span class="string">"requires"</span>: &#123;</span><br><span class="line">    <span class="string">"lodash.assign"</span>: <span class="string">"^4.2.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it"</span>: <span class="string">"^8.4.1"</span>,</span><br><span class="line">    <span class="string">"markdown-it-abbr"</span>: <span class="string">"^1.0.4"</span>,</span><br><span class="line">    <span class="string">"markdown-it-cjk-breaks"</span>: <span class="string">"^1.1.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-container"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-deflist"</span>: <span class="string">"^2.0.3"</span>,</span><br><span class="line">    <span class="string">"markdown-it-emoji"</span>: <span class="string">"^1.4.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-footnote"</span>: <span class="string">"^3.0.1"</span>,</span><br><span class="line">    <span class="string">"markdown-it-ins"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-mark"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-sub"</span>: <span class="string">"^1.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-sup"</span>: <span class="string">"^1.0.0"</span>,</span><br><span class="line">    <span class="string">"sluggo"</span>: <span class="string">"^0.2.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>不过该模块会使得 <code>&lt;!-- more --&gt;</code> 失效，需要写成</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="built_in">escape</span>&gt;<span class="xml"><span class="comment">&lt;!-- more --&gt;</span><span class="tag">&lt;/<span class="name">escape</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">escape</span>&gt;</span><span class="comment">&lt;!-- more --&gt;</span><span class="tag">&lt;/<span class="name">escape</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>才行。</p>
 <p>不过我不喜欢一点进来就到文章半截的模式，所以对我来说没有什么影响，还是乖乖地写 description 吧。</p>
 <p>另外这一部分文档严重不足，只能看自带 <a href="https://github.com/hexojs/hexo-renderer-markdown-it/wiki/Advanced-Configuration" target="_blank" rel="noopener">wiki</a> 和 markdown-it 的例子来写。</p>
@@ -636,7 +633,7 @@
                <div>
                  <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <div class="addthis_inline_share_toolbox">
-  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bbaf8fb7c9957e3" async = "async" ></script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bbaf8fb7c9957e3" async="async"></script>
 </div>
 
                </div>
@@ -726,12 +723,10 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
               <a href="/">
-              <img class="site-author-image" itemprop="image"
-                src="/images/camel.jpg"
-                alt="西风冷香" />
+              <img class="site-author-image" itemprop="image" src="/images/camel.jpg" alt="西风冷香">
               </a>
             
               <p class="site-author-name" itemprop="name">西风冷香</p>
