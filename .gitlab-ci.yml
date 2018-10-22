@@ -4,14 +4,15 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 pages:
-  # cache:
-    # paths:
-      # - node_modules/
+  cache:
+    paths:
+      - node_modules/
   before_script:
-    - pacman -Sy --noconfirm nodejs npm libpng git
-    - npm install -g hexo
+    - pacman -Sy --noconfirm nodejs yarn libpng git
+    - export PATH=$(yarn global bin):PATH
+    - yarn global add hexo
   script:
-    - npm install
+    - yarn
     # - sed -i -e "s/all_minifier:\ false/all_minifier:\ true/" ./_config.yml
     - hexo clean
     - hexo deploy
