@@ -1962,7 +1962,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1a8675;
+  background: #ff593c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3286,21 +3286,23 @@ code {
 }
 @font-face {
   font-family: "GuDianMingChaoTi";
-  src: url("/fonts/WenYue-GuDianMingChaoTi-NC-W5.otf");
+  src: url("../fonts/GuDianMingChaoTi.eot"); /* IE9 */
+  src: url("../fonts/GuDianMingChaoTi.eot?#iefix") format("embedded-opentype"), url("../fonts/GuDianMingChaoTi.woff") format("woff"), url("../fonts/GuDianMingChaoTi.ttf") format("truetype"), url("../fonts/GuDianMingChaoTi.svg#WenYue GuDianMingChaoTi (Non-Commercial Use) W5") format("svg"); /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
 }
 @font-face {
-  font-family: "GuYaSong";
-  src: url("/fonts/WenYue-XHGuYaSong-NC.otf");
-}
-@font-face {
-  font-family: "XinWeiTi";
-  src: url("/fonts/WenYue-ZHJXinWeiTi-NC.otf");
+  font-family: "ZHJXinWeiTi";
+  src: url("ZHJXinWeiTi.eot"); /* IE9 */
+  src: url("../fonts/ZHJXinWeiTi.eot?#iefix") format("embedded-opentype"), url("../fonts/ZHJXinWeiTi.woff") format("woff"), url("../fonts/ZHJXinWeiTi.ttf") format("truetype"), url("../fonts/ZHJXinWeiTi.svg#WenYue ZHJXinWeiTi (Non-Commercial Use)") format("svg"); /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
 }
 .site-title {
   font-family: "GuDianMingChaoTi";
   font-size: 22px;
 }
 .site-author-name {
-  font-family: "XinWeiTi";
+  font-family: "ZHJXinWeiTi";
   font-weight: normal;
 }
