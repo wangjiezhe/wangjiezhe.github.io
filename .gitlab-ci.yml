@@ -9,7 +9,7 @@ pages:
       - node_modules/
   before_script:
     - pacman -Sy --noconfirm nodejs yarn libpng git
-    - export PATH=$(yarn global bin):PATH
+    - export PATH=$(yarn global bin):$PATH
     - yarn global add hexo
   script:
     - yarn
