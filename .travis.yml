@@ -6,6 +6,7 @@ node_js:
 
 cache:
   apt: true
+  yarn: true
   directories:
     - node_modules
 
@@ -17,19 +18,29 @@ addons:
 
 before_install:
   - export TZ='Asia/Shanghai'
-  - npm install hexo-cli -g
-  - chmod +x ./publish.sh
+  - export PATH=$(yarn global bin):$PATH
+  - yarn global add hexo
   # - sed -i -e "s/all_minifier:\ false/all_minifier:\ true/" ./_config.yml
 
 install:
-  - npm install
+  - yarn
 
 script:
   - hexo clean
   - hexo generate
 
 after_script:
-  - ./publish.sh
+  - git clone https://${GH_REF} .deploy_git
+  - cd .deploy_git
+  - git checkout master
+  - cd ../
+  - mv .deploy_git/.git/ ./public/
+  - cd ./public
+  - git config user.name wangjiezhe
+  - git config user.email wangjiezhe@gmail.com
+  - git add .
+  - git commit -m "Travis CI Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 
 branches:
   only:
