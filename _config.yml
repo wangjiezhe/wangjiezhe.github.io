@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 如鱼饮水，冷暖自知
+title: 如鱼饮水 冷暖自知
 subtitle:
 description: 某不知名机构不知名数学老师一枚
 keywords: OE
@@ -26,7 +26,9 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render: README.md
+skip_render:
+  - README.md
+  - CNAME
 
 # Writing
 new_post_name: :title.md # File name of new posts
