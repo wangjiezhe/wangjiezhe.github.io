@@ -7,7 +7,7 @@ tags:
     - archlinux
     - hexo
 categories:
-    - Blog
+    - 博客
 description: 重新构建了博客的页面，记录了一些遇到的问题和解决办法。
 ---
 
