@@ -1,0 +1,51 @@
+language: node_js
+dist: xenial
+
+node_js:
+  - '10'
+
+cache:
+  apt: true
+  yarn: true
+  directories:
+    - node_modules
+
+addons:
+  apt:
+    update: true
+    packages:
+      - libpng16-dev
+
+before_install:
+  - export TZ='Asia/Shanghai'
+  - export PATH=$(yarn global bin):$PATH
+  - yarn global add hexo
+  # - sed -i -e "s/all_minifier:\ false/all_minifier:\ true/" ./_config.yml
+
+install:
+  - yarn
+
+script:
+  - hexo clean
+  - hexo generate
+
+after_script:
+  - git clone https://${GH_REF} .deploy_git
+  - cd .deploy_git
+  - git checkout master
+  - cd ../
+  - mv .deploy_git/.git/ .travis.yml ./public/
+  - cd ./public
+  - git config user.name wangjiezhe
+  - git config user.email wangjiezhe@gmail.com
+  - git add .
+  - git commit -m "Travis CI Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+
+branches:
+  only:
+    source
+
+env:
+  global:
+    - GH_REF: github.com/wangjiezhe/wangjiezhe.github.io

@@ -292,8 +292,8 @@ a:hover,
 span.exturl:hover,
 a:active,
 span.exturl:active {
-  color: #0684bd;
-  border-bottom-color: #0684bd;
+  color: #0b346e;
+  border-bottom-color: #0b346e;
 }
 blockquote {
   margin: 0;
@@ -991,8 +991,8 @@ pre .javascript .function {
   line-height: 2;
 }
 .btn:hover {
-  border-color: #0684bd;
-  color: #0684bd;
+  border-color: #113285;
+  color: #113285;
   background: #fff;
 }
 .btn +.btn {
@@ -1628,7 +1628,7 @@ pre .javascript .function {
   border-bottom: none;
 }
 .post-nav-item a:hover {
-  color: #0684bd;
+  color: #0b346e;
   border-bottom: none;
 }
 .post-nav-item a:active {
@@ -1962,7 +1962,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9eff36;
+  background: #f15b16;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2096,7 +2096,7 @@ pre .javascript .function {
 .with-love {
   display: inline-block;
   margin: 0 5px;
-  color: #ff0000;
+  color: #663A7C;
 }
 .powered-by,
 .theme-info,
@@ -3229,8 +3229,8 @@ ul.breadcrumb li+li:last-child {
   border-bottom-color: #555;
 }
 code {
-  color: #f00;
-  background: #fbf7f8;
+  color: #cb1b45;
+  background: #fcfaf2;
 }
 .bg_content {
   position: fixed;
@@ -3273,6 +3273,9 @@ code {
 .post-copyright {
   border-radius: 10px;
 }
+blockquote {
+  border-radius: 10px;
+}
 .copy-btn {
   border-radius: 20px !important;
   background-color: #fff !important;
@@ -3283,6 +3286,7 @@ code {
 }
 .back-to-top {
   border-radius: 20px;
+  background: #8a6bbe;
 }
 @font-face {
   font-family: "GuDianMingChaoTi";
@@ -3305,4 +3309,22 @@ code {
 .site-author-name {
   font-family: "ZHJXinWeiTi";
   font-weight: normal;
+}
+.site-meta {
+  background: #66327c;
+}
+.footer-inner {
+  color: #66327c;
+}
+.post-body p a,
+.post-body ul a,
+.post-copyright a {
+  color: #005caf;
+  border-bottom: none;
+}
+.post-body p a:hover,
+.post-body ul a:hover,
+.post-copyright a:hover {
+  color: #0b346e;
+  border-bottom: 1px dashed;
 }
