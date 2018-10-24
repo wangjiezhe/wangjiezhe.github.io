@@ -90,25 +90,48 @@ search:
   limit: 10000
   content: true
 
-markdown:
-  render:
+# markdown:
+#   render:
+#     html: true
+#     xhtml: false
+#     breaks: true
+#     linkify: true
+#     typographer: true
+#     # quotes: '「」『』'
+#   anchors:
+#     level: 2
+#     collisionSuffix: v
+#     permalink: false
+#     permalinkClass: header-anchor
+#     permalinkSymbel: ¶
+#   plugins:
+#     - markdown-it-katex
+#     - markdown-it-task-lists
+#     - markdown-it-emoji
+#     - markdown-it-attrs
+
+markdown_it_plus:
+    highlight: true
     html: true
-    xhtml: false
+    xhtmlOut: true
     breaks: true
+    # langPrefix:
     linkify: true
-    typographer: true
-    # quotes: '「」『』'
-  anchors:
-    level: 2
-    collisionSuffix: v
-    permalink: false
-    permalinkClass: header-anchor
-    permalinkSymbel: ¶
-  plugins:
-    - markdown-it-katex
-    - markdown-it-task-lists
-    - markdown-it-emoji
-    - markdown-it-attrs
+    # typographer:
+    # quotes: “”‘’
+    plugins:
+    #     - plugin:
+    #         name: markdown-it-mark
+    #         enable: false
+      - plugin:
+          name: markdown-it-task-lists
+          enable: true
+      - plugin:
+          name: markdown-it-emoji
+          enable: true
+      - plugin:
+          name: markdown-it-attrs
+          enable: true
 
 sitemap:
   path: sitemap.xml

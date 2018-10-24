@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@iktakahiro/markdown-it-katex@^3.0.3":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@iktakahiro/markdown-it-katex/-/markdown-it-katex-3.0.4.tgz#d2bf19f5e94cb6aa5111de258a21839e63e2468f"
+  integrity sha512-yfxYr9eJ/2coJmju3Rh1TKSOhsnwmBwHgBkDwJ/IgK4qFNzFvMOqIW/I6m3NGwRIVc1NoN528qkwysZDrFDa/Q==
+  dependencies:
+    katex "^0.9.0"
+
 "@types/node@*":
   version "10.12.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.0.tgz#ea6dcbddbc5b584c83f06c60e82736d8fbb0c235"
@@ -793,6 +800,11 @@ clone@^1.0.0:
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
   integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
 
+clone@^2.1.1:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
+  integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
+
 co@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/co/-/co-3.1.0.tgz#4ea54ea5a08938153185e15210c68d9092bc1b78"
@@ -1451,11 +1463,6 @@ each-async@^1.0.0, each-async@^1.1.1:
   dependencies:
     onetime "^1.0.0"
     set-immediate-shim "^1.0.0"
-
-eastasianwidth@~0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/eastasianwidth/-/eastasianwidth-0.2.0.tgz#696ce2ec0aa0e6ea93a397ffcf24aa7840c827cb"
-  integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 easy-extender@^2.3.4:
   version "2.3.4"
@@ -2490,15 +2497,16 @@ hexo-renderer-ejs@^0.3.1:
     ejs "^2.3.4"
     object-assign "^4.0.1"
 
-"hexo-renderer-markdown-it@github:hexojs/hexo-renderer-markdown-it":
-  version "3.4.2"
-  resolved "https://codeload.github.com/hexojs/hexo-renderer-markdown-it/tar.gz/89a5abe048f5a43b42328ad012fb445ded6e665b"
+hexo-renderer-markdown-it-plus@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/hexo-renderer-markdown-it-plus/-/hexo-renderer-markdown-it-plus-1.0.4.tgz#b0962e75bafa4940ade9c1d7a97dfe50dd034066"
+  integrity sha512-JUCTQEy0s96IenfliN/gHxej/9z8gBwb7YzsFpcStk8PNKYfjKK1vluOljlx5JpxOjrOE2Vhtr17Yzns+Xms8Q==
   dependencies:
-    lodash.assign "^4.2.0"
-    markdown-it "^8.4.1"
+    "@iktakahiro/markdown-it-katex" "^3.0.3"
+    clone "^2.1.1"
+    highlight.js "^9.12.0"
+    markdown-it "^8.3.1"
     markdown-it-abbr "^1.0.4"
-    markdown-it-cjk-breaks "^1.1.0"
-    markdown-it-container "^2.0.0"
     markdown-it-deflist "^2.0.3"
     markdown-it-emoji "^1.4.0"
     markdown-it-footnote "^3.0.1"
@@ -2506,7 +2514,8 @@ hexo-renderer-ejs@^0.3.1:
     markdown-it-mark "^2.0.0"
     markdown-it-sub "^1.0.0"
     markdown-it-sup "^1.0.0"
-    sluggo "^0.2.0"
+    markdown-it-toc "^1.1.0"
+    uslug "^1.0.4"
 
 hexo-renderer-stylus@^0.3.3:
   version "0.3.3"
@@ -2581,7 +2590,7 @@ hexo@^3.0.0, hexo@^3.7.0:
     titlecase "^1.1.2"
     warehouse "^2.2.0"
 
-highlight.js@^9.4.0:
+highlight.js@^9.12.0, highlight.js@^9.4.0:
   version "9.13.1"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.13.1.tgz#054586d53a6863311168488a0f58d6c505ce641e"
   integrity sha512-Sc28JNQNDzaH6PORtRLMvif9RSn1mYuOoX3omVjnb0+HbpPygU2ALBI0R/wsiqCb4/fcp07Gdo8g+fhtFrQl6A==
@@ -3200,6 +3209,13 @@ katex@^0.6.0:
   dependencies:
     match-at "^0.1.0"
 
+katex@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.9.0.tgz#26a7d082c21d53725422d2d71da9b2d8455fbd4a"
+  integrity sha512-lp3x90LT1tDZBW2tjLheJ98wmRMRjUHwk4QpaswT9bhqoQZ+XA4cPcjcQBxgOQNwaOSt6ZeL/a6GKQ1of3LFxQ==
+  dependencies:
+    match-at "^0.1.1"
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -3330,11 +3346,6 @@ lodash._root@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/lodash._root/-/lodash._root-3.0.1.tgz#fba1c4524c19ee9a5f8136b4609f017cf4ded692"
   integrity sha1-+6HEUkwZ7ppfgTa0YJ8BfPTe1pI=
-
-lodash.assign@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.assign/-/lodash.assign-4.2.0.tgz#0d99f3ccd7a6d261d19bdaeb9245005d285808e7"
-  integrity sha1-DZnzzNem0mHRm9rrkkUAXShYCOc=
 
 lodash.assignin@^4.0.9:
   version "4.2.0"
@@ -3553,18 +3564,6 @@ markdown-it-attrs@^2.3.2:
   resolved "https://registry.yarnpkg.com/markdown-it-attrs/-/markdown-it-attrs-2.3.2.tgz#7068c40571735e1b0f5c412ac802627a9fd0db01"
   integrity sha512-DyatNvpatg7w+fGkplWGeie7o/0TogBr2w0izyz9ZQfTMv5G3lbDHQFQ42aP2e5L2mJQt0IeAjWzvYaa2d9xzQ==
 
-markdown-it-cjk-breaks@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/markdown-it-cjk-breaks/-/markdown-it-cjk-breaks-1.1.0.tgz#1feffa3fd27132344d598e115a236e9d01196622"
-  integrity sha512-X3c+v5QoxK2slwg76+zUwVro4Mi12k4bReDqYK3pViQXlsblooDpZwt/KMLfH1cqtpVxxBYzcX/je8y99ko0ig==
-  dependencies:
-    eastasianwidth "~0.2.0"
-
-markdown-it-container@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/markdown-it-container/-/markdown-it-container-2.0.0.tgz#0019b43fd02eefece2f1960a2895fba81a404695"
-  integrity sha1-ABm0P9Au7+zi8ZYKKJX7qBpARpU=
-
 markdown-it-deflist@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/markdown-it-deflist/-/markdown-it-deflist-2.0.3.tgz#5727db04184d3cb2bc6ee4a9641e3a1091d5fd6f"
@@ -3612,7 +3611,12 @@ markdown-it-task-lists@^2.1.1:
   resolved "https://registry.yarnpkg.com/markdown-it-task-lists/-/markdown-it-task-lists-2.1.1.tgz#f68f4d2ac2bad5a2c373ba93081a1a6848417088"
   integrity sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==
 
-markdown-it@^8.4.1:
+markdown-it-toc@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-toc/-/markdown-it-toc-1.1.0.tgz#6d189858e32b3deb4ff3ad2713fa927439c957e0"
+  integrity sha1-bRiYWOMrPetP860nE/qSdDnJV+A=
+
+markdown-it@^8.3.1:
   version "8.4.2"
   resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.4.2.tgz#386f98998dc15a37722aa7722084f4020bdd9b54"
   integrity sha512-GcRz3AWTqSUphY3vsUqQSFMbgR38a4Lh3GWlHRh/7MRwz8mcu9n2IO7HOh+bXHrR9kOPDl5RNCaEsrneb+xhHQ==
@@ -3630,7 +3634,7 @@ markdown@~0.5.0:
   dependencies:
     nopt "~2.1.1"
 
-match-at@^0.1.0:
+match-at@^0.1.0, match-at@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/match-at/-/match-at-0.1.1.tgz#25d040d291777704d5e6556bbb79230ec2de0540"
   integrity sha512-h4Yd392z9mST+dzc+yjuybOGFNOZjmXIPKWjxBd1Bb23r4SmDOsk2NYCU2BMUBGbSpZqwVsZYNq26QS3xfaT3Q==
@@ -4862,11 +4866,6 @@ signal-exit@^3.0.0:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
-sluggo@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/sluggo/-/sluggo-0.2.0.tgz#5d0bcb28d70c8c1eee773feec626d15189689cbf"
-  integrity sha1-XQvLKNcMjB7udz/uxibRUYlonL8=
-
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/snapdragon-node/-/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"
@@ -5557,6 +5556,11 @@ universalify@^0.1.0:
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
   integrity sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
 
+"unorm@>= 1.0.0":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/unorm/-/unorm-1.4.1.tgz#364200d5f13646ca8bcd44490271335614792300"
+  integrity sha1-NkIA1fE2RsqLzURJAnEzVhR5IwA=
+
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
@@ -5618,6 +5622,13 @@ use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
+
+uslug@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/uslug/-/uslug-1.0.4.tgz#b9a22f0914e0a86140633dacc302e5f4fa450677"
+  integrity sha1-uaIvCRTgqGFAYz2swwLl9PpFBnc=
+  dependencies:
+    unorm ">= 1.0.0"
 
 util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   version "1.0.2"
