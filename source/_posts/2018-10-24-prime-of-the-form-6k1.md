@@ -75,7 +75,7 @@ $$
 $$
 N = \left(\prod_{p \in P} p\right)^2+3
 $$
-设  $\prod_{p \in P} p=2c+1$，则 $N=4(c^2+c+1)$．
+设 $\displaystyle \prod_{p \in P} p=2c+1$，则 $N=4(c^2+c+1)$．
 
 考虑 $N$ 的一个素因子 $p$，则 $p \ne 3$，且 $p \mid c^2+c+1 \mid c^3-1$，所以 $c^3 \equiv 1 \pmod p$．
 
