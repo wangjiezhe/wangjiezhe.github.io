@@ -43,17 +43,17 @@ description: 记录在 Fedora 上使用网银的过程。
 
 > ActiveX hosting plugin for NPAPI
 > ActiveX hosting plugin for NPAPI r37
-> Name:	ActiveX hosting plugin for NPAPI
-> Description:	ActiveX hosting plugin for NPAPI r37
+> Name: ActiveX hosting plugin for NPAPI
+> Description: ActiveX hosting plugin for NPAPI r37
 > Version:
-> Location:	/usr/lib/pipelight/libpipelight-npactivex.so
-> Type:	NPAPI
+> Location: /usr/lib/pipelight/libpipelight-npactivex.so
+> Type: NPAPI
 > Disable
 > MIME types:
-> MIME type	Description	File extensions
-> application/x-itst-activex	ActiveX (\*.ocx)
+> MIME type Description  File extensions
+> application/x-itst-activex  ActiveX (\*.ocx)
 > .ocx
-> application/activex-manager	ActiveXManager
+> application/activex-manager  ActiveXManager
 
 如果看到下列错误:
 
@@ -88,7 +88,7 @@ description: 记录在 Fedora 上使用网银的过程。
 
 如果输出包含以下内容就说明安装成功了, 否则说明以上某一步出错了
 
->  {93156467-FD99-4A30-9CA5-8563F4BB8DB3}|||icbc\_netbank\_client\_controls
+> {93156467-FD99-4A30-9CA5-8563F4BB8DB3}|||icbc\_netbank\_client\_controls
 
 8\. 安装 np-activex extension:
 
