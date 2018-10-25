@@ -1962,7 +1962,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #62ff57;
+  background: #ff47ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3303,6 +3303,10 @@ blockquote {
   font-weight: normal;
 }
 .site-title {
+  font-family: "GuDianMingChaoTi";
+  font-size: 22px;
+}
+.site-subtitle {
   font-family: "GuDianMingChaoTi";
   font-size: 22px;
 }
