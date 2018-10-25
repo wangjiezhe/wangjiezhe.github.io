@@ -45,7 +45,7 @@ $$
 
 设 $P$ 是一个包含有限个形如 $6k + 1$ 的素数的集合，令
 $$
-N = 6 \cdot \prod_{p \in P} p．
+N = 6 \cdot \prod_{p \in P} p
 $$
 考虑 $N^2-N+1$ 的素因子 $p$，因为 $N^3+1=(N+1) \cdot (N^2-N+1)$，所以 $p \mid N^3+1$，即 $N^3 \equiv -1 \pmod p$，所以 $N^6 \equiv 1 \pmod p$．
 
@@ -53,7 +53,7 @@ $$
 
 如果 $\delta_p (N) = 2$ 的话，则有 $N^2 \equiv 1 \pmod p$，且 $N \equiv -1 \pmod p$，故 $p \mid N+1$，可得
 $$
-p \mid (N+1, N^2-N+1) = (N+1, 3) =1，
+p \mid (N+1, N^2-N+1) = (N+1, 3) =1
 $$
 而这是不可能的．
 
@@ -73,7 +73,7 @@ $$
 
 设 $P$ 是一个包含有限个形如 $3k + 1$ 的素数的集合，令
 $$
-N = \left(\prod_{p \in P} p\right)^2+3．
+N = \left(\prod_{p \in P} p\right)^2+3
 $$
 设  $\prod_{p \in P} p=2c+1$，则 $N=4(c^2+c+1)$．
 
@@ -81,7 +81,7 @@ $$
 
 如果 $c \equiv 1 \pmod p$，则
 $$
-0 \equiv c^2+c+1 \equiv 3 \pmod p，
+0 \equiv c^2+c+1 \equiv 3 \pmod p
 $$
 而这是不可能的．所以 $\delta_p(c)=3$．
 
@@ -97,7 +97,7 @@ $$
 
 设 $p$ 是一个质数，则
 $$
-\left(\frac{-3}{p}\right)=1 \iff p \equiv 1 \pmod 3．
+\left(\frac{-3}{p}\right)=1 \iff p \equiv 1 \pmod 3
 $$
 {% endnote %}
 
