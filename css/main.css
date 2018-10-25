@@ -1152,7 +1152,7 @@ pre .javascript .function {
   display: inline-block;
   padding: 0 40px;
   color: #fff;
-  background: #222;
+  background: #66327c;
   border-bottom: none;
 }
 .brand:hover {
@@ -1962,7 +1962,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff47ff;
+  background: #6cb024;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2479,9 +2479,10 @@ pre .javascript .function {
 }
 #schedule ul#event-list li.event-past {
   background: #fcfcfc;
+  padding: 15px 0 15px 10px;
 }
 #schedule ul#event-list li.event-past > * {
-  opacity: 0.6;
+  opacity: 0.9;
 }
 #schedule ul#event-list li.event-past h2.event-summary {
   color: #bbb;
@@ -2504,6 +2505,23 @@ pre .javascript .function {
   animation: dot-flash 1s alternate infinite ease-in-out;
 }
 #schedule ul#event-list li.event-now * {
+  color: #fff !important;
+}
+#schedule ul#event-list li.event-future {
+  background: #222;
+  color: #fff;
+  padding: 15px 0 15px 10px;
+}
+#schedule ul#event-list li.event-future h2.event-summary:before {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+  color: #fff;
+  animation: dot-flash 1s alternate infinite ease-in-out;
+}
+#schedule ul#event-list li.event-future * {
   color: #fff !important;
 }
 @-moz-keyframes dot-flash {
@@ -3149,10 +3167,11 @@ ul.breadcrumb li+li:last-child {
 }
 .post-body h3 {
   font-size: 1.3em;
-  border-bottom: 1px dotted #eee;
+  border-bottom: 1px solid #eee;
 }
 .post-body h4 {
   font-size: 1.2em;
+  border-bottom: 1px dotted #eee;
 }
 .post-body h5 {
   font-size: 1.07em;
@@ -3309,6 +3328,7 @@ blockquote {
 .site-subtitle {
   font-family: "GuDianMingChaoTi";
   font-size: 22px;
+  color: #fff;
 }
 .site-author-name {
   font-family: "ZHJXinWeiTi";
@@ -3331,4 +3351,22 @@ blockquote {
 .post-copyright a:hover {
   color: #0b346e;
   border-bottom: 1px dashed;
+}
+.posts-collapse .post-title a {
+  color: #005caf;
+}
+.posts-collapse .post-title a:hover {
+  color: #0b346e;
+}
+.posts-expand .post-tags a {
+  border: 0.1em solid #f17c67;
+  padding: 0.25em;
+  line-height: 1.2em;
+  background: #c73e3a;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 10px;
+}
+.posts-expand .post-tags a:hover {
+  box-shadow: 0 0 1em 0.5em #fedfe1;
 }
