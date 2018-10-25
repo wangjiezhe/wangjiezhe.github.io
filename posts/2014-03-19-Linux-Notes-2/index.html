@@ -159,7 +159,7 @@
 <meta property="og:site_name" content="如鱼饮水 冷暖自知">
 <meta property="og:description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-24T17:22:17.893Z">
+<meta property="og:updated_time" content="2018-10-25T03:41:27.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 随学随记 (2)">
 <meta name="twitter:description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。">
@@ -464,7 +464,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">936</span>
+                <span title="本文字数">933</span>
               
 
               
@@ -490,7 +490,7 @@
       
 
       
-        <h2 id="一-vim切换tab"><a class="markdownIt-Anchor" href="#一-vim切换tab"></a> 一、vim切换tab:</h2>
+        <h2 id="一-vim切换tab"><a class="markdownIt-Anchor" href="#一-vim切换tab"></a> 一、vim切换tab</h2>
 <p>向后  <code>:tabn</code><br>
 向前  <code>:tabp</code></p>
 <h2 id="二-vim与系统剪贴板的交互-仅限于gvim"><a class="markdownIt-Anchor" href="#二-vim与系统剪贴板的交互-仅限于gvim"></a> 二、vim与系统剪贴板的交互 (仅限于gvim!!!)</h2>
@@ -511,12 +511,12 @@
 <p><code>:ret[ab][!] [new_tabstop]</code><br>
 将制表符<code>&lt;TAB&gt;</code>转换为空格符，数量由<code>[new_tabstop]</code>指定。若为空或为0，则使用默认的<code>tabstop</code>。<br>
 若有<code>!</code>，则将空格序列转化为<code>&lt;TAB&gt;</code>。</p>
-<h2 id="五-查看中文帮助"><a class="markdownIt-Anchor" href="#五-查看中文帮助"></a> 五、查看中文帮助:</h2>
+<h2 id="五-查看中文帮助"><a class="markdownIt-Anchor" href="#五-查看中文帮助"></a> 五、查看中文帮助</h2>
 <p><strong><code>man -L zh_CN.utf8 command</code></strong></p>
-<h2 id="六-查看日志"><a class="markdownIt-Anchor" href="#六-查看日志"></a> 六、查看日志:</h2>
+<h2 id="六-查看日志"><a class="markdownIt-Anchor" href="#六-查看日志"></a> 六、查看日志</h2>
 <p><code>journalctl [OPTIONS...] [MATCHES...]</code></p>
 <p>Options:</p>
-<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-f --follow        Follow the journal</span><br><span class="line">   --since=<span class="built_in">DATE</span>    Start showing entries <span class="keyword">on</span> <span class="keyword">or</span> newer than the specified <span class="built_in">date</span></span><br><span class="line">   --<span class="keyword">until</span>=<span class="built_in">DATE</span>    <span class="keyword">Stop</span> showing entries <span class="keyword">on</span> <span class="keyword">or</span> older than the specified <span class="built_in">date</span></span><br><span class="line">-l --full          <span class="keyword">Do</span> <span class="keyword">not</span> ellipsize fields</span><br><span class="line">-u --unit=UNIT     Show data only <span class="keyword">from</span> the specified unit</span><br><span class="line">   --disk-usage    Show total disk usage <span class="keyword">of</span> all journal files</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-f --follow        Follow the journal</span><br><span class="line">   --since=DATE    Start showing entries on or newer than the specified date</span><br><span class="line">   --until=DATE    Stop showing entries on or older than the specified date</span><br><span class="line">-l --full          Do not ellipsize fields</span><br><span class="line">-u --unit=UNIT     Show data only from the specified unit</span><br><span class="line">   --disk-usage    Show total disk usage of all journal files</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -870,7 +870,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-vim切换tab"><span class="nav-number">1.</span> <span class="nav-text"> 一、vim切换tab:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-vim与系统剪贴板的交互-仅限于gvim"><span class="nav-number">2.</span> <span class="nav-text"> 二、vim与系统剪贴板的交互 (仅限于gvim!!!)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-vim重复命令"><span class="nav-number">3.</span> <span class="nav-text"> 三、vim重复命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-vim中tab与空格的转换-慎用"><span class="nav-number">4.</span> <span class="nav-text"> 四、vim中tab与空格的转换 (慎用！！！)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-查看中文帮助"><span class="nav-number">5.</span> <span class="nav-text"> 五、查看中文帮助:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-查看日志"><span class="nav-number">6.</span> <span class="nav-text"> 六、查看日志:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-vim切换tab"><span class="nav-number">1.</span> <span class="nav-text"> 一、vim切换tab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-vim与系统剪贴板的交互-仅限于gvim"><span class="nav-number">2.</span> <span class="nav-text"> 二、vim与系统剪贴板的交互 (仅限于gvim!!!)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-vim重复命令"><span class="nav-number">3.</span> <span class="nav-text"> 三、vim重复命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-vim中tab与空格的转换-慎用"><span class="nav-number">4.</span> <span class="nav-text"> 四、vim中tab与空格的转换 (慎用！！！)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-查看中文帮助"><span class="nav-number">5.</span> <span class="nav-text"> 五、查看中文帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-查看日志"><span class="nav-number">6.</span> <span class="nav-text"> 六、查看日志</span></a></li></ol></div>
             
 
           </div>

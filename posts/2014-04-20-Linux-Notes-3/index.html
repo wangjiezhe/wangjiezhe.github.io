@@ -159,7 +159,7 @@
 <meta property="og:site_name" content="如鱼饮水 冷暖自知">
 <meta property="og:description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-24T17:22:17.893Z">
+<meta property="og:updated_time" content="2018-10-25T03:41:27.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 随学随记 (3)">
 <meta name="twitter:description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。">
@@ -497,12 +497,12 @@
 <h2 id="三-sed-替换中使用变量"><a class="markdownIt-Anchor" href="#三-sed-替换中使用变量"></a> 三、sed 替换中使用变量</h2>
 <p>sed替换命令用双引号<code>&quot; &quot;</code> 而不是单引号 <code>' '</code>，然后里面直接用 <code>$VARIABLE</code> 就可以了。</p>
 <h2 id="四-vim-保存-root-权限文件"><a class="markdownIt-Anchor" href="#四-vim-保存-root-权限文件"></a> 四、vim 保存 root 权限文件</h2>
-<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w !sudo tee <span class="comment">%</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w !sudo tee %</span><br></pre></td></tr></table></figure>
 <h2 id="五-vim-跳转"><a class="markdownIt-Anchor" href="#五-vim-跳转"></a> 五、vim 跳转</h2>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+] = Ctrl+<span class="built_in">left</span>\_click</span><br><span class="line">Ctrl+<span class="built_in">t</span> = Ctrl+<span class="built_in">right</span>\_click</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+] = Ctrl+left\_click</span><br><span class="line">Ctrl+t = Ctrl+right\_click</span><br></pre></td></tr></table></figure>
 <h2 id="六-从视频中提取音频"><a class="markdownIt-Anchor" href="#六-从视频中提取音频"></a> 六、从视频中提取音频</h2>
 <p>运行以下命令之一：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mencoder -oac mp3lame -ovc copy -of rawaudio 01.flv -o 01.mp3</span><br><span class="line">$ ffmpeg -i 01.flv -f mp3 -vn 01.mp3</span><br><span class="line">$ ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mencoder -oac mp3lame -ovc copy -of rawaudio 01.flv -o 01.mp3</span><br><span class="line">ffmpeg -i 01.flv -f mp3 -vn 01.mp3</span><br><span class="line">ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3</span><br></pre></td></tr></table></figure>
 <h2 id="七-交换-capslock-键和左-ctrl-键"><a class="markdownIt-Anchor" href="#七-交换-capslock-键和左-ctrl-键"></a> 七、交换 CapsLock 键和左 Ctrl 键</h2>
 <h3 id="1-使用-gnome-tweak-tool"><a class="markdownIt-Anchor" href="#1-使用-gnome-tweak-tool"></a> 1. 使用 gnome-tweak-tool</h3>
 <p>选择 Typing &gt; Ctrl key position &gt; Swap Ctrl and Caps Lock 即可。</p>
@@ -515,7 +515,7 @@
 <h2 id="八-交换-escape-键和右-alt-键"><a class="markdownIt-Anchor" href="#八-交换-escape-键和右-alt-键"></a> 八、交换 Escape 键和右 Alt 键</h2>
 <p>这时，前面两种方法都没有现成的选项可以使用，因此我们使用xmodmap</p>
 <p>建立 ~/.xmodmap，添加如下内容：</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">! 交换<span class="keyword">Escape</span>和Alt_R</span><br><span class="line">clear mod1</span><br><span class="line">keycode   <span class="number">9</span> = Alt_R NoSymbol Alt_R</span><br><span class="line">keycode <span class="number">108</span> = <span class="keyword">Escape</span> NoSymbol <span class="keyword">Escape</span></span><br><span class="line"><span class="keyword">add</span>    mod1 = <span class="keyword">Escape</span> Meta_L</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">! 交换Escape和Alt_R</span><br><span class="line">clear mod1</span><br><span class="line">keycode   9 = Alt_R NoSymbol Alt_R</span><br><span class="line">keycode 108 = Escape NoSymbol Escape</span><br><span class="line">add    mod1 = Escape Meta_L</span><br></pre></td></tr></table></figure>
 <p>然后运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmodmap ~/.xmodmap 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
 <p>网上的教程都是要将命令添加到 ~/.xinitrc 或 /etc/rc.d/rc.local 中，而不是 ~/.zshrc (或 ~/.bashrc)中，否则会重复执行使得键位回归。但经测试，前者无法成功(有的地方解释是 xinitrc 在新版本中已不再使用)，于是我在 ~/.zshrc 中添加如下代码:</p>
