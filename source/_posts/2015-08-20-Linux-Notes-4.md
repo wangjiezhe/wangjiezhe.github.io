@@ -13,7 +13,7 @@ description: 记录日常中遇到的与 Linux 相关的问题，主要是关于
 ## mplayer 循环播放歌曲
 
 ```bash
-$ mplayer -loop n ***.mp3
+mplayer -loop n ***.mp3
 ```
 
 n 表示重复次数，0 表示无限循环。
@@ -107,4 +107,3 @@ n 表示重复次数，0 表示无限循环。
 
 `set cm=blowfish2` (newest)
 设置加密方式
-

@@ -9,7 +9,7 @@ date: 2014-03-19 00:00:00
 description: 记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。
 ---
 
-## 一、vim切换tab:
+## 一、vim切换tab
 
 向后  `:tabn`
 向前  `:tabp`
@@ -42,17 +42,17 @@ description: 记录日常中遇到的与 Linux 相关的问题，主要是关于
 将制表符`<TAB>`转换为空格符，数量由`[new_tabstop]`指定。若为空或为0，则使用默认的`tabstop`。
 若有`!`，则将空格序列转化为`<TAB>`。
 
-## 五、查看中文帮助:
+## 五、查看中文帮助
 
 **`man -L zh_CN.utf8 command`**
 
-## 六、查看日志:
+## 六、查看日志
 
 `journalctl [OPTIONS...] [MATCHES...]`
 
 Options:
 
-```
+```bash
   -f --follow        Follow the journal
      --since=DATE    Start showing entries on or newer than the specified date
      --until=DATE    Stop showing entries on or older than the specified date
@@ -60,4 +60,3 @@ Options:
   -u --unit=UNIT     Show data only from the specified unit
      --disk-usage    Show total disk usage of all journal files
 ```
-
