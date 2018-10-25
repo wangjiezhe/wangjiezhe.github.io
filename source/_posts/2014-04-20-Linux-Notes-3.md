@@ -22,13 +22,13 @@ sed替换命令用双引号`" "` 而不是单引号 `' '`，然后里面直接�
 
 ## 四、vim 保存 root 权限文件
 
-```
+```viml
 :w !sudo tee %
 ```
 
 ## 五、vim 跳转
 
-```
+```viml
 Ctrl+] = Ctrl+left\_click
 Ctrl+t = Ctrl+right\_click
 ```
@@ -38,9 +38,9 @@ Ctrl+t = Ctrl+right\_click
 运行以下命令之一：
 
 ```bash
-$ mencoder -oac mp3lame -ovc copy -of rawaudio 01.flv -o 01.mp3
-$ ffmpeg -i 01.flv -f mp3 -vn 01.mp3
-$ ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3
+mencoder -oac mp3lame -ovc copy -of rawaudio 01.flv -o 01.mp3
+ffmpeg -i 01.flv -f mp3 -vn 01.mp3
+ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3
 ```
 
 ## 七、交换 CapsLock 键和左 Ctrl 键
@@ -74,7 +74,7 @@ fi
 
 建立 ~/.xmodmap，添加如下内容：
 
-```
+```conf
 ! 交换Escape和Alt_R
 clear mod1
 keycode   9 = Alt_R NoSymbol Alt_R
@@ -96,4 +96,3 @@ if [[ -n $DISPLAY ]] && [[ -n $(xmodmap|grep "mod1.*Alt_R") ]]; then
     xmodmap "$HOME"/.xmodmap 2>/dev/null
 fi
 ```
-

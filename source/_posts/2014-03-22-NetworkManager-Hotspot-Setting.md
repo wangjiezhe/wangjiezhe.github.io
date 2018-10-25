@@ -31,20 +31,19 @@ key-mgmt: 加密方式, 有以下几种:
 
 下面原来两行
 
-```
+```conf
 wep-key0=
 wep-key-type=
 ```
 
 为WEP密码和类型, 将其删去或注释掉, 改为
 
-```
+```conf
 psk=your_password
 ```
 
 然后重启 NetworkManager 服务即可
 
-```
+```bash
 sudo systemctl restart NetworkManager.service
 ```
-

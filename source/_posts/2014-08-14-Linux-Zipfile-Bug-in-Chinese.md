@@ -18,25 +18,25 @@ description: GBK 编码的 zip 文件正常解压（unzip，7z，file-roller）�
 
 用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件:
 
-```
+```bash
 LC_ALL=C 7z x -oOUTDIR zipfile.zip
 ```
 
 然后用 convmv 检测文件名的编码转换, 查看是否有乱码:
 
-```
+```bash
 convmv -f cp936 -t utf8-r *
 ```
 
 如果没有乱码, 则可以进行转换:
 
-```
+```bash
 convmv -f cp936 -t utf8 --notest *
 ```
 
 如果还要转换某个文件的编码, 则可以用 iconv :
 
-```
+```bash
 iconv -f cp936 -t utf8 -o outfile infile
 ```
 
@@ -45,4 +45,3 @@ iconv -f cp936 -t utf8 -o outfile infile
 还有一种方法是用 python 来做. 网上有一个流传比较广的脚本, 不过功能不过完善, 下面的代码是在原代码基础上修改而成的，支持解压加密的压缩文件（一个是 python3 的版本，一个是 python2 的版本）:
 
 <script src="https://gist.github.com/wangjiezhe/7841a350983a147b6d7e.js"></script>
-

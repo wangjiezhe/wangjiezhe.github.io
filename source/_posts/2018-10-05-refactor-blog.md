@@ -98,9 +98,11 @@ $ cat package-lock.json | jq .dependencies.\"hexo-renderer-markdown-it\"
 ```
 
 不过该模块会使得 `<!-- more -->` 失效，需要写成
-```
+
+```html
 <escape><!-- more --></escape>
 ```
+
 才行。
 
 不过我不喜欢一点进来就到文章半截的模式，所以对我来说没有什么影响，还是乖乖地写 description 吧。
@@ -110,6 +112,7 @@ $ cat package-lock.json | jq .dependencies.\"hexo-renderer-markdown-it\"
 #### 评论
 
 关于评论模块，暂时还是采用了 Disqus 的评论系统，好处是不用折腾，因为是以前就配置好的，直接用就可以了，而且功能也足够强大，不过也有几个问题：
+
 - 必须登录才能评论。不过我看到有文章说 Disqus 现在支持匿名评论了，有时间再去看一下。
 - 被 W。这个是最主要的问题，目前看来解决方案有两个，一个是利用其他的服务器转发一下，例如 [fooleap/disqus-php-api][24]，另一个是换用其他的评论系统，比如 [gitment][25]/[gitalk][26] 或者 [Valine][27]，不过这次没有时间在折腾了，留待有时间再解决吧。
 
@@ -152,6 +155,7 @@ $ cat package-lock.json | jq .dependencies.\"hexo-renderer-markdown-it\"
 ## 待改进的部分
 
 还有一些部分模块这次没有时间弄了，留着下次有时间再解决吧。一部分现在能想到的我先列举在这里，省得以后又忘了：
+
 - [x] 字数统计
 - [x] 阅读次数统计
 - [x] 分享按钮
@@ -161,7 +165,7 @@ $ cat package-lock.json | jq .dependencies.\"hexo-renderer-markdown-it\"
 - [ ] 版权设置。增加适合于转载文章的版声明。
 - [x] 字体调整。
 - [ ] 代码高亮优化。不喜欢现在的高亮主题，
-- [ ] 超链接显示颜色
+- [x] 超链接显示颜色
 
 
 > P.S. 话说我为什么这么爱用话说。。。
