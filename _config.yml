@@ -6,7 +6,7 @@
 title: 如鱼饮水
 subtitle: 冷暖自知
 description: 某不知名机构不知名数学老师一枚
-keywords: OE
+keywords: Blog,Hexo,NexT,Math,博客,数学
 author: 西风冷香
 language: zh-CN
 timezone: Asia/Shanghai
@@ -137,7 +137,7 @@ sitemap:
   path: sitemap.xml
 
 baidusitemap:
-  path: baidusitemap
+  path: baidusitemap.xml
 
 symbols_count_time:
   symbols: true
