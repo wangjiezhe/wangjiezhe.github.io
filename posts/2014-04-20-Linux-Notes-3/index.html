@@ -23,6 +23,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -159,7 +163,7 @@
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-26T15:45:38.382Z">
+<meta property="og:updated_time" content="2018-10-26T17:19:52.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 随学随记 (3)">
 <meta name="twitter:description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。">
@@ -579,14 +583,12 @@
           <div class="social_share">
             
             
-            
-               <div>
-                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox">
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bbaf8fb7c9957e3" async="async"></script>
-</div>
-
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
                </div>
+            
             
           </div>
         
@@ -1517,6 +1519,27 @@
 
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "topCenter";
+      
+          pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Evernote,Twitter,Facebook,GooglePlus,Reddit,Pinterest";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
   
 
   
