@@ -1962,7 +1962,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6cb024;
+  background: #faffde;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3368,5 +3368,26 @@ blockquote {
   border-radius: 10px;
 }
 .posts-expand .post-tags a:hover {
-  box-shadow: 0 0 1em 0.5em #fedfe1;
+  box-shadow: 0 0 1em 0.5em #f8c3cd;
+}
+.posts-expand .post-tags a:nth-child(2n) {
+  border: 0.1em solid #86c166;
+  background: #227d51;
+}
+.posts-expand .post-tags a:nth-child(2n):hover {
+  box-shadow: 0 0 1em 0.5em #a8d8b9;
+}
+.posts-expand .post-tags a:nth-child(3n) {
+  border: 0.1em solid #005caf;
+  background: #113285;
+}
+.posts-expand .post-tags a:nth-child(3n):hover {
+  box-shadow: 0 0 1em 0.5em #81c7d4;
+}
+.posts-expand .post-tags a:nth-child(4n) {
+  border: 0.1em solid #db8e71;
+  background: #b35c37;
+}
+.posts-expand .post-tags a:nth-child(4n):hover {
+  box-shadow: 0 0 1em 0.5em #ffba84;
 }
