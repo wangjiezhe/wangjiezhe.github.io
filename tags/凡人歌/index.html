@@ -868,8 +868,8 @@
   
 
 
-    <link rel="stylesheet" href="/disqus/dist/iDisqus.min.css">
-    <script src="/disqus/dist/iDisqus.min.js"></script>
+    <link rel="stylesheet" href="/disqus/iDisqus.min.css">
+    <script src="/disqus/iDisqus.min.js"></script>
     <script>
         // var emojiList = [{
         //     code:'smile',
@@ -923,11 +923,12 @@
         var disq = new iDisqus('comments', {
             forum: 'wangjiezhe',
             site: 'wangjiezhe.com',
-            api: 'https://imspankee.byethost11.com/disqus/api',
+            api: 'http://imspankee.byethost11.com/disqus/api',
             mode: 2,
             badge: '',
             timeout: 3000,
             init: true,
+            identifier: 'tags/凡人歌/index.html',
             emojiPreview: true,
             // emoji_list: emojiList
         });

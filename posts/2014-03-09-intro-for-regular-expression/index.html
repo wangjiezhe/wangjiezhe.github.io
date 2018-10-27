@@ -163,7 +163,7 @@
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="一些常见的正则表达式的备忘录。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-27T06:11:12.305Z">
+<meta property="og:updated_time" content="2018-10-27T08:02:08.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式简介">
 <meta name="twitter:description" content="一些常见的正则表达式的备忘录。">
@@ -658,6 +658,16 @@ $ 匹配字符串的最后面。</p>
           
 
   
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
 
 
 
@@ -1124,8 +1134,8 @@ $ 匹配字符串的最后面。</p>
   
 
 
-    <link rel="stylesheet" href="/disqus/dist/iDisqus.min.css">
-    <script src="/disqus/dist/iDisqus.min.js"></script>
+    <link rel="stylesheet" href="/disqus/iDisqus.min.css">
+    <script src="/disqus/iDisqus.min.js"></script>
     <script>
         // var emojiList = [{
         //     code:'smile',
@@ -1179,11 +1189,12 @@ $ 匹配字符串的最后面。</p>
         var disq = new iDisqus('comments', {
             forum: 'wangjiezhe',
             site: 'wangjiezhe.com',
-            api: 'https://imspankee.byethost11.com/disqus/api',
+            api: 'http://imspankee.byethost11.com/disqus/api',
             mode: 2,
             badge: '',
             timeout: 3000,
             init: true,
+            identifier: '/posts/2014-03-09-intro-for-regular-expression/',
             emojiPreview: true,
             // emoji_list: emojiList
         });
