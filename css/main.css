@@ -1962,7 +1962,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff0df7;
+  background: #6f06dd;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2383,6 +2383,20 @@ pre .javascript .function {
   padding: 0 10px 0 14px;
   border: 1px solid #555;
   border-radius: 4px;
+}
+.comments .disqus-button {
+  cursor: pointer;
+  border: 2px solid #ddd;
+  color: #999;
+  margin: 5px auto;
+  max-width: 200px;
+  text-align: center;
+  padding: 10px;
+  transition: 0.5s;
+}
+.comments .disqus-button:hover {
+  color: #111;
+  border-color: #111;
 }
 .page-archive .archive-page-counter {
   position: relative;
@@ -3413,4 +3427,7 @@ blockquote {
 }
 .posts-expand .post-tags a:nth-child(4n):hover {
   box-shadow: 0 0 1em 0.5em #ffba84;
+}
+.utterances {
+  max-width: none;
 }

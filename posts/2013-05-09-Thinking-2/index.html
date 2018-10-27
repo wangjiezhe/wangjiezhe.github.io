@@ -163,7 +163,7 @@
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="岁月像一把杀猪刀，削去了曾经的激情和梦想。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-27T08:51:57.629Z">
+<meta property="og:updated_time" content="2018-10-27T16:07:46.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="忽然想到（二）">
 <meta name="twitter:description" content="岁月像一把杀猪刀，削去了曾经的激情和梦想。">
@@ -655,9 +655,21 @@
 
           </div>
           
+  
+    <div class="comments" id="comments">
+      
+  <script src="https://utteranc.es/client.js" repo="wangjiezhe/wangjiezhe.github.io" issue-term="og:title" theme="github-light" crossorigin="anonymous" async>
+  </script>
+
+    </div>
 
   
     <div class="comments" id="comments">
+      
+        <div class="disqus-button" id="disqus-display-button" onclick="loadComments()">
+          显示 Disqus 评论
+        </div>
+      
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
@@ -666,7 +678,7 @@
       </div>
     </div>
 
-  
+    
 
 
 
@@ -1122,26 +1134,6 @@
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
       }
-      
-        $(function () {
-          var offsetTop = $('#comments').offset().top - $(window).height();
-          if (offsetTop <= 0) {
-            // load directly when there's no a scrollbar
-            loadComments();
-          } else {
-            $(window).on('scroll.disqus_scroll', function () {
-              // offsetTop may changes because of manually resizing browser window or lazy loading images.
-              var offsetTop = $('#comments').offset().top - $(window).height();
-              var scrollTop = $(window).scrollTop();
-
-              // pre-load comments a bit? (margin or anything else)
-              if (offsetTop - scrollTop < 60) {
-                $(window).off('.disqus_scroll');
-                loadComments();
-              }
-            });
-          }
-        });
       
     </script>
   

@@ -163,7 +163,7 @@
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="GBK 编码的 zip 文件正常解压（unzip，7z，file-roller）都会出现乱码，本文通过一个 python 脚本来彻底解决这个问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-27T08:51:57.629Z">
+<meta property="og:updated_time" content="2018-10-27T16:07:46.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 下 zip 解压的文件名乱码问题">
 <meta name="twitter:description" content="GBK 编码的 zip 文件正常解压（unzip，7z，file-roller）都会出现乱码，本文通过一个 python 脚本来彻底解决这个问题。">
@@ -619,9 +619,21 @@
 
           </div>
           
+  
+    <div class="comments" id="comments">
+      
+  <script src="https://utteranc.es/client.js" repo="wangjiezhe/wangjiezhe.github.io" issue-term="og:title" theme="github-light" crossorigin="anonymous" async>
+  </script>
+
+    </div>
 
   
     <div class="comments" id="comments">
+      
+        <div class="disqus-button" id="disqus-display-button" onclick="loadComments()">
+          显示 Disqus 评论
+        </div>
+      
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
@@ -630,7 +642,7 @@
       </div>
     </div>
 
-  
+    
 
 
 
@@ -1086,26 +1098,6 @@
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
       }
-      
-        $(function () {
-          var offsetTop = $('#comments').offset().top - $(window).height();
-          if (offsetTop <= 0) {
-            // load directly when there's no a scrollbar
-            loadComments();
-          } else {
-            $(window).on('scroll.disqus_scroll', function () {
-              // offsetTop may changes because of manually resizing browser window or lazy loading images.
-              var offsetTop = $('#comments').offset().top - $(window).height();
-              var scrollTop = $(window).scrollTop();
-
-              // pre-load comments a bit? (margin or anything else)
-              if (offsetTop - scrollTop < 60) {
-                $(window).off('.disqus_scroll');
-                loadComments();
-              }
-            });
-          }
-        });
       
     </script>
   
