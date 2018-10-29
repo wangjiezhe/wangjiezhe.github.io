@@ -2,10 +2,11 @@
 title: 博客的重构与回顾
 date: 2018-10-05 15:06:59
 tags:
-    - blog
-    - fedora
-    - archlinux
-    - hexo
+    - Blog
+    - Fedora
+    - Archlinux
+    - Hexo
+    - NexT
 categories:
     - 博客
 description: 重新构建了博客的页面，记录了一些遇到的问题和解决办法。

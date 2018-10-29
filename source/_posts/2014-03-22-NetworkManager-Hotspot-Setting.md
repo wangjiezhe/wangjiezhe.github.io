@@ -3,8 +3,8 @@ title: 修改 NetworkManager wifi 热点的加密方式
 categories:
   - Linux
 tags:
-  - linux
-  - network
+  - Linux
+  - Network
 date: 2014-03-22 00:00:00
 description: 在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）
 ---

@@ -3,10 +3,10 @@ title: Piplight 在 Linux 上使用网银
 categories:
   - Linux
 tags:
-  - linux
-  - fedora
-  - pipelight
-  - wine
+  - Linux
+  - Fedora
+  - Pipelight
+  - Wine
   - ActiveX
 date: 2014-03-02 00:00:00
 description: 记录在 Fedora 上使用网银的过程。
