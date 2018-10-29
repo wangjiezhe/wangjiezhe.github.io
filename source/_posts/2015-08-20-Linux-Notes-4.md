@@ -3,9 +3,9 @@ title: Linux 随学随记 (4)
 categories:
   - Linux
 tags:
-  - linux
-  - shell
-  - vim
+  - Linux
+  - Shell
+  - Vim
 date: 2015-08-20 00:00:00
 description: 记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。
 ---
