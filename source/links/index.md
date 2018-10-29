@@ -22,3 +22,4 @@ date: 2018-10-29 11:44:17
 - [梦想博客](http://myloveru.cn)
 - [喵's StackHarbor](https://sh.alynx.xyz)
 - [OTZephyr](http://zephyr.b3log.org)
+- [Sukka's Blog](https://blog.skk.moe)
