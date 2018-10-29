@@ -20,7 +20,6 @@ before_install:
   - export TZ='Asia/Shanghai'
   - export PATH=$(yarn global bin):$PATH
   - yarn global add hexo
-  # - sed -i -e "s/all_minifier:\ false/all_minifier:\ true/" ./_config.yml
 
 install:
   - yarn
