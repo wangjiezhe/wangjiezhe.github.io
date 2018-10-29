@@ -1962,7 +1962,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffffe9;
+  background: #ff811c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3380,12 +3380,14 @@ blockquote {
 }
 .post-body p a,
 .post-body ul a,
+.post-body h2 a,
 .post-copyright a {
   color: #005caf;
   border-bottom: none;
 }
 .post-body p a:hover,
 .post-body ul a:hover,
+.post-body h2 a:hover,
 .post-copyright a:hover {
   color: #0b346e;
   border-bottom: 1px dashed;
@@ -3431,4 +3433,7 @@ blockquote {
 }
 .utterances {
   max-width: none;
+}
+.posts-expand .post-body img {
+  border: none;
 }

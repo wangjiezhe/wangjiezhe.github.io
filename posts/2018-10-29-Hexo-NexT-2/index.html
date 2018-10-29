@@ -171,7 +171,7 @@
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="为NexT主题添加搜索功能。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-29T08:34:26.290Z">
+<meta property="og:updated_time" content="2018-10-29T17:20:26.330Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo NexT 魔改系列之二 ── 搜索篇">
 <meta name="twitter:description" content="为NexT主题添加搜索功能。">
@@ -546,9 +546,9 @@
 <li><code>content</code>是指是否搜索文章的内容，默认为<code>true</code>，如果改为<code>false</code>的话则只搜索标题、说明等头部内容，不搜索文章的正文。</li>
 </ul>
 <h2 id="解决能够正常搜索但无法正常跳转的问题"><a class="markdownIt-Anchor" href="#解决能够正常搜索但无法正常跳转的问题"></a> 解决能够正常搜索，但无法正常跳转的问题</h2>
-<p>这场配置完了之后，我发现搜索功能没有问题，但搜索出来的结果没有办法正确跳转。查看了一下生成的<code>search.xml</code>，发现生成的链接多了一个<code>/</code>，就像这样：</p>
+<p>这样配置完了之后，我发现搜索功能没有问题，但搜索出来的结果没有办法正确跳转。查看了一下生成的<code>search.xml</code>，发现生成的链接多了一个<code>/</code>，就像这样：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"//posts/2018-10-24-prime-of-the-form-6k1/"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span>//posts/2018-10-24-prime-of-the-form-6k1/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>不过在各个教程中都没有找到相应的解决方法，随后在翻<a href="https://github.com/iissnan/hexo-theme-next/issues/1852" target="_blank" rel="noopener">issue</a>的时候发现了一个方法，就是在搜索的时候直接去掉一个<code>/</code>就好了。<br>
+<p>不过在各个教程中都没有找到相应的解决方法，最后在翻<a href="https://github.com/iissnan/hexo-theme-next/issues/1852" target="_blank" rel="noopener">issue</a>的时候发现了一个方法，就是在搜索的时候直接去掉一个<code>/</code>就好了。<br>
 修改<code>localsearch.swig</code>的源代码：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var articleUrl = decodeURIComponent(data.url);</span></span><br><span class="line"><span class="keyword">var</span> articleUrl = <span class="built_in">decodeURIComponent</span>(data.url).substring(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 <p>真的是简单粗暴啊。。。</p>
@@ -650,6 +650,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/posts/2018-10-29-Hexo-NexT-3/" rel="prev" title="Hexo NexT 魔改系列之三 ── 评论篇">
+                Hexo NexT 魔改系列之三 ── 评论篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -744,7 +748,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -965,7 +969,7 @@
       <i class="fa fa-bar-chart"></i>
     </span>
     
-    <span title="站点总字数">29k</span>
+    <span title="站点总字数">31k</span>
   
 
   
