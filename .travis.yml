@@ -20,7 +20,6 @@ before_install:
   - export TZ='Asia/Shanghai'
   - export PATH=$(yarn global bin):$PATH
   - yarn global add hexo
-  # - sed -i -e "s/all_minifier:\ false/all_minifier:\ true/" ./_config.yml
 
 install:
   - yarn
@@ -41,6 +40,7 @@ after_script:
   - git add .
   - git commit -m "Travis CI Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+  - git push --force --quiet "https://wangjiezhe:${CO_TOKEN}@${CO_REF}" master:master
 
 branches:
   only:
@@ -49,3 +49,4 @@ branches:
 env:
   global:
     - GH_REF: github.com/wangjiezhe/wangjiezhe.github.io
+    - CO_REF: git.dev.tencent.com/wangjiezhe/wangjiezhe.coding.me.git
