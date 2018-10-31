@@ -37,7 +37,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -143,8 +143,6 @@ symbols_count_time:
   total_symbols: true
   total_time: false
 
-all_minifier: false
-
 live2d:
   enable: true
   scriptFrom: local
@@ -161,6 +159,9 @@ live2d:
     height: 200
   mobile:
     show: false
+
+aplayer:
+  meting: true
 
 ## Themes: https://hexo.io/themes/
 theme: next
