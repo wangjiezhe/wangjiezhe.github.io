@@ -20,13 +20,15 @@ before_install:
   - export TZ='Asia/Shanghai'
   - export PATH=$(yarn global bin):$PATH
   - yarn global add hexo
+  - sed -i "s/LC_COUNTER_USERNAME/${LC_COUNTER_USERNAME}/" _config.yml
+  - sed -i "s/LC_COUNTER_PASSWORD/${LC_COUNTER_PASSWORD}/" _config.yml
 
 install:
   - yarn
 
 script:
   - hexo clean
-  - hexo generate
+  - hexo deploy
 
 after_script:
   - git clone https://${GH_REF} .deploy_git

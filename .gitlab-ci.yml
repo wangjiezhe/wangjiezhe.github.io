@@ -10,6 +10,8 @@ pages:
   before_script:
     - export PATH=$(yarn global bin):$PATH
     - yarn global add hexo
+    - sed -i "s/LC_COUNTER_USERNAME/${LC_COUNTER_USERNAME}/" _config.yml
+    - sed -i "s/LC_COUNTER_PASSWORD/${LC_COUNTER_PASSWORD}/" _config.yml
   script:
     - yarn
     - hexo clean
