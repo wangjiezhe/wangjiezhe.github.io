@@ -171,7 +171,7 @@
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="一些常见的正则表达式的备忘录。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-12T05:13:05.744Z">
+<meta property="og:updated_time" content="2018-11-12T07:03:00.423Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式简介">
 <meta name="twitter:description" content="一些常见的正则表达式的备忘录。">
@@ -479,14 +479,16 @@
 
           
           
-
+             <span id="/posts/2014-03-09-intro-for-regular-expression/" class="leancloud_visitors" data-flag-title="正则表达式简介">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon" title="阅读次数">
-            <i class="fa fa-eye"></i>
-            
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
+
           
 
           
@@ -993,24 +995,6 @@ $ 匹配字符串的最后面。</p>
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv" title="总访客量">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="site-pv" title="总访问量">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -1111,11 +1095,6 @@ $ 匹配字符串的最后面。</p>
     <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/dynamic-background/dynamic-background.js"></script>
-  
-
 
   
 
@@ -1188,7 +1167,7 @@ $ 匹配字符串的最后面。</p>
         notify: false,
         appId: 'zF9bATpOVpJ3Ne23Ind4DtpA-gzGzoHsz',
         appKey: 'U9qQHaflwz0965brRUeN1VOB',
-        placeholder: 'Just go go',
+        placeholder: 'ヾﾉ≧∀≦)o 来呀！快活呀！~',
         avatar:'mm',
         meta:guest,
         pageSize:'10' || 10,
@@ -1525,6 +1504,65 @@ $ 匹配字符串的最后面。</p>
 
 
   
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "zF9bATpOVpJ3Ne23Ind4DtpA-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "zF9bATpOVpJ3Ne23Ind4DtpA-gzGzoHsz",
+                'X-LC-Key': "U9qQHaflwz0965brRUeN1VOB",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
 
   
 
