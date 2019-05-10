@@ -7,7 +7,7 @@ NexT.utils = NexT.$u = {
    */
   wrapImageWithFancyBox: function() {
     $('.content img')
-      .not('[hidden]')
+      .not(':hidden')
       .not('.group-picture img, .post-gallery img')
       .each(function() {
         var $image = $(this);
@@ -30,6 +30,7 @@ NexT.utils = NexT.$u = {
       });
 
     $('.fancybox').fancybox({
+      loop: true,
       helpers: {
         overlay: {
           locked: false
@@ -79,7 +80,6 @@ NexT.utils = NexT.$u = {
         }
       }
     });
-
   },
 
   registerESCKeyEvent: function() {
@@ -119,7 +119,7 @@ NexT.utils = NexT.$u = {
     });
 
     $top.on('click', function() {
-      $('body').velocity('scroll');
+      $.isFunction($('html').velocity) ? $('body').velocity('scroll') : $('html, body').animate({ scrollTop: 0 });
     });
   },
 
@@ -240,6 +240,10 @@ NexT.utils = NexT.$u = {
     $('.sidebar-toggle').trigger('click');
   },
 
+  isMuse: function() {
+    return CONFIG.scheme === 'Muse';
+  },
+
   isMist: function() {
     return CONFIG.scheme === 'Mist';
   },
@@ -256,14 +260,13 @@ NexT.utils = NexT.$u = {
     var $div = $('<div />').addClass('scrollbar-measure').prependTo('body');
     var div = $div[0];
     var scrollbarWidth = div.offsetWidth - div.clientWidth;
-
     $div.remove();
 
     return scrollbarWidth;
   },
 
   getContentVisibilityHeight: function() {
-    var docHeight = $('#content').height();
+    var docHeight = $('.container').height();
     var winHeight = $(window).height();
     var contentVisibilityHeight = docHeight > winHeight ? docHeight - winHeight : $(document).height() - winHeight;
     return contentVisibilityHeight;
@@ -285,10 +288,13 @@ NexT.utils = NexT.$u = {
       : (sidebarPadding * 2) + (sidebarNavHeight / 2);
     return sidebarSchemePadding;
   }
-
 };
 
 $(document).ready(function() {
+
+  function wrapTable() {
+    $('table').not('figure table').wrap('<div class="table-container"></div>');
+  }
 
   /**
    * Init Sidebar & TOC inner dimensions on all pages and for all schemes.
@@ -325,7 +331,6 @@ $(document).ready(function() {
     // Initialize Sidebar & TOC Height.
     updateSidebarHeight(document.body.clientHeight - NexT.utils.getSidebarSchemePadding());
   }
-
   initSidebarDimension();
-
+  wrapTable();
 });
