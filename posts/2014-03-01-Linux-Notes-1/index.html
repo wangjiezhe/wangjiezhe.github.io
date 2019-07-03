@@ -155,7 +155,7 @@
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-03T07:03:57.054Z">
+<meta property="og:updated_time" content="2019-07-03T07:37:47.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 随学随记 (1)">
 <meta name="twitter:description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。">
@@ -529,7 +529,7 @@
         <h2 id="一-vim替换"><a class="markdownIt-Anchor" href="#一-vim替换"></a> 一、vim替换</h2>
 <p>ctrl+v 进入列模式,向下或向上移动光标,把需要注释的行的开头标记起来,然后按大写的I,再插入注释符,比如#,再按Esc,就会全部注释。或者也可以运行下面这些命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:s/^/#            #用&quot;#&quot;注释当前行</span><br><span class="line">:2,50s/^/#        #在2~50行首添加&quot;#&quot;注释</span><br><span class="line">:.,+3s/^/#        #用&quot;#&quot;注释当前行和当前行后面的三行</span><br><span class="line">:%s/^/#           #用&quot;#&quot;注释所有行</span><br></pre></td></tr></table></figure>
-<p>顺便说一下vim的替换，这个常用，已经牢记，其实和上面用命令注释多行是一样的，只不过是上面注释的命令里的&quot;^&quot;符号代表开始位置而已，在下面这些命令中，“s&quot;代表替换，part1代表查找的内容，part2代表替换的内容，”%&quot;代表所有行，“g&quot;代表替换整行里所有的内容（如果不加”/g&quot;则只替换每行第一个匹配part1的地方）。</p>
+<p>顺便说一下vim的替换，这个常用，已经牢记，其实和上面用命令注释多行是一样的，只不过是上面注释的命令里的&quot;^&quot;符号代表开始位置而已，在下面这些命令中，&quot;s&quot;代表替换，part1代表查找的内容，part2代表替换的内容，&quot;%&quot;代表所有行，&quot;g&quot;代表替换整行里所有的内容（如果不加&quot;/g&quot;则只替换每行第一个匹配part1的地方）。</p>
 <p>p.n.关于g的用法貌似在本系统相反，虽然各处都这么说。。。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:s/part1/part2              #用part2替换当前行中第1个part1</span><br><span class="line">:s/part1/part2/g            #用part2替换当前行中所有的part1</span><br><span class="line">:%s/part1/part2             #用part2替换所有行中每行第1个part1</span><br><span class="line">:%s/part1/part2/g           #用part2替换所有行中所有的part1</span><br><span class="line">:2,50s/part1/part2          #用part2替换第2行到第50行中每行第1个part1</span><br><span class="line">:2,50s/part1/part2/g        #用part2替换第2行到第50行中所有的part1</span><br><span class="line">:.,+3s/part1/part2          #用part2替换当前行以及当前行后面的三行中每行第1个part1</span><br><span class="line">:.,+3s/part1/part2/g        #用part2替换当前行以及当前行后面的三行中所有的part1</span><br></pre></td></tr></table></figure>
 <p>BTW:在替换时要注意，某些字符是需要转译的，如空格、括号等。</p>
