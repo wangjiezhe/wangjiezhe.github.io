@@ -18,7 +18,7 @@ date: 2018-10-29 11:44:17
 
 - [樱花庄的白猫 | ねこ・しろ・ましろ](https://2heng.xin)
 - [千灵](https://qianling.pw)
-- [猫宅の小可乐](https://meowqvq.wordpress.com)
+- [恶魔菌の记事簿](https://meow3.family.blog)
 - [梦想博客](http://myloveru.cn)
 - [喵's StackHarbor](https://sh.alynx.xyz)
 - [OTZephyr](http://zephyr.b3log.org)
