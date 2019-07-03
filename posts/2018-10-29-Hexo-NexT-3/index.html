@@ -159,7 +159,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/10/29/5bd723ae73cb3.png">
 <meta property="og:image" content="https://i.loli.net/2018/10/29/5bd72ad402e66.png">
 <meta property="og:image" content="https://i.loli.net/2018/10/29/5bd72b0093ab9.png">
-<meta property="og:updated_time" content="2019-07-03T06:00:26.293Z">
+<meta property="og:updated_time" content="2019-07-03T07:03:57.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo NexT 魔改系列之三 ── 评论篇">
 <meta name="twitter:description" content="为NexT主题添加评论功能">
@@ -475,18 +475,6 @@
           
 
           
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                <time title="修改时间：2019-07-03 14:00:26" itemprop="dateModified" datetime="2019-07-03T14:00:26+08:00">2019-07-03</time>
-              </span>
-            
-          
 
           
             <span class="post-meta-item">
@@ -519,26 +507,18 @@
 
           
           
-            <span id="/posts/2018-10-29-Hexo-NexT-3/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo NexT 魔改系列之三 ── 评论篇">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
 
-          
-
-          
           
             <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
+              <span class="post-meta-item-icon" title="阅读次数">
+                <i class="fa fa-eye"></i>
+                
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
               </span>
-              
-              <span title="本文字数">0</span>
             </span>
+          
+
+          
           
 
           
@@ -723,10 +703,6 @@
 
   
     <div class="comments" id="comments">
-      
-        <div class="disqus-button" id="disqus-display-button" onclick="loadComments()">
-          显示 Disqus 评论
-        </div>
       
       <div id="disqus_thread">
         <noscript>
@@ -1072,6 +1048,32 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
@@ -1568,66 +1570,6 @@
 
 
   
-  
-  <script>
-    
-    function addCount(Counter) {
-      var $visitors = $('.leancloud_visitors');
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
-        .done(function({ results }) {
-          if (results.length > 0) {
-            var counter = results[0];
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text(counter.time + 1);
-            
-            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
-            
-              .fail(function ({ responseJSON }) {
-                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
-              })
-          } else {
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
-          }
-        })
-        .fail(function ({ responseJSON }) {
-          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
-        });
-    }
-    
-
-    $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'zF9bATpOVpJ3Ne23Ind4DtpA-gzGzoHsz')
-        .done(function({ api_server }) {
-          var Counter = function(method, url, data) {
-            return $.ajax({
-              method: method,
-              url: 'https://' + api_server + '/1.1' + url,
-              headers: {
-                'X-LC-Id': 'zF9bATpOVpJ3Ne23Ind4DtpA-gzGzoHsz',
-                'X-LC-Key': 'U9qQHaflwz0965brRUeN1VOB',
-                'Content-Type': 'application/json',
-              },
-              data: data
-            });
-          };
-          
-            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
-            if (localhost.test(document.URL)) return;
-            addCount(Counter);
-          
-        });
-    });
-  </script>
-
-
 
   
 
@@ -1728,5 +1670,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>
 </html>
