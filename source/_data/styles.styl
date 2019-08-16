@@ -1,0 +1,224 @@
+// Custom styles.
+
+// surviving days in the side bar
+#site-days {
+  display: inline-block;
+  font-size: 13px;
+  text-align: left;
+  vertical-align: middle;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: $grey-dark;
+  border-bottom-color: $black-light;
+}
+
+// inline code color
+code {
+    color: $KURENAI;
+    background: $SHIRONERI;
+}
+
+// dynamic background color
+.bg_content {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+// scroll-bar
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-button:start:increment,::-webkit-scrollbar-button:end:decrement {
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  display: block;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: rgba(0,0,0,.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 8px;
+  background-color: rgba(0,0,0,.5);
+}
+::-webkit-scrollbar-track,::-webkit-scrollbar-thumb {
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+::-webkit-scrollbar-track:hover {
+  background-color: rgba(0,0,0,.15);
+}
+// ::-webkit-scrollbar-button:start {
+//   width: 10px;
+//   height: 10px;
+//   background: url(../images/scrollbar_arrow.png) no-repeat 0 0;
+// }
+// ::-webkit-scrollbar-button:start:hover {
+//   background: url(../images/scrollbar_arrow.png) no-repeat -15px 0;
+// }
+// ::-webkit-scrollbar-button:start:active {
+//   background: url(../images/scrollbar_arrow.png) no-repeat -30px 0;
+// }
+// ::-webkit-scrollbar-button:end {
+//   width: 10px;
+//   height: 10px;
+//   background: url(../images/scrollbar_arrow.png) no-repeat 0 -18px;
+// }
+// ::-webkit-scrollbar-button:end:hover {
+//   background: url(../images/scrollbar_arrow.png) no-repeat -15px -18px;
+// }
+// ::-webkit-scrollbar-button:end:active {
+//   background: url(../images/scrollbar_arrow.png) no-repeat -30px -18px;
+// }
+
+// copyright in the post
+.post-copyright {
+  border-radius: 10px;
+}
+
+// blockquote
+blockquote {
+  border-radius: 10px;
+}
+
+// copy button in code blocks
+.copy-btn {
+  border-radius: 20px !important;
+  background-color: #fff !important;
+  line-height: 25px !important;
+}
+
+// button
+.btn {
+  border-radius: 20px;
+}
+
+// back to top button
+.back-to-top {
+  border-radius: 20px;
+  background: $FUJIMURASAKI;
+}
+
+@font-face {
+  font-family: "GuDianMingChaoTi";
+  src: url("../fonts/GuDianMingChaoTi.eot"); /* IE9 */
+  src: url("../fonts/GuDianMingChaoTi.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/GuDianMingChaoTi.woff") format("woff"), /* chrome, firefox */
+    url("../fonts/GuDianMingChaoTi.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("../fonts/GuDianMingChaoTi.svg#WenYue GuDianMingChaoTi (Non-Commercial Use) W5") format("svg"); /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "ZHJXinWeiTi";
+  src: url("ZHJXinWeiTi.eot"); /* IE9 */
+  src: url("../fonts/ZHJXinWeiTi.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/ZHJXinWeiTi.woff") format("woff"), /* chrome, firefox */
+    url("../fonts/ZHJXinWeiTi.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("../fonts/ZHJXinWeiTi.svg#WenYue ZHJXinWeiTi (Non-Commercial Use)") format("svg"); /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}
+
+.site-title {
+  font-family: "GuDianMingChaoTi";
+  font-size: 22px;
+}
+
+.site-subtitle {
+  font-family: "GuDianMingChaoTi";
+  font-size: 22px;
+  color: #fff;
+}
+
+.site-author-name {
+  font-family: "ZHJXinWeiTi";
+  font-weight: normal;
+}
+
+.site-meta {
+  background: $SUMIRE;
+}
+
+.footer-inner {
+  color: $SUMIRE;
+}
+
+.post-body p a, .post-body ul a, .post-body h2 a, .post-copyright a {
+  color: $RURI;
+  border-bottom: none;
+
+  &:hover {
+    color: $RURIKON;
+    border-bottom: 1px dashed;
+  }
+}
+
+.posts-collapse .post-title a {
+  color: $RURI;
+
+  &:hover {
+    color: $RURIKON;
+  }
+}
+
+.posts-expand .post-tags a {
+  border: 0.1em solid $SANGOSYU;
+  padding: 0.25em;
+  line-height: 1.2em;
+  background: $GINSYU;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 10px;
+
+  &:hover {
+    box-shadow: 0 0 1em 0.5em $TAIKOH;
+  }
+
+  &:nth-child(2n) {
+    border: 0.1em solid $NAE;
+    background: $MIDORI;
+
+    &:hover {
+      box-shadow: 0 0 1em 0.5em $BYAKUROKU;
+    }
+  }
+
+  &:nth-child(3n) {
+    border: 0.1em solid $RURI;
+    background: $KONJYO;
+
+    &:hover {
+      box-shadow: 0 0 1em 0.5em $MIZU;
+    }
+  }
+
+  &:nth-child(4n) {
+    border: 0.1em solid $TOKIGARACHA;
+    background: $KABACHA;
+
+    &:hover {
+      box-shadow: 0 0 1em 0.5em $SHAREGAKI;
+    }
+  }
+}
+
+.utterances {
+  max-width: none;
+}
+
+.posts-expand .post-body img {
+  border: none;
+}
