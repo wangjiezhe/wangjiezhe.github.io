@@ -1647,7 +1647,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #91ffac;
+  background: #50ffff;
 }
 .feed-link,
 .chat {
@@ -3123,10 +3123,12 @@ blockquote {
   color: #0b346e;
   border-bottom: 1px dashed;
 }
-.posts-collapse .post-title a {
+.posts-collapse .post-title a,
+span.exturl {
   color: #005caf;
 }
-.posts-collapse .post-title a:hover {
+.posts-collapse .post-title a:hover,
+span.exturl:hover {
   color: #0b346e;
 }
 .posts-expand .post-tags a {
