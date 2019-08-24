@@ -161,20 +161,20 @@ live2d:
 aplayer:
   meting: true
 
-leancloud_counter_security:
-  enable_sync: true
-  app_id: zF9bATpOVpJ3Ne23Ind4DtpA-gzGzoHsz
-  app_key: U9qQHaflwz0965brRUeN1VOB
-  username: LC_COUNTER_USERNAME
-  password: LC_COUNTER_PASSWORD
+# leancloud_counter_security:
+#   enable_sync: true
+#   app_id: zF9bATpOVpJ3Ne23Ind4DtpA-gzGzoHsz
+#   app_key: U9qQHaflwz0965brRUeN1VOB
+#   username: LC_COUNTER_USERNAME
+#   password: LC_COUNTER_PASSWORD
 
 ## Themes: https://hexo.io/themes/
 theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
+# deploy:
   # type: git
   # repository: https://github.com/wangjiezhe/wangjiezhe.github.io
   # branch: master
-  - type: leancloud_counter_security_sync
+  # - type: leancloud_counter_security_sync
