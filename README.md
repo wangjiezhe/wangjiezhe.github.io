@@ -1,6 +1,6 @@
 # Jiezhe's Blog
 
-[![Build Status](https://travis-ci.org/wangjiezhe/wangjiezhe.github.io.svg?branch=source)](https://travis-ci.org/wangjiezhe/wangjiezhe.github.io)
+[![Build Status](https://api.travis-ci.com/wangjiezhe/wangjiezhe.github.io.svg?branch=source)](https://travis-ci.com/wangjiezhe/wangjiezhe.github.io)
 [![Pipelines](https://gitlab.com/wangjiezhe/wangjiezhe.gitlab.io/badges/master/build.svg)](https://gitlab.com/wangjiezhe/wangjiezhe.gitlab.io/pipelines)
 
 ## 博客主题
