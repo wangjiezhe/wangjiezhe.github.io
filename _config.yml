@@ -118,9 +118,9 @@ markdown_it_plus:
     typographer: false
     # quotes: “”‘’
     plugins:
-    #     - plugin:
-    #         name: markdown-it-mark
-    #         enable: false
+      # - plugin:
+      #     name: markdown-it-mark
+      #     enable: false
       - plugin:
           name: markdown-it-task-lists
           enable: true
