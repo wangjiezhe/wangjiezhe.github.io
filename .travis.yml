@@ -4,11 +4,11 @@ dist: xenial
 node_js:
   - '11'
 
-cache:
-  apt: true
-  yarn: true
-  directories:
-    - node_modules
+# cache:
+#   apt: true
+#   yarn: true
+#   directories:
+#     - node_modules
 
 addons:
   apt:
