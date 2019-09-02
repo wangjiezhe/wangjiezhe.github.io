@@ -118,9 +118,9 @@ markdown_it_plus:
     typographer: false
     # quotes: “”‘’
     plugins:
-    #     - plugin:
-    #         name: markdown-it-mark
-    #         enable: false
+      # - plugin:
+      #     name: markdown-it-mark
+      #     enable: false
       - plugin:
           name: markdown-it-task-lists
           enable: true
@@ -173,8 +173,8 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
+# deploy:
   # type: git
   # repository: https://github.com/wangjiezhe/wangjiezhe.github.io
   # branch: master
-  - type: leancloud_counter_security_sync
+  # - type: leancloud_counter_security_sync

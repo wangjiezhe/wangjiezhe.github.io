@@ -4,6 +4,6 @@
 
 {%- if theme.footer.hosted.enable %}
   <div class="hosted-by">{#
-  #}{{ __('footer.hosted',  '<a class="host-link" target="_blank"' + nofollow + ' href="' + theme.footer.hosted.url +'">' + theme.footer.hosted.host + '</a>') }}{#
+  #}{{ __('footer.hosted', next_url(theme.footer.hosted.url, theme.footer.hosted.host, {class: 'host-link'})) }}{#
 #}</div>
 {%- endif %}
