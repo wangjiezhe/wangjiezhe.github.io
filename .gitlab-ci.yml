@@ -1,12 +1,12 @@
-image: node:11.15.0
+image: node:lastet
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 pages:
-  # cache:
-  #   paths:
-  #     - node_modules/
+  cache:
+    paths:
+      - node_modules/
   before_script:
     - export PATH=$(yarn global bin):$PATH
     - yarn global add hexo
