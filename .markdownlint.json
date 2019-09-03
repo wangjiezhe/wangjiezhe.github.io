@@ -9,5 +9,6 @@
         "allowed_elements": ["em", "script"]
     },
     "MD034": false,
-    "MD041": false
+    "MD041": false,
+    "MD045": false
 }
