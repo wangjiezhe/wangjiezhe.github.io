@@ -34,6 +34,7 @@ date: 2018-10-29 11:44:17
 ### 工具
 
 - [天凤/牌理](https://tenhou.net/2/)
+- [電脳麻将: 何切る解答機](http://kobalab.net/majiang/dapai.html)
 - [天凤/牌画](https://tenhou.net/2/img/)
 - [牌局记录工具](http://jmj.tw/noteapp.html)
 - [日麻记点器（Android）](https://bbs.nga.cn/read.php?tid=12223436)
