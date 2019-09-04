@@ -1,4 +1,4 @@
-image: node:lastet
+image: node:12.9.1
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
