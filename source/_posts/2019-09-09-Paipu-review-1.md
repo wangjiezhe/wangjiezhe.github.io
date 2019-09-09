@@ -28,4 +28,4 @@ description: 223446677何切
 
 看来这种多面听的改良判断还是需要再加强一下。
 
-[1]: http://kobalab.net/majiang/dapai.html
+[1]: http://kobalab.net/majiang/dapai.html#m11456p22344677p6/1/1/s6
