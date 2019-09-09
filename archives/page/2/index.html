@@ -61,19 +61,18 @@
   };
 </script>
 
-  <meta name="description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
-<meta name="keywords" content="Linux,Network">
-<meta property="og:type" content="article">
-<meta property="og:title" content="修改 NetworkManager wifi 热点的加密方式">
-<meta property="og:url" content="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/index.html">
+  <meta name="description" content="某不知名机构不知名数学老师一枚">
+<meta name="keywords" content="Blog,Hexo,NexT,Math,博客,数学">
+<meta property="og:type" content="website">
+<meta property="og:title" content="如鱼饮水">
+<meta property="og:url" content="https://wangjiezhe.com/archives/page/2/index.html">
 <meta property="og:site_name" content="如鱼饮水">
-<meta property="og:description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
+<meta property="og:description" content="某不知名机构不知名数学老师一枚">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-09T18:28:32.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修改 NetworkManager wifi 热点的加密方式">
-<meta name="twitter:description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
-  <link rel="canonical" href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/">
+<meta name="twitter:title" content="如鱼饮水">
+<meta name="twitter:description" content="某不知名机构不知名数学老师一枚">
+  <link rel="canonical" href="https://wangjiezhe.com/archives/page/2/">
 
 
 <script id="page-configurations">
@@ -81,9 +80,9 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
+    isPost: false,
     isPage: false,
-    isArchive: false
+    isArchive: true
   };
 </script>
 <script>
@@ -101,7 +100,7 @@
     })();
 </script>
 
-  <title>修改 NetworkManager wifi 热点的加密方式 | 如鱼饮水</title>
+  <title>归档 | 如鱼饮水</title>
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
   <script pjax>
@@ -280,225 +279,97 @@
         <div class="content-wrap">
             
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="西风冷香">
-      <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
-      <meta itemprop="image" content="/images/camel.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="如鱼饮水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">修改 NetworkManager wifi 热点的加密方式
-
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        
+        
+        
           
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-plus-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2014-03-22 00:00:00" itemprop="dateCreated datePublished" datetime="2014-03-22T00:00:00+08:00">2014-03-22</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-open-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            <span class="post-meta-item" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
-            <div class="post-description">在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）</div>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        
+        <span class="collection-header">嗯..! 目前共计 21 篇日志。 继续努力。</span>
+      </div>
+      
 
       
-        <blockquote>
-<p><strong>Note: 在 Fedora 21 中, 默认的加密方式已改为 WPA</strong></p>
-</blockquote>
-<p>NetworkManager 共享 wifi 热点时默认的加密方式是 WEP, 这种加密方式早已被证明安全性较低.而 WPA 加密的安全性则相对较高.</p>
-<p>wifi 热点的配置文件为 <code>/etc/NetworkManager/system-connections/Hostpot</code>, 该文件须用 root 权限打开.</p>
-<p>修改:</p>
-<p>ssid: wifi 名称, 可改为自己想要的.</p>
-<p>key-mgmt: 加密方式, 有以下几种:</p>
-<ul>
-<li>none: WEP</li>
-<li>ieee8021x: Dynamic WEP</li>
-<li>wpa-none: WPA-PSK Ad-Hoc</li>
-<li>wpa-psk: infrastructure WPA-PSK</li>
-<li>wpa-eap: WPA-Enterprise</li>
-</ul>
-<p>默认为 <code>key-mgmt=none</code>, 我将其修改为 <code>key-mgmt=wpa-psk</code>.</p>
-<p>下面原来两行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wep-key0=</span><br><span class="line">wep-key-type=</span><br></pre></td></tr></table></figure>
-<p>为WEP密码和类型, 将其删去或注释掉, 改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psk=your_password</span><br></pre></td></tr></table></figure>
-<p>然后重启 NetworkManager 服务即可</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart NetworkManager.service</span><br></pre></td></tr></table></figure>
 
+  
+  
+
+  
+    
+    <div class="collection-year">
+      <h2 class="collection-header">2009</h2>
     </div>
+  
 
-    
-    
-    
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="/posts/2014-03-01-Linux-Notes-1/" rel="bookmark">Linux 随学随记 (1)</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="/posts/2014-03-02-Pipelight-use-eBank-on-Linux/" rel="bookmark">Piplight 在 Linux 上使用网银</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="/posts/2014-03-09-intro-for-regular-expression/" rel="bookmark">正则表达式简介</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="/posts/2014-03-19-Linux-Notes-2/" rel="bookmark">Linux 随学随记 (2)</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="/posts/2014-04-20-Linux-Notes-3/" rel="bookmark">Linux 随学随记 (3)</a></div>
-      
-    </li>
-  
-  </ul>
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
+      <h3 class="post-title">
         
-      
+          <a class="post-title-link" href="/posts/2009-07-25-Xifengfu/" itemprop="url">
+            <span itemprop="name">西风赋</span>
+          </a>
         
+      </h3>
 
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>西风冷香</li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/" title="修改 NetworkManager wifi 热点的加密方式">https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li>
-</ul>
-</div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2009-07-25T16:54:00+08:00"
+              content="2009-07-25">
+          07-25
+        </time>
+      </div>
 
-      
-
-      <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
-            
-              <a href="/tags/Network/" rel="tag"><i class="fa fa-tag"></i> Network</a>
-            
-          </div>
-        
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/posts/2014-03-19-Linux-Notes-2/" rel="next" title="Linux 随学随记 (2)">
-                  <i class="fa fa-chevron-left"></i> Linux 随学随记 (2)
-                </a>
-              
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/posts/2014-04-20-Linux-Notes-3/" rel="prev" title="Linux 随学随记 (3)">
-                  Linux 随学随记 (3) <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
-        
-      </footer>
-    
-  </div>
-  
-  
-  
+    </header>
   </article>
 
-  </div>
 
 
-          </div>
-          
-    
-    
-  <div class="comments" id="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+
     </div>
   </div>
   
   
+  
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
+
+          </div>
+          
 
         </div>
           
@@ -513,11 +384,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -835,20 +701,6 @@ window.addEventListener('pjax:success', () => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
-      apikey: 'ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F',
-      shortname: 'wangjiezhe',
-      url: "https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/",
-      identifier: "/posts/2014-03-22-NetworkManager-Hotspot-Setting/",
-      title: '修改 NetworkManager wifi 热点的加密方式',
-    });
-  }, window.DisqusJS);
-</script>
 
     </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>

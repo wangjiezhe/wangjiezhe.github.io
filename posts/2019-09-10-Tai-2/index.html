@@ -61,19 +61,26 @@
   };
 </script>
 
-  <meta name="description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
-<meta name="keywords" content="Linux,Network">
+  <meta name="description" content="学习太くないお的牌谱，反思出现的问题">
+<meta name="keywords" content="太くないお">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修改 NetworkManager wifi 热点的加密方式">
-<meta property="og:url" content="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/index.html">
+<meta property="og:title" content="太流牌谱学习笔记（二）">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2019-09-10-Tai-2/index.html">
 <meta property="og:site_name" content="如鱼饮水">
-<meta property="og:description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
+<meta property="og:description" content="学习太くないお的牌谱，反思出现的问题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-09T18:28:32.475Z">
+<meta property="og:image" content="https://i.loli.net/2019/09/10/x2CZXYfqr5y7WTV.jpg">
+<meta property="og:image" content="https://i0.hdslb.com/bfs/article/f1a400bc542ab92f03031cc5608b525e37e54243.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/10/R78fBHa5u2LcleS.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/10/MOvUZoNPtqVEjpw.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/10/aPrqN3ezoSuGOQ6.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/09/10/yr4OsXEBW7PV8e3.jpg">
+<meta property="og:updated_time" content="2019-09-09T18:28:32.479Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修改 NetworkManager wifi 热点的加密方式">
-<meta name="twitter:description" content="在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）">
-  <link rel="canonical" href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/">
+<meta name="twitter:title" content="太流牌谱学习笔记（二）">
+<meta name="twitter:description" content="学习太くないお的牌谱，反思出现的问题">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/10/x2CZXYfqr5y7WTV.jpg">
+  <link rel="canonical" href="https://wangjiezhe.com/posts/2019-09-10-Tai-2/">
 
 
 <script id="page-configurations">
@@ -101,7 +108,7 @@
     })();
 </script>
 
-  <title>修改 NetworkManager wifi 热点的加密方式 | 如鱼饮水</title>
+  <title>太流牌谱学习笔记（二） | 如鱼饮水</title>
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
   <script pjax>
@@ -289,7 +296,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2019-09-10-Tai-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="西风冷香">
@@ -301,7 +308,7 @@
       <meta itemprop="name" content="如鱼饮水">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">修改 NetworkManager wifi 热点的加密方式
+        <h2 class="post-title" itemprop="name headline">太流牌谱学习笔记（二）
 
           
         </h2>
@@ -317,7 +324,7 @@
                 
               
 
-              <time title="创建时间：2014-03-22 00:00:00" itemprop="dateCreated datePublished" datetime="2014-03-22T00:00:00+08:00">2014-03-22</time>
+              <time title="创建时间：2019-09-10 00:49:00" itemprop="dateCreated datePublished" datetime="2019-09-10T00:49:00+08:00">2019-09-10</time>
             </span>
           
             <span class="post-meta-item">
@@ -326,7 +333,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日麻/" itemprop="url" rel="index"><span itemprop="name">日麻</span></a></span>
 
                 
                 
@@ -343,7 +350,7 @@
               <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
-            <div class="post-description">在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）</div>
+            <div class="post-description">学习太くないお的牌谱，反思出现的问题</div>
           
 
         </div>
@@ -355,28 +362,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p><strong>Note: 在 Fedora 21 中, 默认的加密方式已改为 WPA</strong></p>
-</blockquote>
-<p>NetworkManager 共享 wifi 热点时默认的加密方式是 WEP, 这种加密方式早已被证明安全性较低.而 WPA 加密的安全性则相对较高.</p>
-<p>wifi 热点的配置文件为 <code>/etc/NetworkManager/system-connections/Hostpot</code>, 该文件须用 root 权限打开.</p>
-<p>修改:</p>
-<p>ssid: wifi 名称, 可改为自己想要的.</p>
-<p>key-mgmt: 加密方式, 有以下几种:</p>
-<ul>
-<li>none: WEP</li>
-<li>ieee8021x: Dynamic WEP</li>
-<li>wpa-none: WPA-PSK Ad-Hoc</li>
-<li>wpa-psk: infrastructure WPA-PSK</li>
-<li>wpa-eap: WPA-Enterprise</li>
-</ul>
-<p>默认为 <code>key-mgmt=none</code>, 我将其修改为 <code>key-mgmt=wpa-psk</code>.</p>
-<p>下面原来两行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wep-key0=</span><br><span class="line">wep-key-type=</span><br></pre></td></tr></table></figure>
-<p>为WEP密码和类型, 将其删去或注释掉, 改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psk=your_password</span><br></pre></td></tr></table></figure>
-<p>然后重启 NetworkManager 服务即可</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart NetworkManager.service</span><br></pre></td></tr></table></figure>
+        <p>今天又看了一些太くないお的牌谱，发现自己的牌效和攻守判断有不小问题。</p>
+<h2 id="两面顺子单骑"><a class="markdownIt-Anchor" href="#两面顺子单骑"></a> 两面·顺子⚪单骑</h2>
+<p><img src="https://i.loli.net/2019/09/10/x2CZXYfqr5y7WTV.jpg" alt="东3局1本场7巡目"></p>
+<p>上家打0p，这里太くないお吃了，打1m。</p>
+<p>这里1m比打2m略优，因为245667m可以视为一个三面进章的好型，进358m都可以形成两个面子。</p>
+<p>之前看<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3JlYWQvY3YyNDgwNjAzLw==" title="https://www.bilibili.com/read/cv2480603/">《琴南幼儿园笔记本》<i class="fa fa-external-link"></i></span>时，里面也提到了这种牌型，就是“两面·顺子⚪单骑”是一个好型，这里即是一个例子</p>
+<p><img src="https://i0.hdslb.com/bfs/article/f1a400bc542ab92f03031cc5608b525e37e54243.png" alt="两面·顺子⚪单骑"></p>
+<h2 id="对子的处理"><a class="markdownIt-Anchor" href="#对子的处理"></a> 对子的处理</h2>
+<p><img src="https://i.loli.net/2019/09/10/R78fBHa5u2LcleS.jpg" alt="南1局1本场6巡目"></p>
+<p>这里我的第一反应是模切7p，而太くないお则是手切了4m。</p>
+<p>这里切4m并不损失5m的进章，保留7p则可以保留做7对的可能性。</p>
+<p><img src="https://i.loli.net/2019/09/10/MOvUZoNPtqVEjpw.jpg" alt="南1局1本场8巡目"></p>
+<p>后续进到了8m，我的第一反应是切7p/2s固定好型，而太くないお则是切了3s。</p>
+<p>这里如果切7p，那么2s就得作雀头，3s实际上是一张没用的牌。而如果切3s，还多了7p和2s的进张。</p>
+<p>而根据“双雀头最强”的理论（<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3JlYWQvY3YyNzE4OTQyLw==" title="https://www.bilibili.com/read/cv2718942/">2ヘッド理論<i class="fa fa-external-link"></i></span>），这里保留7p和2s两个雀头牌效是最高的。</p>
+<p><img src="https://i.loli.net/2019/09/10/aPrqN3ezoSuGOQ6.jpg" alt="南1局1本场9巡目"></p>
+<p>之后又进到了7m，这里切7p比且切7m略好一点。因为这里打掉7p之后，减少了2枚7p的进张，多了67m共3枚进张。另外需要注意的是，这时58p已现4张，虽然还是两面听牌，但已经和愚型听牌差不多了。</p>
+<h2 id="防守的意识"><a class="markdownIt-Anchor" href="#防守的意识"></a> 防守的意识</h2>
+<p><img src="https://i.loli.net/2019/09/10/yr4OsXEBW7PV8e3.jpg" alt="南2局0本场10巡目"></p>
+<p>2巡前下家碰4s打红中，然后上家碰了中打6m。这里我还在考虑切9p进攻的时候，太くないお直接打了8p防守。</p>
+<p>仔细想一下，已经到了中盘，下家断幺副露后切了字牌，之后一直模切，应该有50%的概率听牌，至少也是一向听。上家也是类似的情况。而这里自家的手牌还是2个愚型的3向听，因此这里的确应该考虑弃胡了。</p>
+<p>实际上，这里下家是断幺Dora2的一向听，而上家已经是中Dora2听牌。</p>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<p>从自己打牌的经历来看，对于防守的判断还停留在有人立直才防守的层面上，对于其他情况，比如副露的防守还不是很有意识。</p>
+<p>设另外，当自己的牌不好的时候，就应该提前考虑弃胡，而不是强行进攻，这点在之后打牌的时候务必要注意。</p>
 
     </div>
 
@@ -389,35 +399,7 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/posts/2014-03-01-Linux-Notes-1/" rel="bookmark">Linux 随学随记 (1)</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="/posts/2014-03-02-Pipelight-use-eBank-on-Linux/" rel="bookmark">Piplight 在 Linux 上使用网银</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="/posts/2014-03-09-intro-for-regular-expression/" rel="bookmark">正则表达式简介</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="/posts/2014-03-19-Linux-Notes-2/" rel="bookmark">Linux 随学随记 (2)</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="/posts/2014-04-20-Linux-Notes-3/" rel="bookmark">Linux 随学随记 (3)</a></div>
+      <div class="popular-posts-title"><a href="/posts/2019-09-04-Tai-1/" rel="bookmark">太流牌谱学习笔记（一）</a></div>
       
     </li>
   
@@ -433,7 +415,7 @@
     <strong>本文作者： </strong>西风冷香</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/" title="修改 NetworkManager wifi 热点的加密方式">https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/</a>
+    <a href="https://wangjiezhe.com/posts/2019-09-10-Tai-2/" title="太流牌谱学习笔记（二）">https://wangjiezhe.com/posts/2019-09-10-Tai-2/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li>
@@ -448,9 +430,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
-            
-              <a href="/tags/Network/" rel="tag"><i class="fa fa-tag"></i> Network</a>
+              <a href="/tags/太くないお/" rel="tag"><i class="fa fa-tag"></i> 太くないお</a>
             
           </div>
         
@@ -460,8 +440,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/posts/2014-03-19-Linux-Notes-2/" rel="next" title="Linux 随学随记 (2)">
-                  <i class="fa fa-chevron-left"></i> Linux 随学随记 (2)
+                <a href="/posts/2019-09-09-Paipu-review-1/" rel="next" title="牌谱反思（一）">
+                  <i class="fa fa-chevron-left"></i> 牌谱反思（一）
                 </a>
               
             </div>
@@ -469,10 +449,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/posts/2014-04-20-Linux-Notes-3/" rel="prev" title="Linux 随学随记 (3)">
-                  Linux 随学随记 (3) <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -530,6 +506,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#两面顺子单骑"><span class="nav-number">1.</span> <span class="nav-text"> 两面·顺子⚪单骑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对子的处理"><span class="nav-number">2.</span> <span class="nav-text"> 对子的处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防守的意识"><span class="nav-number">3.</span> <span class="nav-text"> 防守的意识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text"> 总结</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -843,9 +821,9 @@ window.addEventListener('pjax:success', () => {
       api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
       apikey: 'ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F',
       shortname: 'wangjiezhe',
-      url: "https://wangjiezhe.com/posts/2014-03-22-NetworkManager-Hotspot-Setting/",
-      identifier: "/posts/2014-03-22-NetworkManager-Hotspot-Setting/",
-      title: '修改 NetworkManager wifi 热点的加密方式',
+      url: "https://wangjiezhe.com/posts/2019-09-10-Tai-2/",
+      identifier: "/posts/2019-09-10-Tai-2/",
+      title: '太流牌谱学习笔记（二）',
     });
   }, window.DisqusJS);
 </script>
