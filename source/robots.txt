@@ -1,17 +1,5 @@
 User-agent: *
-Allow: /
-Allow: /posts/
-Allow: /archives/
-Allow: /tags/
-
-Disallow: /vendors/
-Disallow: /lib/
-Disallow: /js/
-Disallow: /css/
-Disallow: /images/
-Disallow: /fonts/
-Disallow: /vendors/
-Disallow: /fancybox/
+Disallow:
 
 Sitemap: https://wangjiezhe.com/sitemap.xml
 Sitemap: https://wangjiezhe.com/baidusitemap.xml
