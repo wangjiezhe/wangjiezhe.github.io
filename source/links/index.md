@@ -13,6 +13,8 @@ date: 2018-10-29 11:44:17
 - [NIPPON COLORS - 日本の伝統色](http://nipponcolors.com) 一个非常好的选色网站
 - [Font Awesome 中文网](http://www.fontawesome.com.cn/icons-ui) 查找图标名称
 - [烧饼博客](https://sb.sb/projects) 嗯，域名很好
+- [IP地址查询](https://ip.skk.moe)
+- [SM.MS](https://sm.ms) 免费图床
 
 ## 博客
 
@@ -23,6 +25,7 @@ date: 2018-10-29 11:44:17
 - [喵's StackHarbor](https://sh.alynx.xyz)
 - [OTZephyr](http://zephyr.b3log.org)
 - [Sukka's Blog](https://blog.skk.moe)
+- [依云's Blog](https://blog.lilydjwg.me)
 
 ## 立直麻将
 
@@ -30,6 +33,7 @@ date: 2018-10-29 11:44:17
 
 - [天凤/Web版](https://tenhou.net/3/)
 - [雀魂（国服）](https://www.majsoul.com/1/)
+- [雀魂（日服）](https://game.mahjongsoul.com/)
 
 ### 工具
 
