@@ -7,7 +7,8 @@ tags:
   - Shell
   - Sed
   - Vim
-date: 2014-03-01 00:00:00
+date: 2014-03-01 13:26:01
+updated: 2014-03-20 21:42:23
 description: 记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。
 ---
 

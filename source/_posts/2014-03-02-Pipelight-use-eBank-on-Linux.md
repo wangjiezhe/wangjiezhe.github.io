@@ -8,7 +8,8 @@ tags:
   - Pipelight
   - Wine
   - ActiveX
-date: 2014-03-02 00:00:00
+date: 2014-03-02 02:11:37
+updated: 2014-04-18 21:25:11
 description: 记录在 Fedora 上使用网银的过程。
 ---
 
