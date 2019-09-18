@@ -1523,9 +1523,6 @@ article:last-child .post-eof {
     display: inline-block;
   }
 }
-.post-meta-item-text {
-  display: none;
-}
 @media (max-width: 991px) {
   .post-meta-item-text {
     display: none;
@@ -1766,7 +1763,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c8ec32;
+  background: #aa4bf5;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2737,7 +2734,6 @@ ul.breadcrumb li + li:last-child {
 }
 .links-of-author-item {
   margin: 5px 0 0;
-  width: 50%;
 }
 .links-of-author-item a,
 .links-of-author-item span.exturl {
@@ -2784,8 +2780,6 @@ ul.breadcrumb li + li:last-child {
 .links-of-blogroll-item {
   padding: 0;
   margin: 5px 0 0;
-  width: 50%;
-  width: unset;
 }
 .links-of-blogroll-item a,
 .links-of-blogroll-item span.exturl {
@@ -2994,7 +2988,11 @@ blockquote {
 }
 .back-to-top {
   border-radius: 20px;
+  font-size: 14px;
+}
+.back-to-top:hover {
   background: #8a6bbe;
+  color: #fff;
 }
 @font-face {
   font-family: "GuDianMingChaoTi";
