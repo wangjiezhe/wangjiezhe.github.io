@@ -7,6 +7,7 @@ tags:
   - Shell
   - Vim
 date: 2015-08-20 00:00:00
+updated: 2019-09-18 10:04:00
 description: 记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。
 ---
 
@@ -38,22 +39,25 @@ n 表示重复次数，0 表示无限循环。
 
 当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法。
 
-    cd directorya directoryb
+```bash
+cd directorya directoryb
+```
 
 第一个参数是当前目录路径中需要替换的参数，第二个参数是替换字符串。
 
-    # 要从v7目录 切换到v8目录，只需键入cd v7 v8
-    /programs/v7/reports/monthly > cd v7 v8
-    /programs/v8/reports/monthly >
+```bash
+# 要从v7目录 切换到v8目录，只需键入cd v7 v8
+/programs/v7/reports/monthly > cd v7 v8
+/programs/v8/reports/monthly >
 
-    # 如果历史上的每年每月都有一个对应目录，cd 转移允许从一年跳到另一年
-    /hist/2010/april/reports > cd 2010 2011
-    /hist/2011/april/reports >
+# 如果历史上的每年每月都有一个对应目录，cd 转移允许从一年跳到另一年
+/hist/2010/april/reports > cd 2010 2011
+/hist/2011/april/reports >
 
-    # 切换月份目录
-    /hist/2011/april/reports > cd april may
-    /hist/2011/may/reports >
-
+# 切换月份目录
+/hist/2011/april/reports > cd april may
+/hist/2011/may/reports >
+```
 
 ## vim 快速缩进
 
