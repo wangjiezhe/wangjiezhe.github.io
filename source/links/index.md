@@ -10,6 +10,7 @@ date: 2018-10-29 11:44:17
 
 ## 工具
 
+- [中国传统颜色手册](https://colors.ichuantong.cn)
 - [NIPPON COLORS - 日本の伝統色](http://nipponcolors.com) 一个非常好的选色网站
 - [Font Awesome 中文网](http://www.fontawesome.com.cn/icons-ui) 查找图标名称
 - [烧饼博客](https://sb.sb/projects) 嗯，域名很好
