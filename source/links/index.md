@@ -58,8 +58,9 @@ date: 2018-10-29 11:44:17
 - [立直麻雀的对子理论与七对子-解析土田浩翔](https://zhuanlan.zhihu.com/duizililun)  土田大法好
 - [立直麻雀门清流的研究-超門前主義麻雀](https://zhuanlan.zhihu.com/menqingliu)
 - [网络麻雀段位战攻略](https://www.bilibili.com/read/readlist/rl48989)
+- [坚冰集](https://www.bilibili.com/read/readlist/rl129296) 何切集
 - [统计学麻雀战术](https://www.bilibili.com/read/readlist/rl97988)  「統計学」のマージャン戦術
-- [琴南幼儿园图书馆](https://www.bilibili.com/read/readlist/rl69713)
+- [琴南幼儿园图书馆](https://www.bilibili.com/read/readlist/rl69713) 《麻雀 傑作「何切る」300選》《麻雀 定石「何切る」301選》《これだけで勝てる！ 麻雀の基本形８０》
 - [琴南幼儿园笔记本](https://www.bilibili.com/read/readlist/rl79513)
 - [麻将的二择](https://www.bilibili.com/read/readlist/rl116320)
 - [日麻多面听分析](https://www.bilibili.com/read/readlist/rl119817)
