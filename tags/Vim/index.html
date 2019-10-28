@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#66327C">
-  <link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#66327C">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+<link rel="stylesheet" href="/css/main.css">
 
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
@@ -32,9 +26,9 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '7.4.0',
+    version: '7.4.2',
     exturl: true,
-    sidebar: {"display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     copycode: {"enable":true,"show_result":true,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#37c6c0","save":"manual"},
@@ -65,14 +59,13 @@
 <meta name="keywords" content="Blog,Hexo,NexT,Math,博客,数学">
 <meta property="og:type" content="website">
 <meta property="og:title" content="如鱼饮水">
-<meta property="og:url" content="https://wangjiezhe.com/tags/Vim/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;tags&#x2F;Vim&#x2F;index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="某不知名机构不知名数学老师一枚">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如鱼饮水">
-<meta name="twitter:description" content="某不知名机构不知名数学老师一枚">
-  <link rel="canonical" href="https://wangjiezhe.com/tags/Vim/">
+
+<link rel="canonical" href="https://wangjiezhe.com/tags/Vim/">
 
 
 <script id="page-configurations">
@@ -88,18 +81,16 @@
 
   <title>标签: Vim | 如鱼饮水</title>
   
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
-  <script pjax>
-    var host = window.location.hostname;
-    if (host !== "localhost" || !true) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-48537410-1');
-    }
-  </script>
-
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+    <script pjax>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-48537410-1');
+      }
+    </script>
 
 
 
@@ -118,7 +109,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -132,11 +122,11 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -152,11 +142,11 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
 
@@ -164,67 +154,35 @@
 <nav class="site-nav">
   
   <ul id="menu" class="menu">
-      
-      
-      
-        
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-links">
-      
-    
 
-    <a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i> <br>友链</a>
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
       </li>
-    
   </ul>
 
 </nav>
@@ -260,140 +218,92 @@
   <div class="reading-progress-bar"></div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-            
+          
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
-          <div id="content" class="content">
+          <div class="content">
             
 
   
   
   
-  <div class="post-block tag">
-    <div id="posts" class="posts-collapse">
+  <div class="post-block">
+    <div class="posts-collapse">
       <div class="collection-title">
-        <h2 class="collection-header">Vim<small>标签</small>
+        <h2 class="collection-header">Vim
+          <small>标签</small>
         </h2>
       </div>
 
       
-
-  
-  
-
-  
-    
     <div class="collection-year">
       <h2 class="collection-header">2015</h2>
     </div>
-  
 
   <article itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/posts/2015-08-20-Linux-Notes-4/" itemprop="url">
-            <span itemprop="name">Linux 随学随记 (4)</span>
-          </a>
-        
-      </h3>
-
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
+        <time itemprop="dateCreated"
               datetime="2015-08-20T00:00:00+08:00"
               content="2015-08-20">
           08-20
         </time>
       </div>
 
+      <h3 class="post-title">
+          <a class="post-title-link" href="/posts/2015-08-20-Linux-Notes-4/" itemprop="url">
+            <span itemprop="name">Linux 随学随记 (4)</span>
+          </a>
+      </h3>
+
     </header>
   </article>
-
-
-
-  
-  
-
-  
-    
     <div class="collection-year">
       <h2 class="collection-header">2014</h2>
     </div>
-  
 
   <article itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/posts/2014-03-19-Linux-Notes-2/" itemprop="url">
-            <span itemprop="name">Linux 随学随记 (2)</span>
-          </a>
-        
-      </h3>
-
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
+        <time itemprop="dateCreated"
               datetime="2014-03-19T13:25:59+08:00"
               content="2014-03-19">
           03-19
         </time>
       </div>
 
+      <h3 class="post-title">
+          <a class="post-title-link" href="/posts/2014-03-19-Linux-Notes-2/" itemprop="url">
+            <span itemprop="name">Linux 随学随记 (2)</span>
+          </a>
+      </h3>
+
     </header>
   </article>
-
-
-
-  
-  
-
-  
 
   <article itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/posts/2014-03-01-Linux-Notes-1/" itemprop="url">
-            <span itemprop="name">Linux 随学随记 (1)</span>
-          </a>
-        
-      </h3>
-
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
+        <time itemprop="dateCreated"
               datetime="2014-03-01T13:26:01+08:00"
               content="2014-03-01">
           03-01
         </time>
       </div>
 
+      <h3 class="post-title">
+          <a class="post-title-link" href="/posts/2014-03-01-Linux-Notes-1/" itemprop="url">
+            <span itemprop="name">Linux 随学随记 (1)</span>
+          </a>
+      </h3>
+
     </header>
   </article>
-
-
 
     </div>
   </div>
@@ -411,12 +321,10 @@
         </div>
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
   <aside class="sidebar">
@@ -438,91 +346,47 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/camel.jpg"
-      alt="西风冷香">
+  <img class="site-author-image" itemprop="image" alt="西风冷香"
+    src="/images/camel.jpg">
   <p class="site-author-name" itemprop="name">西风冷香</p>
   <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
 </div>
-  <nav class="site-state motion-element">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
         <span class="site-state-item-count">8</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">30</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
+</div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub &rarr; https://github.com/wangjiezhe"><i class="fa fa-fw fa-github"></i></span>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-github"></i></span>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail &rarr; mailto:wangjiezhe@gmail.com"><i class="fa fa-fw fa-envelope"></i></span>
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail &amp;rarr; mailto:wangjiezhe@gmail.com"><i class="fa fa-fw fa-envelope"></i></span>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93YW5namllemhl" title="Twitter &rarr; https://twitter.com/wangjiezhe"><i class="fa fa-fw fa-twitter"></i></span>
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93YW5namllemhl" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-twitter"></i></span>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram &rarr; https://t.me/wangjiezhe"><i class="fa fa-fw fa-telegram"></i></span>
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram &amp;rarr; https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fa fa-fw fa-telegram"></i></span>
       </span>
-    
   </div>
 
 
@@ -566,10 +430,15 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
     <i class="fa fa-sun-o"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">西风冷香</span>
@@ -577,11 +446,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-bar-chart"></i>
     </span>
-    <span title="站点总字数">36k</span>
+    <span title="站点总字数">32k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v3.9.0</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.0.0
+  </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.4.0</div>
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.4.2
+  </div>
   <span class="post-meta-divider">|</span>
   <div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">GitHub Pages</span></div>
 
@@ -597,9 +468,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-  
     <span class="post-meta-divider">|</span>
-  
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -608,7 +477,6 @@
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
-  
 </div>
 
 
@@ -628,20 +496,17 @@
   </div>
 
   
-
-
   <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
-<script src="/js/schemes/pisces.js?v=7.4.0"></script>
-
-<script src="/js/next-boot.js?v=7.4.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [
@@ -661,19 +526,26 @@ var pjax = new Pjax({
 
 window.addEventListener('pjax:success', () => {
   document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
-    var id = element.id || '';
-    var src = element.src || '';
     var code = element.text || element.textContent || element.innerHTML || '';
     var parent = element.parentNode;
     parent.removeChild(element);
     var script = document.createElement('script');
-    if (id !=='') {
+    if (element.id) {
       script.id = element.id;
     }
-    if (src !== '') {
-      script.src = src;
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
       // Force synchronous loading of peripheral JS.
       script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
     }
     if (code !== '') {
       script.appendChild(document.createTextNode(code));
@@ -693,7 +565,7 @@ window.addEventListener('pjax:success', () => {
 </script>
 
 
-<script src="/js/click-love.js?v=7.4.0"></script>
+<script src="/js/click-love.js"></script>
   
   <script pjax>
     (function(){
@@ -708,12 +580,7 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.0"></script>
-
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -727,8 +594,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
 
   
 
