@@ -295,19 +295,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题.</p>
-<p>一种方法是通过 wine 安装 7z 或 haozip 来解决.</p>
-<p>另一种方法是利用环境变量 + 7z + convmv 来解决.</p>
-<p>用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN.gbk 的环境下解压 zip 文件:</p>
+        <p>在 windows 下打包的 zip 文件, 文件名是以 GBK 的方式编码的, 在 Linux 下解压会出现文件名乱码的问题。</p>
+<p>一种方法是通过 wine 安装 7z 或 haozip 来解决。</p>
+<p>另一种方法是利用环境变量 + 7z + convmv 来解决。</p>
+<p>用 7z 在 LC_ALL=C 或 LC_ALL=zh_CN。gbk 的环境下解压 zip 文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LC_ALL=C 7z x -oOUTDIR zipfile.zip</span><br></pre></td></tr></table></figure>
-<p>然后用 convmv 检测文件名的编码转换, 查看是否有乱码:</p>
+<p>然后用 convmv 检测文件名的编码转换, 查看是否有乱码：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convmv -f cp936 -t utf8-r *</span><br></pre></td></tr></table></figure>
-<p>如果没有乱码, 则可以进行转换:</p>
+<p>如果没有乱码, 则可以进行转换：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convmv -f cp936 -t utf8 --notest *</span><br></pre></td></tr></table></figure>
-<p>如果还要转换某个文件的编码, 则可以用 iconv :</p>
+<p>如果还要转换某个文件的编码, 则可以用 iconv ：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iconv -f cp936 -t utf8 -o outfile infile</span><br></pre></td></tr></table></figure>
-<p>网上还经常提到的一种方法是用 unzip 的 -O 选项, 可惜在新版的 unzip 中这一选项被移除了, 如果需要也可以自己打补丁, 不过个人感觉很麻烦.</p>
-<p>还有一种方法是用 python 来做. 网上有一个流传比较广的脚本, 不过功能不过完善, 下面的代码是在原代码基础上修改而成的，支持解压加密的压缩文件（一个是 python3 的版本，一个是 python2 的版本）:</p>
+<p>网上还经常提到的一种方法是用 unzip 的 -O 选项, 可惜在新版的 unzip 中这一选项被移除了, 如果需要也可以自己打补丁, 不过个人感觉很麻烦。</p>
+<p>还有一种方法是用 python 来做。网上有一个流传比较广的脚本, 不过功能不过完善, 下面的代码是在原代码基础上修改而成的，支持解压加密的压缩文件（一个是 python3 的版本，一个是 python2 的版本）：</p>
 <script src="https://gist.github.com/wangjiezhe/7841a350983a147b6d7e.js"></script>
 
     </div>
@@ -436,20 +436,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -526,7 +526,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-bar-chart"></i>
     </span>
-    <span title="站点总字数">32k</span>
+    <span title="站点总字数">34k</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.0.0
   </div>
