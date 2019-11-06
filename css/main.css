@@ -1213,7 +1213,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #331f4f;
+  background: #9eff5d;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2969,4 +2969,10 @@ span.exturl:hover {
 span.exturl.theme-link,
 span.exturl.host-link {
   color: #999;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
 }
