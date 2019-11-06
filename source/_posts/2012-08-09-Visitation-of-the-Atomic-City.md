@@ -4,7 +4,11 @@ date: 2012-08-09 15:39:00
 updated: 2012-08-09 15:39:00
 categories: 随想
 tags:
-description:
+    - 原子城
+    - 青海
+    - 旅游
+    - 纪念碑
+description:　隐藏在树丛深处、无人问津的纪念碑
 ---
 
 {% cq %}
