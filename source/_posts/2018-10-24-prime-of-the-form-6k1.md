@@ -8,7 +8,7 @@ tags:
 categories:
   - 数学
   - 初等数论
-description: 证明形如 6k+1 或 6k-1 的素数都有无穷多个。
+description: 证明形如 6k+1 或 6k-1 的素数都有无穷多个
 mathjax: true
 ---
 

@@ -10,7 +10,7 @@ tags:
   - Awk
 date: 2014-03-09 01:47:57
 updated: 2014-03-28 02:42:33
-description: 一些常见的正则表达式的备忘录。
+description: 一些常见的正则表达式的备忘录
 ---
 
 ## 元字符 (grep, sed)
