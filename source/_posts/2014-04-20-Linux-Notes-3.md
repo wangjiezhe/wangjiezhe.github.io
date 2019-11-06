@@ -7,7 +7,7 @@ tags:
   - Shell
 date: 2014-04-20 17:35:32
 updated: 2014-07-31 22:51:52
-description: 记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。
+description: 记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed
 ---
 
 `^[`  使用Ctrl-V Esc生成（ASC ASCII值）

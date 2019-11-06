@@ -7,7 +7,7 @@ categories:
 tags:
   - Linux
   - Vim
-description: 记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed。
+description: 记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed
 ---
 
 ## 一、vim切换tab
