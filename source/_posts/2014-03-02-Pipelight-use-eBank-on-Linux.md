@@ -10,7 +10,7 @@ tags:
   - ActiveX
 date: 2014-03-02 02:11:37
 updated: 2014-04-18 21:25:11
-description: 记录在 Fedora 上使用网银的过程。
+description: 记录在 Fedora 上使用网银的过程
 ---
 
 [@felixonmars](https://twitter.com/felixonmars) 在博客 [Pipelight – 让 Linux 原生 Chromium/Chrome 无缝支持 ActiveX 控件 (看! 网银!)](http://blog.felixc.at/2014/02/pipelight-let-linux-native-chromium-chrome-support-activex-seamlessly/) 中对如何通过 pipelight 使用工行网银做了很详细的描述, 不过是以 Arch Linux 作为例子来介绍的. 这里以 Fedora 20 为例, 做一个详细的介绍.

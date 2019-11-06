@@ -7,7 +7,7 @@ tags:
   - Network
 date: 2014-03-22 03:07:34
 updated: 2014-10-11 00:18:49
-description: 在 NetworkManager 热点中启用 WPA 加密。（注意：本文已过期！！！）
+description: 在 NetworkManager 热点中启用 WPA 加密（注意：本文已过期！！！）
 ---
 
 > **Note: 在 Fedora 21 中, 默认的加密方式已改为 WPA**
