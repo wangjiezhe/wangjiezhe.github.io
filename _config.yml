@@ -156,6 +156,10 @@ live2d:
 aplayer:
   meting: true
 
+# Encrypt: hexo-blog-Encrypt
+encrypt:
+  enable: true
+
 # leancloud_counter_security:
 #   enable_sync: true
 #   app_id: zF9bATpOVpJ3Ne23Ind4DtpA-gzGzoHsz

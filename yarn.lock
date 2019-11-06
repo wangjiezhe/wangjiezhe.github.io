@@ -2290,6 +2290,14 @@ hawk@1.1.1:
     hoek "0.9.x"
     sntp "0.2.x"
 
+hexo-blog-encrypt@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/hexo-blog-encrypt/-/hexo-blog-encrypt-3.0.3.tgz#1da6184c77f530505ef21dafbf106d2faa499d31"
+  integrity sha512-JV9mIEr18ldnhefR8SXw5WHcoEUgGG4xtW6hLtDjx06ExwnPXPWns9AHf5wggwe/cTJAqVaT8NIb2HI4JUwGUA==
+  dependencies:
+    hexo-fs "^1.0.2"
+    hexo-log "^0.2.0"
+
 hexo-browsersync@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/hexo-browsersync/-/hexo-browsersync-0.3.0.tgz#3d43435374921442891ed180ba17e5194ed0d394"
