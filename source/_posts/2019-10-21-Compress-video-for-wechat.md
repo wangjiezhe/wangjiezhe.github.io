@@ -60,6 +60,11 @@ else
     bitrate_audio=$(echo "${bitrate_audio_orig}/1000" | bc)
 fi
 
+if [ ${bitrate_all} -lt 250 ]; then
+    convert_audio=true
+    bitrate_audio=48
+fi
+
 bitrate_video=$(echo "${bitrate_all}-${bitrate_audio}" | bc)
 
 in_file="$1"
