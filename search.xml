@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>太流牌谱学习笔记（三）</title>
+    <url>//posts/2019-11-18-Tai-3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>今天看了太くないお的一个牌谱，里面有连续几个非常好的弃胡局，这里来总结一下。</p>
+<p><img alt="东2局0本场12巡目" data-src="https://i.loli.net/2019/11/18/E2gXROKdFZ3r6ay.png"></p>
+<p>这里自家好型 dora 1 听牌，却被下家先制立直，怎么办？</p>
+<p>答案比较简单，直接两北连切，有机会就争取兜听，没机会就直接弃胡。</p>
+<p>结果是上家点了立直对对三暗刻的满贯（实际是四暗刻听牌）。</p>
+<p><img alt="南1局0本场9巡目" data-src="https://i.loli.net/2019/11/18/ghOA2cm1kEsZTt3.png"></p>
+<p>这里七对一向听，何切？</p>
+<p>1s！</p>
+<p>这里我看了很久，感觉不是很能理解。之后再往下看，发现太くないお从这里开始直接选择了弃胡！</p>
+<p>如果要解释的话，感觉就是自己即使听牌，很可能最终胡到也就是立直七对 3200 点，而目前 dora 一张未现，硬上的话很有可能出事。</p>
+<p>最终的结果也证明了太くないお的选择是正确的，对家很快 dora 3 高目三色立直，下家 dora 2 三色确追立，最终是对家自摸高目跳满。</p>
+<p>感觉这里是很值得学习的，如果是我的话绝对不会想到在这里就弃胡。</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img alt="南2局0本场5巡目" data-src="https://i.loli.net/2019/11/18/M3PTrOhIUNFdCRk.png"></div><div class="group-picture-column" style="width: 50%;"><img alt="南2局0本场16巡目" data-src="https://i.loli.net/2019/11/18/8OVe2r1q3mxfBQc.png"></div></div></div></div>
+<p>这里对家碰 dora 南，直接满贯起步，太くないお立即选择跟切 7m 开始弃胡，放弃了自己的好型两向听，非常的果断。</p>
+<p>而到了16巡时，下家打5s，太くないお选择了碰。</p>
+<p>这里我也是看了好久才想明白，因为如果不碰的话，太くないお只剩下一次摸牌的机会，那么肯定是没有机会听牌的；而碰了5s切中后，手牌变成了1向听，一旦下一巡7m能切的话，就有听牌赚罚符的可能，即使不能听牌，手里也有7s作为安全牌。这样就在保证下一巡不会放铳的基础上，增加了听牌的可能性。</p>
+<p>最终，太くないお无铳吃二，非常完美的结局。</p>
+]]></content>
+      <categories>
+        <category>日麻</category>
+      </categories>
+      <tags>
+        <tag>太くないお</tag>
+        <tag>场况判断</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>压缩发送微信的视频文件</title>
     <url>//posts/2019-10-21-Compress-video-for-wechat/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>这几天需要给我的学生在微信群里发一些视频讲解，但是由于在录播室录制的视频体积较大，无法通过微信发送。5分钟之内的视频倒是可以直接通过微信手机版发送，但是 1080p 的视频自动被压成 640p，清晰度损得太多了。于是就想自己手动压缩，在保证视频大小的基础上，尽可能的提高清晰度。</p>
@@ -722,7 +751,7 @@
 <p>可惜，像令狐冲这样的人物，也只能存在于小说中了。。。</p>
 <p class="text-right">甲午年四月廿三至廿七记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-FzZZxDFy" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28838557" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-sHNmyXQk" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28838557" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <categories>
         <category>随想</category>
@@ -865,7 +894,7 @@
 <p class="text-center"><strong>（二）</strong></p>
 <p>最近几天，突然喜欢上单曲循环李宗盛的《凡人歌》。</p>
 
-    <div id="aplayer-yfklgJZP" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-czyYmFMa" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <div class="note primary">
             <p>你我皆凡人，生在人世间。<br>终日奔波苦，一刻不得闲。<br>你既然不是仙，难免有杂念。<br>道义放两旁，把利字摆中间。<br>多少男子汉，一怒为红颜？<br>多少同林鸟，已成了分飞燕？<br>人生何其短，何必苦苦恋？<br>爱人不见了，你向谁去喊冤？<br>问你何时曾看见，这世界为了人们改变？<br>有了梦寐以求的容颜，是否就算是拥有春天。。。</p>
           </div>
@@ -1130,7 +1159,7 @@ Other helper scripts: dynamic ieevent</p>
 <p>现在的我，亟需回归成真正的我。</p>
 <p>夜深忽梦少年事，独自无言，惟有泪千行。</p>
 
-    <div id="aplayer-XFCjElxF" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="003Zl6mC43Y3Yj" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-UDpIaOmN" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="003Zl6mC43Y3Yj" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <categories>
         <category>随想</category>
@@ -1186,7 +1215,7 @@ Other helper scripts: dynamic ieevent</p>
           </div>
 <p class="text-right">壬辰冬月初八，孙、外甥记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-UUFybDIw" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="22706999" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-ZcNOSuYs" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="22706999" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <categories>
         <category>随想</category>
