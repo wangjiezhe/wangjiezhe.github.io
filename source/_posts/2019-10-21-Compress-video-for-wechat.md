@@ -53,6 +53,10 @@ length=$(mediainfo --Inform="Video;%Duration%" "$1")
 bitrate_all=$(echo "${out_size}*8192/(${length}/1000)" | bc)
 
 bitrate_audio_orig=$(mediainfo --Inform="Audio;%BitRate%" "$1")
+if [ -z ${bitrate_audio_orig} ]; then
+    bitrate_audio_orig=$(mediainfo --Inform="Audio;%BitRate_Nominal%" "$1")
+fi
+
 if [ ${bitrate_audio_orig} -gt 150000 ]; then
     convert_audio=true
     bitrate_audio=128
