@@ -129,9 +129,6 @@ markdown_it_plus:
 sitemap:
   path: sitemap.xml
 
-baidusitemap:
-  path: baidusitemap.xml
-
 symbols_count_time:
   symbols: false
   time: false
