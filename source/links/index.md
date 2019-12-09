@@ -6,7 +6,8 @@ date: 2018-10-29 11:44:17
 ## 数学
 
 - [Terence Tao's Blog](https://terrytao.wordpress.com)
-
+- [兰琦的数学之旅](http://lanqi.org/)
+- [数学望远镜](http://www.omaths.com/)
 
 ## 工具
 
