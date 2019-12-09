@@ -9,7 +9,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#66327C">
-  <link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -25,11 +24,12 @@
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('https://wangjiezhe.com').hostname,
     root: '/',
     scheme: 'Gemini',
-    version: '7.5.0',
+    version: '7.6.0',
     exturl: true,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":true,"show_result":true,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#37c6c0","save":"manual"},
@@ -46,13 +46,7 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
@@ -62,7 +56,7 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;tags&#x2F;index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-05T07:33:28.914Z">
+<meta property="og:updated_time" content="2019-12-09T12:21:42.550Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://wangjiezhe.com/tags/">
@@ -84,8 +78,7 @@
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
     <script pjax>
-      var host = window.location.hostname;
-      if (host !== "localhost" || !true) {
+      if (CONFIG.hostname === location.hostname) {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -303,8 +296,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="西风冷香"
-    src="/images/camel.jpg">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/camel.jpg">
   <p class="site-author-name" itemprop="name">西风冷香</p>
   <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
 </div>
@@ -331,23 +324,21 @@
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-github"></i></span>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-github"></i></span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail &amp;rarr; mailto:wangjiezhe@gmail.com"><i class="fa fa-fw fa-envelope"></i></span>
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-fw fa-envelope"></i></span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93YW5namllemhl" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-twitter"></i></span>
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93YW5namllemhl" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-twitter"></i></span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram &amp;rarr; https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fa fa-fw fa-telegram"></i></span>
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fa fa-fw fa-telegram"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i></a>
       </span>
   </div>
 
@@ -413,7 +404,7 @@
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.5.0
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">GitHub Pages</span></div>
@@ -440,10 +431,6 @@
       </span>
     </span>
 </div>
-
-
-
-
 
 
 
@@ -562,6 +549,16 @@ window.addEventListener('pjax:success', () => {
   
 
   
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout: 3000,
+        priority: true,
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://wangjiezhe.com/tags/',]
+      });
+      });
+  </script>
 
 
     </div>
