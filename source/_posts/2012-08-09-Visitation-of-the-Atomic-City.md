@@ -27,32 +27,32 @@ description: 隐藏在树丛深处、无人问津的纪念碑
 恐怕到过那的人，下面这些，也没有几个人亲眼见过吧。
 
 {% gp 4-3 %}
-    ![](https://i.loli.net/2019/11/06/moRa6V2fPlETBQ1.png)
-    ![](https://i.loli.net/2019/11/06/kaWX5jhFMGDr4CZ.png)
-    ![雕塑苑](https://i.loli.net/2019/11/06/nS6CikyYjwQRKsV.png)
+    ![](moRa6V2fPlETBQ1.webp)
+    ![](kaWX5jhFMGDr4CZ.webp)
+    ![雕塑苑](nS6CikyYjwQRKsV.webp)
 {% endgp %}
 
 {% gp 3-3 %}
-    ![](https://i.loli.net/2019/11/06/wGbSPANTqvxZ9cW.png)
-    ![](https://i.loli.net/2019/11/06/TeSBZQkzLmjtxvF.png)
-    ![和平广场](https://i.loli.net/2019/11/06/a1OcovJEtLnjBlC.png)
+    ![](wGbSPANTqvxZ9cW.webp)
+    ![](TeSBZQkzLmjtxvF.webp)
+    ![和平广场](a1OcovJEtLnjBlC.webp)
 {% endgp %}
 
 {% gp 3-3 %}
-    ![](https://i.loli.net/2019/11/06/PNYhm4iJ93esD7R.png)
-    ![](https://i.loli.net/2019/11/06/cYEoQhuRaSAvx6n.png)
-    ![题有张爱萍将军的“中国第一个核武器研制基地”的纪念碑](https://i.loli.net/2019/11/06/QrfbAEsXm3aYjgM.png)
+    ![](PNYhm4iJ93esD7R.webp)
+    ![](cYEoQhuRaSAvx6n.webp)
+    ![题有张爱萍将军的“中国第一个核武器研制基地”的纪念碑](QrfbAEsXm3aYjgM.webp)
 {% endgp %}
 
 {% gp 3-3 %}
-    ![](https://i.loli.net/2019/11/06/KX29sxznmWkETGL.png)
-    ![](https://i.loli.net/2019/11/06/z5mliT1Vgj82Yte.png)
-    ![刻有所有为金银滩原子城的建立做出贡献的人的名字的纪念碑](https://i.loli.net/2019/11/06/OfGdBEjliv4Kgwo.png)
+    ![](KX29sxznmWkETGL.webp)
+    ![](z5mliT1Vgj82Yte.webp)
+    ![刻有所有为金银滩原子城的建立做出贡献的人的名字的纪念碑](OfGdBEjliv4Kgwo.webp)
 {% endgp %}
 
 {% gp 2-2 %}
-    ![](https://i.loli.net/2019/11/06/FBwAycziMkYr8Nh.png)
-    ![](https://i.loli.net/2019/11/06/KUXnhwpz4aN8qjB.png)
+    ![](FBwAycziMkYr8Nh.webp)
+    ![](KUXnhwpz4aN8qjB.webp)
 {% endgp %}
 
 所有这些，都隐藏在了纪念馆后面那片树林里，由于树都比较高，有比较密，所以纪念馆后面出来时很难看到，只有一条弯曲的石子路——596之路通向后面。
