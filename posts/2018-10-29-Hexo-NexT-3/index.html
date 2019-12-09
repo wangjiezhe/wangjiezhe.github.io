@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 4.1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -51,18 +51,21 @@
 </script>
 
   <meta name="description" content="为NexT主题添加评论功能">
-<meta name="keywords" content="Hexo,NexT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo NexT 魔改系列之三 ── 评论篇">
 <meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="为NexT主题添加评论功能">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd71ffe5a211.webp">
 <meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd723ae73cb3.webp">
 <meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd72ad402e66.webp">
 <meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd72b0093ab9.webp">
-<meta property="og:updated_time" content="2019-08-21T12:59:39.000Z">
+<meta property="article:published_time" content="2018-10-29T13:33:24.000Z">
+<meta property="article:modified_time" content="2019-08-21T12:59:39.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="NexT">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd71ffe5a211.webp">
 
@@ -120,6 +123,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -234,7 +238,7 @@
     <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/camel.jpg">
+      <meta itemprop="image" content="/images/camel.webp">
       <meta itemprop="name" content="西风冷香">
       <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
     </span>
@@ -328,16 +332,16 @@
 <p><img alt="utterances的权限" data-src="5bd723ae73cb3.webp"></p>
 <p>不过utterances没有集成在NexT主题中，需要手动添加。</p>
 <p>打开主题文件夹，在<code>layout/_third-party/comments/</code>中新建文件<code>utterances.swig</code>，并添加下面的内容：</p>
-<figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="keyword">if</span></span> theme.utterances.enable %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://utteranc.es/client.js"</span></span></span></span><br><span class="line"><span class="xml">    repo="</span><span class="template-variable">&#123;&#123; theme.utterances.repo &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    issue-term="</span><span class="template-variable">&#123;&#123; theme.utterances.issue_term &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    theme="</span><span class="template-variable">&#123;&#123; theme.utterances.theme &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    crossorigin="anonymous"</span></span><br><span class="line"><span class="xml">    async&gt;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="keyword">endif</span></span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">if</span></span> theme.utterances.enable %&#125;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://utteranc.es/client.js"</span></span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="xml">    repo="</span><span class="template-variable">&#123;&#123; theme.utterances.repo &#125;&#125;</span><span class="xml">"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="xml">    issue-term="</span><span class="template-variable">&#123;&#123; theme.utterances.issue_term &#125;&#125;</span><span class="xml">"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="xml">    theme="</span><span class="template-variable">&#123;&#123; theme.utterances.theme &#125;&#125;</span><span class="xml">"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="xml">    crossorigin="anonymous"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="xml">    async&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endif</span></span> %&#125;</span></span></pre></td></tr></table></figure>
 <p>然后在<code>layout/_partials/comments.swig</code>中添加下面的内容：</p>
-<figure class="highlight patch"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   &#123;% elseif theme.valine.enable and theme.valine.appid and theme.valine.appkey %&#125;</span><br><span class="line">     &lt;div class="comments" id="comments"&gt;</span><br><span class="line">     &lt;/div&gt;</span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+  &#123;% elseif theme.utterances.enable %&#125;</span></span><br><span class="line"><span class="addition">+    &lt;div class="comments" id="comments"&gt;</span></span><br><span class="line"><span class="addition">+      &#123;% include '../_third-party/comments/utterances.swig' %&#125;</span></span><br><span class="line"><span class="addition">+    &lt;/div&gt;</span></span><br><span class="line">   &#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight patch"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">   &#123;% elseif theme.valine.enable and theme.valine.appid and theme.valine.appkey %&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">     &lt;div class="comments" id="comments"&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">     &lt;/div&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="addition">+</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="addition">+  &#123;% elseif theme.utterances.enable %&#125;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="addition">+    &lt;div class="comments" id="comments"&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="addition">+      &#123;% include '../_third-party/comments/utterances.swig' %&#125;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="addition">+    &lt;/div&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">   &#123;% endif %&#125;</span></pre></td></tr></table></figure>
 <p>最后在主题配置文件中添加如下配置：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="comment"># owner/repo</span></span><br><span class="line"><span class="attr">  issue_term:</span> <span class="comment"># pathname, url, title, og:title [ISSUE NUMBER] or [SPECIFIC TERM]</span></span><br><span class="line"><span class="attr">  theme:</span> <span class="comment"># github-light or github-dark</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">repo:</span> <span class="comment"># owner/repo</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">issue_term:</span> <span class="comment"># pathname, url, title, og:title [ISSUE NUMBER] or [SPECIFIC TERM]</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="attr">theme:</span> <span class="comment"># github-light or github-dark</span></span></pre></td></tr></table></figure>
 <p>三个配置选项都是必填的，第一个是配置issue所在的repo，第二个是如何决定如何寻找对应的issue，第三个决定采用亮或暗的主题。</p>
 <p>然后可以愉快的使用了～</p>
 <p><img alt="utterances的原始效果图" data-src="5bd72ad402e66.webp"></p>
 <p>不过，utterances有默认宽度限制，在页面上明显要比外边框窄很多，感觉很难看，所以我把宽度限制给去掉了，方法是在<code>source/css/_custom/custom.styl</code>中添加以下内容：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.utterances</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.utterances</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="attribute">max-width</span>: none;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 <p>这样就显得好看多了。</p>
 <p><img alt="utterances的最终效果图" data-src="5bd72b0093ab9.webp"></p>
 <p>utterance默认不会创建issue，而是会在第一次评论的时候自动创建相应的issue，这个也比gitment好用不少。</p>
@@ -356,20 +360,6 @@
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2018-10-05-refactor-blog/" rel="bookmark">博客的重构与回顾</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2018-10-29-Hexo-NexT-1/" rel="bookmark">Hexo NexT 魔改系列之一 ── 总集篇</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2018-10-29-Hexo-NexT-2/" rel="bookmark">Hexo NexT 魔改系列之二 ── 搜索篇</a></div>
-    </li>
-  </ul>
-
         
 
 <div>
@@ -379,7 +369,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/" title="Hexo NexT 魔改系列之三 ── 评论篇">https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/</a>
+    <a href="/https:/wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/" title="Hexo NexT 魔改系列之三 ── 评论篇">https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -459,7 +449,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="西风冷香"
-      src="/images/camel.jpg">
+      src="/images/camel.webp">
   <p class="site-author-name" itemprop="name">西风冷香</p>
   <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
 </div>
@@ -561,9 +551,9 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-bar-chart"></i>
     </span>
-    <span title="站点总字数">117k</span>
+    <span title="站点总字数">52k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.0.0
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -615,9 +605,17 @@
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
   <script>
 var pjax = new Pjax({
   selectors: [
@@ -676,7 +674,9 @@ window.addEventListener('pjax:success', () => {
 </script>
 
 
+
 <script src="/js/click-love.js"></script>
+
   
   <script pjax>
     (function(){
@@ -691,7 +691,9 @@ window.addEventListener('pjax:success', () => {
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 

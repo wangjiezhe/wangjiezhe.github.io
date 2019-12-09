@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 4.1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -51,14 +51,20 @@
 </script>
 
   <meta name="description" content="重新构建了博客的页面，记录了一些遇到的问题和解决办法">
-<meta name="keywords" content="Fedora,Blog,Archlinux,Hexo,NexT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客的重构与回顾">
 <meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-05-refactor-blog&#x2F;index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="重新构建了博客的页面，记录了一些遇到的问题和解决办法">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-23T17:25:06.000Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-10-05T07:06:59.000Z">
+<meta property="article:modified_time" content="2018-10-23T17:25:06.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="Fedora">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="Archlinux">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="NexT">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://wangjiezhe.com/posts/2018-10-05-refactor-blog/">
@@ -115,6 +121,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -229,7 +236,7 @@
     <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2018-10-05-refactor-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/camel.jpg">
+      <meta itemprop="image" content="/images/camel.webp">
       <meta itemprop="name" content="西风冷香">
       <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
     </span>
@@ -319,9 +326,9 @@
 <h4 id="数学"><a class="markdownIt-Anchor" href="#数学"></a> 数学</h4>
 <p>数学公式的渲染最开始是打算用 MathJax，和以前保持一致就可以了。本来没有问题，但后来在利用 Travis-CI 自动部署的时候发现，远程安装的 pandoc 的版本不对，没有办法正确渲染，又找不到解决的办法，于是只能弃之而选择 katex。katex 其实我之前就听说过，据说比 MathJax 要快很多（公式一多的话 MathJax 确实太慢了），不过现在 0.10.0-rc1 的版本。由于前面的几篇文章里面还没有数学公式，我还没有真正试验过。</p>
 <p>另外吐槽一句，npmjs 上的 hexo-renderer-markdown-it 的版本太老了，直接安装 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvLXJlbmRlcmVyLW1hcmtkb3duLWl0" title="https://github.com/hexojs/hexo-renderer-markdown-it">Github<i class="fa fa-external-link"></i></span> 上的版本就可以了，这个插件已经更新了，但仓库里的模块还没有更新。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ cat package-lock.json | jq .dependencies.\"hexo-renderer-markdown-it\"</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"github:hexojs/hexo-renderer-markdown-it#89a5abe048f5a43b42328ad012fb445ded6e665b"</span>,</span><br><span class="line">  <span class="string">"from"</span>: <span class="string">"github:hexojs/hexo-renderer-markdown-it"</span>,</span><br><span class="line">  <span class="string">"requires"</span>: &#123;</span><br><span class="line">    <span class="string">"lodash.assign"</span>: <span class="string">"^4.2.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it"</span>: <span class="string">"^8.4.1"</span>,</span><br><span class="line">    <span class="string">"markdown-it-abbr"</span>: <span class="string">"^1.0.4"</span>,</span><br><span class="line">    <span class="string">"markdown-it-cjk-breaks"</span>: <span class="string">"^1.1.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-container"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-deflist"</span>: <span class="string">"^2.0.3"</span>,</span><br><span class="line">    <span class="string">"markdown-it-emoji"</span>: <span class="string">"^1.4.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-footnote"</span>: <span class="string">"^3.0.1"</span>,</span><br><span class="line">    <span class="string">"markdown-it-ins"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-mark"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-sub"</span>: <span class="string">"^1.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-sup"</span>: <span class="string">"^1.0.0"</span>,</span><br><span class="line">    <span class="string">"sluggo"</span>: <span class="string">"^0.2.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ cat package-lock.json | jq .dependencies.\"hexo-renderer-markdown-it\"</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="string">"version"</span>: <span class="string">"github:hexojs/hexo-renderer-markdown-it#89a5abe048f5a43b42328ad012fb445ded6e665b"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="string">"from"</span>: <span class="string">"github:hexojs/hexo-renderer-markdown-it"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="string">"requires"</span>: &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"lodash.assign"</span>: <span class="string">"^4.2.0"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"markdown-it"</span>: <span class="string">"^8.4.1"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"markdown-it-abbr"</span>: <span class="string">"^1.0.4"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"markdown-it-cjk-breaks"</span>: <span class="string">"^1.1.0"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"markdown-it-container"</span>: <span class="string">"^2.0.0"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"markdown-it-deflist"</span>: <span class="string">"^2.0.3"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"markdown-it-emoji"</span>: <span class="string">"^1.4.0"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"markdown-it-footnote"</span>: <span class="string">"^3.0.1"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"markdown-it-ins"</span>: <span class="string">"^2.0.0"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"markdown-it-mark"</span>: <span class="string">"^2.0.0"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"markdown-it-sub"</span>: <span class="string">"^1.0.0"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"markdown-it-sup"</span>: <span class="string">"^1.0.0"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    <span class="string">"sluggo"</span>: <span class="string">"^0.2.0"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 <p>不过该模块会使得 <code>&lt;!-- more --&gt;</code> 失效，需要写成</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">escape</span>&gt;</span><span class="comment">&lt;!-- more --&gt;</span><span class="tag">&lt;/<span class="name">escape</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">escape</span>&gt;</span><span class="comment">&lt;!-- more --&gt;</span><span class="tag">&lt;/<span class="name">escape</span>&gt;</span></span></pre></td></tr></table></figure>
 <p>才行。</p>
 <p>不过我不喜欢一点进来就到文章半截的模式，所以对我来说没有什么影响，还是乖乖地写 description 吧。</p>
 <p>另外这一部分文档严重不足，只能看自带 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvLXJlbmRlcmVyLW1hcmtkb3duLWl0L3dpa2kvQWR2YW5jZWQtQ29uZmlndXJhdGlvbg==" title="https://github.com/hexojs/hexo-renderer-markdown-it/wiki/Advanced-Configuration">wiki<i class="fa fa-external-link"></i></span> 和 markdown-it 的例子来写。</p>
@@ -371,23 +378,6 @@
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2018-10-29-Hexo-NexT-1/" rel="bookmark">Hexo NexT 魔改系列之一 ── 总集篇</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2018-10-29-Hexo-NexT-2/" rel="bookmark">Hexo NexT 魔改系列之二 ── 搜索篇</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2018-10-29-Hexo-NexT-3/" rel="bookmark">Hexo NexT 魔改系列之三 ── 评论篇</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2014-03-02-Pipelight-use-eBank-on-Linux/" rel="bookmark">Piplight 在 Linux 上使用网银</a></div>
-    </li>
-  </ul>
-
         
 
 <div>
@@ -397,7 +387,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://wangjiezhe.com/posts/2018-10-05-refactor-blog/" title="博客的重构与回顾">https://wangjiezhe.com/posts/2018-10-05-refactor-blog/</a>
+    <a href="/https:/wangjiezhe.com/posts/2018-10-05-refactor-blog/" title="博客的重构与回顾">https://wangjiezhe.com/posts/2018-10-05-refactor-blog/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -480,7 +470,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="西风冷香"
-      src="/images/camel.jpg">
+      src="/images/camel.webp">
   <p class="site-author-name" itemprop="name">西风冷香</p>
   <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
 </div>
@@ -582,9 +572,9 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-bar-chart"></i>
     </span>
-    <span title="站点总字数">117k</span>
+    <span title="站点总字数">52k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.0.0
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -636,9 +626,17 @@
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
   <script>
 var pjax = new Pjax({
   selectors: [
@@ -697,7 +695,9 @@ window.addEventListener('pjax:success', () => {
 </script>
 
 
+
 <script src="/js/click-love.js"></script>
+
   
   <script pjax>
     (function(){
@@ -712,7 +712,9 @@ window.addEventListener('pjax:success', () => {
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 

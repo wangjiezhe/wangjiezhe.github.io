@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 4.1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -51,14 +51,17 @@
 </script>
 
   <meta name="description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed">
-<meta name="keywords" content="Linux,Vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 随学随记 (2)">
 <meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2014-03-19-Linux-Notes-2&#x2F;index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2014-03-21T19:07:10.000Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2014-03-19T05:25:59.000Z">
+<meta property="article:modified_time" content="2014-03-21T19:07:10.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Vim">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://wangjiezhe.com/posts/2014-03-19-Linux-Notes-2/">
@@ -115,6 +118,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -229,7 +233,7 @@
     <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2014-03-19-Linux-Notes-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/camel.jpg">
+      <meta itemprop="image" content="/images/camel.webp">
       <meta itemprop="name" content="西风冷香">
       <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
     </span>
@@ -315,33 +319,13 @@
 <h2 id="六-查看日志"><a class="markdownIt-Anchor" href="#六-查看日志"></a> 六、查看日志</h2>
 <p><code>journalctl [OPTIONS...] [MATCHES...]</code></p>
 <p>Options:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-f --follow        Follow the journal</span><br><span class="line">   --since=DATE    Start showing entries on or newer than the specified date</span><br><span class="line">   --until=DATE    Stop showing entries on or older than the specified date</span><br><span class="line">-l --full          Do not ellipsize fields</span><br><span class="line">-u --unit=UNIT     Show data only from the specified unit</span><br><span class="line">   --disk-usage    Show total disk usage of all journal files</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">-f --follow        Follow the journal</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   --since=DATE    Start showing entries on or newer than the specified date</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   --until=DATE    Stop showing entries on or older than the specified date</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">-l --full          Do not ellipsize fields</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">-u --unit=UNIT     Show data only from the specified unit</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">   --disk-usage    Show total disk usage of all journal files</span></pre></td></tr></table></figure>
 
     </div>
 
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2014-03-01-Linux-Notes-1/" rel="bookmark">Linux 随学随记 (1)</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2015-08-20-Linux-Notes-4/" rel="bookmark">Linux 随学随记 (4)</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2014-03-02-Pipelight-use-eBank-on-Linux/" rel="bookmark">Piplight 在 Linux 上使用网银</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2014-03-09-intro-for-regular-expression/" rel="bookmark">正则表达式简介</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/2014-03-22-NetworkManager-Hotspot-Setting/" rel="bookmark">修改 NetworkManager wifi 热点的加密方式</a></div>
-    </li>
-  </ul>
-
         
 
 <div>
@@ -351,7 +335,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://wangjiezhe.com/posts/2014-03-19-Linux-Notes-2/" title="Linux 随学随记 (2)">https://wangjiezhe.com/posts/2014-03-19-Linux-Notes-2/</a>
+    <a href="/https:/wangjiezhe.com/posts/2014-03-19-Linux-Notes-2/" title="Linux 随学随记 (2)">https://wangjiezhe.com/posts/2014-03-19-Linux-Notes-2/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -431,7 +415,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="西风冷香"
-      src="/images/camel.jpg">
+      src="/images/camel.webp">
   <p class="site-author-name" itemprop="name">西风冷香</p>
   <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
 </div>
@@ -533,9 +517,9 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-bar-chart"></i>
     </span>
-    <span title="站点总字数">117k</span>
+    <span title="站点总字数">52k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.0.0
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -587,9 +571,17 @@
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
   <script>
 var pjax = new Pjax({
   selectors: [
@@ -648,7 +640,9 @@ window.addEventListener('pjax:success', () => {
 </script>
 
 
+
 <script src="/js/click-love.js"></script>
+
   
   <script pjax>
     (function(){
@@ -663,7 +657,9 @@ window.addEventListener('pjax:success', () => {
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
