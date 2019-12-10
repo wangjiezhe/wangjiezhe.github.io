@@ -272,3 +272,18 @@ span.exturl.theme-link, span.exturl.host-link {
 .text-center {
   text-align: center;
 }
+
+ol.footnotes-list {
+  counter-reset: list;
+}
+
+ol.footnotes-list > li.footnote-item {
+  list-style: none;
+}
+
+ol.footnotes-list > li.footnote-item:before {
+    counter-increment: list;
+    content: "[" counter(list, decimal) "] ";
+    position: absolute;
+    left: 0.5em;
+}
