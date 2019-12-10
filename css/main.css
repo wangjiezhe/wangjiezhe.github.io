@@ -1216,7 +1216,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #8ceb62;
+  background: #9fff54;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2982,4 +2982,16 @@ span.exturl.host-link {
 }
 .text-center {
   text-align: center;
+}
+ol.footnotes-list {
+  counter-reset: list;
+}
+ol.footnotes-list > li.footnote-item {
+  list-style: none;
+}
+ol.footnotes-list > li.footnote-item:before {
+  counter-increment: list;
+  content: "[" counter(list, decimal) "] ";
+  position: absolute;
+  left: 0.5em;
 }
