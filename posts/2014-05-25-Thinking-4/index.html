@@ -443,7 +443,7 @@
 <p>可惜，像令狐冲这样的人物，也只能存在于小说中了。。。</p>
 <p class="text-right">甲午年四月廿三至廿七记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-QTraKetO" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28838557" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-qdWRoWAh" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28838557" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 
     </div>
 
@@ -502,13 +502,51 @@
 
           </div>
           
-    
+      <div class="comment-button-group">
+          <a class="btn comment-button disqusjs">Disqus</a>
+          <a class="btn comment-button discussbot">Comments.App</a>
+      </div>
+        <div class="comment-position disqusjs">
+          
   <div class="comments" id="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+        </div>
+        <div class="comment-position discussbot">
+          
+  
+  <div class="comments" id="discussbot-container">
+  <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="DTO-cxcp" data-limit="5" data-color="3DA0F0" data-dislikes="1" data-outlined="1"></script>
+  </div>
+  
+  
+        </div>
+      <script pjax>
+        (function() {
+          let commentButton = document.querySelectorAll('.comment-button');
+            commentButton.forEach(element => {
+            let commentClass = element.classList[2];
+            element.addEventListener('click', () => {
+              commentButton.forEach(rmActive => rmActive.classList.remove('active'));
+              element.classList.add('active');
+              document.querySelectorAll('.comment-position').forEach(rmActive => rmActive.classList.remove('active'));
+              document.querySelector(`.comment-position.${commentClass}`).classList.add('active');
+                localStorage.setItem('comments_active', commentClass);
+            });
+          });
+          let activeClass = '';
+            activeClass = localStorage.getItem('comments_active') || activeClass;
+          if (activeClass) {
+            let activeButton = document.querySelector(`.comment-button.${activeClass}`);
+            if (activeButton) {
+              activeButton.click();
+            }
+          }
+        })();
+      </script>
 
         </div>
           
