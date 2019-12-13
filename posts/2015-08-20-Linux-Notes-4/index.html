@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.1.0">
+<meta name="generator" content="Hexo 4.1.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -295,7 +295,7 @@
 
       
         <h2 id="mplayer-循环播放歌曲"><a class="markdownIt-Anchor" href="#mplayer-循环播放歌曲"></a> mplayer 循环播放歌曲</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">mplayer -loop n ***.mp3</span></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mplayer -loop n ***.mp3</span><br></pre></td></tr></table></figure>
 <p>n 表示重复次数，0 表示无限循环。</p>
 <h2 id="vim-搜索大小写匹配"><a class="markdownIt-Anchor" href="#vim-搜索大小写匹配"></a> vim 搜索大小写匹配</h2>
 <p><code>set ignorecase</code><br>
@@ -308,9 +308,9 @@
 强制匹配大小写</p>
 <h2 id="cd-转移"><a class="markdownIt-Anchor" href="#cd-转移"></a> cd 转移</h2>
 <p>当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> directorya directoryb</span></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> directorya directoryb</span><br></pre></td></tr></table></figure>
 <p>第一个参数是当前目录路径中需要替换的参数，第二个参数是替换字符串。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 要从v7目录 切换到v8目录，只需键入cd v7 v8</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">/programs/v7/reports/monthly &gt; <span class="built_in">cd</span> v7 v8</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">/programs/v8/reports/monthly &gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果历史上的每年每月都有一个对应目录，cd 转移允许从一年跳到另一年</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">/hist/2010/april/reports &gt; <span class="built_in">cd</span> 2010 2011</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">/hist/2011/april/reports &gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换月份目录</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">/hist/2011/april/reports &gt; <span class="built_in">cd</span> april may</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">/hist/2011/may/reports &gt;</span></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 要从v7目录 切换到v8目录，只需键入cd v7 v8</span></span><br><span class="line">/programs/v7/reports/monthly &gt; <span class="built_in">cd</span> v7 v8</span><br><span class="line">/programs/v8/reports/monthly &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果历史上的每年每月都有一个对应目录，cd 转移允许从一年跳到另一年</span></span><br><span class="line">/hist/2010/april/reports &gt; <span class="built_in">cd</span> 2010 2011</span><br><span class="line">/hist/2011/april/reports &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换月份目录</span></span><br><span class="line">/hist/2011/april/reports &gt; <span class="built_in">cd</span> april may</span><br><span class="line">/hist/2011/may/reports &gt;</span><br></pre></td></tr></table></figure>
 <h2 id="vim-快速缩进"><a class="markdownIt-Anchor" href="#vim-快速缩进"></a> vim 快速缩进</h2>
 <p><code>&gt;&gt;</code><br>
 向右缩进</p>
@@ -359,7 +359,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="/https:/wangjiezhe.com/posts/2015-08-20-Linux-Notes-4/" title="Linux 随学随记 (4)">https://wangjiezhe.com/posts/2015-08-20-Linux-Notes-4/</a>
+    <a href="https://wangjiezhe.com/posts/2015-08-20-Linux-Notes-4/" title="Linux 随学随记 (4)">https://wangjiezhe.com/posts/2015-08-20-Linux-Notes-4/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -544,7 +544,7 @@
     </span>
     <span title="站点总字数">57k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.0
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.1
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -720,7 +720,7 @@ window.addEventListener('pjax:success', () => {
 <script>
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
-      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
       apikey: 'ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F',
       shortname: 'wangjiezhe',
       url: "https://wangjiezhe.com/posts/2015-08-20-Linux-Notes-4/",

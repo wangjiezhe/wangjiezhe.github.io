@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.1.0">
+<meta name="generator" content="Hexo 4.1.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -300,29 +300,29 @@
 <h2 id="三-sed-替换中使用变量"><a class="markdownIt-Anchor" href="#三-sed-替换中使用变量"></a> 三、sed 替换中使用变量</h2>
 <p>sed替换命令用双引号<code>&quot; &quot;</code> 而不是单引号 <code>' '</code>，然后里面直接用 <code>$VARIABLE</code> 就可以了。</p>
 <h2 id="四-vim-保存-root-权限文件"><a class="markdownIt-Anchor" href="#四-vim-保存-root-权限文件"></a> 四、vim 保存 root 权限文件</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">:w !sudo tee %</span></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w !sudo tee %</span><br></pre></td></tr></table></figure>
 <h2 id="五-vim-跳转"><a class="markdownIt-Anchor" href="#五-vim-跳转"></a> 五、vim 跳转</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Ctrl+] &#x3D; Ctrl+left\_click</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Ctrl+t &#x3D; Ctrl+right\_click</span></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+] &#x3D; Ctrl+left\_click</span><br><span class="line">Ctrl+t &#x3D; Ctrl+right\_click</span><br></pre></td></tr></table></figure>
 <h2 id="六-从视频中提取音频"><a class="markdownIt-Anchor" href="#六-从视频中提取音频"></a> 六、从视频中提取音频</h2>
 <p>运行以下命令之一：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">mencoder -oac mp3lame -ovc copy -of rawaudio 01.flv -o 01.mp3</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">ffmpeg -i 01.flv -f mp3 -vn 01.mp3</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3</span></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mencoder -oac mp3lame -ovc copy -of rawaudio 01.flv -o 01.mp3</span><br><span class="line">ffmpeg -i 01.flv -f mp3 -vn 01.mp3</span><br><span class="line">ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3</span><br></pre></td></tr></table></figure>
 <h2 id="七-交换-capslock-键和左-ctrl-键"><a class="markdownIt-Anchor" href="#七-交换-capslock-键和左-ctrl-键"></a> 七、交换 CapsLock 键和左 Ctrl 键</h2>
 <h3 id="1-使用-gnome-tweak-tool"><a class="markdownIt-Anchor" href="#1-使用-gnome-tweak-tool"></a> 1. 使用 gnome-tweak-tool</h3>
 <p>选择 Typing &gt; Ctrl key position &gt; Swap Ctrl and Caps Lock 即可。</p>
 <p>（要求 <code>gsettings get org.gnome.settings-daemon.plugins.keyboard active</code> 的值为 <code>true</code>，故在 gnome 中使用 fcitx 时此方法无法使用）</p>
 <h3 id="2-使用-setxkbmap-命令"><a class="markdownIt-Anchor" href="#2-使用-setxkbmap-命令"></a> 2. 使用 setxkbmap 命令</h3>
 <p>运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">setxkbmap -option ctrl:swapctrl</span></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setxkbmap -option ctrl:swapctrl</span><br></pre></td></tr></table></figure>
 <p>或者在 ~/.zshrc 中添加如下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># Swap Ctrl_L and CapsLock</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ -n <span class="variable">$DISPLAY</span> ]]; <span class="keyword">then</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    setxkbmap -option ctrl:swapctrl</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">fi</span></span></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Swap Ctrl_L and CapsLock</span></span><br><span class="line"><span class="keyword">if</span> [[ -n <span class="variable">$DISPLAY</span> ]]; <span class="keyword">then</span></span><br><span class="line">    setxkbmap -option ctrl:swapctrl</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 <h2 id="八-交换-escape-键和右-alt-键"><a class="markdownIt-Anchor" href="#八-交换-escape-键和右-alt-键"></a> 八、交换 Escape 键和右 Alt 键</h2>
 <p>这时，前面两种方法都没有现成的选项可以使用，因此我们使用xmodmap</p>
 <p>建立 ~/.xmodmap，添加如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">! 交换Escape和Alt_R</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">clear mod1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">keycode   9 &#x3D; Alt_R NoSymbol Alt_R</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">keycode 108 &#x3D; Escape NoSymbol Escape</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">add    mod1 &#x3D; Escape Meta_L</span></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">! 交换Escape和Alt_R</span><br><span class="line">clear mod1</span><br><span class="line">keycode   9 &#x3D; Alt_R NoSymbol Alt_R</span><br><span class="line">keycode 108 &#x3D; Escape NoSymbol Escape</span><br><span class="line">add    mod1 &#x3D; Escape Meta_L</span><br></pre></td></tr></table></figure>
 <p>然后运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">xmodmap ~/.xmodmap 2&gt;/dev/null</span></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmodmap ~/.xmodmap 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
 <p>网上的教程都是要将命令添加到 ~/.xinitrc 或 /etc/rc.d/rc.local 中，而不是 ~/.zshrc (或 ~/.bashrc)中，否则会重复执行使得键位回归。但经测试，前者无法成功(有的地方解释是 xinitrc 在新版本中已不再使用)，于是我在 ~/.zshrc 中添加如下代码:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># Swap Alt_R and Escape</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ -n <span class="variable">$DISPLAY</span> ]] &amp;&amp; [[ -n $(xmodmap|grep <span class="string">"mod1.*Alt_R"</span>) ]]; <span class="keyword">then</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    xmodmap <span class="string">"<span class="variable">$HOME</span>"</span>/.xmodmap 2&gt;/dev/null</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">fi</span></span></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Swap Alt_R and Escape</span></span><br><span class="line"><span class="keyword">if</span> [[ -n <span class="variable">$DISPLAY</span> ]] &amp;&amp; [[ -n $(xmodmap|grep <span class="string">"mod1.*Alt_R"</span>) ]]; <span class="keyword">then</span></span><br><span class="line">    xmodmap <span class="string">"<span class="variable">$HOME</span>"</span>/.xmodmap 2&gt;/dev/null</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -338,7 +338,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="/https:/wangjiezhe.com/posts/2014-04-20-Linux-Notes-3/" title="Linux 随学随记 (3)">https://wangjiezhe.com/posts/2014-04-20-Linux-Notes-3/</a>
+    <a href="https://wangjiezhe.com/posts/2014-04-20-Linux-Notes-3/" title="Linux 随学随记 (3)">https://wangjiezhe.com/posts/2014-04-20-Linux-Notes-3/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -522,7 +522,7 @@
     </span>
     <span title="站点总字数">57k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.0
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.1
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -698,7 +698,7 @@ window.addEventListener('pjax:success', () => {
 <script>
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
-      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
       apikey: 'ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F',
       shortname: 'wangjiezhe',
       url: "https://wangjiezhe.com/posts/2014-04-20-Linux-Notes-3/",
