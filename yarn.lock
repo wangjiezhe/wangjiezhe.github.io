@@ -2144,6 +2144,12 @@ hexo-log@^1.0.0:
     chalk "^2.4.1"
     hexo-bunyan "^2.0.0"
 
+hexo-next-discussbot@wangjiezhe/hexo-next-discussbot:
+  version "1.0.0"
+  resolved "https://codeload.github.com/wangjiezhe/hexo-next-discussbot/tar.gz/f0d46cf7581ca5c4c66b02bf8f3d0be42d6b5457"
+  dependencies:
+    next-util "github:theme-next/next-util"
+
 hexo-pagination@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/hexo-pagination/-/hexo-pagination-1.0.0.tgz#c9c0ca3665267b9e9d0a89fc3edcaf3276907dc1"
@@ -3473,6 +3479,13 @@ nested-error-stacks@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.0.1.tgz#d2cc9fc5235ddb371fc44d506234339c8e4b0a4b"
   integrity sha512-SrQrok4CATudVzBS7coSz26QRSmlK9TzzoFbeKfcPBUFPjcQM9Rqvr/DlJkOrwI/0KcgvMub1n1g5Jt9EgRn4A==
+
+"next-util@github:theme-next/next-util":
+  version "0.1.0"
+  resolved "https://codeload.github.com/theme-next/next-util/tar.gz/b63786113c8f2d6ba439ab80fdeef38eb9709fea"
+  dependencies:
+    js-yaml "^3.13.1"
+    lodash "^4.17.15"
 
 nib@^1.1.2:
   version "1.1.2"
