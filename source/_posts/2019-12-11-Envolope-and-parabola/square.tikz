@@ -1,0 +1,6 @@
+﻿\begin{tikzpicture}
+	\filldraw[fill=cyan!20, draw=blue] (3,0) node [below right]{$3$} -- (0,3) node [above right]{$3$} node[above right, pos=0.5] {$|x|+|y|=3$} -- (-3,0) node [below left]{$-3$} -- (0,-3)  node [below right]{$-3$} -- cycle;
+	\draw[->] (-3.5,0) -- (3.5,0) coordinate (x axis) node [right] {$x$};
+	\draw[->] (0,-3.5) -- (0,3.5) coordinate (y axis) node [above] {$y$};
+	\node[below right] at (0,0) {$O$};
+\end{tikzpicture}
