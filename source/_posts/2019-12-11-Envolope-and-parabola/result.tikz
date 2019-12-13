@@ -1,0 +1,9 @@
+﻿\begin{tikzpicture}
+	\tikzstyle{every node}=[font=\LARGE]
+    \draw[->] (-0.5,0) -- (10,0) coordinate (x axis) node[below] {$x$};
+    \draw[->] (0,-0.5) -- (0,10) coordinate (y axis) node[left] {$y$};
+	\draw[domain=-0.4:0.9,variable=\t,blue,thick] plot ({12*\t*\t},{12*\t*\t-12*\t+3});
+	\draw (3,1pt) -- (3,0) node[below] {$3$};
+	\draw (1pt,3) -- (0,3) node[left] {$3$};
+	\node[below right] at (0,0) {$O$};
+\end{tikzpicture}
