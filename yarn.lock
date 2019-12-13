@@ -2146,7 +2146,7 @@ hexo-log@^1.0.0:
 
 hexo-next-discussbot@wangjiezhe/hexo-next-discussbot:
   version "1.0.0"
-  resolved "https://codeload.github.com/wangjiezhe/hexo-next-discussbot/tar.gz/f0d46cf7581ca5c4c66b02bf8f3d0be42d6b5457"
+  resolved "https://codeload.github.com/wangjiezhe/hexo-next-discussbot/tar.gz/fea6a2ab6c6ddf4001582365b461fb98bf3ed221"
   dependencies:
     next-util "github:theme-next/next-util"
 
