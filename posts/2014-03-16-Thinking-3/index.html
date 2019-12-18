@@ -316,7 +316,7 @@
 <p class="text-center"><strong>（二）</strong></p>
 <p>最近几天，突然喜欢上单曲循环李宗盛的《凡人歌》。</p>
 
-    <div id="aplayer-PQnpJYau" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-DaLYRqum" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <div class="note primary">
             <p>你我皆凡人，生在人世间。<br>终日奔波苦，一刻不得闲。<br>你既然不是仙，难免有杂念。<br>道义放两旁，把利字摆中间。<br>多少男子汉，一怒为红颜？<br>多少同林鸟，已成了分飞燕？<br>人生何其短，何必苦苦恋？<br>爱人不见了，你向谁去喊冤？<br>问你何时曾看见，这世界为了人们改变？<br>有了梦寐以求的容颜，是否就算是拥有春天。。。</p>
           </div>
@@ -384,51 +384,13 @@
 
           </div>
           
-      <div class="comment-button-group">
-          <a class="btn comment-button disqusjs">Disqus</a>
-          <a class="btn comment-button discussbot">Comments.App</a>
-      </div>
-        <div class="comment-position disqusjs">
-          
+    
   <div class="comments" id="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
-        </div>
-        <div class="comment-position discussbot">
-          
-  
-  <div class="comments" id="discussbot-container">
-  <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="DTO-cxcp" data-limit="5" data-color="3DA0F0" data-dislikes="1" data-outlined="1"></script>
-  </div>
-  
-  
-        </div>
-      <script pjax>
-        (function() {
-          let commentButton = document.querySelectorAll('.comment-button');
-            commentButton.forEach(element => {
-            let commentClass = element.classList[2];
-            element.addEventListener('click', () => {
-              commentButton.forEach(rmActive => rmActive.classList.remove('active'));
-              element.classList.add('active');
-              document.querySelectorAll('.comment-position').forEach(rmActive => rmActive.classList.remove('active'));
-              document.querySelector(`.comment-position.${commentClass}`).classList.add('active');
-                localStorage.setItem('comments_active', commentClass);
-            });
-          });
-          let activeClass = '';
-            activeClass = localStorage.getItem('comments_active') || activeClass;
-          if (activeClass) {
-            let activeButton = document.querySelector(`.comment-button.${activeClass}`);
-            if (activeButton) {
-              activeButton.click();
-            }
-          }
-        })();
-      </script>
 
         </div>
           
