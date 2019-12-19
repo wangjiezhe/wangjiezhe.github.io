@@ -27,32 +27,32 @@ description: 隐藏在树丛深处、无人问津的纪念碑
 恐怕到过那的人，下面这些，也没有几个人亲眼见过吧。
 
 {% gp 4-3 %}
-    ![](moRa6V2fPlETBQ1.webp)
-    ![](kaWX5jhFMGDr4CZ.webp)
-    ![雕塑苑](nS6CikyYjwQRKsV.webp)
+    ![](moRa6V2fPlETBQ1.png)
+    ![](kaWX5jhFMGDr4CZ.png)
+    ![雕塑苑](nS6CikyYjwQRKsV.png)
 {% endgp %}
 
 {% gp 3-3 %}
-    ![](wGbSPANTqvxZ9cW.webp)
-    ![](TeSBZQkzLmjtxvF.webp)
-    ![和平广场](a1OcovJEtLnjBlC.webp)
+    ![](wGbSPANTqvxZ9cW.png)
+    ![](TeSBZQkzLmjtxvF.png)
+    ![和平广场](a1OcovJEtLnjBlC.png)
 {% endgp %}
 
 {% gp 3-3 %}
-    ![](PNYhm4iJ93esD7R.webp)
-    ![](cYEoQhuRaSAvx6n.webp)
-    ![题有张爱萍将军的“中国第一个核武器研制基地”的纪念碑](QrfbAEsXm3aYjgM.webp)
+    ![](PNYhm4iJ93esD7R.png)
+    ![](cYEoQhuRaSAvx6n.png)
+    ![题有张爱萍将军的“中国第一个核武器研制基地”的纪念碑](QrfbAEsXm3aYjgM.png)
 {% endgp %}
 
 {% gp 3-3 %}
-    ![](KX29sxznmWkETGL.webp)
-    ![](z5mliT1Vgj82Yte.webp)
-    ![刻有所有为金银滩原子城的建立做出贡献的人的名字的纪念碑](OfGdBEjliv4Kgwo.webp)
+    ![](KX29sxznmWkETGL.png)
+    ![](z5mliT1Vgj82Yte.png)
+    ![刻有所有为金银滩原子城的建立做出贡献的人的名字的纪念碑](OfGdBEjliv4Kgwo.png)
 {% endgp %}
 
 {% gp 2-2 %}
-    ![](FBwAycziMkYr8Nh.webp)
-    ![](KUXnhwpz4aN8qjB.webp)
+    ![](FBwAycziMkYr8Nh.png)
+    ![](KUXnhwpz4aN8qjB.png)
 {% endgp %}
 
 所有这些，都隐藏在了纪念馆后面那片树林里，由于树都比较高，有比较密，所以纪念馆后面出来时很难看到，只有一条弯曲的石子路——596之路通向后面。
