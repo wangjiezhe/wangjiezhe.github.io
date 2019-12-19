@@ -57,17 +57,17 @@
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="为NexT主题添加评论功能">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd71ffe5a211.webp">
-<meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd723ae73cb3.webp">
-<meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd72ad402e66.webp">
-<meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd72b0093ab9.webp">
+<meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd71ffe5a211.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd723ae73cb3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd72ad402e66.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd72b0093ab9.png">
 <meta property="article:published_time" content="2018-10-29T13:33:24.000Z">
 <meta property="article:modified_time" content="2019-08-21T12:59:39.000Z">
 <meta property="article:author" content="西风冷香">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="NexT">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd71ffe5a211.webp">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-3&#x2F;5bd71ffe5a211.png">
 
 <link rel="canonical" href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/">
 
@@ -86,7 +86,7 @@
   <title>Hexo NexT 魔改系列之三 ── 评论篇 | 如鱼饮水</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
-    <script pjax>
+    <script>
       if (CONFIG.hostname === location.hostname) {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -322,14 +322,14 @@
 <p>Valine，这个倒是一个不错的选择，看上去也比较简洁明快，不过是基于Leancloud的，还得去配置一个Leancloud账号。其实这是一个不错的选择，可以一试。</p>
 <p>来必力，韩国的一个评论系统，看上去不错，而且支持多账号登录，不过在国内加载有点慢。</p>
 <p>gitment，使用Github的issue系统作为评论系统，很geek的一个想法，不过看到这权限，能够读写所有公开的repo？？？</p>
-<p><img alt="gitment的权限" data-src="5bd71ffe5a211.webp"></p>
+<p><img alt="gitment的权限" data-src="5bd71ffe5a211.png"></p>
 <p>这是不是意味着可以把我所有的repo全部删掉。。。</p>
 <blockquote>
 <p>关于gitment的安全性的讨论，参见<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltc3VuL2dpdG1lbnQjaXMtaXQtc2FmZS10by1tYWtlLW15LWNsaWVudC1zZWNyZXQtcHVibGlj" title="https://github.com/imsun/gitment#is-it-safe-to-make-my-client-secret-public">imsun/gitment<i class="fa fa-external-link"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLndvbGZvZ3JlLmNvbS9wb3N0cy9zZWN1cml0eS1wcm9ibGVtLW9mLWdpdG1lbnQ=" title="https://blog.wolfogre.com/posts/security-problem-of-gitment">Gitment 的安全性争议<i class="fa fa-external-link"></i></span>。</p>
 </blockquote>
 <h2 id="添加utterances评论系统"><a class="markdownIt-Anchor" href="#添加utterances评论系统"></a> 添加<span class="exturl" data-url="aHR0cHM6Ly91dHRlcmFuYy5lcw==" title="https://utteranc.es">utterances<i class="fa fa-external-link"></i></span>评论系统</h2>
 <p>在搜索gitment的时候，发现了一片utterances的<span class="exturl" data-url="aHR0cDovL3d3dy54aWFubWluLm9yZy9wb3N0L3V0dGVyYW5jZXMtY29tbWVudC1zeXN0ZW0=" title="http://www.xianmin.org/post/utterances-comment-system">介绍文章<i class="fa fa-external-link"></i></span>，发现这是一个好东西，同样是基于Github的issue系统，但由于是基于Github App构建的，权限控制的颗粒度要细一些，可以只具有读写issue的权限，不需要读写代码的权限，而且可以只在需要的repo中安装。这才是一个合格的评论系统应该有的权限嘛。</p>
-<p><img alt="utterances的权限" data-src="5bd723ae73cb3.webp"><br>
+<p><img alt="utterances的权限" data-src="5bd723ae73cb3.png"><br>
 DisqusJS<br>
 不过utterances没有集成在NexT主题中，需要手动添加。</p>
 <p>打开主题文件夹，在<code>layout/_third-party/comments/</code>中新建文件<code>utterances.swig</code>，并添加下面的内容：</p>
@@ -340,11 +340,11 @@ DisqusJS<br>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="comment"># owner/repo</span></span><br><span class="line">  <span class="attr">issue_term:</span> <span class="comment"># pathname, url, title, og:title [ISSUE NUMBER] or [SPECIFIC TERM]</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="comment"># github-light or github-dark</span></span><br></pre></td></tr></table></figure>
 <p>三个配置选项都是必填的，第一个是配置issue所在的repo，第二个是如何决定如何寻找对应的issue，第三个决定采用亮或暗的主题。</p>
 <p>然后可以愉快的使用了～</p>
-<p><img alt="utterances的原始效果图" data-src="5bd72ad402e66.webp"></p>
+<p><img alt="utterances的原始效果图" data-src="5bd72ad402e66.png"></p>
 <p>不过，utterances有默认宽度限制，在页面上明显要比外边框窄很多，感觉很难看，所以我把宽度限制给去掉了，方法是在<code>source/css/_custom/custom.styl</code>中添加以下内容：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.utterances</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这样就显得好看多了。</p>
-<p><img alt="utterances的最终效果图" data-src="5bd72b0093ab9.webp"></p>
+<p><img alt="utterances的最终效果图" data-src="5bd72b0093ab9.png"></p>
 <p>utterance默认不会创建issue，而是会在第一次评论的时候自动创建相应的issue，这个也比gitment好用不少。</p>
 <h2 id="使用-disqus-php-api-进行反代理"><a class="markdownIt-Anchor" href="#使用-disqus-php-api-进行反代理"></a> 使用 Disqus PHP API 进行反代理</h2>
 <p>待更新</p>
@@ -565,7 +565,7 @@ DisqusJS<br>
 
         
 <div class="busuanzi-count">
-  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
@@ -599,7 +599,6 @@ DisqusJS<br>
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
@@ -617,69 +616,12 @@ DisqusJS<br>
 
 <script src="/js/next-boot.js"></script>
 
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.getAttribute('pjax') !== null) {
-      element.setAttribute('pjax', '');
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
 
 
 <script src="/js/click-love.js"></script>
 
   
-  <script pjax>
+  <script>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -707,7 +649,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-    <div id="pjax">
 
   
 
@@ -739,7 +680,24 @@ window.addEventListener('pjax:success', () => {
     });
   }, window.DisqusJS);
 </script>
-
-    </div>
+<script >
+function checkWebp(callback) {
+    var img = new Image();
+    img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+    img.onerror = function () { callback(false); };
+    img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+    var imgs = [].slice.call(document.querySelectorAll('img'));
+    imgs.forEach(function (e) {
+        if (useWebp) {
+            var src = e.getAttribute('data-src')
+            src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+            e.setAttribute('data-src', src);
+        }
+    });
+}
+checkWebp(showImage);
+</script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>
 </html>
