@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>自动使用 WebP 图片</title>
+    <url>//posts/2019-12-20-Use-webp-in-NexT/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>最开始我的图片是放到 <span class="exturl" data-url="aHR0cHM6Ly9zbS5tcy8=" title="https://sm.ms/">sm.ms<i class="fa fa-external-link"></i></span> 图床上，但是访问起来加载得非常慢。后来发现，是因为每个图片都比较大，图片一多就显得比较慢了。<br>
+于是就把图片都换成了 WebP 格式，这样图片的大小就缩小了很多。但是由于 <span class="exturl" data-url="aHR0cHM6Ly9zbS5tcy8=" title="https://sm.ms/">sm.ms<i class="fa fa-external-link"></i></span> 不支持 WebP 格式，于是只能把图片存在 Github 上。</p>
+<p>直到有一天我用我的 iPad 打开自己的网页，咦，我的图片呢？？？</p>
+<p>后来才知道，万恶的 Safari 依然不支持 WebP 格式！！！</p>
+<p>没有办法，只好自己添加判断代码。对于支持 WebP 格式的浏览器自动加载 WebP 图片，其余则加载原始的 jpg/png 图片。</p>
+<p>我的 <code>_config.yml</code> 配置文件中是：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">footer:</span> <span class="string">source/_data/footer.swig</span></span><br><span class="line"><span class="attr">lazyload:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">pjax:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>本来是一直启用 pjax 的，但是发现网页跳转后，我添加的代码不会自动执行，于是只好暂时禁用了，待找到解决办法再启用吧。</p>
+<p>在 <code>博客文件夹/source/_data/footer.swig</code> 中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&#123;&#123; pjax &#125;&#125;&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkWebp</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">    img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; callback((img.width &gt; <span class="number">0</span>) &amp;&amp; (img.height &gt; <span class="number">0</span>)); &#125;;</span><br><span class="line">    img.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; callback(<span class="literal">false</span>); &#125;;</span><br><span class="line">    img.src = <span class="string">'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showImage</span>(<span class="params">useWebp</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> imgs = [].slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">'img'</span>));</span><br><span class="line">    imgs.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (useWebp) &#123;</span><br><span class="line">            <span class="keyword">var</span> src = e.getAttribute(<span class="string">'data-src'</span>)</span><br><span class="line">            src = src.replace(<span class="regexp">/\.jpg$/</span>, <span class="string">'.webp'</span>).replace(<span class="regexp">/\.png$/</span>, <span class="string">'.webp'</span>);</span><br><span class="line">            e.setAttribute(<span class="string">'data-src'</span>, src);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">checkWebp(showImage);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意如果没有启用 <code>lazyload</code> 功能的话，应该把 <code>data-src</code> 都变成 <code>src</code>。</p>
+<p>然后插入图片的时候正常插入就可以了，然后使用 <code>cwebp</code> 把图片都转成 WebP 格式，注意放到相同的文件夹内，并使用相同的文件名（不含后缀）。<code>cwebp</code> 命令的使用格式：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cwebp result.png -o result.webp</span><br></pre></td></tr></table></figure>
+<p>当然也可以借助 <span class="exturl" data-url="aHR0cHM6Ly96aGl0dS5pc3V4LnVzLw==" title="https://zhitu.isux.us/">智图<i class="fa fa-external-link"></i></span> 等工具进行转化。</p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ha2FyaW4uZGV2LzIwMTkvMTAvMjIvdXBncmFkZS10by13ZWJwLw==" title="https://akarin.dev/2019/10/22/upgrade-to-webp/">https://akarin.dev/2019/10/22/upgrade-to-webp/<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwNzQ4MjE0OA==" title="https://segmentfault.com/a/1190000007482148">https://segmentfault.com/a/1190000007482148<i class="fa fa-external-link"></i></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+        <tag>WebP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>包络线与抛物线</title>
     <url>//posts/2019-12-11-Envolope-and-parabola/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>今天在给一个学生讲题的时候遇到了这样一道题目：</p>
@@ -1000,7 +1033,7 @@ DisqusJS<br>
 <p>可惜，像令狐冲这样的人物，也只能存在于小说中了。。。</p>
 <p class="text-right">甲午年四月廿三至廿七记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-qvpGPylw" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28838557" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-veHfQWuq" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28838557" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <categories>
         <category>随想</category>
@@ -1143,7 +1176,7 @@ DisqusJS<br>
 <p class="text-center"><strong>（二）</strong></p>
 <p>最近几天，突然喜欢上单曲循环李宗盛的《凡人歌》。</p>
 
-    <div id="aplayer-LGUFYmuO" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-mhUXNZYZ" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <div class="note primary">
             <p>你我皆凡人，生在人世间。<br>终日奔波苦，一刻不得闲。<br>你既然不是仙，难免有杂念。<br>道义放两旁，把利字摆中间。<br>多少男子汉，一怒为红颜？<br>多少同林鸟，已成了分飞燕？<br>人生何其短，何必苦苦恋？<br>爱人不见了，你向谁去喊冤？<br>问你何时曾看见，这世界为了人们改变？<br>有了梦寐以求的容颜，是否就算是拥有春天。。。</p>
           </div>
@@ -1408,7 +1441,7 @@ Other helper scripts: dynamic ieevent</p>
 <p>现在的我，亟需回归成真正的我。</p>
 <p>夜深忽梦少年事，独自无言，惟有泪千行。</p>
 
-    <div id="aplayer-iXJPSdFE" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="003Zl6mC43Y3Yj" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-BVhyFgws" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="003Zl6mC43Y3Yj" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <categories>
         <category>随想</category>
@@ -1464,7 +1497,7 @@ Other helper scripts: dynamic ieevent</p>
           </div>
 <p class="text-right">壬辰冬月初八，孙、外甥记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-dvdPEaiM" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="22706999" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-riwmKKSD" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="22706999" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <categories>
         <category>随想</category>
