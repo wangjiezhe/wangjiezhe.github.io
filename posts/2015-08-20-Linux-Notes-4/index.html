@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.1.1">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -37,6 +37,7 @@
     mediumzoom: false,
     lazyload: true,
     pangu: true,
+    comments: {"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -53,7 +54,7 @@
   <meta name="description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 随学随记 (4)">
-<meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2015-08-20-Linux-Notes-4&#x2F;index.html">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2015-08-20-Linux-Notes-4/index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed">
 <meta property="og:locale" content="zh_CN">
@@ -73,9 +74,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -298,13 +297,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mplayer -loop n ***.mp3</span><br></pre></td></tr></table></figure>
 <p>n 表示重复次数，0 表示无限循环。</p>
 <h2 id="vim-搜索大小写匹配"><a class="markdownIt-Anchor" href="#vim-搜索大小写匹配"></a> vim 搜索大小写匹配</h2>
-<p><code>set ignorecase</code><br>
+<p><code>set ignorecase</code><br />
 忽略正常字母的大小写</p>
-<p><code>set smartcase</code><br>
+<p><code>set smartcase</code><br />
 只包含小写字母时忽略大小写</p>
-<p><code>\c</code><br>
+<p><code>\c</code><br />
 强制忽略大小写</p>
-<p><code>\C</code><br>
+<p><code>\C</code><br />
 强制匹配大小写</p>
 <h2 id="cd-转移"><a class="markdownIt-Anchor" href="#cd-转移"></a> cd 转移</h2>
 <p>当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法。</p>
@@ -312,37 +311,37 @@
 <p>第一个参数是当前目录路径中需要替换的参数，第二个参数是替换字符串。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 要从v7目录 切换到v8目录，只需键入cd v7 v8</span></span><br><span class="line">/programs/v7/reports/monthly &gt; <span class="built_in">cd</span> v7 v8</span><br><span class="line">/programs/v8/reports/monthly &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果历史上的每年每月都有一个对应目录，cd 转移允许从一年跳到另一年</span></span><br><span class="line">/hist/2010/april/reports &gt; <span class="built_in">cd</span> 2010 2011</span><br><span class="line">/hist/2011/april/reports &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换月份目录</span></span><br><span class="line">/hist/2011/april/reports &gt; <span class="built_in">cd</span> april may</span><br><span class="line">/hist/2011/may/reports &gt;</span><br></pre></td></tr></table></figure>
 <h2 id="vim-快速缩进"><a class="markdownIt-Anchor" href="#vim-快速缩进"></a> vim 快速缩进</h2>
-<p><code>&gt;&gt;</code><br>
+<p><code>&gt;&gt;</code><br />
 向右缩进</p>
-<p><code>&lt;&lt;</code><br>
+<p><code>&lt;&lt;</code><br />
 向左缩进</p>
-<p><code>:ce</code> (center)<br>
+<p><code>:ce</code> (center)<br />
 文本居中</p>
-<p><code>:le</code> (left)<br>
+<p><code>:le</code> (left)<br />
 文本靠左</p>
-<p><code>:ri</code> (right)<br>
+<p><code>:ri</code> (right)<br />
 文本靠右</p>
 <h2 id="vim-编辑多个文件"><a class="markdownIt-Anchor" href="#vim-编辑多个文件"></a> vim 编辑多个文件</h2>
-<p><code>:n</code><br>
+<p><code>:n</code><br />
 编辑下一个文件</p>
-<p><code>:N</code><br>
+<p><code>:N</code><br />
 编辑上一个文件</p>
-<p><code>:e#</code><br>
+<p><code>:e#</code><br />
 回到前一个文件</p>
-<p><code>:ls</code><br>
+<p><code>:ls</code><br />
 列出所有编辑的文件</p>
-<p><code>:b 2.txt</code> or <code>:b 2</code><br>
+<p><code>:b 2.txt</code> or <code>:b 2</code><br />
 直接进入文件 2.txt 或者编号为 2 的文件编辑</p>
-<p><code>:bd 2.txt</code> or <code>:b 2</code><br>
+<p><code>:bd 2.txt</code> or <code>:b 2</code><br />
 删除列表中的文件项目</p>
-<p><code>:f</code><br>
+<p><code>:f</code><br />
 显示正在编辑的文件名</p>
-<p><code>:f new.txt</code><br>
+<p><code>:f new.txt</code><br />
 重命名当前文件为 new.txt</p>
 <h2 id="vim-加密文件"><a class="markdownIt-Anchor" href="#vim-加密文件"></a> vim 加密文件</h2>
-<p><code>$ vim -x file1</code><br>
+<p><code>$ vim -x file1</code><br />
 创建加密文档 file1</p>
-<p><code>set cm=blowfish2</code> (newest)<br>
+<p><code>set cm=blowfish2</code> (newest)<br />
 设置加密方式</p>
 
     </div>
@@ -403,12 +402,34 @@
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -544,7 +565,7 @@
     </span>
     <span title="站点总字数">59k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.1
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -602,7 +623,6 @@ checkWebp(showImage);
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -659,7 +679,6 @@ checkWebp(showImage);
 
 
 
-
   
 
   
@@ -679,6 +698,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
@@ -689,6 +709,7 @@ checkWebp(showImage);
       title: "Linux 随学随记 (4)",
     });
   }, window.DisqusJS);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>

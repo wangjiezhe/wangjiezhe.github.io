@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.1.1">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -37,6 +37,7 @@
     mediumzoom: false,
     lazyload: true,
     pangu: true,
+    comments: {"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -53,7 +54,7 @@
   <meta name="description" content="沧海如何？不过浮生">
 <meta property="og:type" content="article">
 <meta property="og:title" content="忽然想到（三）">
-<meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2014-03-16-Thinking-3&#x2F;index.html">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2014-03-16-Thinking-3/index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="沧海如何？不过浮生">
 <meta property="og:locale" content="zh_CN">
@@ -73,9 +74,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -309,16 +308,18 @@
 <p>寒假时一个人在宿舍，看完了《射雕英雄传》（83）、《神雕侠侣》（95）和《倚天屠龙记》（03）的电视剧。不过跟小说一样，最喜欢的还是《倚天》。</p>
 <p>不过这次《倚天》里给我印象最深的，不是赵敏，不是芷若，而是在光明顶上，当明教众人以为将死之时所吟颂的经文：</p>
 <div class="note info">
-            <p>焚我残躯，熊熊圣火。<br>生亦何欢？死亦何苦？<br>为善除恶，惟光明故。<br>喜乐悲愁，皆归尘土。<br>怜我世人，忧患实多。<br>怜我世人，忧患实多。。。</p>
+            <p>焚我残躯，熊熊圣火。<br />生亦何欢？死亦何苦？<br />为善除恶，惟光明故。<br />喜乐悲愁，皆归尘土。<br />怜我世人，忧患实多。<br />怜我世人，忧患实多。。。</p>
           </div>
 <p>其实在读小说时，这段话我是直接略过的，完全没有注意，直到看电视剧时才注意到。</p>
 <p>「生亦何欢？死亦何苦？」「怜我世人，忧患实多。」世人如此。</p>
 <p class="text-center"><strong>（二）</strong></p>
 <p>最近几天，突然喜欢上单曲循环李宗盛的《凡人歌》。</p>
 
-    <div id="aplayer-mhUXNZYZ" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-CJXRWVuj" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
 <div class="note primary">
-            <p>你我皆凡人，生在人世间。<br>终日奔波苦，一刻不得闲。<br>你既然不是仙，难免有杂念。<br>道义放两旁，把利字摆中间。<br>多少男子汉，一怒为红颜？<br>多少同林鸟，已成了分飞燕？<br>人生何其短，何必苦苦恋？<br>爱人不见了，你向谁去喊冤？<br>问你何时曾看见，这世界为了人们改变？<br>有了梦寐以求的容颜，是否就算是拥有春天。。。</p>
+            <p>你我皆凡人，生在人世间。<br />终日奔波苦，一刻不得闲。<br />你既然不是仙，难免有杂念。<br />道义放两旁，把利字摆中间。<br />多少男子汉，一怒为红颜？<br />多少同林鸟，已成了分飞燕？<br />人生何其短，何必苦苦恋？<br />爱人不见了，你向谁去喊冤？<br />问你何时曾看见，这世界为了人们改变？<br />有了梦寐以求的容颜，是否就算是拥有春天。。。</p>
           </div>
 <p>其实，开始是看了B-one人声乐团的视频，然后才知道的。还为此去看了几集《碧海情天》。</p>
 <p>「终日奔波苦，一刻不得闲。」「人生何其短，何必苦苦恋？」凡人如此。</p>
@@ -385,12 +386,34 @@
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -525,7 +548,7 @@
     </span>
     <span title="站点总字数">59k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.1
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -583,7 +606,6 @@ checkWebp(showImage);
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -640,7 +662,6 @@ checkWebp(showImage);
 
 
 
-
   
 
   
@@ -660,6 +681,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
@@ -670,6 +692,7 @@ checkWebp(showImage);
       title: "忽然想到（三）",
     });
   }, window.DisqusJS);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>

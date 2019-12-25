@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.1.1">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -37,6 +37,7 @@
     mediumzoom: false,
     lazyload: true,
     pangu: true,
+    comments: {"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -53,7 +54,7 @@
   <meta name="description" content="记录在 Fedora 上使用网银的过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Piplight 在 Linux 上使用网银">
-<meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2014-03-02-Pipelight-use-eBank-on-Linux&#x2F;index.html">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2014-03-02-Pipelight-use-eBank-on-Linux/index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="记录在 Fedora 上使用网银的过程">
 <meta property="og:locale" content="zh_CN">
@@ -75,9 +76,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -317,23 +316,23 @@ sudo pipelight-plugin --update
 </code></pre>
 <p>5. 启动 chrome 浏览器, 打开 <span class="exturl" data-url="Y2hyb21lOi8vcGx1Z2lucw==" title="chrome://plugins">chrome://plugins<i class="fa fa-external-link"></i></span>, 应该可以看到以下内容:</p>
 <blockquote>
-<p>ActiveX hosting plugin for NPAPI<br>
-ActiveX hosting plugin for NPAPI r37<br>
-Name: ActiveX hosting plugin for NPAPI<br>
-Description: ActiveX hosting plugin for NPAPI r37<br>
-Version:<br>
-Location: /usr/lib/pipelight/libpipelight-npactivex.so<br>
-Type: NPAPI<br>
-Disable<br>
-MIME types:<br>
-MIME type Description  File extensions<br>
-application/x-itst-activex  ActiveX (*.ocx)<br>
-.ocx<br>
+<p>ActiveX hosting plugin for NPAPI<br />
+ActiveX hosting plugin for NPAPI r37<br />
+Name: ActiveX hosting plugin for NPAPI<br />
+Description: ActiveX hosting plugin for NPAPI r37<br />
+Version:<br />
+Location: /usr/lib/pipelight/libpipelight-npactivex.so<br />
+Type: NPAPI<br />
+Disable<br />
+MIME types:<br />
+MIME type Description  File extensions<br />
+application/x-itst-activex  ActiveX (*.ocx)<br />
+.ocx<br />
 application/activex-manager  ActiveXManager</p>
 </blockquote>
 <p>如果看到下列错误:</p>
 <blockquote>
-<p>Pipelight Error (npactivex)!<br>
+<p>Pipelight Error (npactivex)!<br />
 Something went wrong, check the terminal output</p>
 </blockquote>
 <p>请从终端打开 chromium/google-chrome, 观察终端出错日志</p>
@@ -367,9 +366,9 @@ sudo chmod +x /path/to/your/bin/winetricks
 <p>10. 用 Chrome 打开 <span class="exturl" data-url="aHR0cHM6Ly9teWJhbmsuaWNiYy5jb20uY24vaWNiYy9wZXJiYW5rL2luZGV4LmpzcA==" title="https://mybank.icbc.com.cn/icbc/perbank/index.jsp">https://mybank.icbc.com.cn/icbc/perbank/index.jsp<i class="fa fa-external-link"></i></span> 应该可以正常登陆工行网银了.</p>
 <p>上面的博客还给出了其作者对支付宝的测试成功的 npactivex extension 的规则:</p>
 <blockquote>
-<p>Mode: WildChar<br>
-Pattern: https://*.alipay.com/*<br>
-User Agent: MSIE9<br>
+<p>Mode: WildChar<br />
+Pattern: https://*.alipay.com/*<br />
+User Agent: MSIE9<br />
 Other helper scripts: dynamic ieevent</p>
 </blockquote>
 <p>不过, 在 npactivex extension 的设置页面中虽然有农业银行的的选项，但是我还是始终没有成功......</p>
@@ -439,12 +438,34 @@ Other helper scripts: dynamic ieevent</p>
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -579,7 +600,7 @@ Other helper scripts: dynamic ieevent</p>
     </span>
     <span title="站点总字数">59k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.1
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -637,7 +658,6 @@ checkWebp(showImage);
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -694,7 +714,6 @@ checkWebp(showImage);
 
 
 
-
   
 
   
@@ -714,6 +733,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
@@ -724,6 +744,7 @@ checkWebp(showImage);
       title: "Piplight 在 Linux 上使用网银",
     });
   }, window.DisqusJS);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>

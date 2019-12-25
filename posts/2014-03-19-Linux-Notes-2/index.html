@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.1.1">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -37,6 +37,7 @@
     mediumzoom: false,
     lazyload: true,
     pangu: true,
+    comments: {"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -53,7 +54,7 @@
   <meta name="description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 随学随记 (2)">
-<meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2014-03-19-Linux-Notes-2&#x2F;index.html">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2014-03-19-Linux-Notes-2/index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed">
 <meta property="og:locale" content="zh_CN">
@@ -72,9 +73,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -294,25 +293,25 @@
 
       
         <h2 id="一-vim切换tab"><a class="markdownIt-Anchor" href="#一-vim切换tab"></a> 一、vim切换tab</h2>
-<p>向后  <code>:tabn</code><br>
+<p>向后  <code>:tabn</code><br />
 向前  <code>:tabp</code></p>
 <h2 id="二-vim与系统剪贴板的交互-仅限于gvim"><a class="markdownIt-Anchor" href="#二-vim与系统剪贴板的交互-仅限于gvim"></a> 二、vim与系统剪贴板的交互 (仅限于gvim!!!)</h2>
-<p><code>&quot;+y</code><br>
+<p><code>&quot;+y</code><br />
 复制到剪贴板</p>
-<p><code>&quot;+p</code><br>
+<p><code>&quot;+p</code><br />
 从剪贴板粘贴</p>
 <h2 id="三-vim重复命令"><a class="markdownIt-Anchor" href="#三-vim重复命令"></a> 三、vim重复命令</h2>
-<p><code>.</code><br>
+<p><code>.</code><br />
 重复上次操作，前面可加次数</p>
-<p><code>:[range]g[lobal]/{pattern}/[cmd]</code><br>
+<p><code>:[range]g[lobal]/{pattern}/[cmd]</code><br />
 在 <code>[range]</code> 界定的匹配模式 <code>{pattern}</code> 的文本行上执行Ex 命令 <code>[cmd]</code> （缺省是 <code>:p</code>）。</p>
-<p><code>:[range]g[lobal]!/{pattern}/[cmd]</code><br>
+<p><code>:[range]g[lobal]!/{pattern}/[cmd]</code><br />
 在 [range] 界定的_不_匹配模式 {pattern} 的文本行上执行 Ex 命令 [cmd] （缺省是 <code>:p</code>）。</p>
-<p><code>:[range]v[global]/{pattern}/[cmd]</code><br>
+<p><code>:[range]v[global]/{pattern}/[cmd]</code><br />
 等同于 :g!。</p>
 <h2 id="四-vim中tab与空格的转换-慎用"><a class="markdownIt-Anchor" href="#四-vim中tab与空格的转换-慎用"></a> 四、vim中tab与空格的转换 (慎用！！！)</h2>
-<p><code>:ret[ab][!] [new_tabstop]</code><br>
-将制表符<code>&lt;TAB&gt;</code>转换为空格符，数量由<code>[new_tabstop]</code>指定。若为空或为0，则使用默认的<code>tabstop</code>。<br>
+<p><code>:ret[ab][!] [new_tabstop]</code><br />
+将制表符<code>&lt;TAB&gt;</code>转换为空格符，数量由<code>[new_tabstop]</code>指定。若为空或为0，则使用默认的<code>tabstop</code>。<br />
 若有<code>!</code>，则将空格序列转化为<code>&lt;TAB&gt;</code>。</p>
 <h2 id="五-查看中文帮助"><a class="markdownIt-Anchor" href="#五-查看中文帮助"></a> 五、查看中文帮助</h2>
 <p><strong><code>man -L zh_CN.utf8 command</code></strong></p>
@@ -378,12 +377,34 @@
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -519,7 +540,7 @@
     </span>
     <span title="站点总字数">59k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.1
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -577,7 +598,6 @@ checkWebp(showImage);
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -634,7 +654,6 @@ checkWebp(showImage);
 
 
 
-
   
 
   
@@ -654,6 +673,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
@@ -664,6 +684,7 @@ checkWebp(showImage);
       title: "Linux 随学随记 (2)",
     });
   }, window.DisqusJS);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>

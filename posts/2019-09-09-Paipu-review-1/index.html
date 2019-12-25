@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.1.1">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -37,6 +37,7 @@
     mediumzoom: false,
     lazyload: true,
     pangu: true,
+    comments: {"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -53,18 +54,18 @@
   <meta name="description" content="223446677何切">
 <meta property="og:type" content="article">
 <meta property="og:title" content="牌谱反思（一）">
-<meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2019-09-09-Paipu-review-1&#x2F;index.html">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2019-09-09-Paipu-review-1/index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="223446677何切">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2019-09-09-Paipu-review-1&#x2F;Imv6p95T1kMlBHu.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2019-09-09-Paipu-review-1&#x2F;ouUXnvkxQ97iaHA.jpg">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2019-09-09-Paipu-review-1/Imv6p95T1kMlBHu.jpg">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2019-09-09-Paipu-review-1/ouUXnvkxQ97iaHA.jpg">
 <meta property="article:published_time" content="2019-09-08T16:32:00.000Z">
 <meta property="article:modified_time" content="2019-09-08T16:32:00.000Z">
 <meta property="article:author" content="西风冷香">
 <meta property="article:tag" content="何切">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2019-09-09-Paipu-review-1&#x2F;Imv6p95T1kMlBHu.jpg">
+<meta name="twitter:image" content="https://wangjiezhe.com/posts/2019-09-09-Paipu-review-1/Imv6p95T1kMlBHu.jpg">
 
 <link rel="canonical" href="https://wangjiezhe.com/posts/2019-09-09-Paipu-review-1/">
 
@@ -74,9 +75,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -289,13 +288,13 @@
 
       
         <p>今天在打牌的时候遇到了一个有意思的何切。</p>
-<p><img alt="南2局0本场6巡目" data-src="Imv6p95T1kMlBHu.jpg"></p>
+<p><img data-src="Imv6p95T1kMlBHu.jpg" alt="南2局0本场6巡目" /></p>
 <p>自家一向听，此时上了6p，该如何切牌？</p>
 <p>当时的第一反应是切6p或者7p，然后考虑到6p在中间，如果来5p的话可能还有用，于是就切了6p。</p>
 <p>回过头来看一下，无论是切6p还是7p，待牌的数量是一样的。但不一样的是，如果切7p来5p，可以再切2p听58p的两面，而如果切6p来5p，那么切2p听的是1m和7p的双碰，听牌强度很明显要差一些。</p>
 <p>仔细想想，饼子部分的牌可以拆成234+246+677的形状，因为不缺雀头，所以切7p保留67的好型是正解。（当时打牌没注意到中间其实是一个连坎）</p>
 <p>（然而最终这局是立直之后铳了对家万子混一色的5200点。。。）</p>
-<p><img alt="何切る解答機" data-src="ouUXnvkxQ97iaHA.jpg"></p>
+<p><img data-src="ouUXnvkxQ97iaHA.jpg" alt="何切る解答機" /></p>
 <p>这是<span class="exturl" data-url="aHR0cDovL2tvYmFsYWIubmV0L21hamlhbmcvZGFwYWkuaHRtbCNtMTE0NTZwMjIzNDQ2NzdwNi8xLzEvczY=" title="http://kobalab.net/majiang/dapai.html#m11456p22344677p6/1/1/s6">何切<i class="fa fa-external-link"></i></span>给出的切牌建议，令我没想到的是，切2p或者4p的选项居然要比切6p还要靠前。仔细想一下，手牌可以看成234+24+6677，这样切2p/4p后，如果能进到5p或者8p（共8枚），就能够好型听牌，而且高目还有一杯口。虽说是要求重复进张，但毕竟听牌的时候强度比较好。而如果是切6p，只有进到3p（3枚）的时候才能好型听牌。显然相比而言，前一种会更好一点。</p>
 <p>看来这种多面听的改良判断还是需要再加强一下。</p>
 
@@ -355,12 +354,34 @@
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -495,7 +516,7 @@
     </span>
     <span title="站点总字数">59k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.1
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -553,7 +574,6 @@ checkWebp(showImage);
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -610,7 +630,6 @@ checkWebp(showImage);
 
 
 
-
   
 
   
@@ -630,6 +649,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
@@ -640,6 +660,7 @@ checkWebp(showImage);
       title: "牌谱反思（一）",
     });
   }, window.DisqusJS);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.1.1">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -37,6 +37,7 @@
     mediumzoom: false,
     lazyload: true,
     pangu: true,
+    comments: {"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -53,7 +54,7 @@
   <meta name="description" content="重新构建了博客的页面，记录了一些遇到的问题和解决办法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客的重构与回顾">
-<meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-05-refactor-blog&#x2F;index.html">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2018-10-05-refactor-blog/index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="重新构建了博客的页面，记录了一些遇到的问题和解决办法">
 <meta property="og:locale" content="zh_CN">
@@ -75,9 +76,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -313,7 +312,7 @@
 <p>嗯，说好听点叫简洁，说不好听呢就叫难看。。。😭</p>
 <p>话说 ellochen 的 Github 账号已经不存在了，貌似是已经注销了，但好在还存留有 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3BpaTB4L2VsbG9jaGVuLmdpdGh1Yi5jb20=" title="https://github.com/pii0x/ellochen.github.com">Fork<i class="fa fa-external-link"></i></span>（话说这就是 Fork 相较于 Star 的好处吧，我之前也有一些被删的 repo 是这么存留下来的，嗯，我指的不是 phuslu 大神，指的是垠神。。。），豆瓣小站 <span class="exturl" data-url="aHR0cHM6Ly9zaXRlLmRvdWJhbi5jb20vMTk2NzgxLw==" title="https://site.douban.com/196781/">Gode-Mode<i class="fa fa-external-link"></i></span> 貌似是他建立的。</p>
 <h2 id="博客的重构"><a class="markdownIt-Anchor" href="#博客的重构"></a> 博客的重构</h2>
-<p>在那之后，博客的页面也小幅修改过几次，但大的主题方面都没有变过。曾经有想过重新选一个更好看的主题，但碍于时间原因一直没有去做。<br>
+<p>在那之后，博客的页面也小幅修改过几次，但大的主题方面都没有变过。曾经有想过重新选一个更好看的主题，但碍于时间原因一直没有去做。<br />
 期间也在其他的 Page 中也曾经尝试过其他的主题，比如 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2htZmF5c2FsL2htZmF5c2FsLW9tZWdhLXRoZW1l" title="https://github.com/hmfaysal/hmfaysal-omega-theme">HMFAYSAL OMEGA<i class="fa fa-external-link"></i></span>，整体不错，但有些华而不实了；也试过 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tpbmdjb25zL2NvbGVzbGF3" title="https://github.com/kingcons/coleslaw">coleslaw<i class="fa fa-external-link"></i></span>，但又太过简单了。</p>
 <p>直到第一次看到 NexT 主题，就像<span class="exturl" data-url="aHR0cHM6Ly9pY2VoZS5naXRodWIuaW8vd2ViL2Jsb2dfY2hhbmdlbG9nLw==" title="https://icehe.github.io/web/blog_changelog/">这个<i class="fa fa-external-link"></i></span>，真的把我惊艳到了，流畅的载入动画，自动展开并追随页面更新的目录，再加上简洁没有多余内容的页面，完全符合我对自己的博客的预期啊。于是最终决定就用这个主题了。</p>
 <p>不过 NexT 的主页 <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==" title="https://theme-next.org">theme-next.org<i class="fa fa-external-link"></i></span> 目前显示 Under Construction，没有最新的文档只有根据旧文档、网上的教程还有源代码自行摸索，网上很多教程和解决方案都是过时的，只好自己边做边摸索了。</p>
@@ -358,16 +357,16 @@
 <h2 id="待改进的部分"><a class="markdownIt-Anchor" href="#待改进的部分"></a> 待改进的部分</h2>
 <p>还有一些部分模块这次没有时间弄了，留着下次有时间再解决吧。一部分现在能想到的我先列举在这里，省得以后又忘了：</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked disabled type="checkbox"> 字数统计</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked disabled type="checkbox"> 阅读次数统计</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked disabled type="checkbox"> 分享按钮</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked disabled type="checkbox"> 站内搜索。试过 LocalSearch，但搜索得到的链接始终不对，还没有找到原因，暂时禁用了。（暴力替换解决了）</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked disabled type="checkbox"> 分类页面。未能正确生成分类的页面。（要用复数的 categories）</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked disabled type="checkbox"> 页脚设置</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled type="checkbox"> 版权设置。增加适合于转载文章的版声明。</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked disabled type="checkbox"> 字体调整。</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled type="checkbox"> 代码高亮优化。不喜欢现在的高亮主题，</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked disabled type="checkbox"> 超链接显示颜色</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 字数统计</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 阅读次数统计</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 分享按钮</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 站内搜索。试过 LocalSearch，但搜索得到的链接始终不对，还没有找到原因，暂时禁用了。（暴力替换解决了）</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 分类页面。未能正确生成分类的页面。（要用复数的 categories）</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 页脚设置</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 版权设置。增加适合于转载文章的版声明。</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 字体调整。</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 代码高亮优化。不喜欢现在的高亮主题，</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 超链接显示颜色</li>
 </ul>
 <blockquote>
 <p>P.S. 话说我为什么这么爱用话说。。。</p>
@@ -433,12 +432,34 @@
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -574,7 +595,7 @@
     </span>
     <span title="站点总字数">59k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.1
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -632,7 +653,6 @@ checkWebp(showImage);
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -689,7 +709,6 @@ checkWebp(showImage);
 
 
 
-
   
 
   
@@ -709,6 +728,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
@@ -719,6 +739,7 @@ checkWebp(showImage);
       title: "博客的重构与回顾",
     });
   }, window.DisqusJS);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>

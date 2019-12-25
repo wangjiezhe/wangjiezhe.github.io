@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.1.1">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -37,6 +37,7 @@
     mediumzoom: false,
     lazyload: true,
     pangu: true,
+    comments: {"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -53,7 +54,7 @@
   <meta name="description" content="一些常见的正则表达式的备忘录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式简介">
-<meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2014-03-09-intro-for-regular-expression&#x2F;index.html">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2014-03-09-intro-for-regular-expression/index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="一些常见的正则表达式的备忘录">
 <meta property="og:locale" content="zh_CN">
@@ -75,9 +76,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -304,25 +303,25 @@
 <h3 id="3-星号元字符"><a class="markdownIt-Anchor" href="#3-星号元字符"></a> 3. 星号元字符 <code>\*</code></h3>
 <p>其紧挨着的之前的匹配有 0+ 次匹配机会。</p>
 <h3 id="4-位置元字符"><a class="markdownIt-Anchor" href="#4-位置元字符"></a> 4. 位置元字符 <code>^</code>, <code>$</code></h3>
-<p>^ 匹配字符串的最前面。<br>
+<p>^ 匹配字符串的最前面。<br />
 $ 匹配字符串的最后面。</p>
 <h3 id="5-字符组元字符-连字符元字符-补字号"><a class="markdownIt-Anchor" href="#5-字符组元字符-连字符元字符-补字号"></a> 5. 字符组元字符 <code>[ ]</code>, 连字符元字符 <code>-</code>, 补字号 <code>^</code></h3>
-<p><code>[]</code> 匹配方括号内的左右字符。<br>
-<code>\-</code> 连字符元字符仅在字符组元字符内有意义，表示一段连续字符范围。<br>
+<p><code>[]</code> 匹配方括号内的左右字符。<br />
+<code>\-</code> 连字符元字符仅在字符组元字符内有意义，表示一段连续字符范围。<br />
 <code>^</code> 表示排除某些字符。</p>
 <h3 id="6-范围字符串"><a class="markdownIt-Anchor" href="#6-范围字符串"></a> 6. 范围字符串 <code>\\{ \\}</code></h3>
-<p><code>\\{n,m\\}</code> 匹配 n~m 次。<br>
-<code>\\{n\\}</code> 匹配 n 次。<br>
+<p><code>\\{n,m\\}</code> 匹配 n~m 次。<br />
+<code>\\{n\\}</code> 匹配 n 次。<br />
 <code>\\{n,\\}</code> 匹配 n+ 次。</p>
 <h3 id="7-特殊字符类"><a class="markdownIt-Anchor" href="#7-特殊字符类"></a> 7. 特殊字符类</h3>
-<p><code>[[:alpha:]]</code> 匹配任意字母字符，大写或小写<br>
-<code>[[:alnum:]]</code> 匹配任意字母数字字符，0-9, a-z, A-Z<br>
-<code>[[:blank:]]</code> 匹配空格或制表符字符<br>
-<code>[[:digit:]]</code> 匹配任意数字字符，0-9<br>
-<code>[[:lower:]]</code> 匹配任意小写字母，a-z<br>
-<code>[[:print:]]</code> 匹配任意可打印字符<br>
-<code>[[:punct:]]</code> 匹配任意标点<br>
-<code>[[:space:]]</code> 匹配任意空白字符: 空格、制表符、NL、FF、VT、CR<br>
+<p><code>[[:alpha:]]</code> 匹配任意字母字符，大写或小写<br />
+<code>[[:alnum:]]</code> 匹配任意字母数字字符，0-9, a-z, A-Z<br />
+<code>[[:blank:]]</code> 匹配空格或制表符字符<br />
+<code>[[:digit:]]</code> 匹配任意数字字符，0-9<br />
+<code>[[:lower:]]</code> 匹配任意小写字母，a-z<br />
+<code>[[:print:]]</code> 匹配任意可打印字符<br />
+<code>[[:punct:]]</code> 匹配任意标点<br />
+<code>[[:space:]]</code> 匹配任意空白字符: 空格、制表符、NL、FF、VT、CR<br />
 <code>[[:upper:]]</code> 匹配任意大写字符，A-Z</p>
 <h2 id="扩展元字符-egrep-awk"><a class="markdownIt-Anchor" href="#扩展元字符-egrep-awk"></a> 扩展元字符 (egrep, awk)</h2>
 <h3 id="1-加号元字符"><a class="markdownIt-Anchor" href="#1-加号元字符"></a> 1. 加号元字符 <code>+</code></h3>
@@ -404,12 +403,34 @@ $ 匹配字符串的最后面。</p>
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -545,7 +566,7 @@ $ 匹配字符串的最后面。</p>
     </span>
     <span title="站点总字数">59k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.1
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -603,7 +624,6 @@ checkWebp(showImage);
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -660,7 +680,6 @@ checkWebp(showImage);
 
 
 
-
   
 
   
@@ -680,6 +699,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
@@ -690,6 +710,7 @@ checkWebp(showImage);
       title: "正则表达式简介",
     });
   }, window.DisqusJS);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>

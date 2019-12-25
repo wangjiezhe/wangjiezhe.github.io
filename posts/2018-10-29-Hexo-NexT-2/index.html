@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.1.1">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -37,6 +37,7 @@
     mediumzoom: false,
     lazyload: true,
     pangu: true,
+    comments: {"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -53,7 +54,7 @@
   <meta name="description" content="为NexT主题添加搜索功能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo NexT 魔改系列之二 ── 搜索篇">
-<meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2018-10-29-Hexo-NexT-2&#x2F;index.html">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-2/index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="为NexT主题添加搜索功能">
 <meta property="og:locale" content="zh_CN">
@@ -72,9 +73,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -315,7 +314,7 @@
 <h2 id="解决能够正常搜索但无法正常跳转的问题"><a class="markdownIt-Anchor" href="#解决能够正常搜索但无法正常跳转的问题"></a> 解决能够正常搜索，但无法正常跳转的问题</h2>
 <p>这样配置完了之后，我发现搜索功能没有问题，但搜索出来的结果没有办法正确跳转。查看了一下生成的<code>search.xml</code>，发现生成的链接多了一个<code>/</code>，就像这样：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"//posts/2018-10-24-prime-of-the-form-6k1/"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span>//posts/2018-10-24-prime-of-the-form-6k1/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>不过在各个教程中都没有找到相应的解决方法，最后在翻<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpc3NuYW4vaGV4by10aGVtZS1uZXh0L2lzc3Vlcy8xODUy" title="https://github.com/iissnan/hexo-theme-next/issues/1852">issue<i class="fa fa-external-link"></i></span>的时候发现了一个方法，就是在搜索的时候直接去掉一个<code>/</code>就好了。<br>
+<p>不过在各个教程中都没有找到相应的解决方法，最后在翻<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpc3NuYW4vaGV4by10aGVtZS1uZXh0L2lzc3Vlcy8xODUy" title="https://github.com/iissnan/hexo-theme-next/issues/1852">issue<i class="fa fa-external-link"></i></span>的时候发现了一个方法，就是在搜索的时候直接去掉一个<code>/</code>就好了。<br />
 修改<code>localsearch.swig</code>的源代码：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var articleUrl = decodeURIComponent(data.url);</span></span><br><span class="line"><span class="keyword">var</span> articleUrl = <span class="built_in">decodeURIComponent</span>(data.url).substring(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 <p>真的是简单粗暴啊。。。</p>
@@ -328,7 +327,7 @@
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lmlpc3NuYW4uY29tL3RoaXJkLXBhcnR5LXNlcnZpY2VzLmh0bWwjc2VhcmNoLXN5c3RlbQ==" title="https://theme-next.iissnan.com/third-party-services.html#search-system">搜索服务 - NexT 使用文档<i class="fa fa-external-link"></i></span></li>
 </ul>
-<hr class="footnotes-sep">
+<hr class="footnotes-sep" />
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>指的是主题目录下（theme/next/）的<code>_config.yml</code>文件 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
@@ -395,12 +394,34 @@
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -536,7 +557,7 @@
     </span>
     <span title="站点总字数">59k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.1
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -594,7 +615,6 @@ checkWebp(showImage);
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -651,7 +671,6 @@ checkWebp(showImage);
 
 
 
-
   
 
   
@@ -671,6 +690,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
@@ -681,6 +701,7 @@ checkWebp(showImage);
       title: "Hexo NexT 魔改系列之二 ── 搜索篇",
     });
   }, window.DisqusJS);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>

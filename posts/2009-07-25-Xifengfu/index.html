@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.1.1">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -37,6 +37,7 @@
     mediumzoom: false,
     lazyload: true,
     pangu: true,
+    comments: {"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -53,7 +54,7 @@
   <meta name="description" content="蓝田生美玉，西风栽冷香">
 <meta property="og:type" content="article">
 <meta property="og:title" content="西风赋">
-<meta property="og:url" content="https:&#x2F;&#x2F;wangjiezhe.com&#x2F;posts&#x2F;2009-07-25-Xifengfu&#x2F;index.html">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2009-07-25-Xifengfu/index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="蓝田生美玉，西风栽冷香">
 <meta property="og:locale" content="zh_CN">
@@ -72,9 +73,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -293,34 +292,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>北风带走了遍地的落叶，却带来了无尽的肃杀；<br>
-东风带走了栗冽与惨淡，却带来了漫天的黄沙；<br>
-南风带走了料峭的山崖，却带来了盛暑与酷夏；<br>
+        <p>北风带走了遍地的落叶，却带来了无尽的肃杀；<br />
+东风带走了栗冽与惨淡，却带来了漫天的黄沙；<br />
+南风带走了料峭的山崖，却带来了盛暑与酷夏；<br />
 西风带走了滂沱的大雨，却带来了冷香并菊花。</p>
-<p>西风来兮，万物警然。<br>
-声萧飒兮，诚其意；<br>
-气凛然兮，正其心；<br>
+<p>西风来兮，万物警然。<br />
+声萧飒兮，诚其意；<br />
+气凛然兮，正其心；<br />
 天地之义气兮，修身齐家。</p>
-<p>人悲西风，由之何来？<br>
-万物凋零，岂其过乎？<br>
-松柏竹菊，为何不倒？<br>
+<p>人悲西风，由之何来？<br />
+万物凋零，岂其过乎？<br />
+松柏竹菊，为何不倒？<br />
 风中仍立，一反大貌？</p>
-<p>是故无为之士，皆惧西风；<br>
-能治国平天下者，皆喜西风，<br>
+<p>是故无为之士，皆惧西风；<br />
+能治国平天下者，皆喜西风，<br />
 与之共舞，愈显芳香。</p>
-<p>此非春香，此乃冷香，<br>
-重于沉香木，胜过龙涎香；<br>
-留夷与揭车，杜衡与芳芷，<br>
-木兰之坠露，秋菊之落英，<br>
-胡绳之纚纚，薜荔之落蕊，<br>
-结木根之苣，纫菌桂之蕙，<br>
+<p>此非春香，此乃冷香，<br />
+重于沉香木，胜过龙涎香；<br />
+留夷与揭车，杜衡与芳芷，<br />
+木兰之坠露，秋菊之落英，<br />
+胡绳之纚纚，薜荔之落蕊，<br />
+结木根之苣，纫菌桂之蕙，<br />
 凡上种种，皆不及此。</p>
-<p>蓝田生美玉，西风栽冷香。<br>
+<p>蓝田生美玉，西风栽冷香。<br />
 呜呼！亦何恨乎西风？</p>
 <p>（外一则）</p>
-<p>他年我若为青帝，<br>
-报与桃花一处开。<br>
-只恐此花一开过，<br>
+<p>他年我若为青帝，<br />
+报与桃花一处开。<br />
+只恐此花一开过，<br />
 万花从此失光彩。</p>
 
     </div>
@@ -377,12 +376,34 @@
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -517,7 +538,7 @@
     </span>
     <span title="站点总字数">59k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.1.1
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.6.0
@@ -575,7 +596,6 @@ checkWebp(showImage);
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -632,7 +652,6 @@ checkWebp(showImage);
 
 
 
-
   
 
   
@@ -652,6 +671,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
@@ -662,6 +682,7 @@ checkWebp(showImage);
       title: "西风赋",
     });
   }, window.DisqusJS);
+});
 </script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>
