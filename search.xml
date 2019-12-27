@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>牌谱反思（三）</title>
+    <url>//posts/2019-12-20-Paipu-review-3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>这是前天的一个吃四的牌谱，里面的关键一处：</p>
+<p><img data-src="07583f6e312ba3f27e4c017cae8a8844.jpg" alt="南3局1本场17巡" /></p>
+<p>这里到了南3局1本场的末巡，自己是四位，还有自己的海底，因此期待能够立直一发海底自摸D1，满贯。</p>
+<p>但问题来了，是切 8p 立直呢，还是切 6s 立直呢？</p>
+<p>如果单从剩余张数来看，58p 剩余 4 张，467s 剩余 2 张，看上去立 6s 会好一点。</p>
+<p>但是，剩余张数 ≠ 山存张数！！！</p>
+<p>从各家的切牌来看，基本上各家都不要 46s，因此剩余的 46s 虽然剩的少，但是基本上都在山里；而牌河中饼子出的很少，显然各家手里都捏着不少饼子，中张的5p应该基本上都在上家或者下家手里。特别是上家，牌河里一张饼子都没有。</p>
+<p>因此，这里应该切 8p 立直，期待能够摸到山里的 46s！</p>
+]]></content>
+      <categories>
+        <category>日麻</category>
+      </categories>
+      <tags>
+        <tag>何切</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自动使用 WebP 图片</title>
     <url>//posts/2019-12-20-Use-webp-in-NexT/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>最开始我的图片是放到 <span class="exturl" data-url="aHR0cHM6Ly9zbS5tcy8=" title="https://sm.ms/">sm.ms<i class="fa fa-external-link"></i></span> 图床上，但是访问起来加载得非常慢。后来发现，是因为每个图片都比较大，图片一多就显得比较慢了。<br />
@@ -1033,7 +1052,7 @@ DisqusJS<br />
 <p>可惜，像令狐冲这样的人物，也只能存在于小说中了。。。</p>
 <p class="text-right">甲午年四月廿三至廿七记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-bOyMfjba" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-cWMGcukc" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="28838557" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 ]]></content>
@@ -1178,7 +1197,7 @@ DisqusJS<br />
 <p class="text-center"><strong>（二）</strong></p>
 <p>最近几天，突然喜欢上单曲循环李宗盛的《凡人歌》。</p>
 
-    <div id="aplayer-CJXRWVuj" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-mHvPfIpx" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 <div class="note primary">
@@ -1445,7 +1464,7 @@ Other helper scripts: dynamic ieevent</p>
 <p>现在的我，亟需回归成真正的我。</p>
 <p>夜深忽梦少年事，独自无言，惟有泪千行。</p>
 
-    <div id="aplayer-FjpRcYrb" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-QZJDwQGK" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="003Zl6mC43Y3Yj" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 ]]></content>
@@ -1503,7 +1522,7 @@ Other helper scripts: dynamic ieevent</p>
           </div>
 <p class="text-right">壬辰冬月初八，孙、外甥记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-HNtqaaxL" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-LrwRfmVP" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="22706999" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 ]]></content>
