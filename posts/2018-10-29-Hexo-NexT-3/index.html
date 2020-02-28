@@ -1,5 +1,431 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#66327C"><meta name="generator" content="Hexo 4.2.0"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png"><link rel="mask-icon" href="/images/logo.svg" color="#66327C"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css"><script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:new URL("https://wangjiezhe.com").hostname,root:"/",scheme:"Gemini",version:"7.7.0",exturl:!0,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!0,show_result:!0,style:null},back2top:{enable:!0,sidebar:!1,scrollpercent:!0},bookmark:{enable:!1,color:"#37c6c0",save:"manual"},fancybox:!0,mediumzoom:!1,lazyload:!0,pangu:!0,comments:{style:"buttons",active:null,storage:!0,lazyload:!1,nav:null},algolia:{appID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},path:"search.xml",motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}}}</script><meta name="description" content="为NexT主题添加评论功能"><meta property="og:type" content="article"><meta property="og:title" content="Hexo NexT 魔改系列之三 ── 评论篇"><meta property="og:url" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/index.html"><meta property="og:site_name" content="如鱼饮水"><meta property="og:description" content="为NexT主题添加评论功能"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd71ffe5a211.png"><meta property="og:image" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd723ae73cb3.png"><meta property="og:image" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd72ad402e66.png"><meta property="og:image" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd72b0093ab9.png"><meta property="article:published_time" content="2018-10-29T13:33:24.000Z"><meta property="article:modified_time" content="2019-08-21T12:59:39.000Z"><meta property="article:author" content="西风冷香"><meta property="article:tag" content="Hexo"><meta property="article:tag" content="NexT"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd71ffe5a211.png"><link rel="canonical" href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0}</script><title>Hexo NexT 魔改系列之三 ── 评论篇 | 如鱼饮水</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script><script>if(CONFIG.hostname===location.hostname){function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-48537410-1")}</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
-</head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-meta"><div><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">如鱼饮水</span> <span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">冷暖自知</h1></div><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="site-search"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"></div></div><div class="search-pop-overlay"></div></div></div></header><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span>0%</span></div><div class="reading-progress-bar"></div><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content"><div class="posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/camel.jpg"><meta itemprop="name" content="西风冷香"><meta itemprop="description" content="某不知名机构不知名数学老师一枚"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="如鱼饮水"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">Hexo NexT 魔改系列之三 ── 评论篇</h2><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-calendar-plus-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2018-10-29 21:33:24" itemprop="dateCreated datePublished" datetime="2018-10-29T21:33:24+08:00">2018-10-29</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2019-08-21 20:59:39" itemprop="dateModified" datetime="2019-08-21T20:59:39+08:00">2019-08-21</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-folder-open-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span> </a></span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">主题</span> </a></span></span><span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span id="busuanzi_value_page_pv"></span></span><div class="post-description">为NexT主题添加评论功能</div></div></header><div class="post-body" itemprop="articleBody"><div class="note primary"><p>20191110更新：如果要使用utterances作为评论系统的话，可以使用官方的插件<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by1uZXh0LXV0dGVyYW5j" title="https://github.com/theme-next/hexo-next-utteranc">hexo-next-utteranc<i class="fa fa-external-link"></i></span>。本文的方法在NexT主题更新至7.4.0之后已失效。</p></div><div class="note info"><p>20190821更新：目前已改用集成到NexT主题中的DisqusJS，并使用<span class="exturl" data-url="aHR0cHM6Ly96ZWl0LmNv" title="https://zeit.co">ZEIT<i class="fa fa-external-link"></i></span>部署，方法见<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1N1a2thVy9kaXNxdXNqcy1wcm94eS1leGFtcGxl" title="https://github.com/SukkaW/disqusjs-proxy-example">disqusjs-proxy-example<i class="fa fa-external-link"></i></span>。</p></div><p>NexT主题本身集成了五种评论插件：Disqus，畅言，Valine，来必力和gitment。</p><p>Disqus应该算是全球最大的评论系统了，很多博客甚至一些其它网站都在使用，功能足够强大，也比较美观，还支持匿名评论。之前我也一直在用，本来打算不用折腾就可以用了，结果发现，Disqus居然被墙了，WTF？？？</p><p>查了一下，大概是16年7月的事情，嗯。。。</p><p>好吧，看来Disqus只能作为备用的评论系统了，还需要一个不用翻墙就能用的评论系统才行。</p><blockquote><p>也有几种免翻墙用Disqus评论的解决办法，例如<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NpcXVsb3Zlci9kaXNxdXMtcHJveHk=" title="https://github.com/ciqulover/disqus-proxy">disqus-proxy<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NVa2thVy9EaXNxdXNKUw==" title="https://github.com/SUkkaW/DisqusJS">DisqusJS<i class="fa fa-external-link"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zvb2xlYXAvZGlzcXVzLXBocC1hcGk=" title="https://github.com/fooleap/disqus-php-api">Disqus PHP API<i class="fa fa-external-link"></i></span>，不过它们都需要另外一台服务器来进行反代理，而我的博客是放在Github上的，也没有多余的服务器可以用，只好放弃了。</p></blockquote><p>畅言，搜狐作的评论系统，需要备案才能使用。有人能告诉我Github Page上的博客怎么备案么。。。</p><p>而且，按照国内评论系统的尿性，说不定那天就又关闭了，就像之前的多说、友言和网易云跟帖。。。</p><p>Valine，这个倒是一个不错的选择，看上去也比较简洁明快，不过是基于Leancloud的，还得去配置一个Leancloud账号。其实这是一个不错的选择，可以一试。</p><p>来必力，韩国的一个评论系统，看上去不错，而且支持多账号登录，不过在国内加载有点慢。</p><p>gitment，使用Github的issue系统作为评论系统，很geek的一个想法，不过看到这权限，能够读写所有公开的repo？？？</p><p><img data-src="5bd71ffe5a211.png" alt="gitment的权限"></p><p>这是不是意味着可以把我所有的repo全部删掉。。。</p><blockquote><p>关于gitment的安全性的讨论，参见<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltc3VuL2dpdG1lbnQjaXMtaXQtc2FmZS10by1tYWtlLW15LWNsaWVudC1zZWNyZXQtcHVibGlj" title="https://github.com/imsun/gitment#is-it-safe-to-make-my-client-secret-public">imsun/gitment<i class="fa fa-external-link"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLndvbGZvZ3JlLmNvbS9wb3N0cy9zZWN1cml0eS1wcm9ibGVtLW9mLWdpdG1lbnQ=" title="https://blog.wolfogre.com/posts/security-problem-of-gitment">Gitment 的安全性争议<i class="fa fa-external-link"></i></span>。</p></blockquote><h2 id="添加utterances评论系统"><a class="markdownIt-Anchor" href="#添加utterances评论系统"></a> 添加<span class="exturl" data-url="aHR0cHM6Ly91dHRlcmFuYy5lcw==" title="https://utteranc.es">utterances<i class="fa fa-external-link"></i></span>评论系统</h2><p>在搜索gitment的时候，发现了一片utterances的<span class="exturl" data-url="aHR0cDovL3d3dy54aWFubWluLm9yZy9wb3N0L3V0dGVyYW5jZXMtY29tbWVudC1zeXN0ZW0=" title="http://www.xianmin.org/post/utterances-comment-system">介绍文章<i class="fa fa-external-link"></i></span>，发现这是一个好东西，同样是基于Github的issue系统，但由于是基于Github App构建的，权限控制的颗粒度要细一些，可以只具有读写issue的权限，不需要读写代码的权限，而且可以只在需要的repo中安装。这才是一个合格的评论系统应该有的权限嘛。</p><p><img data-src="5bd723ae73cb3.png" alt="utterances的权限"><br>DisqusJS<br>不过utterances没有集成在NexT主题中，需要手动添加。</p><p>打开主题文件夹，在<code>layout/_third-party/comments/</code>中新建文件<code>utterances.swig</code>，并添加下面的内容：</p><figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">if</span></span> theme.utterances.enable %&#125;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://utteranc.es/client.js"</span></span></span></span><br><span class="line"><span class="xml">    repo="</span><span class="template-variable">&#123;&#123; theme.utterances.repo &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    issue-term="</span><span class="template-variable">&#123;&#123; theme.utterances.issue_term &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    theme="</span><span class="template-variable">&#123;&#123; theme.utterances.theme &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    crossorigin="anonymous"</span></span><br><span class="line"><span class="xml">    async&gt;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endif</span></span> %&#125;</span></span><br></pre></td></tr></table></figure><p>然后在<code>layout/_partials/comments.swig</code>中添加下面的内容：</p><figure class="highlight patch"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   &#123;% elseif theme.valine.enable and theme.valine.appid and theme.valine.appkey %&#125;</span><br><span class="line">     &lt;div class="comments" id="comments"&gt;</span><br><span class="line">     &lt;/div&gt;</span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+  &#123;% elseif theme.utterances.enable %&#125;</span></span><br><span class="line"><span class="addition">+    &lt;div class="comments" id="comments"&gt;</span></span><br><span class="line"><span class="addition">+      &#123;% include '../_third-party/comments/utterances.swig' %&#125;</span></span><br><span class="line"><span class="addition">+    &lt;/div&gt;</span></span><br><span class="line">   &#123;% endif %&#125;</span><br></pre></td></tr></table></figure><p>最后在主题配置文件中添加如下配置：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="comment"># owner/repo</span></span><br><span class="line">  <span class="attr">issue_term:</span> <span class="comment"># pathname, url, title, og:title [ISSUE NUMBER] or [SPECIFIC TERM]</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="comment"># github-light or github-dark</span></span><br></pre></td></tr></table></figure><p>三个配置选项都是必填的，第一个是配置issue所在的repo，第二个是如何决定如何寻找对应的issue，第三个决定采用亮或暗的主题。</p><p>然后可以愉快的使用了～</p><p><img data-src="5bd72ad402e66.png" alt="utterances的原始效果图"></p><p>不过，utterances有默认宽度限制，在页面上明显要比外边框窄很多，感觉很难看，所以我把宽度限制给去掉了，方法是在<code>source/css/_custom/custom.styl</code>中添加以下内容：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.utterances</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样就显得好看多了。</p><p><img data-src="5bd72b0093ab9.png" alt="utterances的最终效果图"></p><p>utterance默认不会创建issue，而是会在第一次评论的时候自动创建相应的issue，这个也比gitment好用不少。</p><h2 id="使用-disqus-php-api-进行反代理"><a class="markdownIt-Anchor" href="#使用-disqus-php-api-进行反代理"></a> 使用 Disqus PHP API 进行反代理</h2><p>待更新</p><h2 id="使用-valine-作为评论系统"><a class="markdownIt-Anchor" href="#使用-valine-作为评论系统"></a> 使用 Valine 作为评论系统</h2><blockquote><p>参见：<br><span class="exturl" data-url="aHR0cHM6Ly9wYW5qdW53ZW4uY29tL2RpeS1hLWNvbW1lbnQtc3lzdGVt" title="https://panjunwen.com/diy-a-comment-system">Valine: 独立博客评论系统<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9wYW5qdW53ZW4uY29tL2Zyb20tZGlzcXVzLXRvLWxlYW5jbG91ZA==" title="https://panjunwen.com/from-disqus-to-leancloud">使用LeanCloud做评论系统<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9sZWFmZXJ4Lm9ubGluZS8yMDE4LzAyLzExL2xjLXNlY3VyaXR5" title="https://leaferx.online/2018/02/11/lc-security">Leancloud访客统计插件重大安全漏洞修复指南<i class="fa fa-external-link"></i></span></p></blockquote></div><div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者： </strong>西风冷香</li><li class="post-copyright-link"><strong>本文链接：</strong> <a href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/" title="Hexo NexT 魔改系列之三 ── 评论篇">https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/</a></li><li class="post-copyright-license"><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div><footer class="post-footer"><div class="post-tags"><a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a> <a href="/tags/NexT/" rel="tag"><i class="fa fa-tag"></i> NexT</a></div><div class="post-nav"><div class="post-nav-item"><a href="/posts/2018-10-29-Hexo-NexT-2/" rel="prev" title="Hexo NexT 魔改系列之二 ── 搜索篇"><i class="fa fa-chevron-left"></i> Hexo NexT 魔改系列之二 ── 搜索篇</a></div><div class="post-nav-item"><a href="/posts/2019-09-04-Tai-1/" rel="next" title="太流牌谱学习笔记（一）">太流牌谱学习笔记（一） <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div><div class="comments"><div id="disqus_thread"><noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript></div></div><script>window.addEventListener('tabs:register', () => {
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#66327C">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#66327C">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#37c6c0","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="为NexT主题添加评论功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo NexT 魔改系列之三 ── 评论篇">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="为NexT主题添加评论功能">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd71ffe5a211.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd723ae73cb3.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd72ad402e66.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd72b0093ab9.png">
+<meta property="article:published_time" content="2018-10-29T13:33:24.000Z">
+<meta property="article:modified_time" content="2019-08-21T12:59:39.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="NexT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/5bd71ffe5a211.png">
+
+<link rel="canonical" href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Hexo NexT 魔改系列之三 ── 评论篇 | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+    <script pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-48537410-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">如鱼饮水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">冷暖自知</h1>
+      
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/camel.jpg">
+      <meta itemprop="name" content="西风冷香">
+      <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          Hexo NexT 魔改系列之三 ── 评论篇
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-plus-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-29 21:33:24" itemprop="dateCreated datePublished" datetime="2018-10-29T21:33:24+08:00">2018-10-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-08-21 20:59:39" itemprop="dateModified" datetime="2019-08-21T20:59:39+08:00">2019-08-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-open-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">主题</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">为NexT主题添加评论功能</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="note primary">
+            <p>20191110更新：如果要使用utterances作为评论系统的话，可以使用官方的插件<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by1uZXh0LXV0dGVyYW5j" title="https://github.com/theme-next/hexo-next-utteranc">hexo-next-utteranc<i class="fa fa-external-link"></i></span>。本文的方法在NexT主题更新至7.4.0之后已失效。</p>
+          </div>
+<div class="note info">
+            <p>20190821更新：目前已改用集成到NexT主题中的DisqusJS，并使用<span class="exturl" data-url="aHR0cHM6Ly96ZWl0LmNv" title="https://zeit.co">ZEIT<i class="fa fa-external-link"></i></span>部署，方法见<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1N1a2thVy9kaXNxdXNqcy1wcm94eS1leGFtcGxl" title="https://github.com/SukkaW/disqusjs-proxy-example">disqusjs-proxy-example<i class="fa fa-external-link"></i></span>。</p>
+          </div>
+<p>NexT主题本身集成了五种评论插件：Disqus，畅言，Valine，来必力和gitment。</p>
+<p>Disqus应该算是全球最大的评论系统了，很多博客甚至一些其它网站都在使用，功能足够强大，也比较美观，还支持匿名评论。之前我也一直在用，本来打算不用折腾就可以用了，结果发现，Disqus居然被墙了，WTF？？？</p>
+<p>查了一下，大概是16年7月的事情，嗯。。。</p>
+<p>好吧，看来Disqus只能作为备用的评论系统了，还需要一个不用翻墙就能用的评论系统才行。</p>
+<blockquote>
+<p>也有几种免翻墙用Disqus评论的解决办法，例如<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NpcXVsb3Zlci9kaXNxdXMtcHJveHk=" title="https://github.com/ciqulover/disqus-proxy">disqus-proxy<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NVa2thVy9EaXNxdXNKUw==" title="https://github.com/SUkkaW/DisqusJS">DisqusJS<i class="fa fa-external-link"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zvb2xlYXAvZGlzcXVzLXBocC1hcGk=" title="https://github.com/fooleap/disqus-php-api">Disqus PHP API<i class="fa fa-external-link"></i></span>，不过它们都需要另外一台服务器来进行反代理，而我的博客是放在Github上的，也没有多余的服务器可以用，只好放弃了。</p>
+</blockquote>
+<p>畅言，搜狐作的评论系统，需要备案才能使用。有人能告诉我Github Page上的博客怎么备案么。。。</p>
+<p>而且，按照国内评论系统的尿性，说不定那天就又关闭了，就像之前的多说、友言和网易云跟帖。。。</p>
+<p>Valine，这个倒是一个不错的选择，看上去也比较简洁明快，不过是基于Leancloud的，还得去配置一个Leancloud账号。其实这是一个不错的选择，可以一试。</p>
+<p>来必力，韩国的一个评论系统，看上去不错，而且支持多账号登录，不过在国内加载有点慢。</p>
+<p>gitment，使用Github的issue系统作为评论系统，很geek的一个想法，不过看到这权限，能够读写所有公开的repo？？？</p>
+<p><img data-src="5bd71ffe5a211.png" alt="gitment的权限" /></p>
+<p>这是不是意味着可以把我所有的repo全部删掉。。。</p>
+<blockquote>
+<p>关于gitment的安全性的讨论，参见<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltc3VuL2dpdG1lbnQjaXMtaXQtc2FmZS10by1tYWtlLW15LWNsaWVudC1zZWNyZXQtcHVibGlj" title="https://github.com/imsun/gitment#is-it-safe-to-make-my-client-secret-public">imsun/gitment<i class="fa fa-external-link"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLndvbGZvZ3JlLmNvbS9wb3N0cy9zZWN1cml0eS1wcm9ibGVtLW9mLWdpdG1lbnQ=" title="https://blog.wolfogre.com/posts/security-problem-of-gitment">Gitment 的安全性争议<i class="fa fa-external-link"></i></span>。</p>
+</blockquote>
+<h2 id="添加utterances评论系统"><a class="markdownIt-Anchor" href="#添加utterances评论系统"></a> 添加<span class="exturl" data-url="aHR0cHM6Ly91dHRlcmFuYy5lcw==" title="https://utteranc.es">utterances<i class="fa fa-external-link"></i></span>评论系统</h2>
+<p>在搜索gitment的时候，发现了一片utterances的<span class="exturl" data-url="aHR0cDovL3d3dy54aWFubWluLm9yZy9wb3N0L3V0dGVyYW5jZXMtY29tbWVudC1zeXN0ZW0=" title="http://www.xianmin.org/post/utterances-comment-system">介绍文章<i class="fa fa-external-link"></i></span>，发现这是一个好东西，同样是基于Github的issue系统，但由于是基于Github App构建的，权限控制的颗粒度要细一些，可以只具有读写issue的权限，不需要读写代码的权限，而且可以只在需要的repo中安装。这才是一个合格的评论系统应该有的权限嘛。</p>
+<p><img data-src="5bd723ae73cb3.png" alt="utterances的权限" /><br />
+DisqusJS<br />
+不过utterances没有集成在NexT主题中，需要手动添加。</p>
+<p>打开主题文件夹，在<code>layout/_third-party/comments/</code>中新建文件<code>utterances.swig</code>，并添加下面的内容：</p>
+<figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">if</span></span> theme.utterances.enable %&#125;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://utteranc.es/client.js"</span></span></span></span><br><span class="line"><span class="xml">    repo="</span><span class="template-variable">&#123;&#123; theme.utterances.repo &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    issue-term="</span><span class="template-variable">&#123;&#123; theme.utterances.issue_term &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    theme="</span><span class="template-variable">&#123;&#123; theme.utterances.theme &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    crossorigin="anonymous"</span></span><br><span class="line"><span class="xml">    async&gt;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endif</span></span> %&#125;</span></span><br></pre></td></tr></table></figure>
+<p>然后在<code>layout/_partials/comments.swig</code>中添加下面的内容：</p>
+<figure class="highlight patch"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   &#123;% elseif theme.valine.enable and theme.valine.appid and theme.valine.appkey %&#125;</span><br><span class="line">     &lt;div class="comments" id="comments"&gt;</span><br><span class="line">     &lt;/div&gt;</span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+  &#123;% elseif theme.utterances.enable %&#125;</span></span><br><span class="line"><span class="addition">+    &lt;div class="comments" id="comments"&gt;</span></span><br><span class="line"><span class="addition">+      &#123;% include '../_third-party/comments/utterances.swig' %&#125;</span></span><br><span class="line"><span class="addition">+    &lt;/div&gt;</span></span><br><span class="line">   &#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>最后在主题配置文件中添加如下配置：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="comment"># owner/repo</span></span><br><span class="line">  <span class="attr">issue_term:</span> <span class="comment"># pathname, url, title, og:title [ISSUE NUMBER] or [SPECIFIC TERM]</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="comment"># github-light or github-dark</span></span><br></pre></td></tr></table></figure>
+<p>三个配置选项都是必填的，第一个是配置issue所在的repo，第二个是如何决定如何寻找对应的issue，第三个决定采用亮或暗的主题。</p>
+<p>然后可以愉快的使用了～</p>
+<p><img data-src="5bd72ad402e66.png" alt="utterances的原始效果图" /></p>
+<p>不过，utterances有默认宽度限制，在页面上明显要比外边框窄很多，感觉很难看，所以我把宽度限制给去掉了，方法是在<code>source/css/_custom/custom.styl</code>中添加以下内容：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.utterances</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就显得好看多了。</p>
+<p><img data-src="5bd72b0093ab9.png" alt="utterances的最终效果图" /></p>
+<p>utterance默认不会创建issue，而是会在第一次评论的时候自动创建相应的issue，这个也比gitment好用不少。</p>
+<h2 id="使用-disqus-php-api-进行反代理"><a class="markdownIt-Anchor" href="#使用-disqus-php-api-进行反代理"></a> 使用 Disqus PHP API 进行反代理</h2>
+<p>待更新</p>
+<h2 id="使用-valine-作为评论系统"><a class="markdownIt-Anchor" href="#使用-valine-作为评论系统"></a> 使用 Valine 作为评论系统</h2>
+<blockquote>
+<p>参见：<br />
+<span class="exturl" data-url="aHR0cHM6Ly9wYW5qdW53ZW4uY29tL2RpeS1hLWNvbW1lbnQtc3lzdGVt" title="https://panjunwen.com/diy-a-comment-system">Valine: 独立博客评论系统<i class="fa fa-external-link"></i></span><br />
+<span class="exturl" data-url="aHR0cHM6Ly9wYW5qdW53ZW4uY29tL2Zyb20tZGlzcXVzLXRvLWxlYW5jbG91ZA==" title="https://panjunwen.com/from-disqus-to-leancloud">使用LeanCloud做评论系统<i class="fa fa-external-link"></i></span><br />
+<span class="exturl" data-url="aHR0cHM6Ly9sZWFmZXJ4Lm9ubGluZS8yMDE4LzAyLzExL2xjLXNlY3VyaXR5" title="https://leaferx.online/2018/02/11/lc-security">Leancloud访客统计插件重大安全漏洞修复指南<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/" title="Hexo NexT 魔改系列之三 ── 评论篇">https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">WeChat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/NexT/" rel="tag"><i class="fa fa-tag"></i> NexT</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2018-10-29-Hexo-NexT-2/" rel="prev" title="Hexo NexT 魔改系列之二 ── 搜索篇">
+      <i class="fa fa-chevron-left"></i> Hexo NexT 魔改系列之二 ── 搜索篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/2019-09-04-Tai-1/" rel="next" title="太流牌谱学习笔记（一）">
+      太流牌谱学习笔记（一） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
     let activeClass = CONFIG.comments.activeClass;
     if (CONFIG.comments.storage) {
       activeClass = localStorage.getItem('comments_active') || activeClass;
@@ -17,21 +443,347 @@
       let commentClass = event.target.classList[1];
       localStorage.setItem('comments_active', commentClass);
     });
-  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加utterances评论系统"><span class="nav-number">1.</span> <span class="nav-text">添加utterances评论系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-disqus-php-api-进行反代理"><span class="nav-number">2.</span> <span class="nav-text">使用 Disqus PHP API 进行反代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-valine-作为评论系统"><span class="nav-number">3.</span> <span class="nav-text">使用 Valine 作为评论系统</span></a></li></ol></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="西风冷香" src="/images/camel.jpg"><p class="site-author-name" itemprop="name">西风冷香</p><div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">31</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">11</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/"><span class="site-state-item-count">45</span> <span class="site-state-item-name">标签</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-github"></i></span> </span><span class="links-of-author-item"><span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-fw fa-envelope"></i></span> </span><span class="links-of-author-item"><span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93YW5namllemhl" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-twitter"></i></span> </span><span class="links-of-author-item"><span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fa fa-fw fa-telegram"></i></span> </span><span class="links-of-author-item"><a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i></a></span></div><div id="site-days"></div><script>function show_date_time(){window.setTimeout("show_date_time()",1e3),BirthDay=new Date("2014/01/10 13:29:55"),today=new Date,timeold=today.getTime()-BirthDay.getTime(),sectimeold=timeold/1e3,secondsold=Math.floor(sectimeold),msPerDay=864e5,e_daysold=timeold/msPerDay,daysold=Math.floor(e_daysold),e_hrsold=24*(e_daysold-daysold),hrsold=setzero(Math.floor(e_hrsold)),e_minsold=60*(e_hrsold-hrsold),minsold=setzero(Math.floor(60*(e_hrsold-hrsold))),seconds=setzero(Math.floor(60*(e_minsold-minsold))),document.getElementById("site-days").innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒"}function setzero(e){return e<10&&(e="0"+e),e}show_date_time()</script></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2020</span> <span class="with-love"><i class="fa fa-sun-o"></i> </span><span class="author" itemprop="copyrightHolder">西风冷香</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-bar-chart"></i> </span><span title="站点总字数">59k</span></div><div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0</div><span class="post-meta-divider">|</span><div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.7.0</div><span class="post-meta-divider">|</span><div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">GitHub Pages</span></div><script>function checkWebp(e){var A=new Image;A.onload=function(){e(0<A.width&&0<A.height)},A.onerror=function(){e(!1)},A.src="data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA"}function showImage(t){[].slice.call(document.querySelectorAll("img")).forEach(function(e){if(t){var A=e.getAttribute("data-src");A=A.replace(/\.jpg$/,".webp").replace(/\.png$/,".webp"),e.setAttribute("data-src",A)}})}checkWebp(showImage)</script><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="post-meta-item" id="busuanzi_container_site_uv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-user"></i> </span><span class="site-uv" title="总访客量"><span id="busuanzi_value_site_uv"></span> </span></span><span class="post-meta-divider">|</span> <span class="post-meta-item" id="busuanzi_container_site_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="site-pv" title="总访问量"><span id="busuanzi_value_site_pv"></span></span></span></div></div></footer></div><script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script><script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script><script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script><script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script><script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script><script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/click-love.js"></script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script src="/js/local-search.js"></script><script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script><script>window.addEventListener('load', () => {
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加utterances评论系统"><span class="nav-number">1.</span> <span class="nav-text"> 添加utterances评论系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-disqus-php-api-进行反代理"><span class="nav-number">2.</span> <span class="nav-text"> 使用 Disqus PHP API 进行反代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-valine-作为评论系统"><span class="nav-number">3.</span> <span class="nav-text"> 使用 Valine 作为评论系统</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/camel.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-github"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-fw fa-envelope"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93YW5namllemhl" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-twitter"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fa fa-fw fa-telegram"></i></span>
+      </span>
+  </div>
+
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-sun-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西风冷香</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-bar-chart"></i>
+    </span>
+    <span title="站点总字数">59k</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.7.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">GitHub Pages</span></div>
+
+<script pjax>
+function checkWebp(callback) {
+    var img = new Image();
+    img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+    img.onerror = function () { callback(false); };
+    img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+    var imgs = [].slice.call(document.querySelectorAll('img'));
+    imgs.forEach(function (e) {
+        if (useWebp) {
+            var src = e.getAttribute('data-src')
+            src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+            e.setAttribute('data-src', src);
+        }
+    });
+}
+checkWebp(showImage);
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      script.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+<script src="/js/click-love.js"></script>
+
+  
+  <script pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
       quicklink({
         timeout: 3000,
         priority: true,
         ignores: [uri => uri.includes('#'),uri => uri == 'https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/',]
       });
-      });</script><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css"><script>NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
-      api: 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
-      apikey: 'ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F',
-      shortname: 'wangjiezhe',
-      url: "https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/",
+      api       : 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
+      apikey    : 'ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F',
+      shortname : 'wangjiezhe',
+      url       : "https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/",
       identifier: "/posts/2018-10-29-Hexo-NexT-3/",
-      title: "Hexo NexT 魔改系列之三 ── 评论篇",
+      title     : "Hexo NexT 魔改系列之三 ── 评论篇",
     });
   }, window.DisqusJS);
-});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body></html>
+});
+</script>
+
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>
+</html>
