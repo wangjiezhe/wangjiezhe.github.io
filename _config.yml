@@ -157,11 +157,11 @@ aplayer:
 encrypt:
   enable: true
 
-all_minifier: true
-image_minifier:
-  exclude:
-    - 'jpg'
-    - 'png'
+# all_minifier: true
+# image_minifier:
+  # exclude:
+    # - 'jpg'
+    # - 'png'
 
 # leancloud_counter_security:
 #   enable_sync: true
