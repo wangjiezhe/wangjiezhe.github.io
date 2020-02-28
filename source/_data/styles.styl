@@ -1,9 +1,5 @@
 // Custom styles.
 
-// .links-of-author {
-//   text-align: left;
-// }
-
 // surviving days in the side bar
 #site-days {
   display: inline-block;
@@ -38,16 +34,6 @@ code {
   width: 10px;
   height: 10px;
 }
-// ::-webkit-scrollbar-button {
-//   width: 0;
-//   height: 0;
-// }
-// ::-webkit-scrollbar-button:start:increment,::-webkit-scrollbar-button:end:decrement {
-//   display: none;
-// }
-// ::-webkit-scrollbar-corner {
-//   display: block;
-// }
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: rgba(0,0,0,.2);
@@ -56,38 +42,9 @@ code {
   border-radius: 5px;
   background-color: $FUJIMURASAKI;
 }
-// ::-webkit-scrollbar-track,::-webkit-scrollbar-thumb {
-//   border-right: 1px solid transparent;
-//   border-left: 1px solid transparent;
-// }
-// ::-webkit-scrollbar-track:hover {
-//   background-color: rgba(0,0,0,.15);
-// }
-// ::-webkit-scrollbar-button:start {
-//   width: 10px;
-//   height: 10px;
-//   background: url(../images/scrollbar_arrow.png) no-repeat 0 0;
-// }
-// ::-webkit-scrollbar-button:start:hover {
-//   background: url(../images/scrollbar_arrow.png) no-repeat -15px 0;
-// }
-// ::-webkit-scrollbar-button:start:active {
-//   background: url(../images/scrollbar_arrow.png) no-repeat -30px 0;
-// }
-// ::-webkit-scrollbar-button:end {
-//   width: 10px;
-//   height: 10px;
-//   background: url(../images/scrollbar_arrow.png) no-repeat 0 -18px;
-// }
-// ::-webkit-scrollbar-button:end:hover {
-//   background: url(../images/scrollbar_arrow.png) no-repeat -15px -18px;
-// }
-// ::-webkit-scrollbar-button:end:active {
-//   background: url(../images/scrollbar_arrow.png) no-repeat -30px -18px;
-// }
 
 // copyright in the post
-.post-copyright {
+.post-copyright, .followme {
   border-radius: 10px;
 }
 
@@ -106,6 +63,17 @@ blockquote {
 // button
 .btn {
   border-radius: 20px;
+}
+
+// Code & Code Blocks
+.highlight {
+  border-radius: 10px;
+}
+.highlight pre {
+  border-radius: 10px;
+}
+.highlight td {
+  border-radius: 10px;
 }
 
 // back to top button
@@ -143,11 +111,13 @@ blockquote {
 
 .site-title {
   font-family: "GuDianMingChaoTi";
+  font-weight: normal;
   font-size: 22px;
 }
 
 .site-subtitle {
   font-family: "GuDianMingChaoTi";
+  font-weight: normal;
   font-size: 22px;
   color: #fff;
 }
@@ -266,4 +236,12 @@ ol.footnotes-list > li.footnote-item:before {
 
 ul.category-list > li {
     list-style-type: disc;
+}
+
+.site-brand-container {
+  padding: 0 0;
+}
+
+.site-nav-toggle, .site-nav-right {
+  background: $brand-bg
 }
