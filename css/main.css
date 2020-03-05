@@ -750,7 +750,7 @@ pre .javascript .function {
 .post-body .note {
   border-radius: 10px;
   margin-bottom: 20px;
-  padding: 15px;
+  padding: 1em;
   position: relative;
   background: #f9f9f9;
   border: initial;
@@ -1213,7 +1213,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #e2001a;
+  background: #4ee318;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1537,9 +1537,9 @@ pre .javascript .function {
   height: 3px;
   left: 0;
   position: fixed;
-  top: 0;
   width: 0;
   z-index: 1500;
+  top: 0;
 }
 .post-body {
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;

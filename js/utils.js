@@ -46,7 +46,7 @@ NexT.utils = {
   registerExtURL: function() {
     document.querySelectorAll('.exturl').forEach(element => {
       element.addEventListener('click', event => {
-        var exturl = event.currentTarget.getAttribute('data-url');
+        var exturl = event.currentTarget.dataset.url;
         var decurl = decodeURIComponent(escape(window.atob(exturl)));
         window.open(decurl, '_blank', 'noopener');
         return false;
@@ -208,7 +208,7 @@ NexT.utils = {
       var target = element.querySelector('a[href]');
       if (!target) return;
       var isSamePath = target.pathname === location.pathname || target.pathname === location.pathname.replace('index.html', '');
-      var isSubPath = target.pathname !== CONFIG.root && location.pathname.indexOf(target.pathname) === 0;
+      var isSubPath = !CONFIG.root.startsWith(target.pathname) && location.pathname.startsWith(target.pathname);
       element.classList.toggle('menu-item-active', target.hostname === location.hostname && (isSamePath || isSubPath));
     });
   },
