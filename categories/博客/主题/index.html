@@ -167,8 +167,9 @@
 
 </nav>
   <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -181,10 +182,14 @@
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
-<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
 
   </div>
 </div>
@@ -579,7 +584,7 @@ checkWebp(showImage);
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri == 'https://wangjiezhe.com/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/',]
       });
       });
   </script>

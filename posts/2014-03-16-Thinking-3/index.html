@@ -169,8 +169,9 @@
 
 </nav>
   <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -183,10 +184,14 @@
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
-<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
 
   </div>
 </div>
@@ -291,7 +296,7 @@
 <p class="text-center"><strong>（二）</strong></p>
 <p>最近几天，突然喜欢上单曲循环李宗盛的《凡人歌》。</p>
 
-    <div id="aplayer-IkPdzQoT" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-hbFwWmGA" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 <div class="note primary">
@@ -682,7 +687,7 @@ checkWebp(showImage);
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri == 'https://wangjiezhe.com/posts/2014-03-16-Thinking-3/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/posts/2014-03-16-Thinking-3/',]
       });
       });
   </script>

@@ -168,8 +168,9 @@
 
 </nav>
   <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -182,10 +183,14 @@
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
-<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
 
   </div>
 </div>
@@ -323,7 +328,7 @@
 <p>现在的我，亟需回归成真正的我。</p>
 <p>夜深忽梦少年事，独自无言，惟有泪千行。</p>
 
-    <div id="aplayer-wSQVnuaT" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-qFYdTLgI" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="003Zl6mC43Y3Yj" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 
@@ -704,7 +709,7 @@ checkWebp(showImage);
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri == 'https://wangjiezhe.com/posts/2013-05-09-Thinking-2/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/posts/2013-05-09-Thinking-2/',]
       });
       });
   </script>

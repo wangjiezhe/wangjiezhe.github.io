@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-10-04T15:20:26.000Z">
-<meta property="article:modified_time" content="2020-03-05T17:46:51.975Z">
+<meta property="article:modified_time" content="2020-03-09T17:40:17.992Z">
 <meta property="article:author" content="西风冷香">
 <meta property="article:tag" content="Blog">
 <meta property="article:tag" content="Hexo">
@@ -168,8 +168,9 @@
 
 </nav>
   <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -182,10 +183,14 @@
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
-<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
 
   </div>
 </div>
@@ -539,7 +544,7 @@ checkWebp(showImage);
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri == 'https://wangjiezhe.com/categories/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/categories/',]
       });
       });
   </script>
