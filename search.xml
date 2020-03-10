@@ -332,13 +332,16 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
   <entry>
     <title>压缩发送微信的视频文件</title>
     <url>//posts/2019-10-21-Compress-video-for-wechat/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>这几天需要给我的学生在微信群里发一些视频讲解，但是由于在录播室录制的视频体积较大，无法通过微信发送。5分钟之内的视频倒是可以直接通过微信手机版发送，但是 1080p 的视频自动被压成 640p，清晰度损得太多了。于是就想自己手动压缩，在保证视频大小的基础上，尽可能的提高清晰度。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><div class="note primary">
+            <p>20200310 更新：<span class="exturl" data-url="aHR0cHM6Ly9zb3VyY2Vmb3JnZS5uZXQvcHJvamVjdHMvbWVndWkv" title="https://sourceforge.net/projects/megui/">MeGUI<i class="fa fa-external-link"></i></span> 的 <code>Bitrate Calculator</code>（快捷键：<code>Ctrl+B</code>）也可以实现计算并配置码率的功能。</p>
+          </div>
+<p>这几天需要给我的学生在微信群里发一些视频讲解，但是由于在录播室录制的视频体积较大，无法通过微信发送。5分钟之内的视频倒是可以直接通过微信手机版发送，但是 1080p 的视频自动被压成 640p，清晰度损得太多了。于是就想自己手动压缩，在保证视频大小的基础上，尽可能的提高清晰度。</p>
 <p>之前在网上搜过各种视频剪辑、转化工具，诸如爱剪辑之类的，但效果都不是很理想，最主要的问题是没法控制最终生成的文件的大小。</p>
-<p>最终，还是决定回归最原始的工具————FFmpeg。</p>
+<p>最终，还是决定回归最原始的工具——FFmpeg。</p>
 <p>在查阅文档<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>时候发现，有两种比较好的压缩码率的方式，一种是使用 CRF 参数，另一种是 2 pass 模式。</p>
 <p>使用 CRF 参数，可以较好的控制生成视频的质量，但不太好控制视频的大小，而使用 2 pass 模式可以通过指定码率来控制文件的大小。因此我最终采用了第二种方法。</p>
 <p>基本的思路是，先通过计算确定所需的码率：</p>
-<div class="note primary">
+<div class="note info">
             <p>总码率 = （文件大小[单位：MB] <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 1024 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 8）/（时长）<br />视频码率 = 总码率 - 音频码率</p>
           </div>
 <p>这里面 <code>×8</code> 的目的是把单位从 <code>KiB</code> 转化为 <code>kBit</code>。</p>
@@ -1052,7 +1055,7 @@ DisqusJS<br />
 <p>可惜，像令狐冲这样的人物，也只能存在于小说中了。。。</p>
 <p class="text-right">甲午年四月廿三至廿七记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-TcCyKlto" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-hkXmBGNE" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="28838557" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 ]]></content>
@@ -1197,7 +1200,7 @@ DisqusJS<br />
 <p class="text-center"><strong>（二）</strong></p>
 <p>最近几天，突然喜欢上单曲循环李宗盛的《凡人歌》。</p>
 
-    <div id="aplayer-hbFwWmGA" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-TSBeFwhL" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 <div class="note primary">
@@ -1466,7 +1469,7 @@ Other helper scripts: dynamic ieevent</p>
 <p>现在的我，亟需回归成真正的我。</p>
 <p>夜深忽梦少年事，独自无言，惟有泪千行。</p>
 
-    <div id="aplayer-qFYdTLgI" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-ckqngzpP" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="003Zl6mC43Y3Yj" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 ]]></content>
@@ -1524,7 +1527,7 @@ Other helper scripts: dynamic ieevent</p>
           </div>
 <p class="text-right">壬辰冬月初八，孙、外甥记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-LVfwGQPG" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-dGXHkJnW" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="22706999" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 ]]></content>
