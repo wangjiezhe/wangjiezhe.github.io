@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#66327C">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#66327C">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#37c6c0","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="和两个共顶点的正方形有关的结论的推广">
+<meta property="og:type" content="article">
+<meta property="og:title" content="双正方形模型（二）">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="和两个共顶点的正方形有关的结论的推广">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403011944446.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403012146846.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403012957218.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403013649478.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403014443447.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403015029278.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403020442629.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403020450137.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403020558330.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403020734354.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403135226142.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403135755221.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403141012287.png">
+<meta property="og:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403142218492.png">
+<meta property="article:published_time" content="2020-04-02T17:10:39.000Z">
+<meta property="article:modified_time" content="2020-04-03T11:15:00.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="平面几何">
+<meta property="article:tag" content="全等">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/image-20200403011944446.png">
+
+<link rel="canonical" href="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>双正方形模型（二） | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-48537410-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">如鱼饮水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">冷暖自知</h1>
+      
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/camel.jpg">
+      <meta itemprop="name" content="西风冷香">
+      <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          双正方形模型（二）
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-plus-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-03 01:10:39 / 修改时间：19:15:00" itemprop="dateCreated datePublished" datetime="2020-04-03T01:10:39+08:00">2020-04-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-open-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">和两个共顶点的正方形有关的结论的推广</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在前一篇文章中，我们提到，在<code>图1</code>中，如果我们考虑 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">DF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span> 的中点，会有一些其它的性质．</p>
+<p><img data-src="image-20200403011944446.png" alt="图1" /></p>
+<p>如<code>图2</code>，我们取 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">DF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span> 的中点，连结 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">PB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">PC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>，则有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>B</mi><mo>=</mo><mi>P</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">PB = PC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span> 且 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>B</mi><mo>⊥</mo><mi>P</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">PB \perp PC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>（同理，有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>E</mi><mo>=</mo><mi>P</mi><mi>G</mi></mrow><annotation encoding="application/x-tex">PE = PG</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">G</span></span></span></span> 且 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>E</mi><mo>⊥</mo><mi>P</mi><mi>G</mi></mrow><annotation encoding="application/x-tex">PE \perp PG</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">G</span></span></span></span>）．</p>
+<p><img data-src="image-20200403012146846.png" alt="图2" /></p>
+<p>我们注意到，这个图形只跟下半部分（或者上半部分有关），因此这类题目经常以两个「等腰直角三角形」的形式出现，如<code>图3</code>：</p>
+<p><img data-src="image-20200403012957218.png" alt="图3" /></p>
+<p>这个题的解决方法也有很多，可以用「倍长中线」，可以构造「三角形的中位线」，也可以构造「梯形中位线」．</p>
+<h3 id="倍长中线"><a class="markdownIt-Anchor" href="#倍长中线"></a> 倍长中线</h3>
+<p>如<code>图4</code>，倍长 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">BP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span> 至 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>，可以证明 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>A</mi><mi>B</mi><mi>C</mi><mo>≅</mo><mi mathvariant="normal">△</mi><mi>F</mi><mi>K</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">\triangle ABC \cong \triangle FKC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≅</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>，注意这是一个旋转 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><msup><mn>0</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">90^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">9</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span> 的全等，因此 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">CB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">CK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span> 垂直且相等，我们得到了一个等腰 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">t</mi></mrow><mi mathvariant="normal">△</mi><mi>C</mi><mi>B</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">\mathrm{Rt} \triangle CBK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathrm">R</span><span class="mord mathrm">t</span></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span> ，于是它的一半 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>P</mi><mi>C</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">\triangle PCB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span> 也是一个等腰直角三角形．</p>
+<p><img data-src="image-20200403013649478.png" alt="图4" /></p>
+<h3 id="构造三角形的中位线"><a class="markdownIt-Anchor" href="#构造三角形的中位线"></a> 构造三角形的中位线</h3>
+<p>如<code>图5</code>，分别取 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">AD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">AF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span> 的中点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span>，可以证明 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>P</mi><mi>M</mi><mi>B</mi><mo>≅</mo><mi mathvariant="normal">△</mi><mi>C</mi><mi>N</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">\triangle PMB \cong \triangle CNP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≅</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>．注意这又是一个旋转 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><msup><mn>0</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">90^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">9</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span> 的全等，因此 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">PB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">PC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span> 垂直且相等．</p>
+<p><img data-src="image-20200403014443447.png" alt="图5" /></p>
+<h3 id="构造梯形的中位线"><a class="markdownIt-Anchor" href="#构造梯形的中位线"></a> 构造梯形的中位线</h3>
+<p>如<code>图6</code>，分别过 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span></span></span></span> 作 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">BC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span> 的垂线，垂足依次为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi></mrow><annotation encoding="application/x-tex">J</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span></span></span></span>，则有弦图的模型可知，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>B</mi><mi>J</mi><mi>D</mi><mo>≅</mo><mi mathvariant="normal">△</mi><mi>A</mi><mi>L</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">\triangle BJD \cong \triangle ALB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≅</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault">A</span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>F</mi><mi>K</mi><mi>C</mi><mo>≅</mo><mi mathvariant="normal">△</mi><mi>C</mi><mi>L</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">\triangle FKC \cong \triangle CLA</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≅</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">L</span><span class="mord mathdefault">A</span></span></span></span>，于是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>J</mi><mo>=</mo><mi>A</mi><mi>L</mi><mo>=</mo><mi>C</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">BJ = AL = CK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi><mi>J</mi><mo>=</mo><mi>B</mi><mi>L</mi></mrow><annotation encoding="application/x-tex">DJ = BL</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">L</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mi>K</mi><mo>=</mo><mi>C</mi><mi>L</mi></mrow><annotation encoding="application/x-tex">FK = CL</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">L</span></span></span></span>．我们取 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">BC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span> 的中点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span>，于是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span> 也是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">JK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span> 的中点，因此 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>Q</mi></mrow><annotation encoding="application/x-tex">PQ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">Q</span></span></span></span> 是梯形 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi><mi>J</mi><mi>K</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">DJKF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span> 的中位线，故 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>Q</mi><mo>⊥</mo><mi>B</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">PQ \perp BC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">Q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>，且</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>Q</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence="true">(</mo><mi>D</mi><mi>J</mi><mo>+</mo><mi>F</mi><mi>K</mi><mo fence="true">)</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence="true">(</mo><mi>B</mi><mi>L</mi><mo>+</mo><mi>C</mi><mi>L</mi><mo fence="true">)</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>B</mi><mi>C</mi><mo>=</mo><mi>B</mi><mi>Q</mi><mo>=</mo><mi>C</mi><mi>Q</mi></mrow><annotation encoding="application/x-tex">PQ = \dfrac{1}{2} \left( DJ + FK \right) = \dfrac{1}{2} \left( BL + CL \right) = \dfrac{1}{2} BC = BQ = CQ
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">Q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">L</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">Q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">Q</span></span></span></span></span></p>
+<p>因此 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>P</mi><mi>C</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">\triangle PCB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span> 是等腰直角三角形．</p>
+<p><img data-src="image-20200403015029278.png" alt="图6" /></p>
+<h3 id="变形"><a class="markdownIt-Anchor" href="#变形"></a> 变形</h3>
+<p>我们需要注意的是，当这两个等腰 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">t</mi></mrow><mi mathvariant="normal">△</mi><mi>A</mi><mi>B</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">\mathrm{Rt} \triangle ABD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathrm">R</span><span class="mord mathrm">t</span></span><span class="mord">△</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>A</mi><mi>C</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">\triangle ACF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span> 旋转到不同的位置的时候，这个图可能看起来变得完全不一样，但是本质上是一个图形，如<code>图7</code>~<code>图10</code>：</p>
+<p><img data-src="image-20200403020442629.png" alt="图7" /></p>
+<p><img data-src="image-20200403020450137.png" alt="图8" /></p>
+<p><img data-src="image-20200403020558330.png" alt="图9" /></p>
+<p><img data-src="image-20200403020734354.png" alt="图10" /></p>
+<h2 id="推广"><a class="markdownIt-Anchor" href="#推广"></a> 推广</h2>
+<p>在<code>图3</code>中，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>A</mi><mi>B</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">\triangle ABD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>A</mi><mi>C</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">\triangle ACF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span> 都是等腰直角三角形．如果我们把这个条件进行弱化，去掉等腰的条件，但保持两个直角三角形是相似的，即 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">t</mi></mrow><mi mathvariant="normal">△</mi><mi>A</mi><mi>B</mi><mi>D</mi><mo>∼</mo><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">t</mi></mrow><mi mathvariant="normal">△</mi><mi>A</mi><mi>C</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">\mathrm{Rt}\triangle ABD \sim \mathrm{Rt}\triangle ACF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathrm">R</span><span class="mord mathrm">t</span></span><span class="mord">△</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathrm">R</span><span class="mord mathrm">t</span></span><span class="mord">△</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span> （其实就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∠</mi><mi>A</mi><mi>D</mi><mi>B</mi><mo>=</mo><mi mathvariant="normal">∠</mi><mi>A</mi><mi>F</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">\angle ADB = \angle AFC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69224em;vertical-align:0em;"></span><span class="mord">∠</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69224em;vertical-align:0em;"></span><span class="mord">∠</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>），那么 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>B</mi><mo>=</mo><mi>P</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">PB = PC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span> 的结论依旧成立．</p>
+<p><img data-src="image-20200403135226142.png" alt="图11" /></p>
+<p>这个时候的解决方法和前面也是类似的．</p>
+<h3 id="倍长中线-2"><a class="markdownIt-Anchor" href="#倍长中线-2"></a> 倍长中线</h3>
+<p>这个方法和<code>图4</code>类似，只不过把要证明的全等变成了相似．</p>
+<p>如<code>图12</code>，倍长 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">BP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span> 至 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>，则</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>K</mi><mi>F</mi></mrow><mrow><mi>F</mi><mi>C</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>D</mi><mi>B</mi></mrow><mrow><mi>F</mi><mi>C</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>B</mi><mi>A</mi></mrow><mrow><mi>A</mi><mi>C</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{KF}{FC} = \frac{DB}{FC} = \frac{BA}{AC}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>而且</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable rowspacing="0.24999999999999992em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">∠</mi><mi>K</mi><mi>F</mi><mi>C</mi></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi mathvariant="normal">∠</mi><mi>K</mi><mi>F</mi><mi>D</mi><mo>+</mo><mi mathvariant="normal">∠</mi><mi>D</mi><mi>F</mi><mi>C</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi mathvariant="normal">∠</mi><mi>F</mi><mi>D</mi><mi>B</mi><mo>+</mo><mi mathvariant="normal">∠</mi><mi>D</mi><mi>F</mi><mi>C</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>36</mn><msup><mn>0</mn><mo>∘</mo></msup><mo>−</mo><mi mathvariant="normal">∠</mi><mi>D</mi><mi>B</mi><mi>C</mi><mo>−</mo><mi mathvariant="normal">∠</mi><mi>F</mi><mi>C</mi><mi>B</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>18</mn><msup><mn>0</mn><mo>∘</mo></msup><mo>−</mo><mi mathvariant="normal">∠</mi><mi>A</mi><mi>B</mi><mi>C</mi><mo>−</mo><mi mathvariant="normal">∠</mi><mi>A</mi><mi>C</mi><mi>B</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi mathvariant="normal">∠</mi><mi>B</mi><mi>A</mi><mi>C</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\angle KFC &amp;= \angle KFD + \angle DFC \\
+&amp;= \angle FDB + \angle DFC \\
+&amp;= 360^\circ - \angle DBC - \angle FCB \\&amp;
+= 180^\circ - \angle ABC - \angle ACB \\&amp;
+= \angle BAC
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:7.500000000000002em;vertical-align:-3.5000000000000018em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:4em;"><span style="top:-6.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span style="top:-4.659999999999999em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-3.1599999999999984em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-1.6599999999999984em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-0.15999999999999837em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:3.5000000000000018em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:4em;"><span style="top:-6.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span style="top:-4.659999999999999em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span style="top:-3.1599999999999984em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">3</span><span class="mord">6</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.724115em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span style="top:-1.6599999999999984em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mord">8</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.724115em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∠</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∠</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span style="top:-0.15999999999999837em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:3.5000000000000018em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>因此 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>K</mi><mi>F</mi><mi>C</mi><mo>∼</mo><mi mathvariant="normal">△</mi><mi>B</mi><mi>A</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">\triangle KFC \sim \triangle BAC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>．这是一个旋转 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><msup><mn>0</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">90^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">9</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span> 的相似，于是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>B</mi><mi>C</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">\triangle BCK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span> 是直角三角形，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">CP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span> 是其斜边中线，故 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>P</mi><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mi>B</mi><mi>K</mi><mo>=</mo><mi>P</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">CP = \dfrac{1}{2} BK = PB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span>．</p>
+<p><img data-src="image-20200403135755221.png" alt="图12" /></p>
+<h3 id="构造三角形的中位线-2"><a class="markdownIt-Anchor" href="#构造三角形的中位线-2"></a> 构造三角形的中位线</h3>
+<p>这个方法和<code>图5</code>完全一样，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>M</mi><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mi>A</mi><mi>D</mi><mo>=</mo><mi>P</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">BM = \dfrac{1}{2} AD = PN</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>P</mi><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mi>A</mi><mi>F</mi><mo>=</mo><mi>N</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">MP = \dfrac{1}{2} AF = NC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>，且</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable rowspacing="0.24999999999999992em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">∠</mi><mi>B</mi><mi>M</mi><mi>P</mi></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi mathvariant="normal">∠</mi><mi>B</mi><mi>M</mi><mi>A</mi><mo>+</mo><mi mathvariant="normal">∠</mi><mi>A</mi><mi>M</mi><mi>P</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>2</mn><mi mathvariant="normal">∠</mi><mi>B</mi><mi>D</mi><mi>A</mi><mo>+</mo><mi mathvariant="normal">∠</mi><mi>A</mi><mi>M</mi><mi>P</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>2</mn><mi mathvariant="normal">∠</mi><mi>C</mi><mi>F</mi><mi>A</mi><mo>+</mo><mi mathvariant="normal">∠</mi><mi>A</mi><mi>N</mi><mi>P</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi mathvariant="normal">∠</mi><mi>C</mi><mi>N</mi><mi>A</mi><mo>+</mo><mi mathvariant="normal">∠</mi><mi>A</mi><mi>N</mi><mi>P</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi mathvariant="normal">∠</mi><mi>P</mi><mi>N</mi><mi>C</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\angle BMP &amp;= \angle BMA + \angle AMP \\
+&amp;= 2\angle BDA + \angle AMP \\
+&amp;= 2\angle CFA + \angle ANP \\
+&amp;= \angle CNA + \angle ANP \\
+&amp;= \angle PNC
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:7.500000000000002em;vertical-align:-3.5000000000000018em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:4em;"><span style="top:-6.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span style="top:-4.659999999999999em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-3.1599999999999984em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-1.6599999999999984em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-0.15999999999999837em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:3.5000000000000018em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:4em;"><span style="top:-6.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∠</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span style="top:-4.659999999999999em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">2</span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∠</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span style="top:-3.1599999999999984em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">2</span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∠</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span style="top:-1.6599999999999984em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∠</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span style="top:-0.15999999999999837em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">∠</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:3.5000000000000018em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>因此 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>B</mi><mi>M</mi><mi>P</mi><mo>≅</mo><mi mathvariant="normal">△</mi><mi>P</mi><mi>N</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">\triangle BMP \cong \triangle PNC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≅</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>，于是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>B</mi><mo>=</mo><mi>P</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">PB = PC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>．</p>
+<p><img data-src="image-20200403141012287.png" alt="图13" /></p>
+<h3 id="构造梯形的中位线-2"><a class="markdownIt-Anchor" href="#构造梯形的中位线-2"></a> 构造梯形的中位线</h3>
+<p>这个方法和<code>图6</code>类似，不过也是要把证明的全等变成相似．</p>
+<p>如<code>图14</code>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>B</mi><mi>J</mi><mi>D</mi><mo>∼</mo><mi mathvariant="normal">△</mi><mi>A</mi><mi>L</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">\triangle BJD \sim \triangle ALB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault">A</span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">△</mi><mi>F</mi><mi>K</mi><mi>C</mi><mo>∼</mo><mi mathvariant="normal">△</mi><mi>C</mi><mi>L</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">\triangle FKC \sim \triangle CLA</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">L</span><span class="mord mathdefault">A</span></span></span></span>，于是</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>B</mi><mi>J</mi></mrow><mrow><mi>A</mi><mi>L</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>B</mi><mi>D</mi></mrow><mrow><mi>A</mi><mi>B</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>C</mi><mi>F</mi></mrow><mrow><mi>A</mi><mi>C</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>C</mi><mi>K</mi></mrow><mrow><mi>A</mi><mi>L</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{BJ}{AL} = \frac{BD}{AB} = \frac{CF}{AC} = \frac{CK}{AL}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault">L</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault">L</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>因此 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>J</mi><mo>=</mo><mi>C</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">BJ = CK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span> 依旧成立．后面的过程就完全一样了．</p>
+<p>我们取 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">BC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span> 的中点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span>，于是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span> 也是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">JK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span> 的中点，因此 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>Q</mi></mrow><annotation encoding="application/x-tex">PQ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">Q</span></span></span></span> 是梯形 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi><mi>J</mi><mi>K</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">DJKF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span> 的中位线，故 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>Q</mi><mo>⊥</mo><mi>B</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">PQ \perp BC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">Q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>，且</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable rowspacing="0.24999999999999992em" columnalign="right" columnspacing=""><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>P</mi><mi>Q</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence="true">(</mo><mi>D</mi><mi>J</mi><mo>+</mo><mi>F</mi><mi>K</mi><mo fence="true">)</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence="true">(</mo><mi>B</mi><mi>L</mi><mo>+</mo><mi>C</mi><mi>L</mi><mo fence="true">)</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>B</mi><mi>C</mi><mo>=</mo><mi>B</mi><mi>Q</mi><mo>=</mo><mi>C</mi><mi>Q</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+PQ = \dfrac{1}{2} \left( DJ + FK \right) = \dfrac{1}{2} \left( BL + CL \right) = \dfrac{1}{2} BC = BQ = CQ
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.30744em;vertical-align:-0.90372em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4037200000000003em;"><span style="top:-3.4037200000000003em;"><span class="pstrut" style="height:3.32144em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">Q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">L</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">Q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">Q</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.90372em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>因此 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>B</mi><mo>=</mo><mi>P</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">PB = PC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>．</p>
+<p><img data-src="image-20200403142218492.png" alt="图14" /></p>
+<hr />
+<p>总结一下，我们看到处理中点有两种主要的思路，一个是「倍长中线」，一种是「构造中位线」，包括三角形中位线和梯形中位线．在证明的过程中，还可能会用到直角三角形斜边中线的结论．</p>
+<p>对于很多题目，这两种思路都行得通．但是一般来说，「倍长中线」的辅助线比较容易想出来，但后续全等（或者相似）的三角形比较难找，证明也比较麻烦．</p>
+<p>而「构造中位线」的思路关键在于选对中位线的取法，因此辅助线不太好作，但是后续的证明一般比前一种方法要简单．</p>
+<p>对于不同的题目，我们要注意选择不同的方法．</p>
+<hr />
+<p>在本文中，我们讨论了如何对正方形（等腰直角三角形）的结论进行推广，我们保留了直角的条件，而去掉了等腰的条件．</p>
+<p>那么，我们还可以反过来想，如果保留等腰的条件，去掉直角的条件，那是否还会有这样漂亮的结论？</p>
+<p>如果没有的话，是否可以考虑再加上一些条件（就像我们上面加入了相似的条件），再得到比较好的结论？</p>
+<p>关于这种情形，我们放在下一篇文章中来讨论．</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/" title="双正方形模型（二）">https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">WeChat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/" rel="tag"><i class="fa fa-tag"></i> 平面几何</a>
+              <a href="/tags/%E5%85%A8%E7%AD%89/" rel="tag"><i class="fa fa-tag"></i> 全等</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2020-04-01-Two-squares-1/" rel="prev" title="双正方形模型（一）">
+      <i class="fa fa-chevron-left"></i> 双正方形模型（一）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#倍长中线"><span class="nav-number">1.</span> <span class="nav-text"> 倍长中线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造三角形的中位线"><span class="nav-number">2.</span> <span class="nav-text"> 构造三角形的中位线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造梯形的中位线"><span class="nav-number">3.</span> <span class="nav-text"> 构造梯形的中位线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变形"><span class="nav-number">4.</span> <span class="nav-text"> 变形</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推广"><span class="nav-number"></span> <span class="nav-text"> 推广</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#倍长中线-2"><span class="nav-number">1.</span> <span class="nav-text"> 倍长中线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造三角形的中位线-2"><span class="nav-number">2.</span> <span class="nav-text"> 构造三角形的中位线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造梯形的中位线-2"><span class="nav-number">3.</span> <span class="nav-text"> 构造梯形的中位线</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/camel.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-github"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-fw fa-envelope"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93YW5namllemhl" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-twitter"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fa fa-fw fa-telegram"></i></span>
+      </span>
+  </div>
+
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-sun-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西风冷香</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-bar-chart"></i>
+    </span>
+    <span title="站点总字数">66k</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.7.2
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">GitHub Pages</span></div>
+
+<script >
+function checkWebp(callback) {
+  var img = new Image();
+  img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+  img.onerror = function () { callback(false); };
+  img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+  var imgs = [].slice.call(document.querySelectorAll('img'));
+  imgs.forEach(function (e) {
+    if (useWebp) {
+      var src = e.getAttribute('data-src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        e.setAttribute('data-src', src);
+      }
+      src = e.getAttribute('src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        e.setAttribute('src', src);
+      }
+    }
+  });
+}
+checkWebp(showImage);
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+<script src="/js/click-love.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+  <script src="//cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css">
+
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
+      apikey    : 'ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F',
+      shortname : 'wangjiezhe',
+      url       : "https://wangjiezhe.com/posts/2020-04-03-Two-squares-2/",
+      identifier: "/posts/2020-04-03-Two-squares-2/",
+      title     : "双正方形模型（二）",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>
+</html>
