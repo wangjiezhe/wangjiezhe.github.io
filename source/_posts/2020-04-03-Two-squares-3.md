@@ -126,11 +126,9 @@ $$
 于是接下来，只需要证明 $\triangle QAM \cong \triangle QPN$ 即可（或者过 $Q$ 作 $AP$ 的垂线，利用三线合一来做）．
 $$
 \begin{aligned}
-  PD = PF &\implies AM \\
-  &= \frac{1}{2} AD \\
+  PD = PF &\implies AM = \frac{1}{2} AD \\
   &= \frac{1}{2}(DF - AF) \\
-  &= PF - NF \\
-  &= PN \\
+  &= PF - NF = PN \\
   &\implies \mathrm{SAS} \\
   \\
   QA = QP &\implies \mathrm{AAS}
