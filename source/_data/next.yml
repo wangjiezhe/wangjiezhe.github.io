@@ -1,0 +1,226 @@
+# ---------------------------------------------------------------
+# Theme Core Configuration Settings
+# ---------------------------------------------------------------
+
+minify: true
+
+custom_file_path:
+  sidebar: source/_data/sidebar.swig
+  # postMeta: source/_data/post-meta.swig
+  # postBodyEnd: source/_data/post-body-end.swig
+  footer: source/_data/footer.swig
+  # bodyEnd: source/_data/body-end.swig
+  variable: source/_data/variables.styl
+  # mixin: source/_data/mixins.styl
+  style: source/_data/styles.styl
+
+# ---------------------------------------------------------------
+# Site Information Settings
+# ---------------------------------------------------------------
+
+footer:
+  since: 2014
+  icon:
+    animated: true
+  hosted: true
+
+creative_commons:
+  post: true
+  language: deed.zh
+
+# ---------------------------------------------------------------
+# Scheme Settings
+# ---------------------------------------------------------------
+
+scheme: Gemini
+
+# ---------------------------------------------------------------
+# Menu Settings
+# ---------------------------------------------------------------
+
+menu:
+  home: / || fa fa-home
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
+  links: /links/ || fa fa-link
+
+# ---------------------------------------------------------------
+# Sidebar Settings
+# ---------------------------------------------------------------
+
+avatar:
+  url: /images/camel.jpg
+  rounded: true
+  rotated: true
+
+social:
+  GitHub: https://github.com/wangjiezhe || fab fa-github
+  E-Mail: mailto:wangjiezhe@gmail.com || fa fa-envelope
+  Twitter: https://twitter.com/twitter || fab fa-twitter
+  Telegram: https://t.me/wangjiezhe || fab fa-telegram
+
+social_icons:
+  icons_only: true
+  transition: true
+
+links_settings:
+  icon: fa fa-link
+  title: 友情链接
+  layout: inline
+
+toc:
+  wrap: true
+
+# ---------------------------------------------------------------
+# Post Settings
+# ---------------------------------------------------------------
+
+# symbols_count_time:
+#   separated_meta: false
+#   item_text_post: false
+
+tag_icon: true
+
+follow_me:
+  WeChat: /images/wechat_channel.jpg || fab fa-weixin
+  RSS: /atom.xml || fa fa-rss
+
+# ---------------------------------------------------------------
+# Custom Page Settings
+# ---------------------------------------------------------------
+
+tagcloud:
+  start: "#70f"
+  end: "#f07"
+
+# ---------------------------------------------------------------
+# Misc Theme Settings
+# ---------------------------------------------------------------
+
+android_chrome_color: "#66327C"
+
+codeblock:
+  copy_button:
+    enable: true
+    show_result: true
+    style: mac
+
+back2top:
+  scrollpercent: true
+
+reading_progress:
+  enable: true
+
+# ---------------------------------------------------------------
+# Font Settings
+# ---------------------------------------------------------------
+
+# ---------------------------------------------------------------
+# SEO Settings
+# ---------------------------------------------------------------
+
+disable_baidu_transformation: true
+
+index_with_subtitle: true
+
+exturl: true
+
+baidu_push: true
+
+# ---------------------------------------------------------------
+# Third Party Plugins & Services Settings
+# ---------------------------------------------------------------
+
+math:
+  katex:
+    enable: true
+    copy_tex: true
+
+fancybox: true
+# medium: false
+
+lazyload: true
+
+pangu: true
+
+quicklink:
+  enable: true
+
+# ---------------------------------------------------------------
+# Comments Settings
+# ---------------------------------------------------------------
+
+disqusjs:
+  enable: true
+  api: https://disqusjs-proxy.wangjiezhe.now.sh/
+  apikey: ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F
+  shortname: wangjiezhe
+
+discussbot:
+  enable: false
+  siteid: DTO-cxcp
+  number: 5
+  color: 3DA0F0
+  dislikes: 1
+  outlined: 1
+
+# ---------------------------------------------------------------
+# Post Widgets & Content Sharing Services
+# ---------------------------------------------------------------
+
+# ---------------------------------------------------------------
+# Statistics and Analytics
+# ---------------------------------------------------------------
+
+google_analytics:
+  tracking_id: UA-48537410-1
+
+busuanzi_count:
+  enable: true
+
+# ---------------------------------------------------------------
+# Search Services
+# ---------------------------------------------------------------
+
+local_search:
+  enable: true
+  style: flat
+
+# ---------------------------------------------------------------
+# Chat Services
+# ---------------------------------------------------------------
+
+# ---------------------------------------------------------------
+# Tags Settings
+# ---------------------------------------------------------------
+
+note:
+  style: flat
+
+# ---------------------------------------------------------------
+# Animation Settings
+# ---------------------------------------------------------------
+
+pace:
+  enable: true
+  theme: bounce
+
+crash_cheat: true
+
+click_love: true
+
+#! ---------------------------------------------------------------
+#! DO NOT EDIT THE FOLLOWING SETTINGS
+#! UNLESS YOU KNOW WHAT YOU ARE DOING
+#! ---------------------------------------------------------------
+
+vendors:
+  anime: //cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js
+  fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css
+  reading_progress: //cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js
+  pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
+  velocity: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js
+  velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js
+  pace: //cdn.jsdelivr.net/npm/pace-js@1/pace.min.js
+  pace_css: //cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css
