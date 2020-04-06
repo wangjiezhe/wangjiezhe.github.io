@@ -62,9 +62,9 @@ $\triangle ABC$  和 $\triangle ADE$ 是两个顶角相等的等腰三角形，�
 如`图7`，延长 $PA$ 交 $BC$ 于 $Q$，作 $EM \perp AP$ 于 $M$，$GN \perp AP$ 于 $N$，则 $\triangle ABQ \cong \triangle EAM$，$\triangle ACQ \cong \triangle GAM$，于是 $EM = AQ = NG$ 且 $EM \parallel NG$，因此 $EMGN$ 是平行四边形，于是
 $$
 \begin{aligned}
-PE &= PG, \\
-PN &= PM, \\
-BC &= BQ + QC \\ &= AM + AN \\ &= 2AP
+  PE &= PG, \\
+  PN &= PM, \\
+  BC &= BQ + QC \\ &= AM + AN \\ &= 2AP
 \end{aligned}
 $$
 这两个证明同时还都证明了另一个结论，就是 $S_{\triangle ABC} = S_{\triangle AEG}$．由割补法知这两个三角形的面积的确是相等的．
@@ -119,13 +119,13 @@ $$
 这个的证明是比较简单的，
 $$
 \begin{aligned}
-\angle POC &= 90^\circ - \angle QOB \\ &= \angle QBO \\ &= \angle PCO
+  \angle POC &= 90^\circ - \angle QOB \\ &= \angle QBO \\ &= \angle PCO
 \end{aligned}
 $$
 于是
 $$
 \begin{aligned}
-\angle POD &= 90^\circ - \angle POC \\ &= 90^\circ - \angle PCO \\ &= \angle PDC
+  \angle POD &= 90^\circ - \angle POC \\ &= 90^\circ - \angle PCO \\ &= \angle PDC
 \end{aligned}
 $$
 

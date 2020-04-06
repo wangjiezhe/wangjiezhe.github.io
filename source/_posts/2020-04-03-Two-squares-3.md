@@ -41,7 +41,10 @@ mathjax: true
 
 一种方法是构造梯形的中位线．我们分别过 $B$、$C$、$Q$ 作 $DF$ 的垂线，垂足依次为 $M$、$N$、$T$，则 $CT$ 是梯形 $BMNC$ 的中位线，且 $M$、$N$、$T$ 分别是 $AD$、$AF$、$AP$ 的中点，于是
 $$
-PD = 2MT = 2NT = 2 \left( AN - AT \right) = AF - AP = PF
+\begin{aligned}
+  PD &= 2MT = 2NT = 2 \left( AN - AT \right) \\
+  &= AF - AP = PF
+\end{aligned}
 $$
 因此 $P$ 是 $DF$ 的中点．
 
@@ -92,8 +95,13 @@ $$
 证明这个全等的关键，是要证明 $\angle DBK = \angle KCF$．为了叙述方便，我们设 $\angle DBA = 2\alpha$，$\angle ACF = 2\beta$，则 $\angle BAC = \alpha + \beta$，$\angle ABK = \angle ACK = 180^\circ - \alpha - \beta$，于是
 $$
 \begin{aligned}
-\angle DBK &= \angle DBA + \angle ABK = 2\alpha + (180^\circ - \alpha - \beta) = 180^\circ + \alpha - \beta \\
-\angle KCF &= 360^\circ - \angle ACF - \angle ACK = 360^\circ - 2\beta - (180^\circ - \alpha - \beta) = 180^\circ + \alpha - \beta
+  \angle DBK &= \angle DBA + \angle ABK \\
+  &= 2\alpha + (180^\circ - \alpha - \beta) \\
+  &= 180^\circ + \alpha - \beta \\
+  \\
+  \angle KCF &= 360^\circ - \angle ACF - \angle ACK \\
+  &= 360^\circ - 2\beta - (180^\circ - \alpha - \beta) \\
+  &= 180^\circ + \alpha - \beta
 \end{aligned}
 $$
 故 $\angle DBK = \angle KCF$．
@@ -118,9 +126,14 @@ $$
 于是接下来，只需要证明 $\triangle QAM \cong \triangle QPN$ 即可（或者过 $Q$ 作 $AP$ 的垂线，利用三线合一来做）．
 $$
 \begin{aligned}
-PD = PF &\implies AM = \frac{1}{2} AD = \frac{1}{2}(DF - AF) = PF - NF = PN \\
-&\implies \mathrm{SAS} \\
-QA = QP &\implies \mathrm{AAS}
+  PD = PF &\implies AM \\
+  &= \frac{1}{2} AD \\
+  &= \frac{1}{2}(DF - AF) \\
+  &= PF - NF \\
+  &= PN \\
+  &\implies \mathrm{SAS} \\
+  \\
+  QA = QP &\implies \mathrm{AAS}
 \end{aligned}
 $$
 
@@ -140,7 +153,11 @@ $$
 
 这个图还有一个证明方法，就是构造 $A$ 关于 $BC$ 的对称点 $S$，如`图10`，则
 $$
-\angle SBD = 2\angle SAD = 2\left( 180^\circ - \angle SAF \right) = \angle SCF
+\begin{aligned}
+  \angle SBD &= 2\angle SAD \\
+  &= 2\left( 180^\circ - \angle SAF \right) \\
+  &= \angle SCF
+\end{aligned}
 $$
 于是 $\triangle SBD \sim \triangle SCF$，这是一组旋转相似．
 
@@ -151,20 +168,41 @@ $$
 {% note info %}
 具体的推导过程如下：
 $$
-\begin{aligned}& \triangle SBD \sim \triangle SCF \\\implies & \triangle SBC \sim \triangle SDF \\\implies & \triangle SBQ \sim \triangle SDP \\\implies & \triangle SBD \sim \triangle SQP\end{aligned}
+\begin{aligned}
+  & \triangle SBD \sim \triangle SCF \\
+  \implies & \triangle SBC \sim \triangle SDF \\
+  \implies & \triangle SBQ \sim \triangle SDP \\
+  \implies & \triangle SBD \sim \triangle SQP
+\end{aligned}
 $$
 {% endnote %}
 
 如果已知 $QA  = QP$，那么
 $$
-\angle SBD = 2\angle SAD = 2\left( 180^\circ - \angle SAP \right) = \angle SQP
+\begin{aligned}
+  \angle SBD &= 2\angle SAD \\
+  &= 2\left( 180^\circ - \angle SAP \right) \\
+  &= \angle SQP
+\end{aligned}
 $$
 于是 $\triangle SBD \sim \triangle SPQ$．由于 $Q$ 是 $BC$ 中点，所以 $P$ 是 $DF$ 的中点．
 
 {% note info %}
 具体的推导过程如下：
 $$
-\left.\begin{array}{c}\triangle SBD \sim \triangle SCF \implies \triangle SBC \sim \triangle SDF \\\triangle SBD \sim \triangle SQP \implies \triangle SBQ \sim \triangle SDP\end{array}\right\}\implies \frac{BC}{DF} = \frac{SB}{SD} = \frac{BQ}{DP}
+\begin{aligned}
+  &\left.
+  \begin{array}{r}
+    \triangle SBD \sim \triangle SCF \\
+    \implies \triangle SBC \sim \triangle SDF \\
+    \\
+    \triangle SBD \sim \triangle SQP \\
+    \implies \triangle SBQ \sim \triangle SDP
+  \end{array}
+  \right\} \\
+  \\
+  & \;\;\implies \frac{BC}{DF} = \frac{SB}{SD} = \frac{BQ}{DP}
+\end{aligned}
 $$
 因此
 $$

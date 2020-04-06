@@ -43,7 +43,10 @@ mathjax: true
 
 如`图6`，分别过 $D$、$F$、$A$ 作 $BC$ 的垂线，垂足依次为 $J$、$K$、$L$，则有弦图的模型可知，$\triangle BJD \cong \triangle ALB$，$\triangle FKC \cong \triangle CLA$，于是 $BJ = AL = CK$，$DJ = BL$，$FK = CL$．我们取 $BC$ 的中点 $Q$，于是 $Q$ 也是 $JK$ 的中点，因此 $PQ$ 是梯形 $DJKF$ 的中位线，故 $PQ \perp BC$，且
 $$
-PQ = \dfrac{1}{2} \left( DJ + FK \right) = \dfrac{1}{2} \left( BL + CL \right) = \dfrac{1}{2} BC = BQ = CQ
+\begin{aligned}
+  PQ &= \dfrac{1}{2} \left( DJ + FK \right) = \dfrac{1}{2} \left( BL + CL \right) \\
+  &= \dfrac{1}{2} BC = BQ = CQ
+\end{aligned}
 $$
 因此 $\triangle PCB$ 是等腰直角三角形．
 
@@ -80,11 +83,11 @@ $$
 而且
 $$
 \begin{aligned}
-\angle KFC &= \angle KFD + \angle DFC \\
-&= \angle FDB + \angle DFC \\
-&= 360^\circ - \angle DBC - \angle FCB \\&
-= 180^\circ - \angle ABC - \angle ACB \\&
-= \angle BAC
+  \angle KFC &= \angle KFD + \angle DFC \\
+  &= \angle FDB + \angle DFC \\
+  &= 360^\circ - \angle DBC - \angle FCB \\&
+  = 180^\circ - \angle ABC - \angle ACB \\&
+  = \angle BAC
 \end{aligned}
 $$
 因此 $\triangle KFC \sim \triangle BAC$．这是一个旋转 $90^\circ$ 的相似，于是 $\triangle BCK$ 是直角三角形，$CP$ 是其斜边中线，故 $CP = \dfrac{1}{2} BK = PB$．
@@ -96,11 +99,11 @@ $$
 这个方法和`图5`完全一样，$BM = \dfrac{1}{2} AD = PN$，$MP = \dfrac{1}{2} AF = NC$，且
 $$
 \begin{aligned}
-\angle BMP &= \angle BMA + \angle AMP \\
-&= 2\angle BDA + \angle AMP \\
-&= 2\angle CFA + \angle ANP \\
-&= \angle CNA + \angle ANP \\
-&= \angle PNC
+  \angle BMP &= \angle BMA + \angle AMP \\
+  &= 2\angle BDA + \angle AMP \\
+  &= 2\angle CFA + \angle ANP \\
+  &= \angle CNA + \angle ANP \\
+  &= \angle PNC
 \end{aligned}
 $$
 因此 $\triangle BMP \cong \triangle PNC$，于是 $PB = PC$．
@@ -120,7 +123,8 @@ $$
 我们取 $BC$ 的中点 $Q$，于是 $Q$ 也是 $JK$ 的中点，因此 $PQ$ 是梯形 $DJKF$ 的中位线，故 $PQ \perp BC$，且
 $$
 \begin{aligned}
-PQ = \dfrac{1}{2} \left( DJ + FK \right) = \dfrac{1}{2} \left( BL + CL \right) = \dfrac{1}{2} BC = BQ = CQ
+  PQ &= \dfrac{1}{2} \left( DJ + FK \right) = \dfrac{1}{2} \left( BL + CL \right) \\
+  &= \dfrac{1}{2} BC = BQ = CQ
 \end{aligned}
 $$
 因此 $PB = PC$．
