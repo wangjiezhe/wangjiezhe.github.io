@@ -1,11 +1,11 @@
-{%- if theme.footer.powered and theme.footer.hosted.enable %}
-  <span class="post-meta-divider">|</span>
-{%- endif %}
+{%- if theme.footer.powered and theme.footer.hosted %}
+   <span class="post-meta-divider">|</span>
+ {%- endif %}
 
-{%- if theme.footer.hosted.enable %}
-  <div class="hosted-by">{#
-  #}部署在 {{ next_url("https://pages.github.com", "Github Pages") }} & {{ next_url("https://netlify.com", "Netlify") }}{#
-#}</div>
+{%- if theme.footer.hosted %}
+<div class="hosted-by">
+  {{- __("部署在 %s", next_url('https://pages.github.com', 'Github Pages', {class: 'host-link'})) + ' & ' +  next_url('https://netlify.com', 'Netlify', {class: 'host-link'}) }}
+</div>
 {%- endif %}
 
 <script {{ pjax }}>
