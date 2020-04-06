@@ -1,10 +1,10 @@
-{%- if theme.footer.theme.enable and theme.footer.hosted.enable %}
+{%- if theme.footer.powered and theme.footer.hosted.enable %}
   <span class="post-meta-divider">|</span>
 {%- endif %}
 
 {%- if theme.footer.hosted.enable %}
   <div class="hosted-by">{#
-  #}{{ __('footer.hosted', next_url(theme.footer.hosted.url, theme.footer.hosted.host, {class: 'host-link'})) }}{#
+  #}部署在 {{ next_url("https://pages.github.com", "Github Pages") }} & {{ next_url("https://netlify.com", "Netlify") }}{#
 #}</div>
 {%- endif %}
 
