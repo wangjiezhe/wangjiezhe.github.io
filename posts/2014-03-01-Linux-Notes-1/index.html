@@ -15,14 +15,14 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css">
   <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#37c6c0","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"scrollpercent":true,"enable":true,"sidebar":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"style":"flat","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed">
@@ -132,30 +132,30 @@
 
 
 <nav class="site-nav">
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-links">
 
-    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
+    <a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -233,7 +233,7 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-plus-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -241,14 +241,14 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2014-03-20 21:42:23" itemprop="dateModified" datetime="2014-03-20T21:42:23+08:00">2014-03-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-open-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -317,7 +317,7 @@
     <a href="https://wangjiezhe.com/posts/2014-03-01-Linux-Notes-1/" title="Linux 随学随记 (1)">https://wangjiezhe.com/posts/2014-03-01-Linux-Notes-1/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -332,7 +332,7 @@
         <div class="social-item">
           <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
             <span class="icon">
-              <i class="fa fa-wechat"></i>
+              <i class="fab fa-weixin"></i>
             </span>
 
             <span class="label">WeChat</span>
@@ -475,16 +475,16 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-github"></i></span>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-fw fa-envelope"></i></span>
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93YW5namllemhl" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wangjiezhe"><i class="fa fa-fw fa-twitter"></i></span>
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fa fa-fw fa-telegram"></i></span>
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
       </span>
   </div>
 
@@ -540,17 +540,20 @@
   &copy; 2014 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-sun-o"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">西风冷香</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
-      <i class="fa fa-bar-chart"></i>
+      <i class="fa fa-chart-area"></i>
     </span>
     <span title="站点总字数">71k</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
+   <span class="post-meta-divider">|</span>
+<div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">Github Pages</span> & <span class="exturl host-link" data-url="aHR0cHM6Ly9uZXRsaWZ5LmNvbQ==">Netlify</span>
+</div>
 
 <script >
 function checkWebp(callback) {
@@ -634,7 +637,6 @@ checkWebp(showImage);
 
 
 
-<script src="/js/click-love.js"></script>
 
   
   <script>
