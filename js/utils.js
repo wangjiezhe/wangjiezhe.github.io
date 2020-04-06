@@ -44,13 +44,17 @@ NexT.utils = {
   },
 
   registerExtURL: function() {
-    document.querySelectorAll('.exturl').forEach(element => {
-      element.addEventListener('click', event => {
-        var exturl = event.currentTarget.dataset.url;
-        var decurl = decodeURIComponent(escape(window.atob(exturl)));
-        window.open(decurl, '_blank', 'noopener');
-        return false;
-      });
+    document.querySelectorAll('span.exturl').forEach(element => {
+      let link = document.createElement('a');
+      // https://stackoverflow.com/questions/30106476/using-javascripts-atob-to-decode-base64-doesnt-properly-decode-utf-8-strings
+      link.href = decodeURIComponent(atob(element.dataset.url).split('').map(c => {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      link.rel = 'noopener external nofollow noreferrer';
+      link.target = '_blank';
+      link.className = element.className;
+      link.innerHTML = element.innerHTML;
+      element.parentNode.replaceChild(link, element);
     });
   },
 
@@ -213,6 +217,18 @@ NexT.utils = {
     });
   },
 
+  registerLangSelect: function() {
+    let sel = document.querySelector('.lang-select');
+    if (!sel) return;
+    sel.value = CONFIG.page.lang;
+    sel.addEventListener('change', () => {
+      let target = sel.options[sel.selectedIndex];
+      document.querySelector('.lang-select-label span').innerText = target.text;
+      let url = target.dataset.href;
+      window.pjax ? window.pjax.loadUrl(url) : window.location.href = url;
+    });
+  },
+
   registerSidebarTOC: function() {
     const navItems = document.querySelectorAll('.post-toc li');
     const sections = [...navItems].map(element => {
@@ -294,8 +310,8 @@ NexT.utils = {
   },
 
   hasMobileUA: function() {
-    var ua = navigator.userAgent;
-    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+    let ua = navigator.userAgent;
+    let pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
     return pa.test(ua);
   },
 
@@ -309,6 +325,14 @@ NexT.utils = {
 
   isDesktop: function() {
     return !this.isTablet() && !this.isMobile();
+  },
+
+  supportsPDFs: function() {
+    let ua = navigator.userAgent;
+    let isFirefoxWithPDFJS = ua.includes('irefox') && parseInt(ua.split('rv:')[1].split('.')[0], 10) > 18;
+    let supportsPdfMimeType = typeof navigator.mimeTypes['application/pdf'] !== 'undefined';
+    let isIOS = /iphone|ipad|ipod/i.test(ua.toLowerCase());
+    return isFirefoxWithPDFJS || (supportsPdfMimeType && !isIOS);
   },
 
   /**
