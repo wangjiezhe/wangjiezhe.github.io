@@ -188,7 +188,7 @@ $ cat package-lock.json | jq .dependencies.\"hexo-renderer-markdown-it\"
 [13]: https://github.com/1dot75cm
 [14]: https://fedoraproject.org/wiki/User:Mosquito
 [15]: http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html
-[16]: https://blog.comebacktome.org/about/
+[16]: https://blog.biofan.org/about/
 [17]: https://github.com/pii0x/ellochen.github.com
 [18]: https://site.douban.com/196781/
 [19]: https://github.com/hmfaysal/hmfaysal-omega-theme
