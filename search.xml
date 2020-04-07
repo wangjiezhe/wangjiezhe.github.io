@@ -163,7 +163,7 @@
           </div>
 <p class="text-right">壬辰冬月初八，孙、外甥记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-fzrVdzSF" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-KVGvhQcK" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="22706999" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 ]]></content>
@@ -226,7 +226,7 @@
 <p>现在的我，亟需回归成真正的我。</p>
 <p>夜深忽梦少年事，独自无言，惟有泪千行。</p>
 
-    <div id="aplayer-nDgbacYZ" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-SQmWTPId" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="003Zl6mC43Y3Yj" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 ]]></content>
@@ -452,7 +452,7 @@ $ 匹配字符串的最后面。</p>
 <p class="text-center"><strong>（二）</strong></p>
 <p>最近几天，突然喜欢上单曲循环李宗盛的《凡人歌》。</p>
 
-    <div id="aplayer-uCgXlVkn" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-sVjAydhQ" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 <div class="note primary">
@@ -733,7 +733,7 @@ $ 匹配字符串的最后面。</p>
 <p>可惜，像令狐冲这样的人物，也只能存在于小说中了。。。</p>
 <p class="text-right">甲午年四月廿三至廿七记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-kUGZUtwB" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-rGcvYXDD" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="28838557" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 ]]></content>
@@ -858,7 +858,7 @@ $ 匹配字符串的最后面。</p>
 <p>还记得第一次提交 Issue 是 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1h1U2hhb2h1YS9rd3BsYXllci9pc3N1ZXMvMTE=">#11<i class="fa fa-external-link-alt"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1h1U2hhb2h1YS9rd3BsYXllci9pc3N1ZXMvMTI=">#12<i class="fa fa-external-link-alt"></i></span>，当时只是发现 Github 上有个可以提交 Bug 的地方，于是就随手开了两个 Issue，没想到当天都得到了详细的回复，并在三四天后都得到了解决：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1h1U2hhb2h1YS9rd3BsYXllci9jb21taXQvOWMyMWM0ZjkwOGIwMmY3N2YzNDVhYTA0ZTZlZjhjM2EyZmJhOWU1Ng==">9c21c4f<i class="fa fa-external-link-alt"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1h1U2hhb2h1YS9rd3BsYXllci9jb21taXQvOTBhMDJhODUwOGE0NzY4ODlkZjBmNWEyNGRlYmZmN2U3MDg0ZTZmZA==">90a02a8<i class="fa fa-external-link-alt"></i></span>。</p>
 <p>这当时让我非常兴奋，因为以前从来没想过会这么快就得到回应，于是后来也积极地参加到其中，积极地提交 Bug，持续了有一年多的时间 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1h1U2hhb2h1YS9rd3BsYXllci9pc3N1ZXM/cT1pczppc3N1ZSthdXRob3I6d2FuZ2ppZXpoZQ==">Issued by wangjiezhe<i class="fa fa-external-link-alt"></i></span>，并开始学习 rpm 打包，发布在了 <span class="exturl" data-url="aHR0cHM6Ly9jb3ByLmZlZG9yYWluZnJhY2xvdWQub3JnL2NvcHJzL3dhbmdqaWV6aGUv">copr<i class="fa fa-external-link-alt"></i></span> 上。当然这也是我后来对 Python 感兴趣的契机之一。</p>
 <p>刚又看了一下，我在 copr 上最早的一次 build 是在 <span class="exturl" data-url="aHR0cHM6Ly9jb3ByLmZlZG9yYWluZnJhY2xvdWQub3JnL2NvcHJzL3dhbmdqaWV6aGUva3dwbGF5ZXIvYnVpbGQvNzYwNC8=">2014 年 3 月 31 号<i class="fa fa-external-link-alt"></i></span>，而我能够找到的最早介绍 copr 的中文资料是 <span class="exturl" data-url="aHR0cHM6Ly9saW51eHRveS5vcmcvYXJjaGl2ZXMvZmVkb3JhLWNvcHIuaHRtbA==">Fedora Copr<i class="fa fa-external-link-alt"></i></span>，现在的 copr 网址上线是在 <span class="exturl" data-url="aHR0cHM6Ly9saXN0cy5mZWRvcmFob3N0ZWQub3JnL2FyY2hpdmVzL2xpc3QvY29wci1kZXZlbEBsaXN0cy5mZWRvcmFob3N0ZWQub3JnL3RocmVhZC9TRzdPQUg3SUlJNVREQ1NPN1RMWE9XSU9QRzdTN0YyWC8=">2013 年 12 月<i class="fa fa-external-link-alt"></i></span>， FZUG 的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzFkb3Q3NWNt">mosquito<i class="fa fa-external-link-alt"></i></span> 也是从 2014 年 6 月才开始建立他的 <span class="exturl" data-url="aHR0cHM6Ly9mZWRvcmFwcm9qZWN0Lm9yZy93aWtpL1VzZXI6TW9zcXVpdG8=">myrepo<i class="fa fa-external-link-alt"></i></span> 的，话说国内比我更早开始使用 <span class="exturl" data-url="aHR0cHM6Ly9jb3ByLmZlZG9yYWluZnJhY2xvdWQub3Jn">copr<i class="fa fa-external-link-alt"></i></span> 的应该不多吧。。。</p>
-<p>话说那时 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNvbWViYWNrdG9tZS5vcmcvYWJvdXQv">XuShaohua<i class="fa fa-external-link-alt"></i></span> 的 Github 账户名还是叫 LiuLang，后来他去了 Deepin，网易云音乐的 Linux 版他应该是作者之一。</p>
+<p>话说那时 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmJpb2Zhbi5vcmcvYWJvdXQv">XuShaohua<i class="fa fa-external-link-alt"></i></span> 的 Github 账户名还是叫 LiuLang，后来他去了 Deepin，网易云音乐的 Linux 版他应该是作者之一。</p>
 <p>当然后来因为各种原因我不再维护我的 copr 仓库，包括犯懒（反正有了 mosquito 的 myrepo 源，以及后来的 FZUG 源）、Fedora 的习惯性跳票让我非常不爽（这是在找借口么。。。）等等，加上后来我从 Fedora 转到了 Arch Linux 上（大概是 2015 年暑假吧），这个仓库就彻底荒废了。</p>
 <h2 id="博客的建立"><a class="markdownIt-Anchor" href="#博客的建立"></a> 博客的建立</h2>
 <p>最早的一些记录文章我都发在了 QQ 空间里，显得格格不入的。后来就想找一个合适的可以放这些东西的地方。</p>
