@@ -7,6 +7,8 @@ categories:
 tags:
   - 平面几何
   - 全等
+  - 相似
+  - 正方形
 description: 和两个共顶点的正方形有关的结论的变形
 mathjax: true
 ---
