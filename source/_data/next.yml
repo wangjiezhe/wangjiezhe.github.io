@@ -137,8 +137,8 @@ math:
     enable: true
     copy_tex: true
 
-fancybox: true
-# medium: false
+fancybox: false
+mediumzoom: true
 
 lazyload: true
 
