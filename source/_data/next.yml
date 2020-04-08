@@ -9,7 +9,7 @@ custom_file_path:
   # postMeta: source/_data/post-meta.swig
   # postBodyEnd: source/_data/post-body-end.swig
   footer: source/_data/footer.swig
-  # bodyEnd: source/_data/body-end.swig
+  bodyEnd: source/_data/body-end.swig
   variable: source/_data/variables.styl
   # mixin: source/_data/mixins.styl
   style: source/_data/styles.styl
@@ -206,7 +206,7 @@ pace:
   enable: true
   theme: bounce
 
-crash_cheat: true
+crash_cheat: false
 
 click_love: true
 
