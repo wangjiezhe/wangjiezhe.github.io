@@ -93,9 +93,6 @@
 </noscript>
 
 <link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
-<link rel="stylesheet" href="/assets/css/APlayer.min.css" class="aplayer-style-marker">
-<script src="/assets/js/APlayer.min.js" class="aplayer-script-marker"></script>
-<script src="/assets/js/Meting.min.js" class="meting-script-marker"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -293,9 +290,10 @@
 <p class="text-center"><strong>（二）</strong></p>
 <p>最近几天，突然喜欢上单曲循环李宗盛的《凡人歌》。</p>
 
-    <div id="aplayer-sVjAydhQ" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="108697" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
-    ></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+            <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script>
+            <meting-js id="108697" server="netease" type="song" autoplay="true" mutex="true" listmaxheight="340px" preload="auto" theme="#ad7a86"></meting-js>
 <div class="note primary">
             <p>你我皆凡人，生在人世间。<br />终日奔波苦，一刻不得闲。<br />你既然不是仙，难免有杂念。<br />道义放两旁，把利字摆中间。<br />多少男子汉，一怒为红颜？<br />多少同林鸟，已成了分飞燕？<br />人生何其短，何必苦苦恋？<br />爱人不见了，你向谁去喊冤？<br />问你何时曾看见，这世界为了人们改变？<br />有了梦寐以求的容颜，是否就算是拥有春天。。。</p>
           </div>
@@ -702,6 +700,8 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   }, window.DisqusJS);
 });
 </script>
+
+<script src="/js/click-love.js"></script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>
 </html>

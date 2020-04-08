@@ -93,9 +93,6 @@
 </noscript>
 
 <link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
-<link rel="stylesheet" href="/assets/css/APlayer.min.css" class="aplayer-style-marker">
-<script src="/assets/js/APlayer.min.js" class="aplayer-script-marker"></script>
-<script src="/assets/js/Meting.min.js" class="meting-script-marker"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -420,9 +417,10 @@
 <p>可惜，像令狐冲这样的人物，也只能存在于小说中了。。。</p>
 <p class="text-right">甲午年四月廿三至廿七记于塔下湖畔　　　　　　</p>
 
-    <div id="aplayer-rGcvYXDD" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="28838557" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
-    ></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+            <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script>
+            <meting-js id="28838557" server="netease" type="song" autoplay="true" mutex="true" listmaxheight="340px" preload="auto" theme="#ad7a86"></meting-js>
 
     </div>
 
@@ -820,6 +818,8 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   }, window.DisqusJS);
 });
 </script>
+
+<script src="/js/click-love.js"></script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>
 </html>

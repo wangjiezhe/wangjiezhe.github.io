@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><!--崩溃欺骗-->
+<!--崩溃欺骗-->
  var OriginTitle = document.title;
  var titleTime;
  document.addEventListener('visibilitychange', function () {
