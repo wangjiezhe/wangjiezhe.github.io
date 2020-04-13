@@ -1,0 +1,23 @@
+\input tkzset.tex
+
+\begin{tikzpicture}
+  \tkzDefPoint(0,0){B}
+  \tkzDefPoint(4,0){C}
+  \tkzDefPoint(1.3,1.5){A}
+  \tkzDefPointWith[orthogonal, K=1.7](B,A)  \tkzGetPoint{D}
+  \tkzDefPointWith[orthogonal, K=-1.7](C,A)  \tkzGetPoint{F}
+  \tkzDefMidPoint(D,F)  \tkzGetPoint{P}
+
+  \tkzDrawPolygon[lines](A,B,D)
+  \tkzDrawPolygon[lines](A,C,F)
+  \tkzDrawSegments[lines=blue!80!black](B,C D,F)
+  \tkzDrawPolySeg[lines=red](B,P,C)
+
+  \tkzDrawPoints[dots](A,B,C,D,F)
+  \tkzDrawPoint[dots=red](P)
+  \tkzLabelPoints[below left](B)
+  \tkzLabelPoints[below right](C)
+  \tkzLabelPoints[above](A,P)
+  \tkzLabelPoints[right](F)
+  \tkzLabelPoints[left](D)
+\end{tikzpicture}
