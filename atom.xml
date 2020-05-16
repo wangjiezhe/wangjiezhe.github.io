@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wangjiezhe.com/"/>
-  <updated>2020-04-07T15:15:00.000Z</updated>
+  <updated>2020-05-12T06:52:40.000Z</updated>
   <id>https://wangjiezhe.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows 常用指令</title>
+    <link href="https://wangjiezhe.com/posts/2020-05-12-Windows-commands/"/>
+    <id>https://wangjiezhe.com/posts/2020-05-12-Windows-commands/</id>
+    <published>2020-05-12T06:52:40.000Z</published>
+    <updated>2020-05-12T06:52:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="直接运行"><a class="markdownIt-Anchor" href="#直接运行"></a> 直接运行</h2><ul><li><p>winver: 关于 Windows</p></li><li><p>msinfo32：系统信息</p></li><li><p>msconfig: 系统配置实用程序</p></li><li><p>control: 控制面版</p></li><li><p>regedit: 注册表</p></li><li><p>perfmon：计算机性能监测器</p></li><li><p>dxdiag：检查 DirectX 信息</p></li><li><p>explorer：资源管理器 <code>Win+E</code></p></li><li><p>taskmgr: 任务管理器 <code>Win+X T</code></p></li><li><p>powershell: Windows PowerShell <code>Win+X I</code></p></li><li><p>mspaint：画图</p></li><li><p>notepad：记事本</p></li></ul><h2 id="管理控制台"><a class="markdownIt-Anchor" href="#管理控制台"></a> 管理控制台</h2><ul><li>services.msc: 服务</li><li>gpedit.msc: 组策略</li><li>wf.msc: 高级安全 Windows Defender 防火墙</li><li>compmgmt.msc：计算机管理</li><li>diskmgmt.msc：磁盘管理 <code>Win+X K</code></li><li>secpol.msc：本地安全策略</li></ul><h2 id="控制面板"><a class="markdownIt-Anchor" href="#控制面板"></a> 控制面板</h2><ul><li>hdwwiz.cpl：设备管理器 <code>Win+X M</code></li><li>appwiz.cpl: 程序和功能（卸载）</li><li>firewall.cpl: Windows Defender 防火墙</li><li>main.cpl：鼠标属性</li><li>mmsys.cpl：声音</li><li>ncpa.cpl：网络连接（适配器）</li><li>powercfg.cpl：电源选项 <code>Win+X O</code></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      记录一些常用的 Windows 指令，可以直接通过`Win+R`运行
+    
+    </summary>
+    
+    
+      <category term="Windows" scheme="https://wangjiezhe.com/categories/Windows/"/>
+    
+    
+      <category term="命令行" scheme="https://wangjiezhe.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>梯形中点问题的探究与推广</title>
@@ -520,33 +543,6 @@
       <category term="Hexo" scheme="https://wangjiezhe.com/tags/Hexo/"/>
     
       <category term="NexT" scheme="https://wangjiezhe.com/tags/NexT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 随学随记 (4)</title>
-    <link href="https://wangjiezhe.com/posts/2015-08-20-Linux-Notes-4/"/>
-    <id>https://wangjiezhe.com/posts/2015-08-20-Linux-Notes-4/</id>
-    <published>2015-08-19T16:00:00.000Z</published>
-    <updated>2019-09-18T02:04:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="mplayer-循环播放歌曲"><a class="markdownIt-Anchor" href="#mplayer-循环播放歌曲"></a> mplayer 循环播放歌曲</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mplayer -loop n ***.mp3</span><br></pre></td></tr></table></figure><p>n 表示重复次数，0 表示无限循环。</p><h2 id="vim-搜索大小写匹配"><a class="markdownIt-Anchor" href="#vim-搜索大小写匹配"></a> vim 搜索大小写匹配</h2><p><code>set ignorecase</code><br />忽略正常字母的大小写</p><p><code>set smartcase</code><br />只包含小写字母时忽略大小写</p><p><code>\c</code><br />强制忽略大小写</p><p><code>\C</code><br />强制匹配大小写</p><h2 id="cd-转移"><a class="markdownIt-Anchor" href="#cd-转移"></a> cd 转移</h2><p>当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> directorya directoryb</span><br></pre></td></tr></table></figure><p>第一个参数是当前目录路径中需要替换的参数，第二个参数是替换字符串。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 要从v7目录 切换到v8目录，只需键入cd v7 v8</span></span><br><span class="line">/programs/v7/reports/monthly &gt; <span class="built_in">cd</span> v7 v8</span><br><span class="line">/programs/v8/reports/monthly &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果历史上的每年每月都有一个对应目录，cd 转移允许从一年跳到另一年</span></span><br><span class="line">/hist/2010/april/reports &gt; <span class="built_in">cd</span> 2010 2011</span><br><span class="line">/hist/2011/april/reports &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换月份目录</span></span><br><span class="line">/hist/2011/april/reports &gt; <span class="built_in">cd</span> april may</span><br><span class="line">/hist/2011/may/reports &gt;</span><br></pre></td></tr></table></figure><h2 id="vim-快速缩进"><a class="markdownIt-Anchor" href="#vim-快速缩进"></a> vim 快速缩进</h2><p><code>&gt;&gt;</code><br />向右缩进</p><p><code>&lt;&lt;</code><br />向左缩进</p><p><code>:ce</code> (center)<br />文本居中</p><p><code>:le</code> (left)<br />文本靠左</p><p><code>:ri</code> (right)<br />文本靠右</p><h2 id="vim-编辑多个文件"><a class="markdownIt-Anchor" href="#vim-编辑多个文件"></a> vim 编辑多个文件</h2><p><code>:n</code><br />编辑下一个文件</p><p><code>:N</code><br />编辑上一个文件</p><p><code>:e#</code><br />回到前一个文件</p><p><code>:ls</code><br />列出所有编辑的文件</p><p><code>:b 2.txt</code> or <code>:b 2</code><br />直接进入文件 2.txt 或者编号为 2 的文件编辑</p><p><code>:bd 2.txt</code> or <code>:b 2</code><br />删除列表中的文件项目</p><p><code>:f</code><br />显示正在编辑的文件名</p><p><code>:f new.txt</code><br />重命名当前文件为 new.txt</p><h2 id="vim-加密文件"><a class="markdownIt-Anchor" href="#vim-加密文件"></a> vim 加密文件</h2><p><code>$ vim -x file1</code><br />创建加密文档 file1</p><p><code>set cm=blowfish2</code> (newest)<br />设置加密方式</p>]]></content>
-    
-    <summary type="html">
-    
-      记录日常中遇到的与 Linux 相关的问题，主要是关于 vim 和 sed
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://wangjiezhe.com/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="https://wangjiezhe.com/tags/Linux/"/>
-    
-      <category term="Shell" scheme="https://wangjiezhe.com/tags/Shell/"/>
-    
-      <category term="Vim" scheme="https://wangjiezhe.com/tags/Vim/"/>
     
   </entry>
   

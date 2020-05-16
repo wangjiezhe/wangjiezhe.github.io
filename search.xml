@@ -2117,4 +2117,73 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>梯形</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Windows 常用指令</title>
+    <url>//posts/2020-05-12-Windows-commands/</url>
+    <content><![CDATA[<h2 id="直接运行"><a class="markdownIt-Anchor" href="#直接运行"></a> 直接运行</h2>
+<ul>
+<li>
+<p>winver: 关于 Windows</p>
+</li>
+<li>
+<p>msinfo32：系统信息</p>
+</li>
+<li>
+<p>msconfig: 系统配置实用程序</p>
+</li>
+<li>
+<p>control: 控制面版</p>
+</li>
+<li>
+<p>regedit: 注册表</p>
+</li>
+<li>
+<p>perfmon：计算机性能监测器</p>
+</li>
+<li>
+<p>dxdiag：检查 DirectX 信息</p>
+</li>
+<li>
+<p>explorer：资源管理器 <code>Win+E</code></p>
+</li>
+<li>
+<p>taskmgr: 任务管理器 <code>Win+X T</code></p>
+</li>
+<li>
+<p>powershell: Windows PowerShell <code>Win+X I</code></p>
+</li>
+<li>
+<p>mspaint：画图</p>
+</li>
+<li>
+<p>notepad：记事本</p>
+</li>
+</ul>
+<h2 id="管理控制台"><a class="markdownIt-Anchor" href="#管理控制台"></a> 管理控制台</h2>
+<ul>
+<li>services.msc: 服务</li>
+<li>gpedit.msc: 组策略</li>
+<li>wf.msc: 高级安全 Windows Defender 防火墙</li>
+<li>compmgmt.msc：计算机管理</li>
+<li>diskmgmt.msc：磁盘管理 <code>Win+X K</code></li>
+<li>secpol.msc：本地安全策略</li>
+</ul>
+<h2 id="控制面板"><a class="markdownIt-Anchor" href="#控制面板"></a> 控制面板</h2>
+<ul>
+<li>hdwwiz.cpl：设备管理器 <code>Win+X M</code></li>
+<li>appwiz.cpl: 程序和功能（卸载）</li>
+<li>firewall.cpl: Windows Defender 防火墙</li>
+<li>main.cpl：鼠标属性</li>
+<li>mmsys.cpl：声音</li>
+<li>ncpa.cpl：网络连接（适配器）</li>
+<li>powercfg.cpl：电源选项 <code>Win+X O</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>命令行</tag>
+      </tags>
+  </entry>
 </search>
