@@ -1,7 +1,7 @@
 ---
 title: Windows 常用指令
 date: 2020-05-12 14:52:40
-updated: 2020-05-12 14:52:40
+updated: 2020-05-18 13:26:40
 categories: Windows
 tags:
   - 命令行
@@ -17,7 +17,6 @@ description: 记录一些常用的 Windows 指令，可以直接通过`Win+R`运
 - regedit: 注册表
 - perfmon：计算机性能监测器
 - dxdiag：检查 DirectX 信息
-
 - explorer：资源管理器 `Win+E`
 - taskmgr: 任务管理器 `Win+X T`
 - powershell: Windows PowerShell `Win+X I`
