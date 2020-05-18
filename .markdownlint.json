@@ -6,7 +6,7 @@
         "siblings_only": true
     },
     "MD033": {
-        "allowed_elements": ["em", "script"]
+        "allowed_elements": ["em", "script", "span"]
     },
     "MD034": false,
     "MD041": false,
