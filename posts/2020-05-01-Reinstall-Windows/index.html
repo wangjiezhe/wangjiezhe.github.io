@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#66327C">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#66327C">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"scrollpercent":true,"enable":true,"sidebar":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"style":"flat","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="重装系统就是个坑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录重装系统时遇到的坑">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2020-05-01-Reinstall-Windows/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="重装系统就是个坑">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-01T05:26:42.000Z">
+<meta property="article:modified_time" content="2020-05-17T21:26:42.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="MathType">
+<meta property="article:tag" content="显卡">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://wangjiezhe.com/posts/2020-05-01-Reinstall-Windows/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>记录重装系统时遇到的坑 | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-48537410-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">如鱼饮水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">冷暖自知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2020-05-01-Reinstall-Windows/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/camel.jpg">
+      <meta itemprop="name" content="西风冷香">
+      <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          记录重装系统时遇到的坑
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-01 13:26:42" itemprop="dateCreated datePublished" datetime="2020-05-01T13:26:42+08:00">2020-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-18 05:26:42" itemprop="dateModified" datetime="2020-05-18T05:26:42+08:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">重装系统就是个坑</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>由于之前的电脑 8G 的内存已经明显不够了。比如 chrome 开10+个网页，wsl2 一直开着或者更新了大软件（比如 texlive-fontextra），VSCode 打开一个大项目，都会造成内存告急。如果有两种情况同时出现的话，基本上直接崩溃了。chrome 的话崩溃了还好，再打开就可以了。wsl2 一但崩溃，特别是在 pacman 更新的时候，直接导致更新的数据库崩溃，还都手动修复。</p>
+<p>如果开虚拟内存系统托管的话，系统倒是再加 8G 的虚拟内存，但是由于我的硬盘是机械硬盘，于是就会造成硬盘活动时间始终是100%，会造成响应变慢，甚至直接卡死。</p>
+<p>于是我加了一块 500G 的固态硬盘，用的西数的蓝盘，然后把两个 4G 的内存条换成了两个 8G 的内存条，还把网卡换成了最新的 AX200（原先的网卡不支持 5GHz 的 WIFI）。</p>
+<p>顺带请了一下风扇，换了散热硅脂。</p>
+<p>以及拔插了一下摄像头的连接线，解决了之前摄像头时能用时不能用的问题。</p>
+<p>因为之前的系统里的东西比较杂乱，于是我决定重新安装系统，而不是做系统迁移。</p>
+<p>安装 windows 还是比较顺利的。这里建议不要用 Media Creation Tool，而是直接下载 iso 文件，这样下载的速度会快一些。（谁叫我有 IDM 呢 →_→）</p>
+<p>安装之后，系统引导会自动生成，不用手动干预。</p>
+<p>然而，主要耗费时间是在安装各种软件上。</p>
+<h2 id="adobe"><a class="markdownIt-Anchor" href="#adobe"></a> Adobe</h2>
+<p>有请 <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vdnBvc3k=">vposy<i class="fa fa-external-link-alt"></i></span> 大神。。。</p>
+<h2 id="office-下载与激活"><a class="markdownIt-Anchor" href="#office-下载与激活"></a> Office 下载与激活</h2>
+<p>参见 <span class="exturl" data-url="aHR0cHM6Ly92MHYuYmlk">https://v0v.bid<i class="fa fa-external-link-alt"></i></span>。</p>
+<h2 id="mathtype-与字体冲突的问题"><a class="markdownIt-Anchor" href="#mathtype-与字体冲突的问题"></a> MathType 与字体冲突的问题</h2>
+<p>MathType 与 Microsoft Store 中的「更纱黑体」相冲突，安装「更纱黑体」会导致 MathType 闪退，原因不明。</p>
+<p>但直接下载字体点击安装的话就没有问题。</p>
+<p>这个问题折腾了我半天的时间。。。</p>
+<div class="note danger">
+            <p>重启电脑之后发现，手动安装也不行。。。<br />话说之前的系统里一直是两者共存没有问题啊。。。</p>
+          </div>
+<div class="note primary">
+            <p>又尝试单独安装部分字体，只装了 <code>Sarasa Term</code>，没有问题。那就先这么用吧。。。</p>
+          </div>
+<h2 id="盘符问题"><a class="markdownIt-Anchor" href="#盘符问题"></a> 盘符问题</h2>
+<p>在安装的时候，一定将新的系统盘标为 C 盘。如果系统安装完了之后，就没法再修改了。至少我目前还没有找到方法。</p>
+<p>看过网上说的一些方法。如果直接在硬盘管理中修改盘符的话，非系统盘是可以直接修改的，系统盘修改的话会显示参数错误。</p>
+<p>还有直接修改注册表中 <code>HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices</code> 下的驱动器号的，我试了一下，然后电脑就无法启动了。还是通过安装盘恢复原来的设定之后才能启动。</p>
+<p>又是一天的血和泪。。。</p>
+<blockquote>
+<p>主要的原因是，之前安装 Windows 的时候偷懒了，直接加载 iso 文件安装的，没有制作安装 U 盘。然后修改注册表之后系统无法启动，只能进入到 Linux 下去制作 Windows 的启动盘。<br />
+直接使用 dd 的话，电脑不能识别 U 盘启动，试了好几个软件，最终使用 <strong>woeusb</strong> 才成功了。</p>
+</blockquote>
+<div class="note info">
+            <p>其实大部分软件安装都没有问题，只是在「华为电脑管家」的时候出现了问题。<br />于是我只能把另外一个分区改为 C 盘，然后安装之后把 <code>Program Files(x86)</code> 中的文件移到 D 盘中，然后在注册表中搜索修改所有相关的项。<br />目前使用上还没有发现问题。</p>
+          </div>
+<h2 id="独显问题"><a class="markdownIt-Anchor" href="#独显问题"></a> 独显问题</h2>
+<p>之前电脑上，可以选择以 N 卡运行 chrome。但是这次安装之后，即使是选择 N 卡运行，包括在 Nvidia 控制面板里设置，还是右击选择以「高性能 Nvidia 处理器」运行，都没有作用。</p>
+<p>Firefox 也不管用。</p>
+<p>但是 mpv 和 qutebrwoser 都运行正常。</p>
+<blockquote>
+<p>主要这么纠结的原因是，在打雀魂的时候，核显会飙到 80%，而且会有明显的卡顿。切换到 N 卡上话，核显 50%，独显 45%，但至少没有感觉的明显的卡顿了。<br />
+我就是想打个麻将而已，容易么我。。。<br />
+顺带说一下，笔记本是 14 年买的，CPU 是 i7-4700HQ，核显是 HD Graphic 4600，独显是 GeForce GTX 850M。</p>
+</blockquote>
+<h2 id="播放器选择"><a class="markdownIt-Anchor" href="#播放器选择"></a> 播放器选择</h2>
+<p>安装之后试了一下 4k 视频的播放，发现不需要修改就可以直接舒畅播放的就只有 vlc，而且仅仅使用核显，播放的时候 CPU 30%，核显 vlc 使用 5%，整体 20%，不知道是怎么调教的。</p>
+<p>如果配置好的话，让 mpv 用 N 卡解码也是可以流畅播放的，核显 25%，独显 60%。</p>
+<h2 id="对不同应用切换不同的输入法"><a class="markdownIt-Anchor" href="#对不同应用切换不同的输入法"></a> 对不同应用切换不同的输入法</h2>
+<p>设置 -&gt; 设备 -&gt; 输入 -&gt; 高级键盘设置 -&gt; 切换输入法 -&gt; 勾选「允许我为每个应用窗口使用不同的输入法」</p>
+<h2 id="杀毒软件"><a class="markdownIt-Anchor" href="#杀毒软件"></a> 杀毒软件</h2>
+<p>趁着这次机会，入正了 EAV。</p>
+<h2 id="git"><a class="markdownIt-Anchor" href="#git"></a> Git</h2>
+<p>如果直接安装 Git For Windows 的话，就没有什么问题。<br />
+不过由于我安装了 MSYS2，因此就直接在 MSYS2 里面安装了，但这带来了一个奇怪的问题，那就是 git 的 ssh 协议无法使用。具体就是：如我运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>没有问题，会正常的返回</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi wangjiezhe! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+<p>但是 <code>git pull</code> 和 <code>git push</code> 就是运行不成功，显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git@github.com: Permission denied (publickey).</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+<p>后来发现，Git For Windows 貌似可以之间使用 Windows 默认的 ssh 配置文件（位置在 <code>%HOMEPATH%\.ssh\</code>），而在 MSYS2 里安装的话需要把密钥复制到 MSYS2 的 ssh 配置文件里。</p>
+<h2 id="wsl"><a class="markdownIt-Anchor" href="#wsl"></a> WSL</h2>
+<p>在安装完 WSL 之后，我发现网络访问有问题，而且问题比较奇怪。</p>
+<p>我在 WSL 中，能够正常访问网络；在 Windows 中，也能访问 WSL 中的网络；但是在 WSL 中，无法访问 Windows 应用，包括 VcXsrc。</p>
+<div class="note primary">
+            <p>问题已解决，是防火墙的问题。我之前只在「允许应用通过防火墙」中为 VcXsrv 允许了专用网络，把公用网络也勾选上就 OK 了。<br />其它的例如 <code>python -m http.server</code>，把 <code>python.exe</code> 加入到防火墙的入站规则里就可以了。<br />如果使用 Windows 默认的防火墙的话，推荐使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuc29yZHVtLm9yZy84MTI1L2ZpcmV3YWxsLWFwcC1ibG9ja2VyLWZhYi12MS03Lw==">Firewall App Blocker<i class="fa fa-external-link-alt"></i></span>，可以很方便的添加防火墙规则。</p>
+          </div>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wangjiezhe.com/posts/2020-05-01-Reinstall-Windows/" title="记录重装系统时遇到的坑">https://wangjiezhe.com/posts/2020-05-01-Reinstall-Windows/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/MathType/" rel="tag"><i class="fa fa-tag"></i> MathType</a>
+              <a href="/tags/%E6%98%BE%E5%8D%A1/" rel="tag"><i class="fa fa-tag"></i> 显卡</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2020-04-11-Install-ArchWSL/" rel="prev" title="安装 ArchWSL 后需要做的事">
+      <i class="fa fa-chevron-left"></i> 安装 ArchWSL 后需要做的事
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/2020-05-12-Windows-commands/" rel="next" title="Windows 常用指令">
+      Windows 常用指令 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#adobe"><span class="nav-number">1.</span> <span class="nav-text"> Adobe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#office-下载与激活"><span class="nav-number">2.</span> <span class="nav-text"> Office 下载与激活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mathtype-与字体冲突的问题"><span class="nav-number">3.</span> <span class="nav-text"> MathType 与字体冲突的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盘符问题"><span class="nav-number">4.</span> <span class="nav-text"> 盘符问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#独显问题"><span class="nav-number">5.</span> <span class="nav-text"> 独显问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#播放器选择"><span class="nav-number">6.</span> <span class="nav-text"> 播放器选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对不同应用切换不同的输入法"><span class="nav-number">7.</span> <span class="nav-text"> 对不同应用切换不同的输入法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杀毒软件"><span class="nav-number">8.</span> <span class="nav-text"> 杀毒软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git"><span class="nav-number">9.</span> <span class="nav-text"> Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wsl"><span class="nav-number">10.</span> <span class="nav-text"> WSL</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/camel.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+  </div>
+
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西风冷香</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">82k</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+   <span class="post-meta-divider">|</span>
+<div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">Github Pages</span> & <span class="exturl host-link" data-url="aHR0cHM6Ly9uZXRsaWZ5LmNvbQ==">Netlify</span>
+</div>
+
+<script >
+function checkWebp(callback) {
+  var img = new Image();
+  img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+  img.onerror = function () { callback(false); };
+  img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+  var imgs = [].slice.call(document.querySelectorAll('img'));
+  imgs.forEach(function (e) {
+    if (useWebp) {
+      var src = e.getAttribute('data-src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        e.setAttribute('data-src', src);
+      }
+      src = e.getAttribute('src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        e.setAttribute('src', src);
+      }
+    }
+  });
+}
+checkWebp(showImage);
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/posts/2020-05-01-Reinstall-Windows/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
+      apikey    : 'ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F',
+      shortname : 'wangjiezhe',
+      url       : "https://wangjiezhe.com/posts/2020-05-01-Reinstall-Windows/",
+      identifier: "/posts/2020-05-01-Reinstall-Windows/",
+      title     : "记录重装系统时遇到的坑",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+<script src="/js/click-love.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>
+</html>
