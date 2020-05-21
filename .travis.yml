@@ -2,7 +2,7 @@ language: node_js
 dist: xenial
 
 node_js:
-  - '12'
+  - '14'
 
 cache:
   apt: true
@@ -13,8 +13,8 @@ cache:
 addons:
   apt:
     update: true
-    packages:
-      - libpng16-dev
+    # packages:
+    #   - libpng16-dev
 
 before_install:
   - export TZ='Asia/Shanghai'
