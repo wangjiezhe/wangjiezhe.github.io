@@ -33,7 +33,7 @@
 <meta property="og:description" content="数学  Terence Tao&#39;s Blog 兰琦的数学之旅 数学望远镜   工具  中国传统颜色手册 NIPPON COLORS - 日本の伝統色 一个非常好的选色网站 Font Awesome 中文网 查找图标名称 烧饼博客 嗯，域名很好 IP地址查询 SM.MS 免费图床   博客  樱花庄的白猫 | ねこ・しろ・ましろ 千灵 恶魔菌の记事簿 梦想博客 喵&#39;s StackHarbor OT">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-10-29T03:44:17.000Z">
-<meta property="article:modified_time" content="2020-05-21T04:30:13.152Z">
+<meta property="article:modified_time" content="2020-05-25T17:25:53.762Z">
 <meta property="article:author" content="西风冷香">
 <meta property="article:tag" content="Blog">
 <meta property="article:tag" content="Hexo">
@@ -579,12 +579,28 @@ checkWebp(showImage);
   
   <script>
     (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
   </script>
 
 
