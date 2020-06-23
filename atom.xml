@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wangjiezhe.com/"/>
-  <updated>2020-05-18T05:26:40.000Z</updated>
+  <updated>2020-06-22T12:28:22.000Z</updated>
   <id>https://wangjiezhe.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用 FFmpeg 命令</title>
+    <link href="https://wangjiezhe.com/posts/2020-06-22-FFmpeg-Commands/"/>
+    <id>https://wangjiezhe.com/posts/2020-06-22-FFmpeg-Commands/</id>
+    <published>2020-06-22T12:28:22.000Z</published>
+    <updated>2020-06-22T12:28:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="剪裁文件"><a class="markdownIt-Anchor" href="#剪裁文件"></a> 剪裁文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 截取前一部分的视频</span></span><br><span class="line">ffmpeg -t [duration] -i [input.mp4] -c copy [output.mp4]</span><br><span class="line"></span><br><span class="line"><span class="comment">### 截取后一部分视频</span></span><br><span class="line">ffmpeg -ss [start] -i [input.mp4] -c copy [output.mp4]</span><br><span class="line"></span><br><span class="line"><span class="comment">### 截取中间一部分视频（结束时间确定）</span></span><br><span class="line">ffmpeg -ss [start] -to [end] -i [input.mp4] -c copy [output.mp4]</span><br><span class="line"><span class="comment">### 或者（时长确定）</span></span><br><span class="line">ffmpeg -ss [start] -t [duration] -i [input.mp4] -c copy [output.mp4]</span><br></pre></td></tr></table></figure><p>时间格式：<code>HH:MM:SS.XXX</code>。</p><p>这里面使用 <code>-c copy</code> 的选项，避免重新进行编码，可以很快地进行剪裁。</p><div class="note warning">            <p>这里 <code>-ss</code>、<code>-to</code>、<code>-t</code> 的选项放在 <code>-i</code> 选项之前，时间不是很精确，可能有几秒的误差，但是可以避免黑屏的问题。在对时间精确度要求不高的情况下这是最好的方案。</p><p>如果放在 <code>-i</code> 选项之后，会对输入文件进行逐帧解码，时间会比较准确，但可能出现黑屏问题，速度也比较慢。</p>          </div><p>一种更加精确的剪裁方法是：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -ss [start] -t [duration] -accurate_seek -i [input.mp4] -avoid_negative_ts 1 -c copy [output.mp4]</span><br></pre></td></tr></table></figure><p>注意 <code>-accurate_seek</code> 选项要在 <code>-i</code> 选项之前。</p><p>如果需要非常精确的剪裁的话，需要重新进行编码，并使用 <code>-strict experimental</code> 或者 <code>-strict 2</code> 的选项。</p><h2 id="合并文件"><a class="markdownIt-Anchor" href="#合并文件"></a> 合并文件</h2><p>先把要合并的文件写在一个文本文件 <code>list.txt</code> 里：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file &#39;.&#x2F;split1.mp4&#39;</span><br><span class="line">file &#39;.&#x2F;split2.mp4&#39;</span><br><span class="line">file &#39;.&#x2F;split3.mp4&#39;</span><br></pre></td></tr></table></figure><p>然后再进行合并：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f concat -i [list.txt] -c copy [output.mp4]</span><br></pre></td></tr></table></figure><h2 id="改变格式"><a class="markdownIt-Anchor" href="#改变格式"></a> 改变格式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 重新编码</span></span><br><span class="line">ffmpeg -i [input].mp4 [output].flv</span><br><span class="line"></span><br><span class="line"><span class="comment">### 不重新编码</span></span><br><span class="line">ffmpeg -i [input].mp4 -c copy [output].flv</span><br></pre></td></tr></table></figure><h2 id="提取音频"><a class="markdownIt-Anchor" href="#提取音频"></a> 提取音频</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i [intput].mp4 -c:a copy [output.aac]</span><br></pre></td></tr></table></figure><h2 id="合并视频和音频"><a class="markdownIt-Anchor" href="#合并视频和音频"></a> 合并视频和音频</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i [input.mp4] -i [input.aac] -c copy [output.mp4]</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      记录一些常用 FFmpeg 命令，以后不用每次再去搜索
+    
+    </summary>
+    
+    
+      <category term="工作" scheme="https://wangjiezhe.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="视频" scheme="https://wangjiezhe.com/tags/%E8%A7%86%E9%A2%91/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows 常用指令</title>
@@ -496,33 +519,6 @@
     <summary type="html">
     
       为NexT主题添加搜索功能
-    
-    </summary>
-    
-    
-      <category term="博客" scheme="https://wangjiezhe.com/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="主题" scheme="https://wangjiezhe.com/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/"/>
-    
-    
-      <category term="Hexo" scheme="https://wangjiezhe.com/tags/Hexo/"/>
-    
-      <category term="NexT" scheme="https://wangjiezhe.com/tags/NexT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo NexT 魔改系列之一 ── 总集篇</title>
-    <link href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-1/"/>
-    <id>https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-1/</id>
-    <published>2018-10-29T05:34:09.000Z</published>
-    <updated>2018-10-29T05:34:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近一个月，空余的时间都用来折腾这个博客了。作为一个本身对前端一窍不通的人，也是都能对照文档和其它的博客来修改自己博客的配置，真是心累的不行。虽然很多问题在网上都能够找到比较好的解决方法，但也有很多内容完全是过时的，也有一些藏得比较深，不是那么好找。</p><p>于是决定趁着还有印象的时候，把自己折腾的过程记录下来，不要像之前一样，自己写的东西，过了一年之后自己都记不起来当时是怎么想的了。。。</p><h2 id="包管理"><a class="markdownIt-Anchor" href="#包管理"></a> 包管理</h2><p>开始一直在使用 npm 来安装依赖包，还为是否应该把 package-lock.json 添加的 git 仓库查找了半天。直到很偶然的一次，突然发现还可以用 yarn 来管理一来包，看了一下感觉不错，于是决定切换到 yarn。</p><p>然后发现，我的 git 仓库里居然已经有了 yarn.lock 这个文件，什么？？？</p><p>再去搜索才发现，yarn <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvLWNsaS9wdWxsLzIwLw==">很早<i class="fa fa-external-link-alt"></i></span>就作为 hexo 的默认包管理器了，只要系统有安装 yarn 的话，就采用 yarn 而不是 npm 作为包管理器。</p><p>然而在网上能够找到的大部分教程中，安装依赖包还都是用 npm，而且还都带着 <code>--save</code> 的参数。我开始不知道有什么作用，然后一<span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMTk1Nzg3OTYvd2hhdC1pcy10aGUtc2F2ZS1vcHRpb24tZm9yLW5wbS1pbnN0YWxs">搜索<i class="fa fa-external-link-alt"></i></span>，发现这个参数早就过时了，从 npm 5.0.0 之后就已经不需要了，只是为了兼容性还保留着这个参数。</p><h2 id="启用搜索功能"><a class="markdownIt-Anchor" href="#启用搜索功能"></a> 启用搜索功能</h2><blockquote><p>参见 <a href="/posts/2018-10-29-Hexo-NexT-2/">Hexo NexT 魔改系列之二 ── 搜索篇</a></p></blockquote><h2 id="启用评论功能"><a class="markdownIt-Anchor" href="#启用评论功能"></a> 启用评论功能</h2><blockquote><p>参见 <a href="/posts/2018-10-29-Hexo-NexT-3/">Hexo NexT 魔改系列之三 ── 评论篇</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      记录折腾NexT主题的点点滴滴
     
     </summary>
     

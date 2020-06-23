@@ -2323,4 +2323,37 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>命令行</tag>
       </tags>
   </entry>
+  <entry>
+    <title>常用 FFmpeg 命令</title>
+    <url>//posts/2020-06-22-FFmpeg-Commands/</url>
+    <content><![CDATA[<h2 id="剪裁文件"><a class="markdownIt-Anchor" href="#剪裁文件"></a> 剪裁文件</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">### 截取前一部分的视频</span></span><br><span class="line">ffmpeg -t [duration] -i [input.mp4] -c copy [output.mp4]</span><br><span class="line"></span><br><span class="line"><span class="comment">### 截取后一部分视频</span></span><br><span class="line">ffmpeg -ss [start] -i [input.mp4] -c copy [output.mp4]</span><br><span class="line"></span><br><span class="line"><span class="comment">### 截取中间一部分视频（结束时间确定）</span></span><br><span class="line">ffmpeg -ss [start] -to [end] -i [input.mp4] -c copy [output.mp4]</span><br><span class="line"><span class="comment">### 或者（时长确定）</span></span><br><span class="line">ffmpeg -ss [start] -t [duration] -i [input.mp4] -c copy [output.mp4]</span><br></pre></td></tr></table></figure>
+<p>时间格式：<code>HH:MM:SS.XXX</code>。</p>
+<p>这里面使用 <code>-c copy</code> 的选项，避免重新进行编码，可以很快地进行剪裁。</p>
+<div class="note warning">
+            <p>这里 <code>-ss</code>、<code>-to</code>、<code>-t</code> 的选项放在 <code>-i</code> 选项之前，时间不是很精确，可能有几秒的误差，但是可以避免黑屏的问题。在对时间精确度要求不高的情况下这是最好的方案。</p><p>如果放在 <code>-i</code> 选项之后，会对输入文件进行逐帧解码，时间会比较准确，但可能出现黑屏问题，速度也比较慢。</p>
+          </div>
+<p>一种更加精确的剪裁方法是：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -ss [start] -t [duration] -accurate_seek -i [input.mp4] -avoid_negative_ts 1 -c copy [output.mp4]</span><br></pre></td></tr></table></figure>
+<p>注意 <code>-accurate_seek</code> 选项要在 <code>-i</code> 选项之前。</p>
+<p>如果需要非常精确的剪裁的话，需要重新进行编码，并使用 <code>-strict experimental</code> 或者 <code>-strict 2</code> 的选项。</p>
+<h2 id="合并文件"><a class="markdownIt-Anchor" href="#合并文件"></a> 合并文件</h2>
+<p>先把要合并的文件写在一个文本文件 <code>list.txt</code> 里：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file &#39;.&#x2F;split1.mp4&#39;</span><br><span class="line">file &#39;.&#x2F;split2.mp4&#39;</span><br><span class="line">file &#39;.&#x2F;split3.mp4&#39;</span><br></pre></td></tr></table></figure>
+<p>然后再进行合并：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -f concat -i [list.txt] -c copy [output.mp4]</span><br></pre></td></tr></table></figure>
+<h2 id="改变格式"><a class="markdownIt-Anchor" href="#改变格式"></a> 改变格式</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">### 重新编码</span></span><br><span class="line">ffmpeg -i [input].mp4 [output].flv</span><br><span class="line"></span><br><span class="line"><span class="comment">### 不重新编码</span></span><br><span class="line">ffmpeg -i [input].mp4 -c copy [output].flv</span><br></pre></td></tr></table></figure>
+<h2 id="提取音频"><a class="markdownIt-Anchor" href="#提取音频"></a> 提取音频</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i [intput].mp4 -c:a copy [output.aac]</span><br></pre></td></tr></table></figure>
+<h2 id="合并视频和音频"><a class="markdownIt-Anchor" href="#合并视频和音频"></a> 合并视频和音频</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i [input.mp4] -i [input.aac] -c copy [output.mp4]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+      <tags>
+        <tag>视频</tag>
+      </tags>
+  </entry>
 </search>

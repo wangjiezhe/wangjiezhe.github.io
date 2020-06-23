@@ -25,23 +25,20 @@
     var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"scrollpercent":true,"enable":true,"sidebar":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"style":"flat","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="某不知名机构不知名数学老师一枚">
-<meta property="og:type" content="website">
-<meta property="og:title" content="如鱼饮水">
-<meta property="og:url" content="https://wangjiezhe.com/tags/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/index.html">
+  <meta name="description" content="记录一些常用 FFmpeg 命令，以后不用每次再去搜索">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用 FFmpeg 命令">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2020-06-22-FFmpeg-Commands/index.html">
 <meta property="og:site_name" content="如鱼饮水">
-<meta property="og:description" content="某不知名机构不知名数学老师一枚">
+<meta property="og:description" content="记录一些常用 FFmpeg 命令，以后不用每次再去搜索">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-22T12:28:22.000Z">
+<meta property="article:modified_time" content="2020-06-22T12:28:22.000Z">
 <meta property="article:author" content="西风冷香">
-<meta property="article:tag" content="Blog">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="NexT">
-<meta property="article:tag" content="Math">
-<meta property="article:tag" content="博客">
-<meta property="article:tag" content="数学">
+<meta property="article:tag" content="视频">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://wangjiezhe.com/tags/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/">
+<link rel="canonical" href="https://wangjiezhe.com/posts/2020-06-22-FFmpeg-Commands/">
 
 
 <script id="page-configurations">
@@ -49,12 +46,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: 欧几里得 | 如鱼饮水</title>
+  <title>常用 FFmpeg 命令 | 如鱼饮水</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
     <script>
@@ -207,57 +204,177 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">欧几里得
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2020-06-22-FFmpeg-Commands/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/camel.jpg">
+      <meta itemprop="name" content="西风冷香">
+      <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          常用 FFmpeg 命令
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-22 20:28:22" itemprop="dateCreated datePublished" datetime="2020-06-22T20:28:22+08:00">2020-06-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">记录一些常用 FFmpeg 命令，以后不用每次再去搜索</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2018</span>
+        <h2 id="剪裁文件"><a class="markdownIt-Anchor" href="#剪裁文件"></a> 剪裁文件</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 截取前一部分的视频</span></span><br><span class="line">ffmpeg -t [duration] -i [input.mp4] -c copy [output.mp4]</span><br><span class="line"></span><br><span class="line"><span class="comment">### 截取后一部分视频</span></span><br><span class="line">ffmpeg -ss [start] -i [input.mp4] -c copy [output.mp4]</span><br><span class="line"></span><br><span class="line"><span class="comment">### 截取中间一部分视频（结束时间确定）</span></span><br><span class="line">ffmpeg -ss [start] -to [end] -i [input.mp4] -c copy [output.mp4]</span><br><span class="line"><span class="comment">### 或者（时长确定）</span></span><br><span class="line">ffmpeg -ss [start] -t [duration] -i [input.mp4] -c copy [output.mp4]</span><br></pre></td></tr></table></figure>
+<p>时间格式：<code>HH:MM:SS.XXX</code>。</p>
+<p>这里面使用 <code>-c copy</code> 的选项，避免重新进行编码，可以很快地进行剪裁。</p>
+<div class="note warning">
+            <p>这里 <code>-ss</code>、<code>-to</code>、<code>-t</code> 的选项放在 <code>-i</code> 选项之前，时间不是很精确，可能有几秒的误差，但是可以避免黑屏的问题。在对时间精确度要求不高的情况下这是最好的方案。</p><p>如果放在 <code>-i</code> 选项之后，会对输入文件进行逐帧解码，时间会比较准确，但可能出现黑屏问题，速度也比较慢。</p>
+          </div>
+<p>一种更加精确的剪裁方法是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -ss [start] -t [duration] -accurate_seek -i [input.mp4] -avoid_negative_ts 1 -c copy [output.mp4]</span><br></pre></td></tr></table></figure>
+<p>注意 <code>-accurate_seek</code> 选项要在 <code>-i</code> 选项之前。</p>
+<p>如果需要非常精确的剪裁的话，需要重新进行编码，并使用 <code>-strict experimental</code> 或者 <code>-strict 2</code> 的选项。</p>
+<h2 id="合并文件"><a class="markdownIt-Anchor" href="#合并文件"></a> 合并文件</h2>
+<p>先把要合并的文件写在一个文本文件 <code>list.txt</code> 里：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file &#39;.&#x2F;split1.mp4&#39;</span><br><span class="line">file &#39;.&#x2F;split2.mp4&#39;</span><br><span class="line">file &#39;.&#x2F;split3.mp4&#39;</span><br></pre></td></tr></table></figure>
+<p>然后再进行合并：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f concat -i [list.txt] -c copy [output.mp4]</span><br></pre></td></tr></table></figure>
+<h2 id="改变格式"><a class="markdownIt-Anchor" href="#改变格式"></a> 改变格式</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 重新编码</span></span><br><span class="line">ffmpeg -i [input].mp4 [output].flv</span><br><span class="line"></span><br><span class="line"><span class="comment">### 不重新编码</span></span><br><span class="line">ffmpeg -i [input].mp4 -c copy [output].flv</span><br></pre></td></tr></table></figure>
+<h2 id="提取音频"><a class="markdownIt-Anchor" href="#提取音频"></a> 提取音频</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i [intput].mp4 -c:a copy [output.aac]</span><br></pre></td></tr></table></figure>
+<h2 id="合并视频和音频"><a class="markdownIt-Anchor" href="#合并视频和音频"></a> 合并视频和音频</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i [input.mp4] -i [input.aac] -c copy [output.mp4]</span><br></pre></td></tr></table></figure>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-10-24T21:33:40+08:00"
-              content="2018-10-24">
-          10-24
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wangjiezhe.com/posts/2020-06-22-FFmpeg-Commands/" title="常用 FFmpeg 命令">https://wangjiezhe.com/posts/2020-06-22-FFmpeg-Commands/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2018-10-24-prime-of-the-form-6k1/" itemprop="url">
-            <span itemprop="name">形如 6k±1 的素数</span>
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
           </a>
-      </div>
+        </div>
 
-    </header>
-  </article>
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
 
+            <span class="label">RSS</span>
+          </a>
+        </div>
     </div>
   </div>
-  
-  
-  
 
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%A7%86%E9%A2%91/" rel="tag"><i class="fa fa-tag"></i> 视频</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2020-05-12-Windows-commands/" rel="prev" title="Windows 常用指令">
+      <i class="fa fa-chevron-left"></i> Windows 常用指令
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -304,6 +421,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#剪裁文件"><span class="nav-number">1.</span> <span class="nav-text"> 剪裁文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并文件"><span class="nav-number">2.</span> <span class="nav-text"> 合并文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改变格式"><span class="nav-number">3.</span> <span class="nav-text"> 改变格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提取音频"><span class="nav-number">4.</span> <span class="nav-text"> 提取音频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并视频和音频"><span class="nav-number">5.</span> <span class="nav-text"> 合并视频和音频</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -558,11 +676,27 @@ checkWebp(showImage);
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/tags/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/posts/2020-06-22-FFmpeg-Commands/',]
       });
       });
   </script>
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
+      apikey    : 'ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F',
+      shortname : 'wangjiezhe',
+      url       : "https://wangjiezhe.com/posts/2020-06-22-FFmpeg-Commands/",
+      identifier: "/posts/2020-06-22-FFmpeg-Commands/",
+      title     : "常用 FFmpeg 命令",
+    });
+  }, window.DisqusJS);
+});
+</script>
 
 <script src="/js/click-love.js"></script>
 
