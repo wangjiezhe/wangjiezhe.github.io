@@ -4,8 +4,8 @@ date: 2020-04-07 16:36:08
 updated: 2020-04-07 23:15:00
 categories:
   - 数学
-tags:
   - 平面几何
+tags:
   - 全等
   - 梯形
 description: 一个和直角梯形的腰中点有关的问题

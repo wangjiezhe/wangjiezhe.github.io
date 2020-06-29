@@ -4,8 +4,8 @@ date: 2020-04-01 14:23:42
 updated: 2020-04-13 15:03:00
 categories:
   - 数学
-tags:
   - 平面几何
+tags:
   - 全等
   - 正方形
 description: 和两个共顶点的正方形有关的结论
