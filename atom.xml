@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wangjiezhe.com/"/>
-  <updated>2020-06-29T15:20:16.000Z</updated>
+  <updated>2020-06-29T17:09:23.000Z</updated>
   <id>https://wangjiezhe.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Notability 与 GoodNotes 在网课教学中的对比</title>
+    <link href="https://wangjiezhe.com/posts/2020-06-22-Notability-vs-GoodNotes/"/>
+    <id>https://wangjiezhe.com/posts/2020-06-22-Notability-vs-GoodNotes/</id>
+    <published>2020-06-29T10:08:15.000Z</published>
+    <updated>2020-06-29T17:09:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于新冠疫情的原因，从寒假后半段、到整个春季，以及预计暑假所有的课程，都采取线上教学的模式。</p><p>由于我已经有了 iPad Pro，因此我直接使用苹果投屏来代替手写板，进行网上教学。</p><p>对比教学软件（ClassIn）所提供的黑板，iPad 上的软件所提供的手写功能更好用，也可以直接在讲义或者 PPT上进行书写，比直接在软件里写要舒服得多。</p><p>当然，投屏不是没有限制。由于长宽比的原因，投屏的时候，投屏无法占满教学窗口的所有内容，两边会有很大的黑框，造成了很大的浪费。</p><p>这带来的一个后果就是，如果要把题目做成 PPT 的形式（我一般是使用 PDF 格式，因为不需要做动画），需要设计好纸张尺寸的大小。</p><p>经过多次试验，在 Word 中，把纸张大小设为 18cm×10cm，页边距上下各 0.2cm，左右各 0.5cm，这样直接把讲义里的题目复制进去（5号字），再转换成 PDF，大小是比较合适的。</p><p>每页一道题，在可以保证学生看得清楚题目的同时，也有足够的空间来写板书。</p><p>在选择笔记软件的时候，我同时试用了两款经典的笔记软件：Notability 和 GoodNotes。（也因为我只买了这两个软件。）这两个软件有各自独特的优点，也有各自的痛点。</p><div class="note primary">            <p>我这里只考虑在网课教学这一个用途下的对比，因此一些强大但是无用的功能（比如录音）在这里不做考虑。</p>          </div><div class="note danger">            <p>注意：两款软件都在不断更新，并且不断添加新的功能，因此后面所说的可能与您现在所用到的功能并不完全相同。请注意本文的更新日期。</p><p>例如，就在我使用它们上课的这几个月间，Notability 添加了投屏区域和激光笔功能，导致我从完全使用 GoodNotes 转换到目前以使用 Notability 为主。</p>          </div><h2 id="作为一个投屏教学的笔记软件的必要条件"><a class="markdownIt-Anchor" href="#作为一个投屏教学的笔记软件的必要条件"></a> 作为一个投屏教学的笔记软件的必要条件</h2><ul><li>支持投屏区域功能，即只投屏指定区域，而不是整个屏幕，保证 iPad 上弹出的消息不会被投上去。</li><li>支持激光笔功能，并且支持暂时保留激光笔的书写痕迹。</li><li>支持画直线的功能（几何教学必备）</li></ul><h2 id="两个笔记本软件目前的支持的功能"><a class="markdownIt-Anchor" href="#两个笔记本软件目前的支持的功能"></a> 两个笔记本软件目前的支持的功能</h2><ul><li>都支持投屏区域和激光笔功能</li><li>都支持连续翻页模式和单页模式</li><li>都支持双击切换橡皮</li><li>橡皮工具都支持全部擦除和部分擦除</li><li>都支持分屏功能，而且可以选择投哪一个（不同的是 GoodNotes 是 iPad 的窗口分屏，因此两个窗口使用不同的工具栏，而 Notability 是软件内部的分屏，使用同一个工具栏）</li><li>都支持 iCloud 同步</li></ul><h2 id="goodnotes-的优势"><a class="markdownIt-Anchor" href="#goodnotes-的优势"></a> GoodNotes 的优势</h2><ul><li>👍多层文件夹管理，可以按照「课件-学期-课程-讲义」的层级结构来组织存放讲义，便于寻找</li><li>支持批量管理页面</li><li>可以直接导出当前页，不需要额外进行选择</li><li>👍👍👍可以直接使用当前模板添加新的页面。对于导入的 PDF 文件来说，就是直接复制当前页作为新页，但不包含书写笔记。还可以预先导入模板（设计好大小的空白页），在添加页面的时候可以直接选择</li><li>颜色切换方便，可以预设三个常用颜色直接显示在工具栏，使用时直接点击即可</li><li>激光笔工具在关闭投屏的情况下依然可以使用</li><li>橡皮工具支持仅擦除荧光笔痕迹</li><li>👍👍页面支持不保持缩放的功能，即在 iPad 上缩放页面的时候，投屏界面始终保持整个界面保持不变</li><li>激光笔的样式仿真性更强，更好看</li><li>支持标签页功能，方便切换文件</li><li>撤销、恢复有两个按钮，使用比较方便</li></ul><h2 id="goodnotes-的痛点"><a class="markdownIt-Anchor" href="#goodnotes-的痛点"></a> GoodNotes 的痛点</h2><ul><li>👎👎画直线和其它规则图形，需要切换到专门的工具才可以。而且轨迹是画完后自动校正，无法提前预览，因此精确度较难把握</li><li>👎👎👎当绘制倾斜程度很小或者很大的直线的时候，会被自动校正为水平或者竖直的直线，导致根本无法画出正确的直线</li><li>只能复制书写笔记，不能复制原文件的内容，只能通过截图再导入实现，比较麻烦</li></ul><h2 id="notability-的优势"><a class="markdownIt-Anchor" href="#notability-的优势"></a> Notability 的优势</h2><ul><li>👍👍👍支持自动拉直和图形检测，即绘制完成之后，继续长按，可以自动转化为直线或者其它图形，并且可以调整和实时预览，还会自动弹出放大镜，方便精确控制绘制点</li><li>👍👍👍绘制完成的线段可以自由调整两个端点，且长按会有放大镜</li><li>可以从左侧边缘向内划出近期笔记，方便切换，也可以直接分屏，并且不会影响当前投屏的文件</li><li>套索工具长按，会自动转换为矩形套索</li><li>复制笔记较为方便，可以选择先拷贝、再粘贴，如果就在同一页上的话，可以直接选择复制，然后移动到相应的位置。</li><li>👍粘贴的时候，可以选择「粘贴」或者「粘贴图像」，前者粘贴笔记，后者粘贴截图</li><li>支持导出到 WebDAV，结合坚果云可以自动导入到电脑中</li><li>👍支持对每一个文件单独设置单页模式或者滚动模式</li><li>调整窗口大小的时候，页面宽度会自动调整</li><li>连续滚动时的流畅程度更高（主观感觉）</li></ul><h2 id="notability-的痛点"><a class="markdownIt-Anchor" href="#notability-的痛点"></a> Notability 的痛点</h2><ul><li>文件管理只支持两个层级</li><li>👎👎👎新消息弹出的时候，会阻挡工具栏，如果恰好在选择工具的时候点击到弹出的消息，可能会造成教学事故……</li><li>👎👎👎新添加的页面默认是 A4 纸的大小，如果要使用模板的画只能先退出当前文件，然后打开模板文件，复制页面，再回来粘贴，非常麻烦</li><li>👎👎👎想要复制当前页面，需要打开右边页面窗口，点击当前页面，选择拷贝；再点击当前页面，选择粘贴；再点击下一张复制号的页面，选择清除页面，这样成功复制了当前的页面，非常麻烦</li><li>书写的时候，手掌可能会误造成页面的移动或者缩放</li><li>👎书写的时候，手掌可能会误差右下角的页面选择按钮和放大按钮</li><li>不支持批量删除页面</li><li>导出时须每次手动取消自动添加的最后一页</li></ul><h2 id="我的经验"><a class="markdownIt-Anchor" href="#我的经验"></a> 我的经验</h2><p>在最开始上课的时候，由于 Notability 还不支持投屏区域功能，因此只能使用 GoodNotes，恰巧这个时候有好几个班都在讲几何，因此体会最深的就是每次画辅助线的时候都要切换工具，画完之后还要切换回来，非常麻烦。而且它的自动校正并不准确，而且在画完之后不支持调整，导致一条线有时需要画好几遍才能画得比较准确。</p><p>因此在暑假开课的时候，我终于可以切换到了 Notability，但是也带了各种不方便，上面列举的所有痛点，都是我在讲课的时候遇到的。这里面影响最大的就是添加同类型页面非常麻烦。因为几何题目的过程较长，一页的板书写不下，所以我得提前复制好新的页面，否则在讲解题目的时候再复制，就会非常影响讲课的节奏。（但我又经常忘了。。。）</p><p>不得不说，习惯了 GoodNotes 添加页面的快捷之后，再回到 Notability，我到现在都没法适应。</p><div class="note danger">            <p>上面说的「比较麻烦」和「非常麻烦」，都是已经到了影响教学节奏的程度。</p>          </div><p>而讲代数部分的话，两者区别不大，唯一 Notability 比 GoodNotes 强的地方大概就是可以画比较直的长分数线吧。</p><p>关于颜色切换部分，我补充一点。如果仅仅使用 3 个颜色就够的话，GoodNotes 的切换方式要快的多；但是，如果使用的颜色更多的话，反而是 Notability 的切换方式更加顺畅。</p><p>因此，仅从书写体验来看，Notability 要比 GoodNotes 强太多，特别是讲几何题的时候。</p><p>而从综合体验上来看，则是 GoodNotes 完胜。</p><h2 id="我的选择"><a class="markdownIt-Anchor" href="#我的选择"></a> 我的选择</h2><p>只要有几何内容，那么一定使用 Notability。</p><p>如果只讲代数内容，那就看当时的心情吧。不过我更喜欢 Notability 里面书写的感觉，因此继续用 Notability 的几率会更大一点吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      对比两款软件在网课教学中的优缺点
+    
+    </summary>
+    
+    
+      <category term="工作" scheme="https://wangjiezhe.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="iPad" scheme="https://wangjiezhe.com/tags/iPad/"/>
+    
+      <category term="Notability" scheme="https://wangjiezhe.com/tags/Notability/"/>
+    
+      <category term="GoodNotes" scheme="https://wangjiezhe.com/tags/GoodNotes/"/>
+    
+      <category term="笔记软件" scheme="https://wangjiezhe.com/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="新冠" scheme="https://wangjiezhe.com/tags/%E6%96%B0%E5%86%A0/"/>
+    
+      <category term="网课" scheme="https://wangjiezhe.com/tags/%E7%BD%91%E8%AF%BE/"/>
+    
+      <category term="ClassIn" scheme="https://wangjiezhe.com/tags/ClassIn/"/>
+    
+  </entry>
   
   <entry>
     <title>常用 tkz-euclide 命令（一）——点的定义方法</title>
@@ -155,8 +190,8 @@
     
       <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
     
+      <category term="平面几何" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
     
-      <category term="平面几何" scheme="https://wangjiezhe.com/tags/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
     
       <category term="全等" scheme="https://wangjiezhe.com/tags/%E5%85%A8%E7%AD%89/"/>
     
@@ -182,8 +217,8 @@
     
       <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
     
+      <category term="平面几何" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
     
-      <category term="平面几何" scheme="https://wangjiezhe.com/tags/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
     
       <category term="全等" scheme="https://wangjiezhe.com/tags/%E5%85%A8%E7%AD%89/"/>
     
@@ -211,8 +246,8 @@
     
       <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
     
+      <category term="平面几何" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
     
-      <category term="平面几何" scheme="https://wangjiezhe.com/tags/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
     
       <category term="全等" scheme="https://wangjiezhe.com/tags/%E5%85%A8%E7%AD%89/"/>
     
@@ -240,8 +275,8 @@
     
       <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
     
+      <category term="平面几何" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
     
-      <category term="平面几何" scheme="https://wangjiezhe.com/tags/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
     
       <category term="全等" scheme="https://wangjiezhe.com/tags/%E5%85%A8%E7%AD%89/"/>
     
@@ -502,33 +537,6 @@
       <category term="太くないお" scheme="https://wangjiezhe.com/tags/%E5%A4%AA%E3%81%8F%E3%81%AA%E3%81%84%E3%81%8A/"/>
     
       <category term="何切" scheme="https://wangjiezhe.com/tags/%E4%BD%95%E5%88%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo NexT 魔改系列之三 ── 评论篇</title>
-    <link href="https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/"/>
-    <id>https://wangjiezhe.com/posts/2018-10-29-Hexo-NexT-3/</id>
-    <published>2018-10-29T13:33:24.000Z</published>
-    <updated>2019-08-21T12:59:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<div class="note primary">            <p>20191110更新：如果要使用utterances作为评论系统的话，可以使用官方的插件<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by1uZXh0LXV0dGVyYW5j">hexo-next-utteranc<i class="fa fa-external-link-alt"></i></span>。本文的方法在NexT主题更新至7.4.0之后已失效。</p>          </div><div class="note info">            <p>20190821更新：目前已改用集成到NexT主题中的DisqusJS，并使用<span class="exturl" data-url="aHR0cHM6Ly96ZWl0LmNv">ZEIT<i class="fa fa-external-link-alt"></i></span>部署，方法见<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1N1a2thVy9kaXNxdXNqcy1wcm94eS1leGFtcGxl">disqusjs-proxy-example<i class="fa fa-external-link-alt"></i></span>。</p>          </div><p>NexT主题本身集成了五种评论插件：Disqus，畅言，Valine，来必力和gitment。</p><p>Disqus应该算是全球最大的评论系统了，很多博客甚至一些其它网站都在使用，功能足够强大，也比较美观，还支持匿名评论。之前我也一直在用，本来打算不用折腾就可以用了，结果发现，Disqus居然被墙了，WTF？？？</p><p>查了一下，大概是16年7月的事情，嗯。。。</p><p>好吧，看来Disqus只能作为备用的评论系统了，还需要一个不用翻墙就能用的评论系统才行。</p><blockquote><p>也有几种免翻墙用Disqus评论的解决办法，例如<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NpcXVsb3Zlci9kaXNxdXMtcHJveHk=">disqus-proxy<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NVa2thVy9EaXNxdXNKUw==">DisqusJS<i class="fa fa-external-link-alt"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zvb2xlYXAvZGlzcXVzLXBocC1hcGk=">Disqus PHP API<i class="fa fa-external-link-alt"></i></span>，不过它们都需要另外一台服务器来进行反代理，而我的博客是放在Github上的，也没有多余的服务器可以用，只好放弃了。</p></blockquote><p>畅言，搜狐作的评论系统，需要备案才能使用。有人能告诉我Github Page上的博客怎么备案么。。。</p><p>而且，按照国内评论系统的尿性，说不定那天就又关闭了，就像之前的多说、友言和网易云跟帖。。。</p><p>Valine，这个倒是一个不错的选择，看上去也比较简洁明快，不过是基于Leancloud的，还得去配置一个Leancloud账号。其实这是一个不错的选择，可以一试。</p><p>来必力，韩国的一个评论系统，看上去不错，而且支持多账号登录，不过在国内加载有点慢。</p><p>gitment，使用Github的issue系统作为评论系统，很geek的一个想法，不过看到这权限，能够读写所有公开的repo？？？</p><p><img data-src="5bd71ffe5a211.png" alt="gitment的权限" /></p><p>这是不是意味着可以把我所有的repo全部删掉。。。</p><blockquote><p>关于gitment的安全性的讨论，参见<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltc3VuL2dpdG1lbnQjaXMtaXQtc2FmZS10by1tYWtlLW15LWNsaWVudC1zZWNyZXQtcHVibGlj">imsun/gitment<i class="fa fa-external-link-alt"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLndvbGZvZ3JlLmNvbS9wb3N0cy9zZWN1cml0eS1wcm9ibGVtLW9mLWdpdG1lbnQ=">Gitment 的安全性争议<i class="fa fa-external-link-alt"></i></span>。</p></blockquote><h2 id="添加utterances评论系统"><a class="markdownIt-Anchor" href="#添加utterances评论系统"></a> 添加<span class="exturl" data-url="aHR0cHM6Ly91dHRlcmFuYy5lcw==">utterances<i class="fa fa-external-link-alt"></i></span>评论系统</h2><p>在搜索gitment的时候，发现了一片utterances的<span class="exturl" data-url="aHR0cDovL3d3dy54aWFubWluLm9yZy9wb3N0L3V0dGVyYW5jZXMtY29tbWVudC1zeXN0ZW0=">介绍文章<i class="fa fa-external-link-alt"></i></span>，发现这是一个好东西，同样是基于Github的issue系统，但由于是基于Github App构建的，权限控制的颗粒度要细一些，可以只具有读写issue的权限，不需要读写代码的权限，而且可以只在需要的repo中安装。这才是一个合格的评论系统应该有的权限嘛。</p><p><img data-src="5bd723ae73cb3.png" alt="utterances的权限" /><br />DisqusJS<br />不过utterances没有集成在NexT主题中，需要手动添加。</p><p>打开主题文件夹，在<code>layout/_third-party/comments/</code>中新建文件<code>utterances.swig</code>，并添加下面的内容：</p><figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">if</span></span> theme.utterances.enable %&#125;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://utteranc.es/client.js"</span></span></span></span><br><span class="line"><span class="xml">    repo="</span><span class="template-variable">&#123;&#123; theme.utterances.repo &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    issue-term="</span><span class="template-variable">&#123;&#123; theme.utterances.issue_term &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    theme="</span><span class="template-variable">&#123;&#123; theme.utterances.theme &#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    crossorigin="anonymous"</span></span><br><span class="line"><span class="xml">    async&gt;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endif</span></span> %&#125;</span></span><br></pre></td></tr></table></figure><p>然后在<code>layout/_partials/comments.swig</code>中添加下面的内容：</p><figure class="highlight patch"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   &#123;% elseif theme.valine.enable and theme.valine.appid and theme.valine.appkey %&#125;</span><br><span class="line">     &lt;div class="comments" id="comments"&gt;</span><br><span class="line">     &lt;/div&gt;</span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+  &#123;% elseif theme.utterances.enable %&#125;</span></span><br><span class="line"><span class="addition">+    &lt;div class="comments" id="comments"&gt;</span></span><br><span class="line"><span class="addition">+      &#123;% include '../_third-party/comments/utterances.swig' %&#125;</span></span><br><span class="line"><span class="addition">+    &lt;/div&gt;</span></span><br><span class="line">   &#123;% endif %&#125;</span><br></pre></td></tr></table></figure><p>最后在主题配置文件中添加如下配置：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="comment"># owner/repo</span></span><br><span class="line">  <span class="attr">issue_term:</span> <span class="comment"># pathname, url, title, og:title [ISSUE NUMBER] or [SPECIFIC TERM]</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="comment"># github-light or github-dark</span></span><br></pre></td></tr></table></figure><p>三个配置选项都是必填的，第一个是配置issue所在的repo，第二个是如何决定如何寻找对应的issue，第三个决定采用亮或暗的主题。</p><p>然后可以愉快的使用了～</p><p><img data-src="5bd72ad402e66.png" alt="utterances的原始效果图" /></p><p>不过，utterances有默认宽度限制，在页面上明显要比外边框窄很多，感觉很难看，所以我把宽度限制给去掉了，方法是在<code>source/css/_custom/custom.styl</code>中添加以下内容：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.utterances</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样就显得好看多了。</p><p><img data-src="5bd72b0093ab9.png" alt="utterances的最终效果图" /></p><p>utterance默认不会创建issue，而是会在第一次评论的时候自动创建相应的issue，这个也比gitment好用不少。</p><h2 id="使用-disqus-php-api-进行反代理"><a class="markdownIt-Anchor" href="#使用-disqus-php-api-进行反代理"></a> 使用 Disqus PHP API 进行反代理</h2><p>待更新</p><h2 id="使用-valine-作为评论系统"><a class="markdownIt-Anchor" href="#使用-valine-作为评论系统"></a> 使用 Valine 作为评论系统</h2><blockquote><p>参见：<br /><span class="exturl" data-url="aHR0cHM6Ly9wYW5qdW53ZW4uY29tL2RpeS1hLWNvbW1lbnQtc3lzdGVt">Valine: 独立博客评论系统<i class="fa fa-external-link-alt"></i></span><br /><span class="exturl" data-url="aHR0cHM6Ly9wYW5qdW53ZW4uY29tL2Zyb20tZGlzcXVzLXRvLWxlYW5jbG91ZA==">使用LeanCloud做评论系统<i class="fa fa-external-link-alt"></i></span><br /><span class="exturl" data-url="aHR0cHM6Ly9sZWFmZXJ4Lm9ubGluZS8yMDE4LzAyLzExL2xjLXNlY3VyaXR5">Leancloud访客统计插件重大安全漏洞修复指南<i class="fa fa-external-link-alt"></i></span></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      为NexT主题添加评论功能
-    
-    </summary>
-    
-    
-      <category term="博客" scheme="https://wangjiezhe.com/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="主题" scheme="https://wangjiezhe.com/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/"/>
-    
-    
-      <category term="Hexo" scheme="https://wangjiezhe.com/tags/Hexo/"/>
-    
-      <category term="NexT" scheme="https://wangjiezhe.com/tags/NexT/"/>
     
   </entry>
   
