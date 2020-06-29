@@ -2,30 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangjiezhe.com/categories/index.html</loc>
+    
+    <lastmod>2020-06-29T15:31:06.480Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangjiezhe.com/links/index.html</loc>
     
-    <lastmod>2020-06-23T05:12:34.814Z</lastmod>
+    <lastmod>2020-06-29T15:31:06.480Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://wangjiezhe.com/tags/index.html</loc>
     
-    <lastmod>2020-06-23T05:12:34.814Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.com/categories/index.html</loc>
-    
-    <lastmod>2020-06-23T05:12:34.810Z</lastmod>
+    <lastmod>2020-06-29T15:31:06.480Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://wangjiezhe.com/404.html</loc>
     
-    <lastmod>2020-06-23T05:12:34.730Z</lastmod>
+    <lastmod>2020-06-29T15:31:06.396Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.com/posts/2020-06-22-tkz-euclide-1/</loc>
+    
+    <lastmod>2020-06-29T15:20:16.000Z</lastmod>
     
   </url>
   

@@ -2356,4 +2356,486 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>视频</tag>
       </tags>
   </entry>
+  <entry>
+    <title>常用 tkz-euclide 命令（一）——点的定义方法</title>
+    <url>//posts/2020-06-22-tkz-euclide-1/</url>
+    <content><![CDATA[<p>基本格式：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;tikzpicture&#125;</span></span></span><br><span class="line">  <span class="comment">%%% 定义基础点</span></span><br><span class="line">  <span class="tag">\<span class="name">tkzDefPoint</span></span>(0,0)&#123;A&#125;</span><br><span class="line">  <span class="tag">\<span class="name">tkzDefPoint</span></span>(1,0)&#123;B&#125;</span><br><span class="line">  <span class="comment">%%% 定义各种图形及其它点</span></span><br><span class="line">  <span class="tag">\<span class="name">tkzDefSquare</span></span>(A,B) <span class="tag">\<span class="name">tkzGetPoints</span><span class="string">&#123;C&#125;</span><span class="string">&#123;D&#125;</span></span></span><br><span class="line">  <span class="comment">%%% 画出所有图形和点</span></span><br><span class="line">  <span class="tag">\<span class="name">tkzDrawPolygon</span></span>(A,B,C,D)</span><br><span class="line">  <span class="tag">\<span class="name">tkzDrawPoints</span></span>(A,...,D)</span><br><span class="line">  <span class="comment">%%% 标记图形和点</span></span><br><span class="line">  <span class="tag">\<span class="name">tkzLabelPoints</span><span class="string">[below]</span></span>(A,B)</span><br><span class="line">  <span class="tag">\<span class="name">tkzLabelPoints</span><span class="string">[above]</span></span>(C,D)</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;tikzpicture&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>相较于 <code>tikz</code> 宏包的优点：</p>
+<ul>
+<li>常用的图形都有定义，可以直接画</li>
+<li>命令的命名规则比较好记</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>命名比较繁琐</li>
+</ul>
+<h2 id="定义点的方法"><a class="markdownIt-Anchor" href="#定义点的方法"></a> 定义点的方法</h2>
+<h3 id="定义坐标点"><a class="markdownIt-Anchor" href="#定义坐标点"></a> 定义坐标点</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直角坐标</td>
+<td><code>\tkzDefPoint(&lt;x,y&gt;){A}</code></td>
+</tr>
+<tr>
+<td>极坐标</td>
+<td><code>\tkzDefPoint(&lt;θ:ρ&gt;){A}</code></td>
+</tr>
+<tr>
+<td>相对坐标</td>
+<td><code>\tkzDefShiftPoint[A](&lt;x,y&gt; or &lt;θ:ρ&gt;){B}</code> 或者 <br /> <code>\tkzDefPoint[shift={(&lt;x,y&gt; or &lt;θ:ρ&gt;)}]((&lt;x,y&gt; or &lt;θ:ρ&gt;){B})</code>或者 <br /><code>\tkzDefPointOnCircle[angle=θ,center=A,radius=ρ] \tkzGetPoint{B}</code></td>
+</tr>
+<tr>
+<td>批量定义（直角坐标）</td>
+<td><code>\tkzDefPoints{&lt;x1/y1/A,x2/y2/B,...&gt;}</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="定义相对点"><a class="markdownIt-Anchor" href="#定义相对点"></a> 定义相对点</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>中点</td>
+<td><code>\tkzDefMidPoint(A,B) \tkzGetPoint{C}</code></td>
+</tr>
+<tr>
+<td>定比分点（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>P</mi><mo>:</mo><mi>P</mi><mi>B</mi><mo>=</mo><mi>m</mi><mo>:</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">AP:PB=m:n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>，即 <br /><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>O</mi><mi>P</mi></mrow><mo stretchy="true">→</mo></mover><mo>=</mo><mfrac><mrow><mi>n</mi><mover accent="true"><mrow><mi>O</mi><mi>A</mi></mrow><mo stretchy="true">→</mo></mover><mo>+</mo><mi>m</mi><mover accent="true"><mrow><mi>O</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><mrow><mi>n</mi><mo>+</mo><mi>m</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\overrightarrow{OP}=\frac{n\overrightarrow{OA}+m\overrightarrow{OB}}{n+m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.6410620000000002em;vertical-align:-0.403331em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2377310000000001em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight">m</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord accent mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">O</span><span class="mord mathdefault mtight">A</span></span></span><span class="svg-align" style="top:-3.38333em;"><span class="pstrut" style="height:2.7em;"></span><span class="hide-tail mtight" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span><span class="mbin mtight">+</span><span class="mord mathdefault mtight">m</span><span class="mord accent mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">O</span><span class="mord mathdefault mtight" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.38333em;"><span class="pstrut" style="height:2.7em;"></span><span class="hide-tail mtight" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.403331em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>）</td>
+<td><code>\tkzDefBarycentricPoint(&lt;A=n，B=m&gt;) \tkzGetPoint{P}</code></td>
+</tr>
+<tr>
+<td>定比分点（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>A</mi><mi>P</mi></mrow><mo stretchy="true">→</mo></mover><mo>=</mo><mi>k</mi><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{AP}=k\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span></span></span></span>）</td>
+<td><code>\tkzDefPointOnLine[pos=k](A,B)</code></td>
+</tr>
+<tr>
+<td>重心坐标</td>
+<td><code>\tkzDefBarycentricPoint(&lt;A=α1，B=α2,C=α3,...&gt;) \tkzGetPoint{P}</code></td>
+</tr>
+<tr>
+<td>内相似中心</td>
+<td><code>\tkzDefIntSimilitudeCenter(O1,r1)(O2,r2) \tkzGetPoint{I}</code></td>
+</tr>
+<tr>
+<td>外相似中心</td>
+<td><code>\tkzExtSimilitudeCenter(O1,r1)(O2,r2) \tkzGetPoint{J}</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="定义几何变换点"><a class="markdownIt-Anchor" href="#定义几何变换点"></a> 定义几何变换点</h3>
+<p>命令：<code>\tkzDefPointBy[&lt;option&gt;](P) \tkzGetPoint{Q}</code></p>
+<p>批量变换：<code>\tkzDefPointsBy[&lt;option&gt;](M,N,...){P,Q,...}</code></p>
+<p>（如后面的为<code>{}</code>，则缺省值为<code>M',N',...</code>）</p>
+<table>
+<thead>
+<tr>
+<th>变换</th>
+<th>选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平移</td>
+<td><code>translation=from A to B</code></td>
+</tr>
+<tr>
+<td>位似</td>
+<td><code>homothety=center A ratio .5</code></td>
+</tr>
+<tr>
+<td>反射（轴对称）</td>
+<td><code>reflection=over A--B</code></td>
+</tr>
+<tr>
+<td>中心对称</td>
+<td><code>symmetry=center A</code></td>
+</tr>
+<tr>
+<td>投影</td>
+<td><code>projection=onto A--B</code></td>
+</tr>
+<tr>
+<td>旋转（角度）</td>
+<td><code>rotation=center O angle 30</code></td>
+</tr>
+<tr>
+<td>旋转（弧度）</td>
+<td><code>rotation in rad=center O angle pi/3</code></td>
+</tr>
+<tr>
+<td>反演</td>
+<td><code>inversion=center O through A</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="定义向量变换点"><a class="markdownIt-Anchor" href="#定义向量变换点"></a> 定义向量变换点</h3>
+<p>命令：<code>\tkzDefPointWith[&lt;options&gt;](&lt;A,B&gt;) \tkzGetPoint{C}</code></p>
+<table>
+<thead>
+<tr>
+<th>变换</th>
+<th>描述</th>
+<th>选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正交</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>A</mi><mi>C</mi></mrow><mo stretchy="true">→</mo></mover><mo>=</mo><mi>K</mi><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{AC}=K\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>A</mi><mi>C</mi></mrow><mo stretchy="true">→</mo></mover><mo>⊥</mo><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{AC}\perp\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span></span></span></span>．</td>
+<td><code>orthogonal</code></td>
+</tr>
+<tr>
+<td>单位正交</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>C</mi><mo>=</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">AC=K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>A</mi><mi>C</mi></mrow><mo stretchy="true">→</mo></mover><mo>⊥</mo><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{AC}\perp\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span></span></span></span>．</td>
+<td><code>orthogonal normed</code></td>
+</tr>
+<tr>
+<td>共线</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>A</mi><mi>C</mi></mrow><mo stretchy="true">→</mo></mover><mo>=</mo><mi>K</mi><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{AC}=K\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span></span></span></span>．</td>
+<td><code>linear</code></td>
+</tr>
+<tr>
+<td>单位共线</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>C</mi><mo>=</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">AC=K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>A</mi><mi>C</mi></mrow><mo stretchy="true">→</mo></mover><mo>∥</mo><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{AC}\parallel\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.45533em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span></span></span></span>．</td>
+<td><code>linear normed</code></td>
+</tr>
+<tr>
+<td>共线</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>M</mi><mi>C</mi></mrow><mo stretchy="true">→</mo></mover><mo>=</mo><mi>K</mi><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{MC}=K\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span></span></span></span>．</td>
+<td><code>colinear=at M</code></td>
+</tr>
+<tr>
+<td>单位共线</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>C</mi><mo>=</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">MC=K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>M</mi><mi>C</mi></mrow><mo stretchy="true">→</mo></mover><mo>∥</mo><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{MC}\parallel\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.45533em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span></span></span></span>．</td>
+<td><code>colinear normed=at M</code></td>
+</tr>
+<tr>
+<td>变换系数</td>
+<td>K默认为1（与前面的选项组合使用）</td>
+<td><code>K=1</code></td>
+</tr>
+</tbody>
+</table>
+<p>获取向量的坐标：<code>\tkzGetVectxy(&lt;A,B&gt;){&lt;V&gt;}</code>，则向量 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.20533em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.20533em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span></span></span></span> 的坐标为 (<code>\Vx</code>,<code>\Vy</code>)．</p>
+<h3 id="定义三角形的各中心"><a class="markdownIt-Anchor" href="#定义三角形的各中心"></a> 定义三角形的各中心</h3>
+<p>命令：<code>\tkzDefTriangleCenter[&lt;option&gt;](&lt;A,B,C&gt;) \tkzGetPoint{P}</code></p>
+<table>
+<thead>
+<tr>
+<th>ETC 编号</th>
+<th>名称</th>
+<th>描述</th>
+<th>选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X(1)</td>
+<td>内心</td>
+<td>三条内角平分线的交点</td>
+<td><code>in</code></td>
+</tr>
+<tr>
+<td></td>
+<td>旁心（与B对应）</td>
+<td>两条外角平分线与一条内角平分线的交点</td>
+<td><code>ex</code></td>
+</tr>
+<tr>
+<td>X(2)</td>
+<td>重心</td>
+<td>三条中线的交点</td>
+<td><code>centroid</code></td>
+</tr>
+<tr>
+<td>X(3)</td>
+<td>外心</td>
+<td>三条垂直平分线的交点</td>
+<td><code>circum</code></td>
+</tr>
+<tr>
+<td>X(4)</td>
+<td>垂心</td>
+<td>三条高的交点</td>
+<td><code>ortho</code></td>
+</tr>
+<tr>
+<td>X(5)</td>
+<td>欧拉圆（九点圆）心</td>
+<td>三边的中点、三高的垂足、<br />顶点到垂心的三条线段的中点<br />所在圆的圆心</td>
+<td><code>euler</code></td>
+</tr>
+<tr>
+<td>X(6)</td>
+<td>类似重心（Lemoine点、莱莫恩点）</td>
+<td>重心的等角共轭点</td>
+<td><code>symmedian</code></td>
+</tr>
+<tr>
+<td>X(7)</td>
+<td>Gergonne点（热尔岗点）</td>
+<td>内切点与对应顶点的三条连线的交点</td>
+<td><code>gergonne</code></td>
+</tr>
+<tr>
+<td>X(8)</td>
+<td>Nagel点（奈格尔点）</td>
+<td>旁切点与对应顶点的三条连线的交点</td>
+<td><code>nagel</code></td>
+</tr>
+<tr>
+<td>X(9)</td>
+<td>mittenpunkt点</td>
+<td>旁切点三角形的类似重心</td>
+<td><code>mittenpunkt</code></td>
+</tr>
+<tr>
+<td>X(10)</td>
+<td>Spieker点（斯俾克心）</td>
+<td>中点三角形的内心</td>
+<td><code>spieker</code></td>
+</tr>
+<tr>
+<td>X(11)</td>
+<td>费尔巴哈点</td>
+<td>内切圆与九点圆的切点</td>
+<td><code>feuerbach</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="定义随机点"><a class="markdownIt-Anchor" href="#定义随机点"></a> 定义随机点</h3>
+<p>命令：<code>\tkzDefRandPointOn[&lt;local option&gt;] \tkzGetPoint{P}</code></p>
+<table>
+<thead>
+<tr>
+<th>位置</th>
+<th>选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>线段</td>
+<td><code>segment=A--B</code></td>
+</tr>
+<tr>
+<td>直线</td>
+<td><code>line=A--B</code></td>
+</tr>
+<tr>
+<td>矩形</td>
+<td><code>rectangle=A and B</code></td>
+</tr>
+<tr>
+<td>圆（已知半径长度）</td>
+<td><code>circle=center A radius 2</code></td>
+</tr>
+<tr>
+<td>圆（已知半径线段）</td>
+<td><code>circle through=center A through B</code></td>
+</tr>
+<tr>
+<td>圆盘（已知半径线段）</td>
+<td><code>disk through=center A through B</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="绘制点的方法"><a class="markdownIt-Anchor" href="#绘制点的方法"></a> 绘制点的方法</h2>
+<p>绘制单个点：<code>\tkzDrawPoint[&lt;options&gt;](A)</code></p>
+<p>绘制多个点：<code>\tkzDrawPoints[&lt;options&gt;](A,B,C,...)</code></p>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>形状</td>
+<td>shape=circle, cross, cross out</td>
+</tr>
+<tr>
+<td>大小</td>
+<td>size=6</td>
+</tr>
+<tr>
+<td>颜色</td>
+<td>color=black</td>
+</tr>
+<tr>
+<td>填充</td>
+<td>fill=black!50</td>
+</tr>
+</tbody>
+</table>
+<h2 id="标记点的方法"><a class="markdownIt-Anchor" href="#标记点的方法"></a> 标记点的方法</h2>
+<p>标记单个点：<code>\tkzLabelPoint[&lt;options&gt;](A){&lt;text support tex&gt;}</code></p>
+<p>标记多个点：<code>\tkzLabelPoints[&lt;options&gt;](A,B,C,...)</code></p>
+<p>自动选择位置标记多个点：<code>\tkzAutoLabelPoints[center=M, &lt;options&gt;](A,B,C,...)</code></p>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>位置</td>
+<td>above/below + left/right</td>
+</tr>
+<tr>
+<td>具体位置</td>
+<td>below right=3pt</td>
+</tr>
+<tr>
+<td>字体大小</td>
+<td>font=\scriptsize</td>
+</tr>
+<tr>
+<td>颜色</td>
+<td>color=black</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>Latex</category>
+      </categories>
+      <tags>
+        <tag>tikz</tag>
+        <tag>画图</tag>
+      </tags>
+  </entry>
 </search>
