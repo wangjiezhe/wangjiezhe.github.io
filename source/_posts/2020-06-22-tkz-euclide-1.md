@@ -54,9 +54,9 @@ mathjax: true
 | 方法                                                         | 命令                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 中点                                                         | `\tkzDefMidPoint(A,B) \tkzGetPoint{C}`                       |
-| 定比分点（$AP:PB=m:n$，即 <br />$\overrightarrow{OP}=\frac{n\overrightarrow{OA}+m\overrightarrow{OB}}{n+m}$） | `\tkzDefBarycentricPoint(<A=n，B=m>) \tkzGetPoint{P}`        |
+| 定比分点（$AP:PB=m:n$，即 <br />$\overrightarrow{OP}=\frac{n\overrightarrow{OA}+m\overrightarrow{OB}}{n+m}$） | `\tkzDefBarycentricPoint(<A=n,B=m>) \tkzGetPoint{P}`        |
 | 定比分点（$\overrightarrow{AP}=k\overrightarrow{AB}$）       | `\tkzDefPointOnLine[pos=k](A,B)`                             |
-| 重心坐标                                                     | `\tkzDefBarycentricPoint(<A=α1，B=α2,C=α3,...>) \tkzGetPoint{P}` |
+| 重心坐标                                                     | `\tkzDefBarycentricPoint(<A=α1,B=α2,C=α3,...>) \tkzGetPoint{P}` |
 | 内相似中心                                                   | `\tkzDefIntSimilitudeCenter(O1,r1)(O2,r2) \tkzGetPoint{I}`   |
 | 外相似中心                                                   | `\tkzExtSimilitudeCenter(O1,r1)(O2,r2) \tkzGetPoint{J}`      |
 
@@ -135,10 +135,10 @@ mathjax: true
 
 | 描述 | 选项                           |
 | ---- | ------------------------------ |
-| 形状 | shape=circle, cross, cross out |
-| 大小 | size=6                         |
-| 颜色 | color=black                    |
-| 填充 | fill=black!50                  |
+| 形状 | `shape=circle, cross, cross out` |
+| 大小 | `size=6`                         |
+| 颜色 | `color=black`                    |
+| 填充 | `fill=black!50`                  |
 
 ## 标记点的方法
 
@@ -150,8 +150,8 @@ mathjax: true
 
 | 描述     | 选项                     |
 | -------- | ------------------------ |
-| 位置     | above/below + left/right |
-| 具体位置 | below right=3pt          |
-| 字体大小 | font=\scriptsize         |
-| 颜色     | color=black              |
+| 位置     | `above/below + left/right` |
+| 具体位置 | `below right=3pt`          |
+| 字体大小 | `font=\scriptsize`         |
+| 颜色     | `color=black`              |
 
