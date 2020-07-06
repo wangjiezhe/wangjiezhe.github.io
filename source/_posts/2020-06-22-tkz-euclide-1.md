@@ -54,7 +54,7 @@ mathjax: true
 | 方法                                                         | 命令                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 中点                                                         | `\tkzDefMidPoint(A,B) \tkzGetPoint{C}`                       |
-| 定比分点（$AP:PB=m:n$，即 <br />$\overrightarrow{OP}=\frac{n\overrightarrow{OA}+m\overrightarrow{OB}}{n+m}$） | `\tkzDefBarycentricPoint(<A=n,B=m>) \tkzGetPoint{P}`        |
+| 定比分点（$AP:PB=m:n$，即 <br />$\overrightarrow{OP}=\dfrac{n\overrightarrow{OA}+m\overrightarrow{OB}}{n+m}$） | `\tkzDefBarycentricPoint(<A=n,B=m>) \tkzGetPoint{P}`         |
 | 定比分点（$\overrightarrow{AP}=k\overrightarrow{AB}$）       | `\tkzDefPointOnLine[pos=k](A,B)`                             |
 | 重心坐标                                                     | `\tkzDefBarycentricPoint(<A=α1,B=α2,C=α3,...>) \tkzGetPoint{P}` |
 | 内相似中心                                                   | `\tkzDefIntSimilitudeCenter(O1,r1)(O2,r2) \tkzGetPoint{I}`   |
@@ -127,16 +127,26 @@ mathjax: true
 | 圆（已知半径线段）   | `circle through=center A through B` |
 | 圆盘（已知半径线段） | `disk through=center A through B`   |
 
+## 获取点的方法
+
+获取一个点：`\tkzGetPoint{A}`，默认存储为 `tkzPointResult`
+
+获取多个点：`\tkzGetPoints{A}{B}`，默认存储为 `tkzFirstPointResult` 和 `tkzSecondPointResult`
+
+若只获取其中某一个，则可以使用 `tkzGetFirstPoint{A}` 或 `\tkzGetSecondPoint{B}`
+
 ## 绘制点的方法
 
 绘制单个点：`\tkzDrawPoint[<options>](A)`
 
 绘制多个点：`\tkzDrawPoints[<options>](A,B,C,...)`
 
-| 描述 | 选项                           |
+自定义点的样式：`\tkzSetUpPoint[<options>]`
+
+| 样式 | 选项                         |
 | ---- | ------------------------------ |
-| 形状 | `shape=circle, cross, cross out` |
-| 大小 | `size=6`                         |
+| 形状 | `shape=circle`（或 `cross`、`cross out`） |
+| 大小 | `size=3`                        |
 | 颜色 | `color=black`                    |
 | 填充 | `fill=black!50`                  |
 
