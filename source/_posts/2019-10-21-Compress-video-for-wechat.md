@@ -52,15 +52,22 @@ ffmpeg -y -i input.mp4 -c:v libx265 -b:v 400k -x265-params pass=1 -an -f mp4 /de
 ```bash
 #!/usr/bin/env bash
 
+### 设置输出文件大小为 24M
 out_size=24
+
+### 获取视频文件的时长，单位为秒
 length=$(mediainfo --Inform="Video;%Duration%" "$1")
+
+### 计算输出文件的总码率
 bitrate_all=$(echo "${out_size}*8192/(${length}/1000)" | bc)
 
+### 获取视频文件的音频码率
 bitrate_audio_orig=$(mediainfo --Inform="Audio;%BitRate%" "$1")
 if [ -z ${bitrate_audio_orig} ]; then
     bitrate_audio_orig=$(mediainfo --Inform="Audio;%BitRate_Nominal%" "$1")
 fi
 
+### 如果音频码率过大，则降为 128k
 if [ ${bitrate_audio_orig} -gt 150000 ]; then
     convert_audio=true
     bitrate_audio=128
@@ -68,16 +75,20 @@ else
     bitrate_audio=$(echo "${bitrate_audio_orig}/1000" | bc)
 fi
 
+### 如果视频时间较长，总码率较低，则进一步降低音频码率至 48k
 if [ ${bitrate_all} -lt 250 ]; then
     convert_audio=true
     bitrate_audio=48
 fi
 
+### 计算输出文件的视频码率
 bitrate_video=$(echo "${bitrate_all}-${bitrate_audio}" | bc)
 
+### 重命名输出文件
 in_file="$1"
 out_file=$(echo ${in_file} | sed -e 's/.mp4/_25M.mp4/')
 
+### 使用 h265 编码，2 pass 模式压缩文件
 ffmpeg -y -i ${in_file} -c:v libx265 -b:v ${bitrate_video}k -x265-params pass=1 -an -f mp4 /dev/null
 if [ ${convert_audio} = true ]; then
     ffmpeg -i "$1" -c:v libx265 -b:v ${bitrate_video}k -x265-params pass=2 -c:a aac -b:a ${bitrate_audio}k ${out_file}
