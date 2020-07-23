@@ -224,3 +224,4 @@ vendors:
   velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js
   pace: //cdn.jsdelivr.net/npm/pace-js@1/pace.min.js
   pace_css: //cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css
+  katex: //cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
