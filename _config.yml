@@ -104,7 +104,7 @@ markdown:
     - markdown-it-ins
     - markdown-it-sub
     - markdown-it-sup
-    - markdown-it-katex
+    - '@iktakahiro/markdown-it-katex'
     - markdown-it-task-lists
     - markdown-it-emoji
     - markdown-it-attrs
