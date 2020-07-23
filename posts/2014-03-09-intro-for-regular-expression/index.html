@@ -276,25 +276,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="元字符-grep-sed"><a class="markdownIt-Anchor" href="#元字符-grep-sed"></a> 元字符 (grep, sed)</h2>
-<h3 id="1-句点元字符"><a class="markdownIt-Anchor" href="#1-句点元字符"></a> 1. 句点元字符 <code>.</code></h3>
+        <h2 id="元字符-grep-sed">元字符 (grep, sed)</h2>
+<h3 id="1-句点元字符">1. 句点元字符 <code>.</code></h3>
 <p>通配元字符，匹配任意字符，除了换行符。</p>
-<h3 id="2-反斜杠元字符"><a class="markdownIt-Anchor" href="#2-反斜杠元字符"></a> 2. 反斜杠元字符 <code>\\</code></h3>
+<h3 id="2-反斜杠元字符">2. 反斜杠元字符 <code>\\</code></h3>
 <p>将其后面的一个字符解释为普通字符而不是元字符。</p>
-<h3 id="3-星号元字符"><a class="markdownIt-Anchor" href="#3-星号元字符"></a> 3. 星号元字符 <code>\*</code></h3>
+<h3 id="3-星号元字符">3. 星号元字符 <code>\*</code></h3>
 <p>其紧挨着的之前的匹配有 0+ 次匹配机会。</p>
-<h3 id="4-位置元字符"><a class="markdownIt-Anchor" href="#4-位置元字符"></a> 4. 位置元字符 <code>^</code>, <code>$</code></h3>
+<h3 id="4-位置元字符">4. 位置元字符 <code>^</code>, <code>$</code></h3>
 <p>^ 匹配字符串的最前面。<br />
 $ 匹配字符串的最后面。</p>
-<h3 id="5-字符组元字符-连字符元字符-补字号"><a class="markdownIt-Anchor" href="#5-字符组元字符-连字符元字符-补字号"></a> 5. 字符组元字符 <code>[ ]</code>, 连字符元字符 <code>-</code>, 补字号 <code>^</code></h3>
+<h3 id="5-字符组元字符-连字符元字符-补字号">5. 字符组元字符 <code>[ ]</code>, 连字符元字符 <code>-</code>, 补字号 <code>^</code></h3>
 <p><code>[]</code> 匹配方括号内的左右字符。<br />
 <code>\-</code> 连字符元字符仅在字符组元字符内有意义，表示一段连续字符范围。<br />
 <code>^</code> 表示排除某些字符。</p>
-<h3 id="6-范围字符串"><a class="markdownIt-Anchor" href="#6-范围字符串"></a> 6. 范围字符串 <code>\\{ \\}</code></h3>
+<h3 id="6-范围字符串">6. 范围字符串 <code>\\{ \\}</code></h3>
 <p><code>\\{n,m\\}</code> 匹配 n~m 次。<br />
 <code>\\{n\\}</code> 匹配 n 次。<br />
 <code>\\{n,\\}</code> 匹配 n+ 次。</p>
-<h3 id="7-特殊字符类"><a class="markdownIt-Anchor" href="#7-特殊字符类"></a> 7. 特殊字符类</h3>
+<h3 id="7-特殊字符类">7. 特殊字符类</h3>
 <p><code>[[:alpha:]]</code> 匹配任意字母字符，大写或小写<br />
 <code>[[:alnum:]]</code> 匹配任意字母数字字符，0-9, a-z, A-Z<br />
 <code>[[:blank:]]</code> 匹配空格或制表符字符<br />
@@ -304,19 +304,19 @@ $ 匹配字符串的最后面。</p>
 <code>[[:punct:]]</code> 匹配任意标点<br />
 <code>[[:space:]]</code> 匹配任意空白字符: 空格、制表符、NL、FF、VT、CR<br />
 <code>[[:upper:]]</code> 匹配任意大写字符，A-Z</p>
-<h2 id="扩展元字符-egrep-awk"><a class="markdownIt-Anchor" href="#扩展元字符-egrep-awk"></a> 扩展元字符 (egrep, awk)</h2>
-<h3 id="1-加号元字符"><a class="markdownIt-Anchor" href="#1-加号元字符"></a> 1. 加号元字符 <code>+</code></h3>
+<h2 id="扩展元字符-egrep-awk">扩展元字符 (egrep, awk)</h2>
+<h3 id="1-加号元字符">1. 加号元字符 <code>+</code></h3>
 <p>其紧挨着的之前的匹配有 <strong>1+</strong> 次匹配机会。</p>
-<h3 id="2-问号元字符"><a class="markdownIt-Anchor" href="#2-问号元字符"></a> 2. 问号元字符 <code>?</code></h3>
+<h3 id="2-问号元字符">2. 问号元字符 <code>?</code></h3>
 <p>其紧挨着的之前的匹配有 <strong>0~1</strong> 次匹配机会。</p>
-<h3 id="3-竖线元字符"><a class="markdownIt-Anchor" href="#3-竖线元字符"></a> 3. 竖线元字符 <code>|</code></h3>
+<h3 id="3-竖线元字符">3. 竖线元字符 <code>|</code></h3>
 <p><code>r1|r2</code> 匹配 r1 或 r2</p>
-<h3 id="4-括号元字符"><a class="markdownIt-Anchor" href="#4-括号元字符"></a> 4. 括号元字符 <code>( )</code></h3>
+<h3 id="4-括号元字符">4. 括号元字符 <code>( )</code></h3>
 <p><code>(r1)</code> 匹配子字符串r1(常与 * + ? | 等连用)。</p>
-<h3 id="5-范围元字符"><a class="markdownIt-Anchor" href="#5-范围元字符"></a> 5. 范围元字符 <code>{ }</code></h3>
+<h3 id="5-范围元字符">5. 范围元字符 <code>{ }</code></h3>
 <p>与上面的范围元字符类似。</p>
-<h2 id="固定元字符-grep"><a class="markdownIt-Anchor" href="#固定元字符-grep"></a> 固定元字符 (grep)</h2>
-<h3 id="1"><a class="markdownIt-Anchor" href="#1"></a> 1. <code>\\&lt; \\&gt;</code></h3>
+<h2 id="固定元字符-grep">固定元字符 (grep)</h2>
+<h3 id="1">1. <code>\\&lt; \\&gt;</code></h3>
 <p>严格匹配一个词(后面必须直接跟一个空格或标点符号)。</p>
 <p>参考:</p>
 <ul>
@@ -464,7 +464,7 @@ $ 匹配字符串的最后面。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#元字符-grep-sed"><span class="nav-number">1.</span> <span class="nav-text"> 元字符 (grep, sed)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-句点元字符"><span class="nav-number">1.1.</span> <span class="nav-text"> 1. 句点元字符 .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-反斜杠元字符"><span class="nav-number">1.2.</span> <span class="nav-text"> 2. 反斜杠元字符 \\</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-星号元字符"><span class="nav-number">1.3.</span> <span class="nav-text"> 3. 星号元字符 \*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-位置元字符"><span class="nav-number">1.4.</span> <span class="nav-text"> 4. 位置元字符 ^, $</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-字符组元字符-连字符元字符-补字号"><span class="nav-number">1.5.</span> <span class="nav-text"> 5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-范围字符串"><span class="nav-number">1.6.</span> <span class="nav-text"> 6. 范围字符串 \\{ \\}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-特殊字符类"><span class="nav-number">1.7.</span> <span class="nav-text"> 7. 特殊字符类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展元字符-egrep-awk"><span class="nav-number">2.</span> <span class="nav-text"> 扩展元字符 (egrep, awk)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-加号元字符"><span class="nav-number">2.1.</span> <span class="nav-text"> 1. 加号元字符 +</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-问号元字符"><span class="nav-number">2.2.</span> <span class="nav-text"> 2. 问号元字符 ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-竖线元字符"><span class="nav-number">2.3.</span> <span class="nav-text"> 3. 竖线元字符 |</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-括号元字符"><span class="nav-number">2.4.</span> <span class="nav-text"> 4. 括号元字符 ( )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-范围元字符"><span class="nav-number">2.5.</span> <span class="nav-text"> 5. 范围元字符 { }</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固定元字符-grep"><span class="nav-number">3.</span> <span class="nav-text"> 固定元字符 (grep)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-number">3.1.</span> <span class="nav-text"> 1. \\&lt; \\&gt;</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#元字符-grep-sed"><span class="nav-number">1.</span> <span class="nav-text">元字符 (grep, sed)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-句点元字符"><span class="nav-number">1.1.</span> <span class="nav-text">1. 句点元字符 .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-反斜杠元字符"><span class="nav-number">1.2.</span> <span class="nav-text">2. 反斜杠元字符 \\</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-星号元字符"><span class="nav-number">1.3.</span> <span class="nav-text">3. 星号元字符 \*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-位置元字符"><span class="nav-number">1.4.</span> <span class="nav-text">4. 位置元字符 ^, $</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-字符组元字符-连字符元字符-补字号"><span class="nav-number">1.5.</span> <span class="nav-text">5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-范围字符串"><span class="nav-number">1.6.</span> <span class="nav-text">6. 范围字符串 \\{ \\}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-特殊字符类"><span class="nav-number">1.7.</span> <span class="nav-text">7. 特殊字符类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展元字符-egrep-awk"><span class="nav-number">2.</span> <span class="nav-text">扩展元字符 (egrep, awk)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-加号元字符"><span class="nav-number">2.1.</span> <span class="nav-text">1. 加号元字符 +</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-问号元字符"><span class="nav-number">2.2.</span> <span class="nav-text">2. 问号元字符 ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-竖线元字符"><span class="nav-number">2.3.</span> <span class="nav-text">3. 竖线元字符 |</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-括号元字符"><span class="nav-number">2.4.</span> <span class="nav-text">4. 括号元字符 ( )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-范围元字符"><span class="nav-number">2.5.</span> <span class="nav-text">5. 范围元字符 { }</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固定元字符-grep"><span class="nav-number">3.</span> <span class="nav-text">固定元字符 (grep)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-number">3.1.</span> <span class="nav-text">1. \\&lt; \\&gt;</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

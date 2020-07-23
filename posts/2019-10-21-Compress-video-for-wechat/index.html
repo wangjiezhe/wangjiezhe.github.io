@@ -277,7 +277,7 @@
 <p>使用 CRF 参数，可以较好的控制生成视频的质量，但不太好控制视频的大小，而使用 2 pass 模式可以通过指定码率来控制文件的大小。因此我最终采用了第二种方法。</p>
 <p>基本的思路是，先通过计算确定所需的码率：</p>
 <div class="note info">
-            <p>总码率 = （文件大小[单位：MB] <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 1024 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 8）/（时长）<br />视频码率 = 总码率 - 音频码率</p>
+            <p>总码率 = （文件大小[单位：MB] <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 1024 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 8）/（时长）<br />视频码率 = 总码率 - 音频码率</p>
           </div>
 <p>这里面 <code>×8</code> 的目的是把单位从 <code>KiB</code> 转化为 <code>kBit</code>。</p>
 <p>然后使用计算得到的视频码率（例如：400kBit/s）对原视频进行转码。这里采用 <code>H.265</code> 编码，相比原始的 <code>H.264</code> 编码，可以在同等质量下得到更小的文件。</p>
@@ -681,7 +681,7 @@ checkWebp(showImage);
 
   
       
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
   <script src="//cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js"></script>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css">
 

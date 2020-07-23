@@ -273,7 +273,7 @@
         <p>Next主题本身集成了三种搜索插件：Swiftype，Algolia和本地搜索。</p>
 <p>Swiftype只能试用14天，Aloglia好像也开始收费了（更新：社区版免费，但有限制），能有的就只有本地搜索了。</p>
 <p>不过好在目前博客的文章还不算多，本地搜索还是可以承受的。</p>
-<h2 id="启用本地搜索"><a class="markdownIt-Anchor" href="#启用本地搜索"></a> 启用本地搜索</h2>
+<h2 id="启用本地搜索">启用本地搜索</h2>
 <p>启用本地搜索的方法很简单，先安装<code>hexo-generator-search</code>。</p>
 <p>注意不是<code>hexo-generator-searchdb</code>，前者来自于<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3d6cGFuL2hleG8tZ2VuZXJhdG9yLXNlYXJjaA==">wzpan/hexo-generator-search<i class="fa fa-external-link-alt"></i></span>，而后者来自于<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by1nZW5lcmF0b3Itc2VhcmNoZGI=">theme-next/hexo-generator-searchdb<i class="fa fa-external-link-alt"></i></span>。后者已经一年多没有更新了，而前者还在更新，并且增加了仅搜索标题的功能。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn install hexo-generator-search</span><br></pre></td></tr></table></figure>
@@ -290,14 +290,14 @@
 <li><code>field</code>是搜索的范围，默认是<code>post</code>，即只搜索发布的文章，也可以改为<code>page</code>（搜索页面，即 page 类型的页面，不含发布的文航）或者<code>all</code>（搜索全部）</li>
 <li><code>content</code>是指是否搜索文章的内容，默认为<code>true</code>，如果改为<code>false</code>的话则只搜索标题、说明等头部内容，不搜索文章的正文。</li>
 </ul>
-<h2 id="解决能够正常搜索但无法正常跳转的问题"><a class="markdownIt-Anchor" href="#解决能够正常搜索但无法正常跳转的问题"></a> 解决能够正常搜索，但无法正常跳转的问题</h2>
+<h2 id="解决能够正常搜索，但无法正常跳转的问题">解决能够正常搜索，但无法正常跳转的问题</h2>
 <p>这样配置完了之后，我发现搜索功能没有问题，但搜索出来的结果没有办法正确跳转。查看了一下生成的<code>search.xml</code>，发现生成的链接多了一个<code>/</code>，就像这样：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"//posts/2018-10-24-prime-of-the-form-6k1/"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span>//posts/2018-10-24-prime-of-the-form-6k1/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>不过在各个教程中都没有找到相应的解决方法，最后在翻<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpc3NuYW4vaGV4by10aGVtZS1uZXh0L2lzc3Vlcy8xODUy">issue<i class="fa fa-external-link-alt"></i></span>的时候发现了一个方法，就是在搜索的时候直接去掉一个<code>/</code>就好了。<br />
 修改<code>localsearch.swig</code>的源代码：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var articleUrl = decodeURIComponent(data.url);</span></span><br><span class="line"><span class="keyword">var</span> articleUrl = <span class="built_in">decodeURIComponent</span>(data.url).substring(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 <p>真的是简单粗暴啊。。。</p>
-<h2 id="启用algolia搜索待更新"><a class="markdownIt-Anchor" href="#启用algolia搜索待更新"></a> 启用Algolia搜索（待更新）</h2>
+<h2 id="启用Algolia搜索（待更新）">启用Algolia搜索（待更新）</h2>
 <p>最近发现，Agolia搜索的社区版还是免费的，不过暂时本地搜索已经够用了，就不再折腾搜索功能了，留待以后有时间再折腾吧。</p>
 <blockquote>
 <p>参见主题自带的文档：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by10aGVtZS1uZXh0L2Jsb2IvbWFzdGVyL2RvY3MvemgtQ04vQUxHT0xJQS1TRUFSQ0gubWQ=">Algolia 搜索<i class="fa fa-external-link-alt"></i></span>。</p>
@@ -453,7 +453,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启用本地搜索"><span class="nav-number">1.</span> <span class="nav-text"> 启用本地搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决能够正常搜索但无法正常跳转的问题"><span class="nav-number">2.</span> <span class="nav-text"> 解决能够正常搜索，但无法正常跳转的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用algolia搜索待更新"><span class="nav-number">3.</span> <span class="nav-text"> 启用Algolia搜索（待更新）</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启用本地搜索"><span class="nav-number">1.</span> <span class="nav-text">启用本地搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决能够正常搜索，但无法正常跳转的问题"><span class="nav-number">2.</span> <span class="nav-text">解决能够正常搜索，但无法正常跳转的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用Algolia搜索（待更新）"><span class="nav-number">3.</span> <span class="nav-text">启用Algolia搜索（待更新）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
