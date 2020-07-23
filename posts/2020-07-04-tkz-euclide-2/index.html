@@ -274,8 +274,8 @@
 
       
         <p>在上一节中，总结了各种定义特殊点的方法，这一节主要讲述如何定义各类直线形——直线，三角形和多边形．</p>
-<h2 id="定义直线形的方法">定义直线形的方法</h2>
-<h3 id="定义直线">定义直线</h3>
+<h2 id="定义直线形的方法"><a class="header-anchor" href="#定义直线形的方法">¶</a>定义直线形的方法</h2>
+<h3 id="定义直线"><a class="header-anchor" href="#定义直线">¶</a>定义直线</h3>
 <p>命令：<code>\tkzDefLine[&lt;options&gt;](A,B) or (A,B,C)  \tkzGetPoints{P}{Q} or \tkzGetPoint{P}</code></p>
 <table>
 <thead>
@@ -340,7 +340,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="定义切线">定义切线</h3>
+<h3 id="定义切线"><a class="header-anchor" href="#定义切线">¶</a>定义切线</h3>
 <table>
 <thead>
 <tr>
@@ -359,7 +359,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="定义三角形">定义三角形</h3>
+<h3 id="定义三角形"><a class="header-anchor" href="#定义三角形">¶</a>定义三角形</h3>
 <p>命令：<code>\tkzDefTriangle[&lt;options&gt;](A,B)  \tkzGetPoint{C}</code></p>
 <table>
 <thead>
@@ -403,7 +403,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="定义特殊三角形">定义特殊三角形</h3>
+<h3 id="定义特殊三角形"><a class="header-anchor" href="#定义特殊三角形">¶</a>定义特殊三角形</h3>
 <p>命令：<code>\tkzDefSpcTriangle[&lt;options&gt;](A,B,C)</code>，对应的「心」存在 <code>tkzPointResult</code> 中</p>
 <table>
 <thead>
@@ -461,7 +461,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="定义特殊多边形">定义特殊多边形</h3>
+<h3 id="定义特殊多边形"><a class="header-anchor" href="#定义特殊多边形">¶</a>定义特殊多边形</h3>
 <table>
 <thead>
 <tr>
@@ -484,7 +484,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="定义正多边形">定义正多边形</h3>
+<h3 id="定义正多边形"><a class="header-anchor" href="#定义正多边形">¶</a>定义正多边形</h3>
 <p>命令：<code>\tkzDefRegPolygon[&lt;options&gt;](A,B)</code></p>
 <table>
 <thead>
@@ -512,8 +512,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="绘制直线形的方法">绘制直线形的方法</h2>
-<h3 id="绘制直线">绘制直线</h3>
+<h2 id="绘制直线形的方法"><a class="header-anchor" href="#绘制直线形的方法">¶</a>绘制直线形的方法</h2>
+<h3 id="绘制直线"><a class="header-anchor" href="#绘制直线">¶</a>绘制直线</h3>
 <p>绘制一条直线：<code>\tkzDrawLine[&lt;options&gt;](A,B)</code></p>
 <p>绘制多条直线：<code>\tkzDrawLines[&lt;options&gt;](A,B C,D ...)</code></p>
 <p>自定义直线的样式：<code>\tkzSetUpLine[&lt;options&gt;]</code></p>
@@ -543,7 +543,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="绘制三角形中的特殊线段">绘制三角形中的特殊线段</h3>
+<h3 id="绘制三角形中的特殊线段"><a class="header-anchor" href="#绘制三角形中的特殊线段">¶</a>绘制三角形中的特殊线段</h3>
 <table>
 <thead>
 <tr>
@@ -566,24 +566,24 @@
 </tr>
 </tbody>
 </table>
-<h3 id="绘制线段">绘制线段</h3>
+<h3 id="绘制线段"><a class="header-anchor" href="#绘制线段">¶</a>绘制线段</h3>
 <p>绘制一条线段：<code>\tkzDrawSegment[&lt;options&gt;](A,B)</code>（相当于 <code>\draw (A)--(B)</code>）</p>
 <p>绘制多条线段：<code>\tkzDrawSegments[&lt;options&gt;](A,B C,D ...)</code></p>
-<h3 id="（定义并）绘制三角形">（定义并）绘制三角形</h3>
+<h3 id="（定义并）绘制三角形"><a class="header-anchor" href="#（定义并）绘制三角形">¶</a>（定义并）绘制三角形</h3>
 <p>命令：<code>\tkzDrawTriangle[&lt;options&gt;](A,B)  \tkzGetPoint{C}</code></p>
-<h3 id="（定义并）绘制正方形">（定义并）绘制正方形</h3>
+<h3 id="（定义并）绘制正方形"><a class="header-anchor" href="#（定义并）绘制正方形">¶</a>（定义并）绘制正方形</h3>
 <p>命令：<code>\tkzDrawSquare[&lt;options&gt;](A,B)  \tkzGetPoints{C}{D}</code></p>
-<h3 id="（定义并）绘制黄金矩形">（定义并）绘制黄金矩形</h3>
+<h3 id="（定义并）绘制黄金矩形"><a class="header-anchor" href="#（定义并）绘制黄金矩形">¶</a>（定义并）绘制黄金矩形</h3>
 <p>命令：<code>\tkzDrawGoldRectangle[&lt;options&gt;](A,B)  \tkzGetPoints{C}{D}</code></p>
-<h3 id="绘制多边形">绘制多边形</h3>
+<h3 id="绘制多边形"><a class="header-anchor" href="#绘制多边形">¶</a>绘制多边形</h3>
 <p>命令：<code>\tkzDrawPolygon[&lt;options&gt;](A,B,C,...)</code></p>
-<h3 id="绘制多边形链">绘制多边形链</h3>
+<h3 id="绘制多边形链"><a class="header-anchor" href="#绘制多边形链">¶</a>绘制多边形链</h3>
 <p>命令：<code>\tkzDrawPolySeg[&lt;options&gt;](A,B,C,...)</code></p>
-<h2 id="填充直线形的方法">填充直线形的方法</h2>
-<h3 id="填充多边形">填充多边形</h3>
+<h2 id="填充直线形的方法"><a class="header-anchor" href="#填充直线形的方法">¶</a>填充直线形的方法</h2>
+<h3 id="填充多边形"><a class="header-anchor" href="#填充多边形">¶</a>填充多边形</h3>
 <p>命令：<code>\tkzFillPolygon[&lt;options&gt;](A,B,C,...)</code></p>
-<h2 id="标记直线形的方法">标记直线形的方法</h2>
-<h3 id="标记直线">标记直线</h3>
+<h2 id="标记直线形的方法"><a class="header-anchor" href="#标记直线形的方法">¶</a>标记直线形的方法</h2>
+<h3 id="标记直线"><a class="header-anchor" href="#标记直线">¶</a>标记直线</h3>
 <p>命令：<code>\tkzLabelLine[&lt;options&gt;](A,B){&lt;text support tex&gt;}</code></p>
 <table>
 <thead>
@@ -607,11 +607,11 @@
 </tr>
 </tbody>
 </table>
-<h3 id="标记线段">标记线段</h3>
+<h3 id="标记线段"><a class="header-anchor" href="#标记线段">¶</a>标记线段</h3>
 <p>标记一条线段：<code>\tkzLabelSegment[&lt;options&gt;](A,B)</code></p>
 <p>标记多条线段：<code>\tkzLabelSegments[&lt;options&gt;](A,B C,D ...)</code></p>
 <p>选项和直线相同．</p>
-<h3 id="用符号标记线段">用符号标记线段</h3>
+<h3 id="用符号标记线段"><a class="header-anchor" href="#用符号标记线段">¶</a>用符号标记线段</h3>
 <p>标记一条线段：<code>\tkzMarkSegment[mark=&lt;mark option&gt;, &lt;other options&gt;](A,B)</code></p>
 <p>标记多条线段：<code>\tkzMarkSegment[mark=&lt;mark option&gt;, &lt;other options&gt;](A,B C,D ...)</code></p>
 <table>

@@ -274,28 +274,28 @@
 
       
         <p><code>^[</code>  使用Ctrl-V Esc生成（ASC ASCII值）</p>
-<h2 id="二、开机自启动文件">二、开机自启动文件</h2>
+<h2 id="二、开机自启动文件"><a class="header-anchor" href="#二、开机自启动文件">¶</a>二、开机自启动文件</h2>
 <p>系统: <code>/etc/rc.d/rc.local</code><br />
 用户: <code>$HOME/.config/autostart/</code></p>
-<h2 id="三、sed-替换中使用变量">三、sed 替换中使用变量</h2>
+<h2 id="三、sed-替换中使用变量"><a class="header-anchor" href="#三、sed-替换中使用变量">¶</a>三、sed 替换中使用变量</h2>
 <p>sed替换命令用双引号<code>&quot; &quot;</code> 而不是单引号 <code>' '</code>，然后里面直接用 <code>$VARIABLE</code> 就可以了。</p>
-<h2 id="四、vim-保存-root-权限文件">四、vim 保存 root 权限文件</h2>
+<h2 id="四、vim-保存-root-权限文件"><a class="header-anchor" href="#四、vim-保存-root-权限文件">¶</a>四、vim 保存 root 权限文件</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w !sudo tee %</span><br></pre></td></tr></table></figure>
-<h2 id="五、vim-跳转">五、vim 跳转</h2>
+<h2 id="五、vim-跳转"><a class="header-anchor" href="#五、vim-跳转">¶</a>五、vim 跳转</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+] &#x3D; Ctrl+left\_click</span><br><span class="line">Ctrl+t &#x3D; Ctrl+right\_click</span><br></pre></td></tr></table></figure>
-<h2 id="六、从视频中提取音频">六、从视频中提取音频</h2>
+<h2 id="六、从视频中提取音频"><a class="header-anchor" href="#六、从视频中提取音频">¶</a>六、从视频中提取音频</h2>
 <p>运行以下命令之一：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mencoder -oac mp3lame -ovc copy -of rawaudio 01.flv -o 01.mp3</span><br><span class="line">ffmpeg -i 01.flv -f mp3 -vn 01.mp3</span><br><span class="line">ffmpeg -i 01.flv -acodec libmp3lame -vn 01.mp3</span><br></pre></td></tr></table></figure>
-<h2 id="七、交换-CapsLock-键和左-Ctrl-键">七、交换 CapsLock 键和左 Ctrl 键</h2>
-<h3 id="1-使用-gnome-tweak-tool">1. 使用 gnome-tweak-tool</h3>
+<h2 id="七、交换-CapsLock-键和左-Ctrl-键"><a class="header-anchor" href="#七、交换-CapsLock-键和左-Ctrl-键">¶</a>七、交换 CapsLock 键和左 Ctrl 键</h2>
+<h3 id="1-使用-gnome-tweak-tool"><a class="header-anchor" href="#1-使用-gnome-tweak-tool">¶</a>1. 使用 gnome-tweak-tool</h3>
 <p>选择 Typing &gt; Ctrl key position &gt; Swap Ctrl and Caps Lock 即可。</p>
 <p>（要求 <code>gsettings get org.gnome.settings-daemon.plugins.keyboard active</code> 的值为 <code>true</code>，故在 gnome 中使用 fcitx 时此方法无法使用）</p>
-<h3 id="2-使用-setxkbmap-命令">2. 使用 setxkbmap 命令</h3>
+<h3 id="2-使用-setxkbmap-命令"><a class="header-anchor" href="#2-使用-setxkbmap-命令">¶</a>2. 使用 setxkbmap 命令</h3>
 <p>运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setxkbmap -option ctrl:swapctrl</span><br></pre></td></tr></table></figure>
 <p>或者在 ~/.zshrc 中添加如下内容：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Swap Ctrl_L and CapsLock</span></span><br><span class="line"><span class="keyword">if</span> [[ -n <span class="variable">$DISPLAY</span> ]]; <span class="keyword">then</span></span><br><span class="line">    setxkbmap -option ctrl:swapctrl</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-<h2 id="八、交换-Escape-键和右-Alt-键">八、交换 Escape 键和右 Alt 键</h2>
+<h2 id="八、交换-Escape-键和右-Alt-键"><a class="header-anchor" href="#八、交换-Escape-键和右-Alt-键">¶</a>八、交换 Escape 键和右 Alt 键</h2>
 <p>这时，前面两种方法都没有现成的选项可以使用，因此我们使用xmodmap</p>
 <p>建立 ~/.xmodmap，添加如下内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">! 交换Escape和Alt_R</span><br><span class="line">clear mod1</span><br><span class="line">keycode   9 &#x3D; Alt_R NoSymbol Alt_R</span><br><span class="line">keycode 108 &#x3D; Escape NoSymbol Escape</span><br><span class="line">add    mod1 &#x3D; Escape Meta_L</span><br></pre></td></tr></table></figure>
