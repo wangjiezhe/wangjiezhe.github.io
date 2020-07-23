@@ -274,12 +274,12 @@
 
       
         <p>最近把 windows 更新到了 2004，切换到了 WSL 2 上。</p>
-<h2 id="安装-WSL-2"><a class="header-anchor" href="#安装-WSL-2">¶</a>安装 WSL 2</h2>
+<h2 id="安装-WSL-2"><a class="header-anchor" href="#安装-WSL-2">☜</a>安装 WSL 2</h2>
 <p>启用 WSL 和虚拟机控制平台功能（要求管理员权限）：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows</span><span class="literal">-Subsystem</span><span class="literal">-Linux</span> /all /norestart</span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart</span><br><span class="line">wsl -<span class="literal">-set</span><span class="literal">-default</span><span class="literal">-version</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>之后重启电脑。</p>
 <p>安装 Arch，参见 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3l1azcvQXJjaFdTTA==">ArchWSL<i class="fa fa-external-link-alt"></i></span>。</p>
-<h2 id="WSL-2-相对于-WSL-1-的优缺点"><a class="header-anchor" href="#WSL-2-相对于-WSL-1-的优缺点">¶</a>WSL 2 相对于 WSL 1 的优缺点</h2>
+<h2 id="WSL-2-相对于-WSL-1-的优缺点"><a class="header-anchor" href="#WSL-2-相对于-WSL-1-的优缺点">☜</a>WSL 2 相对于 WSL 1 的优缺点</h2>
 <p>优点：</p>
 <ul>
 <li>本地文件操作更快。之前编译一个 glibc，几个小时都没有编完</li>
@@ -292,56 +292,56 @@
 <li>经常会爆内存，包括安装大软件、长时间运行等</li>
 <li>访问 Windows 主机上文件的速度变慢</li>
 </ul>
-<h2 id="语言设置"><a class="header-anchor" href="#语言设置">¶</a>语言设置</h2>
+<h2 id="语言设置"><a class="header-anchor" href="#语言设置">☜</a>语言设置</h2>
 <p>把 <code>/etc/locale.conf</code> 改为 <code>LANG=zh_CN.UTF8</code>。</p>
 <p>然后 <code>source /etc/locale.conf</code>。</p>
 <div class="note info">
             <p>一个非常奇怪的事情是，如果把 <code>LANG</code> 设为 <code>zh_CN.UTF-8</code>，那么在 <strong>bash</strong> 下，windows 中的中文文件名显示为乱码，而 <strong>zsh</strong> 则显示正常。<br />但在默认的 <code>LANG=en_US.UTF-8</code> 下，<strong>bash</strong> 和 <strong>zsh</strong> 都能正常显示中文文件名。</p>
           </div>
-<h2 id="安装软件包"><a class="header-anchor" href="#安装软件包">¶</a>安装软件包</h2>
-<h3 id="导入密钥（非常重要！！！）"><a class="header-anchor" href="#导入密钥（非常重要！！！）">¶</a>导入密钥（非常重要！！！）</h3>
+<h2 id="安装软件包"><a class="header-anchor" href="#安装软件包">☜</a>安装软件包</h2>
+<h3 id="导入密钥（非常重要！！！）"><a class="header-anchor" href="#导入密钥（非常重要！！！）">☜</a>导入密钥（非常重要！！！）</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化密钥环 &amp;&amp; 验证主密钥 &amp;&amp; 更新密钥</span></span><br><span class="line">pacman-key --init &amp;&amp; pacman-key --populate archlinux &amp;&amp; pacman-key --refresh-keys</span><br></pre></td></tr></table></figure>
-<h3 id="启用国内的镜像源"><a class="header-anchor" href="#启用国内的镜像源">¶</a>启用国内的镜像源</h3>
+<h3 id="启用国内的镜像源"><a class="header-anchor" href="#启用国内的镜像源">☜</a>启用国内的镜像源</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"Server = https://mirrors.aliyun.com/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.neusoft.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.cqu.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.ustc.edu.cn/archlinux/\$repo/os/\$arch"</span> &gt; /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
-<h3 id="添加-ArchlinuxCN-源"><a class="header-anchor" href="#添加-ArchlinuxCN-源">¶</a>添加 ArchlinuxCN 源</h3>
+<h3 id="添加-ArchlinuxCN-源"><a class="header-anchor" href="#添加-ArchlinuxCN-源">☜</a>添加 ArchlinuxCN 源</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"</span></span><br><span class="line"><span class="string">[archlinuxcn]</span></span><br><span class="line"><span class="string">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/x86_64"</span> &gt;&gt; /etc/pacman.conf</span><br><span class="line">pacman -Sy &amp;&amp; pacman -S archlinuxcn-keyring &amp;&amp; pacman -S yaourt</span><br></pre></td></tr></table></figure>
 <p>这里坚持用 yaourt 的原因有两个，一是在 root 环境下使用不报错（主要是需要彩色显示），二是可以显示版本更新还是编译更新。</p>
-<h3 id="安装常用软件"><a class="header-anchor" href="#安装常用软件">¶</a>安装常用软件</h3>
-<h4 id="先搭建好常用环境"><a class="header-anchor" href="#先搭建好常用环境">¶</a>先搭建好常用环境</h4>
+<h3 id="安装常用软件"><a class="header-anchor" href="#安装常用软件">☜</a>安装常用软件</h3>
+<h4 id="先搭建好常用环境"><a class="header-anchor" href="#先搭建好常用环境">☜</a>先搭建好常用环境</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syu</span><br><span class="line">pacman -S zsh git subversion lua openssh</span><br></pre></td></tr></table></figure>
-<h4 id="安装-zinit（原-zplugin）"><a class="header-anchor" href="#安装-zinit（原-zplugin）">¶</a>安装 zinit（原 zplugin）</h4>
+<h4 id="安装-zinit（原-zplugin）"><a class="header-anchor" href="#安装-zinit（原-zplugin）">☜</a>安装 zinit（原 zplugin）</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zdharma/zinit.git ~/.zinit/bin</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"source ~/.zinit/bin/zinit.zsh"</span> &gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>不得不再次吐槽一下 <code>git clone</code> 的速度。。。</p>
 </blockquote>
-<h4 id="安装-powerlevel10k"><a class="header-anchor" href="#安装-powerlevel10k">¶</a>安装 powerlevel10k</h4>
+<h4 id="安装-powerlevel10k"><a class="header-anchor" href="#安装-powerlevel10k">☜</a>安装 powerlevel10k</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"zinit ice depth=1; zinit light romkatv/powerlevel10k"</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
-<h4 id="启用-zsh（终于有了一个好看的终端）"><a class="header-anchor" href="#启用-zsh（终于有了一个好看的终端）">¶</a>启用 zsh（终于有了一个好看的终端）</h4>
+<h4 id="启用-zsh（终于有了一个好看的终端）"><a class="header-anchor" href="#启用-zsh（终于有了一个好看的终端）">☜</a>启用 zsh（终于有了一个好看的终端）</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsh</span><br></pre></td></tr></table></figure>
 <p>然后就可以导入之前的 <code>.zshrc</code> 了。</p>
-<h4 id="切换默认终端至-zsh"><a class="header-anchor" href="#切换默认终端至-zsh">¶</a>切换默认终端至 zsh</h4>
+<h4 id="切换默认终端至-zsh"><a class="header-anchor" href="#切换默认终端至-zsh">☜</a>切换默认终端至 zsh</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
-<h4 id="安装-vim-plug"><a class="header-anchor" href="#安装-vim-plug">¶</a>安装 vim-plug</h4>
+<h4 id="安装-vim-plug"><a class="header-anchor" href="#安装-vim-plug">☜</a>安装 vim-plug</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/<span class="built_in">autoload</span>/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
 <p>导入之前的 <code>.vimrc</code> 文件，并执行命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim +PlugInstall +qall</span><br></pre></td></tr></table></figure>
-<h4 id="安装常用软件-2"><a class="header-anchor" href="#安装常用软件-2">¶</a>安装常用软件</h4>
+<h4 id="安装常用软件-2"><a class="header-anchor" href="#安装常用软件-2">☜</a>安装常用软件</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pacman -S base-devel <span class="built_in">which</span> diffutils man openssh tree p7zip bc wget \</span><br><span class="line">  htop strace most \</span><br><span class="line">  yarn npm python-pip \</span><br><span class="line">  zathura-ps zathura-pdf-poppler \</span><br><span class="line">  feh imagemagick mediainfo ffmpeg \</span><br><span class="line">  opencc dos2unix jq net-tools <span class="built_in">bind</span>-tools nload</span><br><span class="line">yarn global add hexo-cli nali-cli http-server</span><br></pre></td></tr></table></figure>
-<h4 id="安装花哨软件"><a class="header-anchor" href="#安装花哨软件">¶</a>安装花哨软件</h4>
+<h4 id="安装花哨软件"><a class="header-anchor" href="#安装花哨软件">☜</a>安装花哨软件</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S fd exa bat ripgrep percol</span><br></pre></td></tr></table></figure>
-<h4 id="安装常用字体"><a class="header-anchor" href="#安装常用字体">¶</a>安装常用字体</h4>
+<h4 id="安装常用字体"><a class="header-anchor" href="#安装常用字体">☜</a>安装常用字体</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts tex-gyre-fonts ttf-dejavu wqy-zenhei wqy-microhei ttf-sarasa-gothic</span><br></pre></td></tr></table></figure>
-<h4 id="安装专业软件"><a class="header-anchor" href="#安装专业软件">¶</a>安装专业软件</h4>
+<h4 id="安装专业软件"><a class="header-anchor" href="#安装专业软件">☜</a>安装专业软件</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pacman -S texlive-most</span><br><span class="line">pacman -S texlive-langchinese biber asymptote qtikz \</span><br><span class="line">  sagemath jupyter</span><br></pre></td></tr></table></figure>
 <div class="note danger">
             <p><span style="color:red">注意</span>：安装 <code>texlive-fontextra</code> 会爆内存！！！<br />反正我的8G内存被爆了，16G没有问题）</p>
           </div>
-<h4 id="安装-X-软件"><a class="header-anchor" href="#安装-X-软件">¶</a>安装 X 软件</h4>
+<h4 id="安装-X-软件"><a class="header-anchor" href="#安装-X-软件">☜</a>安装 X 软件</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S tk gvim</span><br></pre></td></tr></table></figure>
 <p>向 <code>~/.zshrc</code> 中添加：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DISPLAY=$(awk <span class="string">'/nameserver / &#123;print $2; exit&#125;'</span> /etc/resolve.conf 2&gt;/dev/null):0.0</span><br><span class="line"><span class="built_in">export</span> LIBGL_ALWAYS_INDIRECT=1</span><br></pre></td></tr></table></figure>
 <p>注意对于 WSL 2，VcXsrv 启动时需要选中 <code>Disable access control</code> 的选项，或者加上 <code>-ac</code> 的参数。</p>
-<h2 id="添加新用户"><a class="header-anchor" href="#添加新用户">¶</a>添加新用户</h2>
+<h2 id="添加新用户"><a class="header-anchor" href="#添加新用户">☜</a>添加新用户</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd AAA</span><br><span class="line">useradd XXX -g AAA -G wheel -m -N</span><br><span class="line">pacman -S sudo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"wheel ALL=(ALL) NOPASSWD: ALL"</span> &gt; /etc/sudoers.d/wheel</span><br></pre></td></tr></table></figure>
 <p>其实我一直是使用 root 账户，只有在需要 makepkg 的时候才切换到普通用户。</p>
 
