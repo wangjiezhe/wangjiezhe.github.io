@@ -89,42 +89,51 @@ search:
   content: true
   format: html
 
-# markdown:
-#   render:
-#     html: true
-#     xhtml: false
-#     breaks: true
-#     linkify: true
-#     typographer: true
-#     # quotes: '「」『』'
-#   anchors:
-#     level: 2
-#     collisionSuffix: v
-#     permalink: false
-#     permalinkClass: header-anchor
-#     permalinkSymbel: ¶
-#   plugins:
-#     - markdown-it-katex
-#     - markdown-it-task-lists
-#     - markdown-it-emoji
-#     - markdown-it-attrs
-
-markdown_it_plus:
-    highlight: true
+markdown:
+  render:
     html: true
     xhtmlOut: true
     breaks: true
-    # langPrefix:
     linkify: true
     typographer: false
-    # quotes: “”‘’
-    plugins:
-      - plugin:
-          name: markdown-it-task-lists
-          enable: true
-      - plugin:
-          name: markdown-it-attrs
-          enable: true
+    quotes: '“”‘’'
+    # quotes: '「」『』'
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+    - markdown-it-katex
+    - markdown-it-task-lists
+    - markdown-it-emoji
+    - markdown-it-attrs
+  anchors:
+    level: 2
+    collisionSuffix: ''
+    permalink: false
+    permalinkClass: 'header-anchor'
+    permalinkSide: 'left'
+    permalinkSymbol: '¶'
+    case: 0
+    separator: ''
+
+# markdown_it_plus:
+#     highlight: true
+#     html: true
+#     xhtmlOut: true
+#     breaks: true
+#     # langPrefix:
+#     linkify: true
+#     typographer: false
+#     # quotes: “”‘’
+#     plugins:
+#       - plugin:
+#           name: markdown-it-task-lists
+#           enable: true
+#       - plugin:
+#           name: markdown-it-attrs
+#           enable: true
 
 sitemap:
   path: sitemap.xml
