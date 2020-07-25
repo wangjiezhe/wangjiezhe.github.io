@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#66327C">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#66327C">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"scrollpercent":true,"enable":true,"sidebar":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"style":"flat","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="记录 Project Euler 的 Mathematica 解法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="欧拉计划（Project Euler）解法【1~25】">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2020-07-06-Project-Euler-1/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="记录 Project Euler 的 Mathematica 解法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-06T09:50:15.000Z">
+<meta property="article:modified_time" content="2020-07-06T09:50:15.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="Mathematica">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://wangjiezhe.com/posts/2020-07-06-Project-Euler-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>欧拉计划（Project Euler）解法【1~25】 | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-48537410-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">如鱼饮水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">冷暖自知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2020-07-06-Project-Euler-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/camel.jpg">
+      <meta itemprop="name" content="西风冷香">
+      <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          欧拉计划（Project Euler）解法【1~25】
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-06 17:50:15" itemprop="dateCreated datePublished" datetime="2020-07-06T17:50:15+08:00">2020-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">记录 Project Euler 的 Mathematica 解法</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="note info">
+            <p>我做这个练习的主要目的是为了熟悉 Mathematica 的编程和函数，而不是练习算法，因此会充分利用 Mathematica 的内置函数和特性，尽量少造轮子．</p>
+          </div>
+<h2 id="P1-Multiples-of-3-and-5"><a class="header-anchor" href="#P1-Multiples-of-3-and-5">☜</a>P1: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MQ==">Multiples of 3 and 5<i class="fa fa-external-link-alt"></i></span></h2>
+<p>判断一个数是否是 3 的倍数或者是 5 的倍数．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span>[<span class="keyword">Range</span>[<span class="number">999</span>], <span class="keyword">Mod</span>[#, <span class="number">3</span>] == <span class="number">0</span> || <span class="keyword">Mod</span>[#, <span class="number">5</span>] == <span class="number">0</span> &amp;] // <span class="keyword">Total</span></span><br></pre></td></tr></table></figure>
+<p>后来发现，Mathematica 有内置的 <code>Divisible</code> 函数，比使用 <code>Mod</code> 函数要快 20%~30%．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span>[<span class="keyword">Range</span>[<span class="number">999</span>], <span class="keyword">Divisible</span>[#, <span class="number">3</span>] || <span class="keyword">Divisible</span>[#, <span class="number">5</span>] &amp;] // <span class="keyword">Total</span>//<span class="keyword">Timing</span></span><br></pre></td></tr></table></figure>
+<h2 id="P2-Even-Fibonacci-numbers"><a class="header-anchor" href="#P2-Even-Fibonacci-numbers">☜</a>P2: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09Mg==">Even Fibonacci numbers<i class="fa fa-external-link-alt"></i></span></h2>
+<p>四百万以下的偶 Fibonacci 数相加．</p>
+<p>第一种方法是选一个适当的上界：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span>[<span class="keyword">Fibonacci</span> /@ <span class="keyword">Range</span>[<span class="number">3</span>, <span class="number">50</span>, <span class="number">3</span>], # &lt;= <span class="number">4000000</span> &amp;] // <span class="keyword">Total</span></span><br></pre></td></tr></table></figure>
+<p>第二种是常规的累加：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Module</span>[&#123;n = <span class="number">3</span>, res = <span class="number">0</span>, t = <span class="keyword">Fibonacci</span>[<span class="number">3</span>]&#125;,</span><br><span class="line">  <span class="keyword">While</span>[t &lt;= <span class="number">4</span>*^<span class="number">6</span>, res += t; n += <span class="number">3</span>; t = <span class="keyword">Fibonacci</span>[n]];</span><br><span class="line">  res]</span><br></pre></td></tr></table></figure>
+<p>第三种是先找到满足条件的最大的 Fibonacci 数的指针，再相加：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Sum</span>[<span class="keyword">Fibonacci</span>[i], &#123;i, <span class="number">3</span>, <span class="keyword">NestWhile</span>[(# + <span class="number">1</span>) &amp;, <span class="number">1</span>, <span class="keyword">Fibonacci</span>[#] &lt;= <span class="number">4</span>*^<span class="number">6</span> &amp;], <span class="number">3</span>&#125;]</span><br></pre></td></tr></table></figure>
+<p>时间上，第一种 &lt; 第二种 &lt; 第三种．</p>
+<h2 id="P3-Largest-prime-factor"><a class="header-anchor" href="#P3-Largest-prime-factor">☜</a>P3: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09Mw==">Largest prime factor<i class="fa fa-external-link-alt"></i></span></h2>
+<p>找最大的素因子．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">First</span> /@ <span class="keyword">FactorInteger</span>[<span class="number">600851475143</span>] // <span class="keyword">Max</span></span><br></pre></td></tr></table></figure>
+<h2 id="P4-Largest-palindrome-product"><a class="header-anchor" href="#P4-Largest-palindrome-product">☜</a>P4: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09NA==">Largest palindrome product<i class="fa fa-external-link-alt"></i></span></h2>
+<p>两个三位数相乘得到的最大回文数．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Table</span>[i*j, &#123;i, <span class="number">100</span>, <span class="number">999</span>&#125;, &#123;j, <span class="number">100</span>, i&#125;] // <span class="keyword">Flatten</span> // <span class="keyword">ReverseSort</span> //</span><br><span class="line">  <span class="keyword">SelectFirst</span>[<span class="keyword">PalindromeQ</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="P5-Smallest-multiple"><a class="header-anchor" href="#P5-Smallest-multiple">☜</a>P5: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09NQ==">Smallest multiple<i class="fa fa-external-link-alt"></i></span></h2>
+<p>最小公倍数．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">PolynomialLCM</span> @@ <span class="keyword">Range</span>[<span class="number">20</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="P6-Sum-square-difference"><a class="header-anchor" href="#P6-Sum-square-difference">☜</a>P6: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09Ng==">Sum square difference<i class="fa fa-external-link-alt"></i></span></h2>
+<p>平方和与和平方的差．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Sum</span>[i, &#123;i, <span class="number">100</span>&#125;]^<span class="number">2</span> - <span class="keyword">Sum</span>[i^<span class="number">2</span>, &#123;i, <span class="number">100</span>&#125;]</span><br></pre></td></tr></table></figure>
+<h2 id="P7-10001st-prime"><a class="header-anchor" href="#P7-10001st-prime">☜</a>P7: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09Nw==">10001st prime<i class="fa fa-external-link-alt"></i></span></h2>
+<p>第 10001 个素数．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Prime</span>[<span class="number">10001</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="P8-Largest-product-in-a-series"><a class="header-anchor" href="#P8-Largest-product-in-a-series">☜</a>P8: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09OA==">Largest product in a series<i class="fa fa-external-link-alt"></i></span></h2>
+<p>连续 13 位数字乘积的最大值．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="number">7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450</span>;</span><br><span class="line"><span class="keyword">Times</span> @@@</span><br><span class="line">  <span class="keyword">ToExpression</span> /@</span><br><span class="line">   <span class="keyword">Partition</span>[<span class="keyword">StringSplit</span>[<span class="keyword">IntegerString</span>@t, <span class="string">""</span>], <span class="number">13</span>, <span class="number">1</span>] // <span class="keyword">Max</span></span><br></pre></td></tr></table></figure>
+<h2 id="P9-Special-Pythagorean-triplet"><a class="header-anchor" href="#P9-Special-Pythagorean-triplet">☜</a>P9: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09OQ==">Special Pythagorean triplet<i class="fa fa-external-link-alt"></i></span></h2>
+<p>勾股方程．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sol = <span class="keyword">Solve</span>[&#123;a^<span class="number">2</span> + b^<span class="number">2</span> == c^<span class="number">2</span>, a + b + c == <span class="number">1000</span>, <span class="number">0</span> &lt; a &lt; b &lt; c&#125;, &#123;a, b, c&#125;, <span class="keyword">Integers</span>];</span><br><span class="line">a b c /. sol</span><br></pre></td></tr></table></figure>
+<h2 id="P10-Summation-of-primes"><a class="header-anchor" href="#P10-Summation-of-primes">☜</a>P10: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MTA=">Summation of primes<i class="fa fa-external-link-alt"></i></span></h2>
+<p>素数求和．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Sum</span>[<span class="keyword">Prime</span>[i],&#123;i,<span class="keyword">PrimePi</span>[<span class="number">2</span>*^<span class="number">6</span>]&#125;]</span><br></pre></td></tr></table></figure>
+<h2 id="P11-Largest-product-in-a-grid"><a class="header-anchor" href="#P11-Largest-product-in-a-grid">☜</a>P11: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MTE=">Largest product in a grid<i class="fa fa-external-link-alt"></i></span></h2>
+<p>方阵中横、竖、斜连续四个数字乘积的最大值．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="string">"08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 \n</span></span><br><span class="line"><span class="string">  49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 \n</span></span><br><span class="line"><span class="string">  81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65 \n</span></span><br><span class="line"><span class="string">  52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91 \n</span></span><br><span class="line"><span class="string">  22 31 16 71 51 67 63 89 41 92 36 54 22 40 40 28 66 33 13 80 \n</span></span><br><span class="line"><span class="string">  24 47 32 60 99 03 45 02 44 75 33 53 78 36 84 20 35 17 12 50 \n</span></span><br><span class="line"><span class="string">  32 98 81 28 64 23 67 10 26 38 40 67 59 54 70 66 18 38 64 70 \n</span></span><br><span class="line"><span class="string">  67 26 20 68 02 62 12 20 95 63 94 39 63 08 40 91 66 49 94 21 \n</span></span><br><span class="line"><span class="string">  24 55 58 05 66 73 99 26 97 17 78 78 96 83 14 88 34 89 63 72 \n</span></span><br><span class="line"><span class="string">  21 36 23 09 75 00 76 44 20 45 35 14 00 61 33 97 34 31 33 95 \n</span></span><br><span class="line"><span class="string">  78 17 53 28 22 75 31 67 15 94 03 80 04 62 16 14 09 53 56 92 \n</span></span><br><span class="line"><span class="string">  16 39 05 42 96 35 31 47 55 58 88 24 00 17 54 24 36 29 85 57 \n</span></span><br><span class="line"><span class="string">  86 56 00 48 35 71 89 07 05 44 44 37 44 60 21 58 51 54 17 58 \n</span></span><br><span class="line"><span class="string">  19 80 81 68 05 94 47 69 28 73 92 13 86 52 17 77 04 89 55 40 \n</span></span><br><span class="line"><span class="string">  04 52 08 83 97 35 99 16 07 97 57 32 16 26 26 79 33 27 98 66 \n</span></span><br><span class="line"><span class="string">  88 36 68 87 57 62 20 72 03 46 33 67 46 55 12 32 63 93 53 69 \n</span></span><br><span class="line"><span class="string">  04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 76 36 \n</span></span><br><span class="line"><span class="string">  20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16 \n</span></span><br><span class="line"><span class="string">  20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54 \n</span></span><br><span class="line"><span class="string">  01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"</span>;</span><br><span class="line"></span><br><span class="line">te = <span class="keyword">StringSplit</span>[t, <span class="string">"\n"</span>] // <span class="keyword">StringSplit</span> // <span class="keyword">Map</span>[<span class="keyword">ToExpression</span>, #, <span class="number">2</span>] &amp;;</span><br><span class="line"><span class="keyword">Table</span>[te[[i,j]]*te[[i,j+<span class="number">1</span>]]*te[[i,j+<span class="number">2</span>]]*te[[i,j+<span class="number">3</span>]], &#123;i,<span class="number">20</span>&#125;, &#123;j,<span class="number">17</span>&#125;]~<span class="keyword">Join</span>~</span><br><span class="line">  <span class="keyword">Table</span>[te[[i,j]]*te[[i+<span class="number">1</span>,j]]*te[[i+<span class="number">2</span>,j]]*te[[i+<span class="number">3</span>,j]], &#123;i,<span class="number">17</span>&#125;, &#123;j,<span class="number">20</span>&#125;] ~<span class="keyword">Join</span>~</span><br><span class="line">  <span class="keyword">Table</span>[te[[i,j]]*te[[i+<span class="number">1</span>,j+<span class="number">1</span>]]*te[[i+<span class="number">2</span>,j+<span class="number">2</span>]]*te[[i+<span class="number">3</span>,j+<span class="number">3</span>]], &#123;i,<span class="number">17</span>&#125;, &#123;j,<span class="number">17</span>&#125;]~<span class="keyword">Join</span>~</span><br><span class="line">  <span class="keyword">Table</span>[te[[i,j]]*te[[i+<span class="number">1</span>,j<span class="number">-1</span>]]*te[[i+<span class="number">2</span>,j<span class="number">-2</span>]]*te[[i+<span class="number">3</span>,j<span class="number">-3</span>]], &#123;i,<span class="number">17</span>&#125;, &#123;j,<span class="number">4</span>,<span class="number">20</span>&#125;] // <span class="keyword">Max</span></span><br></pre></td></tr></table></figure>
+<h2 id="P12-Highly-divisible-triangular-number"><a class="header-anchor" href="#P12-Highly-divisible-triangular-number">☜</a>P12: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MTI=">Highly divisible triangular number<i class="fa fa-external-link-alt"></i></span></h2>
+<p>三角数的因数个数 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Module</span>[&#123;n = <span class="number">1</span>, t&#125;,</span><br><span class="line"> <span class="keyword">While</span>[<span class="keyword">DivisorSigma</span>[<span class="number">0</span>, t = n*(n + <span class="number">1</span>)/<span class="number">2</span>] &lt;= <span class="number">500</span>, n++];</span><br><span class="line"> t]</span><br></pre></td></tr></table></figure>
+<h2 id="P13-Large-sum"><a class="header-anchor" href="#P13-Large-sum">☜</a>P13: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MTM=">Large sum<i class="fa fa-external-link-alt"></i></span></h2>
+<p>一百个整数相乘 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="string">"37107287533902102798797998220837590246510135740250 \n  46376937677490009712648124896970078050417018260538 \n  74324986199524741059474233309513058123726617309629 \n  91942213363574161572522430563301811072406154908250 \n  23067588207539346171171980310421047513778063246676 \n  89261670696623633820136378418383684178734361726757 \n  28112879812849979408065481931592621691275889832738 \n  44274228917432520321923589422876796487670272189318 \n  47451445736001306439091167216856844588711603153276 \n  70386486105843025439939619828917593665686757934951 \n  62176457141856560629502157223196586755079324193331 \n  64906352462741904929101432445813822663347944758178 \n  92575867718337217661963751590579239728245598838407 \n  58203565325359399008402633568948830189458628227828 \n  80181199384826282014278194139940567587151170094390 \n  35398664372827112653829987240784473053190104293586 \n 86515506006295864861532075273371959191420517255829 \n  71693888707715466499115593487603532921714970056938 \n  54370070576826684624621495650076471787294438377604 \n  53282654108756828443191190634694037855217779295145 \n  36123272525000296071075082563815656710885258350721 \n  45876576172410976447339110607218265236877223636045 \n 17423706905851860660448207621209813287860733969412 \n  81142660418086830619328460811191061556940512689692 \n  51934325451728388641918047049293215058642563049483 \n  62467221648435076201727918039944693004732956340691 \n  15732444386908125794514089057706229429197107928209 \n  55037687525678773091862540744969844508330393682126 \n  18336384825330154686196124348767681297534375946515 \n  80386287592878490201521685554828717201219257766954 \n  78182833757993103614740356856449095527097864797581 \n  16726320100436897842553539920931837441497806860984 \n  48403098129077791799088218795327364475675590848030 \n  87086987551392711854517078544161852424320693150332 \n  59959406895756536782107074926966537676326235447210 \n  69793950679652694742597709739166693763042633987085 \n  41052684708299085211399427365734116182760315001271 \n  65378607361501080857009149939512557028198746004375 \n  35829035317434717326932123578154982629742552737307 \n  94953759765105305946966067683156574377167401875275 \n  88902802571733229619176668713819931811048770190271 \n  25267680276078003013678680992525463401061632866526 \n  36270218540497705585629946580636237993140746255962 \n  24074486908231174977792365466257246923322810917141 \n  91430288197103288597806669760892938638285025333403 \n  34413065578016127815921815005561868836468420090470 \n  23053081172816430487623791969842487255036638784583 \n  11487696932154902810424020138335124462181441773470 \n  63783299490636259666498587618221225225512486764533 \n  67720186971698544312419572409913959008952310058822 \n  95548255300263520781532296796249481641953868218774 \n  76085327132285723110424803456124867697064507995236 \n  37774242535411291684276865538926205024910326572967 \n  23701913275725675285653248258265463092207058596522 \n  29798860272258331913126375147341994889534765745501 \n  18495701454879288984856827726077713721403798879715 \n  38298203783031473527721580348144513491373226651381 \n  34829543829199918180278916522431027392251122869539 \n  40957953066405232632538044100059654939159879593635 \n  29746152185502371307642255121183693803580388584903 \n  41698116222072977186158236678424689157993532961922 \n  62467957194401269043877107275048102390895523597457 \n  23189706772547915061505504953922979530901129967519 \n  86188088225875314529584099251203829009407770775672 \n  11306739708304724483816533873502340845647058077308 \n  82959174767140363198008187129011875491310547126581 \n  97623331044818386269515456334926366572897563400500 \n  42846280183517070527831839425882145521227251250327 \n  55121603546981200581762165212827652751691296897789 \n  32238195734329339946437501907836945765883352399886 \n  75506164965184775180738168837861091527357929701337 \n  62177842752192623401942399639168044983993173312731 \n  32924185707147349566916674687634660915035914677504 \n  99518671430235219628894890102423325116913619626622 \n  73267460800591547471830798392868535206946944540724 \n  76841822524674417161514036427982273348055556214818 \n  97142617910342598647204516893989422179826088076852 \n  87783646182799346313767754307809363333018982642090 \n  10848802521674670883215120185883543223812876952786 \n  71329612474782464538636993009049310363619763878039 \n  62184073572399794223406235393808339651327408011116 \n  66627891981488087797941876876144230030984490851411 \n  60661826293682836764744779239180335110989069790714 \n  85786944089552990653640447425576083659976645795096 \n  66024396409905389607120198219976047599490197230297 \n  64913982680032973156037120041377903785566085089252 \n  16730939319872750275468906903707539413042652315011 \n  94809377245048795150954100921645863754710598436791 \n  78639167021187492431995700641917969777599028300699 \n  15368713711936614952811305876380278410754449733078 \n  40789923115535562561142322423255033685442488917353 \n  44889911501440648020369068063960672322193204149535 \n  41503128880339536053299340368006977710650566631954 \n  81234880673210146739058568557934581403627822703280 \n  82616570773948327592232845941706525094512325230608 \n  22918802058777319719839450180888072429661980811197 \n  77158542502016545090413245809786882778948721859617 \n  72107838435069186155435662884062257473692284509516 \n  20849603980134001723930671666823555245252804609722 \n  53503534226472524250874054075591789781264330331690"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">ToExpression</span> /@ <span class="keyword">StringSplit</span>[t, <span class="string">"\n"</span>] // <span class="keyword">Total</span> // <span class="keyword">IntegerString</span> //</span><br><span class="line">  <span class="keyword">StringTake</span>[#, <span class="number">10</span>] &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="P14-Longest-Collatz-sequence"><a class="header-anchor" href="#P14-Longest-Collatz-sequence">☜</a>P14: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MTQ=">Longest Collatz sequence<i class="fa fa-external-link-alt"></i></span></h2>
+<p>Collatz 猜想（3n+1猜想），找到一百万以下步骤最多的数字 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Table</span>[<span class="keyword">NestWhileList</span>[<span class="keyword">If</span>[<span class="keyword">EvenQ</span>[#], #/<span class="number">2</span>, <span class="number">3</span> # + <span class="number">1</span>] &amp;, n, # != <span class="number">1</span> &amp;] //</span><br><span class="line">    <span class="keyword">Length</span>, &#123;n, <span class="number">1000000</span> - <span class="number">1</span>&#125;] // <span class="keyword">Ordering</span>[#, <span class="number">-1</span>] &amp;</span><br></pre></td></tr></table></figure>
+<p>未经优化，计算耗时3分半 ．</p>
+<h2 id="P15-Lattice-paths"><a class="header-anchor" href="#P15-Lattice-paths">☜</a>P15: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MTU=">Lattice paths<i class="fa fa-external-link-alt"></i></span></h2>
+<p>格点路径 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Binomial</span>[<span class="number">20</span> + <span class="number">20</span>, <span class="number">20</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="P16-Power-digit-sum"><a class="header-anchor" href="#P16-Power-digit-sum">☜</a>P16: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MTY=">Power digit sum<i class="fa fa-external-link-alt"></i></span></h2>
+<p>计算各位数字和 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DigitCount</span>[<span class="number">2</span>^<span class="number">1000</span>]*&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">0</span>&#125; // <span class="keyword">Total</span></span><br></pre></td></tr></table></figure>
+<p>直接使用 <code>IntegerDigits</code> 函数会更快一些 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Total</span>@<span class="keyword">IntegerDigits</span>[<span class="number">2</span>^<span class="number">1000</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="P17-Number-letter-counts"><a class="header-anchor" href="#P17-Number-letter-counts">☜</a>P17: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MTc=">Number letter counts<i class="fa fa-external-link-alt"></i></span></h2>
+<p>数字转换为英文，计算单词总长度 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(** 获取对应数字的英文 **)</span></span><br><span class="line">toEnglish[n_ /; <span class="number">0</span> &lt; n &lt;= <span class="number">1000</span>] :=</span><br><span class="line"> <span class="keyword">Module</span>[&#123;hn, tn, table1, table2, a, b, c, d, res&#125;,</span><br><span class="line">  table1 = &#123;<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>, <span class="string">"four"</span>, <span class="string">"five"</span>,</span><br><span class="line">    <span class="string">"six"</span>, <span class="string">"seven"</span>, <span class="string">"eight"</span>, <span class="string">"nine"</span>, <span class="string">"ten"</span>,</span><br><span class="line">    <span class="string">"eleven"</span>, <span class="string">"twelve"</span>, <span class="string">"thirteen"</span>, <span class="string">"fourteen"</span>, <span class="string">"fifteen"</span>,</span><br><span class="line">    <span class="string">"sixteen"</span>, <span class="string">"eventeen"</span>, <span class="string">"eighteen"</span>, <span class="string">"nignteen"</span>&#125;;</span><br><span class="line">  table2 = &#123;<span class="string">"ten"</span>, <span class="string">"twenty"</span>, <span class="string">"thirty"</span>, <span class="string">"forty"</span>, <span class="string">"fifty"</span>,</span><br><span class="line">    <span class="string">"sixty"</span>, <span class="string">"seventy"</span>, <span class="string">"eighty"</span>, <span class="string">"nighty"</span>&#125;;</span><br><span class="line">  <span class="comment">(** 百位 **)</span></span><br><span class="line">  &#123;a, b&#125; = QuotientRemainder[n, <span class="number">100</span>];</span><br><span class="line">  hn = <span class="keyword">If</span>[a != <span class="number">0</span>, table1~<span class="keyword">Part</span>~a &lt;&gt; <span class="string">"hundred"</span>, <span class="string">""</span>] &lt;&gt;</span><br><span class="line">    <span class="keyword">If</span>[a != <span class="number">0</span> &amp;&amp; b != <span class="number">0</span>, <span class="string">"and"</span>, <span class="string">""</span>];</span><br><span class="line">  <span class="comment">(** 十位、个位 **)</span></span><br><span class="line">  &#123;c, d&#125; = QuotientRemainder[b, <span class="number">10</span>];</span><br><span class="line">  tn = <span class="keyword">If</span>[c &lt; <span class="number">2</span>, <span class="keyword">If</span>[b == <span class="number">0</span>, <span class="string">""</span>, table1~<span class="keyword">Part</span>~b],</span><br><span class="line">    table2~<span class="keyword">Part</span>~c &lt;&gt; <span class="keyword">If</span>[d == <span class="number">0</span>, <span class="string">""</span>, table1~<span class="keyword">Part</span>~d]];</span><br><span class="line">  <span class="comment">(** 千位 **)</span></span><br><span class="line">  <span class="keyword">If</span>[n == <span class="number">1000</span>, <span class="string">"onethousand"</span>, hn &lt;&gt; tn]]；</span><br><span class="line"></span><br><span class="line"><span class="keyword">Sum</span>[<span class="keyword">StringLength</span>@toEnglish[i], &#123;i, <span class="number">1000</span>&#125;]</span><br></pre></td></tr></table></figure>
+<h2 id="P18-Maximum-path-sum-I"><a class="header-anchor" href="#P18-Maximum-path-sum-I">☜</a>P18: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MTg=">Maximum path sum I<i class="fa fa-external-link-alt"></i></span></h2>
+<p>最大路径和 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">t = <span class="string">"75\n</span></span><br><span class="line"><span class="string">95 64\n</span></span><br><span class="line"><span class="string">17 47 82\n</span></span><br><span class="line"><span class="string">18 35 87 10\n</span></span><br><span class="line"><span class="string">20 04 82 47 65\n</span></span><br><span class="line"><span class="string">19 01 23 75 03 34\n</span></span><br><span class="line"><span class="string">88 02 77 73 07 63 67\n</span></span><br><span class="line"><span class="string">99 65 04 28 06 16 70 92\n</span></span><br><span class="line"><span class="string">41 41 26 56 83 40 80 70 33\n</span></span><br><span class="line"><span class="string">41 48 72 33 47 32 37 16 94 29\n</span></span><br><span class="line"><span class="string">53 71 44 65 25 43 91 52 97 51 14\n</span></span><br><span class="line"><span class="string">70 11 33 28 77 73 17 78 39 68 17 57\n</span></span><br><span class="line"><span class="string">91 71 52 38 17 14 91 43 58 50 27 29 48\n</span></span><br><span class="line"><span class="string">63 66 04 68 89 53 67 30 73 16 69 87 40 31\n</span></span><br><span class="line"><span class="string">04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">(** 数据导入数组 **)</span></span><br><span class="line">te = <span class="keyword">ImportString</span>[t, <span class="string">"Table"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">(** 每次更新1行，获得截至该行各元素的最长路径 **)</span></span><br><span class="line"><span class="keyword">For</span>[i = <span class="number">2</span>, i &lt;= <span class="keyword">Length</span>@te, i++,</span><br><span class="line"> te[[i]] += <span class="keyword">MapThread</span>[<span class="keyword">Max</span>]@&#123;<span class="keyword">Prepend</span>[te[[i - <span class="number">1</span>]], <span class="number">0</span>], <span class="keyword">Append</span>[te[[i - <span class="number">1</span>]], <span class="number">0</span>]&#125;]</span><br><span class="line">te[[<span class="number">-1</span>]] // <span class="keyword">Max</span></span><br></pre></td></tr></table></figure>
+<h2 id="P19-Counting-Sundays"><a class="header-anchor" href="#P19-Counting-Sundays">☜</a>P19: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MTk=">Counting Sundays<i class="fa fa-external-link-alt"></i></span></h2>
+<p>计算每月1日星期日的个数 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(** 获得该月的天数 **)</span></span><br><span class="line">dayInMonth[year_, month_] := <span class="keyword">If</span>[month &gt; <span class="number">0</span>,</span><br><span class="line">   <span class="keyword">If</span>[month != <span class="number">2</span>, &#123;<span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>&#125;~<span class="keyword">Part</span>~month,</span><br><span class="line">    <span class="keyword">If</span>[<span class="keyword">Mod</span>[year, <span class="number">4</span>] == <span class="number">0</span> &amp;&amp; (<span class="keyword">Mod</span>[year, <span class="number">400</span>] == <span class="number">0</span> || <span class="keyword">Mod</span>[year, <span class="number">100</span>] != <span class="number">0</span>), <span class="number">29</span>, <span class="number">28</span>]],</span><br><span class="line">   dayInMonth[year - <span class="number">1</span>, month + <span class="number">12</span>]];</span><br><span class="line"></span><br><span class="line"><span class="comment">(** 建立星期表，已知1900年1月1日为星期一 **)</span></span><br><span class="line">days = <span class="keyword">Table</span>[&#123;i, j, dayInMonth[i, j - <span class="number">1</span>]&#125;, &#123;i, <span class="number">1900</span>, <span class="number">2000</span>&#125;, &#123;j, <span class="number">1</span>, <span class="number">12</span>&#125;];</span><br><span class="line">days[[<span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>]] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">(** 获取相当于1900年1月1日的天数来计算星期几 **)</span></span><br><span class="line">days[[<span class="keyword">All</span>, <span class="keyword">All</span>, <span class="number">3</span>]] =</span><br><span class="line">  days[[<span class="keyword">All</span>, <span class="keyword">All</span>, <span class="number">3</span>]] // <span class="keyword">Flatten</span> // <span class="keyword">FoldList</span>[<span class="keyword">Plus</span>] // <span class="keyword">Mod</span>[#, <span class="number">7</span>] &amp; //</span><br><span class="line">   <span class="keyword">Partition</span>[#, <span class="number">12</span>] &amp;;</span><br><span class="line">days[[<span class="number">2</span> ;; <span class="keyword">Length</span>@days, <span class="keyword">All</span>, <span class="number">3</span>]] // <span class="keyword">Flatten</span> //</span><br><span class="line">  <span class="keyword">Select</span>[#, # == <span class="number">0</span> &amp;] &amp; // <span class="keyword">Length</span></span><br></pre></td></tr></table></figure>
+<p>开始手写了判断星期的矩阵，后来发现有内置的 <code>DayName</code> 函数可以用：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(** 直接使用内置 DayName 函数 **)</span></span><br><span class="line"><span class="keyword">DayName</span> /@ <span class="keyword">Flatten</span>[#, <span class="number">1</span>]&amp; @ <span class="keyword">Table</span>[&#123;i, j, <span class="number">1</span>&#125;, &#123;i, <span class="number">1901</span>, <span class="number">2000</span>&#125;, &#123;j, <span class="number">1</span>, <span class="number">12</span>&#125;] //</span><br><span class="line">  <span class="keyword">Select</span>[#, #==<span class="keyword">Sunday</span>&amp;]&amp; // <span class="keyword">Length</span></span><br></pre></td></tr></table></figure>
+<h2 id="P20-Factorial-digit-sum"><a class="header-anchor" href="#P20-Factorial-digit-sum">☜</a>P20: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MjA=">Factorial digit sum<i class="fa fa-external-link-alt"></i></span></h2>
+<p>阶乘的数字和 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">IntegerDigits</span>@<span class="keyword">Factorial</span>[<span class="number">100</span>] // <span class="keyword">Total</span></span><br></pre></td></tr></table></figure>
+<h2 id="P21-Amicable-numbers"><a class="header-anchor" href="#P21-Amicable-numbers">☜</a>P21: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MjE=">Amicable numbers<i class="fa fa-external-link-alt"></i></span></h2>
+<p>相亲数 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">d[n_] := <span class="keyword">DivisorSigma</span>[<span class="number">1</span>, n] - n;</span><br><span class="line"></span><br><span class="line"><span class="comment">(** 注意排除掉 d(1)=0, d(0) 不存在，以及 d(n)=n 的情况 **)</span></span><br><span class="line">amicableQ[n_] := <span class="keyword">If</span>[d[n] != <span class="number">0</span> &amp;&amp; d[n] != n &amp;&amp; d[d[n]] == n, <span class="keyword">True</span>, <span class="keyword">False</span>];</span><br><span class="line"></span><br><span class="line">amicableQ /@ <span class="keyword">Range</span>[<span class="number">10000</span> - <span class="number">1</span>] // <span class="keyword">Position</span>[<span class="keyword">True</span>] // <span class="keyword">Flatten</span> // <span class="keyword">Total</span></span><br></pre></td></tr></table></figure>
+<h2 id="P22-Names-scores"><a class="header-anchor" href="#P22-Names-scores">☜</a>P22: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MjI=">Names scores<i class="fa fa-external-link-alt"></i></span></h2>
+<p>姓名得分 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">names = <span class="keyword">Import</span>[<span class="string">"attachments/p022_names.txt"</span>, <span class="string">"CSV"</span>] // <span class="keyword">Flatten</span> // <span class="keyword">Sort</span>;</span><br><span class="line">score[name_] := <span class="keyword">LetterNumber</span> /@ <span class="keyword">StringSplit</span>[name, <span class="string">""</span>] // <span class="keyword">Total</span></span><br><span class="line"><span class="keyword">Sum</span>[score[names[[i]]]*i, &#123;i, <span class="keyword">Length</span>@names&#125;] // <span class="keyword">Timing</span></span><br></pre></td></tr></table></figure>
+<h2 id="P23-Non-abundant-sums"><a class="header-anchor" href="#P23-Non-abundant-sums">☜</a>P23: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MjM=">Non-abundant sums<i class="fa fa-external-link-alt"></i></span></h2>
+<p>不能写成两个盈数之和的数 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">abundantQ[n_] := <span class="keyword">DivisorSigma</span>[<span class="number">1</span>, n] &gt; n + n;</span><br><span class="line"><span class="keyword">With</span>[&#123;te = abundantQ /@ <span class="keyword">Range</span>[<span class="number">28123</span>] // <span class="keyword">Position</span>[<span class="keyword">True</span>]&#125;,</span><br><span class="line">  <span class="number">28123</span>*<span class="number">28124</span>/<span class="number">2</span> -</span><br><span class="line">    (<span class="keyword">Table</span>[te[[i]] + te[[j]], &#123;i, <span class="keyword">Length</span>@te&#125;, &#123;j, i&#125;] //</span><br><span class="line">      <span class="keyword">Flatten</span> // <span class="keyword">Select</span>[#, #=<span class="number">28123</span>&amp;]&amp; // <span class="keyword">DeleteDuplicates</span> // <span class="keyword">Total</span>)]</span><br></pre></td></tr></table></figure>
+<p>用时1分钟 ．</p>
+<h2 id="P24-Lexicographic-permutations"><a class="header-anchor" href="#P24-Lexicographic-permutations">☜</a>P24: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MjQ=">Lexicographic permutations<i class="fa fa-external-link-alt"></i></span></h2>
+<p>字典序排列 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Permutations</span>@&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;~<span class="keyword">Part</span>~<span class="number">1000000</span> // <span class="keyword">FromDigits</span></span><br></pre></td></tr></table></figure>
+<h2 id="P25-1000-digit-Fibonacci-number"><a class="header-anchor" href="#P25-1000-digit-Fibonacci-number">☜</a>P25: <span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0ZXVsZXIubmV0L3Byb2JsZW09MjU=">1000-digit Fibonacci number<i class="fa fa-external-link-alt"></i></span></h2>
+<p>一千位的 Fibonacci 数 ．</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Module</span>[&#123;n=<span class="number">1</span>&#125;,</span><br><span class="line">  <span class="keyword">While</span>[<span class="keyword">IntegerLength</span>@<span class="keyword">Fibonacci</span>@n &lt; <span class="number">1000</span>, n++];</span><br><span class="line">  n]</span><br></pre></td></tr></table></figure>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">NestWhile</span>[(# + <span class="number">1</span>) &amp;, <span class="number">1</span>, <span class="keyword">IntegerLength</span>@<span class="keyword">Fibonacci</span>@# &lt; <span class="number">1000</span> &amp;]</span><br></pre></td></tr></table></figure>
+<p>两者用时相同 ．</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wangjiezhe.com/posts/2020-07-06-Project-Euler-1/" title="欧拉计划（Project Euler）解法【1~25】">https://wangjiezhe.com/posts/2020-07-06-Project-Euler-1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Mathematica/" rel="tag"><i class="fa fa-tag"></i> Mathematica</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2020-07-05-Mathematica-funny-signs/" rel="prev" title="Mathematica 中特殊符号的使用规则">
+      <i class="fa fa-chevron-left"></i> Mathematica 中特殊符号的使用规则
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#P1-Multiples-of-3-and-5"><span class="nav-number">1.</span> <span class="nav-text">P1: Multiples of 3 and 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P2-Even-Fibonacci-numbers"><span class="nav-number">2.</span> <span class="nav-text">P2: Even Fibonacci numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P3-Largest-prime-factor"><span class="nav-number">3.</span> <span class="nav-text">P3: Largest prime factor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P4-Largest-palindrome-product"><span class="nav-number">4.</span> <span class="nav-text">P4: Largest palindrome product</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P5-Smallest-multiple"><span class="nav-number">5.</span> <span class="nav-text">P5: Smallest multiple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P6-Sum-square-difference"><span class="nav-number">6.</span> <span class="nav-text">P6: Sum square difference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P7-10001st-prime"><span class="nav-number">7.</span> <span class="nav-text">P7: 10001st prime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P8-Largest-product-in-a-series"><span class="nav-number">8.</span> <span class="nav-text">P8: Largest product in a series</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P9-Special-Pythagorean-triplet"><span class="nav-number">9.</span> <span class="nav-text">P9: Special Pythagorean triplet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P10-Summation-of-primes"><span class="nav-number">10.</span> <span class="nav-text">P10: Summation of primes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P11-Largest-product-in-a-grid"><span class="nav-number">11.</span> <span class="nav-text">P11: Largest product in a grid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P12-Highly-divisible-triangular-number"><span class="nav-number">12.</span> <span class="nav-text">P12: Highly divisible triangular number</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P13-Large-sum"><span class="nav-number">13.</span> <span class="nav-text">P13: Large sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P14-Longest-Collatz-sequence"><span class="nav-number">14.</span> <span class="nav-text">P14: Longest Collatz sequence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P15-Lattice-paths"><span class="nav-number">15.</span> <span class="nav-text">P15: Lattice paths</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P16-Power-digit-sum"><span class="nav-number">16.</span> <span class="nav-text">P16: Power digit sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P17-Number-letter-counts"><span class="nav-number">17.</span> <span class="nav-text">P17: Number letter counts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P18-Maximum-path-sum-I"><span class="nav-number">18.</span> <span class="nav-text">P18: Maximum path sum I</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P19-Counting-Sundays"><span class="nav-number">19.</span> <span class="nav-text">P19: Counting Sundays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P20-Factorial-digit-sum"><span class="nav-number">20.</span> <span class="nav-text">P20: Factorial digit sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P21-Amicable-numbers"><span class="nav-number">21.</span> <span class="nav-text">P21: Amicable numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P22-Names-scores"><span class="nav-number">22.</span> <span class="nav-text">P22: Names scores</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P23-Non-abundant-sums"><span class="nav-number">23.</span> <span class="nav-text">P23: Non-abundant sums</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P24-Lexicographic-permutations"><span class="nav-number">24.</span> <span class="nav-text">P24: Lexicographic permutations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P25-1000-digit-Fibonacci-number"><span class="nav-number">25.</span> <span class="nav-text">P25: 1000-digit Fibonacci number</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/camel.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+  </div>
+
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西风冷香</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">109k</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+   <span class="post-meta-divider">|</span>
+<div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">Github Pages</span> & <span class="exturl host-link" data-url="aHR0cHM6Ly9uZXRsaWZ5LmNvbQ==">Netlify</span>
+</div>
+
+<script >
+function checkWebp(callback) {
+  var img = new Image();
+  img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+  img.onerror = function () { callback(false); };
+  img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+  var imgs = [].slice.call(document.querySelectorAll('img'));
+  imgs.forEach(function (e) {
+    if (useWebp) {
+      var src = e.getAttribute('data-src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        e.setAttribute('data-src', src);
+      }
+      src = e.getAttribute('src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        e.setAttribute('src', src);
+      }
+    }
+  });
+}
+checkWebp(showImage);
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/posts/2020-07-06-Project-Euler-1/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
+      apikey    : 'ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F',
+      shortname : 'wangjiezhe',
+      url       : "https://wangjiezhe.com/posts/2020-07-06-Project-Euler-1/",
+      identifier: "/posts/2020-07-06-Project-Euler-1/",
+      title     : "欧拉计划（Project Euler）解法【1~25】",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+<script src="/js/click-love.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false}});</script></body>
+</html>
