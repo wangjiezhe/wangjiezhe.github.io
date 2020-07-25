@@ -7,11 +7,13 @@ categories:
 tags:
   - tikz
   - 画图
-description: 使用 tkz-euclide 宏包绘制几何图形
+description:
 mathjax: true
 ---
 
 在上一节中，总结了各种定义特殊点的方法，这一节主要讲述如何定义各类直线形——直线，三角形和多边形．
+
+<!-- more -->
 
 ## 定义直线形的方法
 

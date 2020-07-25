@@ -6,7 +6,7 @@ categories: Windows
 tags:
   - MathType
   - 显卡
-description: 重装系统就是个坑
+description: 重装系统就是个坑，能不碰就不要碰
 ---
 
 由于之前的电脑 8G 的内存已经明显不够了。比如 chrome 开10+个网页，wsl2 一直开着或者更新了大软件（比如 texlive-fontextra），VSCode 打开一个大项目，都会造成内存告急。如果有两种情况同时出现的话，基本上直接崩溃了。chrome 的话崩溃了还好，再打开就可以了。wsl2 一但崩溃，特别是在 pacman 更新的时候，直接导致更新的数据库崩溃，还都手动修复。

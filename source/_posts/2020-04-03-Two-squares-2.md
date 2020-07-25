@@ -9,7 +9,7 @@ tags:
   - 全等
   - 相似
   - 正方形
-description: 和两个共顶点的正方形有关的结论的推广
+description: 上文中和两个共顶点的正方形有关的结论的推广
 mathjax: true
 ---
 
