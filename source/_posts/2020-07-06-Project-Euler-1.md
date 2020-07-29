@@ -1,7 +1,7 @@
 ---
 title: 欧拉计划（Project Euler）解法【1~25】
 date: 2020-07-06 17:50:15
-updated: 2020-07-06 17:50:15
+updated: 2020-07-29 17:50:15
 categories:
   - 数学
   - 算法
@@ -9,6 +9,7 @@ tags:
   - 算法
   - Mathematica
 description: 记录 Project Euler 的 Mathematica 解法
+mathjax: true
 ---
 
 {% note info %}
@@ -55,6 +56,57 @@ Sum[Fibonacci[i], {i, 3, NestWhile[(# + 1) &, 1, Fibonacci[#] <= 4*^6 &], 3}]
 
 时间上，第一种 < 第二种 < 第三种．
 
+{% note info %}
+
+但是，如果第一种方法的上界取 100，则变为 第二种 < 第一种 < 第三种．
+
+{% endnote %}
+
+{% note success %}
+
+在[网上](http://www.mathcraft.org/wiki/index.php?title=Project_Euler-Mathematica#Problem_2)见到的一种做法，时间介于第二种和第三种之间：
+
+```mathematica
+Last[{1, 2, 3, 0} //.
+  {{i_, j_, k_, n_} /; j<4000000 -> {j+k, 2k+j, 3k+2j, n+j}}]
+```
+
+这种方法利用了 `//.`（重复替换）来进行迭代，`/;`（条件）表示终止条件．
+
+受此启发，我重写了一个更快的算法．
+
+实际上，我们可以稍微对 Fibonacci 的递推公式做一下推导：
+
+$$
+\begin{aligned}
+  F_n &= F_{n-1} + F_{n-2} \\
+      &= 2 F_{n-2} + F_{n-3} \\
+      &= 3 F_{n-3} + 2 F_{n-4} \\
+      &= 3 F_{n-3} + F_{n-4} + F_{n-5} + F_{n-6} \\
+      &= 4 F_{n-3} + F_{n-6}
+\end{aligned}
+$$
+
+于是上面的做法可以改写成：
+
+```mathematica
+Last[{0, 2, 0} //.
+  {{i_, j_, n_} /; j<4000000 -> {j, 4j+i, n+j}}]
+```
+
+这个算法的速度比第二种稍快一些．
+
+类似的想法，也可以用 `NestWhile` 函数实现：
+
+```mathematica
+NestWhile[{#[[1]] + 3, Fibonacci[#[[1]]], #[[3]] + #[[2]]} &,
+  {0, 0, 0}, #[[2]] < 4000000 &] // Last
+```
+
+但是这种方法比上面一种方面慢了一倍，甚至比第三种还要慢，感觉是被 `Part` 函数拖慢了速度．
+
+{% endnote %}
+
 ## P3: [Largest prime factor][3]
 
 找最大的素因子．
@@ -72,12 +124,23 @@ Table[i*j, {i, 100, 999}, {j, 100, i}] // Flatten // ReverseSort //
   SelectFirst[PalindromeQ]
 ```
 
+{% note warning %}
+
+前面的列表也可以用 `Tuples` 生成，不过速度慢了近一倍：
+
+```mathematica
+Times @@@ Tuples[Range[100, 999], 2] // ReverseSort //
+  SelectFirst[PalindromeQ]
+```
+
+{% endnote %}
+
 ## P5: [Smallest multiple][5]
 
 最小公倍数．
 
 ```mathematica
-PolynomialLCM @@ Range[20]
+LCM @@ Range[20]
 ```
 
 ## P6: [Sum square difference][6]
@@ -87,6 +150,22 @@ PolynomialLCM @@ Range[20]
 ```mathematica
 Sum[i, {i, 100}]^2 - Sum[i^2, {i, 100}]
 ```
+
+{% note success %}
+
+如果先把求和公式展开，再带入数值，则会快一些：
+
+```mathematica
+Expand[Sum[n, {n, N}]^2 - Sum[n^2, {n, N}]] /. N -> 100
+```
+
+不用 `Expand` 函数会更快一些，时间能缩减到第一种算法的一半：
+
+```mathematica
+Sum[n, {n, N}]^2 - Sum[n^2, {n, N}] /. N -> 100
+```
+
+{% endnote %}
 
 ## P7: [10001st prime][7]
 
@@ -102,10 +181,21 @@ Prime[10001]
 
 ```mathematica
 t = 7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450;
-Times @@@
-  ToExpression /@
+
+Times @@@ ToExpression /@
    Partition[StringSplit[IntegerString@t, ""], 13, 1] // Max
 ```
+
+{% note success %}
+
+如果先把含有 `0` 的部分删除，速度会快一倍以上：
+
+```mathematica
+Times @@@ ToExpression /@ Select[! MemberQ[#, "0", 2] &] @
+  Partition[StringSplit[IntegerString@t, ""], 13, 1] // Max
+```
+
+{% endnote %}
 
 ## P9: [Special Pythagorean triplet][9]
 
@@ -123,6 +213,18 @@ a b c /. sol
 ```mathematica
 Sum[Prime[i],{i,PrimePi[2*^6]}]
 ```
+
+{% note success %}
+
+直接用 `Prime` 函数的话，耗时 14 秒．
+
+改用 `PrimeQ` 函数进行筛选的话，则只需要 0.8 秒：
+
+```mathematica
+Range[2*^6] // Select[PrimeQ] // Total
+```
+
+{% endnote %}
 
 ## P11: [Largest product in a grid][11]
 
@@ -166,6 +268,17 @@ Module[{n = 1, t},
  While[DivisorSigma[0, t = n*(n + 1)/2] <= 500, n++];
  t]
 ```
+
+{% note success %}
+
+受第2题启发，也可以用 `NestWhile` 函数来写，不过速度稍微慢一点。
+
+```mathematica
+NestWhile[(# + 1) &, 1, DivisorSigma[0, # (# + 1)/2] <= 500 &] //
+  # (# + 1)/2 &
+```
+
+{% endnote %}
 
 ## P13: [Large sum][13]
 
