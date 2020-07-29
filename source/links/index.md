@@ -32,7 +32,7 @@ date: 2018-10-29 11:44:17
 ### 平台
 
 - [天凤/Web版](https://tenhou.net/3/)
-- [雀魂（国服）](https://game.maj-soul.com/1/)
+- [雀魂（国际中文服）](https://game.maj-soul.com/1/)
 - [雀魂（日服）](https://game.mahjongsoul.com/)
 
 ### 工具
@@ -60,13 +60,21 @@ date: 2018-10-29 11:44:17
 - [统计学麻雀战术](https://www.bilibili.com/read/readlist/rl97988)  「統計学」のマージャン戦術
 - [琴南幼儿园笔记本](https://www.bilibili.com/read/readlist/rl79513)
 - [麻将的二择](https://www.bilibili.com/read/readlist/rl116320)
-- [日麻多面听分析](https://www.bilibili.com/read/readlist/rl119817)
+- [多面听分析](https://www.bilibili.com/read/readlist/rl119817)
 - [副露读牌体系化讲座](https://www.bilibili.com/read/readlist/rl119814)
 - [翼形理论](https://www.bilibili.com/read/readlist/rl119818)
 - [日麻杂谈](https://www.bilibili.com/read/readlist/rl119820)
 - [亚空间杀法教学](https://www.bilibili.com/read/readlist/rl79957)
 - [麻将教程](https://www.bilibili.com/read/readlist/rl45758)  79博客，おしえて！科学する麻雀，麻雀魔神の読み
 - [广林成麻](https://www.bilibili.com/read/readlist/rl54298)
+- [麻将 铁攻的条件](https://www.bilibili.com/read/readlist/rl257506)
+- [超级数据流麻将](https://www.bilibili.com/read/readlist/rl248018)
+- [鬼打·天凤位的麻雀机理](https://www.bilibili.com/read/readlist/rl213137)
+- [麻将·序盘的铁战略](https://www.bilibili.com/read/readlist/rl230102)
+- [兄控女大学生的最快变强麻雀](https://www.bilibili.com/read/cv3868079)
+- [读卡顿讲座](https://www.bilibili.com/read/readlist/rl292896)
+- [清一色何切](https://www.bilibili.com/read/readlist/rl231796)
+
 
 ### 何切集
 
