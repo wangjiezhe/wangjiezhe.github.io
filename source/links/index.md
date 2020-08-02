@@ -83,4 +83,5 @@ date: 2018-10-29 11:44:17
 - [每周何切](https://www.bilibili.com/read/readlist/rl99009)
 - [天凤位何切选](https://www.bilibili.com/read/readlist/rl160601)
 - [杏林何切集](https://www.bilibili.com/read/readlist/rl171589)
-
+- [二階堂クレイジー的鸡打](https://www.bilibili.com/read/readlist/rl274453)
+- [四葉集——熊本四葉实战何切选](https://www.bilibili.com/read/readlist/rl151716)
