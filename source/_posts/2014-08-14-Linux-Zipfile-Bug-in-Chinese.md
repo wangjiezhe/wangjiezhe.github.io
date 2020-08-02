@@ -43,11 +43,11 @@ iconv -f cp936 -t utf8 -o outfile infile
 
 网上还经常提到的一种方法是用 unzip 的 -O 选项, 可惜在新版的 unzip 中这一选项被移除了, 如果需要也可以自己打补丁, 不过个人感觉很麻烦。
 
-还有一种方法是用 python 来做。网上有一个流传比较广的脚本, 不过功能不过完善, 下面的代码[^1]是在原代码基础上修改而成的，支持解压加密的压缩文件：
+还有一种方法是用 python 来做。网上有一个流传比较广的脚本, 不过功能不过完善, 下面的代码是在原代码基础上修改而成的，支持解压加密的压缩文件：
 
 Python 3 版本：
 
-```python unzip3_gbk.py
+```python   https://gist.github.com/wangjiezhe/7841a350983a147b6d7e#file-unzip3_gbk-py unzip3_gbk.py
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -143,7 +143,7 @@ if __name__ == '__main__':
 
 Python 2 版本：
 
-```python unzip_gbk.py
+```python   https://gist.github.com/wangjiezhe/7841a350983a147b6d7e#file-unzip_gbk-py unzip_gbk.py
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 # unzip_gbk.py
@@ -255,7 +255,3 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-
-
-
-[^1]: https://gist.github.com/wangjiezhe/7841a350983a147b6d7e

@@ -46,9 +46,14 @@ highlight:
   enable: true
   line_number: true
   auto_detect: true
-  tab_replace:
+  tab_replace: '  '
+  wrap: true
+  hljs: false
 prismjs:
   enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: '  '
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -118,7 +123,7 @@ markdown:
     permalink: true
     permalinkClass: 'header-anchor'
     permalinkSide: 'left'
-    permalinkSymbol: '☜'
+    permalinkSymbol: ''
     case: 0
     separator: ''
 
@@ -147,7 +152,7 @@ symbols_count_time:
   time: true
   total_symbols: true
   total_time: false
-  awl: 1.5
+  awl: 2
   wpm: 200
 
 live2d:

@@ -8,7 +8,7 @@
 </div>
 {%- endif %}
 
-<script {{ pjax }}>
+<script{{ pjax }} async>
 function checkWebp(callback) {
   var img = new Image();
   img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
