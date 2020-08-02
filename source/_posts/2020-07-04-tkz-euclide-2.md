@@ -7,7 +7,6 @@ categories:
 tags:
   - tikz
   - 画图
-description:
 mathjax: true
 ---
 

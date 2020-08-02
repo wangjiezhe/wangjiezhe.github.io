@@ -3,8 +3,9 @@ title: 牌谱反思（三）
 date: 2019-12-20 07:54:29
 updated: 2019-12-28 03:40:55
 categories:
-  - 日麻
+  - 立直麻将
 tags:
+  - 雀魂
   - 何切
 description: 最后一巡要如何立直？
 ---

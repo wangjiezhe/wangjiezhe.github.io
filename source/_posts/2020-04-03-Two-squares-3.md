@@ -9,7 +9,6 @@ tags:
   - 全等
   - 相似
   - 正方形
-description:
 mathjax: true
 ---
 

@@ -7,7 +7,6 @@ categories:
   - 软件
 tags:
   - Mathematica
-description: 
 ---
 
 最近因为一些原因重新开始使用 Mathematica，Mathematica 的符号计算功能非常强大，但是在网上搜索别人的代码的时候，发现很难看懂，里面各种「@#%^&*?!」符号，看得人眼花缭乱。

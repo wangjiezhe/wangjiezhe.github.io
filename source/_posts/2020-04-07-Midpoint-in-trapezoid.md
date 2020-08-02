@@ -8,7 +8,6 @@ categories:
 tags:
   - 全等
   - 梯形
-description:
 mathjax: true
 ---
 
