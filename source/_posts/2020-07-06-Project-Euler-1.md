@@ -331,7 +331,7 @@ Total@IntegerDigits[2^1000]
 
 ```mathematica
 (** 获取对应数字的英文 **)
-toEnglish[n_ /; 0 < n <= 1000] :=
+NumberToEnglish[n_ /; 0 < n <= 1000] :=
  Module[{hn, tn, table1, table2, a, b, c, d, res},
   table1 = {"one", "two", "three", "four", "five",
     "six", "seven", "eight", "nine", "ten",
@@ -350,7 +350,7 @@ toEnglish[n_ /; 0 < n <= 1000] :=
   (** 千位 **)
   If[n == 1000, "onethousand", hn <> tn]]；
 
-Sum[StringLength@toEnglish[i], {i, 1000}]
+Sum[StringLength@NumberToEnglish[i], {i, 1000}]
 ```
 
 {% note info %}
@@ -395,13 +395,13 @@ te[[-1]] // Max
 
 ```mathematica
 (** 获得该月的天数 **)
-dayInMonth[year_, month_] := If[month > 0,
+DayInMonth[year_, month_] := If[month > 0,
    If[month != 2, {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}~Part~month,
     If[Mod[year, 4] == 0 && (Mod[year, 400] == 0 || Mod[year, 100] != 0), 29, 28]],
-   dayInMonth[year - 1, month + 12]];
+   DayInMonth[year - 1, month + 12]];
 
 (** 建立星期表，已知1900年1月1日为星期一 **)
-days = Table[{i, j, dayInMonth[i, j - 1]}, {i, 1900, 2000}, {j, 1, 12}];
+days = Table[{i, j, DayInMonth[i, j - 1]}, {i, 1900, 2000}, {j, 1, 12}];
 days[[1, 1, 3]] = 1;
 
 (** 获取相当于1900年1月1日的天数来计算星期几 **)
@@ -436,9 +436,9 @@ IntegerDigits@Factorial[100] // Total
 d[n_] := DivisorSigma[1, n] - n;
 
 (** 注意排除掉 d(1)=0, d(0) 不存在，以及 d(n)=n 的情况 **)
-amicableQ[n_] := If[d[n] != 0 && d[n] != n && d[d[n]] == n, True, False];
+AmicableQ[n_] := If[d[n] != 0 && d[n] != n && d[d[n]] == n, True, False];
 
-amicableQ /@ Range[10000 - 1] // Position[True] // Flatten // Total
+AmicableQ /@ Range[10000 - 1] // Position[True] // Flatten // Total
 ```
 
 ## P22: [Names scores][22]
@@ -456,8 +456,8 @@ Sum[score[names[[i]]]*i, {i, Length@names}] // Timing
 不能写成两个盈数之和的数．
 
 ```mathematica
-abundantQ[n_] := DivisorSigma[1, n] > n + n;
-With[{te = abundantQ /@ Range[28123] // Position[True]},
+AbundantQ[n_] := DivisorSigma[1, n] > n + n;
+With[{te = AbundantQ /@ Range[28123] // Position[True]},
   28123*28124/2 -
     (Table[te[[i]] + te[[j]], {i, Length@te}, {j, i}] //
       Flatten // Select[#, #=28123&]& // DeleteDuplicates // Total)]

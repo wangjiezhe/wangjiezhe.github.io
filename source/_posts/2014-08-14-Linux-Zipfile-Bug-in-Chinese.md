@@ -47,7 +47,7 @@ iconv -f cp936 -t utf8 -o outfile infile
 
 Python 3 版本：
 
-```python
+```python unzip3_gbk.py
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -143,7 +143,7 @@ if __name__ == '__main__':
 
 Python 2 版本：
 
-```python
+```python unzip_gbk.py
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 # unzip_gbk.py
