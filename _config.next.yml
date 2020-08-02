@@ -105,8 +105,6 @@ text_align:
   desktop: justify
   mobile: start
 
-mobile_layout_economy: true
-
 android_chrome_color: "#66327C"
 
 codeblock:
