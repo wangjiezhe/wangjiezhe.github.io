@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -16,13 +16,15 @@
 
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css">
   <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
-<script id="hexo-configurations">
+<script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"scrollpercent":true,"enable":true,"sidebar":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"style":"flat","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
   </script>
 
   <meta name="description" content="重新构建了博客的页面，记录了一些遇到的问题和解决办法">
@@ -45,7 +47,7 @@
 <link rel="canonical" href="https://wangjiezhe.com/posts/2018-10-05-refactor-blog/">
 
 
-<script id="page-configurations">
+<script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
@@ -74,24 +76,36 @@
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
@@ -102,22 +116,23 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">如鱼饮水</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">冷暖自知</p>
   </div>
@@ -128,7 +143,6 @@
     </div>
   </div>
 </div>
-
 
 
 
@@ -175,7 +189,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
@@ -185,7 +199,7 @@
 </div>
 <div id="search-result">
   <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -193,23 +207,133 @@
   </div>
 
 </div>
-    </header>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
 
-    
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A5%E5%9D%91-Linux"><span class="nav-number">1.</span> <span class="nav-text">入坑 Linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="nav-number">2.</span> <span class="nav-text">博客的建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%87%8D%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">博客的重构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E9%80%89%E6%8B%A9"><span class="nav-number">3.1.</span> <span class="nav-text">方案选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6"><span class="nav-number">3.2.1.</span> <span class="nav-text">数学</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%84%E8%AE%BA"><span class="nav-number">3.2.2.</span> <span class="nav-text">评论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pangu"><span class="nav-number">3.2.3.</span> <span class="nav-text">Pangu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Han"><span class="nav-number">3.2.4.</span> <span class="nav-text">Han</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#canvas-nest"><span class="nav-number">3.2.5.</span> <span class="nav-text">canvas-nest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#note"><span class="nav-number">3.2.6.</span> <span class="nav-text">note</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reading-progress"><span class="nav-number">3.2.7.</span> <span class="nav-text">reading-progress</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="nav-number">3.3.</span> <span class="nav-text">自动部署</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%85%E6%94%B9%E8%BF%9B%E7%9A%84%E9%83%A8%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">待改进的部分</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/camel.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+  </div>
+
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
   <div class="back-to-top">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
   <div class="reading-progress-bar"></div>
 
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    <main class="main">
+
       <div class="main-inner">
-        <div class="content-wrap">
-          
+        
 
-          <div class="content post posts-expand">
-            
+        <div class="content post posts-expand">
+          
 
     
   
@@ -226,6 +350,8 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="如鱼饮水">
     </span>
+
+    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           博客的重构与回顾
@@ -264,6 +390,20 @@
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>13 分钟</span>
             </span>
             <div class="post-description">重新构建了博客的页面，记录了一些遇到的问题和解决办法</div>
 
@@ -274,11 +414,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
         <p>利用十一的时间，重新整理了一下个人博客的页面。</p>
 <p>看了一下，上一篇文章还是在 2015 年 8 月，到现在已经有三年多了，我真是。。。唉</p>
-<h2 id="入坑-Linux"><a class="header-anchor" href="#入坑-Linux">☜</a>入坑 Linux</h2>
+<h2 id="入坑-Linux"><a class="header-anchor" href="#入坑-Linux"></a>入坑 Linux</h2>
 <p>记得最早接触 Linux 是在 2012 年，当时是上计概课要写代码，于是心血来潮地在电脑上安装了 Fedora（话说那时 Fedora 的版本号才是 17），然后就掉进了 Linux 的坑里一去不复返。而注册 Github 的时间是在 2013 年 8 月 15 日，具体什么原因已经不记得了。。。</p>
 <p>后来想找一款能够听歌的软件，那时网易云音乐还没有出 Linux 版，FZUG 也还没有成立，我在网上偶然间发现了一款可以听歌、而且还是可以听网易云音乐的软件，那就是 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1h1U2hhb2h1YS9rd3BsYXllcg==">kwplayer<i class="fa fa-external-link-alt"></i></span>。看了下 commit，第一次提交是在 2013 年 8 月 29 号：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1h1U2hhb2h1YS9rd3BsYXllci9jb21taXQvMWUwZGU0YzBkODg5YmNjZDgyM2M1MjAwZGIzMzEzY2I5MjFlMDY2Zg==">inited<i class="fa fa-external-link-alt"></i></span>。而我应该是在10月份的时候发现的，至于在哪儿找到的已经完全不记得了。</p>
 <p>还记得第一次提交 Issue 是 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1h1U2hhb2h1YS9rd3BsYXllci9pc3N1ZXMvMTE=">#11<i class="fa fa-external-link-alt"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1h1U2hhb2h1YS9rd3BsYXllci9pc3N1ZXMvMTI=">#12<i class="fa fa-external-link-alt"></i></span>，当时只是发现 Github 上有个可以提交 Bug 的地方，于是就随手开了两个 Issue，没想到当天都得到了详细的回复，并在三四天后都得到了解决：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1h1U2hhb2h1YS9rd3BsYXllci9jb21taXQvOWMyMWM0ZjkwOGIwMmY3N2YzNDVhYTA0ZTZlZjhjM2EyZmJhOWU1Ng==">9c21c4f<i class="fa fa-external-link-alt"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1h1U2hhb2h1YS9rd3BsYXllci9jb21taXQvOTBhMDJhODUwOGE0NzY4ODlkZjBmNWEyNGRlYmZmN2U3MDg0ZTZmZA==">90a02a8<i class="fa fa-external-link-alt"></i></span>。</p>
@@ -286,56 +424,56 @@
 <p>刚又看了一下，我在 copr 上最早的一次 build 是在 <span class="exturl" data-url="aHR0cHM6Ly9jb3ByLmZlZG9yYWluZnJhY2xvdWQub3JnL2NvcHJzL3dhbmdqaWV6aGUva3dwbGF5ZXIvYnVpbGQvNzYwNC8=">2014 年 3 月 31 号<i class="fa fa-external-link-alt"></i></span>，而我能够找到的最早介绍 copr 的中文资料是 <span class="exturl" data-url="aHR0cHM6Ly9saW51eHRveS5vcmcvYXJjaGl2ZXMvZmVkb3JhLWNvcHIuaHRtbA==">Fedora Copr<i class="fa fa-external-link-alt"></i></span>，现在的 copr 网址上线是在 <span class="exturl" data-url="aHR0cHM6Ly9saXN0cy5mZWRvcmFob3N0ZWQub3JnL2FyY2hpdmVzL2xpc3QvY29wci1kZXZlbEBsaXN0cy5mZWRvcmFob3N0ZWQub3JnL3RocmVhZC9TRzdPQUg3SUlJNVREQ1NPN1RMWE9XSU9QRzdTN0YyWC8=">2013 年 12 月<i class="fa fa-external-link-alt"></i></span>， FZUG 的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzFkb3Q3NWNt">mosquito<i class="fa fa-external-link-alt"></i></span> 也是从 2014 年 6 月才开始建立他的 <span class="exturl" data-url="aHR0cHM6Ly9mZWRvcmFwcm9qZWN0Lm9yZy93aWtpL1VzZXI6TW9zcXVpdG8=">myrepo<i class="fa fa-external-link-alt"></i></span> 的，话说国内比我更早开始使用 <span class="exturl" data-url="aHR0cHM6Ly9jb3ByLmZlZG9yYWluZnJhY2xvdWQub3Jn">copr<i class="fa fa-external-link-alt"></i></span> 的应该不多吧。。。</p>
 <p>话说那时 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmJpb2Zhbi5vcmcvYWJvdXQv">XuShaohua<i class="fa fa-external-link-alt"></i></span> 的 Github 账户名还是叫 LiuLang，后来他去了 Deepin，网易云音乐的 Linux 版他应该是作者之一。</p>
 <p>当然后来因为各种原因我不再维护我的 copr 仓库，包括犯懒（反正有了 mosquito 的 myrepo 源，以及后来的 FZUG 源）、Fedora 的习惯性跳票让我非常不爽（这是在找借口么。。。）等等，加上后来我从 Fedora 转到了 Arch Linux 上（大概是 2015 年暑假吧），这个仓库就彻底荒废了。</p>
-<h2 id="博客的建立"><a class="header-anchor" href="#博客的建立">☜</a>博客的建立</h2>
+<h2 id="博客的建立"><a class="header-anchor" href="#博客的建立"></a>博客的建立</h2>
 <p>最早的一些记录文章我都发在了 QQ 空间里，显得格格不入的。后来就想找一个合适的可以放这些东西的地方。</p>
 <p>期间考虑过 WordPress，不过觉得比较麻烦，还需要有地方托管；考虑过一些博客托管平台，不过没有找到太喜欢的；觉得 Blogger 不错，但又被 W 掉了。。。</p>
 <p>后来看到阮一峰的的介绍文章：<span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTIvMDgvYmxvZ2dpbmdfd2l0aF9qZWt5bGwuaHRtbA==">搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门<i class="fa fa-external-link-alt"></i></span>，觉得这是个不错的选择，于是就开始折腾 Github Pages。作为一个审美盲与选择困难症患者，在众多的 Jekyll 主题中完全不知道该怎么选择，于是就随手选了一个自己觉得比较简洁明了的，也就是 ellochen 的博客主题，直接 copy 过来就用了。</p>
 <p>嗯，说好听点叫简洁，说不好听呢就叫难看。。。😭</p>
 <p>话说 ellochen 的 Github 账号已经不存在了，貌似是已经注销了，但好在还存留有 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3BpaTB4L2VsbG9jaGVuLmdpdGh1Yi5jb20=">Fork<i class="fa fa-external-link-alt"></i></span>（话说这就是 Fork 相较于 Star 的好处吧，我之前也有一些被删的 repo 是这么存留下来的，嗯，我指的不是 phuslu 大神，指的是垠神。。。），豆瓣小站 <span class="exturl" data-url="aHR0cHM6Ly9zaXRlLmRvdWJhbi5jb20vMTk2NzgxLw==">Gode-Mode<i class="fa fa-external-link-alt"></i></span> 貌似是他建立的。</p>
-<h2 id="博客的重构"><a class="header-anchor" href="#博客的重构">☜</a>博客的重构</h2>
+<h2 id="博客的重构"><a class="header-anchor" href="#博客的重构"></a>博客的重构</h2>
 <p>在那之后，博客的页面也小幅修改过几次，但大的主题方面都没有变过。曾经有想过重新选一个更好看的主题，但碍于时间原因一直没有去做。<br />
 期间也在其他的 Page 中也曾经尝试过其他的主题，比如 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2htZmF5c2FsL2htZmF5c2FsLW9tZWdhLXRoZW1l">HMFAYSAL OMEGA<i class="fa fa-external-link-alt"></i></span>，整体不错，但有些华而不实了；也试过 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tpbmdjb25zL2NvbGVzbGF3">coleslaw<i class="fa fa-external-link-alt"></i></span>，但又太过简单了。</p>
 <p>直到第一次看到 NexT 主题，就像<span class="exturl" data-url="aHR0cHM6Ly9pY2VoZS5naXRodWIuaW8vd2ViL2Jsb2dfY2hhbmdlbG9nLw==">这个<i class="fa fa-external-link-alt"></i></span>，真的把我惊艳到了，流畅的载入动画，自动展开并追随页面更新的目录，再加上简洁没有多余内容的页面，完全符合我对自己的博客的预期啊。于是最终决定就用这个主题了。</p>
 <p>不过 NexT 的主页 <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">theme-next.org<i class="fa fa-external-link-alt"></i></span> 目前显示 Under Construction，没有最新的文档只有根据旧文档、网上的教程还有源代码自行摸索，网上很多教程和解决方案都是过时的，只好自己边做边摸索了。</p>
 <p>然后发现，NexT 的配置又有一大堆，这简直就是在为难选择困难症的患者啊。。。</p>
-<h3 id="方案选择"><a class="header-anchor" href="#方案选择">☜</a>方案选择</h3>
+<h3 id="方案选择"><a class="header-anchor" href="#方案选择"></a>方案选择</h3>
 <p>NexT 主题总共有 4 种方案：Muse，Mist，Pisces 和 Gemini，为选哪一个我纠结了有近 1 个小时，对比各个博客样例，又在本地挨个试了好几遍，去找它们的不同点。最后发现，Muse 和 Mist 可以算一类，目录都在右侧，可以选择动态载入，也可以选择直接显示或隐藏。Muse 的布局相对宽松一点，顶部标题栏也比较大；Mist 相对紧凑一点，所有标题和标签都放在了最顶上的一栏里。而 Pisces 和 Gemini 又可以算一类，目录和标题栏恒在左边，右边是正文，Pisces 的页面和前两个比较相似，纯黑白布局，连贯性很强；而 Gemini 则更传统一些，每篇文章之间分的清清楚楚。</p>
 <p>最终我选择了 Gemini 方案，原因是我觉得目录的动态载入虽然显得比较高级，但文章整体左移的那一下还是显得有些晃眼了，而且目录在右、正文在左的布局让我有些不太习惯；而不用 Pisces 的原因则是文章之间没有明显的分界线，文章中的小标题也不是很显著，于是最后暂定了 Gemini 方案。（嗯，暂定，说不定那天我有回来打自己的脸了）</p>
-<h3 id="插件"><a class="header-anchor" href="#插件">☜</a>插件</h3>
+<h3 id="插件"><a class="header-anchor" href="#插件"></a>插件</h3>
 <p>应该说，折腾这些插件是最费时间的，不但要面临各种选择，还要面临选完了发现用不了然后又得换的状况。。。有些插件本身有问题，需要手动修改才能使用，有些则根本不知道该怎么改。。。</p>
-<h4 id="数学"><a class="header-anchor" href="#数学">☜</a>数学</h4>
+<h4 id="数学"><a class="header-anchor" href="#数学"></a>数学</h4>
 <p>数学公式的渲染最开始是打算用 MathJax，和以前保持一致就可以了。本来没有问题，但后来在利用 Travis-CI 自动部署的时候发现，远程安装的 pandoc 的版本不对，没有办法正确渲染，又找不到解决的办法，于是只能弃之而选择 katex。katex 其实我之前就听说过，据说比 MathJax 要快很多（公式一多的话 MathJax 确实太慢了），不过现在 0.10.0-rc1 的版本。由于前面的几篇文章里面还没有数学公式，我还没有真正试验过。</p>
 <p>另外吐槽一句，npmjs 上的 hexo-renderer-markdown-it 的版本太老了，直接安装 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvLXJlbmRlcmVyLW1hcmtkb3duLWl0">Github<i class="fa fa-external-link-alt"></i></span> 上的版本就可以了，这个插件已经更新了，但仓库里的模块还没有更新。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ cat package-lock.json | jq .dependencies.\"hexo-renderer-markdown-it\"</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"github:hexojs/hexo-renderer-markdown-it#89a5abe048f5a43b42328ad012fb445ded6e665b"</span>,</span><br><span class="line">  <span class="string">"from"</span>: <span class="string">"github:hexojs/hexo-renderer-markdown-it"</span>,</span><br><span class="line">  <span class="string">"requires"</span>: &#123;</span><br><span class="line">    <span class="string">"lodash.assign"</span>: <span class="string">"^4.2.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it"</span>: <span class="string">"^8.4.1"</span>,</span><br><span class="line">    <span class="string">"markdown-it-abbr"</span>: <span class="string">"^1.0.4"</span>,</span><br><span class="line">    <span class="string">"markdown-it-cjk-breaks"</span>: <span class="string">"^1.1.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-container"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-deflist"</span>: <span class="string">"^2.0.3"</span>,</span><br><span class="line">    <span class="string">"markdown-it-emoji"</span>: <span class="string">"^1.4.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-footnote"</span>: <span class="string">"^3.0.1"</span>,</span><br><span class="line">    <span class="string">"markdown-it-ins"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-mark"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-sub"</span>: <span class="string">"^1.0.0"</span>,</span><br><span class="line">    <span class="string">"markdown-it-sup"</span>: <span class="string">"^1.0.0"</span>,</span><br><span class="line">    <span class="string">"sluggo"</span>: <span class="string">"^0.2.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ cat package-lock.json | jq .dependencies.\&quot;hexo-renderer-markdown-it\&quot;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;github:hexojs/hexo-renderer-markdown-it#89a5abe048f5a43b42328ad012fb445ded6e665b&quot;</span>,</span><br><span class="line">  <span class="string">&quot;from&quot;</span>: <span class="string">&quot;github:hexojs/hexo-renderer-markdown-it&quot;</span>,</span><br><span class="line">  <span class="string">&quot;requires&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;lodash.assign&quot;</span>: <span class="string">&quot;^4.2.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;markdown-it&quot;</span>: <span class="string">&quot;^8.4.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;markdown-it-abbr&quot;</span>: <span class="string">&quot;^1.0.4&quot;</span>,</span><br><span class="line">    <span class="string">&quot;markdown-it-cjk-breaks&quot;</span>: <span class="string">&quot;^1.1.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;markdown-it-container&quot;</span>: <span class="string">&quot;^2.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;markdown-it-deflist&quot;</span>: <span class="string">&quot;^2.0.3&quot;</span>,</span><br><span class="line">    <span class="string">&quot;markdown-it-emoji&quot;</span>: <span class="string">&quot;^1.4.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;markdown-it-footnote&quot;</span>: <span class="string">&quot;^3.0.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;markdown-it-ins&quot;</span>: <span class="string">&quot;^2.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;markdown-it-mark&quot;</span>: <span class="string">&quot;^2.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;markdown-it-sub&quot;</span>: <span class="string">&quot;^1.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;markdown-it-sup&quot;</span>: <span class="string">&quot;^1.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;sluggo&quot;</span>: <span class="string">&quot;^0.2.0&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>不过该模块会使得 <code>&lt;!-- more --&gt;</code> 失效，需要写成</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">escape</span>&gt;</span><span class="comment">&lt;!-- more --&gt;</span><span class="tag">&lt;/<span class="name">escape</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>才行。</p>
 <p>不过我不喜欢一点进来就到文章半截的模式，所以对我来说没有什么影响，还是乖乖地写 description 吧。</p>
 <p>另外这一部分文档严重不足，只能看自带 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvLXJlbmRlcmVyLW1hcmtkb3duLWl0L3dpa2kvQWR2YW5jZWQtQ29uZmlndXJhdGlvbg==">wiki<i class="fa fa-external-link-alt"></i></span> 和 markdown-it 的例子来写。</p>
-<h4 id="评论"><a class="header-anchor" href="#评论">☜</a>评论</h4>
+<h4 id="评论"><a class="header-anchor" href="#评论"></a>评论</h4>
 <p>关于评论模块，暂时还是采用了 Disqus 的评论系统，好处是不用折腾，因为是以前就配置好的，直接用就可以了，而且功能也足够强大，不过也有几个问题：</p>
 <ul>
 <li>必须登录才能评论。不过我看到有文章说 Disqus 现在支持匿名评论了，有时间再去看一下。</li>
 <li>被 W。这个是最主要的问题，目前看来解决方案有两个，一个是利用其他的服务器转发一下，例如 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zvb2xlYXAvZGlzcXVzLXBocC1hcGk=">fooleap/disqus-php-api<i class="fa fa-external-link-alt"></i></span>，另一个是换用其他的评论系统，比如 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltc3VuL2dpdG1lbnQ=">gitment<i class="fa fa-external-link-alt"></i></span>/<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dpdGFsay9naXRhbGs=">gitalk<i class="fa fa-external-link-alt"></i></span> 或者 <span class="exturl" data-url="aHR0cHM6Ly92YWxpbmUuanMub3Jn">Valine<i class="fa fa-external-link-alt"></i></span>，不过这次没有时间在折腾了，留待有时间再解决吧。</li>
 </ul>
-<h4 id="Pangu"><a class="header-anchor" href="#Pangu">☜</a>Pangu</h4>
+<h4 id="Pangu"><a class="header-anchor" href="#Pangu"></a>Pangu</h4>
 <p>这是一个不错的模块，来自与 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3ZpbnRhL3Bhbmd1Lmpz">pangu.js<i class="fa fa-external-link-alt"></i></span>，可以在英文和中文之间自动加入空格，让中英文的混排看起来更舒服一下。</p>
-<h4 id="Han"><a class="header-anchor" href="#Han">☜</a>Han</h4>
+<h4 id="Han"><a class="header-anchor" href="#Han"></a>Han</h4>
 <p>汉字排版模块，可以调整中文页面的布局，提供了着重号、拼音上标等功能，来自 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2V0aGFudHcvSGFu">Han<i class="fa fa-external-link-alt"></i></span>。 我比较看中的着重号的功能，因为在英文中，强调使用斜体表示的，就像<em lang="en">emphasize</em>这样，而中文一旦<em lang="en">斜体</em>就会变得非常难看。因此如果用<em>着重号</em>的话会好看很多。</p>
 <p>不过这个插件折腾了我足足半天，原始的 css 文件能够加着重号，但是会把页面变得非常拥挤；<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvdGhlbWUtbmV4dC1oYW4=">theme-next-han<i class="fa fa-external-link-alt"></i></span> 里的 css 文件倒是不会改变页面布局，但是着重号的功能却没有了。于是我去翻了源代码，然后发现，为了解决 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpc3NuYW4vaGV4by10aGVtZS1uZXh0L2lzc3Vlcy8xNjQ1">#1645<i class="fa fa-external-link-alt"></i></span>，<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpc3NuYW4vaGV4by10aGVtZS1uZXh0L3B1bGwvMTc4MA==">#1780<i class="fa fa-external-link-alt"></i></span> 把很多有用的内容也删掉了，问题倒是解决了，但剩下的基本上就没有什么作用了。于是我又去翻了 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2V0aGFudHcvSGFu">Han<i class="fa fa-external-link-alt"></i></span> 的源码，发现只要把 <code>well-knit</code> 模块禁掉就可以了，于是又生成了新的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGUvSGFuL2NvbW1pdC82ZThjZTI1OTJhNDc4NmI4YWQ3MjMwYTJkMzg3MTc3MDMwYzY2Y2Fm">han.min.css<i class="fa fa-external-link-alt"></i></span> 文件，使之能够正常显示。</p>
 <p>话说我这篇文章写了得有两天的时间，中间有大一部分时间就是去弄这个了。</p>
-<h4 id="canvas-nest"><a class="header-anchor" href="#canvas-nest">☜</a>canvas-nest</h4>
+<h4 id="canvas-nest"><a class="header-anchor" href="#canvas-nest"></a>canvas-nest</h4>
 <p>背景动态渲染，来自 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2h1c3RjYy9jYW52YXMtbmVzdC5qcw==">canvas-nest.js<i class="fa fa-external-link-alt"></i></span>。以前看别人的博客遇到这个觉得很好玩，于是这次自己也就加上了。</p>
 <p>不过遗憾的是，Gemini 的博文部分是不显示背景的，好像是把底层背景覆盖了。试了一下四种方案，好像只有 Gemini 是这个样子。。。</p>
-<h4 id="note"><a class="header-anchor" href="#note">☜</a>note</h4>
+<h4 id="note"><a class="header-anchor" href="#note"></a>note</h4>
 <p>可以插入提示块，效果如 <span class="exturl" data-url="aHR0cHM6Ly9qaW5uc2pqLmdpdGh1Yi5pby91bmNhdGVnb3JpemVkL2hleG8tbmV4dC1ub3RlLw==">在hexo-NexT中插入note提示块<i class="fa fa-external-link-alt"></i></span> 中所示，还是很有用的。不过在文档中完全没有提到，要不是仔细翻看配置文件根本发现不了。</p>
-<h4 id="reading-progress"><a class="header-anchor" href="#reading-progress">☜</a>reading-progress</h4>
+<h4 id="reading-progress"><a class="header-anchor" href="#reading-progress"></a>reading-progress</h4>
 <p>可以在最上方显示阅读的进度条，以前也用过，这次也就加上了。</p>
-<h3 id="自动部署"><a class="header-anchor" href="#自动部署">☜</a>自动部署</h3>
+<h3 id="自动部署"><a class="header-anchor" href="#自动部署"></a>自动部署</h3>
 <p>关于 GitHub Pages 的部署，我将源代码存储在 source 分支，然后利用 Travis-CI 自动构建并部署到 master 分支。具体看参见 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaXRmYW5yLmNjLzIwMTcvMDgvMDkvdXNpbmctdHJhdmlzLWNpLWF1dG9tYXRpYy1kZXBsb3ktaGV4by1ibG9ncy8=">使用Travis CI自动部署Hexo博客<i class="fa fa-external-link-alt"></i></span>，基本上 copy 过来就可以了。</p>
 <p>另外，我的主题是 Fork 的 Next 的主题，然后在上面进行修改，在用 git submodule 引入进来，结果好几次自动部署失败都是因为修改完主题之后忘记 push 了。。。</p>
 <p>而 GitLab Pages 的部署则要简单许多，只需要照着官方的例子写一个 <code>.gitlab-ci.yml</code> 文件就可以。</p>
-<h2 id="待改进的部分"><a class="header-anchor" href="#待改进的部分">☜</a>待改进的部分</h2>
+<h2 id="待改进的部分"><a class="header-anchor" href="#待改进的部分"></a>待改进的部分</h2>
 <p>还有一些部分模块这次没有时间弄了，留着下次有时间再解决吧。一部分现在能想到的我先列举在这里，省得以后又忘了：</p>
 <ul class="contains-task-list">
 <li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 字数统计</li>
@@ -406,7 +544,6 @@
 
 
       <footer class="post-footer">
-          
           <div class="post-tags">
               <a href="/tags/Fedora/" rel="tag"><i class="fa fa-tag"></i> Fedora</a>
               <a href="/tags/Blog/" rel="tag"><i class="fa fa-tag"></i> Blog</a>
@@ -438,8 +575,8 @@
 
 
 
-          </div>
-          
+        </div>
+        
     
   <div class="comments">
     <div id="disqus_thread">
@@ -470,116 +607,6 @@
   }
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#入坑-Linux"><span class="nav-number">1.</span> <span class="nav-text">入坑 Linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客的建立"><span class="nav-number">2.</span> <span class="nav-text">博客的建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客的重构"><span class="nav-number">3.</span> <span class="nav-text">博客的重构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方案选择"><span class="nav-number">3.1.</span> <span class="nav-text">方案选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件"><span class="nav-number">3.2.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数学"><span class="nav-number">3.2.1.</span> <span class="nav-text">数学</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#评论"><span class="nav-number">3.2.2.</span> <span class="nav-text">评论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pangu"><span class="nav-number">3.2.3.</span> <span class="nav-text">Pangu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Han"><span class="nav-number">3.2.4.</span> <span class="nav-text">Han</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#canvas-nest"><span class="nav-number">3.2.5.</span> <span class="nav-text">canvas-nest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#note"><span class="nav-number">3.2.6.</span> <span class="nav-text">note</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reading-progress"><span class="nav-number">3.2.7.</span> <span class="nav-text">reading-progress</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动部署"><span class="nav-number">3.3.</span> <span class="nav-text">自动部署</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待改进的部分"><span class="nav-number">4.</span> <span class="nav-text">待改进的部分</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="西风冷香"
-      src="/images/camel.jpg">
-  <p class="site-author-name" itemprop="name">西风冷香</p>
-  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">44</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">65</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
-      </span>
-  </div>
-
-
-<div id="site-days"></div>
-<script>
-  function show_date_time() {
-    window.setTimeout("show_date_time()", 1000);
-    BirthDay = new Date("2014/01/10 13:29:55");
-    today = new Date();
-    timeold = (today.getTime() - BirthDay.getTime());
-    sectimeold = timeold / 1000;
-    secondsold = Math.floor(sectimeold);
-    msPerDay = 24 * 60 * 60 * 1000;
-    e_daysold = timeold / msPerDay;
-    daysold = Math.floor(e_daysold);
-    e_hrsold = (e_daysold - daysold) * 24;
-    hrsold = setzero(Math.floor(e_hrsold));
-    e_minsold = (e_hrsold - hrsold) * 60;
-    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
-    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
-    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
-  }
-
-  function setzero(i) {
-    if (i < 10) {
-      i = "0" + i
-    }
-    return i;
-  }
-
-  show_date_time();
-</script>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
       </div>
     </main>
 
@@ -601,15 +628,15 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">110k</span>
+    <span title="站点总字数">113k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
    <span class="post-meta-divider">|</span>
 <div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">Github Pages</span> & <span class="exturl host-link" data-url="aHR0cHM6Ly9uZXRsaWZ5LmNvbQ==">Netlify</span>
 </div>
 
-<script >
+<script async>
 function checkWebp(callback) {
   var img = new Image();
   img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
@@ -671,52 +698,29 @@ checkWebp(showImage);
   </div>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/pisces.js"></script>
-
-
 <script src="/js/next-boot.js"></script>
-
-
 
 
   
   <script>
     (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
@@ -742,10 +746,10 @@ checkWebp(showImage);
   
 
   
-  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2/dist/quicklink.umd.js"></script>
   <script>
       window.addEventListener('load', () => {
-      quicklink({
+      quicklink.listen({
         timeout : 3000,
         priority: true,
         ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/posts/2018-10-05-refactor-blog/',]
@@ -756,7 +760,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+NexT.utils.loadComments('#disqus_thread', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api       : 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',

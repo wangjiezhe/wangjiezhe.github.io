@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -16,13 +16,15 @@
 
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css">
   <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
-<script id="hexo-configurations">
+<script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"scrollpercent":true,"enable":true,"sidebar":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"style":"flat","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
   </script>
 
   <meta name="description" content="学习太くないお的牌谱，反思出现的问题">
@@ -53,7 +55,7 @@
 <link rel="canonical" href="https://wangjiezhe.com/posts/2019-09-04-Tai-1/">
 
 
-<script id="page-configurations">
+<script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
@@ -82,24 +84,36 @@
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
@@ -110,22 +124,23 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">如鱼饮水</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">冷暖自知</p>
   </div>
@@ -136,7 +151,6 @@
     </div>
   </div>
 </div>
-
 
 
 
@@ -183,7 +197,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
@@ -193,7 +207,7 @@
 </div>
 <div id="search-result">
   <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -201,23 +215,133 @@
   </div>
 
 </div>
-    </header>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
 
-    
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%AF%E9%9C%B2%E5%8A%A0%E9%80%9F"><span class="nav-number">1.</span> <span class="nav-text">副露加速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%8C%E6%95%88%E7%8E%87%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">牌效率问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%8B%E6%B1%82%E8%BF%9E%E5%BA%84"><span class="nav-number">3.</span> <span class="nav-text">谋求连庄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%AB%E5%BF%98%E4%BA%86%E8%A2%AB%E5%90%83%E7%A2%B0%E7%9A%84%E7%89%8C"><span class="nav-number">4.</span> <span class="nav-text">别忘了被吃碰的牌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%86%E8%BE%B9%E5%BC%A0%E6%90%AD%E5%AD%90"><span class="nav-number">5.</span> <span class="nav-text">拆边张搭子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/camel.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+  </div>
+
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
   <div class="back-to-top">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
   <div class="reading-progress-bar"></div>
 
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    <main class="main">
+
       <div class="main-inner">
-        <div class="content-wrap">
-          
+        
 
-          <div class="content post posts-expand">
-            
+        <div class="content post posts-expand">
+          
 
     
   
@@ -234,6 +358,8 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="如鱼饮水">
     </span>
+
+    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           太流牌谱学习笔记（一）
@@ -272,6 +398,20 @@
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
             </span>
             <div class="post-description">学习太くないお的牌谱，反思出现的问题</div>
 
@@ -282,14 +422,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
         <p>之前看过一些日麻的教程，感觉一个很大的问题就是看教程的时候看得很明白，但自己打起来就经常出错，有些问题即使是自己复盘的时候有时也看不出来，于是就想打谱来解决这个问题。</p>
 <p>牌谱的选择，毫无疑问是要选择天凤位的牌谱。之前看过一些天凤位的介绍，虽然ASAPIN是目前最强的天凤位，但他的打牌太过灵性了，实在不适合像我这样的初学者学习（´Д`）</p>
 <p>后来看了<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zODQxNjQyOA==">太くないお<i class="fa fa-external-link-alt"></i></span>的介绍，感觉我现在的牌风和太くないお很相似，于是决定看他的牌谱。</p>
 <p>由于太くないお是天凤位，升天凤位之前的牌谱可以从天凤<span class="exturl" data-url="aHR0cDovL3RlbmhvdS5uZXQvcmFua2luZy5odG1s">官网<i class="fa fa-external-link-alt"></i></span>上直接下载下来。太くないお升天凤位前凤南对战3749战，当然不可能全看，于是我选择了他十段升天凤位的牌谱来看，一共301战。这个时候他的水平也相对比较稳定了，牌谱看起来失误率也会小一些。</p>
 <p>打谱的时候，很开心地发现大部分时候自己的选择都是对的，当然也有一些没有注意的地方，这里拿出来分析一下。</p>
-<h2 id="副露加速"><a class="header-anchor" href="#副露加速">☜</a>副露加速</h2>
+<h2 id="副露加速"><a class="header-anchor" href="#副露加速"></a>副露加速</h2>
 <p><img data-src="zQ9iypCvu57Lxh1.jpg" alt="东2局0本场5巡目" /></p>
 <p>这是东二局。东一局胡了一个立直一发2600点，东二局下家和对家一上来就开始副露，才到5巡两家就都三副露了。基本上面对三副露，就可以认为都已经听牌了。这时上家打了7p。</p>
 <p>这里太くないお直接吃了这个7p后付，应该主要是考虑手牌的速度。如果不后付的话，这个发很难碰出来，因为发是dora，很有可能直接被人捏死（比如上家就捏了一张发）。所以等到碰出发再考虑听牌，就有些晚了。</p>
@@ -297,7 +435,7 @@
 <p><img data-src="BdTrLVn5Q4vfDAz.jpg" alt="东2局0本场9巡目" /></p>
 <p>不过最终还是先摸3m点了对家。不过3m基本上就是铳双东2000点（除非对家有两张3s），而自家是发dora4满贯的听牌，对日还是没有问题的。</p>
 <p>下家因为先打过1m，后面如果留1m打6m的话会有振听，从而逃过一劫。。。</p>
-<h2 id="牌效率问题"><a class="header-anchor" href="#牌效率问题">☜</a>牌效率问题</h2>
+<h2 id="牌效率问题"><a class="header-anchor" href="#牌效率问题"></a>牌效率问题</h2>
 <p><img data-src="ChcE7lNORVbI5fX.jpg" alt="东3局0本场9巡目" /></p>
 <p>这是东三局9巡，一向听之后上来3s。这里我第一反应是3s模切，但太くないお选择打掉了4p。这是牌效率的问题。</p>
 <p><img data-src="L34CcobnqBxGruY.jpg" alt="天凤/牌理" /></p>
@@ -305,7 +443,7 @@
 <p><img data-src="cZgCFbSlYOo6VkX.jpg" alt="何切る解答機" /></p>
 <p>如果去查一下kobalab的<span class="exturl" data-url="aHR0cDovL2tvYmFsYWIubmV0L21hamlhbmcvZGFwYWkuaHRtbCNtNjdwMjM0NDY4czMzNjc4czMvMC8xL3o0">何切<i class="fa fa-external-link-alt"></i></span>，也会发现，打4p的权重是最高的。</p>
 <p>实际上，接下来下家立直，然后自家摸上8p听牌，因为只有一张4p的两筋，加上自己是四位，dora东也已经出了，所以就直接追立了。最终自摸0m，门胡到了断平dora1的7900点，一举逆一。</p>
-<h2 id="谋求连庄"><a class="header-anchor" href="#谋求连庄">☜</a>谋求连庄</h2>
+<h2 id="谋求连庄"><a class="header-anchor" href="#谋求连庄"></a>谋求连庄</h2>
 <p><img data-src="OxUHuD4RLJVGEKj.jpg" alt="东4局0本场7巡目" /></p>
 <p>这是东四局的亲家，7巡是已两向听，进到9m后我的第一反应是打4m，而太くないお则打掉了东。</p>
 <p>这个是简单的牌效率的问题，打4m损失了5m的进章。而且这里是平和dora1的2向听，这时对家和上家还在打幺九牌，下家的牌要快一些（事实上已经一向听了），加之自己是亲家，这里不留字牌全速进攻是没有问题的。</p>
@@ -314,17 +452,17 @@
 <p>这里上家打了3p，于是吃了打9m，谋求兜听连庄。</p>
 <p><img data-src="5oEeaIxzWJCnGsk.jpg" alt="东4局0本场13巡目" /></p>
 <p>然后上家又打9p可以吃，但是7p并不是安牌，而且是dora周边的牌，没法打出去。但这里需要注意到的是，8s是安牌可以打，于是可以吃到9p打8s单调7p。这里特别需要注意，我们需要的是听牌连庄，而不是胡牌，所以不用考虑听牌的形状，只要不打危险牌然后争取流局听牌就可以了。</p>
-<h2 id="别忘了被吃碰的牌"><a class="header-anchor" href="#别忘了被吃碰的牌">☜</a>别忘了被吃碰的牌</h2>
+<h2 id="别忘了被吃碰的牌"><a class="header-anchor" href="#别忘了被吃碰的牌"></a>别忘了被吃碰的牌</h2>
 <p><img data-src="4uGkRDIKwNsZ8eh.jpg" alt="南2局0本场12巡目" /></p>
 <p>南二局，处于四位的上家6巡立直，太くないお随即弃胡。到了12巡的时候，手头没有绝安牌了。于是太くないお打了4p。</p>
 <p>我的第一反应是，4p只是半筋啊。然后再仔细一看，3p出了3枚，5p出了3枚，6p出了2枚，所以4p是1p的半筋+的5p的薄壁，安全度还是不错的。</p>
 <p>再看了一会儿，发现上家打过7p我吃了，所以4p实际上是个两筋。。。</p>
 <p>为什么每次找牌都会放掉打出去被吃碰掉的牌，诶。。。</p>
-<h2 id="拆边张搭子"><a class="header-anchor" href="#拆边张搭子">☜</a>拆边张搭子</h2>
+<h2 id="拆边张搭子"><a class="header-anchor" href="#拆边张搭子"></a>拆边张搭子</h2>
 <p><img data-src="aMYkQUtw3xfqXIL.jpg" alt="南3局0本场5巡目" /></p>
 <p>进到6p，于是四连型5678p变成好型搭子，于是要拆掉一个愚型搭子。那么拆边张的优先度肯定是要大于拆坎张的。而且在拆边张的时候，一般是由内向外打，先打2p再打1p，因为到后面，无筋1p的铳率是要低于2p的。</p>
 <p>而我的第一反应还是打1p，平时在打牌的时候也会犯这样的错误，每次都是刚打完就发现打错了。。。</p>
-<h2 id="总结"><a class="header-anchor" href="#总结">☜</a>总结</h2>
+<h2 id="总结"><a class="header-anchor" href="#总结"></a>总结</h2>
 <p>回顾这一个半庄，基本上出现失误的地方都是在细节的判断上，这也是后面打牌是需要加强的地方．</p>
 
     </div>
@@ -380,7 +518,6 @@
 
 
       <footer class="post-footer">
-          
           <div class="post-tags">
               <a href="/tags/%E5%A4%AA%E3%81%8F%E3%81%AA%E3%81%84%E3%81%8A/" rel="tag"><i class="fa fa-tag"></i> 太くないお</a>
               <a href="/tags/%E4%BD%95%E5%88%87/" rel="tag"><i class="fa fa-tag"></i> 何切</a>
@@ -409,8 +546,8 @@
 
 
 
-          </div>
-          
+        </div>
+        
     
   <div class="comments">
     <div id="disqus_thread">
@@ -441,116 +578,6 @@
   }
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#副露加速"><span class="nav-number">1.</span> <span class="nav-text">副露加速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#牌效率问题"><span class="nav-number">2.</span> <span class="nav-text">牌效率问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#谋求连庄"><span class="nav-number">3.</span> <span class="nav-text">谋求连庄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#别忘了被吃碰的牌"><span class="nav-number">4.</span> <span class="nav-text">别忘了被吃碰的牌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拆边张搭子"><span class="nav-number">5.</span> <span class="nav-text">拆边张搭子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="西风冷香"
-      src="/images/camel.jpg">
-  <p class="site-author-name" itemprop="name">西风冷香</p>
-  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">44</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">65</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
-      </span>
-  </div>
-
-
-<div id="site-days"></div>
-<script>
-  function show_date_time() {
-    window.setTimeout("show_date_time()", 1000);
-    BirthDay = new Date("2014/01/10 13:29:55");
-    today = new Date();
-    timeold = (today.getTime() - BirthDay.getTime());
-    sectimeold = timeold / 1000;
-    secondsold = Math.floor(sectimeold);
-    msPerDay = 24 * 60 * 60 * 1000;
-    e_daysold = timeold / msPerDay;
-    daysold = Math.floor(e_daysold);
-    e_hrsold = (e_daysold - daysold) * 24;
-    hrsold = setzero(Math.floor(e_hrsold));
-    e_minsold = (e_hrsold - hrsold) * 60;
-    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
-    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
-    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
-  }
-
-  function setzero(i) {
-    if (i < 10) {
-      i = "0" + i
-    }
-    return i;
-  }
-
-  show_date_time();
-</script>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
       </div>
     </main>
 
@@ -572,15 +599,15 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">110k</span>
+    <span title="站点总字数">113k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
    <span class="post-meta-divider">|</span>
 <div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">Github Pages</span> & <span class="exturl host-link" data-url="aHR0cHM6Ly9uZXRsaWZ5LmNvbQ==">Netlify</span>
 </div>
 
-<script >
+<script async>
 function checkWebp(callback) {
   var img = new Image();
   img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
@@ -642,52 +669,29 @@ checkWebp(showImage);
   </div>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/pisces.js"></script>
-
-
 <script src="/js/next-boot.js"></script>
-
-
 
 
   
   <script>
     (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
@@ -713,10 +717,10 @@ checkWebp(showImage);
   
 
   
-  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2/dist/quicklink.umd.js"></script>
   <script>
       window.addEventListener('load', () => {
-      quicklink({
+      quicklink.listen({
         timeout : 3000,
         priority: true,
         ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/posts/2019-09-04-Tai-1/',]
@@ -727,7 +731,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+NexT.utils.loadComments('#disqus_thread', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api       : 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',

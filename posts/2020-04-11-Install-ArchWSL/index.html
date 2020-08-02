@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -16,13 +16,15 @@
 
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css">
   <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
-<script id="hexo-configurations">
+<script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"scrollpercent":true,"enable":true,"sidebar":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"style":"flat","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
   </script>
 
   <meta name="description" content="记录在 WSL 中安装完 Arch 之后要做的事情">
@@ -42,7 +44,7 @@
 <link rel="canonical" href="https://wangjiezhe.com/posts/2020-04-11-Install-ArchWSL/">
 
 
-<script id="page-configurations">
+<script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
@@ -71,24 +73,36 @@
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
@@ -99,22 +113,23 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">如鱼饮水</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">冷暖自知</p>
   </div>
@@ -125,7 +140,6 @@
     </div>
   </div>
 </div>
-
 
 
 
@@ -172,7 +186,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
@@ -182,7 +196,7 @@
 </div>
 <div id="search-result">
   <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -190,23 +204,133 @@
   </div>
 
 </div>
-    </header>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
 
-    
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-WSL-2"><span class="nav-number">1.</span> <span class="nav-text">安装 WSL 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WSL-2-%E7%9B%B8%E5%AF%B9%E4%BA%8E-WSL-1-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">WSL 2 相对于 WSL 1 的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">语言设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">4.</span> <span class="nav-text">安装软件包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E5%AF%86%E9%92%A5%EF%BC%88%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">导入密钥（非常重要！！！）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%94%A8%E5%9B%BD%E5%86%85%E7%9A%84%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-number">4.2.</span> <span class="nav-text">启用国内的镜像源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-ArchlinuxCN-%E6%BA%90"><span class="nav-number">4.3.</span> <span class="nav-text">添加 ArchlinuxCN 源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-number">4.4.</span> <span class="nav-text">安装常用软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%88%E6%90%AD%E5%BB%BA%E5%A5%BD%E5%B8%B8%E7%94%A8%E7%8E%AF%E5%A2%83"><span class="nav-number">4.4.1.</span> <span class="nav-text">先搭建好常用环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-zinit%EF%BC%88%E5%8E%9F-zplugin%EF%BC%89"><span class="nav-number">4.4.2.</span> <span class="nav-text">安装 zinit（原 zplugin）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-powerlevel10k"><span class="nav-number">4.4.3.</span> <span class="nav-text">安装 powerlevel10k</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E7%94%A8-zsh%EF%BC%88%E7%BB%88%E4%BA%8E%E6%9C%89%E4%BA%86%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9C%8B%E7%9A%84%E7%BB%88%E7%AB%AF%EF%BC%89"><span class="nav-number">4.4.4.</span> <span class="nav-text">启用 zsh（终于有了一个好看的终端）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF%E8%87%B3-zsh"><span class="nav-number">4.4.5.</span> <span class="nav-text">切换默认终端至 zsh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-vim-plug"><span class="nav-number">4.4.6.</span> <span class="nav-text">安装 vim-plug</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-2"><span class="nav-number">4.4.7.</span> <span class="nav-text">安装常用软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%8A%B1%E5%93%A8%E8%BD%AF%E4%BB%B6"><span class="nav-number">4.4.8.</span> <span class="nav-text">安装花哨软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%AD%97%E4%BD%93"><span class="nav-number">4.4.9.</span> <span class="nav-text">安装常用字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%93%E4%B8%9A%E8%BD%AF%E4%BB%B6"><span class="nav-number">4.4.10.</span> <span class="nav-text">安装专业软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-X-%E8%BD%AF%E4%BB%B6"><span class="nav-number">4.4.11.</span> <span class="nav-text">安装 X 软件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%94%A8%E6%88%B7"><span class="nav-number">5.</span> <span class="nav-text">添加新用户</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/camel.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+  </div>
+
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
   <div class="back-to-top">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
   <div class="reading-progress-bar"></div>
 
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    <main class="main">
+
       <div class="main-inner">
-        <div class="content-wrap">
-          
+        
 
-          <div class="content post posts-expand">
-            
+        <div class="content post posts-expand">
+          
 
     
   
@@ -223,6 +347,8 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="如鱼饮水">
     </span>
+
+    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           安装 ArchWSL 后需要做的事
@@ -261,6 +387,20 @@
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
             </span>
             <div class="post-description">记录在 WSL 中安装完 Arch 之后要做的事情</div>
 
@@ -271,15 +411,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
         <p>最近把 windows 更新到了 2004，切换到了 WSL 2 上。</p>
-<h2 id="安装-WSL-2"><a class="header-anchor" href="#安装-WSL-2">☜</a>安装 WSL 2</h2>
+<h2 id="安装-WSL-2"><a class="header-anchor" href="#安装-WSL-2"></a>安装 WSL 2</h2>
 <p>启用 WSL 和虚拟机控制平台功能（要求管理员权限）：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows</span><span class="literal">-Subsystem</span><span class="literal">-Linux</span> /all /norestart</span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart</span><br><span class="line">wsl -<span class="literal">-set</span><span class="literal">-default</span><span class="literal">-version</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>之后重启电脑。</p>
 <p>安装 Arch，参见 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3l1azcvQXJjaFdTTA==">ArchWSL<i class="fa fa-external-link-alt"></i></span>。</p>
-<h2 id="WSL-2-相对于-WSL-1-的优缺点"><a class="header-anchor" href="#WSL-2-相对于-WSL-1-的优缺点">☜</a>WSL 2 相对于 WSL 1 的优缺点</h2>
+<h2 id="WSL-2-相对于-WSL-1-的优缺点"><a class="header-anchor" href="#WSL-2-相对于-WSL-1-的优缺点"></a>WSL 2 相对于 WSL 1 的优缺点</h2>
 <p>优点：</p>
 <ul>
 <li>本地文件操作更快。之前编译一个 glibc，几个小时都没有编完</li>
@@ -292,57 +430,57 @@
 <li>经常会爆内存，包括安装大软件、长时间运行等</li>
 <li>访问 Windows 主机上文件的速度变慢</li>
 </ul>
-<h2 id="语言设置"><a class="header-anchor" href="#语言设置">☜</a>语言设置</h2>
+<h2 id="语言设置"><a class="header-anchor" href="#语言设置"></a>语言设置</h2>
 <p>把 <code>/etc/locale.conf</code> 改为 <code>LANG=zh_CN.UTF8</code>。</p>
 <p>然后 <code>source /etc/locale.conf</code>。</p>
-<div class="note info">
-            <p>一个非常奇怪的事情是，如果把 <code>LANG</code> 设为 <code>zh_CN.UTF-8</code>，那么在 <strong>bash</strong> 下，windows 中的中文文件名显示为乱码，而 <strong>zsh</strong> 则显示正常。<br />但在默认的 <code>LANG=en_US.UTF-8</code> 下，<strong>bash</strong> 和 <strong>zsh</strong> 都能正常显示中文文件名。</p>
-          </div>
-<h2 id="安装软件包"><a class="header-anchor" href="#安装软件包">☜</a>安装软件包</h2>
-<h3 id="导入密钥（非常重要！！！）"><a class="header-anchor" href="#导入密钥（非常重要！！！）">☜</a>导入密钥（非常重要！！！）</h3>
+<div class="note info"><p>一个非常奇怪的事情是，如果把 <code>LANG</code> 设为 <code>zh_CN.UTF-8</code>，那么在 <strong>bash</strong> 下，windows 中的中文文件名显示为乱码，而 <strong>zsh</strong> 则显示正常。<br />
+但在默认的 <code>LANG=en_US.UTF-8</code> 下，<strong>bash</strong> 和 <strong>zsh</strong> 都能正常显示中文文件名。</p>
+</div>
+<h2 id="安装软件包"><a class="header-anchor" href="#安装软件包"></a>安装软件包</h2>
+<h3 id="导入密钥（非常重要！！！）"><a class="header-anchor" href="#导入密钥（非常重要！！！）"></a>导入密钥（非常重要！！！）</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化密钥环 &amp;&amp; 验证主密钥 &amp;&amp; 更新密钥</span></span><br><span class="line">pacman-key --init &amp;&amp; pacman-key --populate archlinux &amp;&amp; pacman-key --refresh-keys</span><br></pre></td></tr></table></figure>
-<h3 id="启用国内的镜像源"><a class="header-anchor" href="#启用国内的镜像源">☜</a>启用国内的镜像源</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"Server = https://mirrors.aliyun.com/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.neusoft.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.cqu.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.ustc.edu.cn/archlinux/\$repo/os/\$arch"</span> &gt; /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
-<h3 id="添加-ArchlinuxCN-源"><a class="header-anchor" href="#添加-ArchlinuxCN-源">☜</a>添加 ArchlinuxCN 源</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"</span></span><br><span class="line"><span class="string">[archlinuxcn]</span></span><br><span class="line"><span class="string">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/x86_64"</span> &gt;&gt; /etc/pacman.conf</span><br><span class="line">pacman -Sy &amp;&amp; pacman -S archlinuxcn-keyring &amp;&amp; pacman -S yaourt</span><br></pre></td></tr></table></figure>
+<h3 id="启用国内的镜像源"><a class="header-anchor" href="#启用国内的镜像源"></a>启用国内的镜像源</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Server = https://mirrors.aliyun.com/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.neusoft.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.cqu.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/\$repo/os/\$arch</span></span><br><span class="line"><span class="string">Server = https://mirrors.ustc.edu.cn/archlinux/\$repo/os/\$arch&quot;</span> &gt; /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+<h3 id="添加-ArchlinuxCN-源"><a class="header-anchor" href="#添加-ArchlinuxCN-源"></a>添加 ArchlinuxCN 源</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;</span></span><br><span class="line"><span class="string">[archlinuxcn]</span></span><br><span class="line"><span class="string">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/x86_64&quot;</span> &gt;&gt; /etc/pacman.conf</span><br><span class="line">pacman -Sy &amp;&amp; pacman -S archlinuxcn-keyring &amp;&amp; pacman -S yaourt</span><br></pre></td></tr></table></figure>
 <p>这里坚持用 yaourt 的原因有两个，一是在 root 环境下使用不报错（主要是需要彩色显示），二是可以显示版本更新还是编译更新。</p>
-<h3 id="安装常用软件"><a class="header-anchor" href="#安装常用软件">☜</a>安装常用软件</h3>
-<h4 id="先搭建好常用环境"><a class="header-anchor" href="#先搭建好常用环境">☜</a>先搭建好常用环境</h4>
+<h3 id="安装常用软件"><a class="header-anchor" href="#安装常用软件"></a>安装常用软件</h3>
+<h4 id="先搭建好常用环境"><a class="header-anchor" href="#先搭建好常用环境"></a>先搭建好常用环境</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syu</span><br><span class="line">pacman -S zsh git subversion lua openssh</span><br></pre></td></tr></table></figure>
-<h4 id="安装-zinit（原-zplugin）"><a class="header-anchor" href="#安装-zinit（原-zplugin）">☜</a>安装 zinit（原 zplugin）</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zdharma/zinit.git ~/.zinit/bin</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"source ~/.zinit/bin/zinit.zsh"</span> &gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h4 id="安装-zinit（原-zplugin）"><a class="header-anchor" href="#安装-zinit（原-zplugin）"></a>安装 zinit（原 zplugin）</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zdharma/zinit.git ~/.zinit/bin</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;source ~/.zinit/bin/zinit.zsh&quot;</span> &gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>不得不再次吐槽一下 <code>git clone</code> 的速度。。。</p>
 </blockquote>
-<h4 id="安装-powerlevel10k"><a class="header-anchor" href="#安装-powerlevel10k">☜</a>安装 powerlevel10k</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"zinit ice depth=1; zinit light romkatv/powerlevel10k"</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
-<h4 id="启用-zsh（终于有了一个好看的终端）"><a class="header-anchor" href="#启用-zsh（终于有了一个好看的终端）">☜</a>启用 zsh（终于有了一个好看的终端）</h4>
+<h4 id="安装-powerlevel10k"><a class="header-anchor" href="#安装-powerlevel10k"></a>安装 powerlevel10k</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;zinit ice depth=1; zinit light romkatv/powerlevel10k&quot;</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h4 id="启用-zsh（终于有了一个好看的终端）"><a class="header-anchor" href="#启用-zsh（终于有了一个好看的终端）"></a>启用 zsh（终于有了一个好看的终端）</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsh</span><br></pre></td></tr></table></figure>
 <p>然后就可以导入之前的 <code>.zshrc</code> 了。</p>
-<h4 id="切换默认终端至-zsh"><a class="header-anchor" href="#切换默认终端至-zsh">☜</a>切换默认终端至 zsh</h4>
+<h4 id="切换默认终端至-zsh"><a class="header-anchor" href="#切换默认终端至-zsh"></a>切换默认终端至 zsh</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
-<h4 id="安装-vim-plug"><a class="header-anchor" href="#安装-vim-plug">☜</a>安装 vim-plug</h4>
+<h4 id="安装-vim-plug"><a class="header-anchor" href="#安装-vim-plug"></a>安装 vim-plug</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/<span class="built_in">autoload</span>/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
 <p>导入之前的 <code>.vimrc</code> 文件，并执行命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim +PlugInstall +qall</span><br></pre></td></tr></table></figure>
-<h4 id="安装常用软件-2"><a class="header-anchor" href="#安装常用软件-2">☜</a>安装常用软件</h4>
+<h4 id="安装常用软件-2"><a class="header-anchor" href="#安装常用软件-2"></a>安装常用软件</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pacman -S base-devel <span class="built_in">which</span> diffutils man openssh tree p7zip bc wget \</span><br><span class="line">  htop strace most \</span><br><span class="line">  yarn npm python-pip \</span><br><span class="line">  zathura-ps zathura-pdf-poppler \</span><br><span class="line">  feh imagemagick mediainfo ffmpeg \</span><br><span class="line">  opencc dos2unix jq net-tools <span class="built_in">bind</span>-tools nload</span><br><span class="line">yarn global add hexo-cli nali-cli http-server</span><br></pre></td></tr></table></figure>
-<h4 id="安装花哨软件"><a class="header-anchor" href="#安装花哨软件">☜</a>安装花哨软件</h4>
+<h4 id="安装花哨软件"><a class="header-anchor" href="#安装花哨软件"></a>安装花哨软件</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S fd exa bat ripgrep percol</span><br></pre></td></tr></table></figure>
-<h4 id="安装常用字体"><a class="header-anchor" href="#安装常用字体">☜</a>安装常用字体</h4>
+<h4 id="安装常用字体"><a class="header-anchor" href="#安装常用字体"></a>安装常用字体</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts tex-gyre-fonts ttf-dejavu wqy-zenhei wqy-microhei ttf-sarasa-gothic</span><br></pre></td></tr></table></figure>
-<h4 id="安装专业软件"><a class="header-anchor" href="#安装专业软件">☜</a>安装专业软件</h4>
+<h4 id="安装专业软件"><a class="header-anchor" href="#安装专业软件"></a>安装专业软件</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pacman -S texlive-most</span><br><span class="line">pacman -S texlive-langchinese biber asymptote qtikz \</span><br><span class="line">  sagemath jupyter</span><br></pre></td></tr></table></figure>
-<div class="note danger">
-            <p><span style="color:red">注意</span>：安装 <code>texlive-fontextra</code> 会爆内存！！！<br />反正我的8G内存被爆了，16G没有问题）</p>
-          </div>
-<h4 id="安装-X-软件"><a class="header-anchor" href="#安装-X-软件">☜</a>安装 X 软件</h4>
+<div class="note danger"><p><span style="color:red">注意</span>：安装 <code>texlive-fontextra</code> 会爆内存！！！<br />
+反正我的8G内存被爆了，16G没有问题）</p>
+</div>
+<h4 id="安装-X-软件"><a class="header-anchor" href="#安装-X-软件"></a>安装 X 软件</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S tk gvim</span><br></pre></td></tr></table></figure>
 <p>向 <code>~/.zshrc</code> 中添加：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DISPLAY=$(awk <span class="string">'/nameserver / &#123;print $2; exit&#125;'</span> /etc/resolve.conf 2&gt;/dev/null):0.0</span><br><span class="line"><span class="built_in">export</span> LIBGL_ALWAYS_INDIRECT=1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DISPLAY=$(awk <span class="string">&#x27;/nameserver / &#123;print $2; exit&#125;&#x27;</span> /etc/resolve.conf 2&gt;/dev/null):0.0</span><br><span class="line"><span class="built_in">export</span> LIBGL_ALWAYS_INDIRECT=1</span><br></pre></td></tr></table></figure>
 <p>注意对于 WSL 2，VcXsrv 启动时需要选中 <code>Disable access control</code> 的选项，或者加上 <code>-ac</code> 的参数。</p>
-<h2 id="添加新用户"><a class="header-anchor" href="#添加新用户">☜</a>添加新用户</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd AAA</span><br><span class="line">useradd XXX -g AAA -G wheel -m -N</span><br><span class="line">pacman -S sudo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"wheel ALL=(ALL) NOPASSWD: ALL"</span> &gt; /etc/sudoers.d/wheel</span><br></pre></td></tr></table></figure>
+<h2 id="添加新用户"><a class="header-anchor" href="#添加新用户"></a>添加新用户</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd AAA</span><br><span class="line">useradd XXX -g AAA -G wheel -m -N</span><br><span class="line">pacman -S sudo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;wheel ALL=(ALL) NOPASSWD: ALL&quot;</span> &gt; /etc/sudoers.d/wheel</span><br></pre></td></tr></table></figure>
 <p>其实我一直是使用 root 账户，只有在需要 makepkg 的时候才切换到普通用户。</p>
 
     </div>
@@ -398,7 +536,6 @@
 
 
       <footer class="post-footer">
-          
           <div class="post-tags">
               <a href="/tags/WSL/" rel="tag"><i class="fa fa-tag"></i> WSL</a>
               <a href="/tags/Arch/" rel="tag"><i class="fa fa-tag"></i> Arch</a>
@@ -427,8 +564,8 @@
 
 
 
-          </div>
-          
+        </div>
+        
     
   <div class="comments">
     <div id="disqus_thread">
@@ -459,116 +596,6 @@
   }
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-WSL-2"><span class="nav-number">1.</span> <span class="nav-text">安装 WSL 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WSL-2-相对于-WSL-1-的优缺点"><span class="nav-number">2.</span> <span class="nav-text">WSL 2 相对于 WSL 1 的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言设置"><span class="nav-number">3.</span> <span class="nav-text">语言设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装软件包"><span class="nav-number">4.</span> <span class="nav-text">安装软件包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入密钥（非常重要！！！）"><span class="nav-number">4.1.</span> <span class="nav-text">导入密钥（非常重要！！！）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用国内的镜像源"><span class="nav-number">4.2.</span> <span class="nav-text">启用国内的镜像源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-ArchlinuxCN-源"><span class="nav-number">4.3.</span> <span class="nav-text">添加 ArchlinuxCN 源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装常用软件"><span class="nav-number">4.4.</span> <span class="nav-text">安装常用软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#先搭建好常用环境"><span class="nav-number">4.4.1.</span> <span class="nav-text">先搭建好常用环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-zinit（原-zplugin）"><span class="nav-number">4.4.2.</span> <span class="nav-text">安装 zinit（原 zplugin）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-powerlevel10k"><span class="nav-number">4.4.3.</span> <span class="nav-text">安装 powerlevel10k</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启用-zsh（终于有了一个好看的终端）"><span class="nav-number">4.4.4.</span> <span class="nav-text">启用 zsh（终于有了一个好看的终端）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切换默认终端至-zsh"><span class="nav-number">4.4.5.</span> <span class="nav-text">切换默认终端至 zsh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-vim-plug"><span class="nav-number">4.4.6.</span> <span class="nav-text">安装 vim-plug</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装常用软件-2"><span class="nav-number">4.4.7.</span> <span class="nav-text">安装常用软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装花哨软件"><span class="nav-number">4.4.8.</span> <span class="nav-text">安装花哨软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装常用字体"><span class="nav-number">4.4.9.</span> <span class="nav-text">安装常用字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装专业软件"><span class="nav-number">4.4.10.</span> <span class="nav-text">安装专业软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-X-软件"><span class="nav-number">4.4.11.</span> <span class="nav-text">安装 X 软件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加新用户"><span class="nav-number">5.</span> <span class="nav-text">添加新用户</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="西风冷香"
-      src="/images/camel.jpg">
-  <p class="site-author-name" itemprop="name">西风冷香</p>
-  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">44</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">65</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
-      </span>
-  </div>
-
-
-<div id="site-days"></div>
-<script>
-  function show_date_time() {
-    window.setTimeout("show_date_time()", 1000);
-    BirthDay = new Date("2014/01/10 13:29:55");
-    today = new Date();
-    timeold = (today.getTime() - BirthDay.getTime());
-    sectimeold = timeold / 1000;
-    secondsold = Math.floor(sectimeold);
-    msPerDay = 24 * 60 * 60 * 1000;
-    e_daysold = timeold / msPerDay;
-    daysold = Math.floor(e_daysold);
-    e_hrsold = (e_daysold - daysold) * 24;
-    hrsold = setzero(Math.floor(e_hrsold));
-    e_minsold = (e_hrsold - hrsold) * 60;
-    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
-    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
-    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
-  }
-
-  function setzero(i) {
-    if (i < 10) {
-      i = "0" + i
-    }
-    return i;
-  }
-
-  show_date_time();
-</script>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
       </div>
     </main>
 
@@ -590,15 +617,15 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">110k</span>
+    <span title="站点总字数">113k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
    <span class="post-meta-divider">|</span>
 <div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">Github Pages</span> & <span class="exturl host-link" data-url="aHR0cHM6Ly9uZXRsaWZ5LmNvbQ==">Netlify</span>
 </div>
 
-<script >
+<script async>
 function checkWebp(callback) {
   var img = new Image();
   img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
@@ -660,52 +687,29 @@ checkWebp(showImage);
   </div>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/pisces.js"></script>
-
-
 <script src="/js/next-boot.js"></script>
-
-
 
 
   
   <script>
     (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
@@ -731,10 +735,10 @@ checkWebp(showImage);
   
 
   
-  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2/dist/quicklink.umd.js"></script>
   <script>
       window.addEventListener('load', () => {
-      quicklink({
+      quicklink.listen({
         timeout : 3000,
         priority: true,
         ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/posts/2020-04-11-Install-ArchWSL/',]
@@ -745,7 +749,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+NexT.utils.loadComments('#disqus_thread', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api       : 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',

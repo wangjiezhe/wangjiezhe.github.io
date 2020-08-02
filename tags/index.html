@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -16,13 +16,15 @@
 
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css">
   <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
-<script id="hexo-configurations">
+<script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"scrollpercent":true,"enable":true,"sidebar":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"style":"flat","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
   </script>
 
   <meta name="description" content="某不知名机构不知名数学老师一枚">
@@ -33,20 +35,15 @@
 <meta property="og:description" content="某不知名机构不知名数学老师一枚">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-10-04T15:20:26.000Z">
-<meta property="article:modified_time" content="2020-08-02T02:48:24.647Z">
+<meta property="article:modified_time" content="2020-08-02T14:23:22.548Z">
 <meta property="article:author" content="西风冷香">
-<meta property="article:tag" content="Blog">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="NexT">
-<meta property="article:tag" content="Math">
-<meta property="article:tag" content="博客">
-<meta property="article:tag" content="数学">
+<meta property="article:tag" content="Blog,Hexo,NexT,Math,博客,数学">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://wangjiezhe.com/tags/">
 
 
-<script id="page-configurations">
+<script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
@@ -76,24 +73,36 @@
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
@@ -104,22 +113,23 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">如鱼饮水</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">冷暖自知</p>
   </div>
@@ -130,7 +140,6 @@
     </div>
   </div>
 </div>
-
 
 
 
@@ -177,7 +186,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
@@ -187,7 +196,7 @@
 </div>
 <div id="search-result">
   <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -195,105 +204,18 @@
   </div>
 
 </div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-  
-  
-
-          <div class="content page posts-expand">
-            
-
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">标签
-</h1>
-
-<div class="post-meta">
-  
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 65 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/ActiveX/" style="font-size: 12px; color: #70f">ActiveX</a> <a href="/tags/Arch/" style="font-size: 12px; color: #70f">Arch</a> <a href="/tags/Archlinux/" style="font-size: 12px; color: #70f">Archlinux</a> <a href="/tags/Awk/" style="font-size: 12px; color: #70f">Awk</a> <a href="/tags/Blog/" style="font-size: 12px; color: #70f">Blog</a> <a href="/tags/ClassIn/" style="font-size: 12px; color: #70f">ClassIn</a> <a href="/tags/Fedora/" style="font-size: 15.6px; color: #9200e4">Fedora</a> <a href="/tags/GoodNotes/" style="font-size: 12px; color: #70f">GoodNotes</a> <a href="/tags/Grep/" style="font-size: 12px; color: #70f">Grep</a> <a href="/tags/Hexo/" style="font-size: 26.4px; color: #e40092">Hexo</a> <a href="/tags/Linux/" style="font-size: 30px; color: #f07">Linux</a> <a href="/tags/MathType/" style="font-size: 12px; color: #70f">MathType</a> <a href="/tags/Mathematica/" style="font-size: 15.6px; color: #9200e4">Mathematica</a> <a href="/tags/Network/" style="font-size: 12px; color: #70f">Network</a> <a href="/tags/NexT/" style="font-size: 26.4px; color: #e40092">NexT</a> <a href="/tags/Notability/" style="font-size: 12px; color: #70f">Notability</a> <a href="/tags/Pearl24/" style="font-size: 15.6px; color: #9200e4">Pearl24</a> <a href="/tags/Pipelight/" style="font-size: 12px; color: #70f">Pipelight</a> <a href="/tags/Regular-expression/" style="font-size: 12px; color: #70f">Regular expression</a> <a href="/tags/Sed/" style="font-size: 15.6px; color: #9200e4">Sed</a> <a href="/tags/Shell/" style="font-size: 19.2px; color: #ad00c9">Shell</a> <a href="/tags/Vim/" style="font-size: 19.2px; color: #ad00c9">Vim</a> <a href="/tags/WSL/" style="font-size: 12px; color: #70f">WSL</a> <a href="/tags/WebP/" style="font-size: 12px; color: #70f">WebP</a> <a href="/tags/Wine/" style="font-size: 12px; color: #70f">Wine</a> <a href="/tags/Zip/" style="font-size: 12px; color: #70f">Zip</a> <a href="/tags/iPad/" style="font-size: 12px; color: #70f">iPad</a> <a href="/tags/tikz/" style="font-size: 15.6px; color: #9200e4">tikz</a> <a href="/tags/%E4%B9%B1%E7%A0%81/" style="font-size: 12px; color: #70f">乱码</a> <a href="/tags/%E4%BD%95%E5%88%87/" style="font-size: 26.4px; color: #e40092">何切</a> <a href="/tags/%E5%85%A8%E7%AD%89/" style="font-size: 22.8px; color: #c900ad">全等</a> <a href="/tags/%E5%87%A1%E4%BA%BA%E6%AD%8C/" style="font-size: 12px; color: #70f">凡人歌</a> <a href="/tags/%E5%8A%A0%E6%8B%BF%E5%A4%A7/" style="font-size: 12px; color: #70f">加拿大</a> <a href="/tags/%E5%8C%85%E7%BB%9C%E7%BA%BF/" style="font-size: 12px; color: #70f">包络线</a> <a href="/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 12px; color: #70f">压缩</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E5%9F%8E/" style="font-size: 12px; color: #70f">原子城</a> <a href="/tags/%E5%90%8C%E6%A1%8C%E7%9A%84%E4%BD%A0/" style="font-size: 12px; color: #70f">同桌的你</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 12px; color: #70f">命令行</a> <a href="/tags/%E5%9C%BA%E5%86%B5%E5%88%A4%E6%96%AD/" style="font-size: 12px; color: #70f">场况判断</a> <a href="/tags/%E5%A4%AA%E3%81%8F%E3%81%AA%E3%81%84%E3%81%8A/" style="font-size: 19.2px; color: #ad00c9">太くないお</a> <a href="/tags/%E5%AE%9A%E5%9C%BA%E8%AF%97/" style="font-size: 12px; color: #70f">定场诗</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12px; color: #70f">微信</a> <a href="/tags/%E5%BF%BD%E7%84%B6%E6%83%B3%E5%88%B0/" style="font-size: 22.8px; color: #c900ad">忽然想到</a> <a href="/tags/%E6%80%92%E6%94%BE%E7%9A%84%E7%94%9F%E5%91%BD/" style="font-size: 12px; color: #70f">怒放的生命</a> <a href="/tags/%E6%8A%9B%E7%89%A9%E7%BA%BF/" style="font-size: 12px; color: #70f">抛物线</a> <a href="/tags/%E6%94%BB%E5%AE%88%E5%88%A4%E6%96%AD/" style="font-size: 15.6px; color: #9200e4">攻守判断</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/" style="font-size: 12px; color: #70f">数学竞赛</a> <a href="/tags/%E6%96%B0%E5%86%A0/" style="font-size: 12px; color: #70f">新冠</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 12px; color: #70f">旅游</a> <a href="/tags/%E6%98%BE%E5%8D%A1/" style="font-size: 12px; color: #70f">显卡</a> <a href="/tags/%E6%A2%AF%E5%BD%A2/" style="font-size: 12px; color: #70f">梯形</a> <a href="/tags/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/" style="font-size: 12px; color: #70f">欧几里得</a> <a href="/tags/%E6%AD%A3%E6%96%B9%E5%BD%A2/" style="font-size: 19.2px; color: #ad00c9">正方形</a> <a href="/tags/%E7%94%BB%E5%9B%BE/" style="font-size: 15.6px; color: #9200e4">画图</a> <a href="/tags/%E7%9B%B8%E4%BC%BC/" style="font-size: 15.6px; color: #9200e4">相似</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/" style="font-size: 12px; color: #70f">笔记软件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12px; color: #70f">算法</a> <a href="/tags/%E7%B4%A0%E6%95%B0/" style="font-size: 12px; color: #70f">素数</a> <a href="/tags/%E7%BA%AA%E5%BF%B5%E7%A2%91/" style="font-size: 12px; color: #70f">纪念碑</a> <a href="/tags/%E7%BB%A3%E6%9B%B2%E7%BA%BF/" style="font-size: 12px; color: #70f">绣曲线</a> <a href="/tags/%E7%BD%91%E8%AF%BE/" style="font-size: 12px; color: #70f">网课</a> <a href="/tags/%E8%A5%BF%E9%A3%8E/" style="font-size: 12px; color: #70f">西风</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 15.6px; color: #9200e4">视频</a> <a href="/tags/%E9%87%91%E5%BA%B8/" style="font-size: 15.6px; color: #9200e4">金庸</a> <a href="/tags/%E9%9D%92%E6%B5%B7/" style="font-size: 12px; color: #70f">青海</a>
-            </div>
-          </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
           
   
   <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
 
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -303,18 +225,18 @@
       </ul>
 
       <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
       <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="西风冷香"
       src="/images/camel.jpg">
   <p class="site-author-name" itemprop="name">西风冷香</p>
   <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -337,7 +259,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
         <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
       </span>
@@ -383,12 +305,99 @@
   show_date_time();
 </script>
 
-      </div>
-
+      </section>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
 
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+  
+  
+
+        <div class="content page posts-expand">
+          
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">标签
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <div class="tag-cloud">
+            <div class="tag-cloud-title">
+              目前共计 65 个标签
+            </div>
+            <div class="tag-cloud-tags">
+              <a href="/tags/ActiveX/" style="font-size: 12px;" class="tag-cloud-0">ActiveX</a> <a href="/tags/Arch/" style="font-size: 12px;" class="tag-cloud-0">Arch</a> <a href="/tags/Archlinux/" style="font-size: 12px;" class="tag-cloud-0">Archlinux</a> <a href="/tags/Awk/" style="font-size: 12px;" class="tag-cloud-0">Awk</a> <a href="/tags/Blog/" style="font-size: 12px;" class="tag-cloud-0">Blog</a> <a href="/tags/ClassIn/" style="font-size: 12px;" class="tag-cloud-0">ClassIn</a> <a href="/tags/Fedora/" style="font-size: 15.6px;" class="tag-cloud-2">Fedora</a> <a href="/tags/GoodNotes/" style="font-size: 12px;" class="tag-cloud-0">GoodNotes</a> <a href="/tags/Grep/" style="font-size: 12px;" class="tag-cloud-0">Grep</a> <a href="/tags/Hexo/" style="font-size: 26.4px;" class="tag-cloud-8">Hexo</a> <a href="/tags/Linux/" style="font-size: 30px;" class="tag-cloud-10">Linux</a> <a href="/tags/MathType/" style="font-size: 12px;" class="tag-cloud-0">MathType</a> <a href="/tags/Mathematica/" style="font-size: 15.6px;" class="tag-cloud-2">Mathematica</a> <a href="/tags/Network/" style="font-size: 12px;" class="tag-cloud-0">Network</a> <a href="/tags/NexT/" style="font-size: 26.4px;" class="tag-cloud-8">NexT</a> <a href="/tags/Notability/" style="font-size: 12px;" class="tag-cloud-0">Notability</a> <a href="/tags/Pearl24/" style="font-size: 15.6px;" class="tag-cloud-2">Pearl24</a> <a href="/tags/Pipelight/" style="font-size: 12px;" class="tag-cloud-0">Pipelight</a> <a href="/tags/Regular-expression/" style="font-size: 12px;" class="tag-cloud-0">Regular expression</a> <a href="/tags/Sed/" style="font-size: 15.6px;" class="tag-cloud-2">Sed</a> <a href="/tags/Shell/" style="font-size: 19.2px;" class="tag-cloud-4">Shell</a> <a href="/tags/Vim/" style="font-size: 19.2px;" class="tag-cloud-4">Vim</a> <a href="/tags/WSL/" style="font-size: 12px;" class="tag-cloud-0">WSL</a> <a href="/tags/WebP/" style="font-size: 12px;" class="tag-cloud-0">WebP</a> <a href="/tags/Wine/" style="font-size: 12px;" class="tag-cloud-0">Wine</a> <a href="/tags/Zip/" style="font-size: 12px;" class="tag-cloud-0">Zip</a> <a href="/tags/iPad/" style="font-size: 12px;" class="tag-cloud-0">iPad</a> <a href="/tags/tikz/" style="font-size: 15.6px;" class="tag-cloud-2">tikz</a> <a href="/tags/%E4%B9%B1%E7%A0%81/" style="font-size: 12px;" class="tag-cloud-0">乱码</a> <a href="/tags/%E4%BD%95%E5%88%87/" style="font-size: 26.4px;" class="tag-cloud-8">何切</a> <a href="/tags/%E5%85%A8%E7%AD%89/" style="font-size: 22.8px;" class="tag-cloud-6">全等</a> <a href="/tags/%E5%87%A1%E4%BA%BA%E6%AD%8C/" style="font-size: 12px;" class="tag-cloud-0">凡人歌</a> <a href="/tags/%E5%8A%A0%E6%8B%BF%E5%A4%A7/" style="font-size: 12px;" class="tag-cloud-0">加拿大</a> <a href="/tags/%E5%8C%85%E7%BB%9C%E7%BA%BF/" style="font-size: 12px;" class="tag-cloud-0">包络线</a> <a href="/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 12px;" class="tag-cloud-0">压缩</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E5%9F%8E/" style="font-size: 12px;" class="tag-cloud-0">原子城</a> <a href="/tags/%E5%90%8C%E6%A1%8C%E7%9A%84%E4%BD%A0/" style="font-size: 12px;" class="tag-cloud-0">同桌的你</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 12px;" class="tag-cloud-0">命令行</a> <a href="/tags/%E5%9C%BA%E5%86%B5%E5%88%A4%E6%96%AD/" style="font-size: 12px;" class="tag-cloud-0">场况判断</a> <a href="/tags/%E5%A4%AA%E3%81%8F%E3%81%AA%E3%81%84%E3%81%8A/" style="font-size: 19.2px;" class="tag-cloud-4">太くないお</a> <a href="/tags/%E5%AE%9A%E5%9C%BA%E8%AF%97/" style="font-size: 12px;" class="tag-cloud-0">定场诗</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 12px;" class="tag-cloud-0">微信</a> <a href="/tags/%E5%BF%BD%E7%84%B6%E6%83%B3%E5%88%B0/" style="font-size: 22.8px;" class="tag-cloud-6">忽然想到</a> <a href="/tags/%E6%80%92%E6%94%BE%E7%9A%84%E7%94%9F%E5%91%BD/" style="font-size: 12px;" class="tag-cloud-0">怒放的生命</a> <a href="/tags/%E6%8A%9B%E7%89%A9%E7%BA%BF/" style="font-size: 12px;" class="tag-cloud-0">抛物线</a> <a href="/tags/%E6%94%BB%E5%AE%88%E5%88%A4%E6%96%AD/" style="font-size: 15.6px;" class="tag-cloud-2">攻守判断</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/" style="font-size: 12px;" class="tag-cloud-0">数学竞赛</a> <a href="/tags/%E6%96%B0%E5%86%A0/" style="font-size: 12px;" class="tag-cloud-0">新冠</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 12px;" class="tag-cloud-0">旅游</a> <a href="/tags/%E6%98%BE%E5%8D%A1/" style="font-size: 12px;" class="tag-cloud-0">显卡</a> <a href="/tags/%E6%A2%AF%E5%BD%A2/" style="font-size: 12px;" class="tag-cloud-0">梯形</a> <a href="/tags/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/" style="font-size: 12px;" class="tag-cloud-0">欧几里得</a> <a href="/tags/%E6%AD%A3%E6%96%B9%E5%BD%A2/" style="font-size: 19.2px;" class="tag-cloud-4">正方形</a> <a href="/tags/%E7%94%BB%E5%9B%BE/" style="font-size: 15.6px;" class="tag-cloud-2">画图</a> <a href="/tags/%E7%9B%B8%E4%BC%BC/" style="font-size: 15.6px;" class="tag-cloud-2">相似</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/" style="font-size: 12px;" class="tag-cloud-0">笔记软件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12px;" class="tag-cloud-0">算法</a> <a href="/tags/%E7%B4%A0%E6%95%B0/" style="font-size: 12px;" class="tag-cloud-0">素数</a> <a href="/tags/%E7%BA%AA%E5%BF%B5%E7%A2%91/" style="font-size: 12px;" class="tag-cloud-0">纪念碑</a> <a href="/tags/%E7%BB%A3%E6%9B%B2%E7%BA%BF/" style="font-size: 12px;" class="tag-cloud-0">绣曲线</a> <a href="/tags/%E7%BD%91%E8%AF%BE/" style="font-size: 12px;" class="tag-cloud-0">网课</a> <a href="/tags/%E8%A5%BF%E9%A3%8E/" style="font-size: 12px;" class="tag-cloud-0">西风</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 15.6px;" class="tag-cloud-2">视频</a> <a href="/tags/%E9%87%91%E5%BA%B8/" style="font-size: 15.6px;" class="tag-cloud-2">金庸</a> <a href="/tags/%E9%9D%92%E6%B5%B7/" style="font-size: 12px;" class="tag-cloud-0">青海</a>
+            </div>
+          </div>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
       </div>
     </main>
@@ -411,15 +420,15 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">110k</span>
+    <span title="站点总字数">113k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
    <span class="post-meta-divider">|</span>
 <div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">Github Pages</span> & <span class="exturl host-link" data-url="aHR0cHM6Ly9uZXRsaWZ5LmNvbQ==">Netlify</span>
 </div>
 
-<script >
+<script async>
 function checkWebp(callback) {
   var img = new Image();
   img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
@@ -481,52 +490,29 @@ checkWebp(showImage);
   </div>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/pisces.js"></script>
-
-
 <script src="/js/next-boot.js"></script>
-
-
 
 
   
   <script>
     (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
@@ -552,10 +538,10 @@ checkWebp(showImage);
   
 
   
-  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2/dist/quicklink.umd.js"></script>
   <script>
       window.addEventListener('load', () => {
-      quicklink({
+      quicklink.listen({
         timeout : 3000,
         priority: true,
         ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/tags/',]

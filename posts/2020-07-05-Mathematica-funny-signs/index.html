@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -16,13 +16,15 @@
 
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css">
   <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
-<script id="hexo-configurations">
+<script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"scrollpercent":true,"enable":true,"sidebar":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"style":"flat","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
   </script>
 
   <meta name="description" content="最近因为一些原因重新开始使用 Mathematica，Mathematica 的符号计算功能非常强大，但是在网上搜索别人的代码的时候，发现很难看懂，里面各种「@#%^&amp;*?!」符号，看得人眼花缭乱。 所以在这里我们对一些常用的符号做一些总结。">
@@ -41,7 +43,7 @@
 <link rel="canonical" href="https://wangjiezhe.com/posts/2020-07-05-Mathematica-funny-signs/">
 
 
-<script id="page-configurations">
+<script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
@@ -70,24 +72,36 @@
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
@@ -98,22 +112,23 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">如鱼饮水</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">冷暖自知</p>
   </div>
@@ -124,7 +139,6 @@
     </div>
   </div>
 </div>
-
 
 
 
@@ -171,7 +185,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
@@ -181,7 +195,7 @@
 </div>
 <div id="search-result">
   <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -189,23 +203,133 @@
   </div>
 
 </div>
-    </header>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
 
-    
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E3%80%81%E4%B8%AD%E7%BD%AE%E4%B8%8E%E5%90%8E%E7%BD%AE%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">前置、中置与后置运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%AC%A6%E5%8F%B7"><span class="nav-number">2.</span> <span class="nav-text">函数式编程符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%EF%BC%88%CE%BB-%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">匿名函数（λ 函数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%A4%8D%E5%90%88"><span class="nav-number">4.</span> <span class="nav-text">函数的复合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">5.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95"><span class="nav-number">6.</span> <span class="nav-text">历史记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D"><span class="nav-number">7.</span> <span class="nav-text">模式匹配</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/camel.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+  </div>
+
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
   <div class="back-to-top">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
   <div class="reading-progress-bar"></div>
 
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    <main class="main">
+
       <div class="main-inner">
-        <div class="content-wrap">
-          
+        
 
-          <div class="content post posts-expand">
-            
+        <div class="content post posts-expand">
+          
 
     
   
@@ -222,6 +346,8 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="如鱼饮水">
     </span>
+
+    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           Mathematica 中特殊符号的使用规则
@@ -257,6 +383,20 @@
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
             </span>
 
         </div>
@@ -266,19 +406,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
         <p>最近因为一些原因重新开始使用 Mathematica，Mathematica 的符号计算功能非常强大，但是在网上搜索别人的代码的时候，发现很难看懂，里面各种「@#%^&amp;*?!」符号，看得人眼花缭乱。</p>
 <p>所以在这里我们对一些常用的符号做一些总结。</p>
 <a id="more"></a>
-<h2 id="前置、中置与后置运算符"><a class="header-anchor" href="#前置、中置与后置运算符">☜</a>前置、中置与后置运算符</h2>
+<h2 id="前置、中置与后置运算符"><a class="header-anchor" href="#前置、中置与后置运算符"></a>前置、中置与后置运算符</h2>
 <p>我们知道，在数学中，我们很多时候习惯使用中置运算符，而计算机科学一般都是使用前置运算符，因此在 Mathematica 中，对于各种运算符都给了不同的符号。</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f @ x</span><br><span class="line">x // f</span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">f[x]</span><br></pre></td></tr></table></figure>
 <p>需要注意的是，后置运算符 <code>//</code> 的运算优先级较低，例如 <code>1+x//f</code> 表示的是 <code>f[1+x]</code>，而不是 <code>1+f[x]</code>，这点在使用的时候需要注意，必要的时候可以加小括号。</p>
 <p>对于有多个参数的函数，可以使用中置运算符：</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x~f~y~f~z</span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">f[x,y,z]</span><br></pre></td></tr></table></figure>
 <p>这种形式在连接列表（<code>~Join~</code>）、连接字符串（<code>&lt;&gt;</code>）等时候比较常见。</p>
-<h2 id="函数式编程符号"><a class="header-anchor" href="#函数式编程符号">☜</a>函数式编程符号</h2>
+<h2 id="函数式编程符号"><a class="header-anchor" href="#函数式编程符号"></a>函数式编程符号</h2>
 <p>在函数式编程中，<code>Map</code>、<code>Apply</code> 是两个非常重要的函数，因此 Mathematica 专门规定了简写的符号。</p>
 <p><code>Map</code> 函数：</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f /@ &#123;a, b, c&#125;</span><br><span class="line"><span class="keyword">Map</span>[f, &#123;a, b, c&#125;]</span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">&#123;f[a], f[b], f[c]&#125;</span><br></pre></td></tr></table></figure>
@@ -291,32 +429,29 @@
 <p>另外，<code>Apply</code> 函数还有一种简写形式 <code>@@@</code>，表示在第 1 层应用函数（<code>@@</code> 默认是在最外层，也就是第 0 层）。</p>
 <p>注意下面三个符号的不同点：</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">f @@ &#123;&#123;a, b&#125;, &#123;c, d&#125;, &#123;x, y&#125;&#125;</span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">f[&#123;a, b&#125;, &#123;c, d&#125;, &#123;x, y&#125;]</span><br><span class="line"></span><br><span class="line">f @@@ &#123;&#123;a, b&#125;, &#123;c, d&#125;, &#123;x, y&#125;&#125;</span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">&#123;f[a, b], f[c, d], f[x, y]&#125;</span><br><span class="line"></span><br><span class="line">f /@ &#123;&#123;a, b&#125;, &#123;c, d&#125;, &#123;x, y&#125;&#125;</span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">&#123;f[&#123;a, b&#125;], f[&#123;c, d&#125;], f[&#123;x, y&#125;]&#125;</span><br></pre></td></tr></table></figure>
-<div class="note primary">
-            <p>在使用 <code>Map</code> 和 <code>Apply</code> 函数的时候，一定要注意列表的层数，必要时需要指定层数来使用。</p>
-          </div>
-<div class="note info">
-            <p>Mathematica 中没有 <code>Reduce</code> 函数，可以视情况分别使用 <code>FoldList</code>、<code>ComposeList</code>、<code>NestList</code> 等函数。</p>
-          </div>
-<div class="note warning">
-            <p>Mathematica 中也没有 <code>Zip</code> 函数，可以视情况分别使用 <code>Thread</code>、<code>MapThread</code>、<code>MapIndexed</code> 等函数。</p>
-          </div>
-<h2 id="匿名函数（λ-函数）"><a class="header-anchor" href="#匿名函数（λ-函数）">☜</a>匿名函数（λ 函数）</h2>
+<div class="note primary"><p>在使用 <code>Map</code> 和 <code>Apply</code> 函数的时候，一定要注意列表的层数，必要时需要指定层数来使用。</p>
+</div>
+<div class="note info"><p>Mathematica 中没有 <code>Reduce</code> 函数，可以视情况分别使用 <code>FoldList</code>、<code>ComposeList</code>、<code>NestList</code> 等函数。</p>
+</div>
+<div class="note warning"><p>Mathematica 中也没有 <code>Zip</code> 函数，可以视情况分别使用 <code>Thread</code>、<code>MapThread</code>、<code>MapIndexed</code> 等函数。</p>
+</div>
+<h2 id="匿名函数（λ-函数）"><a class="header-anchor" href="#匿名函数（λ-函数）"></a>匿名函数（λ 函数）</h2>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(x ⟼ x^<span class="number">2</span>) /@ <span class="keyword">Range</span>[<span class="number">10</span>]</span><br><span class="line">(x \[<span class="keyword">Function</span>] x^<span class="number">2</span>) /@ <span class="keyword">Range</span>[<span class="number">10</span>]</span><br><span class="line"><span class="keyword">Function</span>[x, x^<span class="number">2</span>] /@ <span class="keyword">Range</span>[<span class="number">10</span>]</span><br><span class="line">(#<span class="number">1</span>^<span class="number">2</span>) &amp; /@ <span class="keyword">Range</span>[<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">(* 匿名函数可以直接作用于列表 *)</span></span><br><span class="line">(#<span class="number">1</span>^<span class="number">2</span>) &amp; @ <span class="keyword">Range</span>[<span class="number">10</span>]</span><br><span class="line"><span class="keyword">Range</span>[<span class="number">10</span>] // (#<span class="number">1</span>^<span class="number">2</span>) &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>&#125;</span><br></pre></td></tr></table></figure>
 <p><code>&amp;</code> 结尾表示一个匿名函数，其中 <code>#1</code>（<code>Slot[1]</code>）、<code>#2</code>（<code>Slot[2]</code>）等表示参数。<code>#1</code> 可简写为 <code>#</code>，<code>#0</code>（<code>Slot[0]</code>） 则表示函数本身。</p>
 <p><code>##</code>（即<code>##1</code>、<code>SlotSequence[]</code>）表示所有参数，<code>##k</code>（<code>SlotSequence[k]</code>） 表示从第 k 个开始后面的参数。</p>
 <p>常见的用法比如定义谓词函数：</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span>[&#123;<span class="number">1</span>, <span class="number">-1</span>, <span class="number">2</span>, <span class="number">-2</span>, <span class="number">3</span>, <span class="number">-3</span>&#125;, # &gt;= <span class="number">-1</span> &amp;]</span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">-1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
 <p>传递函数参数：</p>
-<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(* 牛顿法 *)</span></span><br><span class="line">NewtonZero[f_, x0_] := <span class="keyword">FixedPoint</span>[# - f[#]/f'[#] &amp;, x0]</span><br></pre></td></tr></table></figure>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(* 牛顿法 *)</span></span><br><span class="line">NewtonZero[f_, x0_] := <span class="keyword">FixedPoint</span>[# - f[#]/f&#x27;[#] &amp;, x0]</span><br></pre></td></tr></table></figure>
 <p>等等。</p>
-<h2 id="函数的复合"><a class="header-anchor" href="#函数的复合">☜</a>函数的复合</h2>
+<h2 id="函数的复合"><a class="header-anchor" href="#函数的复合"></a>函数的复合</h2>
 <p>下面是函数复合的不同表示方法，其中 <code>@*</code> 表示左复合，<code>/*</code> 表示右复合。特别要注意其中的小括号。</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">f@*g@*h @@ &#123;x, y, z&#125;</span><br><span class="line">(f@*g@*h)[x, y, z]</span><br><span class="line"><span class="keyword">Composition</span>[f, g, h][x, y, z]</span><br><span class="line"></span><br><span class="line">h /* g /* f @@ &#123;x, y, z&#125;</span><br><span class="line">(h /* g /* f)[x, y, z]</span><br><span class="line"><span class="keyword">RightComposition</span>[h, g, f][x, y, z]</span><br><span class="line"></span><br><span class="line">f@g@h[x, y, z]</span><br><span class="line">f@g@(h @@ &#123;x, y, z&#125;)</span><br><span class="line"></span><br><span class="line">h[x, y, z] // g // f</span><br><span class="line">h @@ &#123;x, y, z&#125; // g // f</span><br><span class="line"></span><br><span class="line">f[g[h[#<span class="number">1</span>, #<span class="number">2</span>, #<span class="number">3</span>]]]&amp; [x, y, z]</span><br><span class="line">f[g[h[#<span class="number">1</span>, #<span class="number">2</span>, #<span class="number">3</span>]]]&amp; @@ &#123;x, y, z&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">f[g[h[x, y, z]]]</span><br></pre></td></tr></table></figure>
-<h2 id="逻辑运算符"><a class="header-anchor" href="#逻辑运算符">☜</a>逻辑运算符</h2>
+<h2 id="逻辑运算符"><a class="header-anchor" href="#逻辑运算符"></a>逻辑运算符</h2>
 <p>这部分和其它语言类似，<code>&amp;&amp;</code>（或 <code>∧</code>）表示且，<code>||</code>（或 <code>∨</code>）表示或，<code>!</code>（或 <code>¬</code>）表示非（否定）。</p>
-<h2 id="历史记录"><a class="header-anchor" href="#历史记录">☜</a>历史记录</h2>
+<h2 id="历史记录"><a class="header-anchor" href="#历史记录"></a>历史记录</h2>
 <p><code>%</code> 表示上一个结果，<code>%%</code> 表示倒数第二个结果，<code>%%...%</code>（k 次）表示倒数第 k 次结果，<code>%n</code> 表示第 n 次计算的结果。</p>
-<h2 id="模式匹配"><a class="header-anchor" href="#模式匹配">☜</a>模式匹配</h2>
+<h2 id="模式匹配"><a class="header-anchor" href="#模式匹配"></a>模式匹配</h2>
 <p>这部分我用的不多，主要是方程的解会以这种形式给出。<code>-&gt;</code> 表示转换规则，使用 <code>/.</code> 可以应用规则。</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Solve</span>[&#123;x^<span class="number">2</span> + y == <span class="number">5</span>, x - y == <span class="number">1</span>&#125;, &#123;x, y&#125;]</span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">&#123;&#123;x -&gt; <span class="number">-3</span>, y -&gt; <span class="number">-4</span>&#125;, &#123;x -&gt; <span class="number">2</span>, y -&gt; <span class="number">1</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line">f[x, y] /. %</span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">&#123;f[<span class="number">-3</span>, <span class="number">-4</span>], f[<span class="number">2</span>, <span class="number">1</span>]&#125;</span><br></pre></td></tr></table></figure>
 <p>其它的还有字符串的模式匹配等等。</p>
@@ -380,7 +515,6 @@
 
 
       <footer class="post-footer">
-          
           <div class="post-tags">
               <a href="/tags/Mathematica/" rel="tag"><i class="fa fa-tag"></i> Mathematica</a>
           </div>
@@ -408,8 +542,8 @@
 
 
 
-          </div>
-          
+        </div>
+        
     
   <div class="comments">
     <div id="disqus_thread">
@@ -440,116 +574,6 @@
   }
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前置、中置与后置运算符"><span class="nav-number">1.</span> <span class="nav-text">前置、中置与后置运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程符号"><span class="nav-number">2.</span> <span class="nav-text">函数式编程符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名函数（λ-函数）"><span class="nav-number">3.</span> <span class="nav-text">匿名函数（λ 函数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的复合"><span class="nav-number">4.</span> <span class="nav-text">函数的复合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">5.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#历史记录"><span class="nav-number">6.</span> <span class="nav-text">历史记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式匹配"><span class="nav-number">7.</span> <span class="nav-text">模式匹配</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="西风冷香"
-      src="/images/camel.jpg">
-  <p class="site-author-name" itemprop="name">西风冷香</p>
-  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">44</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">65</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
-      </span>
-      <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
-      </span>
-  </div>
-
-
-<div id="site-days"></div>
-<script>
-  function show_date_time() {
-    window.setTimeout("show_date_time()", 1000);
-    BirthDay = new Date("2014/01/10 13:29:55");
-    today = new Date();
-    timeold = (today.getTime() - BirthDay.getTime());
-    sectimeold = timeold / 1000;
-    secondsold = Math.floor(sectimeold);
-    msPerDay = 24 * 60 * 60 * 1000;
-    e_daysold = timeold / msPerDay;
-    daysold = Math.floor(e_daysold);
-    e_hrsold = (e_daysold - daysold) * 24;
-    hrsold = setzero(Math.floor(e_hrsold));
-    e_minsold = (e_hrsold - hrsold) * 60;
-    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
-    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
-    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
-  }
-
-  function setzero(i) {
-    if (i < 10) {
-      i = "0" + i
-    }
-    return i;
-  }
-
-  show_date_time();
-</script>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
       </div>
     </main>
 
@@ -571,15 +595,15 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">110k</span>
+    <span title="站点总字数">113k</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
    <span class="post-meta-divider">|</span>
 <div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">Github Pages</span> & <span class="exturl host-link" data-url="aHR0cHM6Ly9uZXRsaWZ5LmNvbQ==">Netlify</span>
 </div>
 
-<script >
+<script async>
 function checkWebp(callback) {
   var img = new Image();
   img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
@@ -641,52 +665,29 @@ checkWebp(showImage);
   </div>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/pisces.js"></script>
-
-
 <script src="/js/next-boot.js"></script>
-
-
 
 
   
   <script>
     (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
   </script>
 
 
@@ -712,10 +713,10 @@ checkWebp(showImage);
   
 
   
-  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2/dist/quicklink.umd.js"></script>
   <script>
       window.addEventListener('load', () => {
-      quicklink({
+      quicklink.listen({
         timeout : 3000,
         priority: true,
         ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/posts/2020-07-05-Mathematica-funny-signs/',]
@@ -726,7 +727,7 @@ checkWebp(showImage);
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+NexT.utils.loadComments('#disqus_thread', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
       api       : 'https://disqusjs-proxy.wangjiezhe.now.sh/' || 'https://disqus.com/api/',
