@@ -5,11 +5,13 @@
 minify: true
 
 custom_file_path:
-  sidebar: source/_data/sidebar.swig
-  # postMeta: source/_data/post-meta.swig
-  # postBodyEnd: source/_data/post-body-end.swig
-  footer: source/_data/footer.swig
-  bodyEnd: source/_data/body-end.swig
+  #head: source/_data/head.njk
+  #header: source/_data/header.njk
+  sidebar: source/_data/sidebar.njk
+  #postMeta: source/_data/post-meta.njk
+  #postBodyEnd: source/_data/post-body-end.njk
+  footer: source/_data/footer.njk
+  bodyEnd: source/_data/body-end.njk
   variable: source/_data/variables.styl
   # mixin: source/_data/mixins.styl
   style: source/_data/styles.styl
@@ -17,6 +19,8 @@ custom_file_path:
 # ---------------------------------------------------------------
 # Site Information Settings
 # ---------------------------------------------------------------
+
+#language_switcher: false
 
 footer:
   since: 2014
@@ -33,6 +37,8 @@ creative_commons:
 # ---------------------------------------------------------------
 
 scheme: Gemini
+
+#darkmode: false
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -65,7 +71,7 @@ social_icons:
   transition: true
 
 links_settings:
-  icon: fa fa-link
+  icon: fa fa-globe
   title: 友情链接
   layout: inline
 
@@ -98,12 +104,24 @@ tagcloud:
 # Misc Theme Settings
 # ---------------------------------------------------------------
 
+text_align:
+  # Available values: start | end | left | right | center | justify | justify-all | match-parent
+  desktop: justify
+  mobile: start
+
+mobile_layout_economy: true
+
 android_chrome_color: "#66327C"
 
 codeblock:
+  theme:
+    light: github-gist
+    dark: atom-one-dark-reasonable
+  prism:
+    light: prism
+    dark: prism-okaidia
   copy_button:
     enable: true
-    show_result: true
     style: mac
 
 back2top:
@@ -137,8 +155,10 @@ math:
     enable: true
     copy_tex: true
 
+#pjax: true
+
 fancybox: true
-mediumzoom: false
+#mediumzoom: true
 
 lazyload: true
 
@@ -216,12 +236,13 @@ click_love: true
 #! ---------------------------------------------------------------
 
 vendors:
-  anime: //cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js
+  anime: //cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js
   fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css
   reading_progress: //cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js
-  pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
+  katex: //cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
+  pjax: //cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js
   velocity: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js
   velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js
   pace: //cdn.jsdelivr.net/npm/pace-js@1/pace.min.js
   pace_css: //cdn.jsdelivr.net/npm/pace-js@1/themes/purple/pace-theme-bounce.css
-  katex: //cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
+

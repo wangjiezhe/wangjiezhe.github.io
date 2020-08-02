@@ -8,7 +8,8 @@ subtitle: 冷暖自知
 description: 某不知名机构不知名数学老师一枚
 keywords: Blog,Hexo,NexT,Math,博客,数学
 author: 西风冷香
-language: zh-CN
+language:
+  - zh-CN
 timezone: Asia/Shanghai
 
 # URL
@@ -34,7 +35,8 @@ skip_render:
 new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
+external_link:
+  enable: true
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
@@ -45,6 +47,8 @@ highlight:
   line_number: true
   auto_detect: true
   tab_replace:
+prismjs:
+  enable: false
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -139,10 +143,12 @@ sitemap:
   path: sitemap.xml
 
 symbols_count_time:
-  symbols: false
-  time: false
+  symbols: true
+  time: true
   total_symbols: true
   total_time: false
+  awl: 1.5
+  wpm: 200
 
 live2d:
   enable: true
