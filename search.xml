@@ -1084,7 +1084,10 @@ $ 匹配字符串的最后面。</p>
   <entry>
     <title>Hexo NexT 魔改系列之三 ── 评论篇</title>
     <url>//posts/2018-10-29-Hexo-NexT-3/</url>
-    <content><![CDATA[<div class="note primary"><p>20191110更新：如果要使用utterances作为评论系统的话，可以使用官方的插件<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by1uZXh0LXV0dGVyYW5j">hexo-next-utteranc<i class="fa fa-external-link-alt"></i></span>。本文的方法在NexT主题更新至7.4.0之后已失效。</p>
+    <content><![CDATA[<div class="note success"><p>20200806更新：仿照hexo-next-utteranc，我写了一个使用<span class="exturl" data-url="aHR0cHM6Ly9jb21tZW50cy5hcHAv">CommentsApp<i class="fa fa-external-link-alt"></i></span>评论系统的插件<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGUvaGV4by1uZXh0LWRpc2N1c3Nib3Q=">hexo-next-discussbot<i class="fa fa-external-link-alt"></i></span>。</p>
+<p>这是一个基于Telegram的评论系统，需要登陆Telegram账号才能评论。</p>
+</div>
+<div class="note primary"><p>20191110更新：如果要使用utterances作为评论系统的话，可以使用官方的插件<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by1uZXh0LXV0dGVyYW5j">hexo-next-utteranc<i class="fa fa-external-link-alt"></i></span>。本文的方法在NexT主题更新至7.4.0之后已失效。</p>
 </div>
 <div class="note info"><p>20190821更新：目前已改用集成到NexT主题中的DisqusJS，并使用<span class="exturl" data-url="aHR0cHM6Ly96ZWl0LmNv">ZEIT<i class="fa fa-external-link-alt"></i></span>部署，方法见<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1N1a2thVy9kaXNxdXNqcy1wcm94eS1leGFtcGxl">disqusjs-proxy-example<i class="fa fa-external-link-alt"></i></span>。</p>
 </div>
