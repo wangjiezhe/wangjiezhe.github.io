@@ -165,6 +165,21 @@ quicklink:
 # Comments Settings
 # ---------------------------------------------------------------
 
+comments:
+  # Available values: tabs | buttons
+  style: tabs
+  active: disqusjs
+  storage: true
+  lazyload: true
+  # Modify texts or order for any navs, here are some examples.
+  nav:
+    disqusjs:
+      text: Disqus
+      order: 1
+    discussbot:
+      text: DiscussBot
+      order: 2
+
 disqusjs:
   enable: true
   api: https://disqusjs-proxy.wangjiezhe.now.sh/
@@ -172,7 +187,7 @@ disqusjs:
   shortname: wangjiezhe
 
 discussbot:
-  enable: false
+  enable: true
   siteid: DTO-cxcp
   number: 5
   color: 3DA0F0

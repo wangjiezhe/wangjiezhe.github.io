@@ -1975,6 +1975,13 @@ hexo-log@^2.0.0:
   dependencies:
     chalk "^4.0.0"
 
+hexo-next-discussbot@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/hexo-next-discussbot/-/hexo-next-discussbot-1.0.1.tgz#254cbc96d69206e6b2350475bdae97b3a26e852c"
+  integrity sha512-tzEBv2qSMpFCTQRi4VP+o1cnMmUErbCdHIKgiEdRAFZTv4VdTBC60Wu+bS/3sb/YCck0sh7k7IAmSosGneNsCg==
+  dependencies:
+    next-util "^1.0.0"
+
 hexo-pagination@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/hexo-pagination/-/hexo-pagination-1.0.0.tgz#c9c0ca3665267b9e9d0a89fc3edcaf3276907dc1"
@@ -2590,7 +2597,7 @@ jju@^1.1.0:
   resolved "https://registry.yarnpkg.com/jju/-/jju-1.4.0.tgz#a3abe2718af241a2b2904f84a625970f389ae32a"
   integrity sha1-o6vicYryQaKykE+EpiWXDzia4yo=
 
-js-yaml@^3.12.0, js-yaml@^3.13.1:
+js-yaml@3.14.0, js-yaml@^3.12.0, js-yaml@^3.13.1:
   version "3.14.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.0.tgz#a7a34170f26a21bb162424d8adacb4113a69e482"
   integrity sha512-/4IbIeHcD9VMHFqDR/gQ7EdZdLimOvW2DdcxFjdyyZ9NsbS+ccrXqVWDtab/lRl5AlUqmpBx8EhPaWR+OtY17A==
@@ -2750,7 +2757,7 @@ lodash.isfinite@^3.3.2:
   resolved "https://registry.yarnpkg.com/lodash.isfinite/-/lodash.isfinite-3.3.2.tgz#fb89b65a9a80281833f0b7478b3a5104f898ebb3"
   integrity sha1-+4m2WpqAKBgz8LdHizpRBPiY67M=
 
-lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.15, lodash@^4.2.0, lodash@^4.3.0:
+lodash@4.17.19, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.15, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.19"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
   integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
@@ -3172,6 +3179,14 @@ nested-error-stacks@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.0.1.tgz#d2cc9fc5235ddb371fc44d506234339c8e4b0a4b"
   integrity sha512-SrQrok4CATudVzBS7coSz26QRSmlK9TzzoFbeKfcPBUFPjcQM9Rqvr/DlJkOrwI/0KcgvMub1n1g5Jt9EgRn4A==
+
+next-util@^1.0.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/next-util/-/next-util-1.2.1.tgz#c6cfa79e70405748f384e77da1251e00ec826176"
+  integrity sha512-zhCYOcosgFHKjs9KldRnGCTDCmnjGmV71G8MqfKtqze2ixBnj3/xbABB46AepUJnjBVce6jgZRN6m4YpyQWlpQ==
+  dependencies:
+    js-yaml "3.14.0"
+    lodash "4.17.19"
 
 nib@^1.1.2:
   version "1.1.2"
