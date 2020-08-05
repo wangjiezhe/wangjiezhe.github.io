@@ -35,7 +35,7 @@ after_script:
   - cd .deploy_git
   - git checkout master
   - cd ../
-  - mv .deploy_git/.git/ .travis.yml ./public/
+  - mv .deploy_git/.git/ ./public/
   - cd ./public
   - git config user.name wangjiezhe
   - git config user.email wangjiezhe@gmail.com
