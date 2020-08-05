@@ -158,14 +158,14 @@ symbols_count_time:
 
 live2d:
   enable: true
-  scriptFrom: local
   pluginRootPath: live2dw/
   pluginJsPath: lib/
   pluginModelPath: assets/
+  scriptFrom: jsdelivr
   tagMode: false
-  log: false
+  debug: false
   model:
-    use: mikoto
+    use: https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json
   display:
     position: left
   mobile:
