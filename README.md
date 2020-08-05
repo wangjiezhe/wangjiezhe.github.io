@@ -1,7 +1,9 @@
 # Jiezhe's Blog
 
-[![Build Status](https://api.travis-ci.com/wangjiezhe/wangjiezhe.github.io.svg?branch=source)](https://travis-ci.com/wangjiezhe/wangjiezhe.github.io)
-[![Pipelines](https://gitlab.com/wangjiezhe/wangjiezhe.gitlab.io/badges/master/build.svg)](https://gitlab.com/wangjiezhe/wangjiezhe.gitlab.io/pipelines)
+
+[![Travis (.com) branch](https://img.shields.io/travis/com/wangjiezhe/wangjiezhe.github.io/source?logo=travis&style=flat-square)](https://wangjiezhe.github.io/)
+[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/wangjiezhe/wangjiezhe.gitlab.io/master?logo=gitlab&style=flat-square)](https://wangjiezhe.gitlab.io/)
+[![Netlify](https://img.shields.io/netlify/72e93d5c-dda9-4499-825d-f4b80c2ee27f?logo=netlify)](https://wangjiezhe.netlify.com/)
 
 ## 博客主题
 
