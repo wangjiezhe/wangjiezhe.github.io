@@ -22,6 +22,38 @@
   --highlight-gutter-background: #eaeaea;
   --highlight-gutter-foreground: #474747;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg-color: #282828;
+    --content-bg-color: #333;
+    --card-bg-color: #555;
+    --text-color: #ccc;
+    --blockquote-color: #bbb;
+    --link-color: #ccc;
+    --link-hover-color: #eee;
+    --brand-color: #ddd;
+    --brand-hover-color: #ddd;
+    --table-row-odd-bg-color: #282828;
+    --table-row-hover-bg-color: #363636;
+    --menu-item-bg-color: #555;
+    --btn-default-bg: #222;
+    --btn-default-color: #ccc;
+    --btn-default-border-color: #555;
+    --btn-default-hover-bg: #666;
+    --btn-default-hover-color: #ccc;
+    --btn-default-hover-border-color: #666;
+    --highlight-background: #282c34;
+    --highlight-foreground: #abb2bf;
+    --highlight-gutter-background: #353941;
+    --highlight-gutter-foreground: #9da4b1;
+  }
+  img {
+    opacity: 0.75;
+  }
+  img:hover {
+    opacity: 0.9;
+  }
+}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -451,6 +483,84 @@ body:not(.sidebar-active) .sidebar-toggle:hover .toggle-line:last-child {
   color: #032f62;
 }
 
+@media (prefers-color-scheme: dark) {
+/*
+
+Atom One Dark With support for ReasonML by Gidi Morris, based off work by Daniel Gamage
+
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+
+*/
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #abb2bf;
+  background: #282c34;
+}
+.hljs-keyword, .hljs-operator {
+  color: #F92672;
+}
+.hljs-pattern-match {
+  color: #F92672;
+}
+.hljs-pattern-match .hljs-constructor {
+  color: #61aeee;
+}
+.hljs-function {
+  color: #61aeee;
+}
+.hljs-function .hljs-params {
+  color: #A6E22E;
+}
+.hljs-function .hljs-params .hljs-typing {
+  color: #FD971F;
+}
+.hljs-module-access .hljs-module {
+  color: #7e57c2;
+}
+.hljs-constructor {
+  color: #e2b93d;
+}
+.hljs-constructor .hljs-string {
+  color: #9CCC65;
+}
+.hljs-comment, .hljs-quote {
+  color: #b18eb1;
+  font-style: italic;
+}
+.hljs-doctag, .hljs-formula {
+  color: #c678dd;
+}
+.hljs-section, .hljs-name, .hljs-selector-tag, .hljs-deletion, .hljs-subst {
+  color: #e06c75;
+}
+.hljs-literal {
+  color: #56b6c2;
+}
+.hljs-string, .hljs-regexp, .hljs-addition, .hljs-attribute, .hljs-meta-string {
+  color: #98c379;
+}
+.hljs-built_in, .hljs-class .hljs-title {
+  color: #e6c07b;
+}
+.hljs-attr, .hljs-variable, .hljs-template-variable, .hljs-type, .hljs-selector-class, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-number {
+  color: #d19a66;
+}
+.hljs-symbol, .hljs-bullet, .hljs-link, .hljs-meta, .hljs-selector-id, .hljs-title {
+  color: #61aeee;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
+.hljs-link {
+  text-decoration: underline;
+}
+
+}
 .highlight:hover .copy-btn,
 .highlight .copy-btn:focus {
   opacity: 1;
@@ -1009,6 +1119,11 @@ pre code {
   background: #f7f7f7;
   border-left-color: #777;
 }
+@media (prefers-color-scheme: dark) {
+  .post-body .note.default {
+    background: #3c3c3c;
+  }
+}
 .post-body .note.default h2,
 .post-body .note.default h3,
 .post-body .note.default h4,
@@ -1019,6 +1134,11 @@ pre code {
 .post-body .note.primary {
   background: #f5f0fa;
   border-left-color: #6f42c1;
+}
+@media (prefers-color-scheme: dark) {
+  .post-body .note.primary {
+    background: #3c3b3c;
+  }
 }
 .post-body .note.primary h2,
 .post-body .note.primary h3,
@@ -1031,6 +1151,11 @@ pre code {
   background: #eef7fa;
   border-left-color: #428bca;
 }
+@media (prefers-color-scheme: dark) {
+  .post-body .note.info {
+    background: #3b3c3c;
+  }
+}
 .post-body .note.info h2,
 .post-body .note.info h3,
 .post-body .note.info h4,
@@ -1041,6 +1166,11 @@ pre code {
 .post-body .note.success {
   background: #eff8f0;
   border-left-color: #5cb85c;
+}
+@media (prefers-color-scheme: dark) {
+  .post-body .note.success {
+    background: #3b3c3b;
+  }
 }
 .post-body .note.success h2,
 .post-body .note.success h3,
@@ -1053,6 +1183,11 @@ pre code {
   background: #fdf8ea;
   border-left-color: #f0ad4e;
 }
+@media (prefers-color-scheme: dark) {
+  .post-body .note.warning {
+    background: #3d3c3b;
+  }
+}
 .post-body .note.warning h2,
 .post-body .note.warning h3,
 .post-body .note.warning h4,
@@ -1063,6 +1198,11 @@ pre code {
 .post-body .note.danger {
   background: #fcf1f2;
   border-left-color: #d9534f;
+}
+@media (prefers-color-scheme: dark) {
+  .post-body .note.danger {
+    background: #3d3c3c;
+  }
 }
 .post-body .note.danger h2,
 .post-body .note.danger h3,
@@ -2498,6 +2638,52 @@ ul.breadcrumb li + li:last-child {
 .tag-cloud-10 {
   border-bottom-color: #66327c;
   color: #66327c;
+}
+@media (prefers-color-scheme: dark) {
+  .tag-cloud-0 {
+    border-bottom-color: #555;
+    color: #555;
+  }
+  .tag-cloud-1 {
+    border-bottom-color: #646464;
+    color: #646464;
+  }
+  .tag-cloud-2 {
+    border-bottom-color: #737373;
+    color: #737373;
+  }
+  .tag-cloud-3 {
+    border-bottom-color: #828282;
+    color: #828282;
+  }
+  .tag-cloud-4 {
+    border-bottom-color: #929292;
+    color: #929292;
+  }
+  .tag-cloud-5 {
+    border-bottom-color: #a1a1a1;
+    color: #a1a1a1;
+  }
+  .tag-cloud-6 {
+    border-bottom-color: #b0b0b0;
+    color: #b0b0b0;
+  }
+  .tag-cloud-7 {
+    border-bottom-color: #c0c0c0;
+    color: #c0c0c0;
+  }
+  .tag-cloud-8 {
+    border-bottom-color: #cfcfcf;
+    color: #cfcfcf;
+  }
+  .tag-cloud-9 {
+    border-bottom-color: #dedede;
+    color: #dedede;
+  }
+  .tag-cloud-10 {
+    border-bottom-color: #eee;
+    color: #eee;
+  }
 }
 .search-active {
   overflow: hidden;
