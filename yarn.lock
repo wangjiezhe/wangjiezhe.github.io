@@ -643,9 +643,9 @@ chokidar@^2.0.4:
     fsevents "^1.2.7"
 
 chokidar@^3.0.0, chokidar@^3.3.0, chokidar@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.4.1.tgz#e905bdecf10eaa0a0b1db0c664481cc4cbc22ba1"
-  integrity sha512-TQTJyr2stihpC4Sya9hs2Xh+O2wf+igjL36Y75xx2WdHuiICcn/XJza46Jwt0eT5hVpQOzo3FpY3cj3RVYLX0g==
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.4.2.tgz#38dc8e658dec3809741eb3ef7bb0a47fe424232d"
+  integrity sha512-IZHaDeBeI+sZJRX7lGcXsdzgvZqKv6sECqsbErJA4mHWfpRrD8B97kSFN4cQz6nGBGiuFia1MKR4d6c1o8Cv7A==
   dependencies:
     anymatch "~3.1.1"
     braces "~3.0.2"
@@ -1641,9 +1641,9 @@ get-stream@^4.1.0:
     pump "^3.0.0"
 
 get-stream@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-5.1.0.tgz#01203cdc92597f9b909067c3e656cc1f4d3c4dc9"
-  integrity sha512-EXr1FOzrzTfGeL0gQdeFEvOMm2mzMOglyiOXSTpPC+iAjAKftbr3jpCMWynogwYnM+eSj9sHGc6wjIcDvYiygw==
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-5.2.0.tgz#4966a1795ee5ace65e706c4b7beb71257d6e22d3"
+  integrity sha512-nBF+F1rAZVCu/p7rjzgA+Yb4lfYXrpl7a6VmJrU8wF9I1CKvP/QwPNZHnOlwbTkY6dvtFIzFMSyQXbLoTQPRpA==
   dependencies:
     pump "^3.0.0"
 
@@ -1844,9 +1844,9 @@ hexo-bunyan@^1.0.0:
     safe-json-stringify "~1"
 
 hexo-cli@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/hexo-cli/-/hexo-cli-4.1.0.tgz#833b1726550830fbf592dd84ffe2e9d0eba09ca1"
-  integrity sha512-Z1w0iRlkBZTOK/fooLkX0pf28qb+wTJfJUYEQcja7TVj+aeKBcSBpP7w21LA/Gtq6rHqmpGaMNPpunPPUKA1QQ==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/hexo-cli/-/hexo-cli-4.2.0.tgz#74647bc72a90b9cebf04af5bc70839ab281a305d"
+  integrity sha512-NJQYKnD41KUlNZzEyi8wDzPeGhrjwLLTa05dtkwq+lJch+j9idZTh4dgn3w/82o6Q/zygn+ibO1XvihMfFdSfw==
   dependencies:
     abbrev "^1.1.1"
     bluebird "^3.5.5"
@@ -1977,9 +1977,9 @@ hexo-log@^2.0.0:
     chalk "^4.0.0"
 
 hexo-next-discussbot@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/hexo-next-discussbot/-/hexo-next-discussbot-1.0.1.tgz#254cbc96d69206e6b2350475bdae97b3a26e852c"
-  integrity sha512-tzEBv2qSMpFCTQRi4VP+o1cnMmUErbCdHIKgiEdRAFZTv4VdTBC60Wu+bS/3sb/YCck0sh7k7IAmSosGneNsCg==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/hexo-next-discussbot/-/hexo-next-discussbot-1.0.2.tgz#c3f0022e59bf66fdc01107f9c272252f1d8aef5c"
+  integrity sha512-1IBm1dKYdJMppcZnXVxjnjsLGpp06HcRmHYuExa99ik20uzkGfOmSdu69qK3DlM5Nqz0ByGNSDwVTWAlK9qHkQ==
   dependencies:
     next-util "^1.0.0"
 
@@ -3752,9 +3752,9 @@ pretty-hrtime@^1.0.3:
   integrity sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
 
 prismjs@^1.17.1:
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.20.0.tgz#9b685fc480a3514ee7198eac6a3bf5024319ff03"
-  integrity sha512-AEDjSrVNkynnw6A+B1DsFkd6AVdTnp+/WoUixFRULlCLZVRZlVQMVWio/16jv7G1FscUxQxOQhWwApgbnxr6kQ==
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.21.0.tgz#36c086ec36b45319ec4218ee164c110f9fc015a3"
+  integrity sha512-uGdSIu1nk3kej2iZsLyDoJ7e9bnPzIgY0naW/HdknGj61zScaprVEVGHrPoXqI+M9sP0NDnTK2jpkvmldpuqDw==
   optionalDependencies:
     clipboard "^2.0.0"
 
