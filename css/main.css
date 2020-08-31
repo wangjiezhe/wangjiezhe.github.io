@@ -3290,9 +3290,6 @@ span.exturl:hover {
 .posts-expand .post-body img {
   border: none;
 }
-.hosted-by {
-  display: inline-block;
-}
 span.exturl.theme-link,
 span.exturl.host-link {
   color: #999;
