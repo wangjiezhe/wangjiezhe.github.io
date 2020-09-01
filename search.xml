@@ -414,45 +414,6 @@ $ 匹配字符串的最后面。</p>
       </tags>
   </entry>
   <entry>
-    <title>Linux 随学随记 (2)</title>
-    <url>//posts/2014-03-19-Linux-Notes-2/</url>
-    <content><![CDATA[<h2 id="一、vim切换tab"><a class="header-anchor" href="#一、vim切换tab"></a>一、vim切换tab</h2>
-<p>向后  <code>:tabn</code><br />
-向前  <code>:tabp</code></p>
-<h2 id="二、vim与系统剪贴板的交互-仅限于gvim"><a class="header-anchor" href="#二、vim与系统剪贴板的交互-仅限于gvim"></a>二、vim与系统剪贴板的交互 (仅限于gvim!!!)</h2>
-<p><code>&quot;+y</code><br />
-复制到剪贴板</p>
-<p><code>&quot;+p</code><br />
-从剪贴板粘贴</p>
-<h2 id="三、vim重复命令"><a class="header-anchor" href="#三、vim重复命令"></a>三、vim重复命令</h2>
-<p><code>.</code><br />
-重复上次操作，前面可加次数</p>
-<p><code>:[range]g[lobal]/&#123;pattern&#125;/[cmd]</code><br />
-在 <code>[range]</code> 界定的匹配模式 <code>&#123;pattern&#125;</code> 的文本行上执行Ex 命令 <code>[cmd]</code> （缺省是 <code>:p</code>）。</p>
-<p><code>:[range]g[lobal]!/&#123;pattern&#125;/[cmd]</code><br />
-在 [range] 界定的_不_匹配模式 {pattern} 的文本行上执行 Ex 命令 [cmd] （缺省是 <code>:p</code>）。</p>
-<p><code>:[range]v[global]/&#123;pattern&#125;/[cmd]</code><br />
-等同于 :g!。</p>
-<h2 id="四、vim中tab与空格的转换-慎用！！！"><a class="header-anchor" href="#四、vim中tab与空格的转换-慎用！！！"></a>四、vim中tab与空格的转换 (慎用！！！)</h2>
-<p><code>:ret[ab][!] [new_tabstop]</code><br />
-将制表符<code>&lt;TAB&gt;</code>转换为空格符，数量由<code>[new_tabstop]</code>指定。若为空或为0，则使用默认的<code>tabstop</code>。<br />
-若有<code>!</code>，则将空格序列转化为<code>&lt;TAB&gt;</code>。</p>
-<h2 id="五、查看中文帮助"><a class="header-anchor" href="#五、查看中文帮助"></a>五、查看中文帮助</h2>
-<p><strong><code>man -L zh_CN.utf8 command</code></strong></p>
-<h2 id="六、查看日志"><a class="header-anchor" href="#六、查看日志"></a>六、查看日志</h2>
-<p><code>journalctl [OPTIONS...] [MATCHES...]</code></p>
-<p>Options:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-f --follow        Follow the journal</span><br><span class="line">   --since=DATE    Start showing entries on or newer than the specified date</span><br><span class="line">   --until=DATE    Stop showing entries on or older than the specified date</span><br><span class="line">-l --full          Do not ellipsize fields</span><br><span class="line">-u --unit=UNIT     Show data only from the specified unit</span><br><span class="line">   --disk-usage    Show total disk usage of all journal files</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Vim</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>忽然想到（三）</title>
     <url>//posts/2014-03-16-Thinking-3/</url>
     <content><![CDATA[<p>又是十五十六月圆时。</p>
@@ -502,6 +463,45 @@ $ 匹配字符串的最后面。</p>
         <tag>忽然想到</tag>
         <tag>金庸</tag>
         <tag>凡人歌</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux 随学随记 (2)</title>
+    <url>//posts/2014-03-19-Linux-Notes-2/</url>
+    <content><![CDATA[<h2 id="一、vim切换tab"><a class="header-anchor" href="#一、vim切换tab"></a>一、vim切换tab</h2>
+<p>向后  <code>:tabn</code><br />
+向前  <code>:tabp</code></p>
+<h2 id="二、vim与系统剪贴板的交互-仅限于gvim"><a class="header-anchor" href="#二、vim与系统剪贴板的交互-仅限于gvim"></a>二、vim与系统剪贴板的交互 (仅限于gvim!!!)</h2>
+<p><code>&quot;+y</code><br />
+复制到剪贴板</p>
+<p><code>&quot;+p</code><br />
+从剪贴板粘贴</p>
+<h2 id="三、vim重复命令"><a class="header-anchor" href="#三、vim重复命令"></a>三、vim重复命令</h2>
+<p><code>.</code><br />
+重复上次操作，前面可加次数</p>
+<p><code>:[range]g[lobal]/&#123;pattern&#125;/[cmd]</code><br />
+在 <code>[range]</code> 界定的匹配模式 <code>&#123;pattern&#125;</code> 的文本行上执行Ex 命令 <code>[cmd]</code> （缺省是 <code>:p</code>）。</p>
+<p><code>:[range]g[lobal]!/&#123;pattern&#125;/[cmd]</code><br />
+在 [range] 界定的_不_匹配模式 {pattern} 的文本行上执行 Ex 命令 [cmd] （缺省是 <code>:p</code>）。</p>
+<p><code>:[range]v[global]/&#123;pattern&#125;/[cmd]</code><br />
+等同于 :g!。</p>
+<h2 id="四、vim中tab与空格的转换-慎用！！！"><a class="header-anchor" href="#四、vim中tab与空格的转换-慎用！！！"></a>四、vim中tab与空格的转换 (慎用！！！)</h2>
+<p><code>:ret[ab][!] [new_tabstop]</code><br />
+将制表符<code>&lt;TAB&gt;</code>转换为空格符，数量由<code>[new_tabstop]</code>指定。若为空或为0，则使用默认的<code>tabstop</code>。<br />
+若有<code>!</code>，则将空格序列转化为<code>&lt;TAB&gt;</code>。</p>
+<h2 id="五、查看中文帮助"><a class="header-anchor" href="#五、查看中文帮助"></a>五、查看中文帮助</h2>
+<p><strong><code>man -L zh_CN.utf8 command</code></strong></p>
+<h2 id="六、查看日志"><a class="header-anchor" href="#六、查看日志"></a>六、查看日志</h2>
+<p><code>journalctl [OPTIONS...] [MATCHES...]</code></p>
+<p>Options:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-f --follow        Follow the journal</span><br><span class="line">   --since=DATE    Start showing entries on or newer than the specified date</span><br><span class="line">   --until=DATE    Stop showing entries on or older than the specified date</span><br><span class="line">-l --full          Do not ellipsize fields</span><br><span class="line">-u --unit=UNIT     Show data only from the specified unit</span><br><span class="line">   --disk-usage    Show total disk usage of all journal files</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Vim</tag>
       </tags>
   </entry>
   <entry>
@@ -2503,7 +2503,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <li>支持批量管理页面</li>
 <li>可以直接导出当前页，不需要额外进行选择</li>
 <li>👍👍👍可以直接使用当前模板添加新的页面。对于导入的 PDF 文件来说，就是直接复制当前页作为新页，但不包含书写笔记。还可以预先导入模板（设计好大小的空白页），在添加页面的时候可以直接选择</li>
-<li>颜色切换方便，可以预设三个常用颜色直接显示在工具栏，使用时直接点击即可</li>
+<li><s>颜色切换方便，可以预设三个常用颜色直接显示在工具栏，使用时直接点击即可</s><mark class="label ">【Notability 10.0 已支持类似功能，且可以预设的数量更多】</mark>
+</li>
 <li>激光笔工具在关闭投屏的情况下依然可以使用</li>
 <li>橡皮工具支持仅擦除荧光笔痕迹</li>
 <li>👍👍页面支持不保持缩放的功能，即在 iPad 上缩放页面的时候，投屏界面始终保持整个界面保持不变</li>
@@ -2522,6 +2523,7 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <ul>
 <li>👍👍👍支持自动拉直和图形检测，即绘制完成之后，继续长按，可以自动转化为直线或者其它图形，并且可以调整和实时预览，还会自动弹出放大镜，方便精确控制绘制点</li>
 <li>👍👍👍绘制完成的线段可以自由调整两个端点，且长按会有放大镜</li>
+<li>👍👍👍支持虚线和圆点虚线 <mark class="label ">【Notability 10.0 新加入的功能】</mark></li>
 <li>可以从左侧边缘向内划出近期笔记，方便切换，也可以直接分屏，并且不会影响当前投屏的文件</li>
 <li>套索工具长按，会自动转换为矩形套索</li>
 <li>复制笔记较为方便，可以选择先拷贝、再粘贴，如果就在同一页上的话，可以直接选择复制，然后移动到相应的位置。</li>
