@@ -1069,7 +1069,7 @@ pre code {
   display: none;
 }
 .post-body .note {
-  border-radius: 10px;
+  border-radius: 3px;
   margin-bottom: 20px;
   padding: 1em;
   position: relative;
@@ -2812,6 +2812,24 @@ mark.search-keyword {
   color: #ff2a2a;
   font-weight: bold;
 }
+.popular-posts-header {
+  border-bottom: 1px solid #eee;
+  font-size: 1.125em;
+  margin-bottom: 10px;
+  margin-top: 60px;
+}
+.popular-posts {
+  padding: 0;
+}
+.popular-posts .popular-posts-item {
+  margin-left: 2em;
+}
+.popular-posts .popular-posts-item .popular-posts-title {
+  font-size: 0.875em;
+  font-weight: normal;
+  line-height: 2.4;
+  margin: 0;
+}
 .use-motion .animated {
   animation-fill-mode: none;
   visibility: inherit;
@@ -2821,7 +2839,7 @@ mark.search-keyword {
 }
 .header-inner {
   background: var(--content-bg-color);
-  border-radius: 0 0 20px 20px;
+  border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   width: 240px;
 }
@@ -2855,7 +2873,7 @@ mark.search-keyword {
   }
 }
 .main-inner {
-  border-radius: 0 0 20px 20px;
+  border-radius: initial;
   box-sizing: border-box;
   width: calc(100% - 252px);
 }
@@ -2991,7 +3009,7 @@ mark.search-keyword {
 }
 .sidebar-inner {
   background: var(--content-bg-color);
-  border-radius: 20px;
+  border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   box-sizing: border-box;
   color: var(--text-color);
@@ -3070,7 +3088,7 @@ mark.search-keyword {
 .main-inner > .comments,
 .main-inner > .pagination {
   background: var(--content-bg-color);
-  border-radius: 0 0 20px 20px;
+  border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
 }
 .main-inner > .sub-menu:not(:first-child):not(.sub-menu),
@@ -3078,7 +3096,7 @@ mark.search-keyword {
 .main-inner > .tabs-comment:not(:first-child):not(.sub-menu),
 .main-inner > .comments:not(:first-child):not(.sub-menu),
 .main-inner > .pagination:not(:first-child):not(.sub-menu) {
-  border-radius: 20px;
+  border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin-top: 12px;
 }
@@ -3161,6 +3179,7 @@ mark.search-keyword {
 code {
   color: #cb1b45;
   background: #fcfaf2;
+  font-size: 1em;
 }
 .bg_content {
   position: fixed;
@@ -3174,25 +3193,12 @@ code {
   height: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  border-radius: 5px;
   background-color: rgba(0,0,0,0.2);
 }
 ::-webkit-scrollbar-thumb:hover {
-  border-radius: 5px;
   background-color: #8a6bbe;
 }
-.post-copyright,
-.followme {
-  border-radius: 10px;
-}
-blockquote {
-  border-radius: 10px;
-}
-.btn {
-  border-radius: 20px;
-}
 .back-to-top {
-  border-radius: 20px;
   font-size: 14px;
 }
 .back-to-top:hover {
@@ -3258,7 +3264,6 @@ span.exturl:hover {
   background: #c73e3a;
   color: #fff;
   font-size: 16px;
-  border-radius: 10px;
 }
 .posts-expand .post-tags a:hover {
   box-shadow: 0 0 1em 0.5em #f8c3cd;
