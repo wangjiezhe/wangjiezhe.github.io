@@ -92,6 +92,9 @@ follow_me:
   WeChat: /images/wechat_channel.jpg || fab fa-weixin
   RSS: /atom.xml || fa fa-rss
 
+related_posts:
+  enable: true
+
 # ---------------------------------------------------------------
 # Custom Page Settings
 # ---------------------------------------------------------------
