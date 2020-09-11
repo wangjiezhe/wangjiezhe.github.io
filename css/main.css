@@ -3330,6 +3330,8 @@ ul.category-list > li {
 .katex {
   font-size: 1.1em !important;
 }
-.busuanzi-count .post-meta-item {
+#busuanzi_container_site_uv,
+#busuanzi_container_site_pv,
+#busuanzi_container_page_pv {
   display: inline !important;
 }
