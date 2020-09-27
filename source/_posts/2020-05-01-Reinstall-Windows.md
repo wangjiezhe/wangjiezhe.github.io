@@ -1,7 +1,7 @@
 ---
 title: 记录重装系统时遇到的坑
 date: 2020-05-01T21:26:42+08:00
-updated: 2020-05-18T13:26:42+08:00
+updated: 2020-09-22T13:26:42+08:00
 categories: Windows
 tags:
   - MathType
@@ -50,6 +50,13 @@ MathType 与 Microsoft Store 中的「更纱黑体」相冲突，安装「更纱
 
 {% note primary %}
 又尝试单独安装部分字体，只装了 `Sarasa Term`，没有问题。那就先这么用吧。。。
+{% endnote %}
+
+{% note info %}
+20200922 更新：在新电脑上，Windows Store 上安装的「更纱黑体」不行，但是手动下载安装字体又没有问题了，真是一个神奇的问题。
+
+「更纱黑体」在 [tuna 镜像站](https://mirrors.tuna.tsinghua.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/)上可以下载，不用忍受 GitHub 的龟速了。
+与之类似的还有 [git for windows](https://mirrors.tuna.tsinghua.edu.cn/github-release/git-for-windows/git/LatestRelease/)，[git-lfs](https://mirrors.tuna.tsinghua.edu.cn/github-release/git-lfs/git-lfs/LatestRelease/) 等。
 {% endnote %}
 
 ## 盘符问题

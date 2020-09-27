@@ -1,7 +1,7 @@
 ---
 title: 安装 ArchWSL 后需要做的事
 date: 2020-04-11 00:39:40
-updated: 2020-05-14 10:53:40
+updated: 2020-09-22 10:39:40
 categories: Windows
 tags:
 	- WSL
@@ -23,7 +23,11 @@ wsl --set-default-version 2
 
 之后重启电脑。
 
-安装 Arch，参见 [ArchWSL](https://github.com/yuk7/ArchWSL)。
+升级 Linux 内核，然后安装 Arch，参见 [ArchWSL](https://github.com/yuk7/ArchWSL)。
+
+{% note primary %}
+20200922 更新：在新电脑上安装 WSL2 时发现，按照升级内核的提示，打开网页 https://aka.ms/wsl2kernel，但发现并没有对应的链接。原因是[中文版的帮助](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package)不知道为什么删掉了这一关键的步骤，而[英文版的帮助](https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package)上是有的。这里记录一下 [msi 文件](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)的链接，以防丢失。
+{% endnote %}
 
 ## WSL 2 相对于 WSL 1 的优缺点
 
@@ -41,13 +45,20 @@ wsl --set-default-version 2
 
 ## 语言设置
 
-把 `/etc/locale.conf` 改为 `LANG=zh_CN.UTF8`。
-
-然后 `source /etc/locale.conf`。
+```bash
+sed -i '/zh_CN.UTF-8/s/^#//' /etc/locale.gen
+locale-gen
+sed -i 's/en_US/zh_CN/' /etc/locale.conf
+source /etc/locale.conf
+```
 
 {% note info %}
 一个非常奇怪的事情是，如果把 `LANG` 设为 `zh_CN.UTF-8`，那么在 **bash** 下，windows 中的中文文件名显示为乱码，而 **zsh** 则显示正常。
 但在默认的 `LANG=en_US.UTF-8` 下，**bash** 和 **zsh** 都能正常显示中文文件名。
+{% endnote %}
+
+{% note primary %}
+20200922更新：上面出错的原因找到了，是没有修改 `/etc/locale.gen` 以及运行 `locale-gen`。
 {% endnote %}
 
 ## 安装软件包
@@ -178,11 +189,15 @@ pacman -S tk gvim
 向 `~/.zshrc` 中添加：
 
 ```bash
-export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolve.conf 2>/dev/null):0.0
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0.0
 export LIBGL_ALWAYS_INDIRECT=1
 ```
 
 注意对于 WSL 2，VcXsrv 启动时需要选中 `Disable access control` 的选项，或者加上 `-ac` 的参数。
+
+{% note primrary %}
+20200922更新：如果是普通用户而且防火墙开启的话，在打开 VcXsrc 之后会弹出防火墙设置的弹窗。注意这里一定要把【公用网络】勾选上，因为 WSL2 创建 `vEthernet(WSL)` 默认识别为公用网络。
+{% endnote %}
 
 ## 添加新用户
 
