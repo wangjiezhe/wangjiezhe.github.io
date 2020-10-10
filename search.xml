@@ -3486,6 +3486,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <p>对于有多个参数的函数，可以使用中置运算符：</p>
 <figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line">x~f~y~f~z</span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line">f[x,y,z]</span><br></pre></td></tr></table></figure>
 <p>这种形式在连接列表（<code>~Join~</code>）、连接字符串（<code>&lt;&gt;</code>）等时候比较常见。</p>
+<div class="note primary"><p>注意：仅当函数 f 有 Flat 属性时才可以这么用。</p>
+</div>
 <h2 id="函数式编程符号"><a class="header-anchor" href="#函数式编程符号"></a>函数式编程符号</h2>
 <p>在函数式编程中，<code>Map</code>、<code>Apply</code> 是两个非常重要的函数，因此 Mathematica 专门规定了简写的符号。</p>
 <p><code>Map</code> 函数：</p>
