@@ -2463,6 +2463,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">file &#x27;./split1.mp4&#x27;</span><br><span class="line">file &#x27;./split2.mp4&#x27;</span><br><span class="line">file &#x27;./split3.mp4&#x27;</span><br></pre></td></tr></table></figure>
 <p>然后再进行合并：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -f concat -i [list.txt] -c copy [output.mp4]</span><br></pre></td></tr></table></figure>
+<div class="note danger"><p>如果遇到 <code>Unsafe file name</code> 的错误（例如文件名中有空格），可以在 <code>-f</code> 和 <code>-i</code> 之间加上 <code>-safe 0</code> 的选项。</p>
+</div>
 <h2 id="改变格式"><a class="header-anchor" href="#改变格式"></a>改变格式</h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">### 重新编码</span></span><br><span class="line">ffmpeg -i [input].mp4 [output].flv</span><br><span class="line"></span><br><span class="line"><span class="comment">### 不重新编码</span></span><br><span class="line">ffmpeg -i [input].mp4 -c copy [output].flv</span><br></pre></td></tr></table></figure>
 <h2 id="提取音频"><a class="header-anchor" href="#提取音频"></a>提取音频</h2>
