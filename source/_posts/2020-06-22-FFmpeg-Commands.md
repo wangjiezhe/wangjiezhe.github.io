@@ -62,6 +62,12 @@ file './split3.mp4'
 ffmpeg -f concat -i [list.txt] -c copy [output.mp4]
 ```
 
+{% note danger %}
+
+如果遇到 `Unsafe file name` 的错误（例如文件名中有空格），可以在 `-f` 和 `-i` 之间加上 `-safe 0` 的选项。
+
+{% endnote %}
+
 ## 改变格式
 
 ```bash
