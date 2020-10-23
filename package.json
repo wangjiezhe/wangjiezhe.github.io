@@ -12,7 +12,7 @@
     "version": "5.2.0"
   },
   "dependencies": {
-    "@iktakahiro/markdown-it-katex": "^4.0.0",
+    "@iktakahiro/markdown-it-katex": "^4.0.1",
     "hexo": "^5.0.0",
     "hexo-blog-encrypt": "^3.0.3",
     "hexo-browsersync": "^0.3.0",
