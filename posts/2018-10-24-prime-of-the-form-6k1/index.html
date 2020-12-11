@@ -553,9 +553,11 @@
 
 
     
-  <div class="comments">
-    <div id="discussbot-container"></div>
+  
+  <div class="comments" id="discussbot-container">
+  <script async src="https://comments.app/js/widget.js?3" data-comments-app-website="DTO-cxcp" data-limit="5" data-color="3DA0F0" data-dislikes="1" data-outlined="1"></script>
   </div>
+  
   
 
 <script>
@@ -695,19 +697,6 @@ checkWebp(showImage);
       });
       });
   </script>
-
-<script>
-NexT.utils.loadComments('#discussbot-container', () => {
-  const script = document.createElement('script');
-  script.src = 'https://comments.app/js/widget.js?3';
-  script.setAttribute('data-comments-app-website', '"DTO-cxcp"');
-  script.setAttribute('data-limit', '5');
-  script.setAttribute('data-color', '"3DA0F0"');
-  script.setAttribute('dislikes', '1');
-  script.setAttribute('outlined', '1');
-  script.async = true;
-  document.querySelector('#discussbot-container').appendChild(script);
-});
-</script><script src="/js/click-love.js"></script>
+<script src="/js/click-love.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false},"log":false});</script></body>
 </html>
