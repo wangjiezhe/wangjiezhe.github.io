@@ -122,14 +122,7 @@ $$
 $$
 因此 $BJ = CK$ 依旧成立．后面的过程就完全一样了．
 
-我们取 $BC$ 的中点 $Q$，于是 $Q$ 也是 $JK$ 的中点，因此 $PQ$ 是梯形 $DJKF$ 的中位线，故 $PQ \perp BC$，且
-$$
-\begin{aligned}
-  PQ &= \dfrac{1}{2} \left( DJ + FK \right) = \dfrac{1}{2} \left( BL + CL \right) \\
-  &= \dfrac{1}{2} BC = BQ = CQ
-\end{aligned}
-$$
-因此 $PB = PC$．
+我们取 $BC$ 的中点 $Q$，于是 $Q$ 也是 $JK$ 的中点，因此 $PQ$ 是梯形 $DJKF$ 的中位线，故 $PQ \perp BC$，因此 $PB = PC$．
 
 ![图14](fig2-14.png)
 
