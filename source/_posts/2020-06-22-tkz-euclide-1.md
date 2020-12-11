@@ -13,7 +13,7 @@ mathjax: true
 
 基本格式：
 
-```tex
+```latex
 \begin{tikzpicture}
   %%% 定义基础点
   \tkzDefPoint(0,0){A}
