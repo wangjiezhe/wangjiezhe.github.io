@@ -9,14 +9,6 @@
   dependencies:
     katex "^0.12.0"
 
-"@next-theme/utils@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@next-theme/utils/-/utils-1.1.0.tgz#3fc818b310dae1f4c4d8d87afb32d408ec11e1ad"
-  integrity sha512-wAVzW/gd81NsaK6yoXDid2y9CPWtPhCbyM68B+ryc622oaivtHMc3MY2IwUnStm/nl1do+vGPiaeR55OEGCOmw==
-  dependencies:
-    js-yaml "3.14.0"
-    lodash "4.17.19"
-
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -2459,12 +2451,12 @@ hexo-log@^2.0.0:
   dependencies:
     chalk "^4.0.0"
 
-hexo-next-discussbot@^1.0.1:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/hexo-next-discussbot/-/hexo-next-discussbot-1.0.5.tgz#79c90a25910d27c6abf0fcad72aee415aff1eb11"
-  integrity sha512-n5V/9Rl9HiP1aJDSGLS5WGAY+0WplbloJZJmag46d2ZwUna4D78UD7DDRWdxCbgR7gRRHv+v3D8Bs9r/wDNUKg==
+hexo-next-discussbot@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/hexo-next-discussbot/-/hexo-next-discussbot-1.0.2.tgz#c3f0022e59bf66fdc01107f9c272252f1d8aef5c"
+  integrity sha512-1IBm1dKYdJMppcZnXVxjnjsLGpp06HcRmHYuExa99ik20uzkGfOmSdu69qK3DlM5Nqz0ByGNSDwVTWAlK9qHkQ==
   dependencies:
-    "@next-theme/utils" "^1.1.0"
+    next-util "^1.0.0"
 
 hexo-pagination@1.0.0:
   version "1.0.0"
@@ -3873,6 +3865,14 @@ nested-error-stacks@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.0.1.tgz#d2cc9fc5235ddb371fc44d506234339c8e4b0a4b"
   integrity sha512-SrQrok4CATudVzBS7coSz26QRSmlK9TzzoFbeKfcPBUFPjcQM9Rqvr/DlJkOrwI/0KcgvMub1n1g5Jt9EgRn4A==
+
+next-util@^1.0.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/next-util/-/next-util-1.2.1.tgz#c6cfa79e70405748f384e77da1251e00ec826176"
+  integrity sha512-zhCYOcosgFHKjs9KldRnGCTDCmnjGmV71G8MqfKtqze2ixBnj3/xbABB46AepUJnjBVce6jgZRN6m4YpyQWlpQ==
+  dependencies:
+    js-yaml "3.14.0"
+    lodash "4.17.19"
 
 nib@^1.1.2:
   version "1.1.2"
