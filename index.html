@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
 <meta name="generator" content="Hexo 5.2.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -22,10 +24,9 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","scheme":"Gemini","version":"8.0.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"discussbot":{"text":"DiscussBot","order":2}},"activeClass":"disqusjs"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"discussbot":{"text":"DiscussBot","order":2}}},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
   </script>
-
-  <meta name="description" content="某不知名机构不知名数学老师一枚">
+<meta name="description" content="某不知名机构不知名数学老师一枚">
 <meta property="og:type" content="website">
 <meta property="og:title" content="如鱼饮水">
 <meta property="og:url" content="https://wangjiezhe.com/index.html">
@@ -49,8 +50,7 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>如鱼饮水 - 冷暖自知</title>
+<title>如鱼饮水 - 冷暖自知</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
     <script>
@@ -61,9 +61,6 @@
         gtag('config', 'UA-48537410-1');
       }
     </script>
-
-
-
 
 
 
@@ -175,8 +172,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -219,13 +215,14 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="西风冷香"
       src="/images/camel.jpg">
   <p class="site-author-name" itemprop="name">西风冷香</p>
@@ -300,7 +297,8 @@
   show_date_time();
 </script>
 
-      </section>
+        </section>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -321,9 +319,7 @@
 
 
     <div class="main-inner index posts-expand">
-      
 
-      
     
 
 
@@ -348,8 +344,7 @@
           
               <span class="post-sticky-flag" title="置顶">
                 <i class="fa fa-thumbtack"></i>
-              </span>
-            <a href="/posts/2020-08-02-Riichi-mahjong-resources/" class="post-title-link" itemprop="url">立直麻将的相关资料整理</a>
+              </span><a href="/posts/2020-08-02-Riichi-mahjong-resources/" class="post-title-link" itemprop="url">立直麻将的相关资料整理</a>
         </h2>
 
         <div class="post-meta-container">
@@ -445,8 +440,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/2020-07-06-Project-Euler-1/" class="post-title-link" itemprop="url">欧拉计划（Project Euler）解法【1~25】</a>
+          <a href="/posts/2020-07-06-Project-Euler-1/" class="post-title-link" itemprop="url">欧拉计划（Project Euler）解法【1~25】</a>
         </h2>
 
         <div class="post-meta-container">
@@ -553,8 +547,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/2020-07-05-Mathematica-funny-signs/" class="post-title-link" itemprop="url">Mathematica 中特殊符号的使用规则</a>
+          <a href="/posts/2020-07-05-Mathematica-funny-signs/" class="post-title-link" itemprop="url">Mathematica 中特殊符号的使用规则</a>
         </h2>
 
         <div class="post-meta-container">
@@ -655,8 +648,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/2020-07-04-tkz-euclide-2/" class="post-title-link" itemprop="url">常用 tkz-euclide 命令（二）——直线形的定义方法</a>
+          <a href="/posts/2020-07-04-tkz-euclide-2/" class="post-title-link" itemprop="url">常用 tkz-euclide 命令（二）——直线形的定义方法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -759,8 +751,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/2020-06-22-Notability-vs-GoodNotes/" class="post-title-link" itemprop="url">Notability 与 GoodNotes 在网课教学中的对比</a>
+          <a href="/posts/2020-06-22-Notability-vs-GoodNotes/" class="post-title-link" itemprop="url">Notability 与 GoodNotes 在网课教学中的对比</a>
         </h2>
 
         <div class="post-meta-container">
@@ -863,8 +854,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/2020-06-22-tkz-euclide-1/" class="post-title-link" itemprop="url">常用 tkz-euclide 命令（一）——点的定义方法</a>
+          <a href="/posts/2020-06-22-tkz-euclide-1/" class="post-title-link" itemprop="url">常用 tkz-euclide 命令（一）——点的定义方法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -967,8 +957,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/2020-06-22-FFmpeg-Commands/" class="post-title-link" itemprop="url">常用 FFmpeg 命令</a>
+          <a href="/posts/2020-06-22-FFmpeg-Commands/" class="post-title-link" itemprop="url">常用 FFmpeg 命令</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1064,8 +1053,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/2020-05-12-Windows-commands/" class="post-title-link" itemprop="url">Windows 常用指令</a>
+          <a href="/posts/2020-05-12-Windows-commands/" class="post-title-link" itemprop="url">Windows 常用指令</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1168,8 +1156,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/2020-05-01-Reinstall-Windows/" class="post-title-link" itemprop="url">记录重装系统时遇到的坑</a>
+          <a href="/posts/2020-05-01-Reinstall-Windows/" class="post-title-link" itemprop="url">记录重装系统时遇到的坑</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1272,8 +1259,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/2020-04-11-Install-ArchWSL/" class="post-title-link" itemprop="url">安装 ArchWSL 后需要做的事</a>
+          <a href="/posts/2020-04-11-Install-ArchWSL/" class="post-title-link" itemprop="url">安装 ArchWSL 后需要做的事</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1355,15 +1341,10 @@
 
 
 
-
-  
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
-
-
-      
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1386,18 +1367,14 @@
     });
   }
 </script>
-
-    </div>
+</div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      
 
-      
 
 <div class="copyright">
-  
   &copy; 2014 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
@@ -1477,19 +1454,7 @@ checkWebp(showImage);
 
   
 
-
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
+<script src="/js/local-search.js"></script>
 
 
 
@@ -1503,18 +1468,10 @@ checkWebp(showImage);
 
 
 
-
-
-
-  
-
-  
-      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
   <script src="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/copy-tex.min.js"></script>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/copy-tex.min.css">
 
-
-  
 
 <script src="/js/click-love.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false},"log":false});</script></body>
