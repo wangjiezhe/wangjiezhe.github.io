@@ -22,7 +22,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"utterances":{"text":"Github","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"utterances":{"text":"Github","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
   </script>
 <meta name="description" content="在前面的三篇文章中，我们探究了和正方形有关的中点问题．在本文中，我们来看一个和梯形有关的中点问题． 和梯形相关的中点问题，主要可以分为「底中点」和「腰中点」两大类．对于「底中点」相关的问题，我们合并到下一篇关于一般四边形的中点问题的文章中一起来讨论．今天我们重点来看一下和「腰中点」有关的问题．">
 <meta property="og:type" content="article">
@@ -88,6 +88,7 @@
 
 
 
+
   <noscript>
   <style>
   body { margin-top: 2rem; }
@@ -133,7 +134,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -185,7 +186,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -201,7 +202,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -221,12 +222,12 @@
 
       <div class="sidebar-panel-container">
         <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
+        <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%8C%E8%85%B0%E4%B8%AD%E7%82%B9%E3%80%8D%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">「腰中点」的处理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%80%8D%E9%95%BF%E4%B8%AD%E7%BA%BF"><span class="nav-number">1.1.</span> <span class="nav-text">倍长中线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BD%A2%E7%9A%84%E4%B8%AD%E4%BD%8D%E7%BA%BF"><span class="nav-number">1.2.</span> <span class="nav-text">梯形的中位线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A7%92%E6%A2%AF%E5%BD%A2%E7%9A%84%E3%80%8C%E8%85%B0%E4%B8%AD%E7%82%B9%E3%80%8D"><span class="nav-number">2.</span> <span class="nav-text">直角梯形的「腰中点」</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E7%A7%8D%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5"><span class="nav-number">2.1.</span> <span class="nav-text">一种特殊情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E7%9A%84%E6%9D%A5%E6%BA%90"><span class="nav-number">2.2.</span> <span class="nav-text">图形的来源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E5%BD%A2"><span class="nav-number">2.3.</span> <span class="nav-text">变形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E5%B9%BF%E4%B8%80"><span class="nav-number">2.4.</span> <span class="nav-text">推广一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E5%B9%BF%E4%BA%8C"><span class="nav-number">2.5.</span> <span class="nav-text">推广二</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E5%BD%A2-2"><span class="nav-number">2.5.1.</span> <span class="nav-text">变形</span></a></li></ol></li></ol></li></ol></div>
-        </section>
+        </div>
         <!--/noindex-->
 
-        <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="西风冷香"
       src="/images/camel.jpg">
@@ -302,7 +303,7 @@
   show_date_time();
 </script>
 
-        </section>
+        </div>
       </div>
     </div>
   </aside>
@@ -312,7 +313,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -640,19 +641,13 @@
         <div class="tab-content">
             <div class="tab-pane disqusjs" id="comment-disqusjs">
               
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
   </div>
   
             </div>
             <div class="tab-pane utterances" id="comment-utterances">
-              
-  <div class="comments">
-    <div id="utterances-container"></div>
-  </div>
-  
+              <div class="comments utterances-container"></div>
             </div>
             <div class="tab-pane discussbot" id="comment-discussbot">
               
@@ -696,7 +691,7 @@
 
 <div class="copyright">
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -820,7 +815,7 @@ NexT.utils.loadComments('#disqus_thread', () => {
 </script>
 
 <script>
-NexT.utils.loadComments('#utterances-container', () => {
+NexT.utils.loadComments('.utterances-container', () => {
   const script = document.createElement('script');
   script.src = 'https://utteranc.es/client.js';
   script.setAttribute('repo', "wangjiezhe/wangjiezhe.github.io");
@@ -828,7 +823,7 @@ NexT.utils.loadComments('#utterances-container', () => {
   script.setAttribute('theme', "github-light");
   script.crossOrigin = 'anonymous';
   script.async = true;
-  document.querySelector('#utterances-container').appendChild(script);
+  document.querySelector('.utterances-container').appendChild(script);
 });
 </script>
 <script src="/js/click-love.js"></script>

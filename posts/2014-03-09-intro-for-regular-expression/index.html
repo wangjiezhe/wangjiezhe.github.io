@@ -22,7 +22,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"utterances":{"text":"Github","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"utterances":{"text":"Github","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
   </script>
 <meta name="description" content="一些常见的正则表达式的备忘录">
 <meta property="og:type" content="article">
@@ -65,6 +65,7 @@
         gtag('config', 'UA-48537410-1');
       }
     </script>
+
 
 
 
@@ -113,7 +114,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -165,7 +166,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -181,7 +182,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -201,12 +202,12 @@
 
       <div class="sidebar-panel-container">
         <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
+        <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E5%AD%97%E7%AC%A6-grep-sed"><span class="nav-number">1.</span> <span class="nav-text">元字符 (grep, sed)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8F%A5%E7%82%B9%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">1.1.</span> <span class="nav-text">1. 句点元字符 .</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8F%8D%E6%96%9C%E6%9D%A0%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">1.2.</span> <span class="nav-text">2. 反斜杠元字符 \\</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%98%9F%E5%8F%B7%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">1.3.</span> <span class="nav-text">3. 星号元字符 \*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BD%8D%E7%BD%AE%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">1.4.</span> <span class="nav-text">4. 位置元字符 ^, $</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%AD%97%E7%AC%A6%E7%BB%84%E5%85%83%E5%AD%97%E7%AC%A6-%E8%BF%9E%E5%AD%97%E7%AC%A6%E5%85%83%E5%AD%97%E7%AC%A6-%E8%A1%A5%E5%AD%97%E5%8F%B7"><span class="nav-number">1.5.</span> <span class="nav-text">5. 字符组元字符 [ ], 连字符元字符 -, 补字号 ^</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E8%8C%83%E5%9B%B4%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.6.</span> <span class="nav-text">6. 范围字符串 \\&amp;#123; \\&amp;#125;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E7%B1%BB"><span class="nav-number">1.7.</span> <span class="nav-text">7. 特殊字符类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E5%85%83%E5%AD%97%E7%AC%A6-egrep-awk"><span class="nav-number">2.</span> <span class="nav-text">扩展元字符 (egrep, awk)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8A%A0%E5%8F%B7%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">2.1.</span> <span class="nav-text">1. 加号元字符 +</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%97%AE%E5%8F%B7%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">2.2.</span> <span class="nav-text">2. 问号元字符 ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%AB%96%E7%BA%BF%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">2.3.</span> <span class="nav-text">3. 竖线元字符 |</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%8B%AC%E5%8F%B7%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">2.4.</span> <span class="nav-text">4. 括号元字符 ( )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E8%8C%83%E5%9B%B4%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">2.5.</span> <span class="nav-text">5. 范围元字符 &amp;#123; &amp;#125;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A%E5%85%83%E5%AD%97%E7%AC%A6-grep"><span class="nav-number">3.</span> <span class="nav-text">固定元字符 (grep)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-number">3.1.</span> <span class="nav-text">1. \\&lt; \\&gt;</span></a></li></ol></li></ol></div>
-        </section>
+        </div>
         <!--/noindex-->
 
-        <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="西风冷香"
       src="/images/camel.jpg">
@@ -282,7 +283,7 @@
   show_date_time();
 </script>
 
-        </section>
+        </div>
       </div>
     </div>
   </aside>
@@ -292,7 +293,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -550,19 +551,13 @@ $ 匹配字符串的最后面。</p>
         <div class="tab-content">
             <div class="tab-pane disqusjs" id="comment-disqusjs">
               
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
   </div>
   
             </div>
             <div class="tab-pane utterances" id="comment-utterances">
-              
-  <div class="comments">
-    <div id="utterances-container"></div>
-  </div>
-  
+              <div class="comments utterances-container"></div>
             </div>
             <div class="tab-pane discussbot" id="comment-discussbot">
               
@@ -606,7 +601,7 @@ $ 匹配字符串的最后面。</p>
 
 <div class="copyright">
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -727,7 +722,7 @@ NexT.utils.loadComments('#disqus_thread', () => {
 </script>
 
 <script>
-NexT.utils.loadComments('#utterances-container', () => {
+NexT.utils.loadComments('.utterances-container', () => {
   const script = document.createElement('script');
   script.src = 'https://utteranc.es/client.js';
   script.setAttribute('repo', "wangjiezhe/wangjiezhe.github.io");
@@ -735,7 +730,7 @@ NexT.utils.loadComments('#utterances-container', () => {
   script.setAttribute('theme', "github-light");
   script.crossOrigin = 'anonymous';
   script.async = true;
-  document.querySelector('#utterances-container').appendChild(script);
+  document.querySelector('.utterances-container').appendChild(script);
 });
 </script>
 <script src="/js/click-love.js"></script>

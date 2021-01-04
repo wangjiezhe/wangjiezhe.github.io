@@ -22,7 +22,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"utterances":{"text":"Github","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"utterances":{"text":"Github","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
   </script>
 <meta name="description" content="记录 Project Euler 的 Mathematica 解法">
 <meta property="og:type" content="article">
@@ -62,6 +62,7 @@
         gtag('config', 'UA-48537410-1');
       }
     </script>
+
 
 
 
@@ -110,7 +111,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -162,7 +163,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -178,7 +179,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -198,12 +199,12 @@
 
       <div class="sidebar-panel-container">
         <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
+        <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#P1-Multiples-of-3-and-5"><span class="nav-number">1.</span> <span class="nav-text">P1: Multiples of 3 and 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P2-Even-Fibonacci-numbers"><span class="nav-number">2.</span> <span class="nav-text">P2: Even Fibonacci numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P3-Largest-prime-factor"><span class="nav-number">3.</span> <span class="nav-text">P3: Largest prime factor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P4-Largest-palindrome-product"><span class="nav-number">4.</span> <span class="nav-text">P4: Largest palindrome product</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P5-Smallest-multiple"><span class="nav-number">5.</span> <span class="nav-text">P5: Smallest multiple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P6-Sum-square-difference"><span class="nav-number">6.</span> <span class="nav-text">P6: Sum square difference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P7-10001st-prime"><span class="nav-number">7.</span> <span class="nav-text">P7: 10001st prime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P8-Largest-product-in-a-series"><span class="nav-number">8.</span> <span class="nav-text">P8: Largest product in a series</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P9-Special-Pythagorean-triplet"><span class="nav-number">9.</span> <span class="nav-text">P9: Special Pythagorean triplet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P10-Summation-of-primes"><span class="nav-number">10.</span> <span class="nav-text">P10: Summation of primes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P11-Largest-product-in-a-grid"><span class="nav-number">11.</span> <span class="nav-text">P11: Largest product in a grid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P12-Highly-divisible-triangular-number"><span class="nav-number">12.</span> <span class="nav-text">P12: Highly divisible triangular number</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P13-Large-sum"><span class="nav-number">13.</span> <span class="nav-text">P13: Large sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P14-Longest-Collatz-sequence"><span class="nav-number">14.</span> <span class="nav-text">P14: Longest Collatz sequence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P15-Lattice-paths"><span class="nav-number">15.</span> <span class="nav-text">P15: Lattice paths</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P16-Power-digit-sum"><span class="nav-number">16.</span> <span class="nav-text">P16: Power digit sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P17-Number-letter-counts"><span class="nav-number">17.</span> <span class="nav-text">P17: Number letter counts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P18-Maximum-path-sum-I"><span class="nav-number">18.</span> <span class="nav-text">P18: Maximum path sum I</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P19-Counting-Sundays"><span class="nav-number">19.</span> <span class="nav-text">P19: Counting Sundays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P20-Factorial-digit-sum"><span class="nav-number">20.</span> <span class="nav-text">P20: Factorial digit sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P21-Amicable-numbers"><span class="nav-number">21.</span> <span class="nav-text">P21: Amicable numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P22-Names-scores"><span class="nav-number">22.</span> <span class="nav-text">P22: Names scores</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P23-Non-abundant-sums"><span class="nav-number">23.</span> <span class="nav-text">P23: Non-abundant sums</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P24-Lexicographic-permutations"><span class="nav-number">24.</span> <span class="nav-text">P24: Lexicographic permutations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P25-1000-digit-Fibonacci-number"><span class="nav-number">25.</span> <span class="nav-text">P25: 1000-digit Fibonacci number</span></a></li></ol></div>
-        </section>
+        </div>
         <!--/noindex-->
 
-        <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="西风冷香"
       src="/images/camel.jpg">
@@ -279,7 +280,7 @@
   show_date_time();
 </script>
 
-        </section>
+        </div>
       </div>
     </div>
   </aside>
@@ -289,7 +290,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -619,19 +620,13 @@
         <div class="tab-content">
             <div class="tab-pane disqusjs" id="comment-disqusjs">
               
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
   </div>
   
             </div>
             <div class="tab-pane utterances" id="comment-utterances">
-              
-  <div class="comments">
-    <div id="utterances-container"></div>
-  </div>
-  
+              <div class="comments utterances-container"></div>
             </div>
             <div class="tab-pane discussbot" id="comment-discussbot">
               
@@ -675,7 +670,7 @@
 
 <div class="copyright">
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -799,7 +794,7 @@ NexT.utils.loadComments('#disqus_thread', () => {
 </script>
 
 <script>
-NexT.utils.loadComments('#utterances-container', () => {
+NexT.utils.loadComments('.utterances-container', () => {
   const script = document.createElement('script');
   script.src = 'https://utteranc.es/client.js';
   script.setAttribute('repo', "wangjiezhe/wangjiezhe.github.io");
@@ -807,7 +802,7 @@ NexT.utils.loadComments('#utterances-container', () => {
   script.setAttribute('theme', "github-light");
   script.crossOrigin = 'anonymous';
   script.async = true;
-  document.querySelector('#utterances-container').appendChild(script);
+  document.querySelector('.utterances-container').appendChild(script);
 });
 </script>
 <script src="/js/click-love.js"></script>
