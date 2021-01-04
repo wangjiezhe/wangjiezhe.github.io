@@ -2,7 +2,7 @@ language: node_js
 dist: xenial
 
 node_js:
-  - '14'
+  - '15'
 
 cache:
   apt: true
