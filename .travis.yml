@@ -51,4 +51,4 @@ branches:
 env:
   global:
     - GH_REF: github.com/wangjiezhe/wangjiezhe.github.io
-    - CO_REF: e.coding.net/wangjiezhe/wangjiezhe.coding.me.git
+    - CO_REF: e.coding.net/wangjiezhe/wangjiezhe.coding.me/wangjiezhe.coding.me.git

@@ -173,7 +173,8 @@ live2d:
 
 # Encrypt: hexo-blog-Encrypt
 encrypt:
-  enable: true
+  theme: xray
+  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试 ( ͡• ͜ʖ ͡• )
 
 # all_minifier: true
 # image_minifier:

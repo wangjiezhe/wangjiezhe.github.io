@@ -135,8 +135,6 @@ reading_progress:
 # SEO Settings
 # ---------------------------------------------------------------
 
-disable_baidu_transformation: true
-
 index_with_subtitle: true
 
 exturl: true
