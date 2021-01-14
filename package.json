@@ -33,7 +33,7 @@
     "hexo-symbols-count-time": "^0.7.1",
     "hexo-tag-mmedia": "^0.1.3",
     "hexo-theme-next": "^8.2.0",
-    "markdown-it-attrs": "^3.0.1",
+    "markdown-it-attrs": "^4.0.0",
     "markdown-it-task-lists": "^2.1.1"
   }
 }
