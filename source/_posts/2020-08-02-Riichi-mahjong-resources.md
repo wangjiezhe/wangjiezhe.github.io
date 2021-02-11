@@ -8,7 +8,7 @@ tags:
   - 天凤
   - 雀魂
 description: 整理了一些立直麻将相关的教程、何切集
-sticky: 100
+# sticky: 100
 ---
 
 ## 网络平台
