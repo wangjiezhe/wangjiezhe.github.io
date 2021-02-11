@@ -23,6 +23,6 @@ date: 2018-10-29 11:44:17
 - [樱花庄的白猫 | ねこ・しろ・ましろ](https://2heng.xin)
 - [千灵](https://qianling.pw)
 - [恶魔菌の记事簿](https://meow3.family.blog)
-- [喵's StackHarbor](https://sh.alynx.xyz)
+- [喵's StackHarbor](https://sh.alynx.one)
 - [Sukka's Blog](https://blog.skk.moe)
 - [依云's Blog](https://blog.lilydjwg.me)
