@@ -1,7 +1,7 @@
 ---
 title: 立直麻将的相关资料整理
 date: 2020-08-02 22:41:53
-updated: 2020-08-02 22:41:53
+updated: 2021-02-11 22:41:53
 categories:
   - 立直麻将
 tags:
@@ -51,7 +51,9 @@ description: 整理了一些立直麻将相关的教程、何切集
 ### 基础理论
 
 - [麻将教程](https://www.bilibili.com/read/readlist/rl45758)  
-  《79博客》《おしえて！科学する麻雀》《麻雀魔神の読み》
+  《79博客》
+  《おしえて！科学する麻雀》
+  《麻雀魔神の読み》
 - [琴南幼儿园笔记本](https://www.bilibili.com/read/readlist/rl79513)
 - [日麻杂谈](https://www.bilibili.com/read/readlist/rl119820)
 - [兄控女大学生的最快变强麻雀](https://www.bilibili.com/read/readlist/rl298846)
@@ -77,7 +79,6 @@ description: 整理了一些立直麻将相关的教程、何切集
 
 - [麻将 铁攻的条件](https://www.bilibili.com/read/readlist/rl257506)
 - [鬼打·天凤位的麻雀机理](https://www.bilibili.com/read/readlist/rl213137)
-<!-- - [麻将·序盘的铁战略](https://www.bilibili.com/read/readlist/rl230102) -->
 - [序盘的铁战略](https://www.bilibili.com/read/readlist/rl230215)
 - [现代麻将的神技～天凤强者牌谱彻底分析～](https://www.bilibili.com/read/readlist/rl334584)
 - [绝对不会吃4的麻雀～避四的35个技术～](https://www.bilibili.com/read/readlist/rl331955)
@@ -105,12 +106,15 @@ description: 整理了一些立直麻将相关的教程、何切集
 - [亚空间杀法教学](https://www.bilibili.com/read/readlist/rl79957)
 - [立直麻雀的对子理论与七对子-解析土田浩翔](https://zhuanlan.zhihu.com/duizililun)
 - [《培养运气》麻将界的异端，土田浩翔的流派](https://www.bilibili.com/read/readlist/rl329524)
-- [土田浩翔的舍牌读牌理论](https://www.bilibili.com/read/readlist/rl332764)  土田の捨て牌読み
+- [土田浩翔的舍牌读牌理论](https://www.bilibili.com/read/readlist/rl332764) 
+  土田の捨て牌読み
 
 ### 何切集
 
 - [琴南幼儿园图书馆](https://www.bilibili.com/read/readlist/rl69713)
-  《麻雀 傑作「何切る」300選》《麻雀 定石「何切る」301選》《これだけで勝てる！ 麻雀の基本形８０》
+  《麻雀 傑作「何切る」300選》
+  《麻雀 定石「何切る」301選》
+  《これだけで勝てる！ 麻雀の基本形８０》
 - [每周何切](https://www.bilibili.com/read/readlist/rl99009)
   《麻雀何切る　200人に聞きました！》
 - [天凤位何切选](https://www.bilibili.com/read/readlist/rl160601)
