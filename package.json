@@ -31,7 +31,7 @@
     "hexo-renderer-stylus": "^2.0.1",
     "hexo-server": "^2.0.0",
     "hexo-symbols-count-time": "^0.7.1",
-    "hexo-tag-mmedia": "^0.2.1",
+    "hexo-tag-mmedia": "^0.2.2",
     "hexo-theme-next": "^8.2.0",
     "markdown-it-attrs": "^4.0.0",
     "markdown-it-task-lists": "^2.1.1"

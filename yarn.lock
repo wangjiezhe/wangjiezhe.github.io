@@ -2416,10 +2416,10 @@ hexo-symbols-count-time@^0.7.1:
   dependencies:
     hexo-util "1.9.0"
 
-hexo-tag-mmedia@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/hexo-tag-mmedia/-/hexo-tag-mmedia-0.2.1.tgz#f9ad168570c7ba1a65bd409d032addd470a6c428"
-  integrity sha512-gGrRZ6zLhxnMrjuihz/FiHiMW5sV4jJv5uEl22FHKySRzzKT9z0hD+3NRfv0DnHsr4QIr0lfwJrM1Kfp12S2sQ==
+hexo-tag-mmedia@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/hexo-tag-mmedia/-/hexo-tag-mmedia-0.2.2.tgz#660cf8d33fe41db0abc54416ee973d17385bc54d"
+  integrity sha512-nwWHdncUs6BtueZeG2WtczJpZNkQXpsX9j420t5PoIUIx10jwQLrYNXa2p2pVcaGq9hGl2FD4csKw9Bvk35wKg==
 
 hexo-theme-next@^8.2.0:
   version "8.2.1"
