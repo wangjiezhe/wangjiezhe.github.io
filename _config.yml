@@ -189,6 +189,13 @@ encrypt:
 #   username: LC_COUNTER_USERNAME
 #   password: LC_COUNTER_PASSWORD
 
+mmedia:
+  meting:
+    js: https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js
+    api: https://1384366657049717.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/MetingJS/GetMusic/api/music
+    default:
+      autoplay: true
+
 ## Themes: https://hexo.io/themes/
 theme: next
 
