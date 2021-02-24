@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#66327C">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -419,6 +419,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmodmap ~/.xmodmap 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
 <p>网上的教程都是要将命令添加到 ~/.xinitrc 或 /etc/rc.d/rc.local 中，而不是 ~/.zshrc (或 ~/.bashrc)中，否则会重复执行使得键位回归。但经测试，前者无法成功(有的地方解释是 xinitrc 在新版本中已不再使用)，于是我在 ~/.zshrc 中添加如下代码:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Swap Alt_R and Escape</span></span><br><span class="line"><span class="keyword">if</span> [[ -n <span class="variable">$DISPLAY</span> ]] &amp;&amp; [[ -n $(xmodmap|grep <span class="string">&quot;mod1.*Alt_R&quot;</span>) ]]; <span class="keyword">then</span></span><br><span class="line">    xmodmap <span class="string">&quot;<span class="variable">$HOME</span>&quot;</span>/.xmodmap 2&gt;/dev/null</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
     </div>
 
     
