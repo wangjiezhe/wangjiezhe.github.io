@@ -2186,10 +2186,10 @@ hawk@1.1.1:
     hoek "0.9.x"
     sntp "0.2.x"
 
-hexo-blog-encrypt@^3.1.3:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/hexo-blog-encrypt/-/hexo-blog-encrypt-3.1.4.tgz#e210fd93776531343c3a70794c6833b4a958734e"
-  integrity sha512-o+7T52vub0B6BoTm4L4lZ14VFYzU8tgHgS0LNqRiTv+Uim7EKQT9gTS1X5PQuy+BfojHlnn8k9IgUB0ahpLDOw==
+hexo-blog-encrypt@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/hexo-blog-encrypt/-/hexo-blog-encrypt-3.1.5.tgz#5aedc5a10218377dbca010ace33513b26c37df3d"
+  integrity sha512-7UjUEJm6jXt0obpv8r5+OyT0JVeQqsAk/LJKdyRtnyFN0CCyr4sPyq7/mgsBvGk9x0PW0d9SYH+QbgFgrj0oUA==
   dependencies:
     hexo-fs "^1.0.2"
     hexo-log "^0.2.0"
