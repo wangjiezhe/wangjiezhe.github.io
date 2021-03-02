@@ -2435,10 +2435,10 @@ hexo-symbols-count-time@^0.7.1:
   dependencies:
     hexo-util "1.9.0"
 
-hexo-tag-mmedia@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/hexo-tag-mmedia/-/hexo-tag-mmedia-1.0.8.tgz#b3fa7b8d9835777dc79ef597b12166f1218653e4"
-  integrity sha512-kO9qRNTXLjRPXshhj0jrYUp491MO6zfiqZlxElH8fM2nkXld9d9fh9e9wOQcqH1CSV7WJabfHXKbQ4OggujT3Q==
+hexo-tag-mmedia@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/hexo-tag-mmedia/-/hexo-tag-mmedia-1.1.2.tgz#d49e4af0a0a310177544b0199b022ecc0ba428f4"
+  integrity sha512-jZV8WonpgfXBWkSJq29K74hbFIXbSEDKV8vvqIY7RNJJBMGaEegByPhLasa++WJ0zYUximRxxy41kJH0ERO0OQ==
   dependencies:
     deepmerge "^4.2.2"
     hexo-log "^2.0.0"
