@@ -61,6 +61,7 @@ description: 整理了一些立直麻将相关的教程、何切集
 - [youtube平泽元气日麻讲座](https://www.bilibili.com/read/readlist/rl332844)
 - [天凤讲座](https://www.bilibili.com/read/readlist/rl331953)
 - [日麻进阶教学](https://www.bilibili.com/read/readlist/rl53461)
+- [立直麻雀教程](https://www.bilibili.com/read/readlist/rl48989)
 
 ### 数据流
 
@@ -85,6 +86,7 @@ description: 整理了一些立直麻将相关的教程、何切集
 - [由顶级PRO讲述的读牌的神髓](https://www.bilibili.com/read/readlist/rl357928)
 - [月下的日麻笔记](https://www.bilibili.com/read/readlist/rl70683)
 - [日麻中级玩家手册](https://www.bilibili.com/read/readlist/rl248531)
+- [现代麻雀最新理论](https://www.bilibili.com/read/readlist/rl333253)
 
 ### 多面听
 
