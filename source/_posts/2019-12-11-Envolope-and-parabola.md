@@ -10,6 +10,7 @@ tags:
   - 绣曲线
 description: 一个错误引发的“血案”
 mathjax: true
+typora-root-url: 2019-12-11-Envolope-and-parabola
 ---
 
 今天在给一个学生讲题的时候遇到了这样一道题目：

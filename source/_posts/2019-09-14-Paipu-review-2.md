@@ -9,6 +9,7 @@ tags:
 date: 2019-09-14 00:31:00
 updated: 2019-09-14 00:31:00
 description: 下家展示了什么叫做“发牌姬搞我”
+typora-root-url: 2019-09-14-Paipu-review-2
 ---
 
 今天终于有时间，打了两把雀魂，吃了两个二。

@@ -11,6 +11,7 @@ tags:
   - 正方形
 description: 上文中和两个共顶点的正方形有关的结论的推广
 mathjax: true
+typora-root-url: 2020-04-03-Two-squares-2
 ---
 
 在前一篇文章中，我们提到，在`图1`中，如果我们考虑 $DF$ 的中点，会有一些其它的性质．

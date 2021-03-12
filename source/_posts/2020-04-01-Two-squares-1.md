@@ -10,6 +10,7 @@ tags:
   - 正方形
 description: 和两个共顶点的正方形有关的结论
 mathjax: true
+typora-root-url: 2020-04-01-Two-squares-1
 ---
 
 在正方形的题目中，有很常见的一类是和两个正方形有关的图形，如下图：

@@ -8,6 +8,7 @@ tags:
 date: 2019-09-09 00:32:00
 updated: 2019-09-09 00:32:00
 description: 223446677何切
+typora-root-url: 2019-09-09-Paipu-review-1
 ---
 
 今天在打牌的时候遇到了一个有意思的何切。

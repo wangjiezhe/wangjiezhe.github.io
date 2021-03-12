@@ -10,6 +10,7 @@ tags:
   - 相似
   - 正方形
 mathjax: true
+typora-root-url: 2020-04-03-Two-squares-3
 ---
 
 在上一篇文章的最后，我们留了一个问题，就是如果仅保留等腰的条件，是否还有比较好的结论？

@@ -9,6 +9,7 @@ tags:
   - 全等
   - 梯形
 mathjax: true
+typora-root-url: 2020-04-07-Midpoint-in-trapezoid
 ---
 
 在前面的三篇文章中，我们探究了和正方形有关的中点问题．在本文中，我们来看一个和梯形有关的中点问题．

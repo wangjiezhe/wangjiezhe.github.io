@@ -9,6 +9,7 @@ tags:
     - 旅游
     - 纪念碑
 description: 隐藏在树丛深处、无人问津的纪念碑
+typora-root-url: 2012-08-09-Visitation-of-the-Atomic-City
 ---
 
 {% cq %}

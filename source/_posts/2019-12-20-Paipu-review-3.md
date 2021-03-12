@@ -8,6 +8,7 @@ tags:
   - 雀魂
   - 何切
 description: 最后一巡要如何立直？
+typora-root-url: 2019-12-20-Paipu-review-3
 ---
 
 这是前天的一个吃四的牌谱，里面的关键一处：
