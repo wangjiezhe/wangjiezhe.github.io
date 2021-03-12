@@ -1730,6 +1730,39 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
+    <title>自动使用 WebP 图片</title>
+    <url>//posts/2019-12-20-Use-webp-in-NexT/</url>
+    <content><![CDATA[<p>最开始我的图片是放到 <span class="exturl" data-url="aHR0cHM6Ly9zbS5tcy8=">sm.ms<i class="fa fa-external-link-alt"></i></span> 图床上，但是访问起来加载得非常慢。后来发现，是因为每个图片都比较大，图片一多就显得比较慢了。<br />
+于是就把图片都换成了 WebP 格式，这样图片的大小就缩小了很多。但是由于 <span class="exturl" data-url="aHR0cHM6Ly9zbS5tcy8=">sm.ms<i class="fa fa-external-link-alt"></i></span> 不支持 WebP 格式，于是只能把图片存在 Github 上。</p>
+<p>直到有一天我用我的 iPad 打开自己的网页，咦，我的图片呢？？？</p>
+<p>后来才知道，万恶的 Safari 依然不支持 WebP 格式！！！</p>
+<p>没有办法，只好自己添加判断代码。对于支持 WebP 格式的浏览器自动加载 WebP 图片，其余则加载原始的 jpg/png 图片。</p>
+<p>我的 <code>_config.yml</code> 配置文件中是：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">footer:</span> <span class="string">source/_data/footer.swig</span></span><br><span class="line"><span class="attr">lazyload:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">pjax:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>本来是一直启用 pjax 的，但是发现网页跳转后，我添加的代码不会自动执行，于是只好暂时禁用了，待找到解决办法再启用吧。</p>
+<p>在 <code>博客文件夹/source/_data/footer.swig</code> 中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&#123;&#123; pjax &#125;&#125;&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkWebp</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">    img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; callback((img.width &gt; <span class="number">0</span>) &amp;&amp; (img.height &gt; <span class="number">0</span>)); &#125;;</span><br><span class="line">    img.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; callback(<span class="literal">false</span>); &#125;;</span><br><span class="line">    img.src = <span class="string">&#x27;data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showImage</span>(<span class="params">useWebp</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> imgs = [].slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;img&#x27;</span>));</span><br><span class="line">    imgs.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (useWebp) &#123;</span><br><span class="line">            <span class="keyword">var</span> src = e.getAttribute(<span class="string">&#x27;data-src&#x27;</span>)</span><br><span class="line">            src = src.replace(<span class="regexp">/\.jpg$/</span>, <span class="string">&#x27;.webp&#x27;</span>).replace(<span class="regexp">/\.png$/</span>, <span class="string">&#x27;.webp&#x27;</span>);</span><br><span class="line">            e.setAttribute(<span class="string">&#x27;data-src&#x27;</span>, src);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">checkWebp(showImage);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>注意如果没有启用 <code>lazyload</code> 功能的话，应该把 <code>data-src</code> 都变成 <code>src</code>。</p>
+<p>然后插入图片的时候正常插入就可以了，然后使用 <code>cwebp</code> 把图片都转成 WebP 格式，注意放到相同的文件夹内，并使用相同的文件名（不含后缀）。<code>cwebp</code> 命令的使用格式：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cwebp result.png -o result.webp</span><br></pre></td></tr></table></figure>
+<p>当然也可以借助 <span class="exturl" data-url="aHR0cHM6Ly96aGl0dS5pc3V4LnVzLw==">智图<i class="fa fa-external-link-alt"></i></span> 等工具进行转化。</p>
+<hr />
+<p>参考资料：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ha2FyaW4uZGV2LzIwMTkvMTAvMjIvdXBncmFkZS10by13ZWJwLw==">https://akarin.dev/2019/10/22/upgrade-to-webp/<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwNzQ4MjE0OA==">https://segmentfault.com/a/1190000007482148<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+        <tag>WebP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>双正方形模型（一）</title>
     <url>//posts/2020-04-01-Two-squares-1/</url>
     <content><![CDATA[<p>在正方形的题目中，有很常见的一类是和两个正方形有关的图形，如下图：</p>
@@ -1809,39 +1842,6 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       <tags>
         <tag>全等</tag>
         <tag>正方形</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自动使用 WebP 图片</title>
-    <url>//posts/2019-12-20-Use-webp-in-NexT/</url>
-    <content><![CDATA[<p>最开始我的图片是放到 <span class="exturl" data-url="aHR0cHM6Ly9zbS5tcy8=">sm.ms<i class="fa fa-external-link-alt"></i></span> 图床上，但是访问起来加载得非常慢。后来发现，是因为每个图片都比较大，图片一多就显得比较慢了。<br />
-于是就把图片都换成了 WebP 格式，这样图片的大小就缩小了很多。但是由于 <span class="exturl" data-url="aHR0cHM6Ly9zbS5tcy8=">sm.ms<i class="fa fa-external-link-alt"></i></span> 不支持 WebP 格式，于是只能把图片存在 Github 上。</p>
-<p>直到有一天我用我的 iPad 打开自己的网页，咦，我的图片呢？？？</p>
-<p>后来才知道，万恶的 Safari 依然不支持 WebP 格式！！！</p>
-<p>没有办法，只好自己添加判断代码。对于支持 WebP 格式的浏览器自动加载 WebP 图片，其余则加载原始的 jpg/png 图片。</p>
-<p>我的 <code>_config.yml</code> 配置文件中是：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">footer:</span> <span class="string">source/_data/footer.swig</span></span><br><span class="line"><span class="attr">lazyload:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">pjax:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>本来是一直启用 pjax 的，但是发现网页跳转后，我添加的代码不会自动执行，于是只好暂时禁用了，待找到解决办法再启用吧。</p>
-<p>在 <code>博客文件夹/source/_data/footer.swig</code> 中添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&#123;&#123; pjax &#125;&#125;&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkWebp</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">    img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; callback((img.width &gt; <span class="number">0</span>) &amp;&amp; (img.height &gt; <span class="number">0</span>)); &#125;;</span><br><span class="line">    img.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; callback(<span class="literal">false</span>); &#125;;</span><br><span class="line">    img.src = <span class="string">&#x27;data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showImage</span>(<span class="params">useWebp</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> imgs = [].slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;img&#x27;</span>));</span><br><span class="line">    imgs.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (useWebp) &#123;</span><br><span class="line">            <span class="keyword">var</span> src = e.getAttribute(<span class="string">&#x27;data-src&#x27;</span>)</span><br><span class="line">            src = src.replace(<span class="regexp">/\.jpg$/</span>, <span class="string">&#x27;.webp&#x27;</span>).replace(<span class="regexp">/\.png$/</span>, <span class="string">&#x27;.webp&#x27;</span>);</span><br><span class="line">            e.setAttribute(<span class="string">&#x27;data-src&#x27;</span>, src);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">checkWebp(showImage);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>注意如果没有启用 <code>lazyload</code> 功能的话，应该把 <code>data-src</code> 都变成 <code>src</code>。</p>
-<p>然后插入图片的时候正常插入就可以了，然后使用 <code>cwebp</code> 把图片都转成 WebP 格式，注意放到相同的文件夹内，并使用相同的文件名（不含后缀）。<code>cwebp</code> 命令的使用格式：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cwebp result.png -o result.webp</span><br></pre></td></tr></table></figure>
-<p>当然也可以借助 <span class="exturl" data-url="aHR0cHM6Ly96aGl0dS5pc3V4LnVzLw==">智图<i class="fa fa-external-link-alt"></i></span> 等工具进行转化。</p>
-<hr />
-<p>参考资料：</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ha2FyaW4uZGV2LzIwMTkvMTAvMjIvdXBncmFkZS10by13ZWJwLw==">https://akarin.dev/2019/10/22/upgrade-to-webp/<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwNzQ4MjE0OA==">https://segmentfault.com/a/1190000007482148<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>NexT</tag>
-        <tag>WebP</tag>
       </tags>
   </entry>
   <entry>

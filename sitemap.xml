@@ -683,6 +683,13 @@
   </url>
   
   <url>
+    <loc>https://wangjiezhe.com/tags/WebP/</loc>
+    <lastmod>2021-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjiezhe.com/tags/%E5%85%A8%E7%AD%89/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
@@ -691,13 +698,6 @@
   
   <url>
     <loc>https://wangjiezhe.com/tags/%E6%AD%A3%E6%96%B9%E5%BD%A2/</loc>
-    <lastmod>2021-03-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.com/tags/WebP/</loc>
     <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
