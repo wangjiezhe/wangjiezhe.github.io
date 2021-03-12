@@ -171,16 +171,16 @@ comments:
   storage: true
   lazyload: true
   # Modify texts or order for any navs, here are some examples.
-  nav:
-    disqusjs:
-      text: Disqus
-      order: 1
-    utterances:
-      text: Github
-      order: 2
-    discussbot:
-      text: Telegram
-      order: 3
+  # nav:
+  #   disqusjs:
+  #     text: Disqus
+  #     order: 1
+  #   utterances:
+  #     text: Github
+  #     order: 2
+  #   discussbot:
+  #     text: Telegram
+  #     order: 3
 
 disqusjs:
   enable: true
@@ -189,14 +189,14 @@ disqusjs:
   shortname: wangjiezhe
 
 utterances:
-  enable: true
+  enable: false
   repo: wangjiezhe/wangjiezhe.github.io
   issue_term: og:title
   # Available values: github-light | github-dark | preferred-color-scheme | github-dark-orange | icy-dark | dark-blue | photon-dark | boxy-light
   theme: github-light
 
 discussbot:
-  enable: true
+  enable: false
   siteid: DTO-cxcp
   number: 5
   color: 3DA0F0
