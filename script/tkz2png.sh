@@ -28,7 +28,7 @@ EOF
   #convert -density 300 "$PDFFILE" -strip -trim -quality 90 "$PNGFILE"
   #convert -density 300 "$PDFFILE" -strip -flatten -quality 90 "$PNGFILE"
   pdftoppm -png "$PDFFILE" > "$PNGFILE"
-  #cwebp "$PNGFILE" -o "$WEBPFILE"
+  cwebp "$PNGFILE" -o "$WEBPFILE"
   latexmk -C
   rm "$TEXFILE"
 done
