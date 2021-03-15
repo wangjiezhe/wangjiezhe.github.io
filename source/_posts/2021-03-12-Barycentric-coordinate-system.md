@@ -6,6 +6,7 @@ categories:
   - 数学
 tags:
   - 向量
+  - 奔驰定理
   - 重心坐标
 description: 介绍平面中的重心坐标系
 mathjax: true
