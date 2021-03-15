@@ -18,7 +18,7 @@ mathjax: true
 
 ### 定义直线
 
-命令：`\tkzDefLine[<options>](A,B) or (A,B,C)  \tkzGetPoints{P}{Q} or \tkzGetPoint{P}` 
+命令：`\tkzDefLine[<options>](A,B) or (A,B,C)  \tkzGetPoints{P}{Q} or \tkzGetPoint{P}`
 
 | 描述                                              | 默认长度                                    | 选项                                                      |
 | ------------------------------------------------- | ------------------------------------------- | --------------------------------------------------------- |

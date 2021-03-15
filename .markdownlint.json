@@ -1,14 +1,12 @@
 {
-    "MD002": false,
+    "default": true,
     "MD012": false,
     "MD013": false,
     "MD024": {
         "siblings_only": true
     },
     "MD033": {
-        "allowed_elements": ["em", "script", "span"]
+        "allowed_elements": ["em", "script", "span", "br", "img"]
     },
-    "MD034": false,
-    "MD041": false,
     "MD045": false
 }

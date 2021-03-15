@@ -65,7 +65,7 @@ description: 整理了一些立直麻将相关的教程、何切集
 
 ### 数据流
 
-- [统计学麻雀战术](https://www.bilibili.com/read/readlist/rl97988) 
+- [统计学麻雀战术](https://www.bilibili.com/read/readlist/rl97988)
   《「統計学」のマージャン戦術》
 - [麻将的二择](https://www.bilibili.com/read/readlist/rl116320)
 - [超级数据流麻将](https://www.bilibili.com/read/readlist/rl248018)
@@ -108,7 +108,7 @@ description: 整理了一些立直麻将相关的教程、何切集
 - [亚空间杀法教学](https://www.bilibili.com/read/readlist/rl79957)
 - [立直麻雀的对子理论与七对子-解析土田浩翔](https://zhuanlan.zhihu.com/duizililun)
 - [《培养运气》麻将界的异端，土田浩翔的流派](https://www.bilibili.com/read/readlist/rl329524)
-- [土田浩翔的舍牌读牌理论](https://www.bilibili.com/read/readlist/rl332764) 
+- [土田浩翔的舍牌读牌理论](https://www.bilibili.com/read/readlist/rl332764)
   土田の捨て牌読み
 
 ### 何切集

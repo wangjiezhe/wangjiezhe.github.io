@@ -42,7 +42,7 @@ typora-root-url: 2021-03-12-Barycentric-coordinate-system
 
 {% note primary %}
 
-对 $\triangle ABC$ 所在平面内任意一点 $P$，如果存在不全为零的实数 $\lambda_0$，$\lambda _1$，$\lambda_2$，使得
+对 $\triangle ABC$ 所在平面内任意一点 $P$，如果存在不全为零的实数 $\lambda_0$，$\lambda_1$，$\lambda_2$，使得
 $$
 \left( \lambda_0 + \lambda_1 + \lambda_2 \right) \overrightarrow{OP} = \lambda_0 \overrightarrow{OA} + \lambda_1 \overrightarrow{OB} + \lambda_2 \overrightarrow{OC}
 $$
@@ -80,7 +80,8 @@ $$
 
 在平面直角坐标系 $xOy$ 中，设 $A(x_1,y_1)$，$B(x_2,y_2)$，$C(x_3,y_3)$，$P(x_P,y_P)$，点 $P$ 相对于 $\triangle ABC$ 的重心坐标为 $(\alpha:\beta:\gamma)$，其中 $\alpha+\beta+\gamma=1$．
 
-根据定义，$\overrightarrow{OP} = \alpha\overrightarrow{OA} + \beta\overrightarrow{OB} + \gamma\overrightarrow{OC}$，因此
+根据定义，$\overrightarrow{OP} = \alpha\overrightarrow{OA} + \beta\overrightarrow{OB} + \gamma\overrightarrow{OC}$，
+因此
 $$
 \left\{
 \begin{aligned}
@@ -92,8 +93,7 @@ y_p &= \alpha y_1 + \beta y_2 + \gamma y_3 \\
 \Longleftrightarrow
 \begin{pmatrix}
 x_P \\ y_P \\ 1
-\end{pmatrix}
-=
+\end{pmatrix} =
 \begin{pmatrix}
 x_1 & x_2 & x_3 \\
 y_1 & y_2 & y_3 \\
@@ -119,8 +119,7 @@ S_{\triangle PBC} \cdot \left(\overrightarrow{OA} - \overrightarrow{OP}\right) +
 $$
 移项得
 $$
-\left(S_{\triangle PBC}  + S_{\triangle PCA}  + S_{\triangle PAB}\right) \cdot \overrightarrow{OP}
-=
+\left(S_{\triangle PBC}  + S_{\triangle PCA}  + S_{\triangle PAB}\right) \cdot \overrightarrow{OP} =
 S_{\triangle PBC} \cdot \overrightarrow{OA} + S_{\triangle PCA} \cdot \overrightarrow{OB} + S_{\triangle PAB} \cdot \overrightarrow{OC}
 $$
 也可以直接得到，当点 $P$ 在 $\triangle ABC$ 内部的时候，它相对于 $\triangle ABC$ 的重心坐标为 $(S_{\triangle PBC}:S_{\triangle PCA}:S_{\triangle PAB})$．
