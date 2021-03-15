@@ -17,13 +17,13 @@ typora-root-url: 2019-12-11-Envolope-and-parabola
 
 求 $\lvert x \rvert + \lvert y \rvert \le 3$ 所包含的区域的面积．
 
-<p><img src="square.png" width="300px"></p>
+<img src="square.png" width="300px">
 
 易知，这是个正方形，面积是 $\left(3\sqrt{2}\right)^2=18$．它在第一象限的边界点应该是形如 $(t,3-t)$ 的点，都在 $x+y=3$ 这条直线上．
 
 但是，这个学生却想成了 $(t,0)$ 和 $(0,3-t)$ 的连线，把所有这样的线都画出来，发现它的边界是一条弧线．于是，这个学生就认为它的边界应该是一条圆弧．
 
-<p><img src="envolope.png" width="300px"></p>
+<img src="envolope.png" width="300px">
 
 显然，这个学生的错误是很明显的．但这也带来了一个问题：如果按照学生所想的，那么面积应该是多少？
 
@@ -83,7 +83,7 @@ $$
 $$
 其图像如下：
 
-<p><img src="result.png" width="300px"></p>
+<img src="result.png" width="300px">
 
 可以验证，方程 $(3)$ 和我们前面求出的方程 $(2)$ 是一致的．
 
@@ -151,7 +151,7 @@ $$
 
 对于抛物线 $y^2=2px$，过点$K\left(-\dfrac{p}{2},0\right)$ 作抛物线的两条切线，切点分别为 $A$、$B$，过抛物线在两切点之间的部分上的任意一点，作抛物线的切线，分别交 $KA$、$KB$ 与 $M$、$N$，求证： $\left|KM\right|+\left|KN\right|$ 为定值．
 
-<p><img src="parabola.png" width="300px"></p>
+<img src="parabola.png" width="300px">
 
 ### 证明
 

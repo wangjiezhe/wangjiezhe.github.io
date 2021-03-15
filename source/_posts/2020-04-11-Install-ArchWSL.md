@@ -26,7 +26,7 @@ wsl --set-default-version 2
 升级 Linux 内核，然后安装 Arch，参见 [ArchWSL](https://github.com/yuk7/ArchWSL)。
 
 {% note primary %}
-20200922 更新：在新电脑上安装 WSL2 时发现，按照升级内核的提示，打开网页 https://aka.ms/wsl2kernel，但发现并没有对应的链接。原因是[中文版的帮助](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package)不知道为什么删掉了这一关键的步骤，而[英文版的帮助](https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package)上是有的。这里记录一下 [msi 文件](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)的链接，以防丢失。
+20200922 更新：在新电脑上安装 WSL2 时发现，按照升级内核的提示，打开网页 <https://aka.ms/wsl2kernel>，但发现并没有对应的链接。原因是[中文版的帮助](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package)不知道为什么删掉了这一关键的步骤，而[英文版的帮助](https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package)上是有的。这里记录一下 [msi 文件](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)的链接，以防丢失。
 {% endnote %}
 
 ## WSL 2 相对于 WSL 1 的优缺点

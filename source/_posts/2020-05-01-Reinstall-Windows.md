@@ -33,7 +33,7 @@ description: 重装系统就是个坑，能不碰就不要碰
 
 ## Office 下载与激活
 
-参见 https://v0v.bid。
+参见 <https://v0v.bid>。
 
 ## MathType 与字体冲突的问题
 

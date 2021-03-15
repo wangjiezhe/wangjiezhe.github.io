@@ -116,6 +116,6 @@ $$
 
 参考：
 
-- https://mathblag.wordpress.com/2013/08/30/primes-of-the-form-6k1/
-- https://math.stackexchange.com/questions/671820/proving-an-infinite-number-of-primes-of-the-form-6n1
+- <https://mathblag.wordpress.com/2013/08/30/primes-of-the-form-6k1/>
+- <https://math.stackexchange.com/questions/671820/proving-an-infinite-number-of-primes-of-the-form-6n1>
 - *Elementary Number Theory: Primes, Congruences, and Secrets* by William Stein

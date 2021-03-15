@@ -69,8 +69,8 @@ cwebp result.png -o result.webp
 
 参考资料：
 
-- https://akarin.dev/2019/10/22/upgrade-to-webp/
-- https://segmentfault.com/a/1190000007482148
+- <https://akarin.dev/2019/10/22/upgrade-to-webp/>
+- <https://segmentfault.com/a/1190000007482148>
 
 
 [1]: https://sm.ms/
