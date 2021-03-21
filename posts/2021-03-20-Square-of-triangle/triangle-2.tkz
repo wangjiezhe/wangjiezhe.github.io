@@ -1,0 +1,32 @@
+\tikzset {
+  dots/.style={shape=circle, color=#1, fill=#1!50, minimum size=2},
+  dots/.default=black
+}
+
+\begin{tikzpicture}[>=latex]
+
+\tkzInit[xmin=-3.25,xmax=3,ymin=-0.5,ymax=2.5]
+\tkzDrawXY[noticks]
+
+
+\tkzDefPoints{0/0/O,2/1/A,-2.5/2/B,0/3/Y}
+
+\tkzDrawPolygon(O,A,B)
+\tkzInterLL(A,B)(O,Y) \tkzGetPoint{N}
+
+\tkzLabelPoints[below right](O)
+\tkzLabelPoint[right](A){$A\,(x_1,y_1)$}
+\tkzLabelPoint[above](B){$B\,(x_2,y_2)$}
+\tkzLabelPoint[above right](N){$N\,(0,b)$}
+
+\coordinate (K) at (A -| B);
+\tkzLabelPoints[below left, color=green!70!black](K)
+\tkzMarkRightAngle[color=green!70!black, fill=green!70!black!20, opacity=.7](A,K,B)
+\tkzDrawPolySeg[densely dashed, color=green!70!black](A,K,B)
+\tkzLabelSegment[color=green!70!black](A,K){$h=|x_1-x_2|$}
+
+\tkzDrawPoints[dots](O,A,B,N)
+\tkzDrawPoint[dots=green!70!black](K)
+
+
+\end{tikzpicture}

@@ -1,0 +1,32 @@
+\tikzset {
+  dots/.style={shape=circle, color=#1, fill=#1!50, minimum size=2},
+  dots/.default=black
+}
+
+\begin{tikzpicture}[>=latex]
+
+\tkzInit[xmin=-3.25,xmax=3,ymin=-1,ymax=2.5]
+\tkzDrawXY[noticks]
+
+\tkzDefPoints{0/0/O,2/1/A,-2.5/2/B,0/3/Y}
+
+\tkzLabelPoints[below right](O)
+\tkzLabelPoint[right](A){$A\,(x_1,y_1)$}
+\tkzLabelPoint[above](B){$B\,(x_2,y_2)$}
+
+\tkzDefPointBy[projection=onto O--A](B) \tkzGetPoint{K}
+\tkzLabelPoints[below left, color=green!70!black](K)
+\tkzMarkRightAngle[color=green!70!black, fill=green!70!black!20, opacity=.7](O,K,B)
+\tkzDrawPolySeg[densely dashed, color=green!70!black](O,K,B)
+\tkzLabelSegment[left,color=green!70!black](B,K){$h=\frac{\vert\overrightarrow{OB}\cdot\mathbf{u}\vert}{|\mathbf{u}|}$}
+
+\tkzDefPointBy[rotation=center O angle 90](A) \tkzGetPoint{A'}
+\tkzMarkRightAngle[color=green!70!black, fill=green!70!black!20, opacity=.7](A',O,A)
+\tkzDrawSegment[color=green!70!black,->](O,A')
+\tkzLabelPoint[above,color=green!70!black](A'){$\mathbf{u}$}
+
+\tkzDrawPolygon(O,A,B)
+\tkzDrawPoints[dots](O,A,B)
+\tkzDrawPoint[dots=green!70!black](K)
+
+\end{tikzpicture}
