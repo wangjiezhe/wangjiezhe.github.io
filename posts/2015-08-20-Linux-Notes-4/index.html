@@ -201,7 +201,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mplayer-%E5%BE%AA%E7%8E%AF%E6%92%AD%E6%94%BE%E6%AD%8C%E6%9B%B2"><span class="nav-number">1.</span> <span class="nav-text">mplayer 循环播放歌曲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-%E6%90%9C%E7%B4%A2%E5%A4%A7%E5%B0%8F%E5%86%99%E5%8C%B9%E9%85%8D"><span class="nav-number">2.</span> <span class="nav-text">vim 搜索大小写匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cd-%E8%BD%AC%E7%A7%BB"><span class="nav-number">3.</span> <span class="nav-text">cd 转移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-%E5%BF%AB%E9%80%9F%E7%BC%A9%E8%BF%9B"><span class="nav-number">4.</span> <span class="nav-text">vim 快速缩进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-%E7%BC%96%E8%BE%91%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">vim 编辑多个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">vim 加密文件</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-mplayer-%E5%BE%AA%E7%8E%AF%E6%92%AD%E6%94%BE%E6%AD%8C%E6%9B%B2"><span class="nav-text">1. mplayer 循环播放歌曲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-vim-%E6%90%9C%E7%B4%A2%E5%A4%A7%E5%B0%8F%E5%86%99%E5%8C%B9%E9%85%8D"><span class="nav-text">2. vim 搜索大小写匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-cd-%E8%BD%AC%E7%A7%BB"><span class="nav-text">3. cd 转移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-vim-%E5%BF%AB%E9%80%9F%E7%BC%A9%E8%BF%9B"><span class="nav-text">4. vim 快速缩进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-vim-%E7%BC%96%E8%BE%91%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="nav-text">5. vim 编辑多个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-vim-%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6"><span class="nav-text">6. vim 加密文件</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -371,7 +371,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>784</span>
+      <span>796</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -390,10 +390,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="mplayer-循环播放歌曲"><a class="header-anchor" href="#mplayer-循环播放歌曲"></a>mplayer 循环播放歌曲</h2>
+        <h2 id="1-mplayer-循环播放歌曲"><a class="header-anchor" href="#1-mplayer-循环播放歌曲"></a>1. mplayer 循环播放歌曲</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mplayer -loop n ***.mp3</span><br></pre></td></tr></table></figure>
 <p>n 表示重复次数，0 表示无限循环。</p>
-<h2 id="vim-搜索大小写匹配"><a class="header-anchor" href="#vim-搜索大小写匹配"></a>vim 搜索大小写匹配</h2>
+<h2 id="2-vim-搜索大小写匹配"><a class="header-anchor" href="#2-vim-搜索大小写匹配"></a>2. vim 搜索大小写匹配</h2>
 <p><code>set ignorecase</code><br />
 忽略正常字母的大小写</p>
 <p><code>set smartcase</code><br />
@@ -402,12 +402,12 @@
 强制忽略大小写</p>
 <p><code>\C</code><br />
 强制匹配大小写</p>
-<h2 id="cd-转移"><a class="header-anchor" href="#cd-转移"></a>cd 转移</h2>
+<h2 id="3-cd-转移"><a class="header-anchor" href="#3-cd-转移"></a>3. cd 转移</h2>
 <p>当两个目录路径只有一个区别（比如一个单词不同）时，这个是从旧目录切换到新目录的一种简单方法。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> directorya directoryb</span><br></pre></td></tr></table></figure>
 <p>第一个参数是当前目录路径中需要替换的参数，第二个参数是替换字符串。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 要从v7目录 切换到v8目录，只需键入cd v7 v8</span></span><br><span class="line">/programs/v7/reports/monthly &gt; <span class="built_in">cd</span> v7 v8</span><br><span class="line">/programs/v8/reports/monthly &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果历史上的每年每月都有一个对应目录，cd 转移允许从一年跳到另一年</span></span><br><span class="line">/hist/2010/april/reports &gt; <span class="built_in">cd</span> 2010 2011</span><br><span class="line">/hist/2011/april/reports &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换月份目录</span></span><br><span class="line">/hist/2011/april/reports &gt; <span class="built_in">cd</span> april may</span><br><span class="line">/hist/2011/may/reports &gt;</span><br></pre></td></tr></table></figure>
-<h2 id="vim-快速缩进"><a class="header-anchor" href="#vim-快速缩进"></a>vim 快速缩进</h2>
+<h2 id="4-vim-快速缩进"><a class="header-anchor" href="#4-vim-快速缩进"></a>4. vim 快速缩进</h2>
 <p><code>&gt;&gt;</code><br />
 向右缩进</p>
 <p><code>&lt;&lt;</code><br />
@@ -418,7 +418,7 @@
 文本靠左</p>
 <p><code>:ri</code> (right)<br />
 文本靠右</p>
-<h2 id="vim-编辑多个文件"><a class="header-anchor" href="#vim-编辑多个文件"></a>vim 编辑多个文件</h2>
+<h2 id="5-vim-编辑多个文件"><a class="header-anchor" href="#5-vim-编辑多个文件"></a>5. vim 编辑多个文件</h2>
 <p><code>:n</code><br />
 编辑下一个文件</p>
 <p><code>:N</code><br />
@@ -435,7 +435,7 @@
 显示正在编辑的文件名</p>
 <p><code>:f new.txt</code><br />
 重命名当前文件为 new.txt</p>
-<h2 id="vim-加密文件"><a class="header-anchor" href="#vim-加密文件"></a>vim 加密文件</h2>
+<h2 id="6-vim-加密文件"><a class="header-anchor" href="#6-vim-加密文件"></a>6. vim 加密文件</h2>
 <p><code>$ vim -x file1</code><br />
 创建加密文档 file1</p>
 <p><code>set cm=blowfish2</code> (newest)<br />
@@ -588,7 +588,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">192k</span>
+    <span title="站点总字数">193k</span>
   </span>
 </div>
 <div class="busuanzi-count">
