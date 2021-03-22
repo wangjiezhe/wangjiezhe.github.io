@@ -1,4 +1,3 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://wangjiezhe.com/sitemap.xml
