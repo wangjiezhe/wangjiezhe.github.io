@@ -3334,6 +3334,12 @@ ul.category-list > li {
 .site-subtitle:hover {
   animation: shake-it 0.5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
+.site-overview {
+  text-align: center;
+}
+canvas#canvas {
+  margin-top: 20px;
+}
 @-moz-keyframes waveMove {
   from {
     background-position: 0 100%;

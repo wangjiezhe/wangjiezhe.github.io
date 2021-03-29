@@ -27,13 +27,13 @@
   </script>
 <meta name="description" content="对比两款软件在网课教学中的优缺点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Notability 与 GoodNotes 在网课教学中的对比">
+<meta property="og:title" content="Notability 与 GoodNotes 在网课教学中的对比（2020版）">
 <meta property="og:url" content="https://wangjiezhe.com/posts/2020-06-22-Notability-vs-GoodNotes/index.html">
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="对比两款软件在网课教学中的优缺点">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-29T10:08:15.000Z">
-<meta property="article:modified_time" content="2020-10-23T08:55:23.000Z">
+<meta property="article:modified_time" content="2021-03-29T02:36:23.000Z">
 <meta property="article:author" content="西风冷香">
 <meta property="article:tag" content="iPad">
 <meta property="article:tag" content="Notability">
@@ -57,7 +57,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>Notability 与 GoodNotes 在网课教学中的对比 | 如鱼饮水</title>
+<title>Notability 与 GoodNotes 在网课教学中的对比（2020版） | 如鱼饮水</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
     <script data-pjax>
@@ -150,6 +150,7 @@
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
         <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+        <li class="menu-item menu-item-tools"><a href="/tools/" rel="section"><i class="fa fa-rocket fa-fw"></i>工具</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -256,6 +257,271 @@
   </div>
 
 
+<div id="time-now">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+  var digit=
+    [
+      [
+        [0,0,1,1,1,0,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,0,1,1,0],
+        [0,0,1,1,1,0,0]
+      ],//0
+      [
+        [0,0,0,1,1,0,0],
+        [0,1,1,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [1,1,1,1,1,1,1]
+      ],//1
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,1,1],
+        [1,1,1,1,1,1,1]
+      ],//2
+      [
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//3
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,0],
+        [0,0,1,1,1,1,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,1,1,0],
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,1]
+      ],//4
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,1,1,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//5
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//6
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0]
+      ],//7
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//8
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,1,1,0,0,0,0]
+      ],//9
+      [
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0]
+      ]//:
+    ];
+
+  var canvas = document.getElementById('canvas');
+
+  if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+  
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+      data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+  
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            cxt.beginPath();
+            cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+            cxt.closePath();
+            cxt.fill();
+          }
+        }
+      }
+    }
+  
+    /*更新时钟*/
+    function updateDigitTime(){
+      var changeNumArray = [];
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      var NewData = [];
+      NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+      for(var i = data.length-1; i >=0 ; i--){
+        //时间发生变化
+        if(NewData[i] !== data[i]){
+          //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+          changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+        }
+      }
+      //增加小球
+      for(var i = 0; i< changeNumArray.length; i++){
+        addBalls.apply(this,changeNumArray[i].split('_'));
+      }
+      data = NewData.concat();
+    }
+  
+    /*更新小球状态*/
+    function updateBalls(){
+      for(var i = 0; i < balls.length; i++){
+        balls[i].stepY += balls[i].disY;
+        balls[i].x += balls[i].stepX;
+        balls[i].y += balls[i].stepY;
+        if(balls[i].x > W + R || balls[i].y > H + R){
+          balls.splice(i,1);
+          i--;
+        }
+      }
+    }
+  
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+      var numArray = [1,2,3];
+      var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            var ball = {
+              x:14*(R+2)*index + j*2*(R+1)+(R+1),
+              y:i*2*(R+1)+(R+1),
+              stepX:Math.floor(Math.random() * 4 -2),
+              stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+              color:colorArray[Math.floor(Math.random()*colorArray.length)],
+              disY:1
+            };
+            balls.push(ball);
+          }
+        }
+      }
+    }
+  
+    /*渲染*/
+    function render(){
+      //重置画布宽度，达到清空画布的效果
+      canvas.height = 100;
+      //渲染时钟
+      for(var i = 0; i < data.length; i++){
+        renderDigit(i,data[i]);
+      }
+      //渲染小球
+      for(var i = 0; i < balls.length; i++){
+        cxt.beginPath();
+        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+        cxt.fillStyle = balls[i].color;
+        cxt.closePath();
+        cxt.fill();
+      }
+    }
+  
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+      //更新时钟
+      updateDigitTime();
+      //更新小球状态
+      updateBalls();
+      //渲染
+      render();
+    },50);
+  }
+
+})();
+</script>
+
 <div id="site-days"></div>
 <script>
   function show_date_time() {
@@ -331,7 +597,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Notability 与 GoodNotes 在网课教学中的对比
+          Notability 与 GoodNotes 在网课教学中的对比（2020版）
         </h1>
 
         <div class="post-meta-container">
@@ -349,7 +615,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-23 16:55:23" itemprop="dateModified" datetime="2020-10-23T16:55:23+08:00">2020-10-23</time>
+        <time title="修改时间：2021-03-29 10:36:23" itemprop="dateModified" datetime="2021-03-29T10:36:23+08:00">2021-03-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -376,7 +642,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.1k</span>
+      <span>3.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -430,8 +696,7 @@
 <li>支持批量管理页面</li>
 <li>可以直接导出当前页，不需要额外进行选择</li>
 <li>👍👍👍可以直接使用当前模板添加新的页面。对于导入的 PDF 文件来说，就是直接复制当前页作为新页，但不包含书写笔记。还可以预先导入模板（设计好大小的空白页），在添加页面的时候可以直接选择</li>
-<li><s>颜色切换方便，可以预设三个常用颜色直接显示在工具栏，使用时直接点击即可</s><mark class="label ">【Notability 10.0 已支持类似功能，且可以预设的数量更多】</mark>
-</li>
+<li><s>颜色切换方便，可以预设三个常用颜色直接显示在工具栏，使用时直接点击即可</s> <mark class="label ">【Notability 10.0 已支持类似功能，且可以预设的数量更多】</mark></li>
 <li>激光笔工具在关闭投屏的情况下依然可以使用</li>
 <li>橡皮工具支持仅擦除荧光笔痕迹</li>
 <li>👍👍页面支持不保持缩放的功能，即在 iPad 上缩放页面的时候，投屏界面始终保持整个界面保持不变</li>
@@ -443,7 +708,7 @@
 <ul>
 <li><s>👎👎画直线和其它规则图形，需要切换到专门的工具才可以。而且轨迹是画完后自动校正，无法提前预览，因此精确度较难把握</s> <mark class="label "> 最新的 GoodNotes 更新中加入了类似 Notability 中长按自动识别形状的选项</mark></li>
 <li><s>👎👎👎直线画不直，经常自动校正成为折线，特别是在画相对较短的线段的时候。画长线段的时候反而会好一点。（技巧：开启不显示页面缩放的功能，然后把页面放大，再画直线）</s></li>
-<li>👎👎👎当绘制倾斜程度很小或者很大的直线的时候，会被自动校正为水平或者竖直的直线，导致根本无法画出正确的直线</li>
+<li><s>👎👎👎当绘制倾斜程度很小或者很大的直线的时候，会被自动校正为水平或者竖直的直线，导致根本无法画出正确的直线</s> <mark class="label "> 可以画完之后自由调整端点</mark></li>
 <li>只能复制书写笔记，不能复制原文件的内容，只能通过截图再导入实现，比较麻烦</li>
 </ul>
 <h2 id="5-Notability-的优势"><a class="header-anchor" href="#5-Notability-的优势"></a>5. Notability 的优势</h2>
@@ -464,10 +729,10 @@
 <ul>
 <li>文件管理只支持两个层级</li>
 <li>👎👎👎新消息弹出的时候，会阻挡工具栏，如果恰好在选择工具的时候点击到弹出的消息，可能会造成教学事故……</li>
-<li>👎👎👎新添加的页面默认是 A4 纸的大小，如果要使用模板的画只能先退出当前文件，然后打开模板文件，复制页面，再回来粘贴，非常麻烦</li>
-<li>👎👎👎想要复制当前页面，需要打开右边页面窗口，点击当前页面，选择拷贝；再点击当前页面，选择粘贴；再点击下一张复制好的页面，选择清除页面，这样成功复制了当前的页面，非常麻烦</li>
+<li><s>👎👎👎新添加的页面默认是 A4 纸的大小，如果要使用模板的画只能先退出当前文件，然后打开模板文件，复制页面，再回来粘贴，非常麻烦</s> 能够直接插入空白页目前就够用了</li>
+<li><s>👎👎👎想要复制当前页面，需要打开右边页面窗口，点击当前页面，选择拷贝；再点击当前页面，选择粘贴；再点击下一张复制好的页面，选择清除页面，这样成功复制了当前的页面，非常麻烦</s> <mark class="label "> Notability 新增了复制背景的功能</mark></li>
 <li>书写的时候，手掌可能会误造成页面的移动或者缩放</li>
-<li>👎书写的时候，手掌可能会误差右下角的页面选择按钮和放大按钮</li>
+<li><s>👎书写的时候，手掌可能会误差右下角的页面选择按钮和放大按钮</s> <mark class="label "> 可以在 `设置-手写` 手动关闭 `缩放功能`</mark></li>
 <li>不支持批量删除页面</li>
 <li>导出时须每次手动取消自动添加的最后一页</li>
 </ul>
@@ -483,7 +748,7 @@
 <p>因此，仅从书写体验来看，Notability 要比 GoodNotes 强太多，特别是讲几何题的时候。</p>
 <p>而从综合体验上来看，则是 GoodNotes 完胜。</p>
 <h2 id="8-我的选择"><a class="header-anchor" href="#8-我的选择"></a>8. 我的选择</h2>
-<p>只要有几何内容，那么一定使用 Notability。</p>
+<p><s>只要有几何内容，那么一定使用 Notability。</s> 讲初中几何的话还是用 GoodNotes 比较方便。</p>
 <p>如果只讲代数内容，那就看当时的心情吧。不过我更喜欢 Notability 里面书写的感觉，因此继续用 Notability 的几率会更大一点吧。</p>
 
     </div>
@@ -504,7 +769,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://wangjiezhe.com/posts/2020-06-22-Notability-vs-GoodNotes/" title="Notability 与 GoodNotes 在网课教学中的对比">https://wangjiezhe.com/posts/2020-06-22-Notability-vs-GoodNotes/</a>
+      <a href="https://wangjiezhe.com/posts/2020-06-22-Notability-vs-GoodNotes/" title="Notability 与 GoodNotes 在网课教学中的对比（2020版）">https://wangjiezhe.com/posts/2020-06-22-Notability-vs-GoodNotes/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -778,12 +1043,20 @@ NexT.utils.loadComments('#disqus_thread', () => {
       shortname : 'wangjiezhe',
       url       : "https://wangjiezhe.com/posts/2020-06-22-Notability-vs-GoodNotes/",
       identifier: "/posts/2020-06-22-Notability-vs-GoodNotes/",
-      title     : "Notability 与 GoodNotes 在网课教学中的对比",
+      title     : "Notability 与 GoodNotes 在网课教学中的对比（2020版）",
     });
   }, window.DisqusJS);
 });
 </script>
-<script src="/js/click-love.js"></script>
+
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+
     </div>
 <script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false},"log":false});</script></body>
 </html>
