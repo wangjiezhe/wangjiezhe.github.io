@@ -1,3 +1,4 @@
+{
 class Circle {
   constructor({ origin, speed, color, angle, context }) {
     this.origin = origin
@@ -152,3 +153,4 @@ class CursorSpecialEffects {
 
 const cursorSpecialEffects = new CursorSpecialEffects()
 cursorSpecialEffects.init()
+}
