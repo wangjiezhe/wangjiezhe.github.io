@@ -997,24 +997,11 @@ x_3 &amp; y_3 &amp; 1
 
 
 
-      <div class="tabs tabs-comment">
-        <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqusjs">DISQUS</a></li>
-            <li class="tab"><a href="#comment-utterances">GITHUB</a></li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane disqusjs" id="comment-disqusjs">
-              
+    
   <div class="comments" id="disqus_thread">
     <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
   </div>
   
-            </div>
-            <div class="tab-pane utterances" id="comment-utterances">
-              <div class="comments utterances-container"></div>
-            </div>
-        </div>
-      </div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1222,19 +1209,6 @@ NexT.utils.loadComments('#disqus_thread', () => {
       title     : "坐标系中三角形的面积公式",
     });
   }, window.DisqusJS);
-});
-</script>
-
-<script>
-NexT.utils.loadComments('.utterances-container', () => {
-  const script = document.createElement('script');
-  script.src = 'https://utteranc.es/client.js';
-  script.setAttribute('repo', "wangjiezhe/wangjiezhe.github.io");
-  script.setAttribute('issue-term', "og:title");
-  script.setAttribute('theme', "github-light");
-  script.crossOrigin = 'anonymous';
-  script.async = true;
-  document.querySelector('.utterances-container').appendChild(script);
 });
 </script>
 
