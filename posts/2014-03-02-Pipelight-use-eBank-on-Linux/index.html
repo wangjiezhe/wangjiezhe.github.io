@@ -192,7 +192,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -205,6 +205,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93"><span class="nav-text">1. 安装字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85-Pipelight"><span class="nav-text">2. 安装 Pipelight</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%90%AF%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="nav-text">3. 启用插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E8%A7%A3%E9%94%81-pipelight-%E7%9A%84-npactivex-%E6%8F%92%E4%BB%B6"><span class="nav-text">3.1. 解锁 pipelight 的 npactivex 插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E5%90%AF%E7%94%A8-npactivex-%E6%8F%92%E4%BB%B6"><span class="nav-text">3.2. 启用 npactivex 插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%A1%AE%E8%AE%A4%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="nav-text">4. 确认安装成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%AE%89%E8%A3%85winetricks"><span class="nav-text">5. 安装winetricks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%AE%89%E8%A3%85%E9%9C%80%E8%A6%81%E7%9A%84-ActiveX-%E6%8E%A7%E4%BB%B6"><span class="nav-text">6. 安装需要的 ActiveX 控件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-%E4%B8%8B%E8%BD%BD%E5%B7%A5%E8%A1%8C%E7%BD%91%E9%93%B6%E6%8E%A7%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-text">6.1. 下载工行网银控件安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-%E5%AE%89%E8%A3%85-mfc42-%E8%BF%90%E8%A1%8C%E5%BA%93"><span class="nav-text">6.2. 安装 mfc42 运行库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-%E5%AE%89%E8%A3%85"><span class="nav-text">6.3. 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4"><span class="nav-text">6.4. 故障排除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E5%AE%89%E8%A3%85-np-activex-extension"><span class="nav-text">7. 安装 np-activex extension</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E8%AE%BE%E7%BD%AE-np-activex-extension"><span class="nav-text">8. 设置 np-activex extension</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E5%AE%8C%E6%88%90"><span class="nav-text">9. 完成</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -661,23 +662,20 @@
         <p><span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9mZWxpeG9ubWFycw==">@felixonmars<i class="fa fa-external-link-alt"></i></span> 在博客 <span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVsaXhjLmF0LzIwMTQvMDIvcGlwZWxpZ2h0LWxldC1saW51eC1uYXRpdmUtY2hyb21pdW0tY2hyb21lLXN1cHBvcnQtYWN0aXZleC1zZWFtbGVzc2x5Lw==">Pipelight – 让 Linux 原生 Chromium/Chrome 无缝支持 ActiveX 控件 (看! 网银!)<i class="fa fa-external-link-alt"></i></span> 中对如何通过 pipelight 使用工行网银做了很详细的描述, 不过是以 Arch Linux 作为例子来介绍的. 这里以 Fedora 20 为例, 做一个详细的介绍.</p>
 <p>二者 Pipelight 和 ActiveX 控件的配置相同, 在 Pipelight 的安装上略有不同. 另外，Fedora 在安装 wine 时没有安装 winetricks, 需要手动安装. 因此, 相同部分的步骤基本上来自上面的博客.</p>
 <p>基本的原理：利用 Chrome 里已有的 npactivex (ActiveX for Chrome) 扩展, 配合 pipelight 提供的 npactivex NPAPI 插件, 将 ActiveX 控件本身用 wine 执行, 并且无缝地嵌入 Chrome 网页中.</p>
-<p>1. 安装不在仓库里的微软核心字体:</p>
-<pre><code>sudo yum install cabextract
-sudo rpm -i http://sourceforge.net/projects/mscorefonts2/files/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
-</code></pre>
-<p>2. 然后添加仓库, 并安装 Pipelight (对于 Fedora 18 和 Fedora 19 只需要把 Fedora_20 替换成 Fedora_18 或 Fedora_19 即可):</p>
-<pre><code>sudo wget http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Fedora_20/home:DarkPlayer:Pipelight.repo -O /etc/yum.repos.d/pipelight.repo
-sudo yum install pipelight
-sudo pipelight-plugin --update
-</code></pre>
-<p>3. 解锁 pipelight 的 npactivex 插件:</p>
-<pre><code>sudo pipelight-plugin --unlock npactivex
-</code></pre>
+<h3 id="1-安装字体"><a class="header-anchor" href="#1-安装字体"></a>1. 安装字体</h3>
+<p>安装不在仓库里的微软核心字体:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install cabextract</span><br><span class="line">sudo rpm -i http://sourceforge.net/projects/mscorefonts2/files/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装-Pipelight"><a class="header-anchor" href="#2-安装-Pipelight"></a>2. 安装 Pipelight</h3>
+<p>添加仓库, 并安装 Pipelight (对于 Fedora 18 和 Fedora 19 只需要把 Fedora_20 替换成 Fedora_18 或 Fedora_19 即可):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo wget http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Fedora_20/home:DarkPlayer:Pipelight.repo -O /etc/yum.repos.d/pipelight.repo</span><br><span class="line">sudo yum install pipelight</span><br><span class="line">sudo pipelight-plugin --update</span><br></pre></td></tr></table></figure>
+<h3 id="3-启用插件"><a class="header-anchor" href="#3-启用插件"></a>3. 启用插件</h3>
+<h4 id="3-1-解锁-pipelight-的-npactivex-插件"><a class="header-anchor" href="#3-1-解锁-pipelight-的-npactivex-插件"></a>3.1. 解锁 pipelight 的 npactivex 插件</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pipelight-plugin --unlock npactivex</span><br></pre></td></tr></table></figure>
 <p>看到 &quot;Plugin npactivex is now unlocked&quot; 即为解锁成功</p>
-<p>4. 启用 npactivex 插件:</p>
-<pre><code>sudo pipelight-plugin --enable npactivex
-</code></pre>
-<p>5. 启动 chrome 浏览器, 打开 <span class="exturl" data-url="Y2hyb21lOi8vcGx1Z2lucw==">chrome://plugins<i class="fa fa-external-link-alt"></i></span>, 应该可以看到以下内容:</p>
+<h4 id="3-2-启用-npactivex-插件"><a class="header-anchor" href="#3-2-启用-npactivex-插件"></a>3.2. 启用 npactivex 插件</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pipelight-plugin --<span class="built_in">enable</span> npactivex</span><br></pre></td></tr></table></figure>
+<h3 id="4-确认安装成功"><a class="header-anchor" href="#4-确认安装成功"></a>4. 确认安装成功</h3>
+<p>启动 chrome 浏览器, 打开 <span class="exturl" data-url="Y2hyb21lOi8vcGx1Z2lucw==">chrome://plugins<i class="fa fa-external-link-alt"></i></span>, 应该可以看到以下内容:</p>
 <blockquote>
 <p>ActiveX hosting plugin for NPAPI<br />
 ActiveX hosting plugin for NPAPI r37<br />
@@ -699,42 +697,39 @@ application/activex-manager  ActiveXManager</p>
 Something went wrong, check the terminal output</p>
 </blockquote>
 <p>请从终端打开 chromium/google-chrome, 观察终端出错日志</p>
-<p>6. 安装winetricks:</p>
-<pre><code>wget http://winetricks.googlecode.com/svn/trunk/src/winetricks
-sudo cp winetricks /path/to/your/bin/
-sudo chmod +x /path/to/your/bin/winetricks
-</code></pre>
-<p>7. 安装需要的 ActiveX 控件. 下面以工行控件为例:</p>
-<p>7.1. 下载工行网银控件安装包:</p>
-<pre><code>wget http://www.icbc.com.cn/icbc/html/download/dkq/icbc_netbank_client_controls.exe
-</code></pre>
-<p>7.2. 安装 mfc42 运行库:</p>
-<pre><code>WINEPREFIX=~/.wine-pipelight winetricks -q mfc42
-</code></pre>
-<p>7.3. 安装:</p>
-<pre><code>WINEPREFIX=~/.wine-pipelight wine icbc_netbank_client_controls.exe
-</code></pre>
-<p>故障排除: 运行</p>
-<pre><code>WINEPREFIX=~/.wine-pipelight wine uninstaller --list
-</code></pre>
+<h3 id="5-安装winetricks"><a class="header-anchor" href="#5-安装winetricks"></a>5. 安装winetricks</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://winetricks.googlecode.com/svn/trunk/src/winetricks</span><br><span class="line">sudo cp winetricks /path/to/your/bin/</span><br><span class="line">sudo chmod +x /path/to/your/bin/winetricks</span><br></pre></td></tr></table></figure>
+<h3 id="6-安装需要的-ActiveX-控件"><a class="header-anchor" href="#6-安装需要的-ActiveX-控件"></a>6. 安装需要的 ActiveX 控件</h3>
+<p>下面以工行控件为例:</p>
+<h4 id="6-1-下载工行网银控件安装包"><a class="header-anchor" href="#6-1-下载工行网银控件安装包"></a>6.1. 下载工行网银控件安装包</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.icbc.com.cn/icbc/html/download/dkq/icbc_netbank_client_controls.exe</span><br></pre></td></tr></table></figure>
+<h4 id="6-2-安装-mfc42-运行库"><a class="header-anchor" href="#6-2-安装-mfc42-运行库"></a>6.2. 安装 mfc42 运行库</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WINEPREFIX=~/.wine-pipelight winetricks -q mfc42</span><br></pre></td></tr></table></figure>
+<h4 id="6-3-安装"><a class="header-anchor" href="#6-3-安装"></a>6.3. 安装</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WINEPREFIX=~/.wine-pipelight wine icbc_netbank_client_controls.exe</span><br></pre></td></tr></table></figure>
+<h4 id="6-4-故障排除"><a class="header-anchor" href="#6-4-故障排除"></a>6.4. 故障排除</h4>
+<p>运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WINEPREFIX=~/.wine-pipelight wine uninstaller --list</span><br></pre></td></tr></table></figure>
 <p>如果输出包含以下内容就说明安装成功了, 否则说明以上某一步出错了</p>
 <blockquote>
 <p>{93156467-FD99-4A30-9CA5-8563F4BB8DB3}|||icbc_netbank_client_controls</p>
 </blockquote>
-<p>8. 安装 np-activex extension:</p>
+<h3 id="7-安装-np-activex-extension"><a class="header-anchor" href="#7-安装-np-activex-extension"></a>7. 安装 np-activex extension</h3>
 <p>扩展可以从 Chrome Web Store 直接安装, 地址:</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9jaHJvbWUuZ29vZ2xlLmNvbS93ZWJzdG9yZS9kZXRhaWwvYWN0aXZleC1mb3ItY2hyb21lL2xnbGxmZmdpY29qZ2xscG1kYmVtZ2dsYXBvbmVmYWpuL3JlbGF0ZWQ=">https://chrome.google.com/webstore/detail/activex-for-chrome/lgllffgicojgllpmdbemgglaponefajn/related<i class="fa fa-external-link-alt"></i></span></p>
-<p>9. 设置 np-activex extension:</p>
+<h3 id="8-设置-np-activex-extension"><a class="header-anchor" href="#8-设置-np-activex-extension"></a>8. 设置 np-activex extension</h3>
 <p>打开 chrome://chrome/extensions, 点击 &quot;ActiveX for Chrome&quot; 旁边的 &quot;选项&quot; (Options), 浏览到 &quot;ICBC工商银行&quot; 所在的条目, 将&quot;已禁用&quot;改为&quot;已启用&quot;.</p>
-<p>10. 用 Chrome 打开 <span class="exturl" data-url="aHR0cHM6Ly9teWJhbmsuaWNiYy5jb20uY24vaWNiYy9wZXJiYW5rL2luZGV4LmpzcA==">https://mybank.icbc.com.cn/icbc/perbank/index.jsp<i class="fa fa-external-link-alt"></i></span> 应该可以正常登陆工行网银了.</p>
+<h3 id="9-完成"><a class="header-anchor" href="#9-完成"></a>9. 完成</h3>
+<p>用 Chrome 打开 <span class="exturl" data-url="aHR0cHM6Ly9teWJhbmsuaWNiYy5jb20uY24vaWNiYy9wZXJiYW5rL2luZGV4LmpzcA==">https://mybank.icbc.com.cn/icbc/perbank/index.jsp<i class="fa fa-external-link-alt"></i></span> 应该可以正常登陆工行网银了.</p>
 <p>上面的博客还给出了其作者对支付宝的测试成功的 npactivex extension 的规则:</p>
 <blockquote>
 <p>Mode: WildChar<br />
-Pattern: <code>https://\*.alipay.com/\*</code><br />
+Pattern: https://*.alipay.com/*<br />
 User Agent: MSIE9<br />
 Other helper scripts: dynamic ieevent</p>
 </blockquote>
 <p>不过, 在 npactivex extension 的设置页面中虽然有农业银行的的选项，但是我还是始终没有成功......</p>
+<hr />
 <p>参考:</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVsaXhjLmF0LzIwMTQvMDIvcGlwZWxpZ2h0LWxldC1saW51eC1uYXRpdmUtY2hyb21pdW0tY2hyb21lLXN1cHBvcnQtYWN0aXZleC1zZWFtbGVzc2x5">Pipelight – 让 Linux 原生 Chromium/Chrome 无缝支持 ActiveX 控件 (看! 网银!)<i class="fa fa-external-link-alt"></i></span></li>
