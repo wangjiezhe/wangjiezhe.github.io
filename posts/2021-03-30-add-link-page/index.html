@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#66327C">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#66327C">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wangjiezhe.com","root":"/","images":"/images","scheme":"Gemini","version":"8.2.2","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"DISQUS","order":1},"utterances":{"text":"GITHUB","order":2}},"activeClass":"disqusjs"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}};
+  </script>
+<meta name="description" content="给 NexT 主题添加友链页面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo NexT 添加友链页面">
+<meta property="og:url" content="https://wangjiezhe.com/posts/2021-03-30-add-link-page/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="给 NexT 主题添加友链页面">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-30T06:55:49.000Z">
+<meta property="article:modified_time" content="2021-03-30T06:55:49.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="NexT">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wangjiezhe.com/posts/2021-03-30-add-link-page/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>Hexo NexT 添加友链页面 | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-48537410-1');
+      }
+    </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">如鱼饮水</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">冷暖自知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+        <li class="menu-item menu-item-tools"><a href="/tools/" rel="section"><i class="fa fa-rocket fa-fw"></i>工具</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-text">1. 涉及到的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%AD%A5%E9%AA%A4"><span class="nav-text">2. 步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%BB%BA%E7%AB%8B%E5%8F%8B%E9%93%BE%E9%A1%B5%E9%9D%A2"><span class="nav-text">2.1. 建立友链页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%AD%98%E5%82%A8%E5%8F%8B%E9%93%BE%E6%95%B0%E6%8D%AE"><span class="nav-text">2.2. 存储友链数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E6%B8%B2%E6%9F%93%E5%8F%8B%E9%93%BE%E9%A1%B5%E9%9D%A2"><span class="nav-text">2.3. 渲染友链页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E5%88%9B%E5%BB%BA%E6%A0%B7%E5%BC%8F%E8%A1%A8"><span class="nav-text">2.4. 创建样式表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E5%9C%A8%E4%BE%A7%E6%A0%8F%E6%B7%BB%E5%8A%A0%E5%8F%8B%E9%93%BE"><span class="nav-text">2.5. 在侧栏添加友链</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/camel.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师一枚</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS90d2l0dGVy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;twitter"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+  </div>
+
+
+<div id="time-now">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+  var digit=
+    [
+      [
+        [0,0,1,1,1,0,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,0,1,1,0],
+        [0,0,1,1,1,0,0]
+      ],//0
+      [
+        [0,0,0,1,1,0,0],
+        [0,1,1,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [1,1,1,1,1,1,1]
+      ],//1
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,1,1],
+        [1,1,1,1,1,1,1]
+      ],//2
+      [
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//3
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,0],
+        [0,0,1,1,1,1,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,1,1,0],
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,1]
+      ],//4
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,1,1,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//5
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//6
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0]
+      ],//7
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//8
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,1,1,0,0,0,0]
+      ],//9
+      [
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0]
+      ]//:
+    ];
+
+  var canvas = document.getElementById('canvas');
+
+  if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+  
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+      data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+  
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            cxt.beginPath();
+            cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+            cxt.closePath();
+            cxt.fill();
+          }
+        }
+      }
+    }
+  
+    /*更新时钟*/
+    function updateDigitTime(){
+      var changeNumArray = [];
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      var NewData = [];
+      NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+      for(var i = data.length-1; i >=0 ; i--){
+        //时间发生变化
+        if(NewData[i] !== data[i]){
+          //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+          changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+        }
+      }
+      //增加小球
+      for(var i = 0; i< changeNumArray.length; i++){
+        addBalls.apply(this,changeNumArray[i].split('_'));
+      }
+      data = NewData.concat();
+    }
+  
+    /*更新小球状态*/
+    function updateBalls(){
+      for(var i = 0; i < balls.length; i++){
+        balls[i].stepY += balls[i].disY;
+        balls[i].x += balls[i].stepX;
+        balls[i].y += balls[i].stepY;
+        if(balls[i].x > W + R || balls[i].y > H + R){
+          balls.splice(i,1);
+          i--;
+        }
+      }
+    }
+  
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+      var numArray = [1,2,3];
+      var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            var ball = {
+              x:14*(R+2)*index + j*2*(R+1)+(R+1),
+              y:i*2*(R+1)+(R+1),
+              stepX:Math.floor(Math.random() * 4 -2),
+              stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+              color:colorArray[Math.floor(Math.random()*colorArray.length)],
+              disY:1
+            };
+            balls.push(ball);
+          }
+        }
+      }
+    }
+  
+    /*渲染*/
+    function render(){
+      //重置画布宽度，达到清空画布的效果
+      canvas.height = 100;
+      //渲染时钟
+      for(var i = 0; i < data.length; i++){
+        renderDigit(i,data[i]);
+      }
+      //渲染小球
+      for(var i = 0; i < balls.length; i++){
+        cxt.beginPath();
+        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+        cxt.fillStyle = balls[i].color;
+        cxt.closePath();
+        cxt.fill();
+      }
+    }
+  
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+      //更新时钟
+      updateDigitTime();
+      //更新小球状态
+      updateBalls();
+      //渲染
+      render();
+    },50);
+  }
+
+})();
+</script>
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.com/posts/2021-03-30-add-link-page/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/camel.jpg">
+      <meta itemprop="name" content="西风冷香">
+      <meta itemprop="description" content="某不知名机构不知名数学老师一枚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo NexT 添加友链页面
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-03-30 14:55:49" itemprop="dateCreated datePublished" datetime="2021-03-30T14:55:49+08:00">2021-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">主题</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">给 NexT 主题添加友链页面</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>关于如何给 NexT 主题添加友链页面，在网上能够搜到很多，但是基本上都已经过时了。</p>
+<p>要么是没有把数据文件和主题分离，还在修改主题中的文件（而且是旧版的文件，新版的主题结构和内容都有变化）；要么是给出的代码还依赖 jQuery。</p>
+<p>而新版的 NexT 主题除了 Fancybox 外，其它功能都已经不再依赖 jQuery 了。由于 Fancybox 和我的 WebP 检测代码冲突，所以我切换到了 medium-zoom，这样就不再引入 jQuery 了。</p>
+<p>因此，网上找到的代码就不能拿过来直接用了。</p>
+<p>这里主要需要修改的是 <code>link.js</code> 文件。</p>
+<h2 id="1-涉及到的文件"><a class="header-anchor" href="#1-涉及到的文件"></a>1. 涉及到的文件</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.next.yml</span><br><span class="line">└── source</span><br><span class="line">    ├── _data</span><br><span class="line">    │   └── body-end.njk</span><br><span class="line">    ├── css</span><br><span class="line">    │   └── link.css</span><br><span class="line">    ├── js</span><br><span class="line">    │   └── link.js</span><br><span class="line">    └── links</span><br><span class="line">        ├── index.md</span><br><span class="line">        └── linklist.json</span><br></pre></td></tr></table></figure>
+<h2 id="2-步骤"><a class="header-anchor" href="#2-步骤"></a>2. 步骤</h2>
+<h3 id="2-1-建立友链页面"><a class="header-anchor" href="#2-1-建立友链页面"></a>2.1. 建立友链页面</h3>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page links</span><br></pre></td></tr></table></figure>
+<p>这会创建 <code>source/links/index.md</code> 文件。</p>
+<p>文件示例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 友情链接</span><br><span class="line">type: links</span><br><span class="line">toc:</span><br><span class="line">  enable: false</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/css/link.css&quot;</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&#123;% note info %&#125;</span><br><span class="line"></span><br><span class="line">排名不分先后，每次刷新会随机排列。</span><br><span class="line"></span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;links-content&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;div class=&quot;link-navigation&quot; id=&quot;links1&quot;&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="code">  &lt;/div&gt;</span></span><br><span class="line"><span class="code">&lt;/div&gt;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">------</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">&lt;div style=&quot;text-align:center;&quot;&gt;</span></span><br><span class="line"><span class="code">  &lt;span class=&quot;with-love&quot; id=&quot;animate1&quot;&gt;&lt;i class=&quot;fa fa-heart&quot;&gt;&lt;/i&gt;&lt;/span&gt;</span></span><br><span class="line"><span class="code">  留言互换友链 o ((&gt;ω&lt;)) o</span></span><br><span class="line"><span class="code">  &lt;span class=&quot;with-love&quot; id=&quot;animate2&quot;&gt;&lt;i class=&quot;fa fa-heart&quot;&gt;&lt;/i&gt;&lt;/span&gt;</span></span><br><span class="line"><span class="code">&lt;/div&gt;</span></span><br><span class="line"><span class="code">  </span></span><br><span class="line"><span class="code">------</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">&#123;% note success %&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">## 友链格式</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">- 名称：如鱼饮水，冷暖自知</span></span><br><span class="line"><span class="code">- 网址：[https://wangjiezhe.com](https://wangjiezhe.com)</span></span><br><span class="line"><span class="code">- 头像：[https://gravatar.loli.net/avatar/e09cf54e933e5a690716e68961ff3b1c?s=512](https://gravatar.loli.net//avatar/e09cf54e933e5a690716e68961ff3b1c?s=512)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">&#123;% endnote %&#125;</span></span><br></pre></td></tr></table></figure>
+<p>注意在 Front-Matter 里一定要有 <code>type: links</code>。</p>
+<p>这里我还关闭了侧边栏的目录。</p>
+<h3 id="2-2-存储友链数据"><a class="header-anchor" href="#2-2-存储友链数据"></a>2.2. 存储友链数据</h3>
+<p>所有友链的数据都放在 <code>source/links/linklist.json</code> 里，其格式为：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;site&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;avatar&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;site&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;avatar&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>其中 <code>name</code> 为网站的名字，<code>site</code> 为网址，<code>avatar</code> 为头像。</p>
+<p>头像可以使用 Gravatar，这样可以保证始终可用的。</p>
+<h3 id="2-3-渲染友链页面"><a class="header-anchor" href="#2-3-渲染友链页面"></a>2.3. 渲染友链页面</h3>
+<p>在 <code>source/_data/body-end.njk</code> 中，引入 <code>link.js</code>：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if page.type === &#x27;links&#x27; %&#125;</span><br><span class="line">  &#123;&#123;- next<span class="emphasis">_js(&#x27;link.js&#x27;, true) &#125;&#125;</span></span><br><span class="line"><span class="emphasis">&#123;% endif %</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>source/js/link.js</code> 的内容为</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 随机排列</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> i = arr.length;</span><br><span class="line">  <span class="keyword">while</span> (i) &#123;</span><br><span class="line">    <span class="keyword">let</span> j = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * i--);</span><br><span class="line">    [arr[j], arr[i]] = [arr[i], arr[j]];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 渲染数据</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderlink</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name, avatar, site, li = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  shuffle(data);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">    name = data[i].name;</span><br><span class="line">    avatar = data[i].avatar;</span><br><span class="line">    site = data[i].site;</span><br><span class="line">    li += <span class="string">&#x27;&lt;div class=&quot;card&quot;&gt;&#x27;</span> + <span class="string">&#x27;&lt;a href=&quot;&#x27;</span> + site + <span class="string">&#x27;&quot; target=&quot;_blank&quot;&gt;&#x27;</span> + <span class="string">&#x27;&lt;div class=&quot;thumb&quot; style=&quot;background: url( &#x27;</span> + avatar + <span class="string">&#x27;);&quot;&gt;&#x27;</span> + <span class="string">&#x27;&lt;/div&gt;&#x27;</span> + <span class="string">&#x27;&lt;/a&gt;&#x27;</span> + <span class="string">&#x27;&lt;div class=&quot;card-header&quot;&gt;&#x27;</span> + <span class="string">&#x27;&lt;div&gt;&lt;a href=&quot;&#x27;</span> + site + <span class="string">&#x27;&quot; target=&quot;_blank&quot;&gt;&#x27;</span> + name + <span class="string">&#x27;&lt;/a&gt;&lt;/div&gt;&#x27;</span> + <span class="string">&#x27;&lt;/div&gt;&#x27;</span> + <span class="string">&#x27;&lt;/div&gt;&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">&quot;.link-navigation&quot;</span>).innerHTML = li;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取 json 文件</span></span><br><span class="line">fetch(<span class="string">&#x27;/links/linklist.json&#x27;</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> renderlink(res));</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-创建样式表"><a class="header-anchor" href="#2-4-创建样式表"></a>2.4. 创建样式表</h3>
+<p>创建 <code>source/css/link.css</code>，其内容为（这个文件完全来自于网络）：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.links-content</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.link-navigation</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot; &quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">clear</span>: both</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">130px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1rem</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">transition-duration</span>: .<span class="number">15s</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">1rem</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">6px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">12</span>);</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#f5f5f5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">16px</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media(max-width:567px) &#123;</span><br><span class="line">  <span class="selector-class">.card</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>((<span class="number">100%</span> - <span class="number">16px</span>)/<span class="number">2</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.card</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>n+<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.card</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>n+<span class="number">1</span>)) &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">16px</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media(min-width:567px) &#123;</span><br><span class="line">  <span class="selector-class">.card</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>((<span class="number">100%</span> - <span class="number">32px</span>)/<span class="number">3</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.card</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>n+<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.card</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>n+<span class="number">1</span>)) &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">16px</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media(min-width:768px) &#123;</span><br><span class="line">  <span class="selector-class">.card</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>((<span class="number">100%</span> - <span class="number">48px</span>)/<span class="number">4</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.card</span><span class="selector-pseudo">:nth-child</span>(<span class="number">4</span>n+<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.card</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:nth-child</span>(<span class="number">4</span>n+<span class="number">1</span>)) &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">16px</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media(min-width:1200px) &#123;</span><br><span class="line">  <span class="selector-class">.card</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>((<span class="number">100%</span> - <span class="number">64px</span>)/<span class="number">5</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.card</span><span class="selector-pseudo">:nth-child</span>(<span class="number">5</span>n+<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.card</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:nth-child</span>(<span class="number">5</span>n+<span class="number">1</span>)) &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">16px</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.1</span>);</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">6px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">12</span>),<span class="number">0</span> <span class="number">0</span> <span class="number">6px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">04</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> <span class="selector-class">.thumb</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding-bottom</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">100%</span><span class="meta">!important</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.posts-expand</span> <span class="selector-class">.post-body</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> <span class="selector-class">.card-header</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">1rem</span> .<span class="number">25rem</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">500</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">white-space</span>: normal</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> <span class="selector-class">.card-header</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">font-style</span>: normal;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#2bbc8a</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">700</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> <span class="selector-class">.card-header</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#d480aa</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-5-在侧栏添加友链"><a class="header-anchor" href="#2-5-在侧栏添加友链"></a>2.5. 在侧栏添加友链</h3>
+<p>在主题的配置文件（目前默认为 <code>_config.next.yml</code>）中，添加</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || fa fa-home</span><br><span class="line">  tags: /tags/ || fa fa-tags</span><br><span class="line">  categories: /categories/ || fa fa-th</span><br><span class="line">  archives: /archives/ || fa fa-archive</span><br><span class="line"><span class="addition">+  links: /links/ || fa fa-link</span></span><br></pre></td></tr></table></figure>
+<p>大功告成！</p>
+<hr />
+<p>参考：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly90ZGluZy50b3AvYXJjaGl2ZXMvNzNjZTRlNy5odG1s">Hexo-NexT 新增友链<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25lZmUvWW91LURvbnQtTmVlZC1qUXVlcnk=">You (Might) Don't Need jQuery<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/2018-10-05-refactor-blog/" rel="bookmark">博客的重构与回顾</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/2018-10-29-Hexo-NexT-1/" rel="bookmark">Hexo NexT 魔改系列之一 ── 总集篇</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/2018-10-29-Hexo-NexT-2/" rel="bookmark">Hexo NexT 魔改系列之二 ── 搜索篇</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/2018-10-29-Hexo-NexT-3/" rel="bookmark">Hexo NexT 魔改系列之三 ── 评论篇</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/2019-12-20-Use-webp-in-NexT/" rel="bookmark">自动使用 WebP 图片</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wangjiezhe.com/posts/2021-03-30-add-link-page/" title="Hexo NexT 添加友链页面">https://wangjiezhe.com/posts/2021-03-30-add-link-page/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/NexT/" rel="tag"><i class="fa fa-tag"></i> NexT</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2021-03-25-angle-addition-and-subtraction-theorems/" rel="prev" title="两角和差的正余弦公式的若干证明方法">
+                  <i class="fa fa-chevron-left"></i> 两角和差的正余弦公式的若干证明方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">西风冷香</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">219k</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+<div class="hosted-by">部署在 <span class="exturl host-link" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29t">Github Pages</span> & <span class="exturl host-link" data-url="aHR0cHM6Ly9uZXRsaWZ5LmNvbQ==">Netlify</span> & <span class="exturl host-link" data-url="aHR0cHM6Ly92ZXJjZWwuY29tLw==">Vercel</span>
+</div>
+
+<script>
+function checkWebp(callback) {
+  var img = new Image();
+  img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+  img.onerror = function () { callback(false); };
+  img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+  var imgs = [].slice.call(document.querySelectorAll('img'));
+  imgs.forEach(function (e) {
+    if (useWebp) {
+      var src = e.getAttribute('data-src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        e.setAttribute('data-src', src);
+      }
+      src = e.getAttribute('src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        e.setAttribute('src', src);
+      }
+    }
+  });
+}
+</script>
+<script data-pjax async>
+checkWebp(showImage);
+</script>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.1.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://wangjiezhe.com/posts/2021-03-30-add-link-page/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments('#disqus_thread', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqusjs.wangjiezhe.com/' || 'https://disqus.com/api/',
+      apikey    : 'ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F',
+      shortname : 'wangjiezhe',
+      url       : "https://wangjiezhe.com/posts/2021-03-30-add-link-page/",
+      identifier: "/posts/2021-03-30-add-link-page/",
+      title     : "Hexo NexT 添加友链页面",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+
+
+
+
+  <script data-pjax async src="/js/cursor/fireworks.min.js"></script>
+
+
+
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false},"log":false});</script></body>
+</html>
