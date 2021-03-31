@@ -3259,28 +3259,52 @@ code {
 .post-body p a,
 .post-body ul a,
 .post-body h2 a,
-.post-copyright a {
+.post-copyright a,
+.links-of-author-item a {
   color: #0b346e;
-  border-bottom: none;
 }
 .post-body p a:hover,
 .post-body ul a:hover,
 .post-body h2 a:hover,
-.post-copyright a:hover {
-  color: #005caf;
-  animation: waveMove 1s infinite linear;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23005CAF' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%;
-  background-size: 20px auto;
-}
-.links-of-author-item a {
-  color: #0b346e;
-}
+.post-copyright a:hover,
 .links-of-author-item a:hover {
   color: #005caf;
 }
 a.theme-link,
 a.host-link {
   color: #999;
+}
+a.theme-link:hover,
+a.host-link:hover {
+  color: #005caf;
+}
+.post-body p a,
+.post-body ul a,
+.post-body h2 a,
+.post-copyright a {
+  border-bottom: none;
+  position: relative;
+}
+.post-body p a::before,
+.post-body ul a::before,
+.post-body h2 a::before,
+.post-copyright a::before {
+  background: #005caf;
+  bottom: -2px;
+  content: '';
+  height: 1.8px;
+  color: #005caf;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+}
+.post-body p a:hover::before,
+.post-body ul a:hover::before,
+.post-body h2 a:hover::before,
+.post-copyright a:hover::before {
+  transform: scaleX(1);
 }
 .posts-expand .post-tags a {
   border: 0.1em solid #f17c67;
@@ -3367,38 +3391,6 @@ ul.category-list > li {
   }
   .exturl {
     color: #2ea9df;
-  }
-}
-@-moz-keyframes waveMove {
-  from {
-    background-position: 0 100%;
-  }
-  to {
-    background-position: -20px 100%;
-  }
-}
-@-webkit-keyframes waveMove {
-  from {
-    background-position: 0 100%;
-  }
-  to {
-    background-position: -20px 100%;
-  }
-}
-@-o-keyframes waveMove {
-  from {
-    background-position: 0 100%;
-  }
-  to {
-    background-position: -20px 100%;
-  }
-}
-@keyframes waveMove {
-  from {
-    background-position: 0 100%;
-  }
-  to {
-    background-position: -20px 100%;
   }
 }
 @-moz-keyframes shake-it {
