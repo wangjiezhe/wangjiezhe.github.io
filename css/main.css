@@ -30,7 +30,7 @@
     --text-color: #ccc;
     --blockquote-color: #bbb;
     --link-color: #ccc;
-    --link-hover-color: #eee;
+    --link-hover-color: #005caf;
     --brand-color: #ddd;
     --brand-hover-color: #ddd;
     --table-row-odd-bg-color: #282828;
@@ -39,9 +39,9 @@
     --btn-default-bg: #222;
     --btn-default-color: #ccc;
     --btn-default-border-color: #555;
-    --btn-default-hover-bg: #666;
+    --btn-default-hover-bg: #b28fce;
     --btn-default-hover-color: #ccc;
-    --btn-default-hover-border-color: #666;
+    --btn-default-hover-border-color: #b28fce;
     --highlight-background: #282c34;
     --highlight-foreground: #abb2bf;
     --highlight-gutter-background: #353941;
@@ -3272,11 +3272,15 @@ code {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23005CAF' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%;
   background-size: 20px auto;
 }
-span.exturl {
+.links-of-author-item a {
+  color: #0b346e;
+}
+.links-of-author-item a:hover {
   color: #005caf;
 }
-span.exturl:hover {
-  color: #0b346e;
+a.theme-link,
+a.host-link {
+  color: #999;
 }
 .posts-expand .post-tags a {
   border: 0.1em solid #f17c67;
@@ -3312,10 +3316,6 @@ span.exturl:hover {
 }
 .posts-expand .post-body img {
   border: none;
-}
-span.exturl.theme-link,
-span.exturl.host-link {
-  color: #999;
 }
 .text-right {
   text-align: right;
@@ -3356,6 +3356,18 @@ ul.category-list > li {
 .site-title:hover,
 .site-subtitle:hover {
   animation: shake-it 0.5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+@media (prefers-color-scheme: dark) {
+  .post-body p a,
+  .post-body ul a,
+  .post-body h2 a,
+  .post-copyright a,
+  .links-of-author-item a {
+    color: #2ea9df;
+  }
+  .exturl {
+    color: #2ea9df;
+  }
 }
 @-moz-keyframes waveMove {
   from {
