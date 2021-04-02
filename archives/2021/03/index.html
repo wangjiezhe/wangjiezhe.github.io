@@ -790,12 +790,12 @@ function showImage(useWebp) {
     if (useWebp) {
       var src = e.getAttribute('data-src')
       if (src !== null) {
-        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp');
         e.setAttribute('data-src', src);
       }
       src = e.getAttribute('src')
       if (src !== null) {
-        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp');
         e.setAttribute('src', src);
       }
     }

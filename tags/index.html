@@ -33,7 +33,7 @@
 <meta property="og:description" content="某不知名机构不知名数学老师一枚">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-10-04T15:20:26.000Z">
-<meta property="article:modified_time" content="2021-04-02T15:10:08.352Z">
+<meta property="article:modified_time" content="2021-04-02T15:16:44.288Z">
 <meta property="article:author" content="西风冷香">
 <meta property="article:tag" content="Blog,Hexo,NexT,Math,博客,数学">
 <meta name="twitter:card" content="summary">
@@ -687,12 +687,12 @@ function showImage(useWebp) {
     if (useWebp) {
       var src = e.getAttribute('data-src')
       if (src !== null) {
-        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp');
         e.setAttribute('data-src', src);
       }
       src = e.getAttribute('src')
       if (src !== null) {
-        src = src.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp');
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp');
         e.setAttribute('src', src);
       }
     }
