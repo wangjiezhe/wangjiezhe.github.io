@@ -3409,6 +3409,9 @@ ul.category-list > li {
     color: #2ea9df;
   }
 }
+.post-body .label.success {
+  background: #a8d8b9;
+}
 @-moz-keyframes shake-it {
   0% {
     text-shadow: 0 0 rgba(0,255,255,0.5), 0 0 rgba(255,0,0,0.5);
