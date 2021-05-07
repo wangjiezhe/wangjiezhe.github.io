@@ -3370,16 +3370,10 @@ a.host-link:hover {
   text-align: center;
 }
 ol.footnotes-list {
-  counter-reset: list;
+  list-style-type: decimal-leading-zero;
 }
-ol.footnotes-list > li.footnote-item {
-  list-style: none;
-}
-ol.footnotes-list > li.footnote-item:before {
-  counter-increment: list;
-  content: "[" counter(list, decimal) "] ";
-  position: absolute;
-  left: 0.5em;
+ol.footnotes-list > li.footnote-item::marker {
+  color: #0b346e;
 }
 ul.category-list > li {
   list-style-type: disc;
