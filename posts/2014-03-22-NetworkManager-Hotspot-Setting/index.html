@@ -636,7 +636,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>504</span>
+      <span>489</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -672,9 +672,9 @@
 </ul>
 <p>默认为 <code>key-mgmt=none</code>, 我将其修改为 <code>key-mgmt=wpa-psk</code>.</p>
 <p>下面原来两行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wep-key0&#x3D;</span><br><span class="line">wep-key-type&#x3D;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wep-key0=</span><br><span class="line">wep-key-type=</span><br></pre></td></tr></table></figure>
 <p>为WEP密码和类型, 将其删去或注释掉, 改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psk&#x3D;your_password</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psk=your_password</span><br></pre></td></tr></table></figure>
 <p>然后重启 NetworkManager 服务即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart NetworkManager.service</span><br></pre></td></tr></table></figure>
 
