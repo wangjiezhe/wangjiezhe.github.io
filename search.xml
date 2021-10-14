@@ -3419,6 +3419,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
     <content><![CDATA[<p>最近因为一些原因重新开始使用 Mathematica，Mathematica 的符号计算功能非常强大，但是在网上搜索别人的代码的时候，发现很难看懂，里面各种「@#%^&amp;*?!」符号，看得人眼花缭乱。</p>
 <p>所以在这里我们对一些常用的符号做一些总结。</p>
 <span id="more"></span>
+<div class="note primary"><p>20211014 更新：关于 Mathematica 的系统的介绍，可以看清华大学刘思齐教授在 B 站的视频 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMWF2NDExTjdYaQ==">北京某高校《Mathematica及其应用》 (共八讲) (已完结)<i class="fa fa-external-link-alt"></i></span></p>
+</div>
 <h2 id="1-前置、中置与后置运算符"><a class="header-anchor" href="#1-前置、中置与后置运算符"></a>1. 前置、中置与后置运算符</h2>
 <p>我们知道，在数学中，我们很多时候习惯使用中置运算符，而计算机科学一般都是使用前置运算符，因此在 Mathematica 中，对于各种运算符都给了不同的符号。</p>
 <figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line"><span class="variable">f</span> <span class="operator">@</span> <span class="variable">x</span></span><br><span class="line"><span class="variable">x</span> <span class="operator">//</span> <span class="variable">f</span></span><br><span class="line"><span class="comment">(* 结果是 *)</span></span><br><span class="line"><span class="variable">f</span><span class="punctuation">[</span><span class="variable">x</span><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
