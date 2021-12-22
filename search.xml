@@ -3360,7 +3360,7 @@ Notability 转为订阅制，每年80元，老用户仅获赠一年订阅期。<
 <p>选项和直线相同．</p>
 <h3 id="4-3-用符号标记线段"><a class="header-anchor" href="#4-3-用符号标记线段"></a>4.3. 用符号标记线段</h3>
 <p>标记一条线段：<code>\tkzMarkSegment[mark=&lt;mark option&gt;, &lt;other options&gt;](A,B)</code></p>
-<p>标记多条线段：<code>\tkzMarkSegment[mark=&lt;mark option&gt;, &lt;other options&gt;](A,B C,D ...)</code></p>
+<p>标记多条线段：<code>\tkzMarkSegments[mark=&lt;mark option&gt;, &lt;other options&gt;](A,B C,D ...)</code></p>
 <table>
 <thead>
 <tr>
