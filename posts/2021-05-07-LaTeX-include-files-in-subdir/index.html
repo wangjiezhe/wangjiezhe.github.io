@@ -618,7 +618,7 @@
 <li>手动创建 <code>out/chaps</code> 文件夹之后，使用 <code>latexmk -xelatex -interaction=nonstopmode -file-line-error -output-directory=out main.tex</code> 编译，成功。</li>
 </ul>
 <p>可以看出，自动编译失败的主要原因是，在第一遍编译的时候，可以创建 <code>out</code> 文件夹，但是无法创建 <code>out/chaps</code> 这个子文件夹，但是第二遍编译的时候就可以了。这应该是一个 bug 吧。</p>
-<p>而在本地使用 LaTeX Workshop 编译时，应该是打上了补丁，就像我上面第4个测试一样，提前创建了文件夹，因此编译可以正常通过。</p>
+<p><s>而在本地使用 LaTeX Workshop 编译时，应该是打上了补丁，就像我上面第4个测试一样，提前创建了文件夹，因此编译可以正常通过。</s></p>
 <p>因此，最终的解决方法是，继续使用 <code>\include</code>，在远程测试的时候，提前创建好所需的文件夹就可以了。</p>
 
     </div>
