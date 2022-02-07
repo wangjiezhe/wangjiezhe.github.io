@@ -612,7 +612,7 @@
 <p>如果需要非常精确的剪裁的话，需要重新进行编码，并使用 <code>-strict experimental</code> 或者 <code>-strict 2</code> 的选项。</p>
 <h2 id="2-合并文件"><a class="header-anchor" href="#2-合并文件"></a>2. 合并文件</h2>
 <p>先把要合并的文件写在一个文本文件 <code>list.txt</code> 里：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file &#x27;./split1.mp4&#x27;</span><br><span class="line">file &#x27;./split2.mp4&#x27;</span><br><span class="line">file &#x27;./split3.mp4&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file &#x27;./split1.mp4&#x27;</span><br><span class="line">file &#x27;./split2.mp4&#x27;</span><br><span class="line">file &#x27;./split3.mp4&#x27;</span><br></pre></td></tr></table></figure>
 <p>然后再进行合并：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f concat -i [list.txt] -c copy [output.mp4]</span><br></pre></td></tr></table></figure>
 <div class="note danger"><p>如果遇到 <code>Unsafe file name</code> 的错误（例如文件名中有空格），可以在 <code>-f</code> 和 <code>-i</code> 之间加上 <code>-safe 0</code> 的选项。</p>
