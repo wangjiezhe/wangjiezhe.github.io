@@ -3441,6 +3441,16 @@ ul.category-list > li {
 .post-body .label.success {
   background: #a8d8b9;
 }
+div .popular-posts-date {
+  display: inline-block;
+}
+div .popular-posts-title {
+  display: inline-block;
+  margin-left: 5px !important;
+}
+div .popular-posts-excerpt {
+  display: none;
+}
 @-moz-keyframes shake-it {
   0% {
     text-shadow: 0 0 rgba(0,255,255,0.5), 0 0 rgba(255,0,0,0.5);
