@@ -3075,6 +3075,7 @@ mark.search-keyword {
   src: url("../fonts/GuDianMingChaoTi.eot?#iefix") format("embedded-opentype"), url("../fonts/GuDianMingChaoTi.woff") format("woff"), url("../fonts/GuDianMingChaoTi.ttf") format("truetype"), url("../fonts/GuDianMingChaoTi.svg#WenYue GuDianMingChaoTi (Non-Commercial Use) W5") format("svg"); /* iOS 4.1- */
   font-style: normal;
   font-weight: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "ZHJXinWeiTi";
@@ -3082,6 +3083,7 @@ mark.search-keyword {
   src: url("../fonts/ZHJXinWeiTi.eot?#iefix") format("embedded-opentype"), url("../fonts/ZHJXinWeiTi.woff") format("woff"), url("../fonts/ZHJXinWeiTi.ttf") format("truetype"), url("../fonts/ZHJXinWeiTi.svg#WenYue ZHJXinWeiTi (Non-Commercial Use)") format("svg"); /* iOS 4.1- */
   font-style: normal;
   font-weight: normal;
+  font-display: swap;
 }
 .site-title {
   font-family: "GuDianMingChaoTi";
