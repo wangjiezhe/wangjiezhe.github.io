@@ -3341,41 +3341,18 @@ Notability 转为订阅制，每年80元，老用户仅获赠一年订阅期。<
 </tr>
 </tbody>
 </table>
-<h3 id="2-2-绘制三角形中的特殊线段"><a class="header-anchor" href="#2-2-绘制三角形中的特殊线段"></a>2.2. 绘制三角形中的特殊线段</h3>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>命令</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>中线</td>
-<td><code>\tkzDrawLine[median](A,B,C)</code> <br /> 或 <code>\tkzDrawMedian(A,B,C)</code></td>
-</tr>
-<tr>
-<td>角平分线</td>
-<td><code>\tkzDrawLine[bisector](A,B,C)</code> <br /> 或 <code>\tkzDrawBisector(A,B,C)</code></td>
-</tr>
-<tr>
-<td>高</td>
-<td><code>\tkzDrawLine[altitude](A,B,C)</code> <br /> 或 <code>\tkzDrawAltitude(A,B,C)</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-3-绘制线段"><a class="header-anchor" href="#2-3-绘制线段"></a>2.3. 绘制线段</h3>
+<h3 id="2-2-绘制线段"><a class="header-anchor" href="#2-2-绘制线段"></a>2.2. 绘制线段</h3>
 <p>绘制一条线段：<code>\tkzDrawSegment[&lt;options&gt;](A,B)</code>（相当于 <code>\draw (A)--(B)</code>）</p>
 <p>绘制多条线段：<code>\tkzDrawSegments[&lt;options&gt;](A,B C,D ...)</code></p>
-<h3 id="2-4-（定义并）绘制三角形"><a class="header-anchor" href="#2-4-（定义并）绘制三角形"></a>2.4. （定义并）绘制三角形</h3>
+<h3 id="2-3-（定义并）绘制三角形"><a class="header-anchor" href="#2-3-（定义并）绘制三角形"></a>2.3. （定义并）绘制三角形</h3>
 <p>命令：<code>\tkzDrawTriangle[&lt;options&gt;](A,B)  \tkzGetPoint&#123;C&#125;</code></p>
-<h3 id="2-5-（定义并）绘制正方形"><a class="header-anchor" href="#2-5-（定义并）绘制正方形"></a>2.5. （定义并）绘制正方形</h3>
+<h3 id="2-4-（定义并）绘制正方形"><a class="header-anchor" href="#2-4-（定义并）绘制正方形"></a>2.4. （定义并）绘制正方形</h3>
 <p>命令：<code>\tkzDrawSquare[&lt;options&gt;](A,B)  \tkzGetPoints&#123;C&#125;&#123;D&#125;</code></p>
-<h3 id="2-6-（定义并）绘制黄金矩形"><a class="header-anchor" href="#2-6-（定义并）绘制黄金矩形"></a>2.6. （定义并）绘制黄金矩形</h3>
+<h3 id="2-5-（定义并）绘制黄金矩形"><a class="header-anchor" href="#2-5-（定义并）绘制黄金矩形"></a>2.5. （定义并）绘制黄金矩形</h3>
 <p>命令：<code>\tkzDrawGoldRectangle[&lt;options&gt;](A,B)  \tkzGetPoints&#123;C&#125;&#123;D&#125;</code></p>
-<h3 id="2-7-绘制多边形"><a class="header-anchor" href="#2-7-绘制多边形"></a>2.7. 绘制多边形</h3>
+<h3 id="2-6-绘制多边形"><a class="header-anchor" href="#2-6-绘制多边形"></a>2.6. 绘制多边形</h3>
 <p>命令：<code>\tkzDrawPolygon[&lt;options&gt;](A,B,C,...)</code></p>
-<h3 id="2-8-绘制多边形链"><a class="header-anchor" href="#2-8-绘制多边形链"></a>2.8. 绘制多边形链</h3>
+<h3 id="2-7-绘制多边形链"><a class="header-anchor" href="#2-7-绘制多边形链"></a>2.7. 绘制多边形链</h3>
 <p>命令：<code>\tkzDrawPolySeg[&lt;options&gt;](A,B,C,...)</code></p>
 <h2 id="3-填充直线形的方法"><a class="header-anchor" href="#3-填充直线形的方法"></a>3. 填充直线形的方法</h2>
 <h3 id="3-1-填充多边形"><a class="header-anchor" href="#3-1-填充多边形"></a>3.1. 填充多边形</h3>
