@@ -2562,7 +2562,7 @@ Notability 转为订阅制，每年80元，老用户仅获赠一年订阅期。<
 </tr>
 <tr>
 <td>相对坐标</td>
-<td><code>\tkzDefShiftPoint[A](&lt;x,y&gt; or &lt;θ:ρ&gt;)&#123;B&#125;</code> 或者 <br /> <code>\tkzDefPoint[shift=&#123;(&lt;x,y&gt; or &lt;θ:ρ&gt;)&#125;]((&lt;x,y&gt; or &lt;θ:ρ&gt;)&#123;B&#125;)</code>或者 <br /><code>\tkzDefPointOnCircle[angle=θ,center=A,radius=ρ] \tkzGetPoint&#123;B&#125;</code></td>
+<td><code>\tkzDefShiftPoint[A](&lt;x,y&gt; or &lt;θ:ρ&gt;)&#123;B&#125;</code> 或者 <br /> <code>\tkzDefPoint[shift=&#123;(&lt;x,y&gt; or &lt;θ:ρ&gt;)&#125;]((&lt;x,y&gt; or &lt;θ:ρ&gt;)&#123;B&#125;)</code></td>
 </tr>
 <tr>
 <td>批量定义（直角坐标）</td>
@@ -2570,7 +2570,27 @@ Notability 转为订阅制，每年80元，老用户仅获赠一年订阅期。<
 </tr>
 </tbody>
 </table>
-<h3 id="1-2-定义相对点"><a class="header-anchor" href="#1-2-定义相对点"></a>1.2. 定义相对点</h3>
+<h3 id="1-2-定义圆上的点"><a class="header-anchor" href="#1-2-定义圆上的点"></a>1.2. 定义圆上的点</h3>
+<p>命令：<code>\tkzDefPointOnCircle[&lt;option&gt;] \tkzGetPoint&#123;B&#125;</code></p>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>已知圆上一点</td>
+<td><code>through=angle 30 center O point A</code></td>
+</tr>
+<tr>
+<td>已知半径</td>
+<td><code>R=angle 30 center O radius \rOA</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-3-定义相对点"><a class="header-anchor" href="#1-3-定义相对点"></a>1.3. 定义相对点</h3>
 <table>
 <thead>
 <tr>
@@ -2643,7 +2663,7 @@ Notability 转为订阅制，每年80元，老用户仅获赠一年订阅期。<
 </tr>
 </tbody>
 </table>
-<h3 id="1-3-定义几何变换点"><a class="header-anchor" href="#1-3-定义几何变换点"></a>1.3. 定义几何变换点</h3>
+<h3 id="1-4-定义几何变换点"><a class="header-anchor" href="#1-4-定义几何变换点"></a>1.4. 定义几何变换点</h3>
 <p>命令：<code>\tkzDefPointBy[&lt;option&gt;](P) \tkzGetPoint&#123;Q&#125;</code></p>
 <p>批量变换：<code>\tkzDefPointsBy[&lt;option&gt;](M,N,...)&#123;P,Q,...&#125;</code></p>
 <p>（如后面的为<code>&#123;&#125;</code>，则缺省值为<code>M',N',...</code>）</p>
@@ -2697,7 +2717,7 @@ Notability 转为订阅制，每年80元，老用户仅获赠一年订阅期。<
 </tr>
 </tbody>
 </table>
-<h3 id="1-4-定义向量变换点"><a class="header-anchor" href="#1-4-定义向量变换点"></a>1.4. 定义向量变换点</h3>
+<h3 id="1-5-定义向量变换点"><a class="header-anchor" href="#1-5-定义向量变换点"></a>1.5. 定义向量变换点</h3>
 <p>命令：<code>\tkzDefPointWith[&lt;options&gt;](&lt;A,B&gt;) \tkzGetPoint&#123;C&#125;</code></p>
 <table>
 <thead>
@@ -2836,7 +2856,7 @@ Notability 转为订阅制，每年80元，老用户仅获赠一年订阅期。<
 -40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
 -12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
  151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span></span></span></span></span></span></span> 的坐标为 (<code>\Vx</code>,<code>\Vy</code>)．</p>
-<h3 id="1-5-定义三角形的各中心"><a class="header-anchor" href="#1-5-定义三角形的各中心"></a>1.5. 定义三角形的各中心</h3>
+<h3 id="1-6-定义三角形的各中心"><a class="header-anchor" href="#1-6-定义三角形的各中心"></a>1.6. 定义三角形的各中心</h3>
 <p>命令：<code>\tkzDefTriangleCenter[&lt;option&gt;](&lt;A,B,C&gt;) \tkzGetPoint&#123;P&#125;</code></p>
 <table>
 <thead>
@@ -2922,7 +2942,7 @@ Notability 转为订阅制，每年80元，老用户仅获赠一年订阅期。<
 </tr>
 </tbody>
 </table>
-<h3 id="1-6-定义随机点"><a class="header-anchor" href="#1-6-定义随机点"></a>1.6. 定义随机点</h3>
+<h3 id="1-7-定义随机点"><a class="header-anchor" href="#1-7-定义随机点"></a>1.7. 定义随机点</h3>
 <p>命令：<code>\tkzDefRandPointOn[&lt;local option&gt;]  \tkzGetPoint&#123;P&#125;</code></p>
 <table>
 <thead>
