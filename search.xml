@@ -208,6 +208,68 @@
       </tags>
   </entry>
   <entry>
+    <title>正则表达式简介</title>
+    <url>//posts/2014-03-09-intro-for-regular-expression/</url>
+    <content><![CDATA[<h2 id="1-元字符-grep-sed"><a class="header-anchor" href="#1-元字符-grep-sed"></a>1. 元字符 (grep, sed)</h2>
+<h3 id="1-1-句点元字符"><a class="header-anchor" href="#1-1-句点元字符"></a>1.1. 句点元字符 <code>.</code></h3>
+<p>通配元字符，匹配任意字符，除了换行符。</p>
+<h3 id="1-2-反斜杠元字符"><a class="header-anchor" href="#1-2-反斜杠元字符"></a>1.2. 反斜杠元字符 <code>\\</code></h3>
+<p>将其后面的一个字符解释为普通字符而不是元字符。</p>
+<h3 id="1-3-星号元字符"><a class="header-anchor" href="#1-3-星号元字符"></a>1.3. 星号元字符 <code>\*</code></h3>
+<p>其紧挨着的之前的匹配有 0+ 次匹配机会。</p>
+<h3 id="1-4-位置元字符"><a class="header-anchor" href="#1-4-位置元字符"></a>1.4. 位置元字符 <code>^</code>, <code>$</code></h3>
+<p>^ 匹配字符串的最前面。<br />
+$ 匹配字符串的最后面。</p>
+<h3 id="1-5-字符组元字符-连字符元字符-补字号"><a class="header-anchor" href="#1-5-字符组元字符-连字符元字符-补字号"></a>1.5. 字符组元字符 <code>[ ]</code>, 连字符元字符 <code>-</code>, 补字号 <code>^</code></h3>
+<p><code>[]</code> 匹配方括号内的左右字符。<br />
+<code>\-</code> 连字符元字符仅在字符组元字符内有意义，表示一段连续字符范围。<br />
+<code>^</code> 表示排除某些字符。</p>
+<h3 id="1-6-范围字符串"><a class="header-anchor" href="#1-6-范围字符串"></a>1.6. 范围字符串 <code>\\&#123; \\&#125;</code></h3>
+<p><code>\\&#123;n,m\\&#125;</code> 匹配 n~m 次。<br />
+<code>\\&#123;n\\&#125;</code> 匹配 n 次。<br />
+<code>\\&#123;n,\\&#125;</code> 匹配 n+ 次。</p>
+<h3 id="1-7-特殊字符类"><a class="header-anchor" href="#1-7-特殊字符类"></a>1.7. 特殊字符类</h3>
+<p><code>[[:alpha:]]</code> 匹配任意字母字符，大写或小写<br />
+<code>[[:alnum:]]</code> 匹配任意字母数字字符，0-9, a-z, A-Z<br />
+<code>[[:blank:]]</code> 匹配空格或制表符字符<br />
+<code>[[:digit:]]</code> 匹配任意数字字符，0-9<br />
+<code>[[:lower:]]</code> 匹配任意小写字母，a-z<br />
+<code>[[:print:]]</code> 匹配任意可打印字符<br />
+<code>[[:punct:]]</code> 匹配任意标点<br />
+<code>[[:space:]]</code> 匹配任意空白字符: 空格、制表符、NL、FF、VT、CR<br />
+<code>[[:upper:]]</code> 匹配任意大写字符，A-Z</p>
+<h2 id="2-扩展元字符-egrep-awk"><a class="header-anchor" href="#2-扩展元字符-egrep-awk"></a>2. 扩展元字符 (egrep, awk)</h2>
+<h3 id="2-1-加号元字符"><a class="header-anchor" href="#2-1-加号元字符"></a>2.1. 加号元字符 <code>+</code></h3>
+<p>其紧挨着的之前的匹配有 <strong>1+</strong> 次匹配机会。</p>
+<h3 id="2-2-问号元字符"><a class="header-anchor" href="#2-2-问号元字符"></a>2.2. 问号元字符 <code>?</code></h3>
+<p>其紧挨着的之前的匹配有 <strong>0~1</strong> 次匹配机会。</p>
+<h3 id="2-3-竖线元字符"><a class="header-anchor" href="#2-3-竖线元字符"></a>2.3. 竖线元字符 <code>|</code></h3>
+<p><code>r1|r2</code> 匹配 r1 或 r2</p>
+<h3 id="2-4-括号元字符"><a class="header-anchor" href="#2-4-括号元字符"></a>2.4. 括号元字符 <code>( )</code></h3>
+<p><code>(r1)</code> 匹配子字符串r1(常与 * + ? | 等连用)。</p>
+<h3 id="2-5-范围元字符"><a class="header-anchor" href="#2-5-范围元字符"></a>2.5. 范围元字符 <code>&#123; &#125;</code></h3>
+<p>与上面的范围元字符类似。</p>
+<h2 id="3-固定元字符-grep"><a class="header-anchor" href="#3-固定元字符-grep"></a>3. 固定元字符 (grep)</h2>
+<h3 id="3-1"><a class="header-anchor" href="#3-1"></a>3.1. <code>\\&lt; \\&gt;</code></h3>
+<p>严格匹配一个词(后面必须直接跟一个空格或标点符号)。</p>
+<p>参考:</p>
+<ul>
+<li>Linux Command Line and shell Scripting Bible, Richard Blum</li>
+<li>UNIX awk and sed PROGRAMMER'S INTERACTIVE WORKBOOK, Peter Patsis</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Sed</tag>
+        <tag>Regular expression</tag>
+        <tag>Grep</tag>
+        <tag>Awk</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Piplight 在 Linux 上使用网银</title>
     <url>//posts/2014-03-02-Pipelight-use-eBank-on-Linux/</url>
     <content><![CDATA[<p><span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9mZWxpeG9ubWFycw==">@felixonmars<i class="fa fa-external-link-alt"></i></span> 在博客 <span class="exturl" data-url="aHR0cDovL2Jsb2cuZmVsaXhjLmF0LzIwMTQvMDIvcGlwZWxpZ2h0LWxldC1saW51eC1uYXRpdmUtY2hyb21pdW0tY2hyb21lLXN1cHBvcnQtYWN0aXZleC1zZWFtbGVzc2x5Lw==">Pipelight – 让 Linux 原生 Chromium/Chrome 无缝支持 ActiveX 控件 (看! 网银!)<i class="fa fa-external-link-alt"></i></span> 中对如何通过 pipelight 使用工行网银做了很详细的描述, 不过是以 Arch Linux 作为例子来介绍的. 这里以 Fedora 20 为例, 做一个详细的介绍.</p>
@@ -296,68 +358,6 @@ Other helper scripts: dynamic ieevent</p>
         <tag>Pipelight</tag>
         <tag>Wine</tag>
         <tag>ActiveX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>正则表达式简介</title>
-    <url>//posts/2014-03-09-intro-for-regular-expression/</url>
-    <content><![CDATA[<h2 id="1-元字符-grep-sed"><a class="header-anchor" href="#1-元字符-grep-sed"></a>1. 元字符 (grep, sed)</h2>
-<h3 id="1-1-句点元字符"><a class="header-anchor" href="#1-1-句点元字符"></a>1.1. 句点元字符 <code>.</code></h3>
-<p>通配元字符，匹配任意字符，除了换行符。</p>
-<h3 id="1-2-反斜杠元字符"><a class="header-anchor" href="#1-2-反斜杠元字符"></a>1.2. 反斜杠元字符 <code>\\</code></h3>
-<p>将其后面的一个字符解释为普通字符而不是元字符。</p>
-<h3 id="1-3-星号元字符"><a class="header-anchor" href="#1-3-星号元字符"></a>1.3. 星号元字符 <code>\*</code></h3>
-<p>其紧挨着的之前的匹配有 0+ 次匹配机会。</p>
-<h3 id="1-4-位置元字符"><a class="header-anchor" href="#1-4-位置元字符"></a>1.4. 位置元字符 <code>^</code>, <code>$</code></h3>
-<p>^ 匹配字符串的最前面。<br />
-$ 匹配字符串的最后面。</p>
-<h3 id="1-5-字符组元字符-连字符元字符-补字号"><a class="header-anchor" href="#1-5-字符组元字符-连字符元字符-补字号"></a>1.5. 字符组元字符 <code>[ ]</code>, 连字符元字符 <code>-</code>, 补字号 <code>^</code></h3>
-<p><code>[]</code> 匹配方括号内的左右字符。<br />
-<code>\-</code> 连字符元字符仅在字符组元字符内有意义，表示一段连续字符范围。<br />
-<code>^</code> 表示排除某些字符。</p>
-<h3 id="1-6-范围字符串"><a class="header-anchor" href="#1-6-范围字符串"></a>1.6. 范围字符串 <code>\\&#123; \\&#125;</code></h3>
-<p><code>\\&#123;n,m\\&#125;</code> 匹配 n~m 次。<br />
-<code>\\&#123;n\\&#125;</code> 匹配 n 次。<br />
-<code>\\&#123;n,\\&#125;</code> 匹配 n+ 次。</p>
-<h3 id="1-7-特殊字符类"><a class="header-anchor" href="#1-7-特殊字符类"></a>1.7. 特殊字符类</h3>
-<p><code>[[:alpha:]]</code> 匹配任意字母字符，大写或小写<br />
-<code>[[:alnum:]]</code> 匹配任意字母数字字符，0-9, a-z, A-Z<br />
-<code>[[:blank:]]</code> 匹配空格或制表符字符<br />
-<code>[[:digit:]]</code> 匹配任意数字字符，0-9<br />
-<code>[[:lower:]]</code> 匹配任意小写字母，a-z<br />
-<code>[[:print:]]</code> 匹配任意可打印字符<br />
-<code>[[:punct:]]</code> 匹配任意标点<br />
-<code>[[:space:]]</code> 匹配任意空白字符: 空格、制表符、NL、FF、VT、CR<br />
-<code>[[:upper:]]</code> 匹配任意大写字符，A-Z</p>
-<h2 id="2-扩展元字符-egrep-awk"><a class="header-anchor" href="#2-扩展元字符-egrep-awk"></a>2. 扩展元字符 (egrep, awk)</h2>
-<h3 id="2-1-加号元字符"><a class="header-anchor" href="#2-1-加号元字符"></a>2.1. 加号元字符 <code>+</code></h3>
-<p>其紧挨着的之前的匹配有 <strong>1+</strong> 次匹配机会。</p>
-<h3 id="2-2-问号元字符"><a class="header-anchor" href="#2-2-问号元字符"></a>2.2. 问号元字符 <code>?</code></h3>
-<p>其紧挨着的之前的匹配有 <strong>0~1</strong> 次匹配机会。</p>
-<h3 id="2-3-竖线元字符"><a class="header-anchor" href="#2-3-竖线元字符"></a>2.3. 竖线元字符 <code>|</code></h3>
-<p><code>r1|r2</code> 匹配 r1 或 r2</p>
-<h3 id="2-4-括号元字符"><a class="header-anchor" href="#2-4-括号元字符"></a>2.4. 括号元字符 <code>( )</code></h3>
-<p><code>(r1)</code> 匹配子字符串r1(常与 * + ? | 等连用)。</p>
-<h3 id="2-5-范围元字符"><a class="header-anchor" href="#2-5-范围元字符"></a>2.5. 范围元字符 <code>&#123; &#125;</code></h3>
-<p>与上面的范围元字符类似。</p>
-<h2 id="3-固定元字符-grep"><a class="header-anchor" href="#3-固定元字符-grep"></a>3. 固定元字符 (grep)</h2>
-<h3 id="3-1"><a class="header-anchor" href="#3-1"></a>3.1. <code>\\&lt; \\&gt;</code></h3>
-<p>严格匹配一个词(后面必须直接跟一个空格或标点符号)。</p>
-<p>参考:</p>
-<ul>
-<li>Linux Command Line and shell Scripting Bible, Richard Blum</li>
-<li>UNIX awk and sed PROGRAMMER'S INTERACTIVE WORKBOOK, Peter Patsis</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Sed</tag>
-        <tag>Regular expression</tag>
-        <tag>Grep</tag>
-        <tag>Awk</tag>
       </tags>
   </entry>
   <entry>
@@ -1287,36 +1287,6 @@ DisqusJS<br />
       </tags>
   </entry>
   <entry>
-    <title>太流牌谱学习笔记（三）</title>
-    <url>//posts/2019-11-18-Tai-3/</url>
-    <content><![CDATA[<p>今天看了太くないお的一个牌谱，里面有连续几个非常好的弃胡局，这里来总结一下。</p>
-<p><img data-src="E2gXROKdFZ3r6ay.jpg" alt="东2局0本场12巡目" /></p>
-<p>这里自家好型 dora 1 听牌，却被下家先制立直，怎么办？</p>
-<p>答案比较简单，直接两北连切，有机会就争取兜听，没机会就直接弃胡。</p>
-<p>结果是上家点了立直对对三暗刻的满贯（实际是四暗刻听牌）。</p>
-<p><img data-src="ghOA2cm1kEsZTt3.jpg" alt="南1局0本场9巡目" /></p>
-<p>这里七对一向听，何切？</p>
-<p>1s！</p>
-<p>这里我看了很久，感觉不是很能理解。之后再往下看，发现太くないお从这里开始直接选择了弃胡！</p>
-<p>如果要解释的话，感觉就是自己即使听牌，很可能最终胡到也就是立直七对 3200 点，而目前 dora 一张未现，硬上的话很有可能出事。</p>
-<p>最终的结果也证明了太くないお的选择是正确的，对家很快 dora 3 高目三色立直，下家 dora 2 三色确追立，最终是对家自摸高目跳满。</p>
-<p>感觉这里是很值得学习的，如果是我的话绝对不会想到在这里就弃胡。</p>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="M3PTrOhIUNFdCRk.jpg" alt="南2局0本场5巡目" /></div><div class="group-picture-column"><img data-src="8OVe2r1q3mxfBQc.jpg" alt="南2局0本场16巡目" /></div></div></div>
-<p>这里对家碰 dora 南，直接满贯起步，太くないお立即选择跟切 7m 开始弃胡，放弃了自己的好型两向听，非常的果断。</p>
-<p>而到了16巡时，下家打5s，太くないお选择了碰。</p>
-<p>这里我也是看了好久才想明白，因为如果不碰的话，太くないお只剩下一次摸牌的机会，那么肯定是没有机会听牌的；而碰了5s切中后，手牌变成了1向听，一旦下一巡7m能切的话，就有听牌赚罚符的可能，即使不能听牌，手里也有7s作为安全牌。这样就在保证下一巡不会放铳的基础上，增加了听牌的可能性。</p>
-<p>最终，太くないお无铳吃二，非常完美的结局。</p>
-]]></content>
-      <categories>
-        <category>立直麻将</category>
-      </categories>
-      <tags>
-        <tag>天凤</tag>
-        <tag>太くないお</tag>
-        <tag>场况判断</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2019 Canada MO 第2题</title>
     <url>//posts/2019-12-10-2019-Canada-MO-P2/</url>
     <content><![CDATA[<h2 id="1-题目"><a class="header-anchor" href="#1-题目"></a>1. 题目</h2>
@@ -1358,6 +1328,36 @@ DisqusJS<br />
       <tags>
         <tag>数学竞赛</tag>
         <tag>加拿大</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>太流牌谱学习笔记（三）</title>
+    <url>//posts/2019-11-18-Tai-3/</url>
+    <content><![CDATA[<p>今天看了太くないお的一个牌谱，里面有连续几个非常好的弃胡局，这里来总结一下。</p>
+<p><img data-src="E2gXROKdFZ3r6ay.jpg" alt="东2局0本场12巡目" /></p>
+<p>这里自家好型 dora 1 听牌，却被下家先制立直，怎么办？</p>
+<p>答案比较简单，直接两北连切，有机会就争取兜听，没机会就直接弃胡。</p>
+<p>结果是上家点了立直对对三暗刻的满贯（实际是四暗刻听牌）。</p>
+<p><img data-src="ghOA2cm1kEsZTt3.jpg" alt="南1局0本场9巡目" /></p>
+<p>这里七对一向听，何切？</p>
+<p>1s！</p>
+<p>这里我看了很久，感觉不是很能理解。之后再往下看，发现太くないお从这里开始直接选择了弃胡！</p>
+<p>如果要解释的话，感觉就是自己即使听牌，很可能最终胡到也就是立直七对 3200 点，而目前 dora 一张未现，硬上的话很有可能出事。</p>
+<p>最终的结果也证明了太くないお的选择是正确的，对家很快 dora 3 高目三色立直，下家 dora 2 三色确追立，最终是对家自摸高目跳满。</p>
+<p>感觉这里是很值得学习的，如果是我的话绝对不会想到在这里就弃胡。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="M3PTrOhIUNFdCRk.jpg" alt="南2局0本场5巡目" /></div><div class="group-picture-column"><img data-src="8OVe2r1q3mxfBQc.jpg" alt="南2局0本场16巡目" /></div></div></div>
+<p>这里对家碰 dora 南，直接满贯起步，太くないお立即选择跟切 7m 开始弃胡，放弃了自己的好型两向听，非常的果断。</p>
+<p>而到了16巡时，下家打5s，太くないお选择了碰。</p>
+<p>这里我也是看了好久才想明白，因为如果不碰的话，太くないお只剩下一次摸牌的机会，那么肯定是没有机会听牌的；而碰了5s切中后，手牌变成了1向听，一旦下一巡7m能切的话，就有听牌赚罚符的可能，即使不能听牌，手里也有7s作为安全牌。这样就在保证下一巡不会放铳的基础上，增加了听牌的可能性。</p>
+<p>最终，太くないお无铳吃二，非常完美的结局。</p>
+]]></content>
+      <categories>
+        <category>立直麻将</category>
+      </categories>
+      <tags>
+        <tag>天凤</tag>
+        <tag>太くないお</tag>
+        <tag>场况判断</tag>
       </tags>
   </entry>
   <entry>
