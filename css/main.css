@@ -2613,6 +2613,9 @@ ul.breadcrumb li:last-child {
     border-color: var(--content-bg-color);
   }
 }
+.utterances {
+  max-width: unset;
+}
 .search-active {
   overflow: hidden;
 }
@@ -3255,6 +3258,9 @@ a.host-link:hover {
 }
 .posts-expand .post-tags a:nth-child(4n):hover {
   box-shadow: 0 0 1em 0.5em #ffba84;
+}
+.utterances {
+  max-width: none;
 }
 .posts-expand .post-body img {
   border: none;
