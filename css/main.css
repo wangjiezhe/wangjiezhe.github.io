@@ -3260,7 +3260,7 @@ a.host-link:hover {
   box-shadow: 0 0 1em 0.5em #ffba84;
 }
 .utterances {
-  max-width: none;
+  max-width: none !important;
 }
 .posts-expand .post-body img {
   border: none;
