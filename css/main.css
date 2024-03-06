@@ -2613,9 +2613,6 @@ ul.breadcrumb li:last-child {
     border-color: var(--content-bg-color);
   }
 }
-.utterances {
-  max-width: unset;
-}
 .search-active {
   overflow: hidden;
 }
@@ -3075,6 +3072,10 @@ header.header {
   .comments {
     padding: 10px 12px;
   }
+}
+.giscus {
+  max-width: unset;
+  box-sizing: border-box;
 }
 @font-face {
   font-family: "GuDianMingChaoTi";
