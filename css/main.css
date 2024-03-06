@@ -3073,10 +3073,6 @@ header.header {
     padding: 10px 12px;
   }
 }
-.giscus {
-  max-width: unset;
-  box-sizing: border-box;
-}
 @font-face {
   font-family: "GuDianMingChaoTi";
   src: url("../fonts/GuDianMingChaoTi.eot"); /* IE9 */
@@ -3259,9 +3255,6 @@ a.host-link:hover {
 }
 .posts-expand .post-tags a:nth-child(4n):hover {
   box-shadow: 0 0 1em 0.5em #ffba84;
-}
-.utterances {
-  max-width: none !important;
 }
 .posts-expand .post-body img {
   border: none;
