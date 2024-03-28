@@ -3,11 +3,11 @@
   <title>如鱼饮水</title>
   
   <subtitle>冷暖自知</subtitle>
-  <link href="https://wangjiezhe.com/atom.xml" rel="self"/>
+  <link href="https://wangjiezhe.github.io/atom.xml" rel="self"/>
   
-  <link href="https://wangjiezhe.com/"/>
+  <link href="https://wangjiezhe.github.io/"/>
   <updated>2023-03-27T10:43:53.000Z</updated>
-  <id>https://wangjiezhe.com/</id>
+  <id>https://wangjiezhe.github.io/</id>
   
   <author>
     <name>西风冷香</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>何切301练习 001~030</title>
-    <link href="https://wangjiezhe.com/posts/2023-03-27-He-Qie-301-1/"/>
-    <id>https://wangjiezhe.com/posts/2023-03-27-He-Qie-301-1/</id>
+    <link href="https://wangjiezhe.github.io/posts/2023-03-27-He-Qie-301-1/"/>
+    <id>https://wangjiezhe.github.io/posts/2023-03-27-He-Qie-301-1/</id>
     <published>2023-03-27T10:43:53.000Z</published>
     <updated>2023-03-27T10:43:53.000Z</updated>
     
@@ -30,17 +30,17 @@
     
     
     
-    <category term="立直麻将" scheme="https://wangjiezhe.com/categories/%E7%AB%8B%E7%9B%B4%E9%BA%BB%E5%B0%86/"/>
+    <category term="立直麻将" scheme="https://wangjiezhe.github.io/categories/%E7%AB%8B%E7%9B%B4%E9%BA%BB%E5%B0%86/"/>
     
     
-    <category term="何切" scheme="https://wangjiezhe.com/tags/%E4%BD%95%E5%88%87/"/>
+    <category term="何切" scheme="https://wangjiezhe.github.io/tags/%E4%BD%95%E5%88%87/"/>
     
   </entry>
   
   <entry>
     <title>在 LaTeX 中使用中文着重号</title>
-    <link href="https://wangjiezhe.com/posts/2022-05-10-LaTeX-add-emphasis-mark/"/>
-    <id>https://wangjiezhe.com/posts/2022-05-10-LaTeX-add-emphasis-mark/</id>
+    <link href="https://wangjiezhe.github.io/posts/2022-05-10-LaTeX-add-emphasis-mark/"/>
+    <id>https://wangjiezhe.github.io/posts/2022-05-10-LaTeX-add-emphasis-mark/</id>
     <published>2022-05-10T02:02:10.000Z</published>
     <updated>2022-05-10T02:02:10.000Z</updated>
     
@@ -51,17 +51,17 @@
     
     
     
-    <category term="LaTeX" scheme="https://wangjiezhe.com/categories/LaTeX/"/>
+    <category term="LaTeX" scheme="https://wangjiezhe.github.io/categories/LaTeX/"/>
     
     
-    <category term="LaTeX" scheme="https://wangjiezhe.com/tags/LaTeX/"/>
+    <category term="LaTeX" scheme="https://wangjiezhe.github.io/tags/LaTeX/"/>
     
   </entry>
   
   <entry>
     <title>有理数与确界原理</title>
-    <link href="https://wangjiezhe.com/posts/2022-02-25-Least-upper-bound-for-rational-numbers/"/>
-    <id>https://wangjiezhe.com/posts/2022-02-25-Least-upper-bound-for-rational-numbers/</id>
+    <link href="https://wangjiezhe.github.io/posts/2022-02-25-Least-upper-bound-for-rational-numbers/"/>
+    <id>https://wangjiezhe.github.io/posts/2022-02-25-Least-upper-bound-for-rational-numbers/</id>
     <published>2022-02-25T04:15:07.000Z</published>
     <updated>2022-12-14T14:09:07.000Z</updated>
     
@@ -72,23 +72,23 @@
     
     
     
-    <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="分析" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/%E5%88%86%E6%9E%90/"/>
+    <category term="分析" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%88%86%E6%9E%90/"/>
     
     
-    <category term="有理数" scheme="https://wangjiezhe.com/tags/%E6%9C%89%E7%90%86%E6%95%B0/"/>
+    <category term="有理数" scheme="https://wangjiezhe.github.io/tags/%E6%9C%89%E7%90%86%E6%95%B0/"/>
     
-    <category term="实数" scheme="https://wangjiezhe.com/tags/%E5%AE%9E%E6%95%B0/"/>
+    <category term="实数" scheme="https://wangjiezhe.github.io/tags/%E5%AE%9E%E6%95%B0/"/>
     
-    <category term="完备性" scheme="https://wangjiezhe.com/tags/%E5%AE%8C%E5%A4%87%E6%80%A7/"/>
+    <category term="完备性" scheme="https://wangjiezhe.github.io/tags/%E5%AE%8C%E5%A4%87%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>自然常数e的定义</title>
-    <link href="https://wangjiezhe.com/posts/2022-02-16-Definition-of-e/"/>
-    <id>https://wangjiezhe.com/posts/2022-02-16-Definition-of-e/</id>
+    <link href="https://wangjiezhe.github.io/posts/2022-02-16-Definition-of-e/"/>
+    <id>https://wangjiezhe.github.io/posts/2022-02-16-Definition-of-e/</id>
     <published>2022-02-16T09:15:49.000Z</published>
     <updated>2022-02-16T09:15:49.000Z</updated>
     
@@ -99,21 +99,21 @@
     
     
     
-    <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="分析" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/%E5%88%86%E6%9E%90/"/>
+    <category term="分析" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%88%86%E6%9E%90/"/>
     
     
-    <category term="自然常数" scheme="https://wangjiezhe.com/tags/%E8%87%AA%E7%84%B6%E5%B8%B8%E6%95%B0/"/>
+    <category term="自然常数" scheme="https://wangjiezhe.github.io/tags/%E8%87%AA%E7%84%B6%E5%B8%B8%E6%95%B0/"/>
     
-    <category term="对数" scheme="https://wangjiezhe.com/tags/%E5%AF%B9%E6%95%B0/"/>
+    <category term="对数" scheme="https://wangjiezhe.github.io/tags/%E5%AF%B9%E6%95%B0/"/>
     
   </entry>
   
   <entry>
     <title>无理根成对定理的证明</title>
-    <link href="https://wangjiezhe.com/posts/2021-10-03-the-radical-conjugate-roots-theorem/"/>
-    <id>https://wangjiezhe.com/posts/2021-10-03-the-radical-conjugate-roots-theorem/</id>
+    <link href="https://wangjiezhe.github.io/posts/2021-10-03-the-radical-conjugate-roots-theorem/"/>
+    <id>https://wangjiezhe.github.io/posts/2021-10-03-the-radical-conjugate-roots-theorem/</id>
     <published>2021-10-07T03:08:56.000Z</published>
     <updated>2021-10-07T03:08:56.000Z</updated>
     
@@ -124,21 +124,21 @@
     
     
     
-    <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
     
     
-    <category term="二次方程" scheme="https://wangjiezhe.com/tags/%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B/"/>
+    <category term="二次方程" scheme="https://wangjiezhe.github.io/tags/%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B/"/>
     
-    <category term="代数方程" scheme="https://wangjiezhe.com/tags/%E4%BB%A3%E6%95%B0%E6%96%B9%E7%A8%8B/"/>
+    <category term="代数方程" scheme="https://wangjiezhe.github.io/tags/%E4%BB%A3%E6%95%B0%E6%96%B9%E7%A8%8B/"/>
     
-    <category term="无理数" scheme="https://wangjiezhe.com/tags/%E6%97%A0%E7%90%86%E6%95%B0/"/>
+    <category term="无理数" scheme="https://wangjiezhe.github.io/tags/%E6%97%A0%E7%90%86%E6%95%B0/"/>
     
   </entry>
   
   <entry>
     <title>浅谈递推数列（一）：递推数列的基础知识</title>
-    <link href="https://wangjiezhe.com/posts/2021-07-23-Recurrence-relation-1/"/>
-    <id>https://wangjiezhe.com/posts/2021-07-23-Recurrence-relation-1/</id>
+    <link href="https://wangjiezhe.github.io/posts/2021-07-23-Recurrence-relation-1/"/>
+    <id>https://wangjiezhe.github.io/posts/2021-07-23-Recurrence-relation-1/</id>
     <published>2021-07-23T05:57:54.000Z</published>
     <updated>2021-07-23T05:57:54.000Z</updated>
     
@@ -152,25 +152,25 @@
     
     
     
-    <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="数列" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%88%97/"/>
+    <category term="数列" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%88%97/"/>
     
     
-    <category term="数列" scheme="https://wangjiezhe.com/tags/%E6%95%B0%E5%88%97/"/>
+    <category term="数列" scheme="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%88%97/"/>
     
-    <category term="等差数列" scheme="https://wangjiezhe.com/tags/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/"/>
+    <category term="等差数列" scheme="https://wangjiezhe.github.io/tags/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/"/>
     
-    <category term="等比数列" scheme="https://wangjiezhe.com/tags/%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97/"/>
+    <category term="等比数列" scheme="https://wangjiezhe.github.io/tags/%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97/"/>
     
-    <category term="递推数列" scheme="https://wangjiezhe.com/tags/%E9%80%92%E6%8E%A8%E6%95%B0%E5%88%97/"/>
+    <category term="递推数列" scheme="https://wangjiezhe.github.io/tags/%E9%80%92%E6%8E%A8%E6%95%B0%E5%88%97/"/>
     
   </entry>
   
   <entry>
     <title>LaTeX 加载子文件夹中的文档</title>
-    <link href="https://wangjiezhe.com/posts/2021-05-07-LaTeX-include-files-in-subdir/"/>
-    <id>https://wangjiezhe.com/posts/2021-05-07-LaTeX-include-files-in-subdir/</id>
+    <link href="https://wangjiezhe.github.io/posts/2021-05-07-LaTeX-include-files-in-subdir/"/>
+    <id>https://wangjiezhe.github.io/posts/2021-05-07-LaTeX-include-files-in-subdir/</id>
     <published>2021-05-07T06:24:42.000Z</published>
     <updated>2021-05-07T06:24:42.000Z</updated>
     
@@ -181,21 +181,21 @@
     
     
     
-    <category term="LaTeX" scheme="https://wangjiezhe.com/categories/LaTeX/"/>
+    <category term="LaTeX" scheme="https://wangjiezhe.github.io/categories/LaTeX/"/>
     
     
-    <category term="LaTeX" scheme="https://wangjiezhe.com/tags/LaTeX/"/>
+    <category term="LaTeX" scheme="https://wangjiezhe.github.io/tags/LaTeX/"/>
     
-    <category term="include" scheme="https://wangjiezhe.com/tags/include/"/>
+    <category term="include" scheme="https://wangjiezhe.github.io/tags/include/"/>
     
-    <category term="input" scheme="https://wangjiezhe.com/tags/input/"/>
+    <category term="input" scheme="https://wangjiezhe.github.io/tags/input/"/>
     
   </entry>
   
   <entry>
     <title>在 CTeX 中使用方正字体</title>
-    <link href="https://wangjiezhe.com/posts/2021-04-21-Use-ctex-with-founder-font/"/>
-    <id>https://wangjiezhe.com/posts/2021-04-21-Use-ctex-with-founder-font/</id>
+    <link href="https://wangjiezhe.github.io/posts/2021-04-21-Use-ctex-with-founder-font/"/>
+    <id>https://wangjiezhe.github.io/posts/2021-04-21-Use-ctex-with-founder-font/</id>
     <published>2021-04-21T15:37:25.000Z</published>
     <updated>2021-04-21T15:37:25.000Z</updated>
     
@@ -206,21 +206,21 @@
     
     
     
-    <category term="LaTeX" scheme="https://wangjiezhe.com/categories/LaTeX/"/>
+    <category term="LaTeX" scheme="https://wangjiezhe.github.io/categories/LaTeX/"/>
     
     
-    <category term="LaTeX" scheme="https://wangjiezhe.com/tags/LaTeX/"/>
+    <category term="LaTeX" scheme="https://wangjiezhe.github.io/tags/LaTeX/"/>
     
-    <category term="CTeX" scheme="https://wangjiezhe.com/tags/CTeX/"/>
+    <category term="CTeX" scheme="https://wangjiezhe.github.io/tags/CTeX/"/>
     
-    <category term="字体" scheme="https://wangjiezhe.com/tags/%E5%AD%97%E4%BD%93/"/>
+    <category term="字体" scheme="https://wangjiezhe.github.io/tags/%E5%AD%97%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>在 ArchLinux 上安装 Nextcloud</title>
-    <link href="https://wangjiezhe.com/posts/2021-04-09-Install-Nextcloud-on-vultr/"/>
-    <id>https://wangjiezhe.com/posts/2021-04-09-Install-Nextcloud-on-vultr/</id>
+    <link href="https://wangjiezhe.github.io/posts/2021-04-09-Install-Nextcloud-on-vultr/"/>
+    <id>https://wangjiezhe.github.io/posts/2021-04-09-Install-Nextcloud-on-vultr/</id>
     <published>2021-04-09T01:29:08.000Z</published>
     <updated>2021-04-09T01:29:08.000Z</updated>
     
@@ -231,23 +231,23 @@
     
     
     
-    <category term="Linux" scheme="https://wangjiezhe.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://wangjiezhe.github.io/categories/Linux/"/>
     
     
-    <category term="ArchLinux" scheme="https://wangjiezhe.com/tags/ArchLinux/"/>
+    <category term="ArchLinux" scheme="https://wangjiezhe.github.io/tags/ArchLinux/"/>
     
-    <category term="Nextcloud" scheme="https://wangjiezhe.com/tags/Nextcloud/"/>
+    <category term="Nextcloud" scheme="https://wangjiezhe.github.io/tags/Nextcloud/"/>
     
-    <category term="Nginx" scheme="https://wangjiezhe.com/tags/Nginx/"/>
+    <category term="Nginx" scheme="https://wangjiezhe.github.io/tags/Nginx/"/>
     
-    <category term="Vultr" scheme="https://wangjiezhe.com/tags/Vultr/"/>
+    <category term="Vultr" scheme="https://wangjiezhe.github.io/tags/Vultr/"/>
     
   </entry>
   
   <entry>
     <title>Notability 与 GoodNotes 在网课教学中的对比（2021版）</title>
-    <link href="https://wangjiezhe.com/posts/2021-03-31-Notability-vs-GoodNotes-2021/"/>
-    <id>https://wangjiezhe.com/posts/2021-03-31-Notability-vs-GoodNotes-2021/</id>
+    <link href="https://wangjiezhe.github.io/posts/2021-03-31-Notability-vs-GoodNotes-2021/"/>
+    <id>https://wangjiezhe.github.io/posts/2021-03-31-Notability-vs-GoodNotes-2021/</id>
     <published>2021-03-31T02:44:03.000Z</published>
     <updated>2021-11-03T07:26:50.000Z</updated>
     
@@ -258,29 +258,29 @@
     
     
     
-    <category term="工作" scheme="https://wangjiezhe.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+    <category term="工作" scheme="https://wangjiezhe.github.io/categories/%E5%B7%A5%E4%BD%9C/"/>
     
     
-    <category term="iPad" scheme="https://wangjiezhe.com/tags/iPad/"/>
+    <category term="iPad" scheme="https://wangjiezhe.github.io/tags/iPad/"/>
     
-    <category term="Notability" scheme="https://wangjiezhe.com/tags/Notability/"/>
+    <category term="Notability" scheme="https://wangjiezhe.github.io/tags/Notability/"/>
     
-    <category term="GoodNotes" scheme="https://wangjiezhe.com/tags/GoodNotes/"/>
+    <category term="GoodNotes" scheme="https://wangjiezhe.github.io/tags/GoodNotes/"/>
     
-    <category term="笔记软件" scheme="https://wangjiezhe.com/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"/>
+    <category term="笔记软件" scheme="https://wangjiezhe.github.io/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"/>
     
-    <category term="新冠" scheme="https://wangjiezhe.com/tags/%E6%96%B0%E5%86%A0/"/>
+    <category term="新冠" scheme="https://wangjiezhe.github.io/tags/%E6%96%B0%E5%86%A0/"/>
     
-    <category term="网课" scheme="https://wangjiezhe.com/tags/%E7%BD%91%E8%AF%BE/"/>
+    <category term="网课" scheme="https://wangjiezhe.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
     
-    <category term="ClassIn" scheme="https://wangjiezhe.com/tags/ClassIn/"/>
+    <category term="ClassIn" scheme="https://wangjiezhe.github.io/tags/ClassIn/"/>
     
   </entry>
   
   <entry>
     <title>Hexo NexT 添加友链页面</title>
-    <link href="https://wangjiezhe.com/posts/2021-03-30-add-link-page/"/>
-    <id>https://wangjiezhe.com/posts/2021-03-30-add-link-page/</id>
+    <link href="https://wangjiezhe.github.io/posts/2021-03-30-add-link-page/"/>
+    <id>https://wangjiezhe.github.io/posts/2021-03-30-add-link-page/</id>
     <published>2021-03-30T06:55:49.000Z</published>
     <updated>2021-03-30T06:55:49.000Z</updated>
     
@@ -291,21 +291,21 @@
     
     
     
-    <category term="博客" scheme="https://wangjiezhe.com/categories/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="博客" scheme="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
-    <category term="主题" scheme="https://wangjiezhe.com/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/"/>
+    <category term="主题" scheme="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/"/>
     
     
-    <category term="Hexo" scheme="https://wangjiezhe.com/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://wangjiezhe.github.io/tags/Hexo/"/>
     
-    <category term="NexT" scheme="https://wangjiezhe.com/tags/NexT/"/>
+    <category term="NexT" scheme="https://wangjiezhe.github.io/tags/NexT/"/>
     
   </entry>
   
   <entry>
     <title>两角和差的正余弦公式的若干证明方法</title>
-    <link href="https://wangjiezhe.com/posts/2021-03-25-angle-addition-and-subtraction-theorems/"/>
-    <id>https://wangjiezhe.com/posts/2021-03-25-angle-addition-and-subtraction-theorems/</id>
+    <link href="https://wangjiezhe.github.io/posts/2021-03-25-angle-addition-and-subtraction-theorems/"/>
+    <id>https://wangjiezhe.github.io/posts/2021-03-25-angle-addition-and-subtraction-theorems/</id>
     <published>2021-03-25T10:53:24.000Z</published>
     <updated>2021-03-25T10:53:24.000Z</updated>
     
@@ -316,19 +316,19 @@
     
     
     
-    <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
     
     
-    <category term="平面向量" scheme="https://wangjiezhe.com/tags/%E5%B9%B3%E9%9D%A2%E5%90%91%E9%87%8F/"/>
+    <category term="平面向量" scheme="https://wangjiezhe.github.io/tags/%E5%B9%B3%E9%9D%A2%E5%90%91%E9%87%8F/"/>
     
-    <category term="三角函数" scheme="https://wangjiezhe.com/tags/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/"/>
+    <category term="三角函数" scheme="https://wangjiezhe.github.io/tags/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
   <entry>
     <title>柯西不等式的若干证明方法</title>
-    <link href="https://wangjiezhe.com/posts/2021-03-23-Proof-of-Cauchy-inequality/"/>
-    <id>https://wangjiezhe.com/posts/2021-03-23-Proof-of-Cauchy-inequality/</id>
+    <link href="https://wangjiezhe.github.io/posts/2021-03-23-Proof-of-Cauchy-inequality/"/>
+    <id>https://wangjiezhe.github.io/posts/2021-03-23-Proof-of-Cauchy-inequality/</id>
     <published>2021-03-23T02:24:14.000Z</published>
     <updated>2021-03-23T02:24:14.000Z</updated>
     
@@ -344,19 +344,19 @@
     
     
     
-    <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
     
     
-    <category term="不等式" scheme="https://wangjiezhe.com/tags/%E4%B8%8D%E7%AD%89%E5%BC%8F/"/>
+    <category term="不等式" scheme="https://wangjiezhe.github.io/tags/%E4%B8%8D%E7%AD%89%E5%BC%8F/"/>
     
-    <category term="柯西" scheme="https://wangjiezhe.com/tags/%E6%9F%AF%E8%A5%BF/"/>
+    <category term="柯西" scheme="https://wangjiezhe.github.io/tags/%E6%9F%AF%E8%A5%BF/"/>
     
   </entry>
   
   <entry>
     <title>坐标系中三角形的面积公式</title>
-    <link href="https://wangjiezhe.com/posts/2021-03-20-Square-of-triangle/"/>
-    <id>https://wangjiezhe.com/posts/2021-03-20-Square-of-triangle/</id>
+    <link href="https://wangjiezhe.github.io/posts/2021-03-20-Square-of-triangle/"/>
+    <id>https://wangjiezhe.github.io/posts/2021-03-20-Square-of-triangle/</id>
     <published>2021-03-20T07:17:24.000Z</published>
     <updated>2021-03-21T15:08:24.000Z</updated>
     
@@ -374,23 +374,23 @@ x_2 &amp;amp; y_2
     
     
     
-    <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="向量" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/%E5%90%91%E9%87%8F/"/>
+    <category term="向量" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%90%91%E9%87%8F/"/>
     
     
-    <category term="平面向量" scheme="https://wangjiezhe.com/tags/%E5%B9%B3%E9%9D%A2%E5%90%91%E9%87%8F/"/>
+    <category term="平面向量" scheme="https://wangjiezhe.github.io/tags/%E5%B9%B3%E9%9D%A2%E5%90%91%E9%87%8F/"/>
     
-    <category term="三角形" scheme="https://wangjiezhe.com/tags/%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
+    <category term="三角形" scheme="https://wangjiezhe.github.io/tags/%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
     
-    <category term="面积" scheme="https://wangjiezhe.com/tags/%E9%9D%A2%E7%A7%AF/"/>
+    <category term="面积" scheme="https://wangjiezhe.github.io/tags/%E9%9D%A2%E7%A7%AF/"/>
     
   </entry>
   
   <entry>
     <title>奔驰定理与重心坐标</title>
-    <link href="https://wangjiezhe.com/posts/2021-03-12-Barycentric-coordinate-system/"/>
-    <id>https://wangjiezhe.com/posts/2021-03-12-Barycentric-coordinate-system/</id>
+    <link href="https://wangjiezhe.github.io/posts/2021-03-12-Barycentric-coordinate-system/"/>
+    <id>https://wangjiezhe.github.io/posts/2021-03-12-Barycentric-coordinate-system/</id>
     <published>2021-03-12T03:08:14.000Z</published>
     <updated>2021-03-12T03:08:14.000Z</updated>
     
@@ -401,23 +401,23 @@ x_2 &amp;amp; y_2
     
     
     
-    <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="向量" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/%E5%90%91%E9%87%8F/"/>
+    <category term="向量" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%90%91%E9%87%8F/"/>
     
     
-    <category term="平面向量" scheme="https://wangjiezhe.com/tags/%E5%B9%B3%E9%9D%A2%E5%90%91%E9%87%8F/"/>
+    <category term="平面向量" scheme="https://wangjiezhe.github.io/tags/%E5%B9%B3%E9%9D%A2%E5%90%91%E9%87%8F/"/>
     
-    <category term="奔驰定理" scheme="https://wangjiezhe.com/tags/%E5%A5%94%E9%A9%B0%E5%AE%9A%E7%90%86/"/>
+    <category term="奔驰定理" scheme="https://wangjiezhe.github.io/tags/%E5%A5%94%E9%A9%B0%E5%AE%9A%E7%90%86/"/>
     
-    <category term="重心坐标" scheme="https://wangjiezhe.com/tags/%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87/"/>
+    <category term="重心坐标" scheme="https://wangjiezhe.github.io/tags/%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87/"/>
     
   </entry>
   
   <entry>
     <title>立直麻将的相关资料整理</title>
-    <link href="https://wangjiezhe.com/posts/2020-08-02-Riichi-mahjong-resources/"/>
-    <id>https://wangjiezhe.com/posts/2020-08-02-Riichi-mahjong-resources/</id>
+    <link href="https://wangjiezhe.github.io/posts/2020-08-02-Riichi-mahjong-resources/"/>
+    <id>https://wangjiezhe.github.io/posts/2020-08-02-Riichi-mahjong-resources/</id>
     <published>2020-08-02T14:41:53.000Z</published>
     <updated>2023-03-27T08:21:59.000Z</updated>
     
@@ -428,19 +428,19 @@ x_2 &amp;amp; y_2
     
     
     
-    <category term="立直麻将" scheme="https://wangjiezhe.com/categories/%E7%AB%8B%E7%9B%B4%E9%BA%BB%E5%B0%86/"/>
+    <category term="立直麻将" scheme="https://wangjiezhe.github.io/categories/%E7%AB%8B%E7%9B%B4%E9%BA%BB%E5%B0%86/"/>
     
     
-    <category term="天凤" scheme="https://wangjiezhe.com/tags/%E5%A4%A9%E5%87%A4/"/>
+    <category term="天凤" scheme="https://wangjiezhe.github.io/tags/%E5%A4%A9%E5%87%A4/"/>
     
-    <category term="雀魂" scheme="https://wangjiezhe.com/tags/%E9%9B%80%E9%AD%82/"/>
+    <category term="雀魂" scheme="https://wangjiezhe.github.io/tags/%E9%9B%80%E9%AD%82/"/>
     
   </entry>
   
   <entry>
     <title>欧拉计划（Project Euler）解法【1~25】</title>
-    <link href="https://wangjiezhe.com/posts/2020-07-06-Project-Euler-1/"/>
-    <id>https://wangjiezhe.com/posts/2020-07-06-Project-Euler-1/</id>
+    <link href="https://wangjiezhe.github.io/posts/2020-07-06-Project-Euler-1/"/>
+    <id>https://wangjiezhe.github.io/posts/2020-07-06-Project-Euler-1/</id>
     <published>2020-07-06T09:50:15.000Z</published>
     <updated>2020-07-29T09:50:15.000Z</updated>
     
@@ -451,21 +451,21 @@ x_2 &amp;amp; y_2
     
     
     
-    <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="算法" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Mathematica" scheme="https://wangjiezhe.com/tags/Mathematica/"/>
+    <category term="Mathematica" scheme="https://wangjiezhe.github.io/tags/Mathematica/"/>
     
-    <category term="算法" scheme="https://wangjiezhe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://wangjiezhe.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Mathematica 中特殊符号的使用规则</title>
-    <link href="https://wangjiezhe.com/posts/2020-07-05-Mathematica-funny-signs/"/>
-    <id>https://wangjiezhe.com/posts/2020-07-05-Mathematica-funny-signs/</id>
+    <link href="https://wangjiezhe.github.io/posts/2020-07-05-Mathematica-funny-signs/"/>
+    <id>https://wangjiezhe.github.io/posts/2020-07-05-Mathematica-funny-signs/</id>
     <published>2020-07-05T13:06:35.000Z</published>
     <updated>2021-10-14T07:59:35.000Z</updated>
     
@@ -477,19 +477,19 @@ x_2 &amp;amp; y_2
     
     
     
-    <category term="数学" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="软件" scheme="https://wangjiezhe.com/categories/%E6%95%B0%E5%AD%A6/%E8%BD%AF%E4%BB%B6/"/>
+    <category term="软件" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E8%BD%AF%E4%BB%B6/"/>
     
     
-    <category term="Mathematica" scheme="https://wangjiezhe.com/tags/Mathematica/"/>
+    <category term="Mathematica" scheme="https://wangjiezhe.github.io/tags/Mathematica/"/>
     
   </entry>
   
   <entry>
     <title>常用 tkz-euclide 命令（二）——直线形的定义方法</title>
-    <link href="https://wangjiezhe.com/posts/2020-07-04-tkz-euclide-2/"/>
-    <id>https://wangjiezhe.com/posts/2020-07-04-tkz-euclide-2/</id>
+    <link href="https://wangjiezhe.github.io/posts/2020-07-04-tkz-euclide-2/"/>
+    <id>https://wangjiezhe.github.io/posts/2020-07-04-tkz-euclide-2/</id>
     <published>2020-07-04T09:44:49.000Z</published>
     <updated>2022-04-19T10:04:51.000Z</updated>
     
@@ -500,21 +500,21 @@ x_2 &amp;amp; y_2
     
     
     
-    <category term="LaTeX" scheme="https://wangjiezhe.com/categories/LaTeX/"/>
+    <category term="LaTeX" scheme="https://wangjiezhe.github.io/categories/LaTeX/"/>
     
     
-    <category term="LaTeX" scheme="https://wangjiezhe.com/tags/LaTeX/"/>
+    <category term="LaTeX" scheme="https://wangjiezhe.github.io/tags/LaTeX/"/>
     
-    <category term="TikZ" scheme="https://wangjiezhe.com/tags/TikZ/"/>
+    <category term="TikZ" scheme="https://wangjiezhe.github.io/tags/TikZ/"/>
     
-    <category term="画图" scheme="https://wangjiezhe.com/tags/%E7%94%BB%E5%9B%BE/"/>
+    <category term="画图" scheme="https://wangjiezhe.github.io/tags/%E7%94%BB%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>Notability 与 GoodNotes 在网课教学中的对比（2020版）</title>
-    <link href="https://wangjiezhe.com/posts/2020-06-22-Notability-vs-GoodNotes/"/>
-    <id>https://wangjiezhe.com/posts/2020-06-22-Notability-vs-GoodNotes/</id>
+    <link href="https://wangjiezhe.github.io/posts/2020-06-22-Notability-vs-GoodNotes/"/>
+    <id>https://wangjiezhe.github.io/posts/2020-06-22-Notability-vs-GoodNotes/</id>
     <published>2020-06-29T10:08:15.000Z</published>
     <updated>2021-11-03T07:26:50.000Z</updated>
     
@@ -525,22 +525,22 @@ x_2 &amp;amp; y_2
     
     
     
-    <category term="工作" scheme="https://wangjiezhe.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+    <category term="工作" scheme="https://wangjiezhe.github.io/categories/%E5%B7%A5%E4%BD%9C/"/>
     
     
-    <category term="iPad" scheme="https://wangjiezhe.com/tags/iPad/"/>
+    <category term="iPad" scheme="https://wangjiezhe.github.io/tags/iPad/"/>
     
-    <category term="Notability" scheme="https://wangjiezhe.com/tags/Notability/"/>
+    <category term="Notability" scheme="https://wangjiezhe.github.io/tags/Notability/"/>
     
-    <category term="GoodNotes" scheme="https://wangjiezhe.com/tags/GoodNotes/"/>
+    <category term="GoodNotes" scheme="https://wangjiezhe.github.io/tags/GoodNotes/"/>
     
-    <category term="笔记软件" scheme="https://wangjiezhe.com/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"/>
+    <category term="笔记软件" scheme="https://wangjiezhe.github.io/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"/>
     
-    <category term="新冠" scheme="https://wangjiezhe.com/tags/%E6%96%B0%E5%86%A0/"/>
+    <category term="新冠" scheme="https://wangjiezhe.github.io/tags/%E6%96%B0%E5%86%A0/"/>
     
-    <category term="网课" scheme="https://wangjiezhe.com/tags/%E7%BD%91%E8%AF%BE/"/>
+    <category term="网课" scheme="https://wangjiezhe.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
     
-    <category term="ClassIn" scheme="https://wangjiezhe.com/tags/ClassIn/"/>
+    <category term="ClassIn" scheme="https://wangjiezhe.github.io/tags/ClassIn/"/>
     
   </entry>
   
