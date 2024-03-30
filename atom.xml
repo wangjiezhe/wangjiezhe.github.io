@@ -6,7 +6,7 @@
   <link href="https://wangjiezhe.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjiezhe.github.io/"/>
-  <updated>2023-03-27T10:43:53.000Z</updated>
+  <updated>2024-03-30T13:05:45.000Z</updated>
   <id>https://wangjiezhe.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>修复 Giscus 与 Pjax 不兼容的问题</title>
+    <link href="https://wangjiezhe.github.io/posts/2024-03-30-Fix-Giscus-with-Pjax/"/>
+    <id>https://wangjiezhe.github.io/posts/2024-03-30-Fix-Giscus-with-Pjax/</id>
+    <published>2024-03-30T13:05:45.000Z</published>
+    <updated>2024-03-30T13:05:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="历史"><a class="header-anchor" href="#历史"></a>历史</h2><p>在18年那次博客<a href="/posts/2018-10-29-Hexo-NexT-3/">大改</a>中，因为Disqus无法使用，我把评论系统切换成了基于GitHub Issue的utterances。 但是，它最大的问题在于和Pjax无法兼容。在开启Pjax之后，当我们点进下一个网页的时候，显示的依然是上一个页面对应的评论。因此，当我发现<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLnNray5tb2UvcG9zdC9kaXNxdXNqcy8=">DisqusJS<i class="fa fa-external-link-alt"></i></span>支持自建之后，就切换成了DisqusJS，一直沿用至今。</p><p>但是，由于Disqus不支持Markdown和MathJax，所以我其实一直希望能够切换回来。NexT曾<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC83ZTQ5ODk1NDcwNWI5ZTk1NGMyYWY0YjI4NGNjNjlkNWU2NjM0MWEy">宣称<i class="fa fa-external-link-alt"></i></span>解决了Pjax的兼容性问题，但是我当时实际测试之后发现还是不行。</p><p>而且令人奇怪的是，utterance和其它评论系统引入的方式是完全一样的，但就是它和gitalk不能支持Pjax，其它的都没有问题。乃至于后来许多文章在对比NexT的几个评论系统的时候，就直接将Utterances说成无法支持Pjax。</p><p>在Github Discussion出现之后，又诞生了基于discussion的giscus。结果我试了之后，还是同样的问题，切换页面后评论不变。这个<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by1uZXh0LWdpc2N1cy9pc3N1ZXMvMg==">问题<i class="fa fa-external-link-alt"></i></span>从21年一直拖到23年，NexT的插件终于宣称支持了Pjax。但是我实测之后发现，表现和原来是一摸一样的。😢</p><h2 id="曙光"><a class="header-anchor" href="#曙光"></a>曙光</h2><p>直到最近，我无意中搜到了<span class="exturl" data-url="aHR0cHM6Ly93d3cuZGFsYW8ubmV0L3RocmVhZC0xNzI3OC5odG0=">这篇文章<i class="fa fa-external-link-alt"></i></span>，里面提到了通过搜索关键字 <code>new Pjax(&#123;</code> 找到出问题的地方。于是我也试着在NexT主题中尝试寻找，终于发现了问题所在。</p><p>在 <a href="https://github.com/next-theme/hexo-theme-next/blob/v8.19.2/source/js/pjax.js"><code>source/js/pjax.js</code></a> 中，定义了Pjax需要刷新的内容，其中就包括了加载评论的部分。这个时候我突然意识到，giscus确实在新的页面刷新了，但是我设置的是通过 <code>og:title</code> 来对应文章和评论，而在新的页面中， <code>og:title</code> 并没有更新！​​</p><p>这也就解释了为什么插件宣称支持Pjax而我实测不行了。因为插件默认通过文章的链接路径来对应文章和评论，因此在进入新的页面之后，链接自动刷新，评论就能够正常加载了。另外如果通过 <code>title</code> 来对应也没有问题，因为 <code>&lt;title&gt;</code> 会被<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2Jsb2IvdjguMTkuMi9zb3VyY2UvanMvcGpheC5qcyNMNQ==">Pjax<i class="fa fa-external-link-alt"></i></span>刷新。而唯独我是用的 <code>og:title</code> 这个方法不行。😠</p><h2 id="终章"><a class="header-anchor" href="#终章"></a>终章</h2><p>找到了问题所在，解决方法也就很简单了，只需要在 <code>pjax.js</code> 中<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8zNzEzMjQ1ZTAwNzBlODQ2ZGVlMDk1OTlkNDFiNzNkMjNhNzE4YmQ0">加一行<i class="fa fa-external-link-alt"></i></span>，把 <code>og:title</code> 也刷新就可以了~😅</p>]]></content>
+    
+    
+    <summary type="html">5年了，终于找到了Utterances/Giscus和Pjax不兼容的原因。</summary>
+    
+    
+    
+    <category term="博客" scheme="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="主题" scheme="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/"/>
+    
+    
+    <category term="Hexo" scheme="https://wangjiezhe.github.io/tags/Hexo/"/>
+    
+    <category term="NexT" scheme="https://wangjiezhe.github.io/tags/NexT/"/>
+    
+  </entry>
   
   <entry>
     <title>何切301练习 001~030</title>
@@ -512,39 +537,6 @@ c-10,0,-16.667,5,-20,15z M188 15 H145 v585 v1200 v585 h43z&#39;/&gt;&lt;/svg&gt;
     <category term="TikZ" scheme="https://wangjiezhe.github.io/tags/TikZ/"/>
     
     <category term="画图" scheme="https://wangjiezhe.github.io/tags/%E7%94%BB%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notability 与 GoodNotes 在网课教学中的对比（2020版）</title>
-    <link href="https://wangjiezhe.github.io/posts/2020-06-22-Notability-vs-GoodNotes/"/>
-    <id>https://wangjiezhe.github.io/posts/2020-06-22-Notability-vs-GoodNotes/</id>
-    <published>2020-06-29T10:08:15.000Z</published>
-    <updated>2021-11-03T07:26:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<div class="note primary"><p>2021年11月2日更新：<br />Notability 转为订阅制，每年80元，老用户仅获赠一年订阅期。<br />看来以后新的笔记，都要使用 GoodNotes 了。</p><p>2021年11月3日更新：<br />一天之后，Notability 顶不出压力了，改为承诺老用户已购买的功能始终可用。</p></div><p>由于新冠疫情的原因，从寒假后半段、到整个春季，以及预计暑假所有的课程，都采取线上教学的模式。</p><p>由于我已经有了 iPad Pro，因此我直接使用苹果投屏来代替手写板，进行网上教学。</p><p>对比教学软件（ClassIn）所提供的黑板，iPad 上的软件所提供的手写功能更好用，也可以直接在讲义或者 PPT上进行书写，比直接在软件里写要舒服得多。</p><p>当然，投屏不是没有限制。由于长宽比的原因，投屏的时候，投屏无法占满教学窗口的所有内容，两边会有很大的黑框，造成了很大的浪费。</p><p>这带来的一个后果就是，如果要把题目做成 PPT 的形式（我一般是使用 PDF 格式，因为不需要做动画），需要设计好纸张尺寸的大小。</p><p>经过多次试验，在 Word 中，把纸张大小设为 18cm×10cm，页边距上下各 0.2cm，左右各 0.5cm，这样直接把讲义里的题目复制进去（5号字），再转换成 PDF，大小是比较合适的。</p><p>每页一道题，在可以保证学生看得清楚题目的同时，也有足够的空间来写板书。</p><p>在选择笔记软件的时候，我同时试用了两款经典的笔记软件：Notability 和 GoodNotes。（也因为我只买了这两个软件。）这两个软件有各自独特的优点，也有各自的痛点。</p><div class="note primary"><p>我这里只考虑在网课教学这一个用途下的对比，因此一些强大但是无用的功能（比如录音）在这里不做考虑。</p></div><div class="note danger"><p>注意：两款软件都在不断更新，并且不断添加新的功能，因此后面所说的可能与您现在所用到的功能并不完全相同。请注意本文的更新日期。</p><p>例如，就在我使用它们上课的这几个月间，Notability 添加了投屏区域和激光笔功能，导致我从完全使用 GoodNotes 转换到目前以使用 Notability 为主。（毕竟从一开始，我就是 Notability 党）</p></div><h2 id="1-作为一个投屏教学的笔记软件的必要条件"><a class="header-anchor" href="#1-作为一个投屏教学的笔记软件的必要条件"></a>1. 作为一个投屏教学的笔记软件的必要条件</h2><ul><li>支持投屏区域功能，即只投屏指定区域，而不是整个屏幕，保证 iPad 上弹出的消息不会被投上去</li><li>支持激光笔功能，并且支持暂时保留激光笔的书写痕迹</li><li>支持画直线的功能（几何教学必备）</li><li>防误触功能</li></ul><h2 id="2-两个笔记本软件目前都支持的功能"><a class="header-anchor" href="#2-两个笔记本软件目前都支持的功能"></a>2. 两个笔记本软件目前都支持的功能</h2><ul><li>都支持投屏区域和激光笔功能</li><li>都支持连续翻页模式和单页模式</li><li>都支持双击切换橡皮</li><li>橡皮工具都支持全部擦除和部分擦除</li><li>都支持分屏功能，而且可以选择投哪一个（不同的是 GoodNotes 是 iPad 的窗口分屏，因此两个窗口使用不同的工具栏，而 Notability 是软件内部的分屏，使用同一个工具栏）</li><li>都支持 iCloud 同步</li></ul><h2 id="3-GoodNotes-的优势"><a class="header-anchor" href="#3-GoodNotes-的优势"></a>3. GoodNotes 的优势</h2><ul><li>👍多层文件夹管理，可以按照「课件-学期-课程-讲义」的层级结构来组织存放讲义，便于寻找</li><li>支持批量管理页面</li><li>可以直接导出当前页，不需要额外进行选择</li><li>👍👍👍可以直接使用当前模板添加新的页面。对于导入的 PDF 文件来说，就是直接复制当前页作为新页，但不包含书写笔记。还可以预先导入模板（设计好大小的空白页），在添加页面的时候可以直接选择</li><li><s>颜色切换方便，可以预设三个常用颜色直接显示在工具栏，使用时直接点击即可</s> <mark class="label ">【Notability 10.0 已支持类似功能，且可以预设的数量更多】</mark></li><li>激光笔工具在关闭投屏的情况下依然可以使用</li><li>橡皮工具支持仅擦除荧光笔痕迹</li><li>👍👍页面支持不保持缩放的功能，即在 iPad 上缩放页面的时候，投屏界面始终保持整个界面保持不变</li><li>激光笔的样式仿真性更强，更好看</li><li>支持标签页功能，方便切换文件</li><li>撤销、恢复有两个按钮，使用比较方便</li></ul><h2 id="4-GoodNotes-的痛点"><a class="header-anchor" href="#4-GoodNotes-的痛点"></a>4. GoodNotes 的痛点</h2><ul><li><s>👎👎画直线和其它规则图形，需要切换到专门的工具才可以。而且轨迹是画完后自动校正，无法提前预览，因此精确度较难把握</s> <mark class="label "> 最新的 GoodNotes 更新中加入了类似 Notability 中长按自动识别形状的选项</mark></li><li><s>👎👎👎直线画不直，经常自动校正成为折线，特别是在画相对较短的线段的时候。画长线段的时候反而会好一点。（技巧：开启不显示页面缩放的功能，然后把页面放大，再画直线）</s></li><li><s>👎👎👎当绘制倾斜程度很小或者很大的直线的时候，会被自动校正为水平或者竖直的直线，导致根本无法画出正确的直线</s> <mark class="label "> 可以画完之后自由调整端点</mark></li><li>只能复制书写笔记，不能复制原文件的内容，只能通过截图再导入实现，比较麻烦</li></ul><h2 id="5-Notability-的优势"><a class="header-anchor" href="#5-Notability-的优势"></a>5. Notability 的优势</h2><ul><li>👍👍👍支持自动拉直和图形检测，即绘制完成之后，继续长按，可以自动转化为直线或者其它图形，并且可以调整和实时预览，还会自动弹出放大镜，方便精确控制绘制点</li><li>👍👍👍绘制完成的线段可以自由调整两个端点，且长按会有放大镜</li><li>👍👍👍支持虚线和圆点虚线 <mark class="label ">【Notability 10.0 新加入的功能】</mark></li><li>可以从左侧边缘向内划出近期笔记，方便切换，也可以直接分屏，并且不会影响当前投屏的文件</li><li>套索工具长按，会自动转换为矩形套索</li><li>复制笔记较为方便，可以选择先拷贝、再粘贴，如果就在同一页上的话，可以直接选择复制，然后移动到相应的位置。</li><li>👍粘贴的时候，可以选择「粘贴」或者「粘贴图像」，前者粘贴笔记，后者粘贴截图</li><li>支持导出到 WebDAV，结合坚果云可以自动导入到电脑中</li><li>👍支持对每一个文件单独设置单页模式或者滚动模式</li><li>调整窗口大小的时候，页面宽度会自动调整</li><li>连续滚动时的流畅程度更高（主观感觉）</li></ul><h2 id="6-Notability-的痛点"><a class="header-anchor" href="#6-Notability-的痛点"></a>6. Notability 的痛点</h2><ul><li>文件管理只支持两个层级</li><li>👎👎👎新消息弹出的时候，会阻挡工具栏，如果恰好在选择工具的时候点击到弹出的消息，可能会造成教学事故……</li><li><s>👎👎👎新添加的页面默认是 A4 纸的大小，如果要使用模板的画只能先退出当前文件，然后打开模板文件，复制页面，再回来粘贴，非常麻烦</s> 能够直接插入空白页目前就够用了</li><li><s>👎👎👎想要复制当前页面，需要打开右边页面窗口，点击当前页面，选择拷贝；再点击当前页面，选择粘贴；再点击下一张复制好的页面，选择清除页面，这样成功复制了当前的页面，非常麻烦</s> <mark class="label "> Notability 新增了复制背景的功能</mark></li><li>书写的时候，手掌可能会误造成页面的移动或者缩放</li><li><s>👎书写的时候，手掌可能会误差右下角的页面选择按钮和放大按钮</s> <mark class="label "> 可以在 `设置-手写` 手动关闭 `缩放功能`</mark></li><li>不支持批量删除页面</li><li>导出时须每次手动取消自动添加的最后一页</li></ul><h2 id="7-我的经验"><a class="header-anchor" href="#7-我的经验"></a>7. 我的经验</h2><p>在最开始上课的时候，由于 Notability 还不支持投屏区域功能，因此只能使用 GoodNotes，恰巧这个时候有好几个班都在讲几何，因此体会最深的就是每次画辅助线的时候都要切换工具，画完之后还要切换回来，非常麻烦。而且它的自动校正并不准确，而且在画完之后不支持调整，导致一条线有时需要画好几遍才能画得比较准确。</p><p>因此在暑假开课的时候，我终于可以切换到了 Notability，但是也带了各种不方便，上面列举的所有痛点，都是我在讲课的时候遇到的。这里面影响最大的就是添加同类型页面非常麻烦。因为几何题目的过程较长，一页的板书写不下，所以我得提前复制好新的页面，否则在讲解题目的时候再复制，就会非常影响讲课的节奏。（但我又经常忘了。。。）</p><p>不得不说，习惯了 GoodNotes 添加页面的快捷之后，再回到 Notability，我到现在都没法适应。</p><div class="note danger"><p>上面说的「比较麻烦」和「非常麻烦」，都是已经到了影响教学节奏的程度。</p><p>当我的学生看到我讲题的中间突然停止了一下，基本上就是出了这些问题。</p></div><p>而讲代数部分的话，两者区别不大，唯一 Notability 比 GoodNotes 强的地方大概就是可以画比较直的长分数线吧。</p><p>关于颜色切换部分，我补充一点。如果仅仅使用 3 个颜色就够的话，GoodNotes 的切换方式要快的多；但是，如果使用的颜色更多的话，反而是 Notability 的切换方式更加顺畅。在讲比较复杂的几何题的时候，这点体现得尤为明显。</p><p>因此，仅从书写体验来看，Notability 要比 GoodNotes 强太多，特别是讲几何题的时候。</p><p>而从综合体验上来看，则是 GoodNotes 完胜。</p><h2 id="8-我的选择"><a class="header-anchor" href="#8-我的选择"></a>8. 我的选择</h2><p><s>只要有几何内容，那么一定使用 Notability。</s> 讲初中几何的话还是用 GoodNotes 比较方便。</p><p>如果只讲代数内容，那就看当时的心情吧。不过我更喜欢 Notability 里面书写的感觉，因此继续用 Notability 的几率会更大一点吧。</p>]]></content>
-    
-    
-    <summary type="html">对比两款软件在网课教学中的优缺点</summary>
-    
-    
-    
-    <category term="工作" scheme="https://wangjiezhe.github.io/categories/%E5%B7%A5%E4%BD%9C/"/>
-    
-    
-    <category term="iPad" scheme="https://wangjiezhe.github.io/tags/iPad/"/>
-    
-    <category term="Notability" scheme="https://wangjiezhe.github.io/tags/Notability/"/>
-    
-    <category term="GoodNotes" scheme="https://wangjiezhe.github.io/tags/GoodNotes/"/>
-    
-    <category term="笔记软件" scheme="https://wangjiezhe.github.io/tags/%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6/"/>
-    
-    <category term="新冠" scheme="https://wangjiezhe.github.io/tags/%E6%96%B0%E5%86%A0/"/>
-    
-    <category term="网课" scheme="https://wangjiezhe.github.io/tags/%E7%BD%91%E8%AF%BE/"/>
-    
-    <category term="ClassIn" scheme="https://wangjiezhe.github.io/tags/ClassIn/"/>
     
   </entry>
   
