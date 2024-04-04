@@ -622,7 +622,7 @@
 <p>在 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/next-theme/hexo-theme-next/blob/v8.19.2/source/js/pjax.js"><code>source/js/pjax.js</code></a> 中，定义了Pjax需要刷新的内容，其中就包括了加载评论的部分。这个时候我突然意识到，giscus确实在新的页面刷新了，但是我设置的是通过 <code>og:title</code> 来对应文章和评论，而在新的页面中， <code>og:title</code> 并没有更新！​​</p>
 <p>这也就解释了为什么插件宣称支持Pjax而我实测不行了。因为插件默认通过文章的链接路径来对应文章和评论，因此在进入新的页面之后，链接自动刷新，评论就能够正常加载了。另外如果通过 <code>title</code> 来对应也没有问题，因为 <code>&lt;title&gt;</code> 会被<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2Jsb2IvdjguMTkuMi9zb3VyY2UvanMvcGpheC5qcyNMNQ==">Pjax<i class="fa fa-external-link-alt"></i></span>刷新。而唯独我是用的 <code>og:title</code> 这个方法不行。😠</p>
 <h2 id="终章"><a class="header-anchor" href="#终章"></a>终章</h2>
-<p>找到了问题所在，解决方法也就很简单了，只需要在 <code>pjax.js</code> 中<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8zNzEzMjQ1ZTAwNzBlODQ2ZGVlMDk1OTlkNDFiNzNkMjNhNzE4YmQ0">加一行<i class="fa fa-external-link-alt"></i></span>，把 <code>og:title</code> 也刷新就可以了~😅</p>
+<p>找到了问题所在，解决方法也就很简单了，只需要在 <code>pjax.js</code> 中<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvNzc5L2ZpbGVz">加一行<i class="fa fa-external-link-alt"></i></span>，把 <code>og:title</code> 也刷新就可以了~😅</p>
 
     </div>
 
