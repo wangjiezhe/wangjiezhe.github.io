@@ -2359,51 +2359,6 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
-    <title>Windows 常用指令</title>
-    <url>//posts/2020-05-12-Windows-commands/</url>
-    <content><![CDATA[<h2 id="1-直接运行"><a class="header-anchor" href="#1-直接运行"></a>1. 直接运行</h2>
-<ul>
-<li>winver: 关于 Windows</li>
-<li>msinfo32：系统信息</li>
-<li>msconfig: 系统配置实用程序</li>
-<li>control: 控制面版</li>
-<li>regedit: 注册表</li>
-<li>perfmon：计算机性能监测器</li>
-<li>dxdiag：检查 DirectX 信息</li>
-<li>explorer：资源管理器 <code>Win+E</code></li>
-<li>taskmgr: 任务管理器 <code>Win+X T</code></li>
-<li>powershell: Windows PowerShell <code>Win+X I</code></li>
-<li>mspaint：画图</li>
-<li>notepad：记事本</li>
-</ul>
-<h2 id="2-管理控制台"><a class="header-anchor" href="#2-管理控制台"></a>2. 管理控制台</h2>
-<ul>
-<li>services.msc: 服务</li>
-<li>gpedit.msc: 组策略</li>
-<li>wf.msc: 高级安全 Windows Defender 防火墙</li>
-<li>compmgmt.msc：计算机管理</li>
-<li>diskmgmt.msc：磁盘管理 <code>Win+X K</code></li>
-<li>secpol.msc：本地安全策略</li>
-</ul>
-<h2 id="3-控制面板"><a class="header-anchor" href="#3-控制面板"></a>3. 控制面板</h2>
-<ul>
-<li>hdwwiz.cpl：设备管理器 <code>Win+X M</code></li>
-<li>appwiz.cpl: 程序和功能（卸载）</li>
-<li>firewall.cpl: Windows Defender 防火墙</li>
-<li>main.cpl：鼠标属性</li>
-<li>mmsys.cpl：声音</li>
-<li>ncpa.cpl：网络连接（适配器）</li>
-<li>powercfg.cpl：电源选项 <code>Win+X O</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>命令行</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>记录重装系统时遇到的坑</title>
     <url>//posts/2020-05-01-Reinstall-Windows/</url>
     <content><![CDATA[<p>由于之前的电脑 8G 的内存已经明显不够了。比如 chrome 开10+个网页，wsl2 一直开着或者更新了大软件（比如 texlive-fontextra），VSCode 打开一个大项目，都会造成内存告急。如果有两种情况同时出现的话，基本上直接崩溃了。chrome 的话崩溃了还好，再打开就可以了。wsl2 一但崩溃，特别是在 pacman 更新的时候，直接导致更新的数据库崩溃，还都手动修复。</p>
@@ -2484,6 +2439,51 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       <tags>
         <tag>MathType</tag>
         <tag>显卡</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows 常用指令</title>
+    <url>//posts/2020-05-12-Windows-commands/</url>
+    <content><![CDATA[<h2 id="1-直接运行"><a class="header-anchor" href="#1-直接运行"></a>1. 直接运行</h2>
+<ul>
+<li>winver: 关于 Windows</li>
+<li>msinfo32：系统信息</li>
+<li>msconfig: 系统配置实用程序</li>
+<li>control: 控制面版</li>
+<li>regedit: 注册表</li>
+<li>perfmon：计算机性能监测器</li>
+<li>dxdiag：检查 DirectX 信息</li>
+<li>explorer：资源管理器 <code>Win+E</code></li>
+<li>taskmgr: 任务管理器 <code>Win+X T</code></li>
+<li>powershell: Windows PowerShell <code>Win+X I</code></li>
+<li>mspaint：画图</li>
+<li>notepad：记事本</li>
+</ul>
+<h2 id="2-管理控制台"><a class="header-anchor" href="#2-管理控制台"></a>2. 管理控制台</h2>
+<ul>
+<li>services.msc: 服务</li>
+<li>gpedit.msc: 组策略</li>
+<li>wf.msc: 高级安全 Windows Defender 防火墙</li>
+<li>compmgmt.msc：计算机管理</li>
+<li>diskmgmt.msc：磁盘管理 <code>Win+X K</code></li>
+<li>secpol.msc：本地安全策略</li>
+</ul>
+<h2 id="3-控制面板"><a class="header-anchor" href="#3-控制面板"></a>3. 控制面板</h2>
+<ul>
+<li>hdwwiz.cpl：设备管理器 <code>Win+X M</code></li>
+<li>appwiz.cpl: 程序和功能（卸载）</li>
+<li>firewall.cpl: Windows Defender 防火墙</li>
+<li>main.cpl：鼠标属性</li>
+<li>mmsys.cpl：声音</li>
+<li>ncpa.cpl：网络连接（适配器）</li>
+<li>powercfg.cpl：电源选项 <code>Win+X O</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>命令行</tag>
       </tags>
   </entry>
   <entry>
