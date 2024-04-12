@@ -40,21 +40,14 @@ firebase.initializeApp({
         // Mark as visited
         localStorage.setItem(title, true);
       }
-      getCount(doc, increaseCount).then(count => {
-        document.querySelector('.firestore-visitors-count').innerText = count;
-      });
+      getCount(doc, increaseCount);
     } else if (CONFIG.page.isHome) {
       const promises = [...document.querySelectorAll('.post-title')].map(element => {
         const title = element.textContent.trim();
         const doc = articles.doc(title);
         return getCount(doc);
       });
-      Promise.all(promises).then(counts => {
-        const metas = document.querySelectorAll('.firestore-visitors-count');
-        counts.forEach((val, idx) => {
-          metas[idx].innerText = val;
-        });
-      });
+      Promise.all(promises);
     }
   });
 })();
