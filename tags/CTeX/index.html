@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-flash.css">
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.19.2","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.19.2","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="某不知名机构不知名数学老师">
 <meta property="og:type" content="website">
@@ -674,6 +674,29 @@ checkWebp(showImage);
   <script src="https://cdn.jsdelivr.net/npm/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://wangjiezhe.github.io/tags/CTeX/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="discussbot" type="application/json">{"enable":true,"site_id":"DTO-cxcp","number":5,"color":"3DA0F0","colorful":1,"dark":1,"dislikes":1,"outlined":1}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.discussbot-container')
+    .then(() => NexT.utils.getScript('https://comments.app/js/widget.js?3', {
+      attributes: {
+        async                      : true,
+        crossOrigin                : 'anonymous',
+        'data-comments-app-website': CONFIG.discussbot.site_id,
+        'data-limit'               : CONFIG.discussbot.number,
+        'data-color'               : CONFIG.discussbot.color,
+        'data-colorful'            : CONFIG.discussbot.colorful,
+        'data-dark'                : CONFIG.discussbot.dark,
+        'dislikes'                 : CONFIG.discussbot.dislikes,
+        'outlined'                 : CONFIG.discussbot.outlined
+      },
+      parentNode: document.querySelector('.discussbot-container')
+    }));
+});
+</script>
 <script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"wangjiezhe/wangjiezhe.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxNTc4OTE0Ng==","category":"Announcements","category_id":"DIC_kwDOAPDsWs4Cdwtf","mapping":"og:title","strict":1,"reactions_enabled":1,"emit_metadata":1,"theme":"preferred_color_scheme","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
 
 <script>
