@@ -762,15 +762,18 @@
 <div class="blog-links">
     <span class="post-meta-item moe">
       <span>
-        <img src="/images/icp-moe.png" style="width:auto;height:16px;" alt="">
+        <img class="nowebp" src="https://icp.gov.moe/images/ico64.png" style="width:auto;height:16px;" alt="">
       </span>
       <span><span class="exturl" data-url="aHR0cHM6Ly9pY3AuZ292Lm1vZS8/a2V5d29yZD0yMDI0ODE5MQ==">萌ICP备20248191号</span>
       </span>
     </span>
-    <span class="post-meta-item foreverblog"><span class="exturl" data-url="aHR0cHM6Ly93d3cuZm9yZXZlcmJsb2cuY24vYmxvZy8yMDkyLmh0bWw="><img src="/images/foreverblog.png" style="width:auto;height:16px;" alt="Forever Blog"></span>
+    <span class="post-meta-item foreverblog"><span class="exturl" data-url="aHR0cHM6Ly93d3cuZm9yZXZlcmJsb2cuY24vYmxvZy8yMDkyLmh0bWw="><img class="nowebp" src="https://img.foreverblog.cn/logo_en_default.png" style="width:auto;height:16px;" alt="Forever Blog"></span>
     </span>
-    <span class="post-meta-item wormhole"><span class="exturl" data-url="aHR0cHM6Ly93d3cuZm9yZXZlcmJsb2cuY24vZ28uaHRtbA=="><img src="https://img.foreverblog.cn/wormhole_4_tp.gif" style="width:auto;height:24px;" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></span>
+    <span class="post-meta-item wormhole"><span class="exturl" data-url="aHR0cHM6Ly93d3cuZm9yZXZlcmJsb2cuY24vZ28uaHRtbA=="><img class="nowebp" src="https://img.foreverblog.cn/wormhole_4_tp.gif" style="width:auto;height:24px;" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></span>
     </span>
+    <span class="post-meta-item travelling"><span class="exturl" data-url="aHR0cHM6Ly93d3cudHJhdmVsbGluZ3MuY24vZ28uaHRtbA=="><img class="nowebp" src="https://www.travellings.cn/assets/w.png" alt="开往-友链接力" height="18"></span>
+    </span>
+  
 </div>
 
 <script>
@@ -783,7 +786,7 @@ function checkWebp(callback) {
 function showImage(useWebp) {
   var imgs = [].slice.call(document.querySelectorAll('img'));
   imgs.forEach(function (e) {
-    if (useWebp) {
+    if ((useWebp) && !e.classList.contains('nowebp')) {
       var src = e.getAttribute('data-src')
       if (src !== null) {
         src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp');
