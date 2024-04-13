@@ -3326,6 +3326,13 @@ div .popular-posts-title {
 div .popular-posts-excerpt {
   display: none;
 }
+.blog-links img {
+  display: inline;
+  vertical-align: middle;
+}
+.footer a {
+  border-bottom: 0px;
+}
 @keyframes shake-it {
   0% {
     text-shadow: 0 0 rgba(0,255,255,0.5), 0 0 rgba(255,0,0,0.5);
