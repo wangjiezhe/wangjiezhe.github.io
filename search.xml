@@ -2444,7 +2444,9 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
   <entry>
     <title>Windows 常用指令</title>
     <url>//posts/2020-05-12-Windows-commands/</url>
-    <content><![CDATA[<h2 id="1-直接运行"><a class="header-anchor" href="#1-直接运行"></a>1. 直接运行</h2>
+    <content><![CDATA[<p>记录一些常用的 Windows 指令，可以直接通过<code>Win+R</code>运行。</p>
+<span id="more"></span>
+<h2 id="1-直接运行"><a class="header-anchor" href="#1-直接运行"></a>1. 直接运行</h2>
 <ul>
 <li>winver: 关于 Windows</li>
 <li>msinfo32：系统信息</li>

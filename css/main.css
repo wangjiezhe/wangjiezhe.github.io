@@ -3330,8 +3330,10 @@ div .popular-posts-excerpt {
   display: inline;
   vertical-align: middle;
 }
-.footer a {
-  border-bottom: 0px;
+.footer a,
+.posts-expand .post-meta-container a,
+.posts-expand .post-meta-container time {
+  border-bottom: none;
 }
 @keyframes shake-it {
   0% {
