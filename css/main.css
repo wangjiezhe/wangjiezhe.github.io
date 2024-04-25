@@ -3335,6 +3335,12 @@ div .popular-posts-excerpt {
 .posts-expand .post-meta-container time {
   border-bottom: none;
 }
+.travel-moe a {
+  color: #6f3381;
+}
+.travel-moe a:hover {
+  color: #005caf;
+}
 @keyframes shake-it {
   0% {
     text-shadow: 0 0 rgba(0,255,255,0.5), 0 0 rgba(255,0,0,0.5);
