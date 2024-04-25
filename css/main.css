@@ -3327,7 +3327,7 @@ div .popular-posts-excerpt {
   display: none;
 }
 .blog-links img {
-  display: inline;
+  display: inline-block;
   vertical-align: middle;
 }
 .footer a,
@@ -3336,10 +3336,7 @@ div .popular-posts-excerpt {
   border-bottom: none;
 }
 .travel-moe a {
-  color: #6f3381;
-}
-.travel-moe a:hover {
-  color: #005caf;
+  color: #f08080;
 }
 @keyframes shake-it {
   0% {
