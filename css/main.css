@@ -1737,6 +1737,11 @@ pre code {
   margin: 0 5px;
   animation: icon-animate 1.33s ease-in-out infinite;
 }
+.beian img {
+  display: inline-block;
+  margin: 0 3px;
+  vertical-align: middle;
+}
 .busuanzi-count #busuanzi_container_site_uv {
   display: none;
 }
@@ -3337,6 +3342,21 @@ div .popular-posts-excerpt {
 }
 .travel-moe a {
   color: #f08080;
+}
+.beian img {
+  width: auto;
+  height: 18px;
+}
+.beian a:nth-child(1)::after {
+  content: "|";
+  margin: 0 0.5em;
+  color: #999;
+}
+div .beian {
+  order: 1;
+}
+div .blog-links {
+  order: 2;
 }
 @keyframes shake-it {
   0% {
