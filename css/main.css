@@ -3345,7 +3345,7 @@ div .popular-posts-excerpt {
 }
 .beian img {
   width: auto;
-  height: 18px;
+  height: 17px;
 }
 .beian a:nth-child(1)::after {
   content: "|";
