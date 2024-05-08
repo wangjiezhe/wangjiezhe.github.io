@@ -1399,7 +1399,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #1dff1f;
+    background: #a255f4;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1627,11 +1627,11 @@ pre code {
   opacity: 0.6;
   position: fixed;
   z-index: 30;
-  left: 30px;
+  right: 30px;
 }
 @media (max-width: 991px) {
   .sidebar-toggle {
-    left: 20px;
+    right: 20px;
   }
 }
 .sidebar-toggle:hover {
@@ -1850,7 +1850,7 @@ pre code {
   opacity: 0.6;
   position: fixed;
   z-index: 30;
-  left: 30px;
+  right: 30px;
 }
 .back-to-top span {
   margin-right: 8px;
@@ -1861,7 +1861,7 @@ pre code {
 }
 @media (max-width: 991px) {
   .back-to-top {
-    left: 20px;
+    right: 20px;
   }
 }
 .back-to-top:hover {
@@ -2965,9 +2965,7 @@ header.header {
   content: ' ';
   height: 6px;
   margin-top: -3px;
-  position: absolute;
-  right: 15px;
-  top: 50%;
+  margin-left: auto;
   width: 6px;
 }
 .sub-menu {
@@ -3223,6 +3221,9 @@ blockquote {
   background: #8a6bbe;
   color: #fff;
 }
+.sidebar-toggle {
+  border-radius: 0.3rem;
+}
 .posts-expand .post-tags a {
   border-radius: 0.3rem;
 }
@@ -3445,6 +3446,24 @@ div .beian {
 }
 div .blog-links {
   order: 2;
+}
+@media (max-width: 991px) {
+  .sidebar {
+    background: #66327c;
+    box-shadow: inset 0 2px 6px #4a225d;
+  }
+  .site-author-name {
+    color: #fcfaf2;
+  }
+  .site-description,
+  .site-state-item-count,
+  .site-state-item-name,
+  #site-days {
+    color: #bdc0ba;
+  }
+  .links-of-author-item a {
+    color: #2ea9df;
+  }
 }
 @keyframes shake-it {
   0% {
