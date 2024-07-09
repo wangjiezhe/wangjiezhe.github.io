@@ -699,7 +699,7 @@
 <div class="note primary"><p>20200922更新：如果是普通用户而且防火墙开启的话，在打开 VcXsrc 之后会弹出防火墙设置的弹窗。注意这里一定要把【公用网络】勾选上，因为 WSL2 创建 <code>vEthernet(WSL)</code> 默认识别为公用网络。</p>
 </div>
 <h2 id="5-添加新用户"><a class="header-anchor" href="#5-添加新用户"></a>5. 添加新用户</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd AAA</span><br><span class="line">useradd XXX -g AAA -G wheel -m -N</span><br><span class="line">pacman -S sudo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;wheel ALL=(ALL) NOPASSWD: ALL&quot;</span> &gt; /etc/sudoers.d/wheel</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd AAA</span><br><span class="line">useradd XXX -g AAA -G wheel -m -N</span><br><span class="line">pacman -S <span class="built_in">sudo</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;wheel ALL=(ALL) NOPASSWD: ALL&quot;</span> &gt; /etc/sudoers.d/wheel</span><br></pre></td></tr></table></figure>
 <p>其实我一直是使用 root 账户，只有在需要 makepkg 的时候才切换到普通用户。</p>
 
     </div>

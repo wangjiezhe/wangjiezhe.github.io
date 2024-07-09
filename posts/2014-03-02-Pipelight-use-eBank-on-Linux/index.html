@@ -633,16 +633,16 @@
 <p>基本的原理：利用 Chrome 里已有的 npactivex (ActiveX for Chrome) 扩展, 配合 pipelight 提供的 npactivex NPAPI 插件, 将 ActiveX 控件本身用 wine 执行, 并且无缝地嵌入 Chrome 网页中.</p>
 <h3 id="1-安装字体"><a class="header-anchor" href="#1-安装字体"></a>1. 安装字体</h3>
 <p>安装不在仓库里的微软核心字体:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install cabextract</span><br><span class="line">sudo rpm -i http://sourceforge.net/projects/mscorefonts2/files/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum install cabextract</span><br><span class="line"><span class="built_in">sudo</span> rpm -i http://sourceforge.net/projects/mscorefonts2/files/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm</span><br></pre></td></tr></table></figure>
 <h3 id="2-安装-Pipelight"><a class="header-anchor" href="#2-安装-Pipelight"></a>2. 安装 Pipelight</h3>
 <p>添加仓库, 并安装 Pipelight (对于 Fedora 18 和 Fedora 19 只需要把 Fedora_20 替换成 Fedora_18 或 Fedora_19 即可):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo wget http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Fedora_20/home:DarkPlayer:Pipelight.repo -O /etc/yum.repos.d/pipelight.repo</span><br><span class="line">sudo yum install pipelight</span><br><span class="line">sudo pipelight-plugin --update</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> wget http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Fedora_20/home:DarkPlayer:Pipelight.repo -O /etc/yum.repos.d/pipelight.repo</span><br><span class="line"><span class="built_in">sudo</span> yum install pipelight</span><br><span class="line"><span class="built_in">sudo</span> pipelight-plugin --update</span><br></pre></td></tr></table></figure>
 <h3 id="3-启用插件"><a class="header-anchor" href="#3-启用插件"></a>3. 启用插件</h3>
 <h4 id="3-1-解锁-pipelight-的-npactivex-插件"><a class="header-anchor" href="#3-1-解锁-pipelight-的-npactivex-插件"></a>3.1. 解锁 pipelight 的 npactivex 插件</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pipelight-plugin --unlock npactivex</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pipelight-plugin --unlock npactivex</span><br></pre></td></tr></table></figure>
 <p>看到 &quot;Plugin npactivex is now unlocked&quot; 即为解锁成功</p>
 <h4 id="3-2-启用-npactivex-插件"><a class="header-anchor" href="#3-2-启用-npactivex-插件"></a>3.2. 启用 npactivex 插件</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pipelight-plugin --<span class="built_in">enable</span> npactivex</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pipelight-plugin --<span class="built_in">enable</span> npactivex</span><br></pre></td></tr></table></figure>
 <h3 id="4-确认安装成功"><a class="header-anchor" href="#4-确认安装成功"></a>4. 确认安装成功</h3>
 <p>启动 chrome 浏览器, 打开 <span class="exturl" data-url="Y2hyb21lOi8vcGx1Z2lucw==">chrome://plugins<i class="fa fa-external-link-alt"></i></span>, 应该可以看到以下内容:</p>
 <blockquote>
@@ -667,7 +667,7 @@ Something went wrong, check the terminal output</p>
 </blockquote>
 <p>请从终端打开 chromium/google-chrome, 观察终端出错日志</p>
 <h3 id="5-安装winetricks"><a class="header-anchor" href="#5-安装winetricks"></a>5. 安装winetricks</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://winetricks.googlecode.com/svn/trunk/src/winetricks</span><br><span class="line">sudo <span class="built_in">cp</span> winetricks /path/to/your/bin/</span><br><span class="line">sudo <span class="built_in">chmod</span> +x /path/to/your/bin/winetricks</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://winetricks.googlecode.com/svn/trunk/src/winetricks</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> winetricks /path/to/your/bin/</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> +x /path/to/your/bin/winetricks</span><br></pre></td></tr></table></figure>
 <h3 id="6-安装需要的-ActiveX-控件"><a class="header-anchor" href="#6-安装需要的-ActiveX-控件"></a>6. 安装需要的 ActiveX 控件</h3>
 <p>下面以工行控件为例:</p>
 <h4 id="6-1-下载工行网银控件安装包"><a class="header-anchor" href="#6-1-下载工行网银控件安装包"></a>6.1. 下载工行网银控件安装包</h4>
