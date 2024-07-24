@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-round.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-flash.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="唤醒陈旧的龙芯笔记本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在龙芯笔记本（8089D）上安装 Gentoo">
+<meta property="og:url" content="https://wangjiezhe.github.io/posts/2024-07-18-Install-Gentoo-on-Lemote-Yeeloong-netbook/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="唤醒陈旧的龙芯笔记本">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-18T04:02:13.000Z">
+<meta property="article:modified_time" content="2024-07-24T03:43:41.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Gentoo">
+<meta property="article:tag" content="Loongson">
+<meta property="article:tag" content="龙芯">
+<meta property="article:tag" content="OpenBSD">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wangjiezhe.github.io/posts/2024-07-18-Install-Gentoo-on-Lemote-Yeeloong-netbook/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjiezhe.github.io/posts/2024-07-18-Install-Gentoo-on-Lemote-Yeeloong-netbook/","path":"/posts/2024-07-18-Install-Gentoo-on-Lemote-Yeeloong-netbook/","title":"在龙芯笔记本（8089D）上安装 Gentoo"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>在龙芯笔记本（8089D）上安装 Gentoo | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48537410-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?a51d31f349bffa6e3757f7d6fca0c47f"></script>
+
+
+  <script data-pjax defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{&quot;token&quot;: &quot;4b43b380fa4e4d43a125ac710c29fb84&quot;}'></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">如鱼饮水</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">冷暖自知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-tools"><a href="/tools/" rel="section"><i class="fa fa-rocket fa-fw"></i>工具</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8-OpenBSD-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">1. 使用 OpenBSD 遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%80%89%E6%8B%A9%E5%AE%89%E8%A3%85-Gentoo"><span class="nav-text">2. 选择安装 Gentoo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8"><span class="nav-text">3. 交叉编译内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%87%86%E5%A4%87%E5%85%B6%E5%AE%83%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-text">4. 准备其它的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%87%86%E5%A4%87%E7%BD%91%E7%BB%9C%E5%BC%95%E5%AF%BC%E9%95%9C%E5%83%8F"><span class="nav-text">5. 准备网络引导镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%90%AF%E5%8A%A8%E9%BE%99%E8%8A%AF%E7%AC%94%E8%AE%B0%E6%9C%AC%E3%80%82"><span class="nav-text">6. 启动龙芯笔记本。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%AE%89%E8%A3%85-Gentoo-%E7%B3%BB%E7%BB%9F"><span class="nav-text">7. 安装 Gentoo 系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-text">7.1. 硬盘分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-%E5%AE%89%E8%A3%85-stage3-%E5%8C%85%E5%92%8C%E5%86%85%E6%A0%B8"><span class="nav-text">7.2. 安装 stage3 包和内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-%E5%8A%A0%E8%BD%BD-chroot-%E7%8E%AF%E5%A2%83"><span class="nav-text">7.3. 加载 chroot 环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F"><span class="nav-text">7.4. 配置系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E7%AC%94%E8%AE%B0%E6%9C%AC"><span class="nav-text">8. 远程登录笔记本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E8%BF%9B%E8%A1%8C%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-text">9. 进行基础配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E9%85%8D%E7%BD%AE-Portage"><span class="nav-text">10. 配置 Portage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="nav-text">11. 安装软件</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">98</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93YW5namllemhl" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wangjiezhe"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+  </div>
+<div id="time-now">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+  var digit=
+    [
+      [
+        [0,0,1,1,1,0,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,0,1,1,0],
+        [0,0,1,1,1,0,0]
+      ],//0
+      [
+        [0,0,0,1,1,0,0],
+        [0,1,1,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [1,1,1,1,1,1,1]
+      ],//1
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,1,1],
+        [1,1,1,1,1,1,1]
+      ],//2
+      [
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//3
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,0],
+        [0,0,1,1,1,1,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,1,1,0],
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,1]
+      ],//4
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,1,1,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//5
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//6
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0]
+      ],//7
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//8
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,1,1,0,0,0,0]
+      ],//9
+      [
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0]
+      ]//:
+    ];
+
+  var canvas = document.getElementById('canvas');
+
+  if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+  
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+      data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+  
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            cxt.beginPath();
+            cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+            cxt.closePath();
+            cxt.fill();
+          }
+        }
+      }
+    }
+  
+    /*更新时钟*/
+    function updateDigitTime(){
+      var changeNumArray = [];
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      var NewData = [];
+      NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+      for(var i = data.length-1; i >=0 ; i--){
+        //时间发生变化
+        if(NewData[i] !== data[i]){
+          //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+          changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+        }
+      }
+      //增加小球
+      for(var i = 0; i< changeNumArray.length; i++){
+        addBalls.apply(this,changeNumArray[i].split('_'));
+      }
+      data = NewData.concat();
+    }
+  
+    /*更新小球状态*/
+    function updateBalls(){
+      for(var i = 0; i < balls.length; i++){
+        balls[i].stepY += balls[i].disY;
+        balls[i].x += balls[i].stepX;
+        balls[i].y += balls[i].stepY;
+        if(balls[i].x > W + R || balls[i].y > H + R){
+          balls.splice(i,1);
+          i--;
+        }
+      }
+    }
+  
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+      var numArray = [1,2,3];
+      var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            var ball = {
+              x:14*(R+2)*index + j*2*(R+1)+(R+1),
+              y:i*2*(R+1)+(R+1),
+              stepX:Math.floor(Math.random() * 4 -2),
+              stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+              color:colorArray[Math.floor(Math.random()*colorArray.length)],
+              disY:1
+            };
+            balls.push(ball);
+          }
+        }
+      }
+    }
+  
+    /*渲染*/
+    function render(){
+      //重置画布宽度，达到清空画布的效果
+      canvas.height = 100;
+      //渲染时钟
+      for(var i = 0; i < data.length; i++){
+        renderDigit(i,data[i]);
+      }
+      //渲染小球
+      for(var i = 0; i < balls.length; i++){
+        cxt.beginPath();
+        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+        cxt.fillStyle = balls[i].color;
+        cxt.closePath();
+        cxt.fill();
+      }
+    }
+  
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+      //更新时钟
+      updateDigitTime();
+      //更新小球状态
+      updateBalls();
+      //渲染
+      render();
+    },50);
+  }
+
+})();
+</script>
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.github.io/posts/2024-07-18-Install-Gentoo-on-Lemote-Yeeloong-netbook/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="西风冷香">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+      <meta itemprop="description" content="某不知名机构不知名数学老师">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="在龙芯笔记本（8089D）上安装 Gentoo | 如鱼饮水">
+      <meta itemprop="description" content="唤醒陈旧的龙芯笔记本">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在龙芯笔记本（8089D）上安装 Gentoo
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-18 12:02:13" itemprop="dateCreated datePublished" datetime="2024-07-18T12:02:13+08:00">2024-07-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-07-24 11:43:41" itemprop="dateModified" datetime="2024-07-24T11:43:41+08:00">2024-07-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>25 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">唤醒陈旧的龙芯笔记本</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>我手头有一个十一年前买的龙芯笔记本——逸珑 8089D，当时买来纯粹是用来作纪念的，毕竟它算是第一个批量出售的搭载国产 CPU（Loongson 2F）的笔记本。</p>
+<p>本子自带的是什么系统已经不记得了，不过后来我在上面装过 Debian，装过 Fedora，不过因为这些系统的镜像都太旧了，放了很长时间之后基本就没有办法更新了。加上硬盘容量只有 8G，也没有什么可以折腾的空间。</p>
+<p>后来我在换电脑的时候，从<a href="/posts/2020-05-01-Reinstall-Windows/">旧的电脑</a>上拆下了 500G 的 SATA 固态硬盘。因为新的电脑用的都是 NVME 的固态，所以这个硬盘就没有用了，于是安到了龙芯笔记本上。</p>
+<p>这个时候，还有官方支持龙芯 2F 的系统，基本就只剩下 <span class="exturl" data-url="aHR0cHM6Ly93d3cub3BlbmJzZC5vcmcvbG9vbmdzb24uaHRtbA==">OpenBSD<i class="fa fa-external-link-alt"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly93aWtpLm5ldGJzZC5vcmcvcG9ydHMvZXZibWlwcy8=">NetBSD<i class="fa fa-external-link-alt"></i></span> 了。于是我就选择安装了 OpenBSD。</p>
+<p>最近又把这个本子翻了出来，主要有两个原因。一是想把它连接上打印机，这样我在打印的时候，就不用把笔记本抱到打印机旁边了。另一个是想把它作为 Samba 服务器，放一些电视剧，分享给老的 iPad 2 播放。</p>
+<h2 id="1-使用-OpenBSD-遇到的问题"><a class="header-anchor" href="#1-使用-OpenBSD-遇到的问题"></a>1. 使用 OpenBSD 遇到的问题</h2>
+<p>起初我把 OpenBSD 更新到了最新的 7.5 版本，这个很简单，基本上按照官方给的<span class="exturl" data-url="aHR0cHM6Ly9mdHAub3BlbmJzZC5vcmcvcHViL09wZW5CU0QvNy41L2xvb25nc29uL0lOU1RBTEwubG9vbmdzb24=">帮助文件<i class="fa fa-external-link-alt"></i></span> 一步步来就可以了。</p>
+<p>然后尝试编译安装需要的软件。不过由于我对 OpenBSD 并不熟悉，一些简单的问题我还可以处理，稍微困难一些的我就解决不了了。</p>
+<p>比如在安装 vim 的时候，发现它依赖的 <code>security/libsodium</code> 无法安装。找了一圈问题，最后发现是需要把 <code>/usr/include/loongson/param.h</code> 里面的 <code>#ifdef _KERNEL</code> 删掉，直接引入 <code>#define	PAGE_SHIFT	14</code> 的定义，相当于回退了 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW5ic2Qvc3JjL2NvbW1pdC8xODRlMjQ1">openbsd/src#184e245<i class="fa fa-external-link-alt"></i></span>。</p>
+<p>又比如在安装 <code>textproc/icu4c</code> 的时候，下载的文件校验有问题，发现是上游源文件有<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW5ic2QvcG9ydHMvY29tbWl0LzRmMzI3NzA=">更新<i class="fa fa-external-link-alt"></i></span>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ftp https://github.com/openbsd/ports/commit/4f32770.patch -o /tmp/4f32770.patch</span><br><span class="line">cd /usr/ports/textproc/icu4c</span><br><span class="line">patch -Np1 &lt; /tmp/4f32770.patch</span><br></pre></td></tr></table></figure>
+<p>不过遇到的最大的问题，是有软件依赖 GCC，而 GCC 又无法编译安装，这个我就无能为力了。</p>
+<p>于是我放弃了继续使用 OpenBSD，开始寻找其它的解决方案。</p>
+<h2 id="2-选择安装-Gentoo"><a class="header-anchor" href="#2-选择安装-Gentoo"></a>2. 选择安装 Gentoo</h2>
+<p>之前我曾经尝试过安装 Gentoo，不过<span class="exturl" data-url="aHR0cHM6Ly93aWtpLmdlbnRvby5vcmcvd2lraS9Qcm9qZWN0OkxlbW90ZV9ZZWVsb29uZ19HZW50b29fRGVza3RvcA==">官方<i class="fa fa-external-link-alt"></i></span> 提供的<span class="exturl" data-url="aHR0cDovL2dlbnRvby5pbi51YS9leHBlcmltZW50YWwvbWlwcy9kZXNrdG9wLWxvb25nc29uMmYvZGVza3RvcC1sb29uZ3NvbjJmLXZhbmlsbGEtMjAxNDA2MzAudGFyLmJ6Mg==">镜像<i class="fa fa-external-link-alt"></i></span> 比较老，现在已经没有办法更新了。</p>
+<p>我也尝试过从 stage3 开始安装，不过各种问题层出不穷。旧的内核可以直接拿过来用，倒是能够直接登录，不过会有各种报错。编译新的内核，结果又有问题，启动不起来（我对内核编译并不熟悉）。还有遇到过在安装过程中，无法使用 <code>passwd</code> 更新密码的情况，这个是因为旧的<span class="exturl" data-url="aHR0cDovL2dlbnRvby5pbi51YS9leHBlcmltZW50YWwvbWlwcy9kZXNrdG9wLWxvb25nc29uMmYvbmV0Ym9vdC15ZWVsb29uZy5pbWc=">网络启动镜像<i class="fa fa-external-link-alt"></i></span> 无法挂载 <code>/dev</code> 分区，原因未知。</p>
+<p>不过这次这些问题都得到了解决。<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmRydWdnby5vcmcv">Druggo Yang<i class="fa fa-external-link-alt"></i></span> 作了一个新的<span class="exturl" data-url="aHR0cHM6Ly9kcnVnZ28ub3JnL3RtcC9uZXRib290LXllZWxvb25nLTYuNi4yMS5pbWc=">网络启动镜像<i class="fa fa-external-link-alt"></i></span>，可以正常加载 <code>/dev</code> 分区。<span class="exturl" data-url="aHR0cHM6Ly9kcmFtLnBhZ2Uv">dramforever<i class="fa fa-external-link-alt"></i></span> 给出了一个比较新的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RyYW1mb3JldmVyL25peG9zLWxvb25nc29uMmYvYmxvYi9tYWluL2xlbW90ZTJmX2NvbmZpZw==">内核配置<i class="fa fa-external-link-alt"></i></span>，也可以直接拿过来使用。</p>
+<h2 id="3-交叉编译内核"><a class="header-anchor" href="#3-交叉编译内核"></a>3. 交叉编译内核</h2>
+<p>首先是在笔记本上给龙芯交叉编译内核。我是在 WSL 里面安装的 Gentoo，目前官方的<span class="exturl" data-url="aHR0cHM6Ly93aWtpLmdlbnRvby5vcmcvd2lraS9HZW50b29faW5fV1NM">文档<i class="fa fa-external-link-alt"></i></span> 已经足够详细了，直接按照说明安装即可。</p>
+<div class="note info"><p>按照官方的说明，需要先把下载的 stage3 压缩包解压再导入 WSL。<br />
+实测并不需要，直接导入 <code>tar.xz</code> 文件即可：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl <span class="literal">--import</span> Gentoo D:\Gentoo\ .\stage3<span class="literal">-amd64-openrc-</span>********T*****Z.tar.xz <span class="literal">--version</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+</div>
+<p>首先安装必需的软件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## crossdev: https://wiki.gentoo.org/wiki/Crossdev</span></span><br><span class="line"><span class="comment">## eselect/repository: https://wiki.gentoo.org/wiki/Eselect/Repository</span></span><br><span class="line">emerge -avqn sys-devel/crossdev app-eselect/eselect-repository</span><br><span class="line"><span class="comment">## 添加并同步 crossdev 仓库</span></span><br><span class="line">eselect repository create crossdev</span><br><span class="line">emerge --<span class="built_in">sync</span> crossdev</span><br><span class="line"><span class="comment">## 后续不需要再更新 crossdev 仓库</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;auto-sync = no&quot;</span> &gt;&gt; /etc/portage/repos.conf/eselect-repo.conf</span><br></pre></td></tr></table></figure>
+<p>然后配置交叉编译的环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crossdev -t mips64el-unknown-linux-gnuabi64</span><br></pre></td></tr></table></figure>
+<p>龙芯 2F 使用的是 <span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvTG9vbmdzb24jTG9vbmdzb25fbWljcm9wcm9jZXNzb3Jfc3BlY2lmaWNhdGlvbnM=">64 位 MIPS3 架构<i class="fa fa-external-link-alt"></i></span>，支持 o32、n32、n64 三种 ABI。官方的 multilib 默认使用 n32，但 Rust 和 Go 都只支持 o32 和 n64，不支持 n32。因此我直接使用了 n64 的 ABI。</p>
+<p>由于最新的 stage3 使用的是 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2VudG9vLm9yZy9zdXBwb3J0L25ld3MtaXRlbXMvMjAyNC0wMy0yMi1uZXctMjMtcHJvZmlsZXMuaHRtbA==">merged-usr 配置<i class="fa fa-external-link-alt"></i></span>，因此对交叉编译环境也做相应的调整：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">emerge -avqn sys-apps/merge-usr</span><br><span class="line">merge-usr --root /usr/mips64el-unknown-linux-gnuabi64</span><br><span class="line"><span class="built_in">ln</span> -sv usr/bin /usr/mips64el-unknown-linux-gnuabi64/bin</span><br></pre></td></tr></table></figure>
+<p>选择相应的 PROFILE：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PORTAGE_CONFIGROOT=/usr/mips64el-unknown-linux-gnuabi64 \</span><br><span class="line">    eselect profile <span class="built_in">set</span> default/linux/mips/23.0/mipsel/n64</span><br></pre></td></tr></table></figure>
+<p>在 <code>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/make.conf</code> 文件末尾添加以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 设置下载镜像</span></span><br><span class="line">GENTOO_MIRRORS=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/gentoo&quot;</span></span><br><span class="line"><span class="comment">## 虚拟软件和二进制软件没有必要构建二进制包</span></span><br><span class="line">EMERGE_DEFAULT_OPTS=<span class="string">&quot;--buildpkg-exclude &#x27;acct-*/* sys-kernel/*-sources virtual/* app-alternatives/* */*-bin&#x27;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>先安装需要的补丁文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/patches/sys-kernel/gentoo-sources</span><br><span class="line"><span class="built_in">cd</span> /etc/portage/patches/sys-kernel/gentoo-sources</span><br><span class="line"></span><br><span class="line"><span class="comment">## 参考：https://github.com/dramforever/nixos-loongson2f/blob/main/flake.nix</span></span><br><span class="line">wget https://github.com/loongson-community/linux-2f/commit/08fda2d.patch \</span><br><span class="line">    -O 0001-MIPS-Loongson2EF-Correct-SCI-Event-numbers.patch</span><br><span class="line">wget https://github.com/loongson-community/linux-2f/commit/ad2584d.patch \</span><br><span class="line">    -O 0002-MIPS-Loongson2EF-Yeeloong-platform-driver.patch</span><br></pre></td></tr></table></figure>
+<p>然后安装内核源文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emerge -avqn sys-kernel/gentoo-sources:6.6.37</span><br></pre></td></tr></table></figure>
+<p>交叉编译内核：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> ARCH=mips</span><br><span class="line"><span class="built_in">export</span> CROSS_COMPILE=mips64el-unknown-linux-gnuabi64-</span><br><span class="line"><span class="built_in">export</span> MAKEFLAGS=<span class="string">&quot;-j<span class="subst">$(nproc)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /usr/src/linux-6.6.37-gentoo</span><br><span class="line">wget https://raw.githubusercontent.com/dramforever/nixos-loongson2f/main/lemote2f_config -O .config</span><br><span class="line">sed -i <span class="string">&#x27;s/hda3/sda2/&#x27;</span> .config</span><br><span class="line"><span class="comment">## 所有新选项保持默认即可</span></span><br><span class="line">make oldconfig</span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
+<p>打包编译好的内核：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> INSTALL_MOD_PATH=<span class="string">&#x27;ROOT&#x27;</span></span><br><span class="line"><span class="built_in">export</span> INSTALL_PATH=<span class="string">&#x27;ROOT/boot&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -rf ROOT &amp;&amp; <span class="built_in">mkdir</span> -pv ROOT/boot</span><br><span class="line">make modules_install</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="comment">## 必不可少的步骤，否则解压的时候会覆盖掉 `/lib` 的软链接</span></span><br><span class="line"><span class="built_in">mkdir</span> -pv ROOT/usr</span><br><span class="line"><span class="built_in">mv</span> ROOT/lib ROOT/usr</span><br><span class="line"></span><br><span class="line">KERNEL_VERSION=$(make kernelversion)</span><br><span class="line"><span class="built_in">cd</span> ROOT &amp;&amp; tar -cf <span class="variable">$HOME</span>/linux-<span class="variable">$&#123;KERNEL_VERSION&#125;</span>.tar .</span><br><span class="line"></span><br><span class="line"><span class="built_in">unset</span> ARCH CROSS_COMPILE MAKEFLAGS INSTALL_MOD_PATH INSTALL_PATH</span><br></pre></td></tr></table></figure>
+<h2 id="4-准备其它的文件"><a class="header-anchor" href="#4-准备其它的文件"></a>4. 准备其它的文件</h2>
+<p>除了编译好的内核外，还需要准备以下几个文件：</p>
+<ul>
+<li>下载好的 <span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLnR1bmEudHNpbmdodWEuZWR1LmNuL2dlbnRvby9yZWxlYXNlcy9taXBzL2F1dG9idWlsZHMvY3VycmVudC1zdGFnZTMtbWlwc2VsM19uNjQtb3BlbnJjLw==">stage3 包<i class="fa fa-external-link-alt"></i></span></li>
+<li>文件系统表 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS8xYmJmOTExZGExZTM0NWNiZGRiMjhhNTIyMTJkMWQ2MQ==">fstab<i class="fa fa-external-link-alt"></i></span></li>
+<li>PMON 启动配置文件 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS9jOTE4OTUwYTgwMGNlZWJjNWMyYzY1ZmY2YTAxZjNiMQ==">boot.cfg<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<p>后两个不是必需的，也可以在安装的时候直接输入。这里为了方便，我就提前编辑好了需要的内容，这样安装的时候直接复制过去就可以了。</p>
+<p>然后在本地启动一个 http 服务器，可以直接访问上面的文件即可。</p>
+<div class="note success"><ul>
+<li>如果已经安装了 python 3 的话，可以使用 <code>python -m http.server 80</code> 即可；</li>
+<li>如果已经安装 nodejs，可以使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2h0dHAtcGFydHkvaHR0cC1zZXJ2ZXI=">http-server<i class="fa fa-external-link-alt"></i></span>；</li>
+<li>也可以使用了 MobaXterm 的 HTTP Server 功能。</li>
+</ul>
+</div>
+<h2 id="5-准备网络引导镜像"><a class="header-anchor" href="#5-准备网络引导镜像"></a>5. 准备网络引导镜像</h2>
+<p>首先下载网络引导镜像：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://druggo.org/tmp/netboot-yeeloong-6.6.21.img</span><br></pre></td></tr></table></figure>
+<p>然后启动一个 tftp 服务器，可以访问下载的镜像文件。</p>
+<div class="note success"><ul>
+<li>可以使用 <span class="exturl" data-url="aHR0cHM6Ly9wam8yLmdpdGh1Yi5pby90ZnRwZDY0Lw==">tftpd32/tftpd64<i class="fa fa-external-link-alt"></i></span>；</li>
+<li>也可以使用 MobaXterm 的 TFTP Server 功能。</li>
+</ul>
+</div>
+<h2 id="6-启动龙芯笔记本。"><a class="header-anchor" href="#6-启动龙芯笔记本。"></a>6. 启动龙芯笔记本。</h2>
+<p>上面的准备工作都做完了，就可以开始正式安装了。</p>
+<p>这里我们要采用网络引导的方式，因此需要将龙芯笔记本插上网线，连接到路由器上。</p>
+<div class="note info"><p>也可以使用 usb 安装，参考 <span class="exturl" data-url="aHR0cHM6Ly93aWtpLmdlbnRvby5vcmcvd2lraS9Qcm9qZWN0OkxlbW90ZV9ZZWVsb29uZ19HZW50b29fRGVza3RvcCNJbnN0YWxsYXRpb24=">Gentoo Wiki<i class="fa fa-external-link-alt"></i></span>。<br />
+需要把 U 盘格式化成 ext2 格式，而且不能大小超过 2G (?)，否则无法识别。</p>
+</div>
+<p>启动龙芯笔记本，并连续按右上角的 <code>Del</code> 键，进入 PMON 引导界面。</p>
+<p>首先配置网络，然后加载网络引导镜像并启动。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">PMON&gt; </span><span class="language-bash">ifaddr rtl0 192.168.2.101</span></span><br><span class="line"><span class="meta prompt_">PMON&gt; </span><span class="language-bash">load tftp://192.168.2.38/netboot-yeeloong.img</span></span><br><span class="line"><span class="meta prompt_">PMON&gt; </span><span class="language-bash">g</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-安装-Gentoo-系统"><a class="header-anchor" href="#7-安装-Gentoo-系统"></a>7. 安装 Gentoo 系统</h2>
+<p>启动镜像之后，就可以开始安装系统了，基本上可以分成以下几步：</p>
+<ol>
+<li>对硬盘进行分区，并格式化；</li>
+<li>安装 stage3 和 kernel；</li>
+<li>加载 chroot 环境，并进行必要的配置；</li>
+<li>安装完成，重启！</li>
+</ol>
+<h3 id="7-1-硬盘分区"><a class="header-anchor" href="#7-1-硬盘分区"></a>7.1. 硬盘分区</h3>
+<p>首先使用 <code>fdisk</code> 对硬盘进行分区：</p>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>挂载点</th>
+<th>文件系统</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/dev/sda1</td>
+<td>/boot</td>
+<td>ext2</td>
+<td>128M</td>
+</tr>
+<tr>
+<td>/dev/sda2</td>
+<td>swap</td>
+<td>swap</td>
+<td>4G</td>
+</tr>
+<tr>
+<td>/dev/sda3</td>
+<td>/</td>
+<td>ext4</td>
+<td>剩余所用空间</td>
+</tr>
+</tbody>
+</table>
+<p>这里我给 swap 分区分的比较大，因为之间在使用 OpenBSD 的时候，发现 1G 的交换分区不够用，最后是又添加了 3G 的交换文件才能成功编译一些软件。</p>
+<p>然后进行格式化：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 刷新 /dev</span></span><br><span class="line">mdev -s</span><br><span class="line"></span><br><span class="line">mke2fs /dev/sda1</span><br><span class="line">mkswap /dev/sda2</span><br><span class="line">mkfs.ext4 /dev/sda3</span><br></pre></td></tr></table></figure>
+<p>接下来就可以挂载硬盘了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /mnt/gentoo</span><br><span class="line">mount /dev/sda3 /mnt/gentoo</span><br><span class="line"><span class="built_in">mkdir</span> -p /mnt/gentoo/boot</span><br><span class="line">mount -t ext2 /dev/sda1 /mnt/gentoo/boot</span><br></pre></td></tr></table></figure>
+<h3 id="7-2-安装-stage3-包和内核"><a class="header-anchor" href="#7-2-安装-stage3-包和内核"></a>7.2. 安装 stage3 包和内核</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/gentoo</span><br><span class="line">wget http://192.168.2.38/stage3.tar.xz</span><br><span class="line">wget http://192.168.2.38/linux-6.6.37-gentoo.tar</span><br><span class="line"></span><br><span class="line">tar xf stage3.tar.xz</span><br><span class="line">tar xf linux-6.6.37-gentoo.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">## 获取 boot.cfg 和 fstab</span></span><br><span class="line"><span class="comment">## 一定仔细检查一下这两个文件</span></span><br><span class="line"><span class="comment">## 如果这两个文件出错，系统将无法正常启动</span></span><br><span class="line">wget http://192.168.2.38/boot.cfg -O /mnt/gentoo/boot/boot.cfg</span><br><span class="line">wget http://192.168.2.38/fstab -O /mnt/gentoo/etc/fstab</span><br></pre></td></tr></table></figure>
+<h3 id="7-3-加载-chroot-环境"><a class="header-anchor" href="#7-3-加载-chroot-环境"></a>7.3. 加载 chroot 环境</h3>
+<p>在 chroot 之前，需要挂载必要的文件系统：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 挂载 /proc，/sys，/dev</span></span><br><span class="line">mount -t proc /proc /mnt/gentoo/proc</span><br><span class="line">mount --rbind /sys /mnt/gentoo/sys</span><br><span class="line">mount --make-rslave /mnt/gentoo/sys</span><br><span class="line">mount --rbind /dev /mnt/gentoo/dev</span><br><span class="line">mount --make-rslave /mnt/gentoo/dev</span><br><span class="line"></span><br><span class="line"><span class="comment">## 进入 chroot 环境</span></span><br><span class="line"><span class="built_in">chroot</span> /mnt/gentoo /bin/bash</span><br></pre></td></tr></table></figure>
+<h3 id="7-4-配置系统"><a class="header-anchor" href="#7-4-配置系统"></a>7.4. 配置系统</h3>
+<p>这里的做法和 Gentoo Wiki 里面有所不同，我们只进行最简单的配置，较为复杂的配置都等到重启之后再进行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 可以让终端更好看一些，非必要步骤</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"><span class="built_in">export</span> PS1=<span class="string">&quot;(chroot) <span class="variable">$PS1</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 配置 sshd 服务，之后可以直接 ssh 到笔记本</span></span><br><span class="line">sed -i <span class="string">&#x27;s/^#PermitRootLogin .*/PermitRootLogin yes/&#x27;</span> /etc/ssh/sshd_config</span><br><span class="line">rc-update add sshd default</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改 root 密码</span></span><br><span class="line">passwd</span><br><span class="line"></span><br><span class="line"><span class="comment">## 退出 chroot 环境</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<p>然后卸载硬盘，并重启即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">umount /mnt/gentoo/dev/shm</span><br><span class="line">umount /mnt/gentoo/dev/pts</span><br><span class="line">umount /mnt/gentoo/dev</span><br><span class="line">umount /mnt/gentoo/sys</span><br><span class="line">umount /mnt/gentoo/proc</span><br><span class="line">umount /mnt/gentoo/boot</span><br><span class="line">umount /mnt/gentoo</span><br><span class="line"></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<h2 id="8-远程登录笔记本"><a class="header-anchor" href="#8-远程登录笔记本"></a>8. 远程登录笔记本</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 复制主机公钥</span></span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.2.101</span><br><span class="line"></span><br><span class="line"><span class="comment">## 配置使用密钥登录 ssh</span></span><br><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">EOF &gt;&gt; ~/.ssh/config</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Host yeeloong</span></span><br><span class="line"><span class="string">  HostName 192.168.2.101</span></span><br><span class="line"><span class="string">  User root</span></span><br><span class="line"><span class="string">  IdentityFile ~/.ssh/id_rsa</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 登录笔记本</span></span><br><span class="line">ssh yeeloong</span><br></pre></td></tr></table></figure>
+<h2 id="9-进行基础配置"><a class="header-anchor" href="#9-进行基础配置"></a>9. 进行基础配置</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 删除下载的压缩包</span></span><br><span class="line"><span class="built_in">rm</span> /stage3.tar.xz /linux-6.6.37-gentoo.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改字符集</span></span><br><span class="line">sed -i <span class="string">&quot;s/#en_US.UTF-8/en_US.UTF-8/&quot;</span> /etc/locale.gen</span><br><span class="line">locale-gen</span><br><span class="line">eselect locale <span class="built_in">set</span> en_US.utf8</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改时区</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Asia/Shanghai&quot;</span> &gt; /etc/timezone</span><br><span class="line">emerge --config sys-libs/timezone-data</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改主机名</span></span><br><span class="line"><span class="built_in">echo</span> yeeloong &gt; /etc/hostname</span><br><span class="line"></span><br><span class="line"><span class="comment">## 开启系统服务日志</span></span><br><span class="line">sed -i <span class="string">&#x27;s/#rc_logger=&quot;NO&quot;/rc_logger=&quot;yes&quot;/&#x27;</span> /etc/rc.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 取消使用密码登录 ssh</span></span><br><span class="line">sed -i <span class="string">&#x27;s/^PermitRootLogin yes/PermitRootLogin prohibit-password/&#x27;</span> /etc/ssh/sshd_config</span><br><span class="line">rc-service sshd restart</span><br></pre></td></tr></table></figure>
+<h2 id="10-配置-Portage"><a class="header-anchor" href="#10-配置-Portage"></a>10. 配置 Portage</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## GCC 优化</span></span><br><span class="line">sed -i <span class="string">&quot;s/-march=mips3/-march=loongson2f/&quot;</span> /etc/portage/make.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 启用官方仓库</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/repos.conf</span><br><span class="line"><span class="built_in">cp</span> /usr/share/portage/config/repos.conf /etc/portage/repos.conf/gentoo.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 使用清华大学镜像</span></span><br><span class="line">sed -i <span class="string">&quot;s#^sync-uri = .*#sync-uri = rsync://mirrors.tuna.tsinghua.edu.cn/gentoo-portage#&quot;</span> \</span><br><span class="line">  /etc/portage/repos.conf/gentoo.conf</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&#x27;\nGENTOO_MIRRORS=&quot;https://mirrors.tuna.tsinghua.edu.cn/gentoo&quot;&#x27;</span> &gt;&gt; /etc/portage/make.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 同步镜像</span></span><br><span class="line">emerge --<span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
+<h2 id="11-安装软件"><a class="header-anchor" href="#11-安装软件"></a>11. 安装软件</h2>
+<p>配置 <code>/usr/src/linux</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/patches/sys-kernel/gentoo-sources</span><br><span class="line"></span><br><span class="line"><span class="built_in">pushd</span> /etc/portage/patches/sys-kernel/gentoo-sources</span><br><span class="line">wget https://github.com/loongson-community/linux-2f/commit/08fda2d.patch \</span><br><span class="line">  -O 0001-MIPS-Loongson2EF-Correct-SCI-Event-numbers.patch</span><br><span class="line">wget https://github.com/loongson-community/linux-2f/commit/ad2584d.patch \</span><br><span class="line">  -O 0002-MIPS-Loongson2EF-Yeeloong-platform-driver.patch</span><br><span class="line"><span class="built_in">popd</span></span><br><span class="line"></span><br><span class="line">emerge -avq gentoo-sources:6.6.37</span><br><span class="line">eselect kernel <span class="built_in">set</span> linux-6.6.37-gentoo</span><br></pre></td></tr></table></figure>
+<p>安装常用系统服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## mlocate：快速搜索文件</span></span><br><span class="line"><span class="comment">## dcron：定时运行任务</span></span><br><span class="line"><span class="comment">## chroy：NTP 时间同步</span></span><br><span class="line">emerge -avq mlocate dcron chrony</span><br><span class="line"></span><br><span class="line"><span class="comment">## 启用 cron 日志</span></span><br><span class="line">sed -i <span class="string">&#x27;s@DCRON_OPTS.*@DCRON_OPTS=&quot;-L /var/log/crond.log&quot;@&#x27;</span> /etc/conf.d/dcron</span><br><span class="line"><span class="comment">## 配置 dcron，使之可以运行 /etc/cron.&#123;daily,hourly,monthly,weekly&#125; 目录下的文件</span></span><br><span class="line">crontab /etc/crontab</span><br><span class="line"><span class="comment">## 启用 dcron 服务</span></span><br><span class="line">rc-service dcron start</span><br><span class="line">rc-update add dcron default</span><br><span class="line"></span><br><span class="line"><span class="comment">## 启用 chrony 服务</span></span><br><span class="line">rc-service chronyd start</span><br><span class="line">rc-update add chronyd default</span><br></pre></td></tr></table></figure>
+<p>安装常用软件：</p>
+<ul>
+<li>编辑器：vim</li>
+<li>版本控制：git</li>
+<li>Portage 相关：eix, genlop, gentoolkit, pkgdev</li>
+<li>系统监控：htop, strace, nload, dfc, lsof</li>
+<li>无线网络：wpa_supplicant</li>
+<li>查看硬件：pciutils, usbutils</li>
+<li>其它：tree, the_silver_searcher (ag)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/package.accept_keywords</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;app-editors/vim perl python tcl&#x27;</span> &gt;&gt; /etc/portage/package.use/vim</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-vcs/subversion * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/git</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-libs/libutf8proc * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/git</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-vcs/git tk subversion&#x27;</span> &gt;&gt; /etc/portage/package.use/git</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-vcs/subversion perl&#x27;</span> &gt;&gt; /etc/portage/package.use/git</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-util/pkgdev * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/pkgdev</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-util/pkgcheck * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/pkgdev</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-libs/tree-sitter-bash * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/pkgdev</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-libs/tree-sitter * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/pkgdev</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-python/tree-sitter * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/pkgdev</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;sys-fs/dfc * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/dfc</span><br><span class="line"></span><br><span class="line"><span class="comment">## 因为远程链接时间太长的话会话可能会中断，因此使用 nohup 后台运行</span></span><br><span class="line"><span class="built_in">nohup</span> emerge -vq vim dev-vcs/git eix genlop gentoolkit pkgdev htop strace nload dfc lsof \</span><br><span class="line">  app-text/tree wpa_supplicant pciutils usbutils &amp;</span><br></pre></td></tr></table></figure>
+<p>命令 <code>ag</code> 安装起来相对麻烦，仓库里面有一个 patch 会导致编译失败，需要去掉才能安装。<br />
+可以复制到 local 仓库手动修改 ebuild 文件，也可以使用用户补丁：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">emerge -avq patchutils</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/patches/sys-apps/the_silver_searcher</span><br><span class="line"></span><br><span class="line">interdiff -q /var/db/repos/gentoo/sys-apps/the_silver_searcher/files/the_silver_searcher-2.2.0-no_lfs64.patch /dev/null \</span><br><span class="line">  &gt; /etc/portage/patches/sys-apps/the_silver_searcher/Revert_the_silver_searcher-2.2.0-no_lfs64.patch</span><br><span class="line"></span><br><span class="line">emerge -avq the_silver_searcher</span><br></pre></td></tr></table></figure>
+<p>之后再配置好 <code>.vimrc</code> 和 <code>.bashrc</code> 就可以正常使用了😀。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wangjiezhe.github.io/posts/2024-07-18-Install-Gentoo-on-Lemote-Yeeloong-netbook/" title="在龙芯笔记本（8089D）上安装 Gentoo">https://wangjiezhe.github.io/posts/2024-07-18-Install-Gentoo-on-Lemote-Yeeloong-netbook/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/tags/Gentoo/" rel="tag"><i class="fa fa-tag"></i> Gentoo</a>
+              <a href="/tags/Loongson/" rel="tag"><i class="fa fa-tag"></i> Loongson</a>
+              <a href="/tags/%E9%BE%99%E8%8A%AF/" rel="tag"><i class="fa fa-tag"></i> 龙芯</a>
+              <a href="/tags/OpenBSD/" rel="tag"><i class="fa fa-tag"></i> OpenBSD</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2024-03-30-Fix-Giscus-with-Pjax/" rel="prev" title="修复 Giscus 与 Pjax 不兼容的问题">
+                  <i class="fa fa-angle-left"></i> 修复 Giscus 与 Pjax 不兼容的问题
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-disqusjs">Disqus</a></li>
+            <li class="tab"><a href="#comment-giscus">GitHub</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
+              
+  <div class="comments disqusjs-container">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+            </div>
+            <div class="tab-pane giscus" id="comment-giscus">
+              
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+            </div>
+        </div>
+      </div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg=="><nopangu>冀ICP备2024063721号-1</nopangu> </span>
+      <img src="/images/gongan.png" alt=""><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5tcHMuZ292LmNuLyMvcXVlcnkvd2ViU2VhcmNoP2NvZGU9MTMwOTAyMDIwMDA3MTY="><nopangu>冀公网安备13090202000716号</nopangu> </span>
+  </div>
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">西风冷香</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">205k</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+<div class="blog-links">
+    <span class="post-meta-item moe">
+      <span>
+        <img class="nowebp" src="https://icp.gov.moe/images/ico64.png" style="width:auto;height:16px;" alt="">
+      </span>
+      <span><span class="exturl" data-url="aHR0cHM6Ly9pY3AuZ292Lm1vZS8/a2V5d29yZD0yMDI0ODE5MQ=="><nopangu>萌ICP备20248191号</nopangu></span>
+      </span>
+    </span>
+    <span class="post-meta-item travel-moe">
+      <span><span class="exturl" data-url="aHR0cHM6Ly90cmF2ZWwubW9lL2dvLmh0bWw/dHJhdmVsPW9u"><img class="nowebp" src="https://travel.moe/images/icon/icon64.png" style="width:auto;height:18px" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！"> 异次元之旅🚀</span>
+      </span>
+    </span>
+    <span class="post-meta-item foreverblog"><span class="exturl" data-url="aHR0cHM6Ly93d3cuZm9yZXZlcmJsb2cuY24vYmxvZy8yMDkyLmh0bWw="><img class="nowebp" src="https://img.foreverblog.cn/logo_en_default.png" style="width:auto;height:16px;" alt="Forever Blog"></span>
+    </span>
+    <span class="post-meta-item wormhole"><span class="exturl" data-url="aHR0cHM6Ly93d3cuZm9yZXZlcmJsb2cuY24vZ28uaHRtbA=="><img class="nowebp" src="https://img.foreverblog.cn/wormhole_4_tp.gif" style="width:auto;height:24px;" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></span>
+    </span>
+    <span class="post-meta-item travelling"><span class="exturl" data-url="aHR0cHM6Ly93d3cudHJhdmVsbGluZ3MuY24vZ28uaHRtbA=="><img class="nowebp" src="https://www.travellings.cn/assets/w.png" alt="开往-友链接力" height="18"></span>
+    </span>
+  
+</div>
+
+<script>
+function checkWebp(callback) {
+  var img = new Image();
+  img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+  img.onerror = function () { callback(false); };
+  img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+  var imgs = [].slice.call(document.querySelectorAll('img'));
+  imgs.forEach(function (e) {
+    if ((useWebp) && !e.classList.contains('nowebp')) {
+      var src = e.getAttribute('data-src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp');
+        e.setAttribute('data-src', src);
+      }
+      src = e.getAttribute('src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp');
+        e.setAttribute('src', src);
+      }
+    }
+  });
+}
+</script>
+<script data-pjax async>
+checkWebp(showImage);
+</script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.11.1/firebase-app-compat.js" integrity="sha256-GNS0PNk7BKL3ESum0TEubZtkybvbBMfkV3uZr7137Mk=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.11.1/firebase-firestore-compat.js" integrity="sha256-e8eevSHRq9ExY9rGvp5MoYeiGniYwJq0djypMLEqCjs=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyD0AfWHrmFoKgV1x4srPQDN7rGpGclK7J4","projectId":"visitors-of-blog"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://wangjiezhe.github.io/posts/2024-07-18-Install-Gentoo-on-Lemote-Yeeloong-netbook/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"wangjiezhe/wangjiezhe.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxNTc4OTE0Ng==","category":"Announcements","category_id":"DIC_kwDOAPDsWs4Cdwtf","mapping":"og:title","strict":1,"reactions_enabled":1,"emit_metadata":1,"theme":"preferred_color_scheme","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@3.0.2/dist/browser/styles/disqusjs.css" integrity="sha256-71XarXwNr1Td27HmZI9zjY+rMzRdush6/glo6VFXp7o=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqusjs.wangjiezhe.com/","apikey":"ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F","shortname":"wangjiezhe","js":{"url":"https://cdn.jsdelivr.net/npm/disqusjs@3.0.2/dist/browser/disqusjs.es2015.umd.min.js","integrity":"sha256-okP99ZQKVpIy7+NogAMpGlIQzJa9XKXhIJcFgdju5bU="}}</script>
+<script src="/js/third-party/comments/disqusjs.js"></script>
+
+
+
+  <script async src="/js/cursor/fireworks.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@wangjiezhe/live2d-widget@^3.1.7/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false},"log":false});</script></body>
+</html>

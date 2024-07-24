@@ -885,7 +885,7 @@ $ 匹配字符串的最后面。</p>
       <tags>
         <tag>Fedora</tag>
         <tag>Blog</tag>
-        <tag>Archlinux</tag>
+        <tag>ArchLinux</tag>
         <tag>Hexo</tag>
         <tag>NexT</tag>
       </tags>
@@ -2354,8 +2354,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
         <category>Windows</category>
       </categories>
       <tags>
-        <tag>WSL</tag>
         <tag>ArchLinux</tag>
+        <tag>WSL</tag>
       </tags>
   </entry>
   <entry>
@@ -7105,6 +7105,177 @@ p^2=2&amp;\implies m^2=2n^2\implies 2|m^2 \implies 2|m \\
       <tags>
         <tag>Hexo</tag>
         <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在龙芯笔记本（8089D）上安装 Gentoo</title>
+    <url>//posts/2024-07-18-Install-Gentoo-on-Lemote-Yeeloong-netbook/</url>
+    <content><![CDATA[<p>我手头有一个十一年前买的龙芯笔记本——逸珑 8089D，当时买来纯粹是用来作纪念的，毕竟它算是第一个批量出售的搭载国产 CPU（Loongson 2F）的笔记本。</p>
+<p>本子自带的是什么系统已经不记得了，不过后来我在上面装过 Debian，装过 Fedora，不过因为这些系统的镜像都太旧了，放了很长时间之后基本就没有办法更新了。加上硬盘容量只有 8G，也没有什么可以折腾的空间。</p>
+<p>后来我在换电脑的时候，从<a href="/posts/2020-05-01-Reinstall-Windows/">旧的电脑</a>上拆下了 500G 的 SATA 固态硬盘。因为新的电脑用的都是 NVME 的固态，所以这个硬盘就没有用了，于是安到了龙芯笔记本上。</p>
+<p>这个时候，还有官方支持龙芯 2F 的系统，基本就只剩下 <span class="exturl" data-url="aHR0cHM6Ly93d3cub3BlbmJzZC5vcmcvbG9vbmdzb24uaHRtbA==">OpenBSD<i class="fa fa-external-link-alt"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly93aWtpLm5ldGJzZC5vcmcvcG9ydHMvZXZibWlwcy8=">NetBSD<i class="fa fa-external-link-alt"></i></span> 了。于是我就选择安装了 OpenBSD。</p>
+<p>最近又把这个本子翻了出来，主要有两个原因。一是想把它连接上打印机，这样我在打印的时候，就不用把笔记本抱到打印机旁边了。另一个是想把它作为 Samba 服务器，放一些电视剧，分享给老的 iPad 2 播放。</p>
+<h2 id="1-使用-OpenBSD-遇到的问题"><a class="header-anchor" href="#1-使用-OpenBSD-遇到的问题"></a>1. 使用 OpenBSD 遇到的问题</h2>
+<p>起初我把 OpenBSD 更新到了最新的 7.5 版本，这个很简单，基本上按照官方给的<span class="exturl" data-url="aHR0cHM6Ly9mdHAub3BlbmJzZC5vcmcvcHViL09wZW5CU0QvNy41L2xvb25nc29uL0lOU1RBTEwubG9vbmdzb24=">帮助文件<i class="fa fa-external-link-alt"></i></span> 一步步来就可以了。</p>
+<p>然后尝试编译安装需要的软件。不过由于我对 OpenBSD 并不熟悉，一些简单的问题我还可以处理，稍微困难一些的我就解决不了了。</p>
+<p>比如在安装 vim 的时候，发现它依赖的 <code>security/libsodium</code> 无法安装。找了一圈问题，最后发现是需要把 <code>/usr/include/loongson/param.h</code> 里面的 <code>#ifdef _KERNEL</code> 删掉，直接引入 <code>#define	PAGE_SHIFT	14</code> 的定义，相当于回退了 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW5ic2Qvc3JjL2NvbW1pdC8xODRlMjQ1">openbsd/src#184e245<i class="fa fa-external-link-alt"></i></span>。</p>
+<p>又比如在安装 <code>textproc/icu4c</code> 的时候，下载的文件校验有问题，发现是上游源文件有<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW5ic2QvcG9ydHMvY29tbWl0LzRmMzI3NzA=">更新<i class="fa fa-external-link-alt"></i></span>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ftp https://github.com/openbsd/ports/commit/4f32770.patch -o /tmp/4f32770.patch</span><br><span class="line">cd /usr/ports/textproc/icu4c</span><br><span class="line">patch -Np1 &lt; /tmp/4f32770.patch</span><br></pre></td></tr></table></figure>
+<p>不过遇到的最大的问题，是有软件依赖 GCC，而 GCC 又无法编译安装，这个我就无能为力了。</p>
+<p>于是我放弃了继续使用 OpenBSD，开始寻找其它的解决方案。</p>
+<h2 id="2-选择安装-Gentoo"><a class="header-anchor" href="#2-选择安装-Gentoo"></a>2. 选择安装 Gentoo</h2>
+<p>之前我曾经尝试过安装 Gentoo，不过<span class="exturl" data-url="aHR0cHM6Ly93aWtpLmdlbnRvby5vcmcvd2lraS9Qcm9qZWN0OkxlbW90ZV9ZZWVsb29uZ19HZW50b29fRGVza3RvcA==">官方<i class="fa fa-external-link-alt"></i></span> 提供的<span class="exturl" data-url="aHR0cDovL2dlbnRvby5pbi51YS9leHBlcmltZW50YWwvbWlwcy9kZXNrdG9wLWxvb25nc29uMmYvZGVza3RvcC1sb29uZ3NvbjJmLXZhbmlsbGEtMjAxNDA2MzAudGFyLmJ6Mg==">镜像<i class="fa fa-external-link-alt"></i></span> 比较老，现在已经没有办法更新了。</p>
+<p>我也尝试过从 stage3 开始安装，不过各种问题层出不穷。旧的内核可以直接拿过来用，倒是能够直接登录，不过会有各种报错。编译新的内核，结果又有问题，启动不起来（我对内核编译并不熟悉）。还有遇到过在安装过程中，无法使用 <code>passwd</code> 更新密码的情况，这个是因为旧的<span class="exturl" data-url="aHR0cDovL2dlbnRvby5pbi51YS9leHBlcmltZW50YWwvbWlwcy9kZXNrdG9wLWxvb25nc29uMmYvbmV0Ym9vdC15ZWVsb29uZy5pbWc=">网络启动镜像<i class="fa fa-external-link-alt"></i></span> 无法挂载 <code>/dev</code> 分区，原因未知。</p>
+<p>不过这次这些问题都得到了解决。<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmRydWdnby5vcmcv">Druggo Yang<i class="fa fa-external-link-alt"></i></span> 作了一个新的<span class="exturl" data-url="aHR0cHM6Ly9kcnVnZ28ub3JnL3RtcC9uZXRib290LXllZWxvb25nLTYuNi4yMS5pbWc=">网络启动镜像<i class="fa fa-external-link-alt"></i></span>，可以正常加载 <code>/dev</code> 分区。<span class="exturl" data-url="aHR0cHM6Ly9kcmFtLnBhZ2Uv">dramforever<i class="fa fa-external-link-alt"></i></span> 给出了一个比较新的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RyYW1mb3JldmVyL25peG9zLWxvb25nc29uMmYvYmxvYi9tYWluL2xlbW90ZTJmX2NvbmZpZw==">内核配置<i class="fa fa-external-link-alt"></i></span>，也可以直接拿过来使用。</p>
+<h2 id="3-交叉编译内核"><a class="header-anchor" href="#3-交叉编译内核"></a>3. 交叉编译内核</h2>
+<p>首先是在笔记本上给龙芯交叉编译内核。我是在 WSL 里面安装的 Gentoo，目前官方的<span class="exturl" data-url="aHR0cHM6Ly93aWtpLmdlbnRvby5vcmcvd2lraS9HZW50b29faW5fV1NM">文档<i class="fa fa-external-link-alt"></i></span> 已经足够详细了，直接按照说明安装即可。</p>
+<div class="note info"><p>按照官方的说明，需要先把下载的 stage3 压缩包解压再导入 WSL。<br />
+实测并不需要，直接导入 <code>tar.xz</code> 文件即可：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">wsl <span class="literal">--import</span> Gentoo D:\Gentoo\ .\stage3<span class="literal">-amd64-openrc-</span>********T*****Z.tar.xz <span class="literal">--version</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+</div>
+<p>首先安装必需的软件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## crossdev: https://wiki.gentoo.org/wiki/Crossdev</span></span><br><span class="line"><span class="comment">## eselect/repository: https://wiki.gentoo.org/wiki/Eselect/Repository</span></span><br><span class="line">emerge -avqn sys-devel/crossdev app-eselect/eselect-repository</span><br><span class="line"><span class="comment">## 添加并同步 crossdev 仓库</span></span><br><span class="line">eselect repository create crossdev</span><br><span class="line">emerge --<span class="built_in">sync</span> crossdev</span><br><span class="line"><span class="comment">## 后续不需要再更新 crossdev 仓库</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;auto-sync = no&quot;</span> &gt;&gt; /etc/portage/repos.conf/eselect-repo.conf</span><br></pre></td></tr></table></figure>
+<p>然后配置交叉编译的环境：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crossdev -t mips64el-unknown-linux-gnuabi64</span><br></pre></td></tr></table></figure>
+<p>龙芯 2F 使用的是 <span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvTG9vbmdzb24jTG9vbmdzb25fbWljcm9wcm9jZXNzb3Jfc3BlY2lmaWNhdGlvbnM=">64 位 MIPS3 架构<i class="fa fa-external-link-alt"></i></span>，支持 o32、n32、n64 三种 ABI。官方的 multilib 默认使用 n32，但 Rust 和 Go 都只支持 o32 和 n64，不支持 n32。因此我直接使用了 n64 的 ABI。</p>
+<p>由于最新的 stage3 使用的是 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2VudG9vLm9yZy9zdXBwb3J0L25ld3MtaXRlbXMvMjAyNC0wMy0yMi1uZXctMjMtcHJvZmlsZXMuaHRtbA==">merged-usr 配置<i class="fa fa-external-link-alt"></i></span>，因此对交叉编译环境也做相应的调整：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">emerge -avqn sys-apps/merge-usr</span><br><span class="line">merge-usr --root /usr/mips64el-unknown-linux-gnuabi64</span><br><span class="line"><span class="built_in">ln</span> -sv usr/bin /usr/mips64el-unknown-linux-gnuabi64/bin</span><br></pre></td></tr></table></figure>
+<p>选择相应的 PROFILE：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PORTAGE_CONFIGROOT=/usr/mips64el-unknown-linux-gnuabi64 \</span><br><span class="line">    eselect profile <span class="built_in">set</span> default/linux/mips/23.0/mipsel/n64</span><br></pre></td></tr></table></figure>
+<p>在 <code>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/make.conf</code> 文件末尾添加以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 设置下载镜像</span></span><br><span class="line">GENTOO_MIRRORS=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/gentoo&quot;</span></span><br><span class="line"><span class="comment">## 虚拟软件和二进制软件没有必要构建二进制包</span></span><br><span class="line">EMERGE_DEFAULT_OPTS=<span class="string">&quot;--buildpkg-exclude &#x27;acct-*/* sys-kernel/*-sources virtual/* app-alternatives/* */*-bin&#x27;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>先安装需要的补丁文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/patches/sys-kernel/gentoo-sources</span><br><span class="line"><span class="built_in">cd</span> /etc/portage/patches/sys-kernel/gentoo-sources</span><br><span class="line"></span><br><span class="line"><span class="comment">## 参考：https://github.com/dramforever/nixos-loongson2f/blob/main/flake.nix</span></span><br><span class="line">wget https://github.com/loongson-community/linux-2f/commit/08fda2d.patch \</span><br><span class="line">    -O 0001-MIPS-Loongson2EF-Correct-SCI-Event-numbers.patch</span><br><span class="line">wget https://github.com/loongson-community/linux-2f/commit/ad2584d.patch \</span><br><span class="line">    -O 0002-MIPS-Loongson2EF-Yeeloong-platform-driver.patch</span><br></pre></td></tr></table></figure>
+<p>然后安装内核源文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">emerge -avqn sys-kernel/gentoo-sources:6.6.37</span><br></pre></td></tr></table></figure>
+<p>交叉编译内核：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> ARCH=mips</span><br><span class="line"><span class="built_in">export</span> CROSS_COMPILE=mips64el-unknown-linux-gnuabi64-</span><br><span class="line"><span class="built_in">export</span> MAKEFLAGS=<span class="string">&quot;-j<span class="subst">$(nproc)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /usr/src/linux-6.6.37-gentoo</span><br><span class="line">wget https://raw.githubusercontent.com/dramforever/nixos-loongson2f/main/lemote2f_config -O .config</span><br><span class="line">sed -i <span class="string">&#x27;s/hda3/sda2/&#x27;</span> .config</span><br><span class="line"><span class="comment">## 所有新选项保持默认即可</span></span><br><span class="line">make oldconfig</span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
+<p>打包编译好的内核：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> INSTALL_MOD_PATH=<span class="string">&#x27;ROOT&#x27;</span></span><br><span class="line"><span class="built_in">export</span> INSTALL_PATH=<span class="string">&#x27;ROOT/boot&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -rf ROOT &amp;&amp; <span class="built_in">mkdir</span> -pv ROOT/boot</span><br><span class="line">make modules_install</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="comment">## 必不可少的步骤，否则解压的时候会覆盖掉 `/lib` 的软链接</span></span><br><span class="line"><span class="built_in">mkdir</span> -pv ROOT/usr</span><br><span class="line"><span class="built_in">mv</span> ROOT/lib ROOT/usr</span><br><span class="line"></span><br><span class="line">KERNEL_VERSION=$(make kernelversion)</span><br><span class="line"><span class="built_in">cd</span> ROOT &amp;&amp; tar -cf <span class="variable">$HOME</span>/linux-<span class="variable">$&#123;KERNEL_VERSION&#125;</span>.tar .</span><br><span class="line"></span><br><span class="line"><span class="built_in">unset</span> ARCH CROSS_COMPILE MAKEFLAGS INSTALL_MOD_PATH INSTALL_PATH</span><br></pre></td></tr></table></figure>
+<h2 id="4-准备其它的文件"><a class="header-anchor" href="#4-准备其它的文件"></a>4. 准备其它的文件</h2>
+<p>除了编译好的内核外，还需要准备以下几个文件：</p>
+<ul>
+<li>下载好的 <span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLnR1bmEudHNpbmdodWEuZWR1LmNuL2dlbnRvby9yZWxlYXNlcy9taXBzL2F1dG9idWlsZHMvY3VycmVudC1zdGFnZTMtbWlwc2VsM19uNjQtb3BlbnJjLw==">stage3 包<i class="fa fa-external-link-alt"></i></span></li>
+<li>文件系统表 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS8xYmJmOTExZGExZTM0NWNiZGRiMjhhNTIyMTJkMWQ2MQ==">fstab<i class="fa fa-external-link-alt"></i></span></li>
+<li>PMON 启动配置文件 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS9jOTE4OTUwYTgwMGNlZWJjNWMyYzY1ZmY2YTAxZjNiMQ==">boot.cfg<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<p>后两个不是必需的，也可以在安装的时候直接输入。这里为了方便，我就提前编辑好了需要的内容，这样安装的时候直接复制过去就可以了。</p>
+<p>然后在本地启动一个 http 服务器，可以直接访问上面的文件即可。</p>
+<div class="note success"><ul>
+<li>如果已经安装了 python 3 的话，可以使用 <code>python -m http.server 80</code> 即可；</li>
+<li>如果已经安装 nodejs，可以使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2h0dHAtcGFydHkvaHR0cC1zZXJ2ZXI=">http-server<i class="fa fa-external-link-alt"></i></span>；</li>
+<li>也可以使用了 MobaXterm 的 HTTP Server 功能。</li>
+</ul>
+</div>
+<h2 id="5-准备网络引导镜像"><a class="header-anchor" href="#5-准备网络引导镜像"></a>5. 准备网络引导镜像</h2>
+<p>首先下载网络引导镜像：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://druggo.org/tmp/netboot-yeeloong-6.6.21.img</span><br></pre></td></tr></table></figure>
+<p>然后启动一个 tftp 服务器，可以访问下载的镜像文件。</p>
+<div class="note success"><ul>
+<li>可以使用 <span class="exturl" data-url="aHR0cHM6Ly9wam8yLmdpdGh1Yi5pby90ZnRwZDY0Lw==">tftpd32/tftpd64<i class="fa fa-external-link-alt"></i></span>；</li>
+<li>也可以使用 MobaXterm 的 TFTP Server 功能。</li>
+</ul>
+</div>
+<h2 id="6-启动龙芯笔记本。"><a class="header-anchor" href="#6-启动龙芯笔记本。"></a>6. 启动龙芯笔记本。</h2>
+<p>上面的准备工作都做完了，就可以开始正式安装了。</p>
+<p>这里我们要采用网络引导的方式，因此需要将龙芯笔记本插上网线，连接到路由器上。</p>
+<div class="note info"><p>也可以使用 usb 安装，参考 <span class="exturl" data-url="aHR0cHM6Ly93aWtpLmdlbnRvby5vcmcvd2lraS9Qcm9qZWN0OkxlbW90ZV9ZZWVsb29uZ19HZW50b29fRGVza3RvcCNJbnN0YWxsYXRpb24=">Gentoo Wiki<i class="fa fa-external-link-alt"></i></span>。<br />
+需要把 U 盘格式化成 ext2 格式，而且不能大小超过 2G (?)，否则无法识别。</p>
+</div>
+<p>启动龙芯笔记本，并连续按右上角的 <code>Del</code> 键，进入 PMON 引导界面。</p>
+<p>首先配置网络，然后加载网络引导镜像并启动。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">PMON&gt; </span><span class="language-bash">ifaddr rtl0 192.168.2.101</span></span><br><span class="line"><span class="meta prompt_">PMON&gt; </span><span class="language-bash">load tftp://192.168.2.38/netboot-yeeloong.img</span></span><br><span class="line"><span class="meta prompt_">PMON&gt; </span><span class="language-bash">g</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-安装-Gentoo-系统"><a class="header-anchor" href="#7-安装-Gentoo-系统"></a>7. 安装 Gentoo 系统</h2>
+<p>启动镜像之后，就可以开始安装系统了，基本上可以分成以下几步：</p>
+<ol>
+<li>对硬盘进行分区，并格式化；</li>
+<li>安装 stage3 和 kernel；</li>
+<li>加载 chroot 环境，并进行必要的配置；</li>
+<li>安装完成，重启！</li>
+</ol>
+<h3 id="7-1-硬盘分区"><a class="header-anchor" href="#7-1-硬盘分区"></a>7.1. 硬盘分区</h3>
+<p>首先使用 <code>fdisk</code> 对硬盘进行分区：</p>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>挂载点</th>
+<th>文件系统</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/dev/sda1</td>
+<td>/boot</td>
+<td>ext2</td>
+<td>128M</td>
+</tr>
+<tr>
+<td>/dev/sda2</td>
+<td>swap</td>
+<td>swap</td>
+<td>4G</td>
+</tr>
+<tr>
+<td>/dev/sda3</td>
+<td>/</td>
+<td>ext4</td>
+<td>剩余所用空间</td>
+</tr>
+</tbody>
+</table>
+<p>这里我给 swap 分区分的比较大，因为之间在使用 OpenBSD 的时候，发现 1G 的交换分区不够用，最后是又添加了 3G 的交换文件才能成功编译一些软件。</p>
+<p>然后进行格式化：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 刷新 /dev</span></span><br><span class="line">mdev -s</span><br><span class="line"></span><br><span class="line">mke2fs /dev/sda1</span><br><span class="line">mkswap /dev/sda2</span><br><span class="line">mkfs.ext4 /dev/sda3</span><br></pre></td></tr></table></figure>
+<p>接下来就可以挂载硬盘了：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /mnt/gentoo</span><br><span class="line">mount /dev/sda3 /mnt/gentoo</span><br><span class="line"><span class="built_in">mkdir</span> -p /mnt/gentoo/boot</span><br><span class="line">mount -t ext2 /dev/sda1 /mnt/gentoo/boot</span><br></pre></td></tr></table></figure>
+<h3 id="7-2-安装-stage3-包和内核"><a class="header-anchor" href="#7-2-安装-stage3-包和内核"></a>7.2. 安装 stage3 包和内核</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/gentoo</span><br><span class="line">wget http://192.168.2.38/stage3.tar.xz</span><br><span class="line">wget http://192.168.2.38/linux-6.6.37-gentoo.tar</span><br><span class="line"></span><br><span class="line">tar xf stage3.tar.xz</span><br><span class="line">tar xf linux-6.6.37-gentoo.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">## 获取 boot.cfg 和 fstab</span></span><br><span class="line"><span class="comment">## 一定仔细检查一下这两个文件</span></span><br><span class="line"><span class="comment">## 如果这两个文件出错，系统将无法正常启动</span></span><br><span class="line">wget http://192.168.2.38/boot.cfg -O /mnt/gentoo/boot/boot.cfg</span><br><span class="line">wget http://192.168.2.38/fstab -O /mnt/gentoo/etc/fstab</span><br></pre></td></tr></table></figure>
+<h3 id="7-3-加载-chroot-环境"><a class="header-anchor" href="#7-3-加载-chroot-环境"></a>7.3. 加载 chroot 环境</h3>
+<p>在 chroot 之前，需要挂载必要的文件系统：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 挂载 /proc，/sys，/dev</span></span><br><span class="line">mount -t proc /proc /mnt/gentoo/proc</span><br><span class="line">mount --rbind /sys /mnt/gentoo/sys</span><br><span class="line">mount --make-rslave /mnt/gentoo/sys</span><br><span class="line">mount --rbind /dev /mnt/gentoo/dev</span><br><span class="line">mount --make-rslave /mnt/gentoo/dev</span><br><span class="line"></span><br><span class="line"><span class="comment">## 进入 chroot 环境</span></span><br><span class="line"><span class="built_in">chroot</span> /mnt/gentoo /bin/bash</span><br></pre></td></tr></table></figure>
+<h3 id="7-4-配置系统"><a class="header-anchor" href="#7-4-配置系统"></a>7.4. 配置系统</h3>
+<p>这里的做法和 Gentoo Wiki 里面有所不同，我们只进行最简单的配置，较为复杂的配置都等到重启之后再进行。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 可以让终端更好看一些，非必要步骤</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"><span class="built_in">export</span> PS1=<span class="string">&quot;(chroot) <span class="variable">$PS1</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 配置 sshd 服务，之后可以直接 ssh 到笔记本</span></span><br><span class="line">sed -i <span class="string">&#x27;s/^#PermitRootLogin .*/PermitRootLogin yes/&#x27;</span> /etc/ssh/sshd_config</span><br><span class="line">rc-update add sshd default</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改 root 密码</span></span><br><span class="line">passwd</span><br><span class="line"></span><br><span class="line"><span class="comment">## 退出 chroot 环境</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<p>然后卸载硬盘，并重启即可。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">umount /mnt/gentoo/dev/shm</span><br><span class="line">umount /mnt/gentoo/dev/pts</span><br><span class="line">umount /mnt/gentoo/dev</span><br><span class="line">umount /mnt/gentoo/sys</span><br><span class="line">umount /mnt/gentoo/proc</span><br><span class="line">umount /mnt/gentoo/boot</span><br><span class="line">umount /mnt/gentoo</span><br><span class="line"></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<h2 id="8-远程登录笔记本"><a class="header-anchor" href="#8-远程登录笔记本"></a>8. 远程登录笔记本</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 复制主机公钥</span></span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.2.101</span><br><span class="line"></span><br><span class="line"><span class="comment">## 配置使用密钥登录 ssh</span></span><br><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">EOF &gt;&gt; ~/.ssh/config</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Host yeeloong</span></span><br><span class="line"><span class="string">  HostName 192.168.2.101</span></span><br><span class="line"><span class="string">  User root</span></span><br><span class="line"><span class="string">  IdentityFile ~/.ssh/id_rsa</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 登录笔记本</span></span><br><span class="line">ssh yeeloong</span><br></pre></td></tr></table></figure>
+<h2 id="9-进行基础配置"><a class="header-anchor" href="#9-进行基础配置"></a>9. 进行基础配置</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 删除下载的压缩包</span></span><br><span class="line"><span class="built_in">rm</span> /stage3.tar.xz /linux-6.6.37-gentoo.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改字符集</span></span><br><span class="line">sed -i <span class="string">&quot;s/#en_US.UTF-8/en_US.UTF-8/&quot;</span> /etc/locale.gen</span><br><span class="line">locale-gen</span><br><span class="line">eselect locale <span class="built_in">set</span> en_US.utf8</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改时区</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Asia/Shanghai&quot;</span> &gt; /etc/timezone</span><br><span class="line">emerge --config sys-libs/timezone-data</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改主机名</span></span><br><span class="line"><span class="built_in">echo</span> yeeloong &gt; /etc/hostname</span><br><span class="line"></span><br><span class="line"><span class="comment">## 开启系统服务日志</span></span><br><span class="line">sed -i <span class="string">&#x27;s/#rc_logger=&quot;NO&quot;/rc_logger=&quot;yes&quot;/&#x27;</span> /etc/rc.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 取消使用密码登录 ssh</span></span><br><span class="line">sed -i <span class="string">&#x27;s/^PermitRootLogin yes/PermitRootLogin prohibit-password/&#x27;</span> /etc/ssh/sshd_config</span><br><span class="line">rc-service sshd restart</span><br></pre></td></tr></table></figure>
+<h2 id="10-配置-Portage"><a class="header-anchor" href="#10-配置-Portage"></a>10. 配置 Portage</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## GCC 优化</span></span><br><span class="line">sed -i <span class="string">&quot;s/-march=mips3/-march=loongson2f/&quot;</span> /etc/portage/make.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 启用官方仓库</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/repos.conf</span><br><span class="line"><span class="built_in">cp</span> /usr/share/portage/config/repos.conf /etc/portage/repos.conf/gentoo.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 使用清华大学镜像</span></span><br><span class="line">sed -i <span class="string">&quot;s#^sync-uri = .*#sync-uri = rsync://mirrors.tuna.tsinghua.edu.cn/gentoo-portage#&quot;</span> \</span><br><span class="line">  /etc/portage/repos.conf/gentoo.conf</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&#x27;\nGENTOO_MIRRORS=&quot;https://mirrors.tuna.tsinghua.edu.cn/gentoo&quot;&#x27;</span> &gt;&gt; /etc/portage/make.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 同步镜像</span></span><br><span class="line">emerge --<span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
+<h2 id="11-安装软件"><a class="header-anchor" href="#11-安装软件"></a>11. 安装软件</h2>
+<p>配置 <code>/usr/src/linux</code>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/patches/sys-kernel/gentoo-sources</span><br><span class="line"></span><br><span class="line"><span class="built_in">pushd</span> /etc/portage/patches/sys-kernel/gentoo-sources</span><br><span class="line">wget https://github.com/loongson-community/linux-2f/commit/08fda2d.patch \</span><br><span class="line">  -O 0001-MIPS-Loongson2EF-Correct-SCI-Event-numbers.patch</span><br><span class="line">wget https://github.com/loongson-community/linux-2f/commit/ad2584d.patch \</span><br><span class="line">  -O 0002-MIPS-Loongson2EF-Yeeloong-platform-driver.patch</span><br><span class="line"><span class="built_in">popd</span></span><br><span class="line"></span><br><span class="line">emerge -avq gentoo-sources:6.6.37</span><br><span class="line">eselect kernel <span class="built_in">set</span> linux-6.6.37-gentoo</span><br></pre></td></tr></table></figure>
+<p>安装常用系统服务：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## mlocate：快速搜索文件</span></span><br><span class="line"><span class="comment">## dcron：定时运行任务</span></span><br><span class="line"><span class="comment">## chroy：NTP 时间同步</span></span><br><span class="line">emerge -avq mlocate dcron chrony</span><br><span class="line"></span><br><span class="line"><span class="comment">## 启用 cron 日志</span></span><br><span class="line">sed -i <span class="string">&#x27;s@DCRON_OPTS.*@DCRON_OPTS=&quot;-L /var/log/crond.log&quot;@&#x27;</span> /etc/conf.d/dcron</span><br><span class="line"><span class="comment">## 配置 dcron，使之可以运行 /etc/cron.&#123;daily,hourly,monthly,weekly&#125; 目录下的文件</span></span><br><span class="line">crontab /etc/crontab</span><br><span class="line"><span class="comment">## 启用 dcron 服务</span></span><br><span class="line">rc-service dcron start</span><br><span class="line">rc-update add dcron default</span><br><span class="line"></span><br><span class="line"><span class="comment">## 启用 chrony 服务</span></span><br><span class="line">rc-service chronyd start</span><br><span class="line">rc-update add chronyd default</span><br></pre></td></tr></table></figure>
+<p>安装常用软件：</p>
+<ul>
+<li>编辑器：vim</li>
+<li>版本控制：git</li>
+<li>Portage 相关：eix, genlop, gentoolkit, pkgdev</li>
+<li>系统监控：htop, strace, nload, dfc, lsof</li>
+<li>无线网络：wpa_supplicant</li>
+<li>查看硬件：pciutils, usbutils</li>
+<li>其它：tree, the_silver_searcher (ag)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/package.accept_keywords</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;app-editors/vim perl python tcl&#x27;</span> &gt;&gt; /etc/portage/package.use/vim</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-vcs/subversion * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/git</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-libs/libutf8proc * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/git</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-vcs/git tk subversion&#x27;</span> &gt;&gt; /etc/portage/package.use/git</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-vcs/subversion perl&#x27;</span> &gt;&gt; /etc/portage/package.use/git</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-util/pkgdev * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/pkgdev</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-util/pkgcheck * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/pkgdev</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-libs/tree-sitter-bash * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/pkgdev</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-libs/tree-sitter * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/pkgdev</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;dev-python/tree-sitter * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/pkgdev</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;sys-fs/dfc * ~*&#x27;</span> &gt;&gt; /etc/portage/package.accept_keywords/dfc</span><br><span class="line"></span><br><span class="line"><span class="comment">## 因为远程链接时间太长的话会话可能会中断，因此使用 nohup 后台运行</span></span><br><span class="line"><span class="built_in">nohup</span> emerge -vq vim dev-vcs/git eix genlop gentoolkit pkgdev htop strace nload dfc lsof \</span><br><span class="line">  app-text/tree wpa_supplicant pciutils usbutils &amp;</span><br></pre></td></tr></table></figure>
+<p>命令 <code>ag</code> 安装起来相对麻烦，仓库里面有一个 patch 会导致编译失败，需要去掉才能安装。<br />
+可以复制到 local 仓库手动修改 ebuild 文件，也可以使用用户补丁：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">emerge -avq patchutils</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/patches/sys-apps/the_silver_searcher</span><br><span class="line"></span><br><span class="line">interdiff -q /var/db/repos/gentoo/sys-apps/the_silver_searcher/files/the_silver_searcher-2.2.0-no_lfs64.patch /dev/null \</span><br><span class="line">  &gt; /etc/portage/patches/sys-apps/the_silver_searcher/Revert_the_silver_searcher-2.2.0-no_lfs64.patch</span><br><span class="line"></span><br><span class="line">emerge -avq the_silver_searcher</span><br></pre></td></tr></table></figure>
+<p>之后再配置好 <code>.vimrc</code> 和 <code>.bashrc</code> 就可以正常使用了😀。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Gentoo</tag>
+        <tag>Loongson</tag>
+        <tag>龙芯</tag>
+        <tag>OpenBSD</tag>
       </tags>
   </entry>
 </search>
