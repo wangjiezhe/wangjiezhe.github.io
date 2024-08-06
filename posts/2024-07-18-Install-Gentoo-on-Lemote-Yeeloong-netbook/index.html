@@ -169,7 +169,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -180,7 +180,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">98</span>
+        <span class="site-state-item-count">100</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -579,14 +579,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>9.9k</span>
+      <span>10k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>25 分钟</span>
+      <span>26 分钟</span>
     </span>
 </div>
 
@@ -628,7 +628,7 @@
 <p>由于最新的 stage3 使用的是 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2VudG9vLm9yZy9zdXBwb3J0L25ld3MtaXRlbXMvMjAyNC0wMy0yMi1uZXctMjMtcHJvZmlsZXMuaHRtbA==">merged-usr 配置<i class="fa fa-external-link-alt"></i></span>，因此对交叉编译环境也做相应的调整：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">emerge -avqn sys-apps/merge-usr</span><br><span class="line">merge-usr --root /usr/mips64el-unknown-linux-gnuabi64</span><br><span class="line"><span class="built_in">ln</span> -sv usr/bin /usr/mips64el-unknown-linux-gnuabi64/bin</span><br></pre></td></tr></table></figure>
 <p>选择相应的 PROFILE：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PORTAGE_CONFIGROOT=/usr/mips64el-unknown-linux-gnuabi64 \</span><br><span class="line">    eselect profile <span class="built_in">set</span> default/linux/mips/23.0/mipsel/n64</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PORTAGE_CONFIGROOT=/usr/mips64el-unknown-linux-gnuabi64 \</span></span><br><span class="line"><span class="comment">#     eselect profile set default/linux/mips/23.0/mipsel/n64</span></span><br><span class="line"><span class="comment">## 这个地方建议使用绝对路径。</span></span><br><span class="line"><span class="comment">## 对编译内核没有影响，但如果后续使用 qemu 的话，</span></span><br><span class="line"><span class="comment">## 使用绝对路径可以保证 chroot 之后链接位置依然是正确的。</span></span><br><span class="line"><span class="built_in">rm</span> /usr/mips64el-unknown-linux-gnuabi64/etc/portage/make.profile</span><br><span class="line"><span class="built_in">ln</span> -sv /var/db/repos/gentoo/profiles/default/linux/mips/23.0/mipsel/n64 \</span><br><span class="line">  /usr/mips64el-unknown-linux-gnuabi64/etc/portage/make.profile</span><br></pre></td></tr></table></figure>
 <p>在 <code>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/make.conf</code> 文件末尾添加以下内容：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 设置下载镜像</span></span><br><span class="line">GENTOO_MIRRORS=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/gentoo&quot;</span></span><br><span class="line"><span class="comment">## 虚拟软件和二进制软件没有必要构建二进制包</span></span><br><span class="line">EMERGE_DEFAULT_OPTS=<span class="string">&quot;--buildpkg-exclude &#x27;acct-*/* sys-kernel/*-sources virtual/* app-alternatives/* */*-bin&#x27;&quot;</span></span><br></pre></td></tr></table></figure>
 <p>先安装需要的补丁文件：</p>
@@ -730,7 +730,7 @@
 <h2 id="8-远程登录笔记本"><a class="header-anchor" href="#8-远程登录笔记本"></a>8. 远程登录笔记本</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 复制主机公钥</span></span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.2.101</span><br><span class="line"></span><br><span class="line"><span class="comment">## 配置使用密钥登录 ssh</span></span><br><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">EOF &gt;&gt; ~/.ssh/config</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Host yeeloong</span></span><br><span class="line"><span class="string">  HostName 192.168.2.101</span></span><br><span class="line"><span class="string">  User root</span></span><br><span class="line"><span class="string">  IdentityFile ~/.ssh/id_rsa</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 登录笔记本</span></span><br><span class="line">ssh yeeloong</span><br></pre></td></tr></table></figure>
 <h2 id="9-进行基础配置"><a class="header-anchor" href="#9-进行基础配置"></a>9. 进行基础配置</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 删除下载的压缩包</span></span><br><span class="line"><span class="built_in">rm</span> /stage3.tar.xz /linux-6.6.37-gentoo.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改字符集</span></span><br><span class="line">sed -i <span class="string">&quot;s/#en_US.UTF-8/en_US.UTF-8/&quot;</span> /etc/locale.gen</span><br><span class="line">locale-gen</span><br><span class="line">eselect locale <span class="built_in">set</span> en_US.utf8</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改时区</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Asia/Shanghai&quot;</span> &gt; /etc/timezone</span><br><span class="line">emerge --config sys-libs/timezone-data</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改主机名</span></span><br><span class="line"><span class="built_in">echo</span> yeeloong &gt; /etc/hostname</span><br><span class="line"></span><br><span class="line"><span class="comment">## 开启系统服务日志</span></span><br><span class="line">sed -i <span class="string">&#x27;s/#rc_logger=&quot;NO&quot;/rc_logger=&quot;yes&quot;/&#x27;</span> /etc/rc.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 取消使用密码登录 ssh</span></span><br><span class="line">sed -i <span class="string">&#x27;s/^PermitRootLogin yes/PermitRootLogin prohibit-password/&#x27;</span> /etc/ssh/sshd_config</span><br><span class="line">rc-service sshd restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 删除下载的压缩包</span></span><br><span class="line"><span class="built_in">rm</span> /stage3.tar.xz /linux-6.6.37-gentoo.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改字符集</span></span><br><span class="line">sed -i <span class="string">&quot;s/#en_US.UTF-8/en_US.UTF-8/&quot;</span> /etc/locale.gen</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;zh_CN.UTF-8 UTF-8&quot;</span> &gt;&gt; /etc/locale.gen</span><br><span class="line">locale-gen</span><br><span class="line">eselect locale <span class="built_in">set</span> en_US.utf8</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改时区</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Asia/Shanghai&quot;</span> &gt; /etc/timezone</span><br><span class="line">emerge --config sys-libs/timezone-data</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改主机名</span></span><br><span class="line"><span class="built_in">echo</span> yeeloong &gt; /etc/hostname</span><br><span class="line"></span><br><span class="line"><span class="comment">## 开启系统服务日志</span></span><br><span class="line">sed -i <span class="string">&#x27;s/#rc_logger=&quot;NO&quot;/rc_logger=&quot;yes&quot;/&#x27;</span> /etc/rc.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 取消使用密码登录 ssh</span></span><br><span class="line">sed -i <span class="string">&#x27;s/^PermitRootLogin yes/PermitRootLogin prohibit-password/&#x27;</span> /etc/ssh/sshd_config</span><br><span class="line">rc-service sshd restart</span><br></pre></td></tr></table></figure>
 <h2 id="10-配置-Portage"><a class="header-anchor" href="#10-配置-Portage"></a>10. 配置 Portage</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## GCC 优化</span></span><br><span class="line">sed -i <span class="string">&quot;s/-march=mips3/-march=loongson2f/&quot;</span> /etc/portage/make.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 启用官方仓库</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/repos.conf</span><br><span class="line"><span class="built_in">cp</span> /usr/share/portage/config/repos.conf /etc/portage/repos.conf/gentoo.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 使用清华大学镜像</span></span><br><span class="line">sed -i <span class="string">&quot;s#^sync-uri = .*#sync-uri = rsync://mirrors.tuna.tsinghua.edu.cn/gentoo-portage#&quot;</span> \</span><br><span class="line">  /etc/portage/repos.conf/gentoo.conf</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&#x27;\nGENTOO_MIRRORS=&quot;https://mirrors.tuna.tsinghua.edu.cn/gentoo&quot;&#x27;</span> &gt;&gt; /etc/portage/make.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">## 同步镜像</span></span><br><span class="line">emerge --<span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
 <h2 id="11-安装软件"><a class="header-anchor" href="#11-安装软件"></a>11. 安装软件</h2>
@@ -824,6 +824,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/2024-08-05-Install-driver-for-Lenovo-M7600D-printer/" rel="next" title="为龙芯笔记本安装联想 M7600D 打印机">
+                  为龙芯笔记本安装联想 M7600D 打印机 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -880,7 +883,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">205k</span>
+    <span title="站点总字数">207k</span>
   </span>
 </div>
 <div class="busuanzi-count">
