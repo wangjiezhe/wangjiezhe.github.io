@@ -168,7 +168,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -179,7 +179,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">100</span>
+        <span class="site-state-item-count">102</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -606,14 +606,14 @@
 <p>如果只需要单面打印，上面的步骤就足够了。但是在尝试双面的打印的时候，却遇到了问题。因为我发现不管选择什么驱动，双面打印出来的方向都不对，无论我选择长边翻页还是短边翻页，打印出来都是短边翻页的效果。我把支持双面打印机（型号后面带 D）的驱动几乎试了个遍，结果都一样。</p>
 <p>经过研究发现，在 brlaser 的配置文件中，双面打印的配置都带有 <code>Duplex rotated</code> 的选项。<br />
 运行 <code>cat /usr/share/cups/drv/brlaser.drv | grep DCP-7060D -A3 -B1</code> 可以看到：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ModelName <span class="string">&quot;DCP-7060D&quot;</span></span><br><span class="line">  <span class="keyword">Attribute</span> <span class="string">&quot;NickName&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;Brother DCP-7060D, $USING&quot;</span></span><br><span class="line">  <span class="keyword">Attribute</span> <span class="string">&quot;1284DeviceID&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;MFG:Brother;CMD:PJL,HBP;MDL:DCP-7060D;CLS:PRINTER;CID:Brother Laser Type1;&quot;</span></span><br><span class="line">  Duplex rotated</span><br><span class="line">  PCFileName <span class="string">&quot;br7060d.ppd&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ModelName <span class="string">&quot;DCP-7060D&quot;</span></span><br><span class="line">  <span class="keyword">Attribute</span> <span class="string">&quot;NickName&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;Brother DCP-7060D, $USING&quot;</span></span><br><span class="line">  <span class="keyword">Attribute</span> <span class="string">&quot;1284DeviceID&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;MFG:Brother;CMD:PJL,HBP;MDL:DCP-7060D;CLS:PRINTER;CID:Brother Laser Type1;&quot;</span></span><br><span class="line">  Duplex rotated</span><br><span class="line">  PCFileName <span class="string">&quot;br7060d.ppd&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>简单搜索<span class="exturl" data-url="aHR0cHM6Ly93d3cuY3Vwcy5vcmcvZG9jL3JlZi1wcGRjZmlsZS5odG1sI0R1cGxleA==">文档<i class="fa fa-external-link-alt"></i></span> 就可以找到这个选项的说明：</p>
 <blockquote>
 <p><code>rotated</code> - double-sided printing is supported, but the back side image needs to be rotated 180 degrees for DuplexNoTumble</p>
 </blockquote>
 <p>即在长边翻页的时候，将后面一页旋转 180°。而我的联想打印机应该选择 <code>normal</code> 才对。</p>
 <p>根据 <code>lpinfo --include-schemes usb -l -v</code> 的输出：</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Device: uri = usb:<span class="regexp">//</span>Lenovo/M7600D</span><br><span class="line">        <span class="class"><span class="keyword">class</span> = <span class="title">direct</span></span></span><br><span class="line"><span class="class">        <span class="title">info</span> = <span class="title">Lenovo</span> <span class="title">M7600D</span></span></span><br><span class="line"><span class="class">        <span class="title">make</span>-<span class="title">and</span>-<span class="title">model</span> = <span class="title">Lenovo</span> <span class="title">M7600D</span></span></span><br><span class="line"><span class="class">        <span class="title">device</span>-<span class="title">id</span> = <span class="title">MFG</span>:<span class="title">Lenovo</span></span>;CMD:PJL,XL2HB;MDL:M7600D;CLS:PRINTER;</span><br><span class="line">        location =</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Device: uri = usb://Lenovo/M7600D</span><br><span class="line">        class = direct</span><br><span class="line">        info = Lenovo M7600D</span><br><span class="line">        make-and-model = Lenovo M7600D</span><br><span class="line">        device-id = MFG:Lenovo;CMD:PJL,XL2HB;MDL:M7600D;CLS:PRINTER;</span><br><span class="line">        location =</span><br></pre></td></tr></table></figure>
 <p>我干脆直接修改了源代码，见 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGUvYnJsYXNlci9jb21taXQvNGYxOTgzN2NjZGViMTJkZjUyYzQxNWRiNmFiOTIxZjBkMDQyZWZlMw==">#4f19837<i class="fa fa-external-link-alt"></i></span>，然后把它 patch 进来，重新编译安装 brlaser 即可。：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/patches/net-print/brlaser</span><br><span class="line">wget https://github.com/wangjiezhe/brlaser/commit/4f19837.patch \</span><br><span class="line">  -O /etc/portage/patches/net-print/brlaser/Lenovo-M7600D.patch</span><br><span class="line">emerge -avq brlaser</span><br></pre></td></tr></table></figure>
 <p>之后重新添加打印机，并设置默认双面打印：</p>
@@ -691,6 +691,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/2024-08-06-Cross-compile-Rust-for-Lemote-Yeeloong-netbook/" rel="next" title="为龙芯笔记本交叉编译 Rust">
+                  为龙芯笔记本交叉编译 Rust <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -747,7 +750,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">207k</span>
+    <span title="站点总字数">214k</span>
   </span>
 </div>
 <div class="busuanzi-count">

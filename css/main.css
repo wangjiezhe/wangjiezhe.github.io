@@ -18,10 +18,10 @@
   --btn-default-hover-bg: #b28fce;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #b28fce;
-  --highlight-background: #fff;
-  --highlight-foreground: #000;
-  --highlight-gutter-background: #e5e5e5;
-  --highlight-gutter-foreground: #191919;
+  --highlight-background: #fafafa;
+  --highlight-foreground: #383a42;
+  --highlight-gutter-background: #e6e6e7;
+  --highlight-gutter-foreground: #4b4d54;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -412,58 +412,85 @@ code.hljs {
 }
 /*
 
-Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
+Atom One Light by Daniel Gamage
+Original One Light Syntax theme from https://github.com/atom/one-light-syntax
+
+base:    #fafafa
+mono-1:  #383a42
+mono-2:  #686b77
+mono-3:  #a0a1a7
+hue-1:   #0184bb
+hue-2:   #4078f2
+hue-3:   #a626a4
+hue-4:   #50a14f
+hue-5:   #e45649
+hue-5-2: #c91243
+hue-6:   #986801
+hue-6-2: #c18401
 
 */
 .hljs {
-  background: white;
-  color: black
+  color: #383a42;
+  background: #fafafa
 }
 .hljs-comment,
-.hljs-quote,
-.hljs-variable {
-  color: #008000
+.hljs-quote {
+  color: #a0a1a7;
+  font-style: italic
 }
+.hljs-doctag,
 .hljs-keyword,
-.hljs-selector-tag,
-.hljs-built_in,
+.hljs-formula {
+  color: #a626a4
+}
+.hljs-section,
 .hljs-name,
-.hljs-tag {
-  color: #00f
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e45649
+}
+.hljs-literal {
+  color: #0184bb
 }
 .hljs-string,
-.hljs-title,
-.hljs-section,
+.hljs-regexp,
+.hljs-addition,
 .hljs-attribute,
-.hljs-literal,
-.hljs-template-tag,
+.hljs-meta .hljs-string {
+  color: #50a14f
+}
+.hljs-attr,
+.hljs-variable,
 .hljs-template-variable,
 .hljs-type,
-.hljs-addition {
-  color: #a31515
-}
-.hljs-deletion,
+.hljs-selector-class,
 .hljs-selector-attr,
 .hljs-selector-pseudo,
-.hljs-meta {
-  color: #2b91af
-}
-.hljs-doctag {
-  color: #808080
-}
-.hljs-attr {
-  color: #f00
+.hljs-number {
+  color: #986801
 }
 .hljs-symbol,
 .hljs-bullet,
-.hljs-link {
-  color: #00b0e8
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #4078f2
+}
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #c18401
 }
 .hljs-emphasis {
   font-style: italic
 }
 .hljs-strong {
   font-weight: bold
+}
+.hljs-link {
+  text-decoration: underline
 }
 @media (prefers-color-scheme: dark) {
 pre code.hljs {
@@ -1399,7 +1426,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #d4d7bb;
+    background: #1d90f5;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
