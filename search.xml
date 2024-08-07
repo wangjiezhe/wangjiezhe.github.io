@@ -6832,7 +6832,7 @@ p^2=2&amp;\implies m^2=2n^2\implies 2|m^2 \implies 2|m \\
 <ul>
 <li>切3/6p，听47p3s烟囱形三面（7-1=6枚）</li>
 <li>切5p，听6s3s对碰（4枚）</li>
-<li>切7p，听258三面（12-2=10枚）（√）</li>
+<li>切7p，听258三面（12-2=10枚）（✓）</li>
 </ul>
 </li>
 </ul>
@@ -7017,7 +7017,7 @@ p^2=2&amp;\implies m^2=2n^2\implies 2|m^2 \implies 2|m \\
 <li>切4m，听牌进张为258m+36p+36s（11+6+6=23枚）</li>
 <li>切3p，听牌进张为1234578m+12345678s（23+28=51枚）</li>
 <li>切6p/3s/6s，与切3p类似</li>
-<li>考虑345/456三色？ <mark class="label success">√</mark></li>
+<li>考虑345/456三色？ <mark class="label success">✓</mark></li>
 </ul>
 <p>结论：<s>切3m</s> <mark class="label success">切6s</mark></p>
 <div class="note danger"><ul>
