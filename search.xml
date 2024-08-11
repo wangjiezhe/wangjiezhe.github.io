@@ -6858,7 +6858,7 @@ p^2=2&amp;\implies m^2=2n^2\implies 2|m^2 \implies 2|m \\
 <img data-src="/posts/2023-03-27-He-Qie-301-1/009.png" class="" width="600" title="Q009" alt="Q009">
 <ul>
 <li>两向听</li>
-<li>112m+233p+788p，三对拆一对</li>
+<li><s>112m+233p+788p，三对拆一对</s></li>
 <li>2p为宝牌</li>
 <li><s>如果切3p，损失14p的进张（8枚）</s></li>
 <li><s>如果切7p，损失69p的进张（7枚）</s></li>
@@ -6872,7 +6872,7 @@ p^2=2&amp;\implies m^2=2n^2\implies 2|m^2 \implies 2|m \\
 <li>3宝牌两向听，速度最重要</li>
 <li>677888p复合形一般最后再去动</li>
 <li>切1m，有效进章为3m+12456789p+47s</li>
-<li>切2m，有效进章为1m+123456789p+4567s（注意多了3p56s的七对进张）</li>
+<li>切2m，有效进章为1m+123456789p+4567s（注意多了3p56s的<strong>七对</strong>进张）</li>
 </ul>
 </div>
 <h2 id="Q010"><a class="header-anchor" href="#Q010"></a>Q010</h2>
@@ -6890,7 +6890,9 @@ p^2=2&amp;\implies m^2=2n^2\implies 2|m^2 \implies 2|m \\
 </ul>
 <p>结论：<s>切3p</s> <mark class="label success">切7p</mark></p>
 <div class="note info"><ul>
-<li>223p+577p，保留两对+两面</li>
+<li>同<a href="#Q010">Q010</a>，223m+557p+567p，保留两对+两面</li>
+<li>切7p损失67p的进张（5枚）</li>
+<li>切3p损失14p的进张（8枚）</li>
 </ul>
 </div>
 <h2 id="Q012"><a class="header-anchor" href="#Q012"></a>Q012</h2>
@@ -6898,7 +6900,7 @@ p^2=2&amp;\implies m^2=2n^2\implies 2|m^2 \implies 2|m \\
 <ul>
 <li>556m+133p+22s，三对拆好形</li>
 <li>如果切5m，损失5m的进张（2枚）</li>
-<li>如果切3m，损失369m的进张（9枚），损失断幺可能，且大概率听坎2p</li>
+<li>如果切3m，损失369p的进张（9枚），损失断幺可能，且大概率听坎2p</li>
 </ul>
 <p>结论：切5m</p>
 <h2 id="Q013"><a class="header-anchor" href="#Q013"></a>Q013</h2>
@@ -7283,7 +7285,7 @@ p^2=2&amp;\implies m^2=2n^2\implies 2|m^2 \implies 2|m \\
   <entry>
     <title>为龙芯笔记本安装联想 M7600D 打印机</title>
     <url>//posts/2024-08-05-Install-driver-for-Lenovo-M7600D-printer/</url>
-    <content><![CDATA[<p><a href="posts/2024-07-18-Install-Gentoo-on-Lemote-Yeeloong-netbook/">之前</a>在我的龙芯笔记本上安装好 Gentoo，之后，我就把它连上了打印机，准备实现远程打印。</p>
+    <content><![CDATA[<p><a href="/posts/2024-07-18-Install-Gentoo-on-Lemote-Yeeloong-netbook/">之前</a>在我的龙芯笔记本上安装好 Gentoo，之后，我就把它连上了打印机，准备实现远程打印。</p>
 <p>我家的打印机是十几年前的联想 M7600D 激光打印机，官方有 Linux 的<span class="exturl" data-url="aHR0cHM6Ly9uZXdzdXBwb3J0Lmxlbm92by5jb20uY24vZHJpdmVEb3dubG9hZHNfZGV0YWlsLmh0bWw/ZHJpdmVJZD0zMjk3MQ==">驱动<i class="fa fa-external-link-alt"></i></span>，不过只支持 X86 架构，因此只能自己找驱动编译。</p>
 <p>好在联想打印机的驱动很多和兄弟（Brother）打印机是通用的，而 <code>lsusb</code> 命令的输出也验证了这一点：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Bus</span> <span class="number">002</span> Device <span class="number">002</span>: ID <span class="number">04</span>f9:<span class="number">5608</span> Brother Industries, Ltd</span><br></pre></td></tr></table></figure>

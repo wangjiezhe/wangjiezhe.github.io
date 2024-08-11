@@ -1426,7 +1426,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #e71401;
+    background: #a6ff0d;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3034,7 +3034,6 @@ header.header {
     color: var(--text-color);
     margin-top: 12px;
     max-height: calc(100vh - 24px);
-    visibility: hidden;
   }
   .site-state-item {
     padding: 0 10px;
