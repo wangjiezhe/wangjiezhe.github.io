@@ -1426,7 +1426,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #584e3d;
+    background: #b454f7;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1907,7 +1907,7 @@ pre code {
 }
 .reading-progress-bar {
   --progress: 0;
-  background: #37c6c0;
+  background: #66327c;
   height: 3px;
   position: fixed;
   z-index: 50;
@@ -3493,6 +3493,9 @@ div .blog-links {
   .links-of-author-item a {
     color: #2ea9df;
   }
+}
+.tenhou img {
+  width: 600px;
 }
 @keyframes shake-it {
   0% {
