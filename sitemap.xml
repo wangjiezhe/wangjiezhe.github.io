@@ -56,6 +56,15 @@
   </url>
   
   <url>
+    <loc>https://wangjiezhe.github.io/posts/2020-08-02-Riichi-mahjong-resources/</loc>
+    
+    <lastmod>2024-08-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjiezhe.github.io/posts/2024-08-11-He-Qie-301-2/</loc>
     
     <lastmod>2024-08-13</lastmod>
@@ -104,15 +113,6 @@
     <loc>https://wangjiezhe.github.io/posts/2024-03-30-Fix-Giscus-with-Pjax/</loc>
     
     <lastmod>2024-03-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/posts/2020-08-02-Riichi-mahjong-resources/</loc>
-    
-    <lastmod>2023-03-27</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
