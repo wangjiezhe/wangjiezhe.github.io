@@ -1,0 +1,30 @@
+﻿\begin{tikzpicture}
+  \tkzDefPoints{-1/0/B,0/2/A,3/0/D}
+  \tkzDefLine[bisector,normed](B,A,D) \tkzGetPoint{C'}
+  \tkzDefPointOnLine[pos=3](A,C') \tkzGetPoint{C}
+  \tkzDefPointOnLine[pos=0.4](B,C) \tkzGetPoint{E}
+  \tkzDefLine[parallel=through E,normed](B,D) \tkzGetPoint{F'}
+  \tkzInterLL(E,F')(C,D) \tkzGetPoint{F}
+
+  \tkzDrawPolygons[lines](A,B,C,D A,E,F)
+  \tkzDrawSegments[lines](A,C B,D)
+
+  \tkzDrawPoints[dots](A,B,C,D,E,F)
+
+  \tkzLabelPoints[above](A)
+  \tkzLabelPoints[below](C,E,F)
+  \tkzLabelPoints[left](B)
+  \tkzLabelPoints[right](D)
+
+  \tkzFillAngles[size=.4,red,opacity=.3](C,A,D)
+  \tkzMarkAngles[size=.4](C,A,D)
+
+  \tkzFillAngles[size=.5,red,opacity=.3](B,A,C)
+  \tkzMarkAngles[size=.5](B,A,C)
+
+  \tkzFillAngle[size=.7,yellow,opacity=.3](C,A,F)
+  \tkzMarkAngle[size=.7](C,A,F)
+
+  \tkzFillAngle[size=.8,blue,opacity=.3](E,A,C)
+  \tkzMarkAngle[size=.8](E,A,C)
+\end{tikzpicture}
