@@ -6,16 +6,6 @@
   \tkzDefLine[parallel=through E,normed](B,D) \tkzGetPoint{F'}
   \tkzInterLL(E,F')(C,D) \tkzGetPoint{F}
 
-  \tkzDrawPolygons[lines](A,B,C,D A,E,F)
-  \tkzDrawSegments[lines](A,C B,D)
-
-  \tkzDrawPoints[dots](A,B,C,D,E,F)
-
-  \tkzLabelPoints[above](A)
-  \tkzLabelPoints[below](C,E,F)
-  \tkzLabelPoints[left](B)
-  \tkzLabelPoints[right](D)
-
   \tkzFillAngles[size=.4,red,opacity=.3](C,A,D)
   \tkzMarkAngles[size=.4](C,A,D)
 
@@ -27,4 +17,14 @@
 
   \tkzFillAngle[size=.8,blue,opacity=.3](E,A,C)
   \tkzMarkAngle[size=.8](E,A,C)
+
+  \tkzDrawPolygons[lines](A,B,C,D A,E,F)
+  \tkzDrawSegments[lines](A,C B,D)
+
+  \tkzDrawPoints[dots](A,B,C,D,E,F)
+
+  \tkzLabelPoints[above](A)
+  \tkzLabelPoints[below](C,E,F)
+  \tkzLabelPoints[left](B)
+  \tkzLabelPoints[right](D)
 \end{tikzpicture}

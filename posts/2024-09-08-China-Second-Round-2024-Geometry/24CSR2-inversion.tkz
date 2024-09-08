@@ -11,19 +11,8 @@
   \tkzInterLC[common=A](A,Q)(O1,A) \tkzGetFirstPoint{E}
   \tkzInterLC[common=A](A,P)(O2,A) \tkzGetFirstPoint{F}
 
-  % \tkzInterLC[common=B](B,P)(A,B) \tkzGetFirstPoint{M}
-  % \tkzInterLC[common=D](D,Q)(A,D) \tkzGetFirstPoint{N}
   \tkzInterLL(A,B)(D,Q) \tkzGetPoint{N}
   \tkzInterLL(A,D)(B,P) \tkzGetPoint{M}
-
-  \tkzDrawPolygon[lines](B,P,Q,D)
-  \tkzDrawSegments[lines](A,B F,P E,Q A,D A,C)
-  \tkzDrawCircles[helplines=black](O1,A O2,A)
-
-  \tkzDrawPolygon[helplines](A,M,N)
-
-  \tkzDrawPoints[dots](A,B,C,D,E,F,P,Q)
-  \tkzDrawPoints[dots=cyan](M,N)
 
   \tkzFillAngle[size=.5,yellow,opacity=.3](B,P,A)
   \tkzMarkAngle[size=.5](B,P,A)
@@ -48,6 +37,15 @@
 
   \tkzFillAngle[size=.8,blue,opacity=.3](E,A,C)
   \tkzMarkAngle[size=.8](E,A,C)
+
+  \tkzDrawPolygon[lines](B,P,Q,D)
+  \tkzDrawSegments[lines](A,B F,P E,Q A,D A,C)
+  \tkzDrawCircles[helplines=black](O1,A O2,A)
+
+  \tkzDrawPolygon[helplines](A,M,N)
+
+  \tkzDrawPoints[dots](A,B,C,D,E,F,P,Q)
+  \tkzDrawPoints[dots=cyan](M,N)
 
   \tkzLabelPoints[above](N)
   \tkzLabelPoints[below](M)

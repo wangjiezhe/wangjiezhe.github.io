@@ -17,6 +17,9 @@
   \tkzInterLC[common=A](A,E)(O1,A) \tkzGetFirstPoint{S}
   \tkzInterLC[common=A](A,F)(O2,A) \tkzGetFirstPoint{T}
 
+  \tkzFillPolygon[green,opacity=0.3](K,Q,A)
+  \tkzFillPolygon[yellow,opacity=0.3](A,S,B)
+
   \tkzDrawPolygons[lines](A,B,C,D A,E,F)
   \tkzDrawSegments[lines](A,C B,D A,P A,Q)
   \tkzDrawCircles[lines](O1,A O2,A)
@@ -26,9 +29,6 @@
 
   \tkzDrawPoints[dots](A,B,C,D,E,F,P,Q)
   \tkzDrawPoints[dots=cyan](K,S,T)
-
-  \tkzFillPolygon[green,opacity=0.3](K,Q,A)
-  \tkzFillPolygon[yellow,opacity=0.3](A,S,B)
 
   \tkzLabelPoint[above](K){$K\,(K')$}
   \tkzLabelPoints[below](B,D,C,E,F)
