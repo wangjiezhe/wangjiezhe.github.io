@@ -1426,7 +1426,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #8adade;
+    background: #0377ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3496,6 +3496,9 @@ div .blog-links {
 }
 .tenhou img {
   width: 600px;
+}
+#friend-circle-lite-root .card:hover .card-bg {
+  opacity: 0.5;
 }
 @keyframes shake-it {
   0% {
