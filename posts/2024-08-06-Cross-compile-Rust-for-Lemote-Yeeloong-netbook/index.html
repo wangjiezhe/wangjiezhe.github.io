@@ -594,7 +594,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>8k</span>
+      <span>8.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -618,7 +618,9 @@
 <h2 id="1-交叉编译-Rust-编译器"><a class="header-anchor" href="#1-交叉编译-Rust-编译器"></a>1. 交叉编译 Rust 编译器</h2>
 <p>目前 <span class="exturl" data-url="aHR0cHM6Ly93aWtpLmdlbnRvby5vcmcvd2lraS9Cb290c3RyYXBwaW5nX1J1c3RfdmlhX2Nyb3NzX2NvbXBpbGF0aW9u">Wiki<i class="fa fa-external-link-alt"></i></span> 对于这部分内容的说明已经过时了，根据今年 2 月份 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dlbnRvby9nZW50b28vY29tbWl0Lzg2OWE2N2VmY2FlZGJmN2QwOGZlMTYwNTc0NjZmNThhYzFmMjFhODQ=">869a67e<i class="fa fa-external-link-alt"></i></span> 的提交，目前可以直接使用 crossdev 交叉编译 Rust 编译器。</p>
 <div class="note danger"><p>20241209 更新：最新的 1.83.0 版本直接交叉编译会失败，原因是 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3J1c3QtbGFuZy9ydXN0L2NvbW1pdC82ODAzNGY4MzdhMzkzODdlNDlmYzdkN2M1YjA4OGY1MzcyYTExMjdl">68034f8<i class="fa fa-external-link-alt"></i></span>，需要 revert 这个 commit 才可以。</p>
-<p>可以下载 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS8xY2VhZTBjZDk0MmFlOWM5N2I5MjljZjg2MTk5MzdlZQ==">Revert-Disable-Zdual-proc-macros-if-the-target-doesn.patch<i class="fa fa-external-link-alt"></i></span> 文件，直接放在 <code>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/patches/dev-lang/rust-1.83.0/</code> 下即可。</p>
+<p>可以下载 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS8xY2VhZTBjZDk0MmFlOWM5N2I5MjljZjg2MTk5MzdlZQ==">patch<i class="fa fa-external-link-alt"></i></span> 文件，直接放在 <code>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/patches/dev-lang/rust-1.83.0/</code> 下即可。</p>
+</div>
+<div class="note danger"><p>20250112 更新：最新的 1.84.0 版本请下载 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS80NzQ2ZWIzMThlMTMxYzRiOTdmZmJlMGE3NTM1ODdiMw==">patch<i class="fa fa-external-link-alt"></i></span> 文件，放在 <code>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/patches/dev-lang/rust-1.84.0/</code> 下。</p>
 </div>
 <p>首先在宿主机上安装 Rust。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 如果只需要交叉编译 Rust 编译器，直接使用 dev-lang/rust-bin 即可</span></span><br><span class="line"><span class="comment">## 当然也可以使用 dev-lang/rust，不过编译安装需要的时间比较长</span></span><br><span class="line"><span class="comment">##（和编译 GCC 的时间差不多）</span></span><br><span class="line"><span class="comment">## 如果需要交叉编译 Rust 程序，则必须安装 dev-lang/rust</span></span><br><span class="line">emerge -avq dev-lang/rust-bin</span><br></pre></td></tr></table></figure>
