@@ -40,8 +40,8 @@
 <meta property="article:modified_time" content="2019-09-08T17:07:18.000Z">
 <meta property="article:author" content="西风冷香">
 <meta property="article:tag" content="天凤">
-<meta property="article:tag" content="太くないお">
 <meta property="article:tag" content="何切">
+<meta property="article:tag" content="太くないお">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://wangjiezhe.github.io/posts/2019-09-04-Tai-1/zQ9iypCvu57Lxh1.jpg">
 
@@ -357,7 +357,7 @@
     canvas.width = W;
     cxt.fillStyle = '#f00';
     cxt.fillRect(10,10,50,50);
-  
+
     //存储时间数据
     var data = [];
     //存储运动的小球
@@ -369,7 +369,7 @@
       //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
       data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
     })();
-  
+
     /*生成点阵数字*/
     function renderDigit(index,num){
       for(var i = 0; i < digit[num].length; i++){
@@ -383,7 +383,7 @@
         }
       }
     }
-  
+
     /*更新时钟*/
     function updateDigitTime(){
       var changeNumArray = [];
@@ -403,7 +403,7 @@
       }
       data = NewData.concat();
     }
-  
+
     /*更新小球状态*/
     function updateBalls(){
       for(var i = 0; i < balls.length; i++){
@@ -416,7 +416,7 @@
         }
       }
     }
-  
+
     /*增加要运动的小球*/
     function addBalls(index,num){
       var numArray = [1,2,3];
@@ -437,7 +437,7 @@
         }
       }
     }
-  
+
     /*渲染*/
     function render(){
       //重置画布宽度，达到清空画布的效果
@@ -455,7 +455,7 @@
         cxt.fill();
       }
     }
-  
+
     clearInterval(oTimer);
     var oTimer = setInterval(function(){
       //更新时钟
@@ -701,8 +701,8 @@
 
           <div class="post-tags">
               <a href="/tags/%E5%A4%A9%E5%87%A4/" rel="tag"><i class="fa fa-tag"></i> 天凤</a>
-              <a href="/tags/%E5%A4%AA%E3%81%8F%E3%81%AA%E3%81%84%E3%81%8A/" rel="tag"><i class="fa fa-tag"></i> 太くないお</a>
               <a href="/tags/%E4%BD%95%E5%88%87/" rel="tag"><i class="fa fa-tag"></i> 何切</a>
+              <a href="/tags/%E5%A4%AA%E3%81%8F%E3%81%AA%E3%81%84%E3%81%8A/" rel="tag"><i class="fa fa-tag"></i> 太くないお</a>
           </div>
 
         

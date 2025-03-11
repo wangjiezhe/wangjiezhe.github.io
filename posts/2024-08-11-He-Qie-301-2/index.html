@@ -375,7 +375,7 @@
     canvas.width = W;
     cxt.fillStyle = '#f00';
     cxt.fillRect(10,10,50,50);
-  
+
     //存储时间数据
     var data = [];
     //存储运动的小球
@@ -387,7 +387,7 @@
       //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
       data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
     })();
-  
+
     /*生成点阵数字*/
     function renderDigit(index,num){
       for(var i = 0; i < digit[num].length; i++){
@@ -401,7 +401,7 @@
         }
       }
     }
-  
+
     /*更新时钟*/
     function updateDigitTime(){
       var changeNumArray = [];
@@ -421,7 +421,7 @@
       }
       data = NewData.concat();
     }
-  
+
     /*更新小球状态*/
     function updateBalls(){
       for(var i = 0; i < balls.length; i++){
@@ -434,7 +434,7 @@
         }
       }
     }
-  
+
     /*增加要运动的小球*/
     function addBalls(index,num){
       var numArray = [1,2,3];
@@ -455,7 +455,7 @@
         }
       }
     }
-  
+
     /*渲染*/
     function render(){
       //重置画布宽度，达到清空画布的效果
@@ -473,7 +473,7 @@
         cxt.fill();
       }
     }
-  
+
     clearInterval(oTimer);
     var oTimer = setInterval(function(){
       //更新时钟

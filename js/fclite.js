@@ -3,13 +3,13 @@ function initialize_fc_lite() {
     // 用户配置
     // 设置默认配置
     UserConfig = {
-        private_api_url: UserConfig?.private_api_url || "", 
+        private_api_url: UserConfig?.private_api_url || "",
         page_turning_number: UserConfig?.page_turning_number || 20, // 默认20篇
         error_img: UserConfig?.error_img || "https://fastly.jsdelivr.net/gh/willow-god/Friend-Circle-Lite@latest/static/favicon.ico" // 默认头像
     };
 
     const root = document.getElementById('friend-circle-lite-root');
-    
+
     if (!root) return; // 确保根元素存在
 
     // 清除之前的内容
@@ -23,7 +23,7 @@ function initialize_fc_lite() {
     container.className = 'articles-container';
     container.id = 'articles-container';
     root.appendChild(container);
-    
+
     const loadMoreBtn = document.createElement('button');
     loadMoreBtn.id = 'load-more-btn';
     loadMoreBtn.innerText = '再来亿点';

@@ -345,7 +345,7 @@
     canvas.width = W;
     cxt.fillStyle = '#f00';
     cxt.fillRect(10,10,50,50);
-  
+
     //存储时间数据
     var data = [];
     //存储运动的小球
@@ -357,7 +357,7 @@
       //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
       data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
     })();
-  
+
     /*生成点阵数字*/
     function renderDigit(index,num){
       for(var i = 0; i < digit[num].length; i++){
@@ -371,7 +371,7 @@
         }
       }
     }
-  
+
     /*更新时钟*/
     function updateDigitTime(){
       var changeNumArray = [];
@@ -391,7 +391,7 @@
       }
       data = NewData.concat();
     }
-  
+
     /*更新小球状态*/
     function updateBalls(){
       for(var i = 0; i < balls.length; i++){
@@ -404,7 +404,7 @@
         }
       }
     }
-  
+
     /*增加要运动的小球*/
     function addBalls(index,num){
       var numArray = [1,2,3];
@@ -425,7 +425,7 @@
         }
       }
     }
-  
+
     /*渲染*/
     function render(){
       //重置画布宽度，达到清空画布的效果
@@ -443,7 +443,7 @@
         cxt.fill();
       }
     }
-  
+
     clearInterval(oTimer);
     var oTimer = setInterval(function(){
       //更新时钟
@@ -841,7 +841,7 @@ h-12l-28-84c-16.667-52-96.667 -294.333-240-727l-212 -643 -85 170
 c-4-3.333-8.333-7.667-13 -13l-13-13l77-155 77-156c66 199.333 139 419.667
 219 661 l218 661zM702 80H400000v40H742z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.8191em;"><span></span></span></span></span></span></span></span></span>，则</p>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence="true">(</mo><msup><mi>m</mi><mn>2</mn></msup><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>a</mi><mi>i</mi><mn>2</mn></msubsup><mo>+</mo><mfrac><mstyle scriptlevel="0" displaystyle="true"><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>b</mi><mi>i</mi><mn>2</mn></msubsup></mstyle><msup><mi>m</mi><mn>2</mn></msup></mfrac><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mo lspace="0em" rspace="0em">=</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence="true">(</mo><msqrt><mfrac><mstyle scriptlevel="0" displaystyle="true"><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>b</mi><mi>i</mi><mn>2</mn></msubsup></mstyle><mstyle scriptlevel="0" displaystyle="true"><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>a</mi><mi>i</mi><mn>2</mn></msubsup></mstyle></mfrac></msqrt><mo>⋅</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>a</mi><mi>i</mi><mn>2</mn></msubsup><mo>+</mo><msqrt><mfrac><mstyle scriptlevel="0" displaystyle="true"><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>a</mi><mi>i</mi><mn>2</mn></msubsup></mstyle><mstyle scriptlevel="0" displaystyle="true"><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>b</mi><mi>i</mi><mn>2</mn></msubsup></mstyle></mfrac></msqrt><mo>⋅</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>b</mi><mi>i</mi><mn>2</mn></msubsup><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mo lspace="0em" rspace="0em">=</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence="true">(</mo><msqrt><mrow><mrow><mo fence="true">(</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>b</mi><mi>i</mi><mn>2</mn></msubsup><mo fence="true">)</mo></mrow><mrow><mo fence="true">(</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>a</mi><mi>i</mi><mn>2</mn></msubsup><mo fence="true">)</mo></mrow></mrow></msqrt><mo>+</mo><msqrt><mrow><mrow><mo fence="true">(</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>a</mi><mi>i</mi><mn>2</mn></msubsup><mo fence="true">)</mo></mrow><mrow><mo fence="true">(</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>b</mi><mi>i</mi><mn>2</mn></msubsup><mo fence="true">)</mo></mrow></mrow></msqrt><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mo lspace="0em" rspace="0em">=</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><msqrt><mrow><mrow><mo fence="true">(</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>a</mi><mi>i</mi><mn>2</mn></msubsup><mo fence="true">)</mo></mrow><mrow><mo fence="true">(</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msubsup><mi>b</mi><mi>i</mi><mn>2</mn></msubsup><mo fence="true">)</mo></mrow></mrow></msqrt></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&amp;\frac12 \left( m^2\sum_{i=1}^n a_i^2 + \frac{\displaystyle\sum_{i=1}^n b_i^2}{m^2} \right) \\[3ex] = 
+&amp;\frac12 \left( m^2\sum_{i=1}^n a_i^2 + \frac{\displaystyle\sum_{i=1}^n b_i^2}{m^2} \right) \\[3ex] =
 &amp;\frac12 \left( \sqrt{\frac{\displaystyle\sum_{i=1}^n b_i^2}{\displaystyle\sum_{i=1}^n a_i^2}} \cdot \sum_{i=1}^n a_i^2 + \sqrt{\frac{\displaystyle\sum_{i=1}^n a_i^2}{\displaystyle\sum_{i=1}^n b_i^2}} \cdot \sum_{i=1}^n b_i^2 \right) \\[3ex] =
 &amp;\frac12 \left( \sqrt{\left(\sum_{i=1}^n b_i^2\right) \left(\sum_{i=1}^n a_i^2\right)} + \sqrt{\left(\sum_{i=1}^n a_i^2\right) \left(\sum_{i=1}^n b_i^2\right)} \right) \\[3ex] =
 &amp;\sqrt{\left(\sum_{i=1}^n a_i^2\right) \left(\sum_{i=1}^n b_i^2\right)}
@@ -969,7 +969,7 @@ c-4-3.333-8.333-7.667-13 -13l-13-13l77-155 77-156c66 199.333 139 419.667
 <p>这就是柯西不等式的向量形式．</p>
 <p>柯西不等式的向量形式的证明有很多，有的和前面的方法本质上是一致的．</p>
 <p>比如，可以构造</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">⟨</mo><mi mathvariant="bold-italic">α</mi><mo>+</mo><mi>t</mi><mi mathvariant="bold-italic">β</mi><mo separator="true">,</mo><mi mathvariant="bold-italic">α</mi><mo>+</mo><mi>t</mi><mi mathvariant="bold-italic">β</mi><mo stretchy="false">⟩</mo><mo>=</mo><mo stretchy="false">∥</mo><mi mathvariant="bold-italic">α</mi><msup><mo stretchy="false">∥</mo><mn>2</mn></msup><mo>+</mo><mn>2</mn><mo stretchy="false">⟨</mo><mi mathvariant="bold-italic">α</mi><mo separator="true">,</mo><mi mathvariant="bold-italic">β</mi><mo stretchy="false">⟩</mo><mi>t</mi><mo>+</mo><mo stretchy="false">∥</mo><mi mathvariant="bold-italic">β</mi><msup><mo stretchy="false">∥</mo><mn>2</mn></msup><msup><mi>t</mi><mn>2</mn></msup><mo>⩾</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(t) = 
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">⟨</mo><mi mathvariant="bold-italic">α</mi><mo>+</mo><mi>t</mi><mi mathvariant="bold-italic">β</mi><mo separator="true">,</mo><mi mathvariant="bold-italic">α</mi><mo>+</mo><mi>t</mi><mi mathvariant="bold-italic">β</mi><mo stretchy="false">⟩</mo><mo>=</mo><mo stretchy="false">∥</mo><mi mathvariant="bold-italic">α</mi><msup><mo stretchy="false">∥</mo><mn>2</mn></msup><mo>+</mo><mn>2</mn><mo stretchy="false">⟨</mo><mi mathvariant="bold-italic">α</mi><mo separator="true">,</mo><mi mathvariant="bold-italic">β</mi><mo stretchy="false">⟩</mo><mi>t</mi><mo>+</mo><mo stretchy="false">∥</mo><mi mathvariant="bold-italic">β</mi><msup><mo stretchy="false">∥</mo><mn>2</mn></msup><msup><mi>t</mi><mn>2</mn></msup><mo>⩾</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(t) =
 \langle\boldsymbol\alpha+t\boldsymbol\beta,\boldsymbol\alpha+t\boldsymbol\beta\rangle=
 \lVert\boldsymbol\alpha\rVert^2+2\langle\boldsymbol\alpha,\boldsymbol\beta\rangle t+\lVert\boldsymbol\beta\rVert^2 t^2
 \geqslant0
