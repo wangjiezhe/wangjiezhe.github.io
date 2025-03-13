@@ -27,7 +27,7 @@
 <meta property="og:description" content="Rust 的多平台支持还是很好用的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-06T04:06:47.000Z">
-<meta property="article:modified_time" content="2024-12-08T16:54:16.000Z">
+<meta property="article:modified_time" content="2025-03-13T18:13:12.000Z">
 <meta property="article:author" content="西风冷香">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Gentoo">
@@ -568,7 +568,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-12-09 00:54:16" itemprop="dateModified" datetime="2024-12-09T00:54:16+08:00">2024-12-09</time>
+      <time title="修改时间：2025-03-14 02:13:12" itemprop="dateModified" datetime="2025-03-14T02:13:12+08:00">2025-03-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -617,10 +617,12 @@
 <p>不过，直接安装 dev-lang/rust-bin 是不行的，因为 Rust 默认使用 mips64r2 架构进行编译，而龙芯 2F 芯片是基于 mips3 架构的，因此不能直接运行，需要交叉编译 dev-lang/rust 的二进制包。</p>
 <h2 id="1-交叉编译-Rust-编译器"><a class="header-anchor" href="#1-交叉编译-Rust-编译器"></a>1. 交叉编译 Rust 编译器</h2>
 <p>目前 <span class="exturl" data-url="aHR0cHM6Ly93aWtpLmdlbnRvby5vcmcvd2lraS9Cb290c3RyYXBwaW5nX1J1c3RfdmlhX2Nyb3NzX2NvbXBpbGF0aW9u">Wiki<i class="fa fa-external-link-alt"></i></span> 对于这部分内容的说明已经过时了，根据今年 2 月份 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dlbnRvby9nZW50b28vY29tbWl0Lzg2OWE2N2VmY2FlZGJmN2QwOGZlMTYwNTc0NjZmNThhYzFmMjFhODQ=">869a67e<i class="fa fa-external-link-alt"></i></span> 的提交，目前可以直接使用 crossdev 交叉编译 Rust 编译器。</p>
-<div class="note danger"><p>20241209 更新：最新的 1.83.0 版本直接交叉编译会失败，原因是 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3J1c3QtbGFuZy9ydXN0L2NvbW1pdC82ODAzNGY4MzdhMzkzODdlNDlmYzdkN2M1YjA4OGY1MzcyYTExMjdl">68034f8<i class="fa fa-external-link-alt"></i></span>，需要 revert 这个 commit 才可以。</p>
-<p>可以下载 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS8xY2VhZTBjZDk0MmFlOWM5N2I5MjljZjg2MTk5MzdlZQ==">patch<i class="fa fa-external-link-alt"></i></span> 文件，直接放在 <code>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/patches/dev-lang/rust-1.83.0/</code> 下即可。</p>
+<div class="note danger"><p><s>20241209 更新：最新的 1.83.0 版本直接交叉编译会失败，原因是 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3J1c3QtbGFuZy9ydXN0L2NvbW1pdC82ODAzNGY4MzdhMzkzODdlNDlmYzdkN2M1YjA4OGY1MzcyYTExMjdl">68034f8<i class="fa fa-external-link-alt"></i></span>，需要 revert 这个 commit 才可以。</s></p>
+<p><s>可以下载 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS8xY2VhZTBjZDk0MmFlOWM5N2I5MjljZjg2MTk5MzdlZQ==">patch<i class="fa fa-external-link-alt"></i></span> 文件，直接放在 <code>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/patches/dev-lang/rust-1.83.0/</code> 下即可。</s></p>
 </div>
-<div class="note danger"><p>20250112 更新：最新的 1.84.0 版本请下载 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS80NzQ2ZWIzMThlMTMxYzRiOTdmZmJlMGE3NTM1ODdiMw==">patch<i class="fa fa-external-link-alt"></i></span> 文件，放在 <code>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/patches/dev-lang/rust-1.84.0/</code> 下。</p>
+<div class="note danger"><p><s>20250112 更新：最新的 1.84.0 版本请下载 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS80NzQ2ZWIzMThlMTMxYzRiOTdmZmJlMGE3NTM1ODdiMw==">patch<i class="fa fa-external-link-alt"></i></span> 文件，放在 <code>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/patches/dev-lang/rust-1.84.0/</code> 下。</s></p>
+</div>
+<div class="note danger"><p>20250314 更新：最新的 1.85.0 版本不需要这个补丁了。</p>
 </div>
 <p>首先在宿主机上安装 Rust。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 如果只需要交叉编译 Rust 编译器，直接使用 dev-lang/rust-bin 即可</span></span><br><span class="line"><span class="comment">## 当然也可以使用 dev-lang/rust，不过编译安装需要的时间比较长</span></span><br><span class="line"><span class="comment">##（和编译 GCC 的时间差不多）</span></span><br><span class="line"><span class="comment">## 如果需要交叉编译 Rust 程序，则必须安装 dev-lang/rust</span></span><br><span class="line">emerge -avq dev-lang/rust-bin</span><br></pre></td></tr></table></figure>
@@ -630,10 +632,10 @@
 <figure class="highlight diff"><figcaption><span>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/patches/dev-lang/rust/mips3.patch</span><span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vd2FuZ2ppZXpoZS83ODZkN2RhNjdkOWZiMmQxMjQzZmQxN2I2OGU1OWYxZQ==">link<i class="fa fa-external-link-alt"></i></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">diff --git a/compiler/rustc_target/src/spec/targets/mips64el_unknown_linux_gnuabi64.rs b/compiler/rustc_target/src/spec/targets/mips64el_unknown_linux_gnuabi64.rs</span></span><br><span class="line"><span class="comment">index 515473fbabc..fa3c6875964 100644</span></span><br><span class="line"><span class="comment">--- a/compiler/rustc_target/src/spec/targets/mips64el_unknown_linux_gnuabi64.rs</span></span><br><span class="line"><span class="comment">+++ b/compiler/rustc_target/src/spec/targets/mips64el_unknown_linux_gnuabi64.rs</span></span><br><span class="line"><span class="meta">@@ -15,8 +15,8 @@</span> pub fn target() -&gt; Target &#123;</span><br><span class="line">         options: TargetOptions &#123;</span><br><span class="line">             abi: &quot;abi64&quot;.into(),</span><br><span class="line">             // NOTE(mips64r2) matches C toolchain</span><br><span class="line"><span class="deletion">-            cpu: &quot;mips64r2&quot;.into(),</span></span><br><span class="line"><span class="deletion">-            features: &quot;+mips64r2,+xgot&quot;.into(),</span></span><br><span class="line"><span class="addition">+            cpu: &quot;mips3&quot;.into(),</span></span><br><span class="line"><span class="addition">+            features: &quot;+mips3,+xgot&quot;.into(),</span></span><br><span class="line">             max_atomic_width: Some(64),</span><br><span class="line">             mcount: &quot;_mcount&quot;.into(),</span><br></pre></td></tr></table></figure>
 <p>也可以使用 env 文件：</p>
 <figure class="highlight bash"><figcaption><span>/usr/mips64el-unknown-linux-gnuabi64/etc/portage/env/dev-lang/rust</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">post_src_unpack</span></span>() &#123;</span><br><span class="line">  sed -i -e <span class="string">&quot;s/mips64r2/mips3/&quot;</span> \</span><br><span class="line">    <span class="string">&quot;<span class="variable">$&#123;S&#125;</span>&quot;</span>/compiler/rustc_target/src/spec/targets/mips64el_unknown_linux_gnuabi64.rs || die</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>另外还有一点，在编译 Rust 的时候，有一步会有 <code>-DCMAKE_ASM_COMPILER=/usr/bin/mips64el-linux-gnuabi64-gcc</code> 的参数，没有找到原因，不过解决方法很简单，补一个软连接就可以了。</p>
+<p>另外还有一点，在编译 Rust 的时候，有一步会有 <code>-DCMAKE_ASM_COMPILER=/usr/bin/mips64el-linux-gnuabi64-gcc</code> 的参数，没有找到原因，不过解决方法很简单，补一个软链接就可以了。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sv /usr/bin/mips64el-unknown-linux-gnuabi64-gcc /usr/local/bin/mips64el-linux-gnuabi64-gcc</span><br></pre></td></tr></table></figure>
 <p>接下来直接安装即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mips64el-unknown-linux-gnuabi64-emerge -av dev-lang/rust</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emerge-mips64el-unknown-linux-gnuabi64 -avq dev-lang/rust</span><br></pre></td></tr></table></figure>
 <div class="note primary"><p>这里面有两点需要注意：</p>
 <ol>
 <li><code>sys-libs/glibc</code> 不得使用 <code>-march=loongson2f</code> 编译，否则会提示链接错误；</li>
