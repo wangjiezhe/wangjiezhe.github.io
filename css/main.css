@@ -608,6 +608,14 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
 .code-container {
   position: relative;
 }
+.code-lang {
+  font-size: 40px;
+  line-height: 1;
+  opacity: 0.1;
+  pointer-events: none;
+  position: absolute;
+  right: 5px;
+}
 .copy-btn {
   color: #333;
   cursor: pointer;
@@ -1422,7 +1430,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #ffdbff;
+    background: #ff2914;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2742,6 +2750,7 @@ ul.breadcrumb li:last-child {
 }
 .search-active {
   overflow: hidden;
+  margin-right: var(--dialog-scrollgutter, 0);
 }
 .search-pop-overlay {
   background: rgba(0,0,0,0);
