@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-round.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.23.2","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark-reasonable"},"prism":{"light":"prism","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="使用 tkz-elements 宏包绘制几何图形">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tkz-elements 宏包介绍">
+<meta property="og:url" content="https://wangjiezhe.github.io/posts/2025-07-24-tkz-elements-introduction/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="使用 tkz-elements 宏包绘制几何图形">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-24T02:24:27.000Z">
+<meta property="article:modified_time" content="2025-07-24T18:07:20.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="LaTeX">
+<meta property="article:tag" content="TikZ">
+<meta property="article:tag" content="画图">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wangjiezhe.github.io/posts/2025-07-24-tkz-elements-introduction/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjiezhe.github.io/posts/2025-07-24-tkz-elements-introduction/","path":"/posts/2025-07-24-tkz-elements-introduction/","title":"tkz-elements 宏包介绍"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>tkz-elements 宏包介绍 | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48537410-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?a51d31f349bffa6e3757f7d6fca0c47f"></script>
+
+
+  <script data-pjax defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{&quot;token&quot;: &quot;4b43b380fa4e4d43a125ac710c29fb84&quot;}'></script>
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/comments.js" defer></script><script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js" defer></script>
+
+
+
+
+
+
+  
+  <script data-pjax async src="//bsz.wangjiezhe.com/js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@11.9.1/firebase-app-compat.js" integrity="sha256-zPqldYNywFdZIHnjkQ3WS/s4ZZ4B3/JMn1Wl22YHUkA=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@11.9.1/firebase-firestore-compat.js" integrity="sha256-3fIzszWg3JdQOZPBodEwpCD7m+vb4i7mP+iSaykRWI4=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyD0AfWHrmFoKgV1x4srPQDN7rGpGclK7J4","projectId":"visitors-of-blog"}</script>
+  <script src="/js/third-party/statistics/firestore.js" defer></script>
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://wangjiezhe.github.io/posts/2025-07-24-tkz-elements-introduction/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="如鱼饮水" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">如鱼饮水</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">冷暖自知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-fcircle"><a href="/fcircle/" rel="section"><i class="fa fa-user-group fa-fw"></i>朋友圈</a></li><li class="menu-item menu-item-tools"><a href="/tools/" rel="section"><i class="fa fa-rocket fa-fw"></i>工具</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-tkz-euclide-%E5%AE%8F%E5%8C%85%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">1. tkz-euclide 宏包的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-tkz-elements-%E5%AE%8F%E5%8C%85%E7%AE%80%E4%BB%8B"><span class="nav-text">2. tkz-elements 宏包简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-tkz-elements-%E5%AE%8F%E5%8C%85%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E9%83%A8%E5%AE%9E%E7%8E%B0"><span class="nav-text">3. tkz-elements 宏包的一些内部实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-tkz-elements-sty"><span class="nav-text">3.1. tkz-elements.sty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-tkz-elements-main-lua"><span class="nav-text">3.2. tkz_elements_main.lua</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-tkz-elements-point-lua"><span class="nav-text">3.3. tkz_elements_point.lua</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-tkz-elements-triangle-lua"><span class="nav-text">3.4. tkz_elements_triangle.lua</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">109</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dhbmdqaWV6aGU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOndhbmdqaWV6aGVAZ21haWwuY29t" title="E-Mail → mailto:wangjiezhe@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93YW5namllemhl" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;wangjiezhe"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dhbmdqaWV6aGU=" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+  </div>
+<div id="time-now">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+  var digit=
+    [
+      [
+        [0,0,1,1,1,0,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,0,1,1,0],
+        [0,0,1,1,1,0,0]
+      ],//0
+      [
+        [0,0,0,1,1,0,0],
+        [0,1,1,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [1,1,1,1,1,1,1]
+      ],//1
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,1,1],
+        [1,1,1,1,1,1,1]
+      ],//2
+      [
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//3
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,0],
+        [0,0,1,1,1,1,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,1,1,0],
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,1]
+      ],//4
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,1,1,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//5
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//6
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0]
+      ],//7
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//8
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,1,1,0,0,0,0]
+      ],//9
+      [
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0]
+      ]//:
+    ];
+
+  var canvas = document.getElementById('canvas');
+
+  if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+      data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            cxt.beginPath();
+            cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+            cxt.closePath();
+            cxt.fill();
+          }
+        }
+      }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+      var changeNumArray = [];
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      var NewData = [];
+      NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+      for(var i = data.length-1; i >=0 ; i--){
+        //时间发生变化
+        if(NewData[i] !== data[i]){
+          //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+          changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+        }
+      }
+      //增加小球
+      for(var i = 0; i< changeNumArray.length; i++){
+        addBalls.apply(this,changeNumArray[i].split('_'));
+      }
+      data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+      for(var i = 0; i < balls.length; i++){
+        balls[i].stepY += balls[i].disY;
+        balls[i].x += balls[i].stepX;
+        balls[i].y += balls[i].stepY;
+        if(balls[i].x > W + R || balls[i].y > H + R){
+          balls.splice(i,1);
+          i--;
+        }
+      }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+      var numArray = [1,2,3];
+      var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            var ball = {
+              x:14*(R+2)*index + j*2*(R+1)+(R+1),
+              y:i*2*(R+1)+(R+1),
+              stepX:Math.floor(Math.random() * 4 -2),
+              stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+              color:colorArray[Math.floor(Math.random()*colorArray.length)],
+              disY:1
+            };
+            balls.push(ball);
+          }
+        }
+      }
+    }
+
+    /*渲染*/
+    function render(){
+      //重置画布宽度，达到清空画布的效果
+      canvas.height = 100;
+      //渲染时钟
+      for(var i = 0; i < data.length; i++){
+        renderDigit(i,data[i]);
+      }
+      //渲染小球
+      for(var i = 0; i < balls.length; i++){
+        cxt.beginPath();
+        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+        cxt.fillStyle = balls[i].color;
+        cxt.closePath();
+        cxt.fill();
+      }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+      //更新时钟
+      updateDigitTime();
+      //更新小球状态
+      updateBalls();
+      //渲染
+      render();
+    },50);
+  }
+
+})();
+</script>
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2020-06-22-tkz-euclide-1/" rel="bookmark">
+        <time class="popular-posts-time">2020-06-22</time>
+        <br>
+      常用 tkz-euclide 命令（一）——点的定义方法
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.github.io/posts/2025-07-24-tkz-elements-introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="西风冷香">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+      <meta itemprop="description" content="某不知名机构不知名数学老师">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="tkz-elements 宏包介绍 | 如鱼饮水">
+      <meta itemprop="description" content="使用 tkz-elements 宏包绘制几何图形">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          tkz-elements 宏包介绍
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-07-24 10:24:27" itemprop="dateCreated datePublished" datetime="2025-07-24T10:24:27+08:00">2025-07-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-07-25 02:07:20" itemprop="dateModified" datetime="2025-07-25T02:07:20+08:00">2025-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LaTeX/" itemprop="url" rel="index"><span itemprop="name">LaTeX</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">使用 tkz-elements 宏包绘制几何图形</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="1-tkz-euclide-宏包的优缺点"><a class="header-anchor" href="#1-tkz-euclide-宏包的优缺点"></a>1. tkz-euclide 宏包的优缺点</h2>
+<p>之前在绘制平面几何图形的时候，一直使用 tkz-euclide 宏包。其优点如下：</p>
+<ul>
+<li>方便调整图像大小和形状；</li>
+<li>常见的需求都能够直接画出来（如三角形的各种心）；</li>
+<li>函数的命名规则比较规矩；</li>
+<li>整个绘制图形的代码分为三部分，可读性很好：
+<ul>
+<li>定义（如 <code>\tkzDef...</code> 和 <code>\tkzInter...</code>）；</li>
+<li>绘制（如 <code>\tkzDraw...</code> 和 <code>\tkzFill...</code>）；</li>
+<li>标记（如 <code>\tkzLabel...</code> 和 <code>\tkzMark...</code>）。</li>
+</ul>
+</li>
+</ul>
+<p>但是缺点也很明显：</p>
+<ul>
+<li>命名比较繁琐；</li>
+<li>各种括号容易写混了；</li>
+<li>各个参数的顺序很不自然。</li>
+</ul>
+<p>例如「直线 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>I</mi></mrow><annotation encoding="application/x-tex">AI</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⊙</mo><mi>O</mi></mrow><annotation encoding="application/x-tex">\odot O</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord">⊙</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span> 异于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> 的交点为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>」，用 tkz-euclide 命令来写是</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\tkzInterLC</span>[common=A](A,I)(O,A) <span class="keyword">\tkzGetFirstPoint</span>&#123;P&#125;</span><br></pre></td></tr></table></figure>
+<p>这里面主要有两个问题，一是可选参数 <code>[common=A]</code> 在中间，而正常的思路是先写出直线和圆，再写可选参数，这样会比较顺；二则是后面的获取交点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>，需要一个单独的命令，而且还要根据前面可选参数的不同，来决定是使用 <code>\tkzGetFirstPoint</code> 还是 <code>\tkzGetPoints</code>。</p>
+<p>另外，一个命令里同时用到了小括号、中括号、大括号，虽然是有规律的，但是还是容易打错了，导致编译失败。</p>
+<p>当然解决方法也是有的，那就是利用 VSCode 的代码片段（snippet）功能，这样可以自定义参数的输入顺序，也可以保证不会打错括号。例如上面的命令，实际上用到了下面的代码片段：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;tkzInterLC1&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;\\tkzInterLC&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;\\tkzInterLC[$&#123;3&#125;]($1)($2) \\tkzGetFirstPoint&#123;$4&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;$0&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>我把常用的 50 多个命令都写成了类似上面的代码片段，这样在使用的时候就能够自动补全，只需要输入对应的参数即可。</p>
+<h2 id="2-tkz-elements-宏包简介"><a class="header-anchor" href="#2-tkz-elements-宏包简介"></a>2. tkz-elements 宏包简介</h2>
+<p>今年在写几何题解析的时候，发现了 tkz-euclide 宏包作者写的新宏包：tkz-elements，把比较繁琐的「定义」的部分改为使用 lua 语言进行编程。这样写出的代码可读性更强，写起来也更自然。</p>
+<p>主要改进的点有：</p>
+<ul>
+<li>计算更加精确（不过这点对我实际使用影响不大）；</li>
+<li>使用面向对象编程的范式，这对于写惯了编程代码的我来说就很顺了。</li>
+</ul>
+<p>以 2024 年 IMO 第 4 题为例，定义部分新旧代码的对比如下：</p>
+<div class="tabs" id="imo_2024_p4"><ul class="nav-tabs"><li class="tab"><a href="#imo_2024_p4-1">使用 tkz-euclide</a></li><li class="tab active"><a href="#imo_2024_p4-2">使用 tkz-elements</a></li></ul><div class="tab-content"><div class="tab-pane" id="imo_2024_p4-1"><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 定义三角形 ABC</span></span><br><span class="line"><span class="keyword">\def</span><span class="keyword">\r</span>&#123;4&#125;</span><br><span class="line"><span class="keyword">\tkzDefPoint</span>(120:<span class="keyword">\r</span>)&#123;A&#125;</span><br><span class="line"><span class="keyword">\tkzDefPoint</span>(190:<span class="keyword">\r</span>)&#123;B&#125;</span><br><span class="line"><span class="keyword">\tkzDefPoint</span>(350:<span class="keyword">\r</span>)&#123;C&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 定义内心、外心、内切圆切点</span></span><br><span class="line"><span class="keyword">\tkzDefTriangleCenter</span>[in](A,B,C) <span class="keyword">\tkzGetPoint</span>&#123;I&#125;</span><br><span class="line"><span class="keyword">\tkzDefTriangleCenter</span>[circum](A,B,C) <span class="keyword">\tkzGetPoint</span>&#123;O&#125;</span><br><span class="line"><span class="keyword">\tkzDefSpcTriangle</span>[intouch, name=T<span class="built_in">_</span>](A,B,C)&#123;A,B,C&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 定义 X、Y 两点</span></span><br><span class="line"><span class="keyword">\tkzDefPointsBy</span>[symmetry=center I](T<span class="built_in">_</span>B,T<span class="built_in">_</span>C)&#123;B&#x27;,C&#x27;&#125;</span><br><span class="line"><span class="keyword">\tkzDefTangent</span>[at=B&#x27;](I) <span class="keyword">\tkzGetPoint</span>&#123;B&#x27;&#x27;&#125;</span><br><span class="line"><span class="keyword">\tkzInterLL</span>(B&#x27;,B&#x27;&#x27;)(B,C) <span class="keyword">\tkzGetPoint</span>&#123;X&#125;</span><br><span class="line"><span class="keyword">\tkzInterLL</span>(B&#x27;,B&#x27;&#x27;)(A,B) <span class="keyword">\tkzGetPoint</span>&#123;X&#x27;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\tkzDefTangent</span>[at=C&#x27;](I) <span class="keyword">\tkzGetPoint</span>&#123;C&#x27;&#x27;&#125;</span><br><span class="line"><span class="keyword">\tkzInterLL</span>(C&#x27;,C&#x27;&#x27;)(B,C) <span class="keyword">\tkzGetPoint</span>&#123;Y&#125;</span><br><span class="line"><span class="keyword">\tkzInterLL</span>(C&#x27;,C&#x27;&#x27;)(A,C) <span class="keyword">\tkzGetPoint</span>&#123;Y&#x27;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 定义其它点</span></span><br><span class="line"><span class="keyword">\tkzInterLC</span>[common=A](A,I)(O,A) <span class="keyword">\tkzGetFirstPoint</span>&#123;P&#125;</span><br><span class="line"><span class="keyword">\tkzDefMidPoint</span>(A,C) <span class="keyword">\tkzGetPoint</span>&#123;K&#125;</span><br><span class="line"><span class="keyword">\tkzDefMidPoint</span>(A,B) <span class="keyword">\tkzGetPoint</span>&#123;L&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-pane active" id="imo_2024_p4-2"><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 定义三角形 ABC</span></span><br><span class="line"><span class="keyword">local</span> dis = <span class="number">4</span></span><br><span class="line">z.A = point:polar_deg(dis, <span class="number">120</span>)</span><br><span class="line">z.B = point:polar_deg(dis, <span class="number">190</span>)</span><br><span class="line">z.C = point:polar_deg(dis, <span class="number">350</span>)</span><br><span class="line">T.ABC = triangle(z.A, z.B, z.C)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 定义内心、外心、内切圆切点</span></span><br><span class="line">z.O = T.ABC.circumcenter</span><br><span class="line">C.I = T.ABC:in_circle()</span><br><span class="line">z.I = C.I.center</span><br><span class="line">z.T_A, z.T_B, z.T_C = T.ABC:intouch():get()</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 定义 X、Y 两点</span></span><br><span class="line">z.Bp = C.I:antipode(z.T_B)</span><br><span class="line">L.BpX = C.I:tangent_at(z.Bp)</span><br><span class="line">z.X = intersection(L.BpX, T.ABC.bc)</span><br><span class="line">z.Cp = C.I:antipode(z.T_C)</span><br><span class="line">L.CpY = C.I:tangent_at(z.Cp)</span><br><span class="line">z.Y = intersection(L.CpY, T.ABC.bc)</span><br><span class="line">z.Xp = intersection(L.BpX, T.ABC.ab)</span><br><span class="line">z.Yp = intersection(L.CpY, T.ABC.ca)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 定义其它点</span></span><br><span class="line">z.P = intersection(T.ABC:bisector(), T.ABC:circum_circle(), &#123;known = z.A&#125;)</span><br><span class="line">_, z.K, z.L = T.ABC:medial():get()</span><br></pre></td></tr></table></figure></div></div></div>
+<p>使用 tkz-elements 绘制整个图形的代码结构如下：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\directlua</span>&#123;</span><br><span class="line">  init<span class="built_in">_</span>elements()</span><br><span class="line">  -- 上面的定义部分...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;tikzpicture&#125;</span><br><span class="line">  <span class="keyword">\tkzGetNodes</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">%% 画图部分...</span></span><br><span class="line">  <span class="comment">%% 依旧使用 tkz-euclide 宏包</span></span><br><span class="line"><span class="keyword">\end</span>&#123;tikzpicture&#125;</span><br></pre></td></tr></table></figure>
+<p>首先使用 <code>\directlua</code> 导入 lua 代码。</p>
+<div class="note success"><p>这也决定了该文档必须使用 LuaLaTeX 编译，而不能使用 pdfLaTeX 或 XeLaTeX 编译。<br />
+如果使用 latexmk 控制编译过程，加上 <code>-pdflua</code> 参数即可。</p>
+</div>
+<p>然后在 <code>tikzpicture</code> 环境中使用 <code>\tkzGetNodes</code> 获取上面定义的几何对象。</p>
+<p>tkz-elements 宏包使用 lua 语言的 table（表）来保存几何对象，常用的有：</p>
+<ul>
+<li><code>z</code>：点（复数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span>）</li>
+<li><code>L</code>：直线（line）</li>
+<li><code>C</code>：圆（circle）</li>
+<li><code>T</code>：三角形（triangle）</li>
+</ul>
+<p>其它还包括：</p>
+<ul>
+<li><code>Q</code>：四边形（quadrilateral）</li>
+<li><code>P</code>：平行四边形（parallelogram）</li>
+<li><code>R</code>：矩形（rectangle）</li>
+<li><code>S</code>：正方形（square）</li>
+<li><code>RP</code>：正多边形（regular polygon）</li>
+<li><code>O</code>：直角坐标系（orthonormal Cartesian coordinate system）</li>
+<li><code>V</code>：向量（vector）</li>
+<li><code>M</code>：矩阵（matrix）</li>
+<li><code>PA</code>：路径（path）</li>
+</ul>
+<p>上面代码中的 <code>init_elements()</code>，其实就是初始化（或者重置）上面这些储存几何对象的表。</p>
+<div class="note primary"><p>lua 使用 <code>table.name</code> 来访问表中的元素（当然也可以使用 <code>table[&quot;name&quot;]</code>，不过显然前者更简洁）。</p>
+</div>
+<p>例如，<code>z.A</code> 表示点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>，<code>z.T_A</code> 表示点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">T_A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，<code>z.Bp</code> 表示点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>B</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">B&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>（撇号的英文是 prime），<code>T.ABC</code> 表示三角形 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">ABC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.07153em;">BC</span></span></span></span>。</p>
+<p>lua 可以通过 table（以及内部的 metatable）实现面向对象编程。我们知道，对象由属性（attribute）和方法（method）组成。</p>
+<div class="note primary"><p>lua 使用点号 <code>.</code> 来访问属性，使用冒号 <code>:</code> 来访问方法。</p>
+</div>
+<p>值得说明的是，有两个方法是所有几何对象都有的：<code>new(...)</code> 方法用来构造新的对象，<code>get()</code> 方法用来获取构造对象的点。</p>
+<p>以三角形为例，我们首先使用 <code>new</code> 方法来创建对象：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">T.ABC = triangle:new(z.A, z.B, z.C)</span><br><span class="line"><span class="comment">-- 或者简化写法</span></span><br><span class="line">T.ABC = triangle(z.A, z.B, z.C)</span><br></pre></td></tr></table></figure>
+<p>三角形包含一些常见的属性，比如顶点、边、面积、半周长、内心、外心、内径、外径等等。包含的方法也很多，包括中线、高、角平分线、内切圆、外接圆等等，基本上经常用到的都有定义。例如</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 点 O 是三角形 ABC 的外心</span></span><br><span class="line">z.O = T.ABC.circumcenter</span><br><span class="line"><span class="comment">-- 圆 I 是三角形 ABC 的内切圆</span></span><br><span class="line">C.I = T.ABC:in_circle()</span><br><span class="line"><span class="comment">-- 获取三角形 ABC 的内切点三角形的三个顶点</span></span><br><span class="line">z.T_A, z.T_B, z.T_C = T.ABC:intouch():get()</span><br></pre></td></tr></table></figure>
+<p>这些属性和方法基本上就是对应的英文名称，因此很好记。如果不确定的话，文档查起来也很方便。在文档中，每种几何对象都有一个列表，列出所有的属性；然后所有方法按照返回值的类型分别举例说明。</p>
+<h2 id="3-tkz-elements-宏包的一些内部实现"><a class="header-anchor" href="#3-tkz-elements-宏包的一些内部实现"></a>3. tkz-elements 宏包的一些内部实现</h2>
+<p>由于 tkz-elements 宏包是使用 lua 语言实现的，因此我能够看懂它的源代码，可以了解它的具体实现方法。</p>
+<h3 id="3-1-tkz-elements-sty"><a class="header-anchor" href="#3-1-tkz-elements-sty"></a>3.1. tkz-elements.sty</h3>
+<p>加载 <code>tkz_elements_main</code> 模块，定义了 <code>tkzelements</code> 环境、<code>\tkzGetNodes</code> 命令，还有一些不太常用的命令。</p>
+<h3 id="3-2-tkz-elements-main-lua"><a class="header-anchor" href="#3-2-tkz-elements-main-lua"></a>3.2. tkz_elements_main.lua</h3>
+<p>加载各个几何对象对应的定义和函数模块，定义了 <code>init_elements</code> 初始化函数。</p>
+<h3 id="3-3-tkz-elements-point-lua"><a class="header-anchor" href="#3-3-tkz-elements-point-lua"></a>3.3. tkz_elements_point.lua</h3>
+<p>首先定义了一个工厂函数 <code>class</code>，用来实现面向对象的类，然后使用复数类来定义点。</p>
+<h3 id="3-4-tkz-elements-triangle-lua"><a class="header-anchor" href="#3-4-tkz-elements-triangle-lua"></a>3.4. tkz_elements_triangle.lua</h3>
+<p>可以看到，三角形的各个心都是通过重心坐标或者三线坐标计算得到。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wangjiezhe.github.io/posts/2025-07-24-tkz-elements-introduction/" title="tkz-elements 宏包介绍">https://wangjiezhe.github.io/posts/2025-07-24-tkz-elements-introduction/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/LaTeX/" rel="tag"><i class="fa fa-tag"></i> LaTeX</a>
+              <a href="/tags/TikZ/" rel="tag"><i class="fa fa-tag"></i> TikZ</a>
+              <a href="/tags/%E7%94%BB%E5%9B%BE/" rel="tag"><i class="fa fa-tag"></i> 画图</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2025-07-18-IMO-2025-Geometry-again/" rel="prev" title="2025 年 IMO 的几何题的再解答">
+                  <i class="fa fa-angle-left"></i> 2025 年 IMO 的几何题的再解答
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-disqusjs">Disqus</a></li>
+            <li class="tab"><a href="#comment-giscus">GitHub</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
+              
+  <div class="comments disqusjs-container">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+            </div>
+            <div class="tab-pane giscus" id="comment-giscus">
+              
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+            </div>
+        </div>
+      </div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg=="><nopangu>冀ICP备2024063721号-1</nopangu> </span>
+      <img src="/images/gongan.png" alt=""><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5tcHMuZ292LmNuLyMvcXVlcnkvd2ViU2VhcmNoP2NvZGU9MTMwOTAyMDIwMDA3MTY="><nopangu>冀公网安备13090202000716号</nopangu> </span>
+  </div>
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">西风冷香</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">249k</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+<div class="blog-links">
+    <span class="post-meta-item moe">
+      <span>
+        <img src="/images/icp-moe.png" style="width:auto;height:16px;" alt="">
+      </span>
+      <span><span class="exturl" data-url="aHR0cHM6Ly9pY3AuZ292Lm1vZS8/a2V5d29yZD0yMDI0ODE5MQ=="><nopangu>萌ICP备20248191号</nopangu></span>
+      </span>
+    </span>
+    <span class="post-meta-item travel-moe">
+      <span><span class="exturl" data-url="aHR0cHM6Ly90cmF2ZWwubW9lL2dvLmh0bWw/dHJhdmVsPW9u"><img src="/images/travel-moe.png" style="width:auto;height:18px" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！"> 异次元之旅🚀</span>
+      </span>
+    </span>
+    <span class="post-meta-item foreverblog"><span class="exturl" data-url="aHR0cHM6Ly93d3cuZm9yZXZlcmJsb2cuY24vYmxvZy8yMDkyLmh0bWw="><img src="/images/foreverblog.png" style="width:auto;height:16px;" alt="Forever Blog"></span>
+    </span>
+    <span class="post-meta-item wormhole"><span class="exturl" data-url="aHR0cHM6Ly93d3cuZm9yZXZlcmJsb2cuY24vZ28uaHRtbA=="><img src="/images/wormhole.gif" style="width:auto;height:24px;" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></span>
+    </span>
+    <span class="post-meta-item travelling"><span class="exturl" data-url="aHR0cHM6Ly93d3cudHJhdmVsbGluZ3MuY24vZ28uaHRtbA=="><img src="/images/travelling.png" alt="开往-友链接力" height="18"></span>
+    </span>
+  
+</div>
+
+<script>
+function checkWebp(callback) {
+  var img = new Image();
+  img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+  img.onerror = function () { callback(false); };
+  img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+  var imgs = [].slice.call(document.querySelectorAll('img'));
+  imgs.forEach(function (e) {
+    if ((useWebp) && !e.classList.contains('nowebp')) {
+      var src = e.getAttribute('data-src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('data-src', src);
+      }
+      src = e.getAttribute('src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('src', src);
+      }
+    }
+  });
+}
+</script>
+<script data-pjax async>
+checkWebp(showImage);
+</script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"wangjiezhe/wangjiezhe.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxNTc4OTE0Ng==","category":"Announcements","category_id":"DIC_kwDOAPDsWs4Cdwtf","mapping":"og:title","strict":1,"reactions_enabled":1,"emit_metadata":1,"theme":"preferred_color_scheme","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/styles/disqusjs.css" integrity="sha256-E4RzceSomICFY1PT/yDQrN8DsLSwdScDEiQAevHabp0=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqusjs.wangjiezhe.com/","apikey":"ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F","shortname":"wangjiezhe","js":{"url":"https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/disqusjs.es2015.umd.min.js","integrity":"sha256-gdbBT62HLzqWTnXQED3WQL/ItFCuWsA5gd6dM/wgdiE="}}</script>
+<script src="/js/third-party/comments/disqusjs.js" defer></script>
+
+
+
+  <script async src="/js/cursor/fireworks.min.js" integrity="sha256-NVjeK0/Qni9W+mCWpzpw6IZTieyhLZJ5Kj4hdFjqSQc=" crossorigin="anonymous"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@wangjiezhe/live2d-widget@^3.1.7/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false},"log":false});</script></body>
+</html>
