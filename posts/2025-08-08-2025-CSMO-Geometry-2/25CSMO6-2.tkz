@@ -1,0 +1,48 @@
+\directlua {
+  init_elements()
+  local r = 4
+  z.A = point:polar_deg(r, 120)
+  z.B = point:polar_deg(r, 210)
+  z.C = point:polar_deg(r, 330)
+  T.ABC = triangle(z.A, z.B, z.C)
+  C.ABC = T.ABC:circum_circle()
+  z.D = T.ABC.ab:point(0.6)
+  C.omega = triangle(z.B, z.C, z.D):circum_circle()
+  z.E = intersection(C.omega, T.ABC.ca, {known = z.C})
+  z.P = intersection(line(z.B, z.E), line(z.C, z.D))
+  L.DE = line(z.D, z.E)
+  z.Y, z.X = intersection(C.ABC, L.DE)
+  C.PBC = triangle(z.P, z.B, z.C):circum_circle()
+  z.M = intersection(C.PBC, line(z.X, z.P), {known = z.P})
+  z.N = intersection(C.PBC, line(z.Y, z.P), {known = z.P})
+  z.Oabc = C.ABC.center
+  z.Oomega = C.omega.center
+  z.Opbc = C.PBC.center
+
+  z.T = intersection(T.ABC.bc, L.DE)
+  C.A = circle(z.A, z.X)
+  z.K, z.L = intersection(C.A, C.omega)
+}
+
+\begin{tikzpicture}
+  \tkzGetNodes
+  \tkzDrawCircles[lines](Oabc,B Oomega,B)
+  \tkzDrawArc[lines,delta=20](Opbc,C)(B)
+  \tkzDrawPolygon[lines](A,B,C)
+  \tkzDrawSegments[lines](B,E C,D X,Y X,M Y,N)
+
+  \tkzDrawSegments[helplines=blue](T,X T,B T,M)
+  \tkzDrawArc[helplines=green!70!black,delta=20](A,X)(Y)
+
+  \tkzDrawPoints[dots](A,B,C,D,E,M,N,P,X,Y)
+  \tkzDrawPoints[dots=blue](T)
+
+  \tkzLabelPoints[above](P,E,N)
+  \tkzLabelPoints[below](M)
+  \tkzLabelPoints[left](B,X,T)
+  \tkzLabelPoints[right](C)
+  \tkzLabelPoints[above left](A,D)
+  \tkzLabelPoints[below left]()
+  \tkzLabelPoints[above right](Y)
+  \tkzLabelPoints[below right]()
+\end{tikzpicture}
