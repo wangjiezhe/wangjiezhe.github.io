@@ -1430,7 +1430,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #e5b4ff;
+    background: #dbc362;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2159,6 +2159,9 @@ pre code {
 .post-body .exturl .fa {
   font-size: 0.875em;
   margin-left: 4px;
+}
+.post-body figure:not(.highlight) {
+  margin: 0 auto 20px;
 }
 .post-body figure:not(.highlight) figcaption {
   color: #999;
