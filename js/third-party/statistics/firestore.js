@@ -39,14 +39,14 @@ firebase.initializeApp({
         // Mark as visited
         localStorage.setItem(title, true);
       }
-      const count = await getCount(doc, increaseCount);
+      await getCount(doc, increaseCount);
     } else if (CONFIG.page.isHome) {
       const promises = [...document.querySelectorAll('.post-title')].map(element => {
         const title = element.textContent.trim();
         const doc = articles.doc(title);
         return getCount(doc);
       });
-      const counts = await Promise.all(promises);
+      await Promise.all(promises);
     }
   });
 })();
