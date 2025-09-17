@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
@@ -630,7 +630,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>827</span>
+      <span>787</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -659,11 +659,11 @@
 <h2 id="3-vim重复命令"><a class="header-anchor" href="#3-vim重复命令"></a>3. vim重复命令</h2>
 <p><code>.</code><br />
 重复上次操作，前面可加次数</p>
-<p><code>:[range]g[lobal]/&#123;pattern&#125;/[cmd]</code><br />
-在 <code>[range]</code> 界定的匹配模式 <code>&#123;pattern&#125;</code> 的文本行上执行Ex 命令 <code>[cmd]</code> （缺省是 <code>:p</code>）。</p>
-<p><code>:[range]g[lobal]!/&#123;pattern&#125;/[cmd]</code><br />
+<p><code>:[range]g[lobal]/{pattern}/[cmd]</code><br />
+在 <code>[range]</code> 界定的匹配模式 <code>{pattern}</code> 的文本行上执行Ex 命令 <code>[cmd]</code> （缺省是 <code>:p</code>）。</p>
+<p><code>:[range]g[lobal]!/{pattern}/[cmd]</code><br />
 在 [range] 界定的_不_匹配模式 {pattern} 的文本行上执行 Ex 命令 [cmd] （缺省是 <code>:p</code>）。</p>
-<p><code>:[range]v[global]/&#123;pattern&#125;/[cmd]</code><br />
+<p><code>:[range]v[global]/{pattern}/[cmd]</code><br />
 等同于 :g!。</p>
 <h2 id="4-vim中tab与空格的转换-慎用！！！"><a class="header-anchor" href="#4-vim中tab与空格的转换-慎用！！！"></a>4. vim中tab与空格的转换 (慎用！！！)</h2>
 <p><code>:ret[ab][!] [new_tabstop]</code><br />

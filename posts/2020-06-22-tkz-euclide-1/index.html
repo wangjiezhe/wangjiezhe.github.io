@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
@@ -659,14 +659,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.3k</span>
+      <span>4.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>11 分钟</span>
+      <span>10 分钟</span>
     </span>
 </div>
 
@@ -700,24 +700,24 @@
 <tbody>
 <tr>
 <td>直角坐标</td>
-<td><code>\tkzDefPoint(&lt;x,y&gt;)&#123;A&#125;</code></td>
+<td><code>\tkzDefPoint(&lt;x,y&gt;){A}</code></td>
 </tr>
 <tr>
 <td>极坐标</td>
-<td><code>\tkzDefPoint(&lt;θ:ρ&gt;)&#123;A&#125;</code></td>
+<td><code>\tkzDefPoint(&lt;θ:ρ&gt;){A}</code></td>
 </tr>
 <tr>
 <td>相对坐标</td>
-<td><code>\tkzDefShiftPoint[A](&lt;x,y&gt; or &lt;θ:ρ&gt;)&#123;B&#125;</code> 或者 <br /> <code>\tkzDefPoint[shift=&#123;(&lt;x,y&gt; or &lt;θ:ρ&gt;)&#125;]((&lt;x,y&gt; or &lt;θ:ρ&gt;)&#123;B&#125;)</code></td>
+<td><code>\tkzDefShiftPoint[A](&lt;x,y&gt; or &lt;θ:ρ&gt;){B}</code> 或者 <br /> <code>\tkzDefPoint[shift={(&lt;x,y&gt; or &lt;θ:ρ&gt;)}]((&lt;x,y&gt; or &lt;θ:ρ&gt;){B})</code></td>
 </tr>
 <tr>
 <td>批量定义（直角坐标）</td>
-<td><code>\tkzDefPoints&#123;&lt;x1/y1/A,x2/y2/B,...&gt;&#125;</code></td>
+<td><code>\tkzDefPoints{&lt;x1/y1/A,x2/y2/B,...&gt;}</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="1-2-定义圆上的点"><a class="header-anchor" href="#1-2-定义圆上的点"></a>1.2. 定义圆上的点</h3>
-<p>命令：<code>\tkzDefPointOnCircle[&lt;option&gt;] \tkzGetPoint&#123;B&#125;</code></p>
+<p>命令：<code>\tkzDefPointOnCircle[&lt;option&gt;] \tkzGetPoint{B}</code></p>
 <table>
 <thead>
 <tr>
@@ -747,11 +747,11 @@
 <tbody>
 <tr>
 <td>中点</td>
-<td><code>\tkzDefMidPoint(A,B) \tkzGetPoint&#123;C&#125;</code></td>
+<td><code>\tkzDefMidPoint(A,B) \tkzGetPoint{C}</code></td>
 </tr>
 <tr>
 <td>黄金分割点（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mi>A</mi><mi>C</mi></mrow><mrow><mi>C</mi><mi>B</mi></mrow></mfrac></mstyle><mo>=</mo><mi>φ</mi></mrow><annotation encoding="application/x-tex">\dfrac{AC}{CB}=\varphi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">CB</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">φ</span></span></span></span>）</td>
-<td><code>\tkzDefGoldenRatio(A,B) \tkzGetPoint&#123;C&#125;</code></td>
+<td><code>\tkzDefGoldenRatio(A,B) \tkzGetPoint{C}</code></td>
 </tr>
 <tr>
 <td>定比分点（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mrow><mi>A</mi><mi>P</mi></mrow><mo stretchy="true">→</mo></mover><mo>=</mo><mi>k</mi><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{AP}=k\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2053em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2053em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span><span class="svg-align" style="top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.522em" viewBox="0 0 400000 522" preserveAspectRatio="xMaxYMin slice"><path d="M0 241v40h399891c-47.3 35.3-84 78-110 128
@@ -789,15 +789,15 @@
 -40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
 -12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
  151.7 139 205zm0 0v40h399900v-40z"/></svg></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>）</td>
-<td><code>\tkzDefBarycentricPoint(&lt;A=n,B=m&gt;) \tkzGetPoint&#123;P&#125;</code></td>
+<td><code>\tkzDefBarycentricPoint(&lt;A=n,B=m&gt;) \tkzGetPoint{P}</code></td>
 </tr>
 <tr>
 <td>重心坐标</td>
-<td><code>\tkzDefBarycentricPoint(&lt;A=α1,B=α2,C=α3,...&gt;) \tkzGetPoint&#123;P&#125;</code></td>
+<td><code>\tkzDefBarycentricPoint(&lt;A=α1,B=α2,C=α3,...&gt;) \tkzGetPoint{P}</code></td>
 </tr>
 <tr>
 <td>内/外相似中心</td>
-<td><code>\tkzDefSimilitudeCenter[int/ext](O,A)(O',B) \tkzGetPoint&#123;I&#125;</code> 或 <br /> <code>\tkzDefSimilitudeCenter[int/ext,R](O,r)(O',r') \tkzGetPoint&#123;I&#125;</code></td>
+<td><code>\tkzDefSimilitudeCenter[int/ext](O,A)(O',B) \tkzGetPoint{I}</code> 或 <br /> <code>\tkzDefSimilitudeCenter[int/ext,R](O,r)(O',r') \tkzGetPoint{I}</code></td>
 </tr>
 <tr>
 <td>调和分割点（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo separator="true">;</mo><mi>C</mi><mo separator="true">,</mo><mi>D</mi><mo stretchy="false">)</mo><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">(A,B;C,D)=-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>）</td>
@@ -810,9 +810,9 @@
 </tbody>
 </table>
 <h3 id="1-4-定义几何变换点"><a class="header-anchor" href="#1-4-定义几何变换点"></a>1.4. 定义几何变换点</h3>
-<p>命令：<code>\tkzDefPointBy[&lt;option&gt;](P) \tkzGetPoint&#123;Q&#125;</code></p>
-<p>批量变换：<code>\tkzDefPointsBy[&lt;option&gt;](M,N,...)&#123;P,Q,...&#125;</code></p>
-<p>（如后面的为<code>&#123;&#125;</code>，则缺省值为<code>M',N',...</code>）</p>
+<p>命令：<code>\tkzDefPointBy[&lt;option&gt;](P) \tkzGetPoint{Q}</code></p>
+<p>批量变换：<code>\tkzDefPointsBy[&lt;option&gt;](M,N,...){P,Q,...}</code></p>
+<p>（如后面的为<code>{}</code>，则缺省值为<code>M',N',...</code>）</p>
 <table>
 <thead>
 <tr>
@@ -864,7 +864,7 @@
 </tbody>
 </table>
 <h3 id="1-5-定义向量变换点"><a class="header-anchor" href="#1-5-定义向量变换点"></a>1.5. 定义向量变换点</h3>
-<p>命令：<code>\tkzDefPointWith[&lt;options&gt;](&lt;A,B&gt;) \tkzGetPoint&#123;C&#125;</code></p>
+<p>命令：<code>\tkzDefPointWith[&lt;options&gt;](&lt;A,B&gt;) \tkzGetPoint{C}</code></p>
 <table>
 <thead>
 <tr>
@@ -995,7 +995,7 @@
 </tr>
 </tbody>
 </table>
-<p>获取向量的坐标：<code>\tkzGetVectxy(&lt;A,B&gt;)&#123;&lt;V&gt;&#125;</code>，则向量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2053em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2053em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.522em" viewBox="0 0 400000 522" preserveAspectRatio="xMaxYMin slice"><path d="M0 241v40h399891c-47.3 35.3-84 78-110 128
+<p>获取向量的坐标：<code>\tkzGetVectxy(&lt;A,B&gt;){&lt;V&gt;}</code>，则向量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mrow><mi>A</mi><mi>B</mi></mrow><mo stretchy="true">→</mo></mover></mrow><annotation encoding="application/x-tex">\overrightarrow{AB}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2053em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.2053em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span><span class="svg-align" style="top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.522em" viewBox="0 0 400000 522" preserveAspectRatio="xMaxYMin slice"><path d="M0 241v40h399891c-47.3 35.3-84 78-110 128
 -16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
  11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
  39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
@@ -1003,7 +1003,7 @@
 -12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
  151.7 139 205zm0 0v40h399900v-40z"/></svg></span></span></span></span></span></span></span></span></span> 的坐标为 (<code>\Vx</code>,<code>\Vy</code>)．</p>
 <h3 id="1-6-定义三角形的各中心"><a class="header-anchor" href="#1-6-定义三角形的各中心"></a>1.6. 定义三角形的各中心</h3>
-<p>命令：<code>\tkzDefTriangleCenter[&lt;option&gt;](&lt;A,B,C&gt;) \tkzGetPoint&#123;P&#125;</code></p>
+<p>命令：<code>\tkzDefTriangleCenter[&lt;option&gt;](&lt;A,B,C&gt;) \tkzGetPoint{P}</code></p>
 <table>
 <thead>
 <tr>
@@ -1089,7 +1089,7 @@
 </tbody>
 </table>
 <h3 id="1-7-定义随机点"><a class="header-anchor" href="#1-7-定义随机点"></a>1.7. 定义随机点</h3>
-<p>命令：<code>\tkzDefRandPointOn[&lt;local option&gt;]  \tkzGetPoint&#123;P&#125;</code></p>
+<p>命令：<code>\tkzDefRandPointOn[&lt;local option&gt;]  \tkzGetPoint{P}</code></p>
 <table>
 <thead>
 <tr>
@@ -1125,9 +1125,9 @@
 </tbody>
 </table>
 <h2 id="2-获取点的方法"><a class="header-anchor" href="#2-获取点的方法"></a>2. 获取点的方法</h2>
-<p>获取一个点：<code>\tkzGetPoint&#123;A&#125;</code>，默认存储为 <code>tkzPointResult</code></p>
-<p>获取多个点：<code>\tkzGetPoints&#123;A&#125;&#123;B&#125;</code>，默认存储为 <code>tkzFirstPointResult</code> 和 <code>tkzSecondPointResult</code></p>
-<p>若只获取其中某一个，则可以使用 <code>tkzGetFirstPoint&#123;A&#125;</code> 或 <code>\tkzGetSecondPoint&#123;B&#125;</code></p>
+<p>获取一个点：<code>\tkzGetPoint{A}</code>，默认存储为 <code>tkzPointResult</code></p>
+<p>获取多个点：<code>\tkzGetPoints{A}{B}</code>，默认存储为 <code>tkzFirstPointResult</code> 和 <code>tkzSecondPointResult</code></p>
+<p>若只获取其中某一个，则可以使用 <code>tkzGetFirstPoint{A}</code> 或 <code>\tkzGetSecondPoint{B}</code></p>
 <h2 id="3-绘制点的方法"><a class="header-anchor" href="#3-绘制点的方法"></a>3. 绘制点的方法</h2>
 <p>绘制单个点：<code>\tkzDrawPoint[&lt;options&gt;](A)</code></p>
 <p>绘制多个点：<code>\tkzDrawPoints[&lt;options&gt;](A,B,C,...)</code></p>
@@ -1159,7 +1159,7 @@
 </tbody>
 </table>
 <h2 id="4-标记点的方法"><a class="header-anchor" href="#4-标记点的方法"></a>4. 标记点的方法</h2>
-<p>标记单个点：<code>\tkzLabelPoint[&lt;options&gt;](A)&#123;&lt;text support tex&gt;&#125;</code></p>
+<p>标记单个点：<code>\tkzLabelPoint[&lt;options&gt;](A){&lt;text support tex&gt;}</code></p>
 <p>标记多个点：<code>\tkzLabelPoints[&lt;options&gt;](A,B,C,...)</code></p>
 <p>自动选择位置标记多个点：<code>\tkzAutoLabelPoints[center=M, &lt;options&gt;](A,B,C,...)</code></p>
 <table>

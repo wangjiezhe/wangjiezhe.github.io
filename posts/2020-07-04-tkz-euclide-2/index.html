@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
@@ -659,7 +659,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.8k</span>
+      <span>3.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -680,7 +680,7 @@
 <span id="more"></span>
 <h2 id="1-定义直线形的方法"><a class="header-anchor" href="#1-定义直线形的方法"></a>1. 定义直线形的方法</h2>
 <h3 id="1-1-定义直线"><a class="header-anchor" href="#1-1-定义直线"></a>1.1. 定义直线</h3>
-<p>命令：<code>\tkzDefLine[&lt;options&gt;](A,B) or (A,B,C)  \tkzGetPoints&#123;P&#125;&#123;Q&#125; or \tkzGetPoint&#123;P&#125;</code></p>
+<p>命令：<code>\tkzDefLine[&lt;options&gt;](A,B) or (A,B,C)  \tkzGetPoints{P}{Q} or \tkzGetPoint{P}</code></p>
 <table>
 <thead>
 <tr>
@@ -755,16 +755,16 @@
 <tbody>
 <tr>
 <td>过 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⊙</mo><mi>O</mi></mrow><annotation encoding="application/x-tex">\odot O</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord">⊙</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span> 上点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> 的切线 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">AP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span></td>
-<td><code>\tkzDefTangent[at=A](O)  \tkzGetPoint&#123;P&#125;</code></td>
+<td><code>\tkzDefTangent[at=A](O)  \tkzGetPoint{P}</code></td>
 </tr>
 <tr>
 <td>过<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⊙</mo><mi>O</mi></mrow><annotation encoding="application/x-tex">\odot O</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord">⊙</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span> 外点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> 的切线 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">AP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>Q</mi></mrow><annotation encoding="application/x-tex">AQ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">Q</span></span></span></span></td>
-<td><code>\tkzDefTangent[from=A](O, K)  \tkzGetPoints&#123;P&#125;&#123;Q&#125;</code> <br />或 <code>\tkzDefTangent[from with R=A](O, r cm)\tkzGetPoints&#123;P&#125;&#123;Q&#125;</code></td>
+<td><code>\tkzDefTangent[from=A](O, K)  \tkzGetPoints{P}{Q}</code> <br />或 <code>\tkzDefTangent[from with R=A](O, r cm)\tkzGetPoints{P}{Q}</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="1-3-定义三角形"><a class="header-anchor" href="#1-3-定义三角形"></a>1.3. 定义三角形</h3>
-<p>命令：<code>\tkzDefTriangle[&lt;options&gt;](A,B)  \tkzGetPoint&#123;C&#125;</code></p>
+<p>命令：<code>\tkzDefTriangle[&lt;options&gt;](A,B)  \tkzGetPoint{C}</code></p>
 <table>
 <thead>
 <tr>
@@ -824,7 +824,7 @@
 </tbody>
 </table>
 <h3 id="1-4-定义特殊三角形"><a class="header-anchor" href="#1-4-定义特殊三角形"></a>1.4. 定义特殊三角形</h3>
-<p>命令：<code>\tkzDefSpcTriangle[&lt;options&gt;, name=M_](A,B,C)&#123;A,B,C&#125;</code>，新三角形的三个顶点依次为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">M_A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">M_B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>C</mi></msub></mrow><annotation encoding="application/x-tex">M_C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，</p>
+<p>命令：<code>\tkzDefSpcTriangle[&lt;options&gt;, name=M_](A,B,C){A,B,C}</code>，新三角形的三个顶点依次为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">M_A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">M_B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>C</mi></msub></mrow><annotation encoding="application/x-tex">M_C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，</p>
 <table>
 <thead>
 <tr>
@@ -907,19 +907,19 @@
 <tbody>
 <tr>
 <td>正方形（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">AB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> 为边）</td>
-<td><code>\tkzDefSquare(A,B)  \tkzGetPoints&#123;C&#125;&#123;D&#125;</code></td>
+<td><code>\tkzDefSquare(A,B)  \tkzGetPoints{C}{D}</code></td>
 </tr>
 <tr>
 <td>矩形（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">AC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 为对角线）</td>
-<td><code>\tkzDefRectangle(A,C) \tkzGetPoints&#123;B&#125;&#123;D&#125;</code></td>
+<td><code>\tkzDefRectangle(A,C) \tkzGetPoints{B}{D}</code></td>
 </tr>
 <tr>
 <td>平行四边形</td>
-<td><code>\tkzDefParallelogram(A,B,C)  \tkzGetPoint&#123;D&#125;</code></td>
+<td><code>\tkzDefParallelogram(A,B,C)  \tkzGetPoint{D}</code></td>
 </tr>
 <tr>
 <td>黄金矩形（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mi>A</mi><mi>B</mi></mrow><mrow><mi>B</mi><mi>C</mi></mrow></mfrac></mstyle><mo>=</mo><mi>φ</mi></mrow><annotation encoding="application/x-tex">\dfrac{AB}{BC}=\varphi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">BC</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">φ</span></span></span></span>）</td>
-<td><code>\tkzDefGoldRectangle(A,B)  \tkzGetPoints&#123;C&#125;&#123;D&#125;</code></td>
+<td><code>\tkzDefGoldRectangle(A,B)  \tkzGetPoints{C}{D}</code></td>
 </tr>
 </tbody>
 </table>
@@ -986,11 +986,11 @@
 <p>绘制一条线段：<code>\tkzDrawSegment[&lt;options&gt;](A,B)</code>（相当于 <code>\draw (A)--(B)</code>）</p>
 <p>绘制多条线段：<code>\tkzDrawSegments[&lt;options&gt;](A,B C,D ...)</code></p>
 <h3 id="2-3-（定义并）绘制三角形"><a class="header-anchor" href="#2-3-（定义并）绘制三角形"></a>2.3. （定义并）绘制三角形</h3>
-<p>命令：<code>\tkzDrawTriangle[&lt;options&gt;](A,B)  \tkzGetPoint&#123;C&#125;</code></p>
+<p>命令：<code>\tkzDrawTriangle[&lt;options&gt;](A,B)  \tkzGetPoint{C}</code></p>
 <h3 id="2-4-（定义并）绘制正方形"><a class="header-anchor" href="#2-4-（定义并）绘制正方形"></a>2.4. （定义并）绘制正方形</h3>
-<p>命令：<code>\tkzDrawSquare[&lt;options&gt;](A,B)  \tkzGetPoints&#123;C&#125;&#123;D&#125;</code></p>
+<p>命令：<code>\tkzDrawSquare[&lt;options&gt;](A,B)  \tkzGetPoints{C}{D}</code></p>
 <h3 id="2-5-（定义并）绘制黄金矩形"><a class="header-anchor" href="#2-5-（定义并）绘制黄金矩形"></a>2.5. （定义并）绘制黄金矩形</h3>
-<p>命令：<code>\tkzDrawGoldRectangle[&lt;options&gt;](A,B)  \tkzGetPoints&#123;C&#125;&#123;D&#125;</code></p>
+<p>命令：<code>\tkzDrawGoldRectangle[&lt;options&gt;](A,B)  \tkzGetPoints{C}{D}</code></p>
 <h3 id="2-6-绘制多边形"><a class="header-anchor" href="#2-6-绘制多边形"></a>2.6. 绘制多边形</h3>
 <p>命令：<code>\tkzDrawPolygon[&lt;options&gt;](A,B,C,...)</code></p>
 <h3 id="2-7-绘制多边形链"><a class="header-anchor" href="#2-7-绘制多边形链"></a>2.7. 绘制多边形链</h3>
@@ -1000,7 +1000,7 @@
 <p>命令：<code>\tkzFillPolygon[&lt;options&gt;](A,B,C,...)</code></p>
 <h2 id="4-标记直线形的方法"><a class="header-anchor" href="#4-标记直线形的方法"></a>4. 标记直线形的方法</h2>
 <h3 id="4-1-标记直线"><a class="header-anchor" href="#4-1-标记直线"></a>4.1. 标记直线</h3>
-<p>命令：<code>\tkzLabelLine[&lt;options&gt;](A,B)&#123;&lt;text support tex&gt;&#125;</code></p>
+<p>命令：<code>\tkzLabelLine[&lt;options&gt;](A,B){&lt;text support tex&gt;}</code></p>
 <table>
 <thead>
 <tr>

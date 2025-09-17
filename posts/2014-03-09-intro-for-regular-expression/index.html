@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
@@ -29,11 +29,11 @@
 <meta property="article:published_time" content="2014-03-08T17:47:57.000Z">
 <meta property="article:modified_time" content="2014-03-27T18:42:33.000Z">
 <meta property="article:author" content="西风冷香">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Sed">
-<meta property="article:tag" content="Regular expression">
-<meta property="article:tag" content="Grep">
 <meta property="article:tag" content="Awk">
+<meta property="article:tag" content="Grep">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Regular expression">
+<meta property="article:tag" content="Sed">
 <meta name="twitter:card" content="summary">
 
 
@@ -633,7 +633,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>884</span>
+      <span>834</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -665,10 +665,10 @@ $ 匹配字符串的最后面。</p>
 <p><code>[]</code> 匹配方括号内的左右字符。<br />
 <code>\-</code> 连字符元字符仅在字符组元字符内有意义，表示一段连续字符范围。<br />
 <code>^</code> 表示排除某些字符。</p>
-<h3 id="1-6-范围字符串"><a class="header-anchor" href="#1-6-范围字符串"></a>1.6. 范围字符串 <code>\\&#123; \\&#125;</code></h3>
-<p><code>\\&#123;n,m\\&#125;</code> 匹配 n~m 次。<br />
-<code>\\&#123;n\\&#125;</code> 匹配 n 次。<br />
-<code>\\&#123;n,\\&#125;</code> 匹配 n+ 次。</p>
+<h3 id="1-6-范围字符串"><a class="header-anchor" href="#1-6-范围字符串"></a>1.6. 范围字符串 <code>\\{ \\}</code></h3>
+<p><code>\\{n,m\\}</code> 匹配 n~m 次。<br />
+<code>\\{n\\}</code> 匹配 n 次。<br />
+<code>\\{n,\\}</code> 匹配 n+ 次。</p>
 <h3 id="1-7-特殊字符类"><a class="header-anchor" href="#1-7-特殊字符类"></a>1.7. 特殊字符类</h3>
 <p><code>[[:alpha:]]</code> 匹配任意字母字符，大写或小写<br />
 <code>[[:alnum:]]</code> 匹配任意字母数字字符，0-9, a-z, A-Z<br />
@@ -688,7 +688,7 @@ $ 匹配字符串的最后面。</p>
 <p><code>r1|r2</code> 匹配 r1 或 r2</p>
 <h3 id="2-4-括号元字符"><a class="header-anchor" href="#2-4-括号元字符"></a>2.4. 括号元字符 <code>( )</code></h3>
 <p><code>(r1)</code> 匹配子字符串r1(常与 * + ? | 等连用)。</p>
-<h3 id="2-5-范围元字符"><a class="header-anchor" href="#2-5-范围元字符"></a>2.5. 范围元字符 <code>&#123; &#125;</code></h3>
+<h3 id="2-5-范围元字符"><a class="header-anchor" href="#2-5-范围元字符"></a>2.5. 范围元字符 <code>{ }</code></h3>
 <p>与上面的范围元字符类似。</p>
 <h2 id="3-固定元字符-grep"><a class="header-anchor" href="#3-固定元字符-grep"></a>3. 固定元字符 (grep)</h2>
 <h3 id="3-1"><a class="header-anchor" href="#3-1"></a>3.1. <code>\\&lt; \\&gt;</code></h3>

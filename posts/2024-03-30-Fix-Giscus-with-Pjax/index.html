@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
@@ -641,7 +641,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>918</span>
+      <span>913</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -665,7 +665,7 @@
 <p>而且令人奇怪的是，utterances 和其它评论系统引入的方式是完全一样的，但就是它和 gitalk 不能支持 Pjax ，其它的都没有问题。乃至于后来许多文章在对比 NexT 的几个评论系统的时候，就直接将 utterances 说成无法支持 Pjax。</p>
 <p>在 Github Discussion 出现之后，又诞生了基于 discussion 的 giscus。结果我试了之后，还是同样的问题，切换页面后评论不变。这个<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/next-theme/hexo-next-giscus/issues/2">问题 </a> 从21年一直拖到23年，NexT 的插件终于宣称支持了 Pjax。但是我实测之后发现，表现和原来是一摸一样的。😢</p>
 <h2 id="曙光"><a class="header-anchor" href="#曙光"></a>曙光</h2>
-<p>直到最近，我无意中搜到了<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.dalao.net/thread-17278.htm">这篇文章</a>，里面提到了通过搜索关键字 <code>new Pjax(&#123;</code> 找到出问题的地方。于是我也试着在 NexT 主题中尝试寻找，终于发现了问题所在。</p>
+<p>直到最近，我无意中搜到了<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.dalao.net/thread-17278.htm">这篇文章</a>，里面提到了通过搜索关键字 <code>new Pjax({</code> 找到出问题的地方。于是我也试着在 NexT 主题中尝试寻找，终于发现了问题所在。</p>
 <p>在 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/next-theme/hexo-theme-next/blob/v8.19.2/source/js/pjax.js"><code>source/js/pjax.js</code></a> 中，定义了 Pjax 需要刷新的内容，其中就包括了加载评论的部分。这个时候我突然意识到，giscus 确实在新的页面刷新了，但是我设置的是通过 <code>og:title</code> 来对应文章和评论，而在新的页面中， <code>og:title</code> 并没有更新！​​</p>
 <p>这也就解释了为什么插件宣称支持 Pjax 而我实测不行了。因为插件默认通过文章的链接路径来对应文章和评论，因此在进入新的页面之后，链接自动刷新，评论就能够正常加载了。另外如果通过 <code>title</code> 来对应也没有问题，因为 <code>&lt;title&gt;</code> 会被<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/next-theme/hexo-theme-next/blob/v8.19.2/source/js/pjax.js#L5">Pjax</a>刷新。而唯独我是用的 <code>og:title</code> 这个方法不行。😠</p>
 <h2 id="终章"><a class="header-anchor" href="#终章"></a>终章</h2>
