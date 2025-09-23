@@ -1430,7 +1430,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #f40bff;
+    background: #fff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3497,6 +3497,9 @@ div .blog-links {
 }
 #friend-circle-lite-root .card:hover .card-bg {
   opacity: 0.5;
+}
+.katex-display {
+  overflow: auto hidden;
 }
 @keyframes shake-it {
   0% {
