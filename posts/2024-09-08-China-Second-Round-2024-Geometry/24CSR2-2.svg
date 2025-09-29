@@ -22,7 +22,6 @@
 </g>
 </g>
 </defs>
-<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 0 0 L 212.019531 0 L 212.019531 165.648438 L 0 165.648438 Z M 0 0 "/>
 <path fill-rule="nonzero" fill="rgb(100%, 0%, 0%)" fill-opacity="0.3" d="M 62.660156 21.050781 L 67.027344 37.488281 C 71.03125 36.425781 74.511719 33.933594 76.8125 30.484375 Z M 62.660156 21.050781 "/>
 <path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 2.910896 45.735813 C 5.580167 46.444146 7.900479 48.105604 9.434333 50.405083 " transform="matrix(1.5, 0, 0, -1.5, 62.661, 106.092)"/>
 <path fill-rule="nonzero" fill="rgb(100%, 0%, 0%)" fill-opacity="0.3" d="M 62.660156 21.050781 L 53.152344 40.066406 C 57.789062 42.382812 63.109375 42.929688 68.117188 41.597656 Z M 62.660156 21.050781 "/>

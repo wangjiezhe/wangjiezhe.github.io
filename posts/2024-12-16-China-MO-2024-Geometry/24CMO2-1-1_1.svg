@@ -28,7 +28,6 @@
 </g>
 </g>
 </defs>
-<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 0 0 L 261.640625 0 L 261.640625 196.335938 L 0 196.335938 Z M 0 0 "/>
 <path fill="none" stroke-width="0.79701" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M -60.133896 60.133146 L -73.646917 -42.5205 L 73.647354 -42.5205 Z M -60.133896 60.133146 " transform="matrix(1.5, 0, 0, -1.5, 130.611, 111.2505)"/>
 <path fill="none" stroke-width="0.79701" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 3.504125 -6.473625 C 3.504125 13.435229 -12.6365 29.57325 -32.54275 29.57325 C -52.451604 29.57325 -68.589625 13.435229 -68.589625 -6.473625 C -68.589625 -26.382479 -52.451604 -42.5205 -32.54275 -42.5205 C -12.6365 -42.5205 3.504125 -26.382479 3.504125 -6.473625 Z M 3.504125 -6.473625 " transform="matrix(1.5, 0, 0, -1.5, 130.611, 111.2505)"/>
 <path fill="none" stroke-width="0.79701" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M -73.646917 -42.5205 L 9.6135 30.497729 " transform="matrix(1.5, 0, 0, -1.5, 130.611, 111.2505)"/>

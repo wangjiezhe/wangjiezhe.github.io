@@ -34,7 +34,6 @@
 </g>
 </g>
 </defs>
-<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 0 0 L 360.34375 0 L 360.34375 310.214844 L 0 310.214844 Z M 0 0 "/>
 <path fill="none" stroke-width="0.79701" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 47.920833 102.763146 L -106.550521 -38.781125 L 106.548438 -38.781125 Z M 47.920833 102.763146 " transform="matrix(1.5, 0, 0, -1.5, 179.9625, 175.1955)"/>
 <path fill="none" stroke-width="0.79701" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 34.295833 -76.208208 L 75.342708 36.560021 " transform="matrix(1.5, 0, 0, -1.5, 179.9625, 175.1955)"/>
 <path fill="none" stroke-width="0.79701" stroke-linecap="round" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 47.920833 -38.781125 L 9.285417 67.362104 " transform="matrix(1.5, 0, 0, -1.5, 179.9625, 175.1955)"/>

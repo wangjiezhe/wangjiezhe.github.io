@@ -1430,7 +1430,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #cdffb0;
+    background: #412aff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3500,6 +3500,11 @@ div .blog-links {
 }
 .katex-display {
   overflow: auto hidden;
+}
+@media (prefers-color-scheme: dark) {
+  .svg {
+    filter: invert(1) brightness(2);
+  }
 }
 @keyframes shake-it {
   0% {

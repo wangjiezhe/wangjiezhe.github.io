@@ -46,7 +46,6 @@
 </g>
 </g>
 </defs>
-<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 0 0 L 176.859375 0 L 176.859375 203.046875 L 0 203.046875 Z M 0 0 "/>
 <path fill-rule="nonzero" fill="rgb(79.998779%, 93.998718%, 79.998779%)" fill-opacity="0.7" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 69.999695%, 0%)" stroke-opacity="0.7" stroke-miterlimit="10" d="M 56.693104 -0.000145833 L 49.607167 -0.000145833 L 49.607167 7.085792 L 56.693104 7.085792 L 56.693104 -0.000145833 " transform="matrix(1.5, 0, 0, -1.5, 22.308, 134.574)"/>
 <path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M -14.174083 -0.000145833 L 95.628 -0.000145833 " transform="matrix(1.5, 0, 0, -1.5, 22.308, 134.574)"/>
 <path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 171.128906 134.574219 C 169.535156 134.273438 166.945312 133.378906 165.152344 132.332031 L 165.152344 136.816406 C 166.945312 135.769531 169.535156 134.871094 171.128906 134.574219 "/>

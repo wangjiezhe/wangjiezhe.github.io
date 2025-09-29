@@ -49,7 +49,6 @@
 <path clip-rule="nonzero" d="M 219 0 L 425.285156 0 L 425.285156 207 L 219 207 Z M 219 0 "/>
 </clipPath>
 </defs>
-<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 0 0 L 425.285156 0 L 425.285156 366.269531 L 0 366.269531 Z M 0 0 "/>
 <path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 50%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 27.592021 67.846979 L 28.331604 73.466771 L 33.951396 72.727188 L 33.211813 67.107396 L 27.592021 67.846979 " transform="matrix(1.5, 0, 0, -1.5, 204.2565, 238.665)"/>
 <path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 50%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 79.714417 33.018854 L 77.545146 38.255833 L 82.782125 40.425104 L 84.951396 35.188125 L 79.714417 33.018854 " transform="matrix(1.5, 0, 0, -1.5, 204.2565, 238.665)"/>
 <path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(50%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 45.930563 65.432917 L 46.667542 71.052708 L 52.289938 70.313125 L 51.552958 64.693333 L 45.930563 65.432917 " transform="matrix(1.5, 0, 0, -1.5, 204.2565, 238.665)"/>
