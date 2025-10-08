@@ -36,7 +36,7 @@
     --selection-color: #333;
     --blockquote-color: #bbb;
     --link-color: #ccc;
-    --link-hover-color: #005caf;
+    --link-hover-color: #2ea9df;
     --brand-color: #ddd;
     --brand-hover-color: #ddd;
     --table-row-odd-bg-color: #282828;
@@ -1434,7 +1434,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #adfff7;
+    background: #b4ffb0;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3428,6 +3428,21 @@ ul.category-list > li {
   .post-body h2 a,
   .post-copyright a,
   .links-of-author-item a {
+    color: #58b2dc;
+  }
+  .post-body p a::before,
+  .post-body ul a::before,
+  .post-body h2 a::before,
+  .post-copyright a::before,
+  .links-of-author-item a::before {
+    background: #2ea9df;
+    color: #2ea9df;
+  }
+  .post-body p a:hover,
+  .post-body ul a:hover,
+  .post-body h2 a:hover,
+  .post-copyright a:hover,
+  .links-of-author-item a:hover {
     color: #2ea9df;
   }
   .exturl {
@@ -3517,6 +3532,33 @@ div .blog-links {
 @media (prefers-color-scheme: dark) {
   .svg {
     filter: invert(1) brightness(2);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  mark.search-keyword {
+    border-bottom: 1px dashed #00aa90;
+    color: #00aa90;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  #dsqjs:focus,
+  #dsqjs:hover {
+    color: #c2c6cc !important;
+  }
+  .dsqjs-no-comment,
+  .dsqjs-nav-tab,
+  .dsqjs-tab-active,
+  .dsqjs-post-body {
+    color: #3a8fb7 !important;
+  }
+  #dsqjs a {
+    color: #3a8fb7 !important;
+  }
+  #dsqjs a:hover {
+    color: #2ea9df !important;
+  }
+  .dsqjs-order-label {
+    color: #666;
   }
 }
 @keyframes shake-it {

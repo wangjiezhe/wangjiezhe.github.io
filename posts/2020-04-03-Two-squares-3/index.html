@@ -485,6 +485,9 @@
     function render(){
       //重置画布宽度，达到清空画布的效果
       canvas.height = 100;
+      //获取颜色，支持暗色模式
+      var clockColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
+      cxt.fillStyle = clockColor;
       //渲染时钟
       for(var i = 0; i < data.length; i++){
         renderDigit(i,data[i]);
