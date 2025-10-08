@@ -33,6 +33,7 @@
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="NexT">
 <meta property="article:tag" content="SVG">
+<meta property="article:tag" content="深色模式">
 <meta name="twitter:card" content="summary">
 
 
@@ -205,7 +206,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -216,7 +217,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">123</span>
+        <span class="site-state-item-count">125</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -635,7 +636,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>747</span>
+      <span>876</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -653,7 +654,11 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>在之前的几何相关的文章中，我把图片格式从 png/webp 切换到了 svg，这样得到的图片更清晰，而且还可以无损缩放，但图片大小反而更小。</p>
+    <div class="post-body" itemprop="articleBody"><div class="note danger"><p>20251008 更新：新版反色配置</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">prefers-color-scheme</span>: dark) &#123;</span><br><span class="line">  <span class="selector-class">.svg</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">invert</span>(<span class="number">1</span>) <span class="built_in">hue-rotate</span>(<span class="number">180deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样可以保持色相不变。</p>
+</div>
+<p>在之前的几何相关的文章中，我把图片格式从 png/webp 切换到了 svg，这样得到的图片更清晰，而且还可以无损缩放，但图片大小反而更小。</p>
 <p>具体的工作流程如下：</p>
 <pre><code class="highlight mermaid">graph LR
 A(TikZ) --&gt; |lualatex| B([PDF])
@@ -754,6 +759,7 @@ B --&gt; |pdf2svg| C([SVG]) --&gt; |svgo| D(minified SVG)</code></pre>
               <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
               <a href="/tags/NexT/" rel="tag"><i class="fa fa-tag"></i> NexT</a>
               <a href="/tags/SVG/" rel="tag"><i class="fa fa-tag"></i> SVG</a>
+              <a href="/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 深色模式</a>
           </div>
 
         
@@ -824,7 +830,7 @@ B --&gt; |pdf2svg| C([SVG]) --&gt; |svgo| D(minified SVG)</code></pre>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">297k</span>
+    <span title="站点总字数">298k</span>
   </span>
 </div>
 <div class="busuanzi-count">

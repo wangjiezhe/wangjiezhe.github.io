@@ -1434,7 +1434,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #3dffff;
+    background: #f6bfaa;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3531,7 +3531,7 @@ div .blog-links {
 }
 @media (prefers-color-scheme: dark) {
   .svg {
-    filter: invert(1) brightness(2);
+    filter: invert(1) hue-rotate(180deg);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -3559,6 +3559,10 @@ div .blog-links {
   }
   .dsqjs-order-label {
     color: #666;
+  }
+  iframe[src*="disqus.com"] {
+    background-color: #333 !important;
+    mix-blend-mode: lighten;
   }
 }
 @keyframes shake-it {
