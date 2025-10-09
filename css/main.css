@@ -1434,7 +1434,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #ffd52d;
+    background: #fff467;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3531,7 +3531,7 @@ div .blog-links {
 }
 @media (prefers-color-scheme: dark) {
   .svg {
-    filter: invert(1) hue-rotate(180deg);
+    filter: invert(1) brightness(2);
   }
 }
 @media (prefers-color-scheme: dark) {
