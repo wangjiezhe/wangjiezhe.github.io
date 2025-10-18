@@ -183,9 +183,9 @@
     
     <category term="密克定理" scheme="https://wangjiezhe.github.io/tags/%E5%AF%86%E5%85%8B%E5%AE%9A%E7%90%86/"/>
     
-    <category term="布洛卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%83%E6%B4%9B%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
-    
     <category term="帕斯卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
+    
+    <category term="布洛卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%83%E6%B4%9B%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
     
     <category term="CGMO" scheme="https://wangjiezhe.github.io/tags/CGMO/"/>
     
@@ -332,11 +332,11 @@
     
     <category term="反演" scheme="https://wangjiezhe.github.io/tags/%E5%8F%8D%E6%BC%94/"/>
     
+    <category term="CSMO" scheme="https://wangjiezhe.github.io/tags/CSMO/"/>
+    
     <category term="根心" scheme="https://wangjiezhe.github.io/tags/%E6%A0%B9%E5%BF%83/"/>
     
     <category term="布洛卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%83%E6%B4%9B%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
-    
-    <category term="CSMO" scheme="https://wangjiezhe.github.io/tags/CSMO/"/>
     
   </entry>
   
@@ -363,9 +363,9 @@
     
     <category term="反演" scheme="https://wangjiezhe.github.io/tags/%E5%8F%8D%E6%BC%94/"/>
     
-    <category term="CSMO" scheme="https://wangjiezhe.github.io/tags/CSMO/"/>
-    
     <category term="帕斯卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
+    
+    <category term="CSMO" scheme="https://wangjiezhe.github.io/tags/CSMO/"/>
     
   </entry>
   
@@ -529,9 +529,9 @@
     
     <category term="相似" scheme="https://wangjiezhe.github.io/tags/%E7%9B%B8%E4%BC%BC/"/>
     
-    <category term="反演" scheme="https://wangjiezhe.github.io/tags/%E5%8F%8D%E6%BC%94/"/>
-    
     <category term="CMO" scheme="https://wangjiezhe.github.io/tags/CMO/"/>
+    
+    <category term="反演" scheme="https://wangjiezhe.github.io/tags/%E5%8F%8D%E6%BC%94/"/>
     
   </entry>
   
