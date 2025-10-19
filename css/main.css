@@ -1434,7 +1434,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #bafc96;
+    background: #f090ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3575,6 +3575,9 @@ div .blog-links {
   #random-article {
     background: #434343 !important;
   }
+}
+body {
+  text-autospace: normal;
 }
 @keyframes shake-it {
   0% {
