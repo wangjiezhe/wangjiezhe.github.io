@@ -27,17 +27,17 @@
       
       
       
-      <content:encoded><![CDATA[<p>目前，主流浏览器Chrome/Edge（140+）、Firefox（147+）、Safari（18.4+）都开始支持 <code>text-autospace: normal</code> 属性，使用它为中英文混排自动添加空格，效果比pangu.js要好。</p><span id="more"></span><h2 id="1-pangu-js的问题"><a class="header-anchor" href="#1-pangu-js的问题"></a>1. pangu.js的问题</h2><p>很早的时候，我其实就是使用pangu.js自动添加空格。但是它有两个问题：</p><p>其一，由于要加载js文件，因此整个页面在刚开始加载的时候是没有空格的.然后等加载完pangu.js之后，空格才被加上,这样整个页面就会有一个明显的「布局抖动」。</p><p>其二，pangu.js会把整个页面里加上空格，包括侧边栏和页脚。而这些地方空间本来就小，加上空格时候地方就更不够了。而且遇到连续的数字和文字混杂在一起的时候，空格太多也不好看。</p><div class="note info"><p>这些问题当然也有解决方法。</p><p>第一个问题可以通过使用<a href="https://github.com/next-theme/hexo-pangu">hexo-pangu</a>插件在生成html文件的时候就把空格加上。</p><p>第二个问题我最初是通过魔改pangu.js解决的，把不想添加空格的部分用<code>&lt;nopangu&gt;&lt;/nopangu&gt;</code>包起来，然后识别这个标签不加空格。</p><p>最新的NexT主题也注意到了这个问题，v8.24之后的版本只对<code>&lt;main&gt;</code>部分加空格，算是部分解决了这个问题。</p></div><p>不过后来我慢慢习惯在输入的时候就手动添加空格，就不再使用pangu.js了。</p><h2 id="2-使用text-autospace-normal"><a class="header-anchor" href="#2-使用text-autospace-normal"></a>2. 使用<code>text-autospace: normal</code></h2><p>从<a href="https://caniuse.com/mdn-css_properties_text-autospace_normal">caniuse</a>可以看到，最新的浏览器基本上支持了<code>text-autospace: normal</code>属性：</p><iframe data-feature="mdn-css__properties__text-autospace" src="https://caniuse.wangjiezhe.com/embed/index.html?feat=mdn-css__properties__text-autospace&periods=future_3,future_2,future_1,current,past_1,past_2,past_3&accessible-colours=false" frameborder="0" width="100%" height="400px"></iframe><details class="note primary"><summary><p>关于Firefox浏览器的说明</p></summary><p><code>text-autospace</code> 特性在<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/143#experimental_web_features">143版本</a>时被加入，但是没有实际启用。</p><p>实测在144版本可以手动启用：</p><p>在<code>aboud:config</code>页面中，将<code>layout.css.text-autospace.enable</code>选项改为<code>true</code>，即可启用这个功能。</p></details><p>使用方法也很简单。在<code>source/_data/style.styl</code>里添加：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="selector-tag">text</span>-autospace: normal</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>即可。</p><p>从效果来看，使用<code>text-autospace: normal</code>的效果要优于pangu.js，主要表现有两点：</p><p>其一，<code>text-autospace</code>添加的空格是<code>1/8em</code>的宽度，会显得紧凑一些，特别是前面提到的连续的数字混排的情况，看上去明显更自然。</p><p>其二，之前pangu.js会在一些不应该加空格的地方加空格。比如会在「定理-1」中间加空格变成「定理 -1」，就显得非常难看。<code>text-autospace</code>目前还没发现这类问题。</p><div class="note info"><p>仔细看了一下<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-autospace#normal">MDN文档</a>，<code>text-autospace: normal</code>只启用了<code>ideograph-alpha</code>和<code>ideograph-numeric</code>，没有启用<code>punctuation</code>，即只在CJK字符和字母、数字之间添加间距，不在标点符号周围添加间距，因此就没有上面第二个问题。</p></div><div class="note success"><p>本文在所有地方都没有手动加空格，可以看一下效果。</p></div>]]></content:encoded>
+      <content:encoded><![CDATA[<p>目前，主流浏览器Chrome/Edge（140+）、Firefox（147+）、Safari（18.4+）都开始支持 <code>text-autospace: normal</code> 属性，使用它为中英文混排自动添加空格，效果比pangu.js要好。</p><span id="more"></span><h2 id="1-pangu-js的问题"><a class="header-anchor" href="#1-pangu-js的问题"></a>1. pangu.js的问题</h2><p>很早的时候，我其实就是使用pangu.js自动添加空格。但是它有两个问题：</p><p>其一，由于要加载js文件，因此整个页面在刚开始加载的时候是没有空格的.然后等加载完pangu.js之后，空格才被加上,这样整个页面就会有一个明显的「布局抖动」。</p><p>其二，pangu.js会把整个页面里加上空格，包括侧边栏和页脚。而这些地方空间本来就小，加上空格时候地方就更不够了。而且遇到连续的数字和文字混杂在一起的时候，空格太多也不好看。</p><div class="note info"><p>这些问题当然也有解决方法。</p><p>第一个问题可以通过使用<a href="https://github.com/next-theme/hexo-pangu">hexo-pangu</a>插件在生成html文件的时候就把空格加上。</p><p>第二个问题我最初是通过魔改pangu.js解决的，把不想添加空格的部分用<code>&lt;nopangu&gt;&lt;/nopangu&gt;</code>包起来，然后识别这个标签不加空格。</p><p>最新的NexT主题也注意到了这个问题，v8.24之后的版本只对<code>&lt;main&gt;</code>部分加空格，算是部分解决了这个问题。</p></div><p>不过后来我慢慢习惯在输入的时候就手动添加空格，就不再使用pangu.js了。</p><h2 id="2-使用text-autospace-normal"><a class="header-anchor" href="#2-使用text-autospace-normal"></a>2. 使用<code>text-autospace: normal</code></h2><p>从<a href="https://caniuse.com/mdn-css_properties_text-autospace_normal">caniuse</a>可以看到，最新的浏览器基本上支持了<code>text-autospace: normal</code>属性：</p><iframe data-feature="mdn-css__properties__text-autospace__normal" src="https://caniuse.wangjiezhe.com/embed/index.html?feat=mdn-css__properties__text-autospace__normal&periods=future_3,future_2,future_1,current,past_1,past_2,past_3&accessible-colours=false" frameborder="0" width="100%" height="400px"></iframe><details class="note primary"><summary><p>关于Firefox浏览器的说明</p></summary><p><code>text-autospace</code> 特性在<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/143#experimental_web_features">143版本</a>时被加入，但是没有实际启用。</p><p>实测在144版本可以手动启用：</p><p>在<code>aboud:config</code>页面中，将<code>layout.css.text-autospace.enable</code>选项改为<code>true</code>，即可启用这个功能。</p></details><p>使用方法也很简单。在<code>source/_data/style.styl</code>里添加：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="selector-tag">text</span>-autospace: normal</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>即可。</p><p>从效果来看，使用<code>text-autospace: normal</code>的效果要优于pangu.js，主要表现有两点：</p><p>其一，<code>text-autospace</code>添加的空格是<code>1/8em</code>的宽度，会显得紧凑一些，特别是前面提到的连续的数字混排的情况，看上去明显更自然。</p><p>其二，之前pangu.js会在一些不应该加空格的地方加空格。比如会在「定理-1」中间加空格变成「定理 -1」，就显得非常难看。<code>text-autospace</code>目前还没发现这类问题。</p><div class="note info"><p>仔细看了一下<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-autospace#normal">MDN文档</a>，<code>text-autospace: normal</code>只启用了<code>ideograph-alpha</code>和<code>ideograph-numeric</code>，没有启用<code>punctuation</code>，即只在CJK字符和字母、数字之间添加间距，不在标点符号周围添加间距，因此就没有上面第二个问题。</p></div><div class="note success"><p>本文在所有地方都没有手动加空格，可以看一下效果。</p></div>]]></content:encoded>
       
       
       <category domain="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
       
       
+      <category domain="https://wangjiezhe.github.io/tags/Blog/">Blog</category>
+      
       <category domain="https://wangjiezhe.github.io/tags/Hexo/">Hexo</category>
       
       <category domain="https://wangjiezhe.github.io/tags/NexT/">NexT</category>
-      
-      <category domain="https://wangjiezhe.github.io/tags/Blog/">Blog</category>
       
       
       <comments>https://wangjiezhe.github.io/posts/2025-10-18-text-autospace-normal/#disqus_thread</comments>
@@ -60,11 +60,11 @@
       <category domain="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
       
       
+      <category domain="https://wangjiezhe.github.io/tags/Blog/">Blog</category>
+      
       <category domain="https://wangjiezhe.github.io/tags/Hexo/">Hexo</category>
       
       <category domain="https://wangjiezhe.github.io/tags/NexT/">NexT</category>
-      
-      <category domain="https://wangjiezhe.github.io/tags/Blog/">Blog</category>
       
       <category domain="https://wangjiezhe.github.io/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/">深色模式</category>
       
@@ -91,11 +91,11 @@
       <category domain="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
       
       
+      <category domain="https://wangjiezhe.github.io/tags/Blog/">Blog</category>
+      
       <category domain="https://wangjiezhe.github.io/tags/Hexo/">Hexo</category>
       
       <category domain="https://wangjiezhe.github.io/tags/NexT/">NexT</category>
-      
-      <category domain="https://wangjiezhe.github.io/tags/Blog/">Blog</category>
       
       <category domain="https://wangjiezhe.github.io/tags/KaTeX/">KaTeX</category>
       
@@ -120,11 +120,11 @@
       <category domain="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
       
       
+      <category domain="https://wangjiezhe.github.io/tags/Blog/">Blog</category>
+      
       <category domain="https://wangjiezhe.github.io/tags/Hexo/">Hexo</category>
       
       <category domain="https://wangjiezhe.github.io/tags/NexT/">NexT</category>
-      
-      <category domain="https://wangjiezhe.github.io/tags/Blog/">Blog</category>
       
       <category domain="https://wangjiezhe.github.io/tags/SVG/">SVG</category>
       
@@ -585,9 +585,9 @@
       
       <category domain="https://wangjiezhe.github.io/tags/%E7%9B%B8%E4%BC%BC/">相似</category>
       
-      <category domain="https://wangjiezhe.github.io/tags/%E5%8F%8D%E6%BC%94/">反演</category>
-      
       <category domain="https://wangjiezhe.github.io/tags/CMO/">CMO</category>
+      
+      <category domain="https://wangjiezhe.github.io/tags/%E5%8F%8D%E6%BC%94/">反演</category>
       
       
       <comments>https://wangjiezhe.github.io/posts/2024-09-08-China-Second-Round-2024-Geometry/#disqus_thread</comments>
