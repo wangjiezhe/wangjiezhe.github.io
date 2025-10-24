@@ -10,12 +10,39 @@
     <atom:link href="https://wangjiezhe.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>某不知名机构不知名数学老师</description>
-    <pubDate>Sun, 19 Oct 2025 12:54:40 GMT</pubDate>
+    <pubDate>Fri, 24 Oct 2025 06:45:34 GMT</pubDate>
     <follow_challenge>
       <feedId>79343948021916672</feedId>
       <userId>67403439891593216</userId>
     </follow_challenge>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>尝试使用DeepSeek-OCR</title>
+      <link>https://wangjiezhe.github.io/posts/2025-10-24-try-DeepSeek-OCR/</link>
+      <guid>https://wangjiezhe.github.io/posts/2025-10-24-try-DeepSeek-OCR/</guid>
+      <pubDate>Fri, 24 Oct 2025 06:45:34 GMT</pubDate>
+      
+      <description>对比使用Umi-OCR和DeepSeek OCR的结果，有进步有问题。</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>DeepSeek 前几天发布了<a href="https://github.com/deepseek-ai/DeepSeek-OCR">DeepSeek-OCR</a>，当天就关注到了。特别值得注意的是模型大小只有6个多G，用我的笔记本（RTX4060 8G）就能够勉强运行。</p><p>今天尝试了一下，部署的是<a href="https://github.com/rdumasia303/deepseek_ocr_app">deepseek_ocr_app</a>。</p><div class="note info"><p>部署的注意事项：</p><ul><li>后端用到的镜像最低支持的NVIDIA驱动版本是580.82，低于这个版本会报错；</li><li>在后端ENV部分可以添加<code>HF_ENDPOINT=https://hf-mirror.com</code>，支持镜像进行下载；</li><li>前端镜像可使用<code>docker.m.daocloud.io</code>代理；</li><li>在compose文件中，可以将主机的<code>$HF_HOME</code>目录挂载到<code>/models</code>，这样会把模型下载到本地缓存。</li></ul></div><p>我的用处主要是识别一些文字截图，之前主要使用白描和Umi-OCR（使用的是PaddleOCR v2.6/v2.8 cpp infer）。</p><p>对比了一下Umi-OCR和DeepSeek-OCR对同一批截图进行识别的结果，应该说有好有坏。</p><p>优点非常多：</p><ul><li>对标点的识别要准确地多：<ul><li>可以正确识别<strong>破折号</strong>。Umi-OCR总是将破折号「──」识别成「一一」。即使是最新的PP-OCR-v5也有这个问题。</li><li>可以正确处理<strong>引号</strong>。Umi-OCR对引号的识别一言难尽。同样是「”」，一会儿识别成「&quot;」，一会儿识别成「“」，一会儿又把它漏掉，而且错误率特别高。又尝试了一下最新的PP-OCR-v5，正确率高了一些，但是会经常出错。</li><li>可以正确区分<strong>冒号</strong>和<strong>分号</strong>。Umi-OCR经常二者搞混。</li><li>可以正确识别行末的标点符号。Umi-OCR经常会把它漏掉。</li></ul></li><li>没有漏字。Umi-OCR和白描都会偶尔发生漏字，而DeepSeek-OCR没有出现这个问题。</li></ul><p>二者共同存在的问题：</p><ul><li>无法正确识别一些<strong>字形相近</strong>的字，如「己」和「已」，「忽」和「忍」，「脑」和「胸」，「允」和「充」，「十」、「干」和「王」，「页」、「贞」和「负」等等。</li><li>无法正确<strong>合并段落</strong>。DeepSeek-OCR甚至发生了把原来在一行的内容给换行了。</li></ul><p>但是，DeepSeek-OCR有一个缺点很严重，那就是会<strong>擅自修改内容</strong>！！！</p><ul><li>擅自改字。例如，DeepSeek-OCR把「当事者」识别成了「当事人」，这显然不是识别本身出的错，而是在识别之后改的。<br />（当然，把原文中的错别字改对的情况也很多。）</li><li>如果一个图片的最后一句话没完（剩下的在下一张图片上），DeepSeek-OCR会自动猜上。</li><li>擅自在行末加标点。</li><li>擅自把逗号改成顿号。（虽然确实改对了……）</li></ul><p>另外，DeepSeek-OCR的速度要慢得多。</p><p>看了一下<a href="https://arxiv.org/abs/2510.18234">论文</a>，从它的架构图</p><p><img data-src="DeepSeek-OCR-architecture.png" alt="DeepSeek-OCR Architecture" /></p><p>可以看到，在最后负责解码输出的是一个DeepSeek-3B-MOE模型，也就是一个小型的DeepSeek模型，乱改识别到的内容显然是这部分的「杰作」。</p>]]></content:encoded>
+      
+      
+      <category domain="https://wangjiezhe.github.io/categories/AI/">AI</category>
+      
+      
+      <category domain="https://wangjiezhe.github.io/tags/AI/">AI</category>
+      
+      <category domain="https://wangjiezhe.github.io/tags/DeepSeek/">DeepSeek</category>
+      
+      <category domain="https://wangjiezhe.github.io/tags/OCR/">OCR</category>
+      
+      
+      <comments>https://wangjiezhe.github.io/posts/2025-10-24-try-DeepSeek-OCR/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>使用text-autospace为中英文混排自动添加空格</title>
@@ -463,9 +490,9 @@
       
       <category domain="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/">数学竞赛</category>
       
-      <category domain="https://wangjiezhe.github.io/tags/IMO/">IMO</category>
-      
       <category domain="https://wangjiezhe.github.io/tags/%E5%AF%86%E5%85%8B%E5%AE%9A%E7%90%86/">密克定理</category>
+      
+      <category domain="https://wangjiezhe.github.io/tags/IMO/">IMO</category>
       
       <category domain="https://wangjiezhe.github.io/tags/Reim%E5%AE%9A%E7%90%86/">Reim定理</category>
       
@@ -494,9 +521,9 @@
       
       <category domain="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/">数学竞赛</category>
       
-      <category domain="https://wangjiezhe.github.io/tags/IMO/">IMO</category>
-      
       <category domain="https://wangjiezhe.github.io/tags/%E5%AF%86%E5%85%8B%E5%AE%9A%E7%90%86/">密克定理</category>
+      
+      <category domain="https://wangjiezhe.github.io/tags/IMO/">IMO</category>
       
       
       <comments>https://wangjiezhe.github.io/posts/2025-07-16-IMO-2025-Geometry/#disqus_thread</comments>
@@ -523,11 +550,11 @@
       
       <category domain="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/">数学竞赛</category>
       
+      <category domain="https://wangjiezhe.github.io/tags/IMO/">IMO</category>
+      
       <category domain="https://wangjiezhe.github.io/tags/%E4%BD%8D%E4%BC%BC/">位似</category>
       
       <category domain="https://wangjiezhe.github.io/tags/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/">欧拉定理</category>
-      
-      <category domain="https://wangjiezhe.github.io/tags/IMO/">IMO</category>
       
       
       <comments>https://wangjiezhe.github.io/posts/2025-07-15-IMO-2024-Geometry/#disqus_thread</comments>
@@ -585,35 +612,12 @@
       
       <category domain="https://wangjiezhe.github.io/tags/%E7%9B%B8%E4%BC%BC/">相似</category>
       
-      <category domain="https://wangjiezhe.github.io/tags/CMO/">CMO</category>
-      
       <category domain="https://wangjiezhe.github.io/tags/%E5%8F%8D%E6%BC%94/">反演</category>
+      
+      <category domain="https://wangjiezhe.github.io/tags/CMO/">CMO</category>
       
       
       <comments>https://wangjiezhe.github.io/posts/2024-09-08-China-Second-Round-2024-Geometry/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>何切301练习 031~060</title>
-      <link>https://wangjiezhe.github.io/posts/2024-08-11-He-Qie-301-2/</link>
-      <guid>https://wangjiezhe.github.io/posts/2024-08-11-He-Qie-301-2/</guid>
-      <pubDate>Sun, 11 Aug 2024 05:55:05 GMT</pubDate>
-      
-      <description>麻雀定石「何切る」301選 练习二</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="Q031"><a class="header-anchor" href="#Q031"></a>Q031</h2><p class="tenhou"><img data-src="031.png" alt="Q031" /></p><ul><li><s>切6s损失2p568s进张（13枚）</s>，以及567三色</li><li>切8m损失3456789m进张（-24枚）</li><li>切4p损失23456789p进张（-26枚）</li><li>切7s退向听</li><li>切2p则必须进3p或听3p</li></ul><p>结论：<s>切6s</s> <mark class="label success">切8m</mark></p><div class="note info"><ul><li>切6s损失45678s进张（-16枚），仅比切8m的损失少8枚</li><li>摸3p有断平三色</li></ul></div><h2 id="Q032"><a class="header-anchor" href="#Q032"></a>Q032</h2><p class="tenhou"><img data-src="032.png" alt="Q032" /></p><ul><li>类似 <a href="#Q031">Q031</a>，但没有三色</li></ul><p>结论：切8s</p><div class="note success"><p>留8s还容易丢掉断幺</p></div><h2 id="Q033"><a class="header-anchor" href="#Q033"></a>Q033</h2><p class="tenhou"><img data-src="033.png" alt="Q033" /></p><ul><li>切6s损失45678s的进张（-16枚），以及567三色</li><li>切4m损失23456789m的进张（-28枚）</li><li>切8p损失456789p的进张（-20枚）</li></ul><p>结论：切8p</p><div class="note success"><p>切8p还可以保证断幺，还能靠红5s</p></div><h2 id="Q034"><a class="header-anchor" href="#Q034"></a>Q034</h2><p class="tenhou"><img data-src="034.png" alt="Q034" /></p><ul><li>最后听对碰的时候，9m比7m的和率更高</li></ul><p>结论：切7m</p><h2 id="Q035"><a class="header-anchor" href="#Q035"></a>Q035</h2><p class="tenhou"><img data-src="035.png" alt="Q035" /></p><ul><li>类似 <a href="#Q034">Q034</a>，但是没有役牌有断幺的可能</li></ul><p>结论：切9m</p><h2 id="Q036"><a class="header-anchor" href="#Q036"></a>Q036</h2><p class="tenhou"><img data-src="036.png" alt="Q036" /></p><ul><li>切9m退向听，可能有断幺，但是不确定</li><li>切6p相比切7s，损失8m6p的进张</li></ul><p>结论：切7s</p><div class="note success"><ul><li>序盘可以打9m转断幺，但第8巡的亲家不能放过摸8m直接听牌的机会。立直后有一杯口和赤的7700点，就算是剩三张的坎张听牌也即立了。<ul><li>荣和是3番40符 7700</li><li>自摸是4番30符 3900 All</li></ul></li><li>看似形状很呆板，还是有摸6m转为完全一向听的变化。</li><li>打6p固定三面虽然柔软，但想做出7700以上的打点还是需要不少时间的。</li></ul></div><h2 id="Q037"><a class="header-anchor" href="#Q037"></a>Q037</h2><p class="tenhou"><img data-src="037.png" alt="Q037" /></p><ul><li>455p+44s+788s，三对拆好形</li><li>切5p，损失45p的进张（-3枚）</li><li>切8s，损失8p的进张（-2枚）（但这2枚都是断幺进张）</li></ul><p>结论：切5p</p><div class="note success"><p>隐约能看到四暗刻，但为此打掉6p或7s固定对子是不行的。因为眼下能看到亲满</p><p>【立直、一杯口、断幺、宝牌1】，荣和 12000，自摸 3900 All</p></div><h2 id="Q038"><a class="header-anchor" href="#Q038"></a>Q038</h2><p class="tenhou"><img data-src="038.png" alt="Q038" /></p><ul><li>5对，要考虑七对的进张</li></ul><p>结论：切6p</p><h2 id="Q039"><a class="header-anchor" href="#Q039"></a>Q039</h2><p class="tenhou"><img data-src="039.png" alt="Q039" /></p><ul><li>搭子超载，拆掉一个</li><li>切2s损失2s7p的进张</li><li>切6p损失6p的进张</li><li>切8p损失8p的进张</li><li><s>保留66p，进5p改良有复合形</s></li></ul><p>结论：<s>切8p</s> <mark class="label success">切6p</mark></p><div class="note danger"><p>万子的进张很多，比起完全一向听的变化，即立的概率更高。</p><p>这里想根据万子进张听牌时的听牌形来选择打掉的牌。</p></div><h2 id="Q040"><a class="header-anchor" href="#Q040"></a>Q040</h2><p class="tenhou"><img data-src="040.png" alt="Q040" /></p><ul><li>宝牌3，考虑手役和副露</li><li>打2p，损失12p的进张</li><li>打5p，损失567p的进张（都是断幺进张）</li><li>234三色？</li><li>进1346m听万字的好形（切2p、5p都一样），但假设进25m时切5p后续可以听好形</li><li>断幺不确</li></ul><p>结论：打5p</p><div class="note success"><ul><li>打2p时多出来的7p进张是愚型听牌，而损失的是进25m时的好形听牌，因此和牌概率和期待值不如打5p</li><li><strong>听牌不是终点，和牌才是</strong></li></ul></div><h2 id="Q041"><a class="header-anchor" href="#Q041"></a>Q041</h2><p class="tenhou"><img data-src="041.png" alt="Q041" /></p><ul><li>类似 <a href="#Q040">Q040</a></li><li>进2356m均听到万子的好形</li></ul><p>结论：打2p</p><div class="note success"><ul><li><strong>中膨形和固定雀头很配</strong></li><li>即使打5p最终听14p的可能性也很低（只有进4m这一种情况）。那不如保留摸6p的两面听牌机会了</li></ul></div><h2 id="Q042"><a class="header-anchor" href="#Q042"></a>Q042</h2><p class="tenhou"><img data-src="042.png" alt="Q042" /></p><ul><li>宝牌3，速度最重要</li><li>切2p，损失14p的进张（-8枚）<ul><li>大概率断幺，但是最终听牌形不好</li></ul></li><li>切3p，损失3p的进张（-2枚）<ul><li>进1/2/3/4/5/6s，听14p（8枚）</li><li>进14p，切3s听14s，或切5s听235s（都是7枚）</li><li>可以吃4p，其它吃碰会造成偏听</li></ul></li></ul><p>结论：<s>切3p</s> <mark class="label success">切5s</mark></p><div class="note danger"><ul><li>切5s，只损失5s的进张（-2枚），和打3s的有效牌枚数相同。</li><li>打3p的门清期待值更高，但进红5s已经确定了满贯，打牌需要重视鸣牌效率。</li><li>3p23s可以碰，4p6s可以吃。3s不要吃，而要碰。让别人看到三张3s更容易引出2s。</li><li>切5s引挂？</li></ul></div><h2 id="Q043"><a class="header-anchor" href="#Q043"></a>Q043</h2><p class="tenhou"><img data-src="043.png" alt="Q043" /></p><ul><li>切7p损失6p的进张 <s>（-4枚）</s> <mark class="label warning">（-3枚）</mark>，以及宝牌</li><li>切4s损失347s的进张（-7枚）</li><li>切5s损失2457s的进张（-12枚）</li><li>切6s损失6s的进张（-2枚）</li></ul><p>结论：<s>切6s</s> <mark class="label success">切7p</mark></p><div class="note danger"><ul><li>很想保留宝牌7p打4s或6s，但宝牌指示牌6p是瓶颈。而且<strong>就算吃了6p也到不了满贯</strong>，比较微妙。</li><li>进索子门清听牌的话，因为打点足够，最后还是要打掉宝牌7p。</li><li>甚至还有着四暗刻的机会，打宝牌7p才是最均衡的一手，期待值最大。</li></ul></div><h2 id="Q044"><a class="header-anchor" href="#Q044"></a>Q044</h2><p class="tenhou"><img data-src="044.png" alt="Q044" /></p><ul><li>切7p损失6p的进张 <s>（-4枚）</s> <mark class="label warning">（-3枚）</mark>，以及宝牌</li><li>切4s损失467s的进张（-7枚）</li><li>切5s损失457s的进张（-8枚）</li><li>切6s损失56s的进张（-5枚）</li></ul><p>结论：<s>切6s</s> <mark class="label success">切7p</mark></p><div class="note danger"><ul><li>留着宝牌7p除了摸6p听牌，其他情况最后还是要打掉。</li><li><strong>进宝牌指示牌6p和5s做一杯口的概率是一样的。</strong></li><li>虽然宝牌成对很有魅力，但6s成为暗刻听牌更好。</li></ul></div><h2 id="Q045"><a class="header-anchor" href="#Q045"></a>Q045</h2><p class="tenhou"><img data-src="045.png" alt="Q045" /></p><ul><li>切7p，损失67p的进张</li><li>切2p，损失27p的进张</li><li>碰2p比吃6p的概率大</li></ul><p>结论：<s>切7p</s> <mark class="label success">切6m</mark></p><div class="note danger"><ul><li>万子这边作为最终听牌形的话是个三面听，但要打掉宝牌6s。</li><li>如果能用上宝牌6s，就算鸣牌也是断幺宝牌3（切上）满贯，打点上升率最佳。</li><li>实战中虽然要看实际情况，但<strong>“就算鸣牌也确定满贯”很强力，即使有愚形听牌的可能性，也有十足追求的价值</strong>。</li></ul></div><h2 id="Q046"><a class="header-anchor" href="#Q046"></a>Q046</h2><p class="tenhou"><img data-src="046.png" alt="Q046" /></p><ul><li>切6/7m，固定雀头，听牌进张为14p58s（7+7=14枚）</li><li>切5m，听牌进张为12345p45678s（15+15=30枚）</li><li>切3p，听牌进张为58m25p45678s（6+6+15=27枚）</li><li>切6s，听牌进张为58m12345p47s （6+15+6=27枚）</li></ul><p>结论：切5m</p><h2 id="Q047"><a class="header-anchor" href="#Q047"></a>Q047</h2><p class="tenhou"><img data-src="047.png" alt="Q047" /></p><ul><li>切7m，听牌进张为24m58p（8+8=16枚）</li><li>切1m，听牌进张为346m58p （9+8=17枚），且保证断幺</li></ul><p>结论：切1m</p><div class="note success"><ul><li>打6m进张最多，但完全没有雀头，后面会很辛苦。</li><li>比起打7m的两坎形，打1m的形状不论打点还是广度上都更加有利。打1m后摸346m都是断平听牌，广度和打点的平衡良好。</li><li>摸578m的场合，打7m和打1m更是相差悬殊。</li></ul></div><h2 id="Q048"><a class="header-anchor" href="#Q048"></a>Q048</h2><p class="tenhou"><img data-src="048.png" alt="Q048" /></p><ul><li>切6m，听牌进张为5678p345678s（13+20=33枚）</li><li>切6p，听牌进张为6m58p36s（2+8+6=16枚）</li><li>切7p，听牌进张为45678m6p345678s（16+2+20=38枚）</li><li>切6s，听牌进张为45678m5678p（16+13=29枚）</li></ul><p>结论：切7p</p><div class="note success"><ul><li>固定雀头容易做断幺或一杯口，比较有利。</li><li>虽说“迷茫的时候就拆亚两面”，但这次手牌中最强的部分是万子的中膨形。固定雀头最大限度活用这个形状的期待值最高。</li></ul></div><h2 id="Q049"><a class="header-anchor" href="#Q049"></a>Q049</h2><p class="tenhou"><img data-src="049.png" alt="Q049" /></p><ul><li>切9m，听牌进张为58m2578p（6+8+7=21枚），且有断幺</li><li>切3p，听牌进张为47m4578p（7+7+7=21枚）</li><li>切7p，听牌进张为47m<mark class="label warning">5869m</mark>2345p（7<mark class="label warning">+12</mark>+7+7=<s>21</s><mark class="label warning">33</mark>枚）</li></ul><p>结论：切9m</p><div class="note success"><ul><li>当然打7p有效牌最多，但最差的进张6m打红5m只有立直。</li><li>打9m确定断幺和必定用上红5m，完全可以抵消有效牌枚数的差距。</li><li>摸5p更有四面听。</li></ul></div><h2 id="Q050"><a class="header-anchor" href="#Q050"></a>Q050</h2><p class="tenhou"><img data-src="050.png" alt="Q050" /></p><ul><li>668m+446p+99s</li><li>切6m，有效进章为7m45p9s（12枚），改良进张为2m7p（8枚）<ul><li>听牌大概率为坎张或双碰</li></ul></li><li>早巡，退向听追求断幺？（✓）</li></ul><p>结论：切9s</p><div class="note success"><ul><li>这样直线前进下去也没有役。</li><li>因为有三个对子，所以即使拆掉一个速度也不会变化太多。</li><li>没了9s对子就确定了断幺，有鸣牌的机会。</li></ul></div><h2 id="Q051"><a class="header-anchor" href="#Q051"></a>Q051</h2><p class="tenhou"><img data-src="051.png" alt="Q051" /></p><ul><li>考虑碰东<mark class="label warning">或对碰立直</mark>，668m+446p</li></ul><p>结论：切8m</p><div class="note success"><ul><li>根据进张有345或456三色的变化。</li></ul></div><h2 id="Q052"><a class="header-anchor" href="#Q052"></a>Q052</h2><p class="tenhou"><img data-src="052.png" alt="Q052" /></p><ul><li>搭子超载</li><li>拆77m或77s</li><li>拆77s后，进6s可以转三面听，且听到宝牌</li><li>切7m/7s，听牌进张为36m58p（8+8=16枚）<ul><li>全是好形听牌进张，而且都有平和</li></ul></li><li>切4m，听牌进张为67m58p7s（6+8+2=16枚）<ul><li>好形听牌进张为67m7s（8枚）</li><li>平和听牌进张为6m（4枚）</li></ul></li></ul><p>结论：切7s</p><h2 id="Q053"><a class="header-anchor" href="#Q053"></a>Q053</h2><p class="tenhou"><img data-src="053.png" alt="Q053" /></p><ul><li>搭子超载</li><li>切7m，听牌进张为36m14s（8+8=16枚）</li><li>切4m，听牌进张为67m1458s（6+8+5=19枚）<ul><li>最终听牌形为两面或烟囱型三面</li></ul></li></ul><p>结论：<s>切4m</s> <mark class="label success">切6m</mark></p><div class="note info"><ul><li>打4m进张最多，但因为是平和一向听，所以还是考虑拆7m或8s对子。</li></ul></div><h2 id="Q054"><a class="header-anchor" href="#Q054"></a>Q054</h2><p class="tenhou"><img data-src="054.png" alt="Q054" /></p><ul><li>切2s，听牌进张为67m58p7s（6+8+2=16枚）</li><li>保留2s，退向听？（×）<ul><li>立直、断幺、宝牌1 vs 断幺、宝牌2</li></ul></li></ul><p>结论：切2s</p><div class="note success"><ul><li>能用上两张宝牌的形状很有限，相当困难。</li><li>鸣牌做满贯也不容易。</li></ul></div><h2 id="Q055"><a class="header-anchor" href="#Q055"></a>Q055</h2><p class="tenhou"><img data-src="055.png" alt="Q055" /></p><ul><li>索子可以看成 345s+35778s</li><li>切7m，听牌进张为25p4s（11枚）</li><li>切8s，听牌进张为25p4s（11枚）</li><li>万子的改良更好</li></ul><p>结论：切8s</p><h2 id="Q056"><a class="header-anchor" href="#Q056"></a>Q056</h2><p class="tenhou"><img data-src="056.png" alt="Q056" /></p><ul><li>切7m，听牌进张为25p46s（15枚）</li></ul><p>结论：切7m</p><h2 id="Q057"><a class="header-anchor" href="#Q057"></a>Q057</h2><p class="tenhou"><img data-src="057.png" alt="Q057" /></p><ul><li>切3s，听牌进张为578m25p<mark class="label warning">2s</mark>5s（11+8<mark class="label warning">+4</mark>+2=<s>21</s><mark class="label warning">25</mark>枚）</li><li>切5s，听牌进张为578m25p3s<mark class="label warning">6s</mark>（<s>21</s><mark class="label warning">25</mark>枚）</li><li>切7m，听牌进张为25p<mark class="label warning">34p</mark>345s<mark class="label warning">26s</mark>（8<mark class="label warning">+6</mark>+7<mark class="label warning">+8</mark>=<s>15</s><mark class="label warning">29</mark>枚）</li><li><s>切5s时2s的改良比切3s时的6s好</s><ul><li><mark class="label warning">切5s时2s为改良进张，6s为听牌进张</mark></li><li><mark class="label warning">切3s时6s为改良进张，2s为听牌进张</mark></li></ul></li></ul><p>结论：<s>切5s</s> <mark class="label success">切3s</mark></p><div class="note info"><ul><li>打7m进张最多，但最终听亚两面的概率很高，还没有平和。</li><li>打3s虽然丢了一杯口，可是必定好形听牌，容易有平和，和率和期待值最大。</li><li>25s的进张好于36s</li></ul></div><h2 id="Q058"><a class="header-anchor" href="#Q058"></a>Q058</h2><p class="tenhou"><img data-src="058.png" alt="Q058" /></p><ul><li>切8p，听牌进张为5678m789s（14+10=24枚）<ul><li>改良进张为6s</li></ul></li><li>切9s，听牌进张为58m78p7s（8+7+3=18枚）<ul><li>改良进张为6s</li></ul></li></ul><p>结论：<s>切8p</s> <mark class="label success">切9s</mark></p><div class="note danger"><ul><li>打8p进张最多，但考虑到打点提升和最终听牌形，还是确定断幺。</li><li>3334568p听<strong>两面78p</strong></li><li>考虑进58m的听牌形<ul><li>切79s则听两面78p（7枚）</li><li>切38p则听坎8s（4枚），但没有断幺</li><li>切8p9s则听单骑7s（3枚）</li></ul></li></ul></div><h2 id="Q059"><a class="header-anchor" href="#Q059"></a>Q059</h2><p class="tenhou"><img data-src="059.png" alt="Q059" /></p><ul><li>13p+68p+79s</li><li>切1p，听牌进张为25m8s（12枚）</li><li>切8p，听牌进张为25m8s（12枚）</li><li>切9s，两向听</li></ul><p>结论：切1p</p><h2 id="Q060"><a class="header-anchor" href="#Q060"></a>Q060</h2><p class="tenhou"><img data-src="060.png" alt="Q060" /></p><ul><li>切1p有断幺</li></ul><p>结论：<s>切1p</s> <mark class="label success">切8p</mark></p><div class="note danger"><ul><li>断平赤1的完成形。</li><li>形状已经确定，<strong>危险牌先走</strong>。</li><li>留着8p进7p虽然是改良，但有打掉红5m的可能性，以及考虑到567的三色，留下8p的意义不大。</li></ul></div>]]></content:encoded>
-      
-      
-      <category domain="https://wangjiezhe.github.io/categories/%E7%AB%8B%E7%9B%B4%E9%BA%BB%E5%B0%86/">立直麻将</category>
-      
-      
-      <category domain="https://wangjiezhe.github.io/tags/%E4%BD%95%E5%88%87/">何切</category>
-      
-      
-      <comments>https://wangjiezhe.github.io/posts/2024-08-11-He-Qie-301-2/#disqus_thread</comments>
       
     </item>
     
