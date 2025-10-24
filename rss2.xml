@@ -27,7 +27,7 @@
       
       
       
-      <content:encoded><![CDATA[<p>DeepSeek 前几天发布了<a href="https://github.com/deepseek-ai/DeepSeek-OCR">DeepSeek-OCR</a>，当天就关注到了。特别值得注意的是模型大小只有6个多G，用我的笔记本（RTX4060 8G）就能够勉强运行。</p><p>今天尝试了一下，部署的是<a href="https://github.com/rdumasia303/deepseek_ocr_app">deepseek_ocr_app</a>。</p><div class="note info"><p>部署的注意事项：</p><ul><li>后端用到的镜像最低支持的NVIDIA驱动版本是580.82，低于这个版本会报错；</li><li>在后端ENV部分可以添加<code>HF_ENDPOINT=https://hf-mirror.com</code>，支持镜像进行下载；</li><li>前端镜像可使用<code>docker.m.daocloud.io</code>代理；</li><li>在compose文件中，可以将主机的<code>$HF_HOME</code>目录挂载到<code>/models</code>，这样会把模型下载到本地缓存。</li></ul></div><p>我的用处主要是识别一些文字截图，之前主要使用白描和Umi-OCR（使用的是PaddleOCR v2.6/v2.8 cpp infer）。</p><p>对比了一下Umi-OCR和DeepSeek-OCR对同一批截图进行识别的结果，应该说有好有坏。</p><p>优点非常多：</p><ul><li>对标点的识别要准确地多：<ul><li>可以正确识别<strong>破折号</strong>。Umi-OCR总是将破折号「──」识别成「一一」。即使是最新的PP-OCR-v5也有这个问题。</li><li>可以正确处理<strong>引号</strong>。Umi-OCR对引号的识别一言难尽。同样是「”」，一会儿识别成「&quot;」，一会儿识别成「“」，一会儿又把它漏掉，而且错误率特别高。又尝试了一下最新的PP-OCR-v5，正确率高了一些，但是会经常出错。</li><li>可以正确区分<strong>冒号</strong>和<strong>分号</strong>。Umi-OCR经常二者搞混。</li><li>可以正确识别行末的标点符号。Umi-OCR经常会把它漏掉。</li></ul></li><li>没有漏字。Umi-OCR和白描都会偶尔发生漏字，而DeepSeek-OCR没有出现这个问题。</li></ul><p>二者共同存在的问题：</p><ul><li>无法正确识别一些<strong>字形相近</strong>的字，如「己」和「已」，「忽」和「忍」，「脑」和「胸」，「允」和「充」，「十」、「干」和「王」，「页」、「贞」和「负」等等。</li><li>无法正确<strong>合并段落</strong>。DeepSeek-OCR甚至发生了把原来在一行的内容给换行了。</li></ul><p>但是，DeepSeek-OCR有一个缺点很严重，那就是会<strong>擅自修改内容</strong>！！！</p><ul><li>擅自改字。例如，DeepSeek-OCR把「当事者」识别成了「当事人」，这显然不是识别本身出的错，而是在识别之后改的。<br />（当然，把原文中的错别字改对的情况也很多。）</li><li>如果一个图片的最后一句话没完（剩下的在下一张图片上），DeepSeek-OCR会自动猜上。</li><li>擅自在行末加标点。</li><li>擅自把逗号改成顿号。（虽然确实改对了……）</li></ul><p>另外，DeepSeek-OCR的速度要慢得多。</p><p>看了一下<a href="https://arxiv.org/abs/2510.18234">论文</a>，从它的架构图</p><p><img data-src="DeepSeek-OCR-architecture.png" alt="DeepSeek-OCR Architecture" /></p><p>可以看到，在最后负责解码输出的是一个DeepSeek-3B-MOE模型，也就是一个小型的DeepSeek模型，乱改识别到的内容显然是这部分的「杰作」。</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>DeepSeek 前几天发布了<a href="https://github.com/deepseek-ai/DeepSeek-OCR">DeepSeek-OCR</a>，当天就关注到了。特别值得注意的是模型大小只有6个多G，用我的笔记本（RTX4060 8G）就能够勉强运行。</p><p>今天尝试了一下，部署的是<a href="https://github.com/rdumasia303/deepseek_ocr_app">deepseek_ocr_app</a>。</p><div class="note info"><p>部署的注意事项：</p><ul><li>后端用到的镜像最低支持的NVIDIA驱动版本是580.82，低于这个版本会报错；</li><li>在后端ENV部分可以添加<code>HF_ENDPOINT=https://hf-mirror.com</code>，支持镜像进行下载；</li><li>前端镜像可使用<code>docker.m.daocloud.io</code>代理；</li><li>在compose文件中，可以将主机的<code>$HF_HOME</code>目录挂载到<code>/models</code>，这样会把模型下载到本地缓存。</li></ul></div><p>我的用处主要是识别一些文字截图，之前主要使用白描和Umi-OCR（使用的是PaddleOCR v2.6/v2.8 cpp infer）。</p><p>对比了一下Umi-OCR和DeepSeek-OCR对同一批截图进行识别的结果，应该说有好有坏。</p><p>优点非常多：</p><ul><li>对标点的识别要准确地多：<ul><li>可以正确识别<strong>破折号</strong>。Umi-OCR总是将破折号「──」识别成「一一」。即使是最新的PP-OCR-v5也有这个问题。<br />（但DeepSeek-OCR会把「一一」识别成破折号……）</li><li>可以正确处理<strong>引号</strong>。Umi-OCR对引号的识别一言难尽。同样是「”」，一会儿识别成「&quot;」，一会儿识别成「“」，一会儿又把它漏掉，而且错误率特别高。又尝试了一下最新的PP-OCR-v5，正确率高了一些，但是会经常出错。</li><li>可以正确区分<strong>冒号</strong>和<strong>分号</strong>。Umi-OCR经常二者搞混。</li><li>可以正确识别行末的标点符号。Umi-OCR经常会把它漏掉。</li><li>可以正确识别章节符号「§」。</li></ul></li><li>在有水印的图片识别要好得多。DeepSeek-OCR不会被水印干扰，还能猜出被水印盖住部分的字，而Umi-OCR则会造成连续几行的排版混乱。</li></ul><p>二者共同存在的问题：</p><ul><li>无法正确识别一些<strong>字形相近</strong>的字，如「己」和「已」，「忽」和「忍」，「脑」和「胸」，「允」和「充」，「十」、「干」和「王」，「页」、「贞」和「负」等等。</li><li>无法正确<strong>合并段落</strong>。DeepSeek-OCR甚至发生了把原来在一行的内容给换行了。不过DeepSeek-OCR整体合并段落的情况要好于Umi-OCR。</li><li>偶尔会有漏字。不过DeepSeek-OCR漏字的情况要少一些。</li></ul><p>但是，DeepSeek-OCR有一个缺点很严重，那就是会<strong>擅自修改内容</strong>！！！</p><ul><li>擅自改字。例如，DeepSeek-OCR把「当事者」识别成了「当事人」，这显然不是识别本身出的错，而是在识别之后改的。<br />（当然，把原文中的错别字改对的情况也很多，但更多的是按照它自己错误的理解改的。）</li><li>如果一个图片的最后一句话没完（剩下的在下一张图片上），DeepSeek-OCR会自动猜上。</li><li>擅自在行末加标点。</li><li>甚至还有在行末擅自加表情的……</li><li>擅自修改逗号和顿号。（虽然有的时候改对了……）</li></ul><p>另外，DeepSeek-OCR的速度要慢得多。</p><p>看了一下<a href="https://arxiv.org/abs/2510.18234">论文</a>，从它的架构图</p><p><img data-src="DeepSeek-OCR-architecture.png" alt="DeepSeek-OCR Architecture" /></p><p>可以看到，在最后负责解码输出的是一个DeepSeek-3B-MOE模型，也就是一个小型的DeepSeek模型，乱改识别到的内容显然是这部分的「杰作」。</p>]]></content:encoded>
       
       
       <category domain="https://wangjiezhe.github.io/categories/AI/">AI</category>
@@ -490,9 +490,9 @@
       
       <category domain="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/">数学竞赛</category>
       
-      <category domain="https://wangjiezhe.github.io/tags/%E5%AF%86%E5%85%8B%E5%AE%9A%E7%90%86/">密克定理</category>
-      
       <category domain="https://wangjiezhe.github.io/tags/IMO/">IMO</category>
+      
+      <category domain="https://wangjiezhe.github.io/tags/%E5%AF%86%E5%85%8B%E5%AE%9A%E7%90%86/">密克定理</category>
       
       <category domain="https://wangjiezhe.github.io/tags/Reim%E5%AE%9A%E7%90%86/">Reim定理</category>
       
@@ -521,9 +521,9 @@
       
       <category domain="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/">数学竞赛</category>
       
-      <category domain="https://wangjiezhe.github.io/tags/%E5%AF%86%E5%85%8B%E5%AE%9A%E7%90%86/">密克定理</category>
-      
       <category domain="https://wangjiezhe.github.io/tags/IMO/">IMO</category>
+      
+      <category domain="https://wangjiezhe.github.io/tags/%E5%AF%86%E5%85%8B%E5%AE%9A%E7%90%86/">密克定理</category>
       
       
       <comments>https://wangjiezhe.github.io/posts/2025-07-16-IMO-2025-Geometry/#disqus_thread</comments>
@@ -550,11 +550,11 @@
       
       <category domain="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/">数学竞赛</category>
       
-      <category domain="https://wangjiezhe.github.io/tags/IMO/">IMO</category>
-      
       <category domain="https://wangjiezhe.github.io/tags/%E4%BD%8D%E4%BC%BC/">位似</category>
       
       <category domain="https://wangjiezhe.github.io/tags/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/">欧拉定理</category>
+      
+      <category domain="https://wangjiezhe.github.io/tags/IMO/">IMO</category>
       
       
       <comments>https://wangjiezhe.github.io/posts/2025-07-15-IMO-2024-Geometry/#disqus_thread</comments>
