@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/links/linklist.json</loc>
+    <loc>https://wangjiezhe.github.io/links/index.html</loc>
     
     <lastmod>2025-10-25</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/links/index.html</loc>
+    <loc>https://wangjiezhe.github.io/links/linklist.json</loc>
     
     <lastmod>2025-10-25</lastmod>
     
@@ -1214,13 +1214,6 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/WSL/</loc>
-    <lastmod>2025-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://wangjiezhe.github.io/tags/MathType/</loc>
     <lastmod>2025-10-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1229,6 +1222,13 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/tags/%E6%98%BE%E5%8D%A1/</loc>
+    <lastmod>2025-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/WSL/</loc>
     <lastmod>2025-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1634,20 +1634,6 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/CWMI/</loc>
-    <lastmod>2025-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86/</loc>
-    <lastmod>2025-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://wangjiezhe.github.io/tags/%E6%A0%B9%E5%BF%83/</loc>
     <lastmod>2025-10-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1656,6 +1642,20 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/tags/%E5%B8%83%E6%B4%9B%E5%8D%A1%E5%AE%9A%E7%90%86/</loc>
+    <lastmod>2025-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/CWMI/</loc>
+    <lastmod>2025-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86/</loc>
     <lastmod>2025-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
