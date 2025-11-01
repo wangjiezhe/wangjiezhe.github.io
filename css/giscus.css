@@ -98,6 +98,10 @@ main .gsc-loading-image {
   background-image: url("https://github.githubassets.com/images/mona-loading-default.gif");
 }
 
+main .gsc-comment-content, main .gsc-comment-box-preview {
+  text-autospace: normal;
+}
+
 /*! Dark mode */
 @media (prefers-color-scheme: dark) {
   main {
@@ -195,5 +199,9 @@ main .gsc-loading-image {
 
   main .gsc-loading-image {
     background-image: url("https://github.githubassets.com/images/mona-loading-dark.gif");
+  }
+
+  main .gsc-comment-content, main .gsc-comment-box-preview {
+    text-autospace: normal;
   }
 }
