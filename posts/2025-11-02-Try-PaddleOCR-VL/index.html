@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-round.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark-reasonable"},"prism":{"light":"prism","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="分别在WSL、Windows和Kaggle上部署PaddleOCR-VL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尝试使用PaddleOCR-VL">
+<meta property="og:url" content="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="分别在WSL、Windows和Kaggle上部署PaddleOCR-VL">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/WindowsTerminal_0z74Y2visD.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/WindowsTerminal_tUBroI2ib1.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/WindowsTerminal_4uvbqz2pYC.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/WindowsTerminal_8h0xtk4fB9.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/WindowsTerminal_mHJXN4M1GI_1.png">
+<meta property="article:published_time" content="2025-11-02T03:53:55.000Z">
+<meta property="article:modified_time" content="2025-11-02T03:53:55.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="OCR">
+<meta property="article:tag" content="Paddle">
+<meta property="article:tag" content="PaddleOCR-VL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/WindowsTerminal_0z74Y2visD.png">
+
+
+<link rel="canonical" href="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/","path":"/posts/2025-11-02-Try-PaddleOCR-VL/","title":"尝试使用PaddleOCR-VL"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>尝试使用PaddleOCR-VL | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48537410-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?a51d31f349bffa6e3757f7d6fca0c47f"></script>
+
+
+  <script data-pjax defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{&quot;token&quot;: &quot;4b43b380fa4e4d43a125ac710c29fb84&quot;}'></script>
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/comments.js" defer></script><script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@11.10.1/dist/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+  <script data-pjax async src="//bsz.wangjiezhe.com/js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-app-compat.js" integrity="sha256-d21UgtIcA6c6qwr8nWk6lxs/KrpbWhknQN7qBjWA2Kk=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-firestore-compat.js" integrity="sha256-leHatffkFuVGIg7ABaA5BDsqsEUtktL4tftb3OdQfg0=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyD0AfWHrmFoKgV1x4srPQDN7rGpGclK7J4","projectId":"visitors-of-blog"}</script>
+  <script src="/js/third-party/statistics/firestore.js" defer></script>
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="如鱼饮水" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">如鱼饮水</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">冷暖自知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-fcircle"><a href="/fcircle/" rel="section"><i class="fa fa-user-group fa-fw"></i>朋友圈</a></li><li class="menu-item menu-item-tools"><a href="/tools/" rel="section"><i class="fa fa-rocket fa-fw"></i>工具</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85PaddleOCR-VL"><span class="nav-text">1. 安装PaddleOCR-VL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E5%9C%A8WSL%E4%B8%8A%E8%BF%9B%E8%A1%8C%E9%83%A8%E7%BD%B2"><span class="nav-text">1.1. 在WSL上进行部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%9C%A8Windows%E4%B8%8A%E9%83%A8%E7%BD%B2"><span class="nav-text">1.2. 在Windows上部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E5%9C%A8Kaggle%E4%B8%8A%E9%83%A8%E7%BD%B2"><span class="nav-text">1.3. 在Kaggle上部署</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BA%A7%E7%BA%BF%E6%96%87%E4%BB%B6"><span class="nav-text">2. 产线文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">3. 遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E6%98%BE%E5%AD%98%E4%B8%8D%E9%87%8A%E6%94%BE"><span class="nav-text">3.1. 显存不释放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E7%A8%8B%E5%BA%8F%E5%8D%A1%E6%AD%BB"><span class="nav-text">3.2. 程序卡死</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E4%BD%BF%E7%94%A8%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-text">3.3. 使用生成器</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjiezhe" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangjiezhe@gmail.com" title="E-Mail → mailto:wangjiezhe@gmail.com" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://x.com/wangjiezhe" title="Twitter → https:&#x2F;&#x2F;x.com&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/wangjiezhe" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-telegram fa-fw"></i></a>
+      </span>
+  </div>
+<div id="time-now">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+  var digit=
+    [
+      [
+        [0,0,1,1,1,0,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,0,1,1,0],
+        [0,0,1,1,1,0,0]
+      ],//0
+      [
+        [0,0,0,1,1,0,0],
+        [0,1,1,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [1,1,1,1,1,1,1]
+      ],//1
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,1,1],
+        [1,1,1,1,1,1,1]
+      ],//2
+      [
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//3
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,0],
+        [0,0,1,1,1,1,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,1,1,0],
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,1]
+      ],//4
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,1,1,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//5
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//6
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0]
+      ],//7
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//8
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,1,1,0,0,0,0]
+      ],//9
+      [
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0]
+      ]//:
+    ];
+
+  var canvas = document.getElementById('canvas');
+
+  if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+      data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            cxt.beginPath();
+            cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+            cxt.closePath();
+            cxt.fill();
+          }
+        }
+      }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+      var changeNumArray = [];
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      var NewData = [];
+      NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+      for(var i = data.length-1; i >=0 ; i--){
+        //时间发生变化
+        if(NewData[i] !== data[i]){
+          //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+          changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+        }
+      }
+      //增加小球
+      for(var i = 0; i< changeNumArray.length; i++){
+        addBalls.apply(this,changeNumArray[i].split('_'));
+      }
+      data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+      for(var i = 0; i < balls.length; i++){
+        balls[i].stepY += balls[i].disY;
+        balls[i].x += balls[i].stepX;
+        balls[i].y += balls[i].stepY;
+        if(balls[i].x > W + R || balls[i].y > H + R){
+          balls.splice(i,1);
+          i--;
+        }
+      }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+      var numArray = [1,2,3];
+      var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            var ball = {
+              x:14*(R+2)*index + j*2*(R+1)+(R+1),
+              y:i*2*(R+1)+(R+1),
+              stepX:Math.floor(Math.random() * 4 -2),
+              stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+              color:colorArray[Math.floor(Math.random()*colorArray.length)],
+              disY:1
+            };
+            balls.push(ball);
+          }
+        }
+      }
+    }
+
+    /*渲染*/
+    function render(){
+      //重置画布宽度，达到清空画布的效果
+      canvas.height = 100;
+      //获取颜色，支持暗色模式
+      var clockColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
+      cxt.fillStyle = clockColor;
+      //渲染时钟
+      for(var i = 0; i < data.length; i++){
+        renderDigit(i,data[i]);
+      }
+      //渲染小球
+      for(var i = 0; i < balls.length; i++){
+        cxt.beginPath();
+        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+        cxt.fillStyle = balls[i].color;
+        cxt.closePath();
+        cxt.fill();
+      }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+      //更新时钟
+      updateDigitTime();
+      //更新小球状态
+      updateBalls();
+      //渲染
+      render();
+    },50);
+  }
+
+})();
+</script>
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="西风冷香">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+      <meta itemprop="description" content="某不知名机构不知名数学老师">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="尝试使用PaddleOCR-VL | 如鱼饮水">
+      <meta itemprop="description" content="分别在WSL、Windows和Kaggle上部署PaddleOCR-VL">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          尝试使用PaddleOCR-VL
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-11-02 11:53:55" itemprop="dateCreated datePublished" datetime="2025-11-02T11:53:55+08:00">2025-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>18 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">分别在WSL、Windows和Kaggle上部署PaddleOCR-VL</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>之前和DeepSeek-OCR进行对比，使用的是PaddleOCR，而不是当时的SOTA模型PaddleOCR-VL，原因也很可笑，就是按照官方文档安装之后居然无法运行，于是只能放弃了。</p>
+<p>好在前几天释出的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/PaddlePaddle/PaddleX/releases/tag/v3.3.6">3.3.6版本</a>的PaddleX解决了这个问题，本地的PaddleOCR-VL终于能正常运行了。</p>
+<h2 id="1-安装PaddleOCR-VL"><a class="header-anchor" href="#1-安装PaddleOCR-VL"></a>1. 安装PaddleOCR-VL</h2>
+<h3 id="1-1-在WSL上进行部署"><a class="header-anchor" href="#1-1-在WSL上进行部署"></a>1.1. 在WSL上进行部署</h3>
+<p>之前已经安装了PaddleOCR：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> UV_DEFAULT_INDEX=<span class="string">&quot;https://pypi.tuna.tsinghua.edu.cn/simple&quot;</span></span><br><span class="line">uv venv --seed --python python3.12</span><br><span class="line">uv pip install paddlepaddle-gpu==3.2.0 --default-index https://www.paddlepaddle.org.cn/packages/stable/cu129/</span><br><span class="line">uv pip install <span class="string">&quot;paddleocr[all]&quot;</span></span><br></pre></td></tr></table></figure>
+<p>如果要使用PaddleOCR-VL产线，按照官方说明，必须安装特殊版本的 safetensors：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv pip install https://paddle-whl.bj.bcebos.com/nightly/cu126/safetensors/safetensors-0.6.2.dev0-cp38-abi3-linux_x86_64.whl</span><br></pre></td></tr></table></figure>
+<p>另外<strong>务必</strong>确认PaddleX的版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv pip install paddlex==3.3.6 paddleocr==3.3.1</span><br></pre></td></tr></table></figure>
+<p>或者直接升级也可以：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv pip install -U paddlex paddleocr</span><br></pre></td></tr></table></figure>
+<p>之后就可以使用PaddleOCR-VL了。具体的代码参考<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.paddleocr.ai/latest/version3.x/pipeline_usage/PaddleOCR-VL.html#22-python">官方文档</a>。</p>
+<div class="note danger"><p>另外吐槽一句，PaddleOCR的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/PaddlePaddle/PaddleOCR/releases/tag/v3.3.1">3.3.1版本</a>的更新日志里明明白白地写了「修复了PP-StructureV3和PaddleOCR-VL的文档图像预处理开关不生效的问题」，结果根本没有解决这个问题。</p>
+<p>明明默认的PP-StructureV3.yaml里面写了 <code>use_doc_preprocessor: False</code>，但还是会调用对应的「文档图像预处理产线」。</p>
+<p>之前发现这个问题，是因为我在识别一张课程表的时候，居然连标题都识别错了，而且错的特别离谱。后来发现是因为「文档图像预处理产线」调用了「文本图像矫正模块」，导致这个图片被裁掉了一圈，标题也被裁掉了一半，难怪识别不对。</p>
+<p>因此，如果图片或者PDF文件非常规整的话，创建产线的时候<strong>务必</strong>要使用 <code>use_doc_unwarping=False</code> 关掉「文本图像矫正模块」。或者直接修改产线配置文件也可以。</p>
+</div>
+<p>我在官方示例的基础上稍微做了一下修改，除了保存markdown文件及图片外，还把所有生成的可视化图像转换成PDF保存。其中 <code>pil_to_pdf_img2pdf</code> 函数来自<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/deepseek-ai/DeepSeek-OCR/blob/e4ac34e1e59b891163fb9325480fbedec865e1f0/DeepSeek-OCR-master/DeepSeek-OCR-vllm/run_dpsk_ocr_pdf.py#L97">run_dpsk_ocr_pdf.py</a>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">from</span> paddleocr <span class="keyword">import</span> PaddleOCRVL</span><br><span class="line"></span><br><span class="line">input_dir = Path(<span class="string">&quot;./input&quot;</span>)</span><br><span class="line">output_dir = Path(<span class="string">&quot;./output&quot;</span>)</span><br><span class="line"></span><br><span class="line">pipeline = PaddleOCRVL(</span><br><span class="line">    use_doc_orientation_classify=<span class="literal">False</span>,</span><br><span class="line">    use_doc_unwarping=<span class="literal">False</span>,    <span class="comment">## 非必要一定要关掉！！！</span></span><br><span class="line">    use_chart_recognition=<span class="literal">False</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">process_pdf_file</span>(<span class="params">pdf_path: Path, pipeline, output_dir: Path</span>) -&gt; Path:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;🤖 Processing PDF file: <span class="subst">&#123;pdf_path&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    output = pipeline.predict_iter(<span class="built_in">input</span>=<span class="built_in">str</span>(pdf_path), use_queues=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    markdown_list = []</span><br><span class="line">    markdown_images = []</span><br><span class="line">    res_images = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> res <span class="keyword">in</span> output:</span><br><span class="line">        index = res.get(<span class="string">&quot;page_index&quot;</span>) + <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;🎲 parsing page <span class="subst">&#123;index&#125;</span> of file <span class="subst">&#123;pdf_path.name&#125;</span> ...&quot;</span>)</span><br><span class="line">        md_info = res.markdown</span><br><span class="line">        markdown_list.append(md_info)</span><br><span class="line">        res_images.append(res.img)</span><br><span class="line">        res.save_to_xlsx(save_path=output_dir)</span><br><span class="line">        markdown_images.append(md_info.get(<span class="string">&quot;markdown_images&quot;</span>, &#123;&#125;))</span><br><span class="line"></span><br><span class="line">    markdown_texts = pipeline.concatenate_markdown_pages(markdown_list)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 生成输出文件路径</span></span><br><span class="line">    mkd_file_path = output_dir / <span class="string">f&quot;<span class="subst">&#123;pdf_path.stem&#125;</span>.md&quot;</span></span><br><span class="line">    mkd_file_path.parent.mkdir(parents=<span class="literal">True</span>, exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 写入Markdown文件</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;🚀 Saving markdown file ...&quot;</span>)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(mkd_file_path, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(markdown_texts)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 保存可视化图像</span></span><br><span class="line">    <span class="keyword">for</span> layout <span class="keyword">in</span> res_images[<span class="number">0</span>].keys():</span><br><span class="line">        layout_pdf = output_dir / <span class="string">f&quot;<span class="subst">&#123;pdf_path.stem&#125;</span>_<span class="subst">&#123;layout&#125;</span>.pdf&quot;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;🚀 Saving <span class="subst">&#123;layout&#125;</span> results to: <span class="subst">&#123;layout_pdf&#125;</span>&quot;</span>)</span><br><span class="line">        pil_to_pdf_img2pdf([item[layout] <span class="keyword">for</span> item <span class="keyword">in</span> res_images], layout_pdf)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 保存图像</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;🚀 Saving images in markdown ...&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> markdown_images:</span><br><span class="line">        <span class="keyword">if</span> item:</span><br><span class="line">            <span class="keyword">for</span> path, image <span class="keyword">in</span> item.items():</span><br><span class="line">                file_path = output_dir / path</span><br><span class="line">                file_path.parent.mkdir(parents=<span class="literal">True</span>, exist_ok=<span class="literal">True</span>)</span><br><span class="line">                image.save(file_path)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mkd_file_path</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> pdf_path <span class="keyword">in</span> input_dir.glob(<span class="string">&quot;*.pdf&quot;</span>):</span><br><span class="line">    process_pdf_file(pdf_path, pipeline, output_dir)</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-在Windows上部署"><a class="header-anchor" href="#1-2-在Windows上部署"></a>1.2. 在Windows上部署</h3>
+<p>今天又看了一下<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.paddleocr.ai/latest/version3.x/pipeline_usage/PaddleOCR-VL.html#12-paddlepaddle-paddleocr">最新文档</a>，对应的Windows版本的safetensors预编译包也有了，因此<strong>理论上</strong>在Windows上也能正常运行了。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$env:UV_LINK_MODE</span>=<span class="string">&quot;symlink&quot;</span></span><br><span class="line"><span class="variable">$env:UV_DEFAULT_INDEX</span>=<span class="string">&quot;https://pypi.tuna.tsinghua.edu.cn/simple&quot;</span></span><br><span class="line">uv venv <span class="literal">--seed</span> <span class="literal">-p</span> python3.<span class="number">12</span></span><br><span class="line">uv pip install paddlepaddle<span class="literal">-gpu</span>==<span class="number">3.2</span>.<span class="number">0</span> <span class="literal">--default-index</span> https://www.paddlepaddle.org.cn/packages/stable/cu129/</span><br><span class="line">uv pip install <span class="string">&quot;paddleocr[doc_parser]&quot;</span></span><br><span class="line">uv pip install https://xly<span class="literal">-devops</span>.cdn.bcebos.com/safetensors<span class="literal">-nightly</span>/safetensors<span class="literal">-0</span>.<span class="number">6.2</span>.dev0<span class="literal">-cp38-abi3-win_amd64</span>.whl</span><br></pre></td></tr></table></figure>
+<p>尝试运行</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run paddleocr doc_parser <span class="literal">-i</span> https://paddle<span class="literal">-model-ecology</span>.bj.bcebos.com/paddlex/imgs/demo_image/paddleocr_vl_demo.png <span class="literal">--save_path</span> output</span><br></pre></td></tr></table></figure>
+<p>然后就华丽地报错了：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RuntimeError: <span class="keyword">Exception</span> from the <span class="symbol">&#x27;vlm</span>&#x27; worker: (NotFound) The kernel `fused_rms_norm_ext` <span class="keyword">is</span> <span class="keyword">not</span> registered.</span><br><span class="line">  [Hint: Expected iter != kernels_.<span class="keyword">end</span>(), but received iter == kernels_.<span class="keyword">end</span>().] (<span class="keyword">at</span> ..\paddle\phi\core\kernel_factory.cc:<span class="number">276</span>)</span><br></pre></td></tr></table></figure>
+<p>好在可以解决，手动进行hacking，把 <code>self.fuse_rms_norm = True</code> 改为 <code>False</code>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="literal">-i</span> <span class="string">&quot;s/self\.fuse_rms_norm = True/self.fuse_rms_norm = False/g&quot;</span> .\.venv\Lib\site<span class="literal">-packages</span>\paddlex\inference\models\doc_vlm\modeling\paddleocr_vl\_config.py</span><br></pre></td></tr></table></figure>
+<p>这时终于可以正常运行了。</p>
+<div class="note danger"><p>这里再吐槽一下，PaddleOCR-VL产线需要用的PP-DocLayoutV2模块，但是不知道为什么，居然需要下载两次放到不同的目录：</p>
+<p><img data-src="WindowsTerminal_0z74Y2visD.png" alt="WindowsTerminal_0z74Y2visD" /></p>
+</div>
+<h3 id="1-3-在Kaggle上部署"><a class="header-anchor" href="#1-3-在Kaggle上部署"></a>1.3. 在Kaggle上部署</h3>
+<p>如果要在Kaggle上部署的话，GPU<strong>务必</strong>选择 <code>GPU T4 x2</code>，<strong>不要</strong>选择 <code>GPU P100</code>。</p>
+<p>如果要使用双卡进行推理的话，直接指定 <code>device=&quot;gpu:0,1&quot;</code> 是不行的，需要使用<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.paddleocr.ai/latest/version3.x/pipeline_usage/instructions/parallel_inference.html#_3">多进程并行推理</a>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Manager, Process</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Empty</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">worker</span>(<span class="params">device, task_queue, output_dir</span>):</span><br><span class="line">    pipeline = PaddleOCRVL(</span><br><span class="line">        use_doc_orientation_classify=<span class="literal">False</span>,</span><br><span class="line">        use_doc_unwarping=<span class="literal">False</span>,</span><br><span class="line">        use_chart_recognition=<span class="literal">False</span>,</span><br><span class="line">        device=device,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            input_path = task_queue.get_nowait()</span><br><span class="line">        <span class="keyword">except</span> Empty:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            output_path = process_pdf_file(input_path, pipeline, output_dir)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;✅ Processed <span class="subst">&#123;<span class="built_in">repr</span>(<span class="built_in">str</span>(input_path))&#125;</span>! Markdown file saved to: <span class="subst">&#123;output_path&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;Error processing <span class="subst">&#123;input_path&#125;</span> on <span class="subst">&#123;<span class="built_in">repr</span>(device)&#125;</span>: <span class="subst">&#123;e&#125;</span>&quot;</span>, file=sys.stderr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> Manager() <span class="keyword">as</span> manager:</span><br><span class="line">    task_queue = manager.Queue()</span><br><span class="line">    <span class="keyword">for</span> pdf_file <span class="keyword">in</span> input_dir.glob(<span class="string">&quot;*.pdf&quot;</span>):</span><br><span class="line">        task_queue.put(pdf_file)</span><br><span class="line"></span><br><span class="line">    processes = []</span><br><span class="line">    <span class="keyword">for</span> device <span class="keyword">in</span> [<span class="string">&quot;gpu:0&quot;</span>, <span class="string">&quot;gpu:1&quot;</span>]:</span><br><span class="line">        p = Process(</span><br><span class="line">            target=worker,</span><br><span class="line">            args=(device, task_queue, output_dir)</span><br><span class="line">        )</span><br><span class="line">        p.start()</span><br><span class="line">        processes.append(p)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> processes:</span><br><span class="line">        p.join()</span><br></pre></td></tr></table></figure>
+<div class="note danger"><p>最后再吐槽一下，在Kaggle上部署PaddleOCR-VL的最大障碍其实是paddlepaddle的下载速度。安装一次paddlepaddle经常就得花半小时，有时甚至下载速度甚至会降到几百K，都快赶上百度网盘了。</p>
+</div>
+<h2 id="2-产线文件"><a class="header-anchor" href="#2-产线文件"></a>2. 产线文件</h2>
+<p>实际使用的产线文件在PaddleX的<code>configs/pipelines</code>目录下。可以把它链接到本目录下，方便后续查看和修改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s .venv/lib/python3.12/site-packages/paddlex/configs/pipelines</span><br></pre></td></tr></table></figure>
+<p>常用的一些PaddleOCR产线与PaddleX产线注册名的对应关系如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">PaddleOCR 产线</th>
+<th style="text-align:center">PaddleX 产线注册名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">通用 OCR</td>
+<td style="text-align:center">OCR</td>
+</tr>
+<tr>
+<td style="text-align:center">PP-StructureV3</td>
+<td style="text-align:center">PP-StructureV3</td>
+</tr>
+<tr>
+<td style="text-align:center">PP-ChatOCRv4</td>
+<td style="text-align:center">PP-ChatOCRv4-doc</td>
+</tr>
+<tr>
+<td style="text-align:center">通用表格识别 v2</td>
+<td style="text-align:center">table_recognition_v2</td>
+</tr>
+<tr>
+<td style="text-align:center">公式识别</td>
+<td style="text-align:center">formula_recognition</td>
+</tr>
+<tr>
+<td style="text-align:center">印章文本识别</td>
+<td style="text-align:center">seal_recognition</td>
+</tr>
+<tr>
+<td style="text-align:center">文档图像预处理</td>
+<td style="text-align:center">doc_preprocessor</td>
+</tr>
+<tr>
+<td style="text-align:center">文档理解</td>
+<td style="text-align:center">doc_understanding</td>
+</tr>
+<tr>
+<td style="text-align:center">PP-DocTranslation</td>
+<td style="text-align:center">PP-DocTranslation</td>
+</tr>
+<tr>
+<td style="text-align:center">PaddleOCR-VL</td>
+<td style="text-align:center">PaddleOCR-VL</td>
+</tr>
+</tbody>
+</table>
+<p>可以在对应的yaml文件中看到具体的产线配置。</p>
+<h2 id="3-遇到的问题"><a class="header-anchor" href="#3-遇到的问题"></a>3. 遇到的问题</h2>
+<p>之前在使用PP-StructureV3的时候，一切都很正常。但是使用PaddleOCR-VL就出现了各种各样的问题。</p>
+<h3 id="3-1-显存不释放"><a class="header-anchor" href="#3-1-显存不释放"></a>3.1. 显存不释放</h3>
+<p>在本地运行PaddleOCR-VL的时候，经常出现占用显存不释放，然后还请求新的显存的情况。由于我是在笔记本电脑上运行，显存用完之后会直接借用内存。这不会报错，但是会大大影响推理速度。</p>
+<p>目前的解决方法有两个：</p>
+<p>其一，在运行 <code>pipeline.predict_iter</code> 之后、访问其结果之前，手动进行垃圾回收和显存释放：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gc</span><br><span class="line"><span class="keyword">import</span> paddle</span><br><span class="line"></span><br><span class="line">paddle.device.cuda.empty_cache()</span><br><span class="line">gc.collect()</span><br></pre></td></tr></table></figure>
+<p>此时在任务管理器里会观察到占用的显存会有一次明显下降：</p>
+<p><img data-src="WindowsTerminal_tUBroI2ib1.png" alt="WindowsTerminal_tUBroI2ib1" /></p>
+<div class="note info"><p>但是使用PP-StructureV3的话，添加这个命令就不会观察到显存占用下降。</p>
+</div>
+<p>其二，设置环境变量：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.environ[<span class="string">&quot;FLAGS_allocator_strategy&quot;</span>] = <span class="string">&quot;naive_best_fit&quot;</span></span><br></pre></td></tr></table></figure>
+<p>需要注意的是，这个命令必须在paddle库导入之前设置才能生效。</p>
+<div class="note warning"><p>奇怪的是，在这个设置下，运行PP-StructureV3产线直接报错，说显存不足。默认的 <code>auto_growth</code> 策略反而能够正常运行。</p>
+</div>
+<p>双管齐下，PaddleOCR-VL在推理PDF时占用的显存大概在5G左右，只是偶尔会波动一下需要借用内存：</p>
+<p><img data-src="WindowsTerminal_4uvbqz2pYC.png" alt="WindowsTerminal_4uvbqz2pYC" /></p>
+<p>但是很快就回落了。这样对性能影响不大，还可以接受。</p>
+<h3 id="3-2-程序卡死"><a class="header-anchor" href="#3-2-程序卡死"></a>3.2. 程序卡死</h3>
+<p>在使用PaddleOCR-VL的时候，好几次遇到程序卡死的情况：</p>
+<p><img data-src="WindowsTerminal_8h0xtk4fB9.png" alt="WindowsTerminal_8h0xtk4fB9" /></p>
+<p>可以看到模型已经被加载，而且PDF也已经载入了，但是没有进行推理。使用strace看一下进程：</p>
+<p><img data-src="WindowsTerminal_mHJXN4M1GI_1.png" alt="WindowsTerminal_mHJXN4M1GI_1" /></p>
+<p>这是出现死锁了？</p>
+<p>只能强行杀掉了。</p>
+<div class="note success"><p>不过，今天在删掉模型缓存之后再次运行了几次都没再遇到这种情况。不知道和缓存有没有关系。</p>
+</div>
+<h3 id="3-3-使用生成器"><a class="header-anchor" href="#3-3-使用生成器"></a>3.3. 使用生成器</h3>
+<p>关于显存占用，还有一点需要注意。如果是使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> paddleocr <span class="keyword">import</span> PaddleOCRVL</span><br><span class="line"></span><br><span class="line">pipeline = PaddleOCRVL()</span><br></pre></td></tr></table></figure>
+<p>创建产线，建议使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">output = pipeline.predict_iter(<span class="built_in">input</span>=input_file)</span><br></pre></td></tr></table></figure>
+<p>进行推理。这样返回一个生成器，之后循环处理的时候再实际进行推理。</p>
+<div class="note primary"><p>使用 <code>PPStructureV3</code> 创建产线时的情况和上面是一样的</p>
+</div>
+<p>但如果是使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> paddlex <span class="keyword">import</span> create_pipeline</span><br><span class="line"></span><br><span class="line">pipeline = create_pipeline(pipeline=<span class="string">&quot;PaddleOCR-VL&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>创建产线，可以直接使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">output = pipeline.predict(<span class="built_in">input</span>=input_file)</span><br></pre></td></tr></table></figure>
+<p>来进行推理。这时直接返回的就是一个生成器。</p>
+<p>鬼知道为什么都是predict，返回值的居然不一样。。。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/" title="尝试使用PaddleOCR-VL">https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+              <a href="/tags/OCR/" rel="tag"><i class="fa fa-tag"></i> OCR</a>
+              <a href="/tags/Paddle/" rel="tag"><i class="fa fa-tag"></i> Paddle</a>
+              <a href="/tags/PaddleOCR-VL/" rel="tag"><i class="fa fa-tag"></i> PaddleOCR-VL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2025-10-30-Compare-DeepSeekOCR-with-PaddleOCR/" rel="prev" title="关于DeepSeek-OCR和PaddleOCR对数学类书籍识别的对比">
+                  <i class="fa fa-angle-left"></i> 关于DeepSeek-OCR和PaddleOCR对数学类书籍识别的对比
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-disqusjs">Disqus</a></li>
+            <li class="tab"><a href="#comment-giscus">GitHub</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
+              
+  <div class="comments disqusjs-container">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+            </div>
+            <div class="tab-pane giscus" id="comment-giscus">
+              
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+            </div>
+        </div>
+      </div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener external nofollow noreferrer" target="_blank">冀ICP备2024063721号-1 </a>
+      <img src="/images/gongan.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=13090202000716" rel="noopener external nofollow noreferrer" target="_blank">冀公网安备13090202000716号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">西风冷香</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">327k</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener external nofollow noreferrer" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="blog-links">
+    <span class="post-meta-item moe">
+      <span>
+        <img src="/images/icp-moe.png" style="width:auto;height:16px;" alt="">
+      </span>
+      <span><a href="https://icp.gov.moe/?keyword=20248191" rel="noopener external nofollow noreferrer" target="_blank">萌ICP备20248191号</a>
+      </span>
+    </span>
+    <span class="post-meta-item travel-moe">
+      <span><a href="https://travel.moe/go.html?travel=on" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/travel-moe.png" style="width:auto;height:18px" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！"> 异次元之旅🚀</a>
+      </span>
+    </span>
+    <span class="post-meta-item foreverblog"><a href="https://www.foreverblog.cn/blog/2092.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/foreverblog.png" style="width:auto;height:16px;" alt="Forever Blog"></a>
+    </span>
+    <span class="post-meta-item wormhole"><a href="https://www.foreverblog.cn/go.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/wormhole.gif" style="width:auto;height:24px;" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+    </span>
+    <span class="post-meta-item travelling"><a href="https://www.travellings.cn/go.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/travelling.png" alt="开往-友链接力" height="18"></a>
+    </span>
+  
+</div>
+
+<script>
+function checkWebp(callback) {
+  var img = new Image();
+  img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+  img.onerror = function () { callback(false); };
+  img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+  var imgs = [].slice.call(document.querySelectorAll('img'));
+  imgs.forEach(function (e) {
+    if ((useWebp) && !e.classList.contains('nowebp')) {
+      var src = e.getAttribute('data-src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('data-src', src);
+      }
+      src = e.getAttribute('src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('src', src);
+      }
+    }
+  });
+}
+</script>
+<script data-pjax async>
+checkWebp(showImage);
+</script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"wangjiezhe/wangjiezhe.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxNTc4OTE0Ng==","category":"Announcements","category_id":"DIC_kwDOAPDsWs4Cdwtf","mapping":"og:title","strict":1,"reactions_enabled":1,"emit_metadata":1,"theme":"https://wangjiezhe.com/css/giscus.min.css","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/styles/disqusjs.css" integrity="sha256-E4RzceSomICFY1PT/yDQrN8DsLSwdScDEiQAevHabp0=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqusjs.wangjiezhe.com/","apikey":"ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F","shortname":"wangjiezhe","js":{"url":"https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/disqusjs.es2015.umd.min.js","integrity":"sha256-gdbBT62HLzqWTnXQED3WQL/ItFCuWsA5gd6dM/wgdiE="}}</script>
+<script src="/js/third-party/comments/disqusjs.js" defer></script>
+
+
+
+  <script async src="/js/cursor/fireworks.min.js" integrity="sha256-NVjeK0/Qni9W+mCWpzpw6IZTieyhLZJ5Kj4hdFjqSQc=" crossorigin="anonymous"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@wangjiezhe/live2d-widget@^3.1.7/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false},"log":false});</script></body>
+</html>
