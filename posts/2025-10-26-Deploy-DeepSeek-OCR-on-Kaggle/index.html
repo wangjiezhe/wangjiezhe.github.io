@@ -206,7 +206,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -217,7 +217,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-count">136</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -553,6 +553,13 @@
       尝试使用DeepSeek-OCR
       </a>
     </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2025-11-04-Use-vLLM-to-Accelerate-PaddleOCR-VL/" rel="bookmark">
+        <time class="popular-posts-time">2025-11-04</time>
+        <br>
+      使用vLLM框架加速PaddleOCR-VL
+      </a>
+    </li>
   </ul>
 
           </div>
@@ -629,7 +636,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
+      <span>2.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -656,7 +663,7 @@
 <p>然后安装<code>pyngrok</code>：</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">! pip <span class="keyword">install</span> pyngrok</span><br></pre></td></tr></table></figure>
 <p>再配置内网穿透：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ngrokToken = user_secrets.get_secret(<span class="string">&quot;NGROK_AUTHTOKEN&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyngrok <span class="keyword">import</span> conf, ngrok</span><br><span class="line">conf.get_default().auth_token = ngrokToken</span><br><span class="line">conf.get_default().monitor_thread = <span class="literal">False</span></span><br><span class="line">ssh_tunnels = ngrok.get_tunnels(conf.get_default())</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(ssh_tunnels) == <span class="number">0</span>:</span><br><span class="line">    ssh_tunnel = ngrok.connect(<span class="number">8000</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;address：&#x27;</span>+ssh_tunnel.public_url)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;address：&#x27;</span>+ssh_tunnels[<span class="number">0</span>].public_url)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kaggle_secrets <span class="keyword">import</span> UserSecretsClient</span><br><span class="line">user_secrets = UserSecretsClient()</span><br><span class="line"></span><br><span class="line">ngrokToken = user_secrets.get_secret(<span class="string">&quot;NGROK_AUTHTOKEN&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyngrok <span class="keyword">import</span> conf, ngrok</span><br><span class="line">conf.get_default().auth_token = ngrokToken</span><br><span class="line">conf.get_default().monitor_thread = <span class="literal">False</span></span><br><span class="line">ssh_tunnels = ngrok.get_tunnels(conf.get_default())</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(ssh_tunnels) == <span class="number">0</span>:</span><br><span class="line">    ssh_tunnel = ngrok.connect(<span class="number">8000</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;address：&#x27;</span>+ssh_tunnel.public_url)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;address：&#x27;</span>+ssh_tunnels[<span class="number">0</span>].public_url)</span><br></pre></td></tr></table></figure>
 <p>这里面<code>8000</code>是要映射的端口。</p>
 <p>运行成功的话，会显示</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">address：https://<span class="strong">****</span><span class="strong">****</span><span class="strong">****</span>.ngrok-free.app</span><br></pre></td></tr></table></figure>
@@ -811,7 +818,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">327k</span>
+    <span title="站点总字数">334k</span>
   </span>
 </div>
 <div class="busuanzi-count">

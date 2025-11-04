@@ -26,6 +26,10 @@
 <meta property="og:site_name" content="如鱼饮水">
 <meta property="og:description" content="修改评论系统在深色模式下的主题和背景颜色">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-10-08-Comment-Systems-in-Dark-Mode/chrome_CEvXYOabby.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-10-08-Comment-Systems-in-Dark-Mode/chrome_clk4cHK16Y.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-10-08-Comment-Systems-in-Dark-Mode/chrome_gE8ujpiWpr.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-10-08-Comment-Systems-in-Dark-Mode/chrome_j30VoY6c7v.png">
 <meta property="article:published_time" content="2025-10-08T12:41:57.000Z">
 <meta property="article:modified_time" content="2025-10-08T12:41:57.000Z">
 <meta property="article:author" content="西风冷香">
@@ -35,6 +39,7 @@
 <meta property="article:tag" content="NexT">
 <meta property="article:tag" content="深色模式">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangjiezhe.github.io/posts/2025-10-08-Comment-Systems-in-Dark-Mode/chrome_CEvXYOabby.png">
 
 
 <link rel="canonical" href="https://wangjiezhe.github.io/posts/2025-10-08-Comment-Systems-in-Dark-Mode/">
@@ -207,7 +212,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -218,7 +223,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-count">136</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -555,6 +560,20 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2025-09-29-KaTeX-Scrollable-Horizontally/" rel="bookmark">
+        <time class="popular-posts-time">2025-09-29</time>
+        <br>
+      让过长的 KaTeX 公式支持横向滚动
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2014-03-02-Pipelight-use-eBank-on-Linux/" rel="bookmark">
+        <time class="popular-posts-time">2014-03-02</time>
+        <br>
+      Piplight 在 Linux 上使用网银
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/posts/2018-10-29-Hexo-NexT-3/" rel="bookmark">
         <time class="popular-posts-time">2018-10-29</time>
         <br>
@@ -672,11 +691,15 @@
 <figure class="highlight css"><figcaption><span>source/_data/style.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">prefers-color-scheme</span>: dark) &#123;</span><br><span class="line">  <span class="selector-tag">iframe</span><span class="selector-attr">[src*=<span class="string">&quot;disqus.com&quot;</span>]</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#333</span> <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">mix-blend-mode</span>: lighten;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </div>
 <p>这样，比旁边背景深的颜色（实际上就只有 Disqus 的背景部分）都会被替换成和旁边背景一样的颜色，整个评论部分完全融入到了旁边的背景之中。</p>
+<p>结果对比如下：</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="chrome_CEvXYOabby.png" alt="" /></div><div class="group-picture-column"><img data-src="chrome_clk4cHK16Y.png" alt="" /></div></div></div>
 <h2 id="3-Giscus"><a class="header-anchor" href="#3-Giscus"></a>3. Giscus</h2>
 <p>Giscus 自带的 <code>preferred_color_scheme</code> 主题支持自动切换 Github Light 和 Github Dark 两种主题，但是 Github Dark 主题的问题和上面 Disqus 类似，颜色和 NexT 的深色模式背景不搭。</p>
 <p>好在 Giscus 支持自定义主题，我把 Github Light 和 Noborder Dark 两个主题合并起来，得到一个新的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://wangjiezhe.com/css/giscus.css">主题文件</a>。</p>
 <p>然后配置 NexT：</p>
 <figure class="highlight yaml"><figcaption><span>_config.next.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">giscus:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">https://wangjiezhe.com/css/giscus.min.css</span></span><br></pre></td></tr></table></figure>
+<p>结果对比如下：</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="chrome_gE8ujpiWpr.png" alt="" /></div><div class="group-picture-column"><img data-src="chrome_j30VoY6c7v.png" alt="" /></div></div></div>
 <p>这里我还遇到了跨域（CORS）的问题。我是使用 caddy 托管网站，需要设置一下：</p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">wangjiezhe.com &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  @cors &#123;</span><br><span class="line">    path <span class="regexp">/css/</span>*</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  header @cors Access-Control-Allow-Origin <span class="string">&quot;*&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr />
@@ -817,7 +840,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">327k</span>
+    <span title="站点总字数">334k</span>
   </span>
 </div>
 <div class="busuanzi-count">

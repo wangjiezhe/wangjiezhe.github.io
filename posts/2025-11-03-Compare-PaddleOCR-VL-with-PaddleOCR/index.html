@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-round.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark-reasonable"},"prism":{"light":"prism","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="利用PaddleOCR-VL对小蓝本进行OCR，比PaddleOCR有明显进步。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于PaddleOCR-VL和PaddleOCR对数学类书籍识别的对比">
+<meta property="og:url" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="利用PaddleOCR-VL对小蓝本进行OCR，比PaddleOCR有明显进步。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_NiseNWPYDt.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_YB3Z6C9D0o.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_14vfkPO6Xf.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_81rPjTJz51.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_EddZvIOrAh.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_byNV2x6A61.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_EK35AnRxnJ.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_lls3NYl0UK.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_VSBSVhhtPh.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_f3ohQQXBM2.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_pG2Ljfl4Sy.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_Z1wUJyyP0t.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_S1ryFlYa2v.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_JJrEGS6dUR.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_9k0zGxB5qw.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_jyd77ddyTg.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_FXxMD89xnT.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_CB4iRZB2PJ.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_9V9XZ9yq18.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_3H6KvbHh1G.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_y77HL5mYw9.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_0GSk6awCsT.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_5Qql0d4cef.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_bet0fMS82O.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_yFQwSv37H6.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_7DMqPAGLOs.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_g1NZu8oRLz.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/SumatraPDF_tIm7AVzM2g.png">
+<meta property="article:published_time" content="2025-11-03T02:32:47.000Z">
+<meta property="article:modified_time" content="2025-11-04T07:15:08.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="OCR">
+<meta property="article:tag" content="PaddleOCR">
+<meta property="article:tag" content="PaddleOCR-VL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/Typora_NiseNWPYDt.png">
+
+
+<link rel="canonical" href="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/","path":"/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/","title":"关于PaddleOCR-VL和PaddleOCR对数学类书籍识别的对比"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>关于PaddleOCR-VL和PaddleOCR对数学类书籍识别的对比 | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48537410-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?a51d31f349bffa6e3757f7d6fca0c47f"></script>
+
+
+  <script data-pjax defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{&quot;token&quot;: &quot;4b43b380fa4e4d43a125ac710c29fb84&quot;}'></script>
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/comments.js" defer></script><script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@11.10.1/dist/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+  <script data-pjax async src="//bsz.wangjiezhe.com/js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-app-compat.js" integrity="sha256-d21UgtIcA6c6qwr8nWk6lxs/KrpbWhknQN7qBjWA2Kk=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-firestore-compat.js" integrity="sha256-leHatffkFuVGIg7ABaA5BDsqsEUtktL4tftb3OdQfg0=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyD0AfWHrmFoKgV1x4srPQDN7rGpGclK7J4","projectId":"visitors-of-blog"}</script>
+  <script src="/js/third-party/statistics/firestore.js" defer></script>
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="如鱼饮水" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">如鱼饮水</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">冷暖自知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-fcircle"><a href="/fcircle/" rel="section"><i class="fa fa-user-group fa-fw"></i>朋友圈</a></li><li class="menu-item menu-item-tools"><a href="/tools/" rel="section"><i class="fa fa-rocket fa-fw"></i>工具</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9D%8E%E5%9D%B7%E7%9A%84%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B"><span class="nav-text">1. 坎坷的使用过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%BB%93%E6%9E%9C%E5%AF%B9%E6%AF%94"><span class="nav-text">2. 结果对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E9%80%80%E5%8C%96"><span class="nav-text">2.1. 退化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E6%8E%92%E7%89%88"><span class="nav-text">2.2. 排版</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-%E8%BF%9B%E6%AD%A5"><span class="nav-text">2.2.1. 进步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-%E7%BC%BA%E7%82%B9"><span class="nav-text">2.2.2. 缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E5%9B%BE%E7%89%87"><span class="nav-text">2.3. 图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-%E8%BF%9B%E6%AD%A5"><span class="nav-text">2.3.1. 进步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-%E7%BC%BA%E7%82%B9"><span class="nav-text">2.3.2. 缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F"><span class="nav-text">2.4. 数学公式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-1-%E8%BF%9B%E6%AD%A5"><span class="nav-text">2.4.1. 进步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-2-%E7%BC%BA%E7%82%B9"><span class="nav-text">2.4.2. 缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%80%BB%E4%BD%93%E8%AF%84%E4%BB%B7"><span class="nav-text">3. 总体评价</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">136</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjiezhe" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangjiezhe@gmail.com" title="E-Mail → mailto:wangjiezhe@gmail.com" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://x.com/wangjiezhe" title="Twitter → https:&#x2F;&#x2F;x.com&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/wangjiezhe" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-telegram fa-fw"></i></a>
+      </span>
+  </div>
+<div id="time-now">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+  var digit=
+    [
+      [
+        [0,0,1,1,1,0,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,0,1,1,0],
+        [0,0,1,1,1,0,0]
+      ],//0
+      [
+        [0,0,0,1,1,0,0],
+        [0,1,1,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [1,1,1,1,1,1,1]
+      ],//1
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,1,1],
+        [1,1,1,1,1,1,1]
+      ],//2
+      [
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//3
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,0],
+        [0,0,1,1,1,1,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,1,1,0],
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,1]
+      ],//4
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,1,1,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//5
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//6
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0]
+      ],//7
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//8
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,1,1,0,0,0,0]
+      ],//9
+      [
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0]
+      ]//:
+    ];
+
+  var canvas = document.getElementById('canvas');
+
+  if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+      data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            cxt.beginPath();
+            cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+            cxt.closePath();
+            cxt.fill();
+          }
+        }
+      }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+      var changeNumArray = [];
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      var NewData = [];
+      NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+      for(var i = data.length-1; i >=0 ; i--){
+        //时间发生变化
+        if(NewData[i] !== data[i]){
+          //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+          changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+        }
+      }
+      //增加小球
+      for(var i = 0; i< changeNumArray.length; i++){
+        addBalls.apply(this,changeNumArray[i].split('_'));
+      }
+      data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+      for(var i = 0; i < balls.length; i++){
+        balls[i].stepY += balls[i].disY;
+        balls[i].x += balls[i].stepX;
+        balls[i].y += balls[i].stepY;
+        if(balls[i].x > W + R || balls[i].y > H + R){
+          balls.splice(i,1);
+          i--;
+        }
+      }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+      var numArray = [1,2,3];
+      var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            var ball = {
+              x:14*(R+2)*index + j*2*(R+1)+(R+1),
+              y:i*2*(R+1)+(R+1),
+              stepX:Math.floor(Math.random() * 4 -2),
+              stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+              color:colorArray[Math.floor(Math.random()*colorArray.length)],
+              disY:1
+            };
+            balls.push(ball);
+          }
+        }
+      }
+    }
+
+    /*渲染*/
+    function render(){
+      //重置画布宽度，达到清空画布的效果
+      canvas.height = 100;
+      //获取颜色，支持暗色模式
+      var clockColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
+      cxt.fillStyle = clockColor;
+      //渲染时钟
+      for(var i = 0; i < data.length; i++){
+        renderDigit(i,data[i]);
+      }
+      //渲染小球
+      for(var i = 0; i < balls.length; i++){
+        cxt.beginPath();
+        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+        cxt.fillStyle = balls[i].color;
+        cxt.closePath();
+        cxt.fill();
+      }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+      //更新时钟
+      updateDigitTime();
+      //更新小球状态
+      updateBalls();
+      //渲染
+      render();
+    },50);
+  }
+
+})();
+</script>
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2025-10-30-Compare-DeepSeekOCR-with-PaddleOCR/" rel="bookmark">
+        <time class="popular-posts-time">2025-10-30</time>
+        <br>
+      关于DeepSeek-OCR和PaddleOCR对数学类书籍识别的对比
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2025-11-02-Try-PaddleOCR-VL/" rel="bookmark">
+        <time class="popular-posts-time">2025-11-02</time>
+        <br>
+      尝试使用PaddleOCR-VL
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2025-11-04-Use-vLLM-to-Accelerate-PaddleOCR-VL/" rel="bookmark">
+        <time class="popular-posts-time">2025-11-04</time>
+        <br>
+      使用vLLM框架加速PaddleOCR-VL
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="西风冷香">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+      <meta itemprop="description" content="某不知名机构不知名数学老师">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="关于PaddleOCR-VL和PaddleOCR对数学类书籍识别的对比 | 如鱼饮水">
+      <meta itemprop="description" content="利用PaddleOCR-VL对小蓝本进行OCR，比PaddleOCR有明显进步。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于PaddleOCR-VL和PaddleOCR对数学类书籍识别的对比
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-11-03 10:32:47" itemprop="dateCreated datePublished" datetime="2025-11-03T10:32:47+08:00">2025-11-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-11-04 15:15:08" itemprop="dateModified" datetime="2025-11-04T15:15:08+08:00">2025-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">利用PaddleOCR-VL对小蓝本进行OCR，比PaddleOCR有明显进步。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><a href="/posts/2025-11-02-Try-PaddleOCR-VL/">之前</a>成功安装PaddleOCR-VL之后，就尝试使用再次对小蓝本进行OCR，这样就可以和之前的结果进行对比。</p>
+<p>其实上篇文章本来就想写这个的，结果写着写着发现最新版的PaddleOCR-VL支持Windows和Kaggle部署了，然后就跑题了。。。</p>
+<div class="note primary"><p>这里提一句，PaddleOCR-VL的文档有两个，分别在</p>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://www.paddleocr.ai/main/version3.x/logo.jpg"></object>
+<p>PaddleOCR文档</p><p>PaddleOCR-VL使用教程</p>
+<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.paddleocr.ai/latest/version3.x/pipeline_usage/PaddleOCR-VL.html"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://paddlepaddle.github.io/PaddleX/latest/assets/images/favicon.png"></object>
+<p>PaddleX文档</p><p>PaddleOCR-VL介绍</p>
+<a target="_blank" rel="noopener external nofollow noreferrer" href="https://paddlepaddle.github.io/PaddleX/latest/pipeline_usage/tutorials/ocr_pipelines/PaddleOCR-VL.html"></a>
+</div></div>
+<p>里面。</p>
+<p>目前PaddleOCR文档里面的内容更新得快一些。</p>
+</div>
+<h2 id="1-坎坷的使用过程"><a class="header-anchor" href="#1-坎坷的使用过程"></a>1. 坎坷的使用过程</h2>
+<p>使用PaddleOCR-VL的过程的非常坎坷。出现的问题在前文中已有叙述。开始是根本运行不了。后来升级了PaddleX之后，成功运行模型，但是又遇到了显存不足和程序卡死的问题。</p>
+<p>刚开始使用我就发现使用PaddleOCR-VL占用的显存甚至比DeepSeek-OCR还要多，和官方宣传的「小」模型完全不符。而且最大的问题是，随着推理的进行显存占用越来越多。</p>
+<div class="note info"><p>大致猜测一下原因，应该是由于笔记本默认把一半的内存列为共享显存，导致程序以为实际可以使用8+32=40G显存，所以就不着急释放占用的显存了。</p>
+<p>在Kaggle上运行的时候，显存也在一直增加，但是最终没有报错。</p>
+</div>
+<p>好在，最终是通过手动释放显存和修改显存分配策略解决了。</p>
+<p>确认可以正常运行之后，我想让它利用晚上睡觉的时间跑完OCR。看着识别第1本书运行正常就去睡觉了。然后早上起来发现就只有前两本书正常跑完了，跑到第3本书的时候程序就卡死了。后来我又多次复现了这个问题，但是始终没有找到原因。</p>
+<p>不过中间有一次我把下载的模型删掉之后重新下载，后来就没有再出现这个错误了。</p>
+<h2 id="2-结果对比"><a class="header-anchor" href="#2-结果对比"></a>2. 结果对比</h2>
+<p>在下面的对比中，如果没有特殊说明，默认左侧是PaddleOCR-VL的结果，右侧是PaddleOCR的结果。</p>
+<h3 id="2-1-退化"><a class="header-anchor" href="#2-1-退化"></a>2.1. 退化</h3>
+<p>相交于PaddleOCR，PaddleOCR-VL最大的进步在于此，终于没有再出现退化的情况了（可喜可贺）。</p>
+<h3 id="2-2-排版"><a class="header-anchor" href="#2-2-排版"></a>2.2. 排版</h3>
+<h4 id="2-2-1-进步"><a class="header-anchor" href="#2-2-1-进步"></a>2.2.1. 进步</h4>
+<p>应该说，PaddleOCR-VL的排版模型有了很大的进步，例如</p>
+<p><img data-src="Typora_NiseNWPYDt.png" alt="" /></p>
+<h4 id="2-2-2-缺点"><a class="header-anchor" href="#2-2-2-缺点"></a>2.2.2. 缺点</h4>
+<p>但也没有完全解决，例如</p>
+<p><img data-src="Typora_YB3Z6C9D0o.png" alt="" /></p>
+<p>查看生成的可视化图像，可以看到</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="SumatraPDF_14vfkPO6Xf.png" alt="" /></div><div class="group-picture-column"><img data-src="SumatraPDF_81rPjTJz51.png" alt="" /></div></div></div>
+<p>PaddleOCR-VL把每行里面居中的公式都视为了行间公式。这个本身到不要紧，但是最后把它们合并视为一个公式，这就造成了最终的排版错误。</p>
+<p>我尝试把产线配置里面 <code>layout_merge_bboxes_mode</code> 中 <code>display_formula</code>（有注释）对应的选项从 <code>large</code> 改为 <code>union</code>，这时可以看到</p>
+<p><img data-src="SumatraPDF_EddZvIOrAh.png" alt="" /></p>
+<p>模型其实最开始是识别到了每行的公式，然后又把它们组合了起来。</p>
+<p>如果改为 <code>small</code> 的话，倒是不组合到一起了，但是输出顺序还是有问题：</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="SumatraPDF_byNV2x6A61.png" alt="" /></div><div class="group-picture-column"><img data-src="SumatraPDF_EK35AnRxnJ.png" alt="" /></div></div></div>
+<p>而这是DeepSeek-OCR的识别结果：</p>
+<p><img data-src="SumatraPDF_lls3NYl0UK.png" alt="" /></p>
+<div class="note warning"><p>在修改的时候，一定<strong>不能</strong>把 <code>inline_formula</code> 对应的选项改成 <code>small</code>，否则会造成有含有行内公式的段落只保留公式，不识别文字：</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="SumatraPDF_VSBSVhhtPh.png" alt="" /></div><div class="group-picture-column"><img data-src="SumatraPDF_f3ohQQXBM2.png" alt="" /></div></div></div></div>
+<p>不过，又看了一下识别正确的情况：</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="SumatraPDF_pG2Ljfl4Sy.png" alt="" /></div><div class="group-picture-column"><img data-src="SumatraPDF_Z1wUJyyP0t.png" alt="" /></div></div></div>
+<p>没想明白它到底是如何区分行内公式和行间公式的。。。</p>
+<h3 id="2-3-图片"><a class="header-anchor" href="#2-3-图片"></a>2.3. 图片</h3>
+<h4 id="2-3-1-进步"><a class="header-anchor" href="#2-3-1-进步"></a>2.3.1. 进步</h4>
+<p>PaddleOCR-VL的图片识别有所进步，终于能够分割一行的多个图片了：</p>
+<p><img data-src="Typora_S1ryFlYa2v.png" alt="" /></p>
+<p>不过最终还是过度分割了。。。</p>
+<p>另外，PaddleOCR-VL也没有出现之前识别到图片里面的字母而没有正确识别出图片的情况：</p>
+<p><img data-src="Typora_JJrEGS6dUR.png" alt="" /></p>
+<p>PaddleOCR-VL对于图片标题的识别也有进步：</p>
+<p><img data-src="Typora_9k0zGxB5qw.png" alt="" /></p>
+<p>能够正确区分图片标题，不会把它和其它部分混到一起。</p>
+<h4 id="2-3-2-缺点"><a class="header-anchor" href="#2-3-2-缺点"></a>2.3.2. 缺点</h4>
+<p>不过，从上面个对比中也可以看到PaddleOCR-VL的问题。就是它命名已经识别到了图片和图片标题，但是却没有把它们放到一起。这就导致大部分图片和对应的标题都是分开的。这点比起PaddleOCR模型是大大的退步。</p>
+<p>看了一下版面阅读顺序识别的结果，里面没有指定图片和图片标题的顺序，有可能是这个原因造成的：</p>
+<p><img data-src="SumatraPDF_jyd77ddyTg.png" alt="" /></p>
+<h3 id="2-4-数学公式"><a class="header-anchor" href="#2-4-数学公式"></a>2.4. 数学公式</h3>
+<h4 id="2-4-1-进步"><a class="header-anchor" href="#2-4-1-进步"></a>2.4.1. 进步</h4>
+<p>PaddleOCR-VL相比之前的模型在数学公式方面的进步主要有一下几点：</p>
+<p>其一，就像之前说的，没有出现退化的情形。</p>
+<p>其二，PaddleOCR-VL在特殊符号的上的识别上要好的多，甚至比DeepSeek-OCR还要强。例如，</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_FXxMD89xnT.png" alt="" /></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_CB4iRZB2PJ.png" alt="" /></div></div></div>
+<p>PaddleOCR-VL在大部分情况下能够正确识别「相似」、「平行」和「垂直」的符号，不像之前PaddleOCR模型大部分都识别不出来。</p>
+<p>不过还是有识别错误的情况：</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_9V9XZ9yq18.png" alt="" /></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_3H6KvbHh1G.png" alt="" /></div></div></div>
+<p>其三，之前PaddleOCR经常出现一个愚蠢地错误，就是识别不出公式里面的「减号」：</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_y77HL5mYw9.png" alt="" /></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_0GSk6awCsT.png" alt="" /></div></div></div>
+<p>PaddleOCR-VL没有发现这个问题。</p>
+<p>其四，基本没有出现因为行内公式导致的整段文字漏掉的情况：</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_5Qql0d4cef.png" alt="" /></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_bet0fMS82O.png" alt="" /></div></div></div>
+<p>其五，PaddleOCR-VL对于文字和公式的分割要准确很多：</p>
+<p><img data-src="Typora_yFQwSv37H6.png" alt="" /></p>
+<p>虽然有时还是会犯错误。</p>
+<p>但是，对于简单的字母和公式，PaddleOCR-VL还是更倾向于不把它们识别成公式。这点倒是没有改。</p>
+<h4 id="2-4-2-缺点"><a class="header-anchor" href="#2-4-2-缺点"></a>2.4.2. 缺点</h4>
+<p>相交于之前，PaddleOCR-VL也带来了两个以前从没有出现的问题。</p>
+<p>一个是PaddleOCR-VL多次出现识别了公式但是没有把它放到正确环境里面的情况，如</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_7DMqPAGLOs.png" alt="" /></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_g1NZu8oRLz.png" alt="" /></div></div></div>
+<p>看了一下显示版面区域检测的结果，确实是识别出行内公式了：</p>
+<p><img data-src="SumatraPDF_tIm7AVzM2g.png" alt="" /></p>
+<p>看来是最终输出部分的问题。</p>
+<p>另一个是PaddleOCR的行间公式的输出比较混乱。</p>
+<p>同一个公式，例如下面的公式：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\sin(x)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">sin</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span></p>
+<p>DeepSeek-OCR转换为 <code>\[\sin&#123;x&#125;\]</code>，PaddleOCR转换为 <code>$$\sin&#123;x&#125;$$</code>，都没有问题。</p>
+<p>而到了PaddleOCR-VL，它则是一会儿转换为</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span> <span class="keyword">\sin</span>&#123;x&#125; <span class="built_in">$</span><span class="built_in">$</span> </span><br></pre></td></tr></table></figure>
+<p>（注意 <code>$$</code> 符号两边都有空格），一会儿转换为</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">$</span><span class="built_in">$</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">\sin</span>&#123;x&#125;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">$</span><span class="built_in">$</span> </span><br></pre></td></tr></table></figure>
+<p>（还是 <code>$$</code> 符号两边都有空格。）</p>
+<p>有时还会把行间公式和文字放到一行。</p>
+<p>这本身倒没什么问题，只是在做正则替换的时候要格外小心。</p>
+<div class="note warning"><p>看来PaddleOCR-VL和PaddleOCR对数学公式的训练用的是完全不同的样本？</p>
+</div>
+<h2 id="3-总体评价"><a class="header-anchor" href="#3-总体评价"></a>3. 总体评价</h2>
+<p>整体来看，PaddleOCR-VL相比PaddleOCR有明显的进步，但是仅对数学书籍的OCR识别来看，效果还是不如DeepSeek-OCR。</p>
+<p>问题不是出自文字识别或公式识别本身，而是出在排版算法上。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/" title="关于PaddleOCR-VL和PaddleOCR对数学类书籍识别的对比">https://wangjiezhe.github.io/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+              <a href="/tags/OCR/" rel="tag"><i class="fa fa-tag"></i> OCR</a>
+              <a href="/tags/PaddleOCR/" rel="tag"><i class="fa fa-tag"></i> PaddleOCR</a>
+              <a href="/tags/PaddleOCR-VL/" rel="tag"><i class="fa fa-tag"></i> PaddleOCR-VL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2025-11-02-Try-PaddleOCR-VL/" rel="prev" title="尝试使用PaddleOCR-VL">
+                  <i class="fa fa-angle-left"></i> 尝试使用PaddleOCR-VL
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2025-11-04-Use-vLLM-to-Accelerate-PaddleOCR-VL/" rel="next" title="使用vLLM框架加速PaddleOCR-VL">
+                  使用vLLM框架加速PaddleOCR-VL <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-disqusjs">Disqus</a></li>
+            <li class="tab"><a href="#comment-giscus">GitHub</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
+              
+  <div class="comments disqusjs-container">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+            </div>
+            <div class="tab-pane giscus" id="comment-giscus">
+              
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+            </div>
+        </div>
+      </div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener external nofollow noreferrer" target="_blank">冀ICP备2024063721号-1 </a>
+      <img src="/images/gongan.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=13090202000716" rel="noopener external nofollow noreferrer" target="_blank">冀公网安备13090202000716号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">西风冷香</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">334k</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener external nofollow noreferrer" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="blog-links">
+    <span class="post-meta-item moe">
+      <span>
+        <img src="/images/icp-moe.png" style="width:auto;height:16px;" alt="">
+      </span>
+      <span><a href="https://icp.gov.moe/?keyword=20248191" rel="noopener external nofollow noreferrer" target="_blank">萌ICP备20248191号</a>
+      </span>
+    </span>
+    <span class="post-meta-item travel-moe">
+      <span><a href="https://travel.moe/go.html?travel=on" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/travel-moe.png" style="width:auto;height:18px" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！"> 异次元之旅🚀</a>
+      </span>
+    </span>
+    <span class="post-meta-item foreverblog"><a href="https://www.foreverblog.cn/blog/2092.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/foreverblog.png" style="width:auto;height:16px;" alt="Forever Blog"></a>
+    </span>
+    <span class="post-meta-item wormhole"><a href="https://www.foreverblog.cn/go.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/wormhole.gif" style="width:auto;height:24px;" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+    </span>
+    <span class="post-meta-item travelling"><a href="https://www.travellings.cn/go.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/travelling.png" alt="开往-友链接力" height="18"></a>
+    </span>
+  
+</div>
+
+<script>
+function checkWebp(callback) {
+  var img = new Image();
+  img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+  img.onerror = function () { callback(false); };
+  img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+  var imgs = [].slice.call(document.querySelectorAll('img'));
+  imgs.forEach(function (e) {
+    if ((useWebp) && !e.classList.contains('nowebp')) {
+      var src = e.getAttribute('data-src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('data-src', src);
+      }
+      src = e.getAttribute('src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('src', src);
+      }
+    }
+  });
+}
+</script>
+<script data-pjax async>
+checkWebp(showImage);
+</script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"wangjiezhe/wangjiezhe.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxNTc4OTE0Ng==","category":"Announcements","category_id":"DIC_kwDOAPDsWs4Cdwtf","mapping":"og:title","strict":1,"reactions_enabled":1,"emit_metadata":1,"theme":"https://wangjiezhe.com/css/giscus.min.css","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/styles/disqusjs.css" integrity="sha256-E4RzceSomICFY1PT/yDQrN8DsLSwdScDEiQAevHabp0=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqusjs.wangjiezhe.com/","apikey":"ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F","shortname":"wangjiezhe","js":{"url":"https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/disqusjs.es2015.umd.min.js","integrity":"sha256-gdbBT62HLzqWTnXQED3WQL/ItFCuWsA5gd6dM/wgdiE="}}</script>
+<script src="/js/third-party/comments/disqusjs.js" defer></script>
+
+
+
+  <script async src="/js/cursor/fireworks.min.js" integrity="sha256-NVjeK0/Qni9W+mCWpzpw6IZTieyhLZJ5Kj4hdFjqSQc=" crossorigin="anonymous"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@wangjiezhe/live2d-widget@^3.1.7/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false},"log":false});</script></body>
+</html>

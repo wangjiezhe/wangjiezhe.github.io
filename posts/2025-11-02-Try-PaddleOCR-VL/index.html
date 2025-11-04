@@ -35,8 +35,8 @@
 <meta property="article:modified_time" content="2025-11-02T03:53:55.000Z">
 <meta property="article:author" content="西风冷香">
 <meta property="article:tag" content="AI">
+<meta property="article:tag" content="Kaggle">
 <meta property="article:tag" content="OCR">
-<meta property="article:tag" content="Paddle">
 <meta property="article:tag" content="PaddleOCR-VL">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/WindowsTerminal_0z74Y2visD.png">
@@ -212,7 +212,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -223,7 +223,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-count">136</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -546,6 +546,23 @@
 
     
         <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/" rel="bookmark">
+        <time class="popular-posts-time">2025-11-03</time>
+        <br>
+      关于PaddleOCR-VL和PaddleOCR对数学类书籍识别的对比
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
         </div>
   </aside>
 
@@ -618,7 +635,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>7.1k</span>
+      <span>7.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -671,7 +688,10 @@
 </div>
 <h3 id="1-3-在Kaggle上部署"><a class="header-anchor" href="#1-3-在Kaggle上部署"></a>1.3. 在Kaggle上部署</h3>
 <p>如果要在Kaggle上部署的话，GPU<strong>务必</strong>选择 <code>GPU T4 x2</code>，<strong>不要</strong>选择 <code>GPU P100</code>。</p>
-<p>如果要使用双卡进行推理的话，直接指定 <code>device=&quot;gpu:0,1&quot;</code> 是不行的，需要使用<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.paddleocr.ai/latest/version3.x/pipeline_usage/instructions/parallel_inference.html#_3">多进程并行推理</a>：</p>
+<p>安装过程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">! pip install paddlepaddle-gpu==<span class="number">3.2</span><span class="number">.0</span> -i https://www.paddlepaddle.org.cn/packages/stable/cu126/</span><br><span class="line">! pip install -U <span class="string">&quot;paddleocr[all]&quot;</span></span><br><span class="line">! pip install https://paddle-whl.bj.bcebos.com/nightly/cu126/safetensors/safetensors-<span class="number">0.6</span><span class="number">.2</span>.dev0-cp38-abi3-linux_x86_64.whl</span><br><span class="line">! pip install img2pdf</span><br></pre></td></tr></table></figure>
+<p>然后就可以使用了。</p>
+<p>需要注意的是，如果要使用双卡进行推理的话，直接指定 <code>device=&quot;gpu:0,1&quot;</code> 是不行的，需要使用<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.paddleocr.ai/latest/version3.x/pipeline_usage/instructions/parallel_inference.html#_3">多进程并行推理</a>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Manager, Process</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Empty</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">worker</span>(<span class="params">device, task_queue, output_dir</span>):</span><br><span class="line">    pipeline = PaddleOCRVL(</span><br><span class="line">        use_doc_orientation_classify=<span class="literal">False</span>,</span><br><span class="line">        use_doc_unwarping=<span class="literal">False</span>,</span><br><span class="line">        use_chart_recognition=<span class="literal">False</span>,</span><br><span class="line">        device=device,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            input_path = task_queue.get_nowait()</span><br><span class="line">        <span class="keyword">except</span> Empty:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            output_path = process_pdf_file(input_path, pipeline, output_dir)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;✅ Processed <span class="subst">&#123;<span class="built_in">repr</span>(<span class="built_in">str</span>(input_path))&#125;</span>! Markdown file saved to: <span class="subst">&#123;output_path&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;Error processing <span class="subst">&#123;input_path&#125;</span> on <span class="subst">&#123;<span class="built_in">repr</span>(device)&#125;</span>: <span class="subst">&#123;e&#125;</span>&quot;</span>, file=sys.stderr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> Manager() <span class="keyword">as</span> manager:</span><br><span class="line">    task_queue = manager.Queue()</span><br><span class="line">    <span class="keyword">for</span> pdf_file <span class="keyword">in</span> input_dir.glob(<span class="string">&quot;*.pdf&quot;</span>):</span><br><span class="line">        task_queue.put(pdf_file)</span><br><span class="line"></span><br><span class="line">    processes = []</span><br><span class="line">    <span class="keyword">for</span> device <span class="keyword">in</span> [<span class="string">&quot;gpu:0&quot;</span>, <span class="string">&quot;gpu:1&quot;</span>]:</span><br><span class="line">        p = Process(</span><br><span class="line">            target=worker,</span><br><span class="line">            args=(device, task_queue, output_dir)</span><br><span class="line">        )</span><br><span class="line">        p.start()</span><br><span class="line">        processes.append(p)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> processes:</span><br><span class="line">        p.join()</span><br></pre></td></tr></table></figure>
 <div class="note danger"><p>最后再吐槽一下，在Kaggle上部署PaddleOCR-VL的最大障碍其实是paddlepaddle的下载速度。安装一次paddlepaddle经常就得花半小时，有时甚至下载速度甚至会降到几百K，都快赶上百度网盘了。</p>
 </div>
@@ -829,7 +849,7 @@
           <div class="post-tags">
               <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
               <a href="/tags/OCR/" rel="tag"><i class="fa fa-tag"></i> OCR</a>
-              <a href="/tags/Paddle/" rel="tag"><i class="fa fa-tag"></i> Paddle</a>
+              <a href="/tags/Kaggle/" rel="tag"><i class="fa fa-tag"></i> Kaggle</a>
               <a href="/tags/PaddleOCR-VL/" rel="tag"><i class="fa fa-tag"></i> PaddleOCR-VL</a>
           </div>
 
@@ -842,6 +862,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/2025-11-03-Compare-PaddleOCR-VL-with-PaddleOCR/" rel="next" title="关于PaddleOCR-VL和PaddleOCR对数学类书籍识别的对比">
+                  关于PaddleOCR-VL和PaddleOCR对数学类书籍识别的对比 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -898,7 +921,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">327k</span>
+    <span title="站点总字数">334k</span>
   </span>
 </div>
 <div class="busuanzi-count">
