@@ -1434,7 +1434,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #8eaaff;
+    background: #e24d6e;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3447,6 +3447,9 @@ ul.category-list > li {
   }
   .exturl {
     color: #2ea9df;
+  }
+  ol.footnotes-list > li.footnote-item::marker {
+    color: #58b2dc;
   }
 }
 .post-body .label.success {

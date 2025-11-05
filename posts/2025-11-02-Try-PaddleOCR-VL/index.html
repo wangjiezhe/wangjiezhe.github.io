@@ -212,7 +212,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -223,7 +223,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">136</span>
+        <span class="site-state-item-count">139</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -635,14 +635,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>7.3k</span>
+      <span>7.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>18 分钟</span>
+      <span>19 分钟</span>
     </span>
 </div>
 
@@ -769,6 +769,13 @@
 <p>双管齐下，PaddleOCR-VL在推理PDF时占用的显存大概在5G左右，只是偶尔会波动一下需要借用内存：</p>
 <p><img data-src="WindowsTerminal_4uvbqz2pYC.png" alt="WindowsTerminal_4uvbqz2pYC" /></p>
 <p>但是很快就回落了。这样对性能影响不大，还可以接受。</p>
+<div class="note primary"><p>根据<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/PaddlePaddle/PaddleOCR/discussions/16822">官方</a>的说明：</p>
+<blockquote>
+<p>推理过程中有时出现 OOM 问题<br />
+默认的 PaddlePaddle 动态图推理方式显存占用波动较大，处理复杂图像时峰值显存使用量可能较高。如需获得更稳定的显存占用表现，建议使用 vLLM、SGLang 等专用推理加速框架进行部署。</p>
+</blockquote>
+<p>实际表现确实如此。使用vLLM框架部署之后就没有再遇到显存的问题。</p>
+</div>
 <h3 id="3-2-程序卡死"><a class="header-anchor" href="#3-2-程序卡死"></a>3.2. 程序卡死</h3>
 <p>在使用PaddleOCR-VL的时候，好几次遇到程序卡死的情况：</p>
 <p><img data-src="WindowsTerminal_8h0xtk4fB9.png" alt="WindowsTerminal_8h0xtk4fB9" /></p>
@@ -921,7 +928,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">337k</span>
   </span>
 </div>
 <div class="busuanzi-count">

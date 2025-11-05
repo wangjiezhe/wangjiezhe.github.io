@@ -193,7 +193,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85vLLM%E6%8E%A8%E7%90%86%E6%A1%86%E6%9E%B6"><span class="nav-text">1. 安装vLLM推理框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%B0%83%E7%94%A8vLLM%E6%8E%A8%E7%90%86%E6%9C%8D%E5%8A%A1"><span class="nav-text">2. 调用vLLM推理服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94"><span class="nav-text">3. 速度对比</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85vLLM%E6%8E%A8%E7%90%86%E6%A1%86%E6%9E%B6"><span class="nav-text">1. 安装vLLM推理框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%B0%83%E7%94%A8vLLM%E6%8E%A8%E7%90%86%E6%9C%8D%E5%8A%A1"><span class="nav-text">2. 调用vLLM推理服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94"><span class="nav-text">3. 速度对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%9C%A8Kaggle%E4%B8%8A%E9%83%A8%E7%BD%B2"><span class="nav-text">4. 在Kaggle上部署</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -208,7 +208,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -219,7 +219,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">136</span>
+        <span class="site-state-item-count">139</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -638,14 +638,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.4k</span>
+      <span>4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>9 分钟</span>
+      <span>10 分钟</span>
     </span>
 </div>
 
@@ -656,7 +656,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p><a href="/posts/2025-11-02-Try-PaddleOCR-VL/">之前</a>直接使用pipeline模式进行PaddleOCR-VL的推理，优点是安装相对简单，但缺点是速度太慢了，推理速度只有之前PaddleOCR的40%，已经比DeepSeek-OCR快不了多少了。这个速度识别几本书还行，多了的话速度根本不够。</p>
+    <div class="post-body" itemprop="articleBody"><p><a href="/posts/2025-11-02-Try-PaddleOCR-VL/">之前</a>直接使用PaddlePaddle进行PaddleOCR-VL的推理，优点是安装相对简单，但缺点是速度太慢了，推理速度只有之前PaddleOCR的40%，这已经比DeepSeek-OCR快不了多少了。这个速度识别几本书还行，多了的话速度根本不够。</p>
 <p>造成速度慢的主要原因是PaddleOCR-VL模型在不使用推理框架的时候，只支持使用 <code>batch_size=1</code> 进行推理，因此GPU根本跑不起来。</p>
 <p>PaddleOCR-VL是支持使用vLLM框架进行加速的。之前没有使用，主要是在安装的时候发现需要装特定版本的 <code>flash-attn</code>，于是就放弃了。</p>
 <div class="note info"><p>编译安装 <code>flash-attn</code> 需要的内存极其恐怖。如果不做任何配置的话，编译过程中 <code>ninja</code> 会自动根据CPU内核数量开启并行编译，而 <code>flash-attn</code> 在使用nvcc编译的时候又默认开启 <code>sm_80</code>、<code>sm_90</code>、<code>sm_100</code>、<code>sm_120</code> 四个编译目标，因此在我的电脑上，实际会同时运行 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>32</mn><mo>×</mo><mn>4</mn><mo>=</mo><mn>128</mn></mrow><annotation encoding="application/x-tex">32\times 4=128</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">128</span></span></span></span> 个进程进行编译。</p>
@@ -667,13 +667,13 @@
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># qlop -cmv sci-ml/caffe2-2.9.0 sci-ml/flash-attention-2.8.3 sys-devel/gcc-14.3.0 llvm-core/llvm-21.1.4 llvm-core/clang-21.1.4 dev-lang/rust-1.91.0</span></span><br><span class="line"><span class="attribute">dev</span>-lang/rust-<span class="number">1</span>.<span class="number">91</span>.<span class="number">0</span>: <span class="number">21</span>′<span class="number">57</span>″ average for <span class="number">1</span> merge</span><br><span class="line"><span class="attribute">llvm</span>-core/clang-<span class="number">21</span>.<span class="number">1</span>.<span class="number">4</span>: <span class="number">21</span>′<span class="number">49</span>″ average for <span class="number">1</span> merge</span><br><span class="line"><span class="attribute">llvm</span>-core/llvm-<span class="number">21</span>.<span class="number">1</span>.<span class="number">4</span>: <span class="number">28</span>′<span class="number">42</span>″ average for <span class="number">1</span> merge</span><br><span class="line"><span class="attribute">sci</span>-ml/caffe2-<span class="number">2</span>.<span class="number">9</span>.<span class="number">0</span>: <span class="number">24</span>′<span class="number">25</span>″ average for <span class="number">1</span> merge</span><br><span class="line"><span class="attribute">sci</span>-ml/flash-attention-<span class="number">2</span>.<span class="number">8</span>.<span class="number">3</span>: <span class="number">1</span>:<span class="number">11</span>:<span class="number">42</span> average for <span class="number">1</span> merge</span><br><span class="line"><span class="attribute">sys</span>-devel/gcc-<span class="number">14</span>.<span class="number">3</span>.<span class="number">0</span>: <span class="number">22</span>′<span class="number">30</span>″ average for <span class="number">1</span> merge</span><br><span class="line"><span class="attribute">total</span>: <span class="number">3</span>:<span class="number">11</span>:<span class="number">05</span> for <span class="number">6</span> merges</span><br></pre></td></tr></table></figure>
 <p>可能也就只有之前编译TensorFlow的时间比它长了。</p>
 </div>
-<p>好在，后来找到了预编译包的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/mjun0812/flash-attention-prebuild-wheels">仓库</a>，里面有各个版本的编译好的包可以直接使用，因此就可以配置vLLM了。</p>
+<p>好在，最新的文档给出了 <code>flash-attn</code> 的预编译包的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/mjun0812/flash-attention-prebuild-wheels">仓库</a>，里面有各个版本的编译好的包可以直接使用，因此就可以配置vLLM了。</p>
 <h2 id="1-安装vLLM推理框架"><a class="header-anchor" href="#1-安装vLLM推理框架"></a>1. 安装vLLM推理框架</h2>
 <p>按照官方提示，</p>
 <blockquote>
 <p>由于推理加速框架可能与飞桨框架存在依赖冲突，建议在虚拟环境中安装。</p>
 </blockquote>
-<p>我看了一下，主要是PaddlePaddle和vLLM依赖的PyTorch对于一系列nvidia包的不同（<code>paddlepaddle-gpu==3.2.0</code> 依赖<strong>12.9</strong>版本的CUDA，而 <code>vllm==0.10.2</code> 依赖 <code>pytorch==2.8.0</code> 及<strong>12.8</strong>版本的CUDA）。</p>
+<p>我看了一下，主要是PaddlePaddle和vLLM依赖的PyTorch对于一系列nvidia包的不同（<code>paddlepaddle-gpu==3.2.0</code> 依赖12.9版本的CUDA，而 <code>vllm==0.10.2</code> 依赖 <code>pytorch==2.8.0</code> 及12.8版本的CUDA）。</p>
 <p>所以新建一个虚拟环境，并安装vLLM推理框架：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">uv venv --seed -p python3.12 .venv_vllm</span><br><span class="line">VIRTUAL_ENV=.venv_vllm uv pip install <span class="string">&quot;paddleocr[doc-parser]&quot;</span></span><br><span class="line">VIRTUAL_ENV=.venv_vllm uv pip install https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.3.14/flash_attn-2.8.2%2Bcu129torch2.8-cp312-cp312-linux_x86_64.whl</span><br><span class="line">VIRTUAL_ENV=.venv_vllm uv run paddleocr install_genai_server_deps vllm</span><br></pre></td></tr></table></figure>
 <div class="note danger"><p>注意：</p>
@@ -682,27 +682,32 @@
 <li>要根据Python版本、Pytorch版本（目前版本的vLLM依赖的是2.8）来选择对应的 <code>flash-attn</code> 包。具体的链接在上面仓库的主页可以找到。</li>
 </ul>
 </div>
+<div class="note success"><p>可选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">VIRTUAL_ENV=.venv_vllm uv pip install flashinfer-python flashinfer-cubin</span><br><span class="line">VIRTUAL_ENV=.venv_vllm uv pip install flashinfer-jit-cache --default-index https://flashinfer.ai/whl/cu129</span><br></pre></td></tr></table></figure>
+<p>貌似有一点点速度提升？</p>
+</div>
 <p>然后就可以启动vLLM服务了：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VIRTUAL_ENV=.venv_vllm uv run paddleocr genai_server --model_name PaddleOCR-VL-0.9B --backend vllm --port 8118 --backend_config &lt;(<span class="built_in">echo</span> -e <span class="string">&#x27;gpu-memory-utilization: 0.8\nmax-model-len: 8192&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">VIRTUAL_ENV=.venv_vllm uv run paddleocr genai_server \</span><br><span class="line">  --model_name PaddleOCR-VL-0.9B \</span><br><span class="line">  --backend vllm \</span><br><span class="line">  --port 8118 \</span><br><span class="line">  --backend_config &lt;(<span class="built_in">echo</span> -e <span class="string">&#x27;gpu-memory-utilization: 0.8\nmax-model-len: 8192&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <div class="note primary"><p>这里<strong>务必</strong>要根据自己的显卡对vLLM服务参数进行调整。作为参考，我的显卡是RTX4060，显存大小是8G。</p>
 <p>从PaddleX的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/PaddlePaddle/PaddleX/blob/802629c2f7efd500d782139943714974edfa92b9/paddlex/inference/genai/configs/paddleocr_vl_09b.py#L24">配置文件</a>可以看到，默认传给vLLM的参数为：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">trust-remote-code:</span> <span class="literal">True</span></span><br><span class="line"><span class="attr">gpu-memory-utilization:</span> <span class="number">0.5</span></span><br><span class="line"><span class="attr">max-model-len:</span> <span class="number">16384</span></span><br><span class="line"><span class="string">max-num-batched-tokes&quot;:</span> <span class="number">131072</span></span><br><span class="line"><span class="attr">api-server-count:</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">trust-remote-code:</span> <span class="literal">True</span></span><br><span class="line"><span class="attr">gpu-memory-utilization:</span> <span class="number">0.5</span></span><br><span class="line"><span class="attr">max-model-len:</span> <span class="number">16384</span></span><br><span class="line"><span class="attr">max-num-batched-tokes:</span> <span class="number">131072</span></span><br><span class="line"><span class="attr">api-server-count:</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
 <p>其中必须调整的参数：</p>
 <p><code>gpu_memory_utilization</code> 是vLLM可以占用的显存比例，如果是默认的0.5即50%，由于我的笔记本电脑显存只有8G，使用一半的话就只有4G了，这是肯定不够的，因此就直接报错了。</p>
 <p>根据之前的经验，在使用PaddlePaddle进行推理的时候就需要5~6G的显存。因此我给vLLM分配了80%的显存，这样就足够了。</p>
 <p>另外，在开启独显直连的情况下，即使不进行什么复杂任务，显存也要用掉0.8~1.2G。计算可用显存的时候要把这部分刨去。</p>
 <p><code>max_model_len</code> 是模型的上下文长度。默认值对我来说太大了，直接就报错说显存不够。</p>
-<p>在没有运行大量其它占用显存的程序的时候，把 <code>max_model_len</code> 设为 <code>8192</code> 是可以运行的。但我也遇到过一次启动报错的情况，因此可以把它再调小一些。</p>
+<p>在没有运行其它占用显存的程序的时候，把 <code>max_model_len</code> 设为 <code>8192</code> 是可以运行的。但我也遇到过一次启动报错的情况，因此可以把它再调小一些。</p>
 <p>不过，这个值也不能太小了，至少是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4096</mn><mo>+</mo><mn>14</mn><mo>=</mo><mn>4110</mn></mrow><annotation encoding="application/x-tex">4096+14=4110</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">4096</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">14</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4110</span></span></span></span>。因为输入要用掉14个tokens，默认的最大输出是4096个tokens，因此至少要不小于这两个加起来的数量，否则推理的时候就会报错。</p>
-</div>
+<div class="note success"><p>实测在我的电脑上最低可用的配置为</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">gpu-memory-utilization:</span> <span class="number">0.79</span></span><br><span class="line"><span class="attr">max-model-len:</span> <span class="number">4110</span></span><br></pre></td></tr></table></figure></div></div>
 <p>当屏幕出现 <code>&quot;GET /health HTTP/1.1&quot; 200 OK</code> 的字样时就说明vLLM服务启动成功了。</p>
 <div class="note warning"><p>在vLLM服务的启动过程中，占用的显存会超过8G，如图</p>
 <p><img data-src="k4H6LEdvpT.png" alt="" /></p>
-<p>不过很快就回落了，最终在推理的时候不需要借用内存，因此不会影响推理速度。</p>
+<p>不过很快就回落了，最终在推理的时候也不需要借用内存，因此不会影响推理速度。</p>
 </div>
 <h2 id="2-调用vLLM推理服务"><a class="header-anchor" href="#2-调用vLLM推理服务"></a>2. 调用vLLM推理服务</h2>
 <p>在另一个终端可以直接使用命令行进行调用：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run paddleocr doc_parser --input ./input/test.pdf --save_path output --vl_rec_backend vllm-server --vl_rec_server_url http://localhost:8118/v1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uv run paddleocr doc_parser \</span><br><span class="line">  --input input/test.pdf \</span><br><span class="line">  --save_path output \</span><br><span class="line">  --vl_rec_backend vllm-server \</span><br><span class="line">  --vl_rec_server_url http://localhost:8118/v1</span><br></pre></td></tr></table></figure>
 <p>也可以使用Python进行调用：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pipeline = PaddleOCRVL(</span><br><span class="line">    use_doc_orientation_classify=<span class="literal">False</span>,</span><br><span class="line">    use_doc_unwarping=<span class="literal">False</span>,</span><br><span class="line">    use_chart_recognition=<span class="literal">False</span>,</span><br><span class="line">    vl_rec_backend=<span class="string">&quot;vllm-server&quot;</span>,</span><br><span class="line">    vl_rec_server_url=<span class="string">&quot;http://localhost:8118/v1&quot;</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>后续的使用方法就和<a href="/posts/2025-11-02-Try-PaddleOCR-VL/">之前</a>一样了。</p>
@@ -710,6 +715,25 @@
 <p>使用vLLM会带来巨大（<strong>超过20倍</strong>）的速度提升。在我的电脑上，跑完8本小蓝本，只需要27分41秒（均衡模式）。在推理过程中，显卡基本保持在80W的功率。</p>
 <p>作为对比，在Kaggle上使用 <code>GPU T4x2</code>，并开启双卡双进程编译，需要5小时40分。</p>
 <p>之前在本地运行的时候没有总计时，但是基本每本书都需要1小时以上的时间，其中最厚的《三角形与四边形》甚至需要将近两个小时。</p>
+<h2 id="4-在Kaggle上部署"><a class="header-anchor" href="#4-在Kaggle上部署"></a>4. 在Kaggle上部署</h2>
+<p>在Kaggle上部署的方法和在本地部署是一致的，显卡选择 <code>GPU T4x2</code>，只是需要调整一下 <code>flash-attn</code> 预编译包的版本。</p>
+<p>不过，参考<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.paddleocr.ai/latest/version3.x/pipeline_usage/PaddleOCR-VL.html#paddleocr-vl_1">官方文档</a>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">推理方式</th>
+<th style="text-align:center">支持的 GPU Compute Capability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">vLLM</td>
+<td style="text-align:center">≥ 8 （RTX 3060，RTX 5070，A10，A100, ...）<br/>7 ≤ GPU Compute Capability &lt; 8 （T4，V100，...）支持运行，<br/>但可能出现请求超时、OOM 等异常情况，不推荐使用</td>
+</tr>
+</tbody>
+</table>
+<p>实测也确实如此。在Kaggle上部署之后，简单调用识别个图片还是没问题的，一旦涉及到多页PDF就经常报错。</p>
+<p>而且此时在Kaggle上的推理速度还不到本地（RTX4060 8G）的一半，因此完全没有使用的必要了。</p>
 
     </div>
 
@@ -780,6 +804,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/2025-11-05-LuaLaTeX-xkanjiskip/" rel="next" title="在使用LuaLaTeX时控制中英文字符的间距">
+                  在使用LuaLaTeX时控制中英文字符的间距 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -836,7 +863,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">337k</span>
   </span>
 </div>
 <div class="busuanzi-count">

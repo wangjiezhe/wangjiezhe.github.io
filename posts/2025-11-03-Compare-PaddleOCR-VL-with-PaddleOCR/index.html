@@ -235,7 +235,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -246,7 +246,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">136</span>
+        <span class="site-state-item-count">139</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -596,6 +596,13 @@
       使用vLLM框架加速PaddleOCR-VL
       </a>
     </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2025-11-05-LuaLaTeX-xkanjiskip/" rel="bookmark">
+        <time class="popular-posts-time">2025-11-05</time>
+        <br>
+      在使用LuaLaTeX时控制中英文字符的间距
+      </a>
+    </li>
   </ul>
 
           </div>
@@ -722,7 +729,7 @@
 <p>确认可以正常运行之后，我想让它利用晚上睡觉的时间跑完OCR。看着识别第1本书运行正常就去睡觉了。然后早上起来发现就只有前两本书正常跑完了，跑到第3本书的时候程序就卡死了。后来我又多次复现了这个问题，但是始终没有找到原因。</p>
 <p>不过中间有一次我把下载的模型删掉之后重新下载，后来就没有再出现这个错误了。</p>
 <h2 id="2-结果对比"><a class="header-anchor" href="#2-结果对比"></a>2. 结果对比</h2>
-<p>在下面的对比中，如果没有特殊说明，默认左侧是PaddleOCR-VL的结果，右侧是PaddleOCR的结果。</p>
+<p>在下面的对比中，如果没有特殊说明，默认左侧是PaddleOCR-VL的结果，右侧是PaddleOCR（PP-StructureV3）的结果。</p>
 <h3 id="2-1-退化"><a class="header-anchor" href="#2-1-退化"></a>2.1. 退化</h3>
 <p>相交于PaddleOCR，PaddleOCR-VL最大的进步在于此，终于没有再出现退化的情况了（可喜可贺）。</p>
 <h3 id="2-2-排版"><a class="header-anchor" href="#2-2-排版"></a>2.2. 排版</h3>
@@ -730,7 +737,7 @@
 <p>应该说，PaddleOCR-VL的排版模型有了很大的进步，例如</p>
 <p><img data-src="Typora_NiseNWPYDt.png" alt="" /></p>
 <h4 id="2-2-2-缺点"><a class="header-anchor" href="#2-2-2-缺点"></a>2.2.2. 缺点</h4>
-<p>但也没有完全解决，例如</p>
+<p>但问题也没有完全解决，例如</p>
 <p><img data-src="Typora_YB3Z6C9D0o.png" alt="" /></p>
 <p>查看生成的可视化图像，可以看到</p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="SumatraPDF_14vfkPO6Xf.png" alt="" /></div><div class="group-picture-column"><img data-src="SumatraPDF_81rPjTJz51.png" alt="" /></div></div></div>
@@ -758,8 +765,8 @@
 <p><img data-src="Typora_9k0zGxB5qw.png" alt="" /></p>
 <p>能够正确区分图片标题，不会把它和其它部分混到一起。</p>
 <h4 id="2-3-2-缺点"><a class="header-anchor" href="#2-3-2-缺点"></a>2.3.2. 缺点</h4>
-<p>不过，从上面个对比中也可以看到PaddleOCR-VL的问题。就是它命名已经识别到了图片和图片标题，但是却没有把它们放到一起。这就导致大部分图片和对应的标题都是分开的。这点比起PaddleOCR模型是大大的退步。</p>
-<p>看了一下版面阅读顺序识别的结果，里面没有指定图片和图片标题的顺序，有可能是这个原因造成的：</p>
+<p>不过，从上面个对比中也可以看到PaddleOCR-VL的问题。就是它明明已经识别到了图片和图片标题，但是却没有把它们放到一起。这就导致大部分图片和对应的标题都是分开的。这点比起PaddleOCR模型是大大的退步。</p>
+<p>看了一下版面阅读顺序识别的结果，里面没有指定图片和图片标题的输出顺序，有可能是这个原因造成的：</p>
 <p><img data-src="SumatraPDF_jyd77ddyTg.png" alt="" /></p>
 <h3 id="2-4-数学公式"><a class="header-anchor" href="#2-4-数学公式"></a>2.4. 数学公式</h3>
 <h4 id="2-4-1-进步"><a class="header-anchor" href="#2-4-1-进步"></a>2.4.1. 进步</h4>
@@ -802,7 +809,7 @@
 </div>
 <h2 id="3-总体评价"><a class="header-anchor" href="#3-总体评价"></a>3. 总体评价</h2>
 <p>整体来看，PaddleOCR-VL相比PaddleOCR有明显的进步，但是仅对数学书籍的OCR识别来看，效果还是不如DeepSeek-OCR。</p>
-<p>问题不是出自文字识别或公式识别本身，而是出在排版算法上。</p>
+<p>问题不是出自文字识别或公式识别本身（这方面PaddleOCR-VL实际上更强一些），而是出在排版算法上。</p>
 
     </div>
 
@@ -932,7 +939,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">337k</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -206,7 +206,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -217,7 +217,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">136</span>
+        <span class="site-state-item-count">139</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -636,7 +636,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>747</span>
+      <span>867</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -657,9 +657,9 @@
     <div class="post-body" itemprop="articleBody"><p>在之前的几何相关的文章中，我把图片格式从 png/webp 切换到了 svg，这样得到的图片更清晰，而且还可以无损缩放，但图片大小反而更小。</p>
 <p>具体的工作流程如下：</p>
 <pre><code class="highlight mermaid">graph LR
-A(TikZ) --&gt; |lualatex| B([PDF])
-B --&gt; |pdftoppm| E([PNG]) --&gt; |cwebp| F(WebP)
-B --&gt; |pdf2svg| C([SVG]) --&gt; |svgo| D(minified SVG)</code></pre>
+A(TikZ) --&gt; |&amp;thinsp;lualatex&amp;thinsp;| B([PDF])
+B --&gt; |&amp;thinsp;pdftoppm&amp;thinsp;| E([PNG]) --&gt; |&amp;thinsp;cwebp&amp;thinsp;| F(WebP)
+B --&gt; |&amp;thinsp;pdf2svg&amp;thinsp;| C([SVG]) --&gt; |&amp;thinsp;svgo&amp;thinsp;| D(minified SVG)</code></pre>
 <p>以<a href="/posts/2025-09-21-China-Second-Round-2025-B-Geometry/">上一篇文章</a>中的第一个图片为例，得到的图片大小如下：</p>
 <table>
 <thead>
@@ -826,7 +826,7 @@ B --&gt; |pdf2svg| C([SVG]) --&gt; |svgo| D(minified SVG)</code></pre>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">334k</span>
+    <span title="站点总字数">337k</span>
   </span>
 </div>
 <div class="busuanzi-count">
