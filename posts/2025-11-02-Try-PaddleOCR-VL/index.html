@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/WindowsTerminal_8h0xtk4fB9.png">
 <meta property="og:image" content="https://wangjiezhe.github.io/posts/2025-11-02-Try-PaddleOCR-VL/WindowsTerminal_mHJXN4M1GI_1.png">
 <meta property="article:published_time" content="2025-11-02T03:53:55.000Z">
-<meta property="article:modified_time" content="2025-11-02T03:53:55.000Z">
+<meta property="article:modified_time" content="2025-11-06T11:36:35.000Z">
 <meta property="article:author" content="西风冷香">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Kaggle">
@@ -212,7 +212,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">93</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -223,7 +223,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">139</span>
+        <span class="site-state-item-count">142</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -613,6 +613,13 @@
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-11-06 19:36:35" itemprop="dateModified" datetime="2025-11-06T19:36:35+08:00">2025-11-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -635,7 +642,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>7.5k</span>
+      <span>7.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -653,7 +660,16 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>之前和DeepSeek-OCR进行对比，使用的是PaddleOCR，而不是当时的SOTA模型PaddleOCR-VL，原因也很可笑，就是按照官方文档安装之后居然无法运行，于是只能放弃了。</p>
+    <div class="post-body" itemprop="articleBody"><div class="note primary"><p><strong>强烈建议</strong>使用vLLM进行部署，这样不会遇到本文中提到的各种显存问题，部署方法可以参考<a href="/posts/2025-11-04-Use-vLLM-to-Accelerate-PaddleOCR-VL/">后面这篇文章</a>。</p>
+<p>根据<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/PaddlePaddle/PaddleOCR/discussions/16822">官方</a>的说明：</p>
+<blockquote>
+<p>推理过程中有时出现 OOM 问题<br />
+默认的 PaddlePaddle 动态图推理方式显存占用波动较大，处理复杂图像时峰值显存使用量可能较高。如需获得更稳定的显存占用表现，建议使用 vLLM、SGLang 等专用推理加速框架进行部署。</p>
+</blockquote>
+<p>实际表现确实如此。原始的部署方式在处理一些尺寸较大的图片（即使图片本身比较小）时，即使有40G的显存也可能会报显存不足的错误，参考<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/PaddlePaddle/PaddleOCR/issues/16852">这个issue</a>。我在使用自己的图片是也复现过这个问题。</p>
+<p>另外，使用vLLM框架部署之后就没有再遇到过本文提到的各种显存的问题。</p>
+</div>
+<p>之前和DeepSeek-OCR进行对比，使用的是PaddleOCR，而不是当时的SOTA模型PaddleOCR-VL，原因也很可笑，就是按照官方文档安装之后居然无法运行，于是只能放弃了。</p>
 <p>好在前几天释出的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/PaddlePaddle/PaddleX/releases/tag/v3.3.6">3.3.6版本</a>的PaddleX解决了这个问题，本地的PaddleOCR-VL终于能正常运行了。</p>
 <h2 id="1-安装PaddleOCR-VL"><a class="header-anchor" href="#1-安装PaddleOCR-VL"></a>1. 安装PaddleOCR-VL</h2>
 <h3 id="1-1-在WSL上进行部署"><a class="header-anchor" href="#1-1-在WSL上进行部署"></a>1.1. 在WSL上进行部署</h3>
@@ -769,13 +785,6 @@
 <p>双管齐下，PaddleOCR-VL在推理PDF时占用的显存大概在5G左右，只是偶尔会波动一下需要借用内存：</p>
 <p><img data-src="WindowsTerminal_4uvbqz2pYC.png" alt="WindowsTerminal_4uvbqz2pYC" /></p>
 <p>但是很快就回落了。这样对性能影响不大，还可以接受。</p>
-<div class="note primary"><p>根据<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/PaddlePaddle/PaddleOCR/discussions/16822">官方</a>的说明：</p>
-<blockquote>
-<p>推理过程中有时出现 OOM 问题<br />
-默认的 PaddlePaddle 动态图推理方式显存占用波动较大，处理复杂图像时峰值显存使用量可能较高。如需获得更稳定的显存占用表现，建议使用 vLLM、SGLang 等专用推理加速框架进行部署。</p>
-</blockquote>
-<p>实际表现确实如此。使用vLLM框架部署之后就没有再遇到显存的问题。</p>
-</div>
 <h3 id="3-2-程序卡死"><a class="header-anchor" href="#3-2-程序卡死"></a>3.2. 程序卡死</h3>
 <p>在使用PaddleOCR-VL的时候，好几次遇到程序卡死的情况：</p>
 <p><img data-src="WindowsTerminal_8h0xtk4fB9.png" alt="WindowsTerminal_8h0xtk4fB9" /></p>
@@ -928,7 +937,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">337k</span>
+    <span title="站点总字数">339k</span>
   </span>
 </div>
 <div class="busuanzi-count">
