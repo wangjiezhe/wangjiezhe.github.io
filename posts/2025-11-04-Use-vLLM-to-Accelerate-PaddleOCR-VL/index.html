@@ -208,7 +208,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-count">95</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -219,7 +219,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">142</span>
+        <span class="site-state-item-count">143</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -638,7 +638,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4k</span>
+      <span>4.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -699,7 +699,9 @@
 <p>在没有运行其它占用显存的程序的时候，把 <code>max_model_len</code> 设为 <code>8192</code> 是可以运行的。但我也遇到过一次启动报错的情况，因此可以把它再调小一些。</p>
 <p>不过，这个值也不能太小了，至少是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4096</mn><mo>+</mo><mn>14</mn><mo>=</mo><mn>4110</mn></mrow><annotation encoding="application/x-tex">4096+14=4110</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">4096</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">14</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4110</span></span></span></span>。因为输入要用掉14个tokens，默认的最大输出是4096个tokens，因此至少要不小于这两个加起来的数量，否则推理的时候就会报错。</p>
 <div class="note success"><p>实测在我的电脑上最低可用的配置为</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">gpu-memory-utilization:</span> <span class="number">0.79</span></span><br><span class="line"><span class="attr">max-model-len:</span> <span class="number">4110</span></span><br></pre></td></tr></table></figure></div></div>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">gpu-memory-utilization:</span> <span class="number">0.79</span></span><br><span class="line"><span class="attr">max-model-len:</span> <span class="number">4110</span></span><br></pre></td></tr></table></figure></div>
+<div class="note warning"><p>不过还是尽可能把<code>max-model-len</code>拉大一些比较好，否则实测在识别一些大型表格的时候会漏掉一些部分。</p>
+</div></div>
 <p>当屏幕出现 <code>&quot;GET /health HTTP/1.1&quot; 200 OK</code> 的字样时就说明vLLM服务启动成功了。</p>
 <div class="note warning"><p>在vLLM服务的启动过程中，占用的显存会超过8G，如图</p>
 <p><img data-src="k4H6LEdvpT.png" alt="" /></p>
@@ -863,7 +865,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">339k</span>
+    <span title="站点总字数">341k</span>
   </span>
 </div>
 <div class="busuanzi-count">
