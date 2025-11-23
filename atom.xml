@@ -28,7 +28,7 @@
     <published>2025-11-18T04:53:54.000Z</published>
     <updated>2025-11-23T14:07:17.000Z</updated>
     
-    <content type="html"><![CDATA[<p>在<a href="/posts/2025-10-30-Compare-DeepSeekOCR-with-PaddleOCR/">之前的文章</a>的评论区里，有人建议试一试MinerU。其实在去年7月MinerU刚发布的时候，我就尝试过，但是印象中效果非常差，根本没法实际使用。</p><p>正好我的电脑里还存有当时配置好的虚拟环境，又重新试了一下，结果印证了我的记忆。由于问题实在太多，我就不放截图了，只是罗列一下它的问题：</p><ul><li><strong>完全</strong>不能识别公式中的汉字</li><li><strong>所有</strong>多行公式无法换行</li><li><strong>经常</strong>漏识别公式的一部分（如最后的字母、特殊符号如平行等）</li><li><strong>经常</strong>无法识别分式</li><li>偶尔会漏识别公式</li><li><strong>经常</strong>识别不出特殊符号（如相似）</li><li>偶尔识别错误字母（例如<code>p</code>识别成<code>Φ</code>）</li><li>中英文混合的情况，不能识别英文之间的空格</li><li>偶尔汉字识别错误</li><li>偶尔公式后面多出东西（把公式的一部分重复识别成了文字）</li><li>偶尔多行公式排版错误（<code>$$</code>后不换行直接跟文字）</li><li>偶尔行间公式排版错误（错误使用<code>\$</code>）</li><li><strong>经常</strong>错误识别标点符号（例如逗号识别成双引号），<strong>经常</strong>漏识别标点符号</li></ul><p>这些问题导致识别得到的结果错误非常多，已经到了不可用的地步。</p><p>不过看官方<a href="https://github.com/opendatalab/MinerU">仓库</a>里的说明，使用vLLM部署之后能有90+的准确率，我觉得再试一下。</p><h2 id="1-安装新版MinerU"><a class="header-anchor" href="#1-安装新版MinerU"></a>1. 安装新版MinerU</h2><p>由于使用vLLM部署比pipeline模式的准确率高很多，加之8G显存够用了，因此我直接使用vLLM方式进行部署。</p><p>安装也很简单：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uv venv --seed --python python3.13</span><br><span class="line">uv pip install <span class="string">&quot;mineru[all]&quot;</span></span><br></pre></td></tr></table></figure><blockquote><p>此时的MinerU版本是2.6.4</p></blockquote><p>接下来就可以使用了：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run mineru -p input/test.pdf -o output -b vlm-vllm-engine</span><br></pre></td></tr></table></figure><p>进一步的配置选项可以参看<a href="https://opendatalab.github.io/MinerU/zh/usage/advanced_cli_parameters/">官方选项</a>，默认配置对于我来说就可以使用了。</p><p>这样临时使用一下还可以，但如果要大量文件需要识别，每次都会花大量时间在模型的加载上。这时可以使用server模式进行部署和调用。首先运行vllm-server：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run mineru-vllm-server</span><br></pre></td></tr></table></figure><p>然后在另一个终端里运行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run mineru -p input/test.pdf -o output -b vlm-http-client -u http://localhost:30000</span><br></pre></td></tr></table></figure><p>即可。</p><h2 id="2-和PaddleOCR-VL的对比"><a class="header-anchor" href="#2-和PaddleOCR-VL的对比"></a>2. 和PaddleOCR-VL的对比</h2><p>在下面的对比图片中，左侧是MinerU的结果，右侧是PaddleOCR-VL的结果。</p><h3 id="2-1-速度"><a class="header-anchor" href="#2-1-速度"></a>2.1. 速度</h3><p>同样是识别小蓝本（共8本），耗时33分21秒，比PaddleOCR-VL慢了约17%。</p><h3 id="2-2-优势"><a class="header-anchor" href="#2-2-优势"></a>2.2. 优势</h3><p>MinerU没有出现PaddleOCR-VL中的公式错行现象，基本上能够正确识别公式的位置。</p><p>另外，MinerU对于特殊数学符号（如平行、相似等）的识别准确率要高于PaddleOCR-VL和DeepSeek-OCR。</p><h3 id="2-3-劣势"><a class="header-anchor" href="#2-3-劣势"></a>2.3. 劣势</h3><p>虽然最新的MinerU和最初的版本相比，前面列出的问题大部分都得到了解决，但是还有一部分被部分继承了下来。</p><p>例如，简单的文字识别错误：</p><p><img data-src="Typora_tceN1QGE38.png" alt="" /></p><p>简单的字母识别错误：</p><p><img data-src="Typora_1cOIlQMDDP.png" alt="" /></p><p>简单的标点识别错误：</p><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_a0HtRy0Grb.png" alt="" /></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_RliKcqwWnK.png" alt="" /></div></div></div><p>另外，MinerU还出现了图片分割不准确的情况：</p><p><img data-src="Typora_fCo9Ec6k6N.png" alt="" /></p><p>这个问题PaddleOCR-VL和DeepSeek-OCR从来没有出现过。</p><h3 id="2-4-共同的问题"><a class="header-anchor" href="#2-4-共同的问题"></a>2.4. 共同的问题</h3><p>MinerU和PaddleOCR-VL都在同一类地方栽了。类似下图，</p><p><img data-src="SumatraPDF_wuOc7FKA1k.png" alt="" /></p><p>识别的结果如下：</p><p><img data-src="Typora_dN3QCq7vuC.png" alt="" /></p><p>可以看到，二者都不能正确区分题目的序号和公式部分。</p><p>而DeepSeek-OCR能够正确处理：</p><p><img data-src="Typora_WhyvqTMuhD.png" alt="" /></p><h2 id="3-总结"><a class="header-anchor" href="#3-总结"></a>3. 总结</h2><p>如果让我给这几个OCR模型进行排行的话，大致是</p><blockquote class="blockquote-center"><p>DeepSeek-OCR ≳ MinerU 2.6 (vllm) &gt; PaddleOCR-VL &gt;&gt; PaddleOCR (V3)</p></blockquote><p>DeepSeek-OCR的优势在于排版最好，但是在识别一些复杂公式（如重分式）的时候可能会出问题（感觉是识别之后被改了）。</p><p>最大的劣势是模型还是偏大，模型参数本身超过6G，因此我没有办法在本地使用vLLM加速推理，只能使用Transformers进行推理（同时需要借用一部分内存），因此速度相比后两个慢很多。</p><p>MinerU的公式识别整体是最好的，但是会犯一些弱智的错误（比如经常识别不了字母<code>p</code>）。</p><p>前面两个基本上不分伯仲，关键是看注重哪方面。</p><p>PaddleOCR-VL的最大问题在于公式混合排版的输出顺序有问题。</p><p>上面两个都可以在本地（8G显存）使用vLLM进行加速，因此速度都是可用的。</p><p>PaddleOCR就连基本的退化问题都没有解决。</p><blockquote><p>另外，PaddleOCR对于表格的识别也比PaddleOCR-VL差很多。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>在<a href="/posts/2025-10-30-Compare-DeepSeekOCR-with-PaddleOCR/">之前的文章</a>的评论区里，有人建议试一试MinerU。其实在去年7月MinerU刚发布的时候，我就尝试过，但是印象中效果非常差，根本没法实际使用。</p><p>正好我的电脑里还存有当时配置好的虚拟环境，又重新试了一下，结果印证了我的记忆。由于问题实在太多，我就不放截图了，只是罗列一下它的问题：</p><ul><li><strong>完全</strong>不能识别公式中的汉字</li><li><strong>所有</strong>多行公式无法换行</li><li><strong>经常</strong>漏识别公式的一部分（如最后的字母、特殊符号如平行等）</li><li><strong>经常</strong>无法识别分式</li><li>偶尔会漏识别公式</li><li><strong>经常</strong>识别不出特殊符号（如相似）</li><li>偶尔识别错误字母（例如<code>p</code>识别成<code>Φ</code>）</li><li>中英文混合的情况，不能识别英文之间的空格</li><li>偶尔汉字识别错误</li><li>偶尔公式后面多出东西（把公式的一部分重复识别成了文字）</li><li>偶尔多行公式排版错误（<code>$$</code>后不换行直接跟文字）</li><li>偶尔行间公式排版错误（错误使用<code>\$</code>）</li><li><strong>经常</strong>错误识别标点符号（例如逗号识别成双引号），<strong>经常</strong>漏识别标点符号</li></ul><p>这些问题导致识别得到的结果错误非常多，已经到了不可用的地步。</p><p>不过看官方<a href="https://github.com/opendatalab/MinerU">仓库</a>里的说明，新版的MinerU使用vLLM部署之后能有90+的准确率，我决定再试一下。</p><h2 id="1-安装新版MinerU"><a class="header-anchor" href="#1-安装新版MinerU"></a>1. 安装新版MinerU</h2><p>由于使用vLLM部署比pipeline模式的准确率高很多，加之8G显存够用了，因此我直接使用vLLM方式进行部署。</p><p>安装也很简单：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uv venv --seed --python python3.13</span><br><span class="line">uv pip install <span class="string">&quot;mineru[all]&quot;</span></span><br></pre></td></tr></table></figure><blockquote><p>此时的MinerU版本是2.6.4</p></blockquote><p>接下来就可以使用了：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run mineru -p input/test.pdf -o output -b vlm-vllm-engine</span><br></pre></td></tr></table></figure><p>进一步的配置选项可以参看<a href="https://opendatalab.github.io/MinerU/zh/usage/advanced_cli_parameters/">官方选项</a>，默认配置对于我来说就可以使用了。</p><p>这样临时使用一下还可以，但如果要大量文件需要识别，每次都会花大量时间在模型的加载上。这时可以使用server模式进行部署和调用。首先运行vllm-server：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run mineru-vllm-server</span><br></pre></td></tr></table></figure><p>然后在另一个终端里运行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run mineru -p input/test.pdf -o output -b vlm-http-client -u http://localhost:30000</span><br></pre></td></tr></table></figure><p>即可。</p><h2 id="2-和PaddleOCR-VL的对比"><a class="header-anchor" href="#2-和PaddleOCR-VL的对比"></a>2. 和PaddleOCR-VL的对比</h2><p>在下面的对比图片中，左侧是MinerU的结果，右侧是PaddleOCR-VL的结果。</p><h3 id="2-1-速度"><a class="header-anchor" href="#2-1-速度"></a>2.1. 速度</h3><p>同样是识别小蓝本（共8本），耗时33分21秒，比PaddleOCR-VL慢了约17%。</p><h3 id="2-2-优势"><a class="header-anchor" href="#2-2-优势"></a>2.2. 优势</h3><p>MinerU没有出现PaddleOCR-VL中的公式错行现象，基本上能够正确识别公式的位置。</p><p>另外，MinerU对于特殊数学符号（如平行、相似等）的识别准确率要高于PaddleOCR-VL和DeepSeek-OCR。</p><h3 id="2-3-劣势"><a class="header-anchor" href="#2-3-劣势"></a>2.3. 劣势</h3><p>虽然最新的MinerU和最初的版本相比，前面列出的问题大部分都得到了解决，但是还有一部分被部分继承了下来。</p><p>例如，简单的文字识别错误：</p><p><img data-src="Typora_tceN1QGE38.png" alt="" /></p><p>简单的字母识别错误：</p><p><img data-src="Typora_1cOIlQMDDP.png" alt="" /></p><p>简单的标点识别错误：</p><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_a0HtRy0Grb.png" alt="" /></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="Typora_RliKcqwWnK.png" alt="" /></div></div></div><p>另外，MinerU还出现了图片分割不准确的情况：</p><p><img data-src="Typora_fCo9Ec6k6N.png" alt="" /></p><p>这个问题PaddleOCR-VL和DeepSeek-OCR从来没有出现过。</p><h3 id="2-4-共同的问题"><a class="header-anchor" href="#2-4-共同的问题"></a>2.4. 共同的问题</h3><p>MinerU和PaddleOCR-VL都在同一类地方栽了。类似下图，</p><p><img data-src="SumatraPDF_wuOc7FKA1k.png" alt="" /></p><p>识别的结果如下：</p><p><img data-src="Typora_dN3QCq7vuC.png" alt="" /></p><p>可以看到，二者都不能正确区分题目的序号和公式部分。</p><p>而DeepSeek-OCR能够正确处理：</p><p><img data-src="Typora_WhyvqTMuhD.png" alt="" /></p><h2 id="3-总结"><a class="header-anchor" href="#3-总结"></a>3. 总结</h2><p>如果让我给这几个OCR模型进行排行的话，大致是</p><blockquote class="blockquote-center"><p>DeepSeek-OCR ≳ MinerU 2.6 (vllm) &gt; PaddleOCR-VL &gt;&gt; PaddleOCR (V3)</p></blockquote><p>DeepSeek-OCR的优势在于排版最好，但是在识别一些复杂公式（如重分式）的时候可能会出问题（感觉是识别之后被改了）。</p><p>最大的劣势是模型还是偏大，模型参数本身超过6G，因此我没有办法在本地使用vLLM加速推理，只能使用Transformers进行推理（同时需要借用一部分内存），因此速度相比后两个慢很多。</p><p>MinerU的公式识别整体是最好的，但是会犯一些弱智的错误（比如经常识别不了字母<code>p</code>）。</p><p>前面两个基本上不分伯仲，关键是看注重哪方面。</p><p>PaddleOCR-VL的最大问题在于公式混合排版的输出顺序有问题。</p><p>上面两个都可以在本地（8G显存）使用vLLM进行加速，因此速度都是可用的。</p><p>PaddleOCR就连基本的退化问题都没有解决。</p><blockquote><p>另外，PaddleOCR对于表格的识别也比PaddleOCR-VL差很多。</p></blockquote>]]></content>
     
     
     <summary type="html">使用最新的MinerU识别数学书籍，效果比PaddleOCR-VL好。</summary>
@@ -42,9 +42,9 @@
     
     <category term="OCR" scheme="https://wangjiezhe.github.io/tags/OCR/"/>
     
-    <category term="MinerU" scheme="https://wangjiezhe.github.io/tags/MinerU/"/>
-    
     <category term="vLLM" scheme="https://wangjiezhe.github.io/tags/vLLM/"/>
+    
+    <category term="MinerU" scheme="https://wangjiezhe.github.io/tags/MinerU/"/>
     
   </entry>
   
@@ -67,13 +67,13 @@
     
     <category term="LaTeX" scheme="https://wangjiezhe.github.io/tags/LaTeX/"/>
     
-    <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
-    
     <category term="Markdown" scheme="https://wangjiezhe.github.io/tags/Markdown/"/>
     
     <category term="VSCode" scheme="https://wangjiezhe.github.io/tags/VSCode/"/>
     
     <category term="Typora" scheme="https://wangjiezhe.github.io/tags/Typora/"/>
+    
+    <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
     
   </entry>
   
@@ -414,9 +414,9 @@
     
     <category term="NexT" scheme="https://wangjiezhe.github.io/tags/NexT/"/>
     
-    <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
-    
     <category term="深色模式" scheme="https://wangjiezhe.github.io/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
     
   </entry>
   
@@ -530,11 +530,11 @@
     
     <category term="数学竞赛" scheme="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/"/>
     
+    <category term="正弦定理" scheme="https://wangjiezhe.github.io/tags/%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86/"/>
+    
     <category term="CGMO" scheme="https://wangjiezhe.github.io/tags/CGMO/"/>
     
     <category term="鸡爪定理" scheme="https://wangjiezhe.github.io/tags/%E9%B8%A1%E7%88%AA%E5%AE%9A%E7%90%86/"/>
-    
-    <category term="正弦定理" scheme="https://wangjiezhe.github.io/tags/%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86/"/>
     
   </entry>
   
@@ -557,9 +557,9 @@
     <category term="平面几何" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
     
     
-    <category term="相似" scheme="https://wangjiezhe.github.io/tags/%E7%9B%B8%E4%BC%BC/"/>
-    
     <category term="数学竞赛" scheme="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/"/>
+    
+    <category term="相似" scheme="https://wangjiezhe.github.io/tags/%E7%9B%B8%E4%BC%BC/"/>
     
     <category term="CWMI" scheme="https://wangjiezhe.github.io/tags/CWMI/"/>
     
