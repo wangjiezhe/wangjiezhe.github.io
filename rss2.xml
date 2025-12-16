@@ -64,13 +64,13 @@
       
       <category domain="https://wangjiezhe.github.io/tags/LaTeX/">LaTeX</category>
       
+      <category domain="https://wangjiezhe.github.io/tags/SVG/">SVG</category>
+      
       <category domain="https://wangjiezhe.github.io/tags/Markdown/">Markdown</category>
       
       <category domain="https://wangjiezhe.github.io/tags/VSCode/">VSCode</category>
       
       <category domain="https://wangjiezhe.github.io/tags/Typora/">Typora</category>
-      
-      <category domain="https://wangjiezhe.github.io/tags/SVG/">SVG</category>
       
       
       <comments>https://wangjiezhe.github.io/posts/2025-11-06-Markdown-in-VSCode/#disqus_thread</comments>
@@ -437,9 +437,9 @@
       
       <category domain="https://wangjiezhe.github.io/tags/NexT/">NexT</category>
       
-      <category domain="https://wangjiezhe.github.io/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/">深色模式</category>
-      
       <category domain="https://wangjiezhe.github.io/tags/SVG/">SVG</category>
+      
+      <category domain="https://wangjiezhe.github.io/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/">深色模式</category>
       
       
       <comments>https://wangjiezhe.github.io/posts/2025-09-29-SVG-in-Dark-Mode/#disqus_thread</comments>
@@ -526,6 +526,8 @@
       
       <category domain="https://wangjiezhe.github.io/tags/%E5%AF%86%E5%85%8B%E5%AE%9A%E7%90%86/">密克定理</category>
       
+      <category domain="https://wangjiezhe.github.io/tags/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%AE%9A%E7%90%86/">帕斯卡定理</category>
+      
       <category domain="https://wangjiezhe.github.io/tags/%E5%B8%83%E6%B4%9B%E5%8D%A1%E5%AE%9A%E7%90%86/">布洛卡定理</category>
       
       <category domain="https://wangjiezhe.github.io/tags/CGMO/">CGMO</category>
@@ -533,8 +535,6 @@
       <category domain="https://wangjiezhe.github.io/tags/%E5%9E%82%E5%BF%83%E4%B8%89%E8%A7%92%E5%BD%A2/">垂心三角形</category>
       
       <category domain="https://wangjiezhe.github.io/tags/%E5%A4%8D%E6%95%B0%E6%B3%95/">复数法</category>
-      
-      <category domain="https://wangjiezhe.github.io/tags/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%AE%9A%E7%90%86/">帕斯卡定理</category>
       
       
       <comments>https://wangjiezhe.github.io/posts/2025-08-23-2025-CGMO-Geometry-2/#disqus_thread</comments>

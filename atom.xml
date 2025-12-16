@@ -67,13 +67,13 @@
     
     <category term="LaTeX" scheme="https://wangjiezhe.github.io/tags/LaTeX/"/>
     
+    <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
+    
     <category term="Markdown" scheme="https://wangjiezhe.github.io/tags/Markdown/"/>
     
     <category term="VSCode" scheme="https://wangjiezhe.github.io/tags/VSCode/"/>
     
     <category term="Typora" scheme="https://wangjiezhe.github.io/tags/Typora/"/>
-    
-    <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
     
   </entry>
   
@@ -414,9 +414,9 @@
     
     <category term="NexT" scheme="https://wangjiezhe.github.io/tags/NexT/"/>
     
-    <category term="深色模式" scheme="https://wangjiezhe.github.io/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/"/>
-    
     <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
+    
+    <category term="深色模式" scheme="https://wangjiezhe.github.io/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -497,6 +497,8 @@
     
     <category term="密克定理" scheme="https://wangjiezhe.github.io/tags/%E5%AF%86%E5%85%8B%E5%AE%9A%E7%90%86/"/>
     
+    <category term="帕斯卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
+    
     <category term="布洛卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%83%E6%B4%9B%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
     
     <category term="CGMO" scheme="https://wangjiezhe.github.io/tags/CGMO/"/>
@@ -504,8 +506,6 @@
     <category term="垂心三角形" scheme="https://wangjiezhe.github.io/tags/%E5%9E%82%E5%BF%83%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
     
     <category term="复数法" scheme="https://wangjiezhe.github.io/tags/%E5%A4%8D%E6%95%B0%E6%B3%95/"/>
-    
-    <category term="帕斯卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
     
   </entry>
   
