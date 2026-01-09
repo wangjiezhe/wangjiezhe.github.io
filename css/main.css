@@ -699,6 +699,12 @@ kbd {
 figure.highlight {
   overflow: auto;
   position: relative;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  figure.highlight {
+    color-scheme: dark;
+  }
 }
 figure.highlight pre {
   border: 0;
@@ -1434,7 +1440,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #c9ff98;
+    background: #ff81ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2719,7 +2725,13 @@ ul.breadcrumb li:last-child {
     color: #eee;
   }
 }
+html #dsqjs {
+  color-scheme: light;
+}
 @media (prefers-color-scheme: dark) {
+  html #dsqjs {
+    color-scheme: dark;
+  }
   html #dsqjs a {
     color: var(--link-color);
   }
