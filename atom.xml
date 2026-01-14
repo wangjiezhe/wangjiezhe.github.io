@@ -171,9 +171,9 @@
     
     <category term="OCR" scheme="https://wangjiezhe.github.io/tags/OCR/"/>
     
-    <category term="PaddleOCR" scheme="https://wangjiezhe.github.io/tags/PaddleOCR/"/>
-    
     <category term="PaddleOCR-VL" scheme="https://wangjiezhe.github.io/tags/PaddleOCR-VL/"/>
+    
+    <category term="PaddleOCR" scheme="https://wangjiezhe.github.io/tags/PaddleOCR/"/>
     
   </entry>
   
