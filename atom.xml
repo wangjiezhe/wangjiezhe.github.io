@@ -464,9 +464,9 @@
     <category term="平面几何" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
     
     
-    <category term="数学竞赛" scheme="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/"/>
-    
     <category term="重心坐标" scheme="https://wangjiezhe.github.io/tags/%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87/"/>
+    
+    <category term="数学竞赛" scheme="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/"/>
     
     <category term="反演" scheme="https://wangjiezhe.github.io/tags/%E5%8F%8D%E6%BC%94/"/>
     
@@ -524,13 +524,13 @@
     
     <category term="帕斯卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
     
-    <category term="布洛卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%83%E6%B4%9B%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
-    
     <category term="CGMO" scheme="https://wangjiezhe.github.io/tags/CGMO/"/>
     
     <category term="垂心三角形" scheme="https://wangjiezhe.github.io/tags/%E5%9E%82%E5%BF%83%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
     
     <category term="复数法" scheme="https://wangjiezhe.github.io/tags/%E5%A4%8D%E6%95%B0%E6%B3%95/"/>
+    
+    <category term="布洛卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%83%E6%B4%9B%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
     
   </entry>
   
@@ -555,11 +555,11 @@
     
     <category term="数学竞赛" scheme="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/"/>
     
+    <category term="正弦定理" scheme="https://wangjiezhe.github.io/tags/%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86/"/>
+    
     <category term="CGMO" scheme="https://wangjiezhe.github.io/tags/CGMO/"/>
     
     <category term="鸡爪定理" scheme="https://wangjiezhe.github.io/tags/%E9%B8%A1%E7%88%AA%E5%AE%9A%E7%90%86/"/>
-    
-    <category term="正弦定理" scheme="https://wangjiezhe.github.io/tags/%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86/"/>
     
   </entry>
   
