@@ -610,14 +610,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>1.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -656,6 +656,12 @@ A(共享) --&gt; B(连接) --&gt; C(挂载) --&gt; |&amp;thinsp;使用&amp;thins
 <p>进入图形化配置界面，选择</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">File systems  ---&gt;</span><br><span class="line">    DOS/FAT/NT Filesystems  ---&gt;</span><br><span class="line">        &lt;M&gt; exFAT filesystem support</span><br><span class="line">        &lt;M&gt; NTFS Read-Write file system support</span><br><span class="line">        &lt;*&gt; activate support of external compressions lzx/xpress</span><br></pre></td></tr></table></figure>
 <p>我直接把exFAT和NTFS的支持都加上了。</p>
+<div class="note primary"><p>可以将配置保存：</p>
+<figure class="highlight text"><figcaption><span>/etc/kernel/config.d/usb.config</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CONFIG_EXFAT_FS=m</span><br><span class="line">CONFIG_NTFS3_FS=m</span><br><span class="line">CONFIG_NTFS3_LZX_XPRESS=y</span><br></pre></td></tr></table></figure>
+<p>然后使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/kconfig/merge_config.sh Microsoft/config-wsl /etc/kernel/config.d/usb.config &gt; .config</span><br></pre></td></tr></table></figure>
+<p>生成新的<code>.config</code>文件。</p>
+</div>
 <p>然后编译内核：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
 <p>安装模块：</p>
@@ -802,7 +808,7 @@ A(共享) --&gt; B(连接) --&gt; C(挂载) --&gt; |&amp;thinsp;使用&amp;thins
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">342k</span>
+    <span title="站点总字数">343k</span>
   </span>
 </div>
 <div class="busuanzi-count">
