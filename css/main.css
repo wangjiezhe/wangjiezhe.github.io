@@ -1440,7 +1440,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #2ee073;
+    background: #ff2bc8;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3593,6 +3593,14 @@ div .blog-links {
 }
 body {
   text-autospace: normal;
+}
+figure.highlight .marked {
+  background: rgba(0,0,0,0.06);
+}
+@media (prefers-color-scheme: dark) {
+  figure.highlight .marked {
+    background: rgba(0,0,0,0.3);
+  }
 }
 @keyframes shake-it {
   0% {
