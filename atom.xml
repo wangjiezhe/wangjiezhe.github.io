@@ -123,9 +123,9 @@
     
     <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
     
-    <category term="VSCode" scheme="https://wangjiezhe.github.io/tags/VSCode/"/>
-    
     <category term="Markdown" scheme="https://wangjiezhe.github.io/tags/Markdown/"/>
+    
+    <category term="VSCode" scheme="https://wangjiezhe.github.io/tags/VSCode/"/>
     
     <category term="Typora" scheme="https://wangjiezhe.github.io/tags/Typora/"/>
     
@@ -225,9 +225,9 @@
     
     <category term="OCR" scheme="https://wangjiezhe.github.io/tags/OCR/"/>
     
-    <category term="PaddleOCR" scheme="https://wangjiezhe.github.io/tags/PaddleOCR/"/>
-    
     <category term="PaddleOCR-VL" scheme="https://wangjiezhe.github.io/tags/PaddleOCR-VL/"/>
+    
+    <category term="PaddleOCR" scheme="https://wangjiezhe.github.io/tags/PaddleOCR/"/>
     
   </entry>
   
@@ -252,9 +252,9 @@
     
     <category term="OCR" scheme="https://wangjiezhe.github.io/tags/OCR/"/>
     
-    <category term="PaddleOCR-VL" scheme="https://wangjiezhe.github.io/tags/PaddleOCR-VL/"/>
-    
     <category term="Kaggle" scheme="https://wangjiezhe.github.io/tags/Kaggle/"/>
+    
+    <category term="PaddleOCR-VL" scheme="https://wangjiezhe.github.io/tags/PaddleOCR-VL/"/>
     
   </entry>
   
@@ -381,11 +381,11 @@
     <category term="博客" scheme="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="Blog" scheme="https://wangjiezhe.github.io/tags/Blog/"/>
-    
     <category term="Hexo" scheme="https://wangjiezhe.github.io/tags/Hexo/"/>
     
     <category term="NexT" scheme="https://wangjiezhe.github.io/tags/NexT/"/>
+    
+    <category term="Blog" scheme="https://wangjiezhe.github.io/tags/Blog/"/>
     
   </entry>
   
@@ -406,11 +406,11 @@
     <category term="博客" scheme="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="Blog" scheme="https://wangjiezhe.github.io/tags/Blog/"/>
-    
     <category term="Hexo" scheme="https://wangjiezhe.github.io/tags/Hexo/"/>
     
     <category term="NexT" scheme="https://wangjiezhe.github.io/tags/NexT/"/>
+    
+    <category term="Blog" scheme="https://wangjiezhe.github.io/tags/Blog/"/>
     
     <category term="深色模式" scheme="https://wangjiezhe.github.io/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/"/>
     
@@ -435,11 +435,11 @@
     <category term="博客" scheme="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="Blog" scheme="https://wangjiezhe.github.io/tags/Blog/"/>
-    
     <category term="Hexo" scheme="https://wangjiezhe.github.io/tags/Hexo/"/>
     
     <category term="NexT" scheme="https://wangjiezhe.github.io/tags/NexT/"/>
+    
+    <category term="Blog" scheme="https://wangjiezhe.github.io/tags/Blog/"/>
     
     <category term="KaTeX" scheme="https://wangjiezhe.github.io/tags/KaTeX/"/>
     
@@ -462,15 +462,15 @@
     <category term="博客" scheme="https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="Blog" scheme="https://wangjiezhe.github.io/tags/Blog/"/>
-    
     <category term="Hexo" scheme="https://wangjiezhe.github.io/tags/Hexo/"/>
     
     <category term="NexT" scheme="https://wangjiezhe.github.io/tags/NexT/"/>
     
-    <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
+    <category term="Blog" scheme="https://wangjiezhe.github.io/tags/Blog/"/>
     
     <category term="深色模式" scheme="https://wangjiezhe.github.io/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
     
   </entry>
   
