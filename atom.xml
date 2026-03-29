@@ -252,9 +252,9 @@
     
     <category term="OCR" scheme="https://wangjiezhe.github.io/tags/OCR/"/>
     
-    <category term="Kaggle" scheme="https://wangjiezhe.github.io/tags/Kaggle/"/>
-    
     <category term="PaddleOCR-VL" scheme="https://wangjiezhe.github.io/tags/PaddleOCR-VL/"/>
+    
+    <category term="Kaggle" scheme="https://wangjiezhe.github.io/tags/Kaggle/"/>
     
   </entry>
   
@@ -551,11 +551,11 @@
     
     <category term="密克定理" scheme="https://wangjiezhe.github.io/tags/%E5%AF%86%E5%85%8B%E5%AE%9A%E7%90%86/"/>
     
+    <category term="帕斯卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
+    
     <category term="布洛卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%83%E6%B4%9B%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
     
     <category term="CGMO" scheme="https://wangjiezhe.github.io/tags/CGMO/"/>
-    
-    <category term="帕斯卡定理" scheme="https://wangjiezhe.github.io/tags/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%AE%9A%E7%90%86/"/>
     
     <category term="垂心三角形" scheme="https://wangjiezhe.github.io/tags/%E5%9E%82%E5%BF%83%E4%B8%89%E8%A7%92%E5%BD%A2/"/>
     
