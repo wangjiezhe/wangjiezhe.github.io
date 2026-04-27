@@ -212,7 +212,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">98</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -223,7 +223,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">146</span>
+        <span class="site-state-item-count">148</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -703,7 +703,7 @@
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> <span class="title class_">MarkdownIt</span> <span class="keyword">from</span> <span class="string">&#x27;markdown-it&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">&#x27;node:path&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">ImageOptions</span> &#123;</span><br><span class="line">  <span class="attr">imageDir</span>?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">prefixifyImageURL</span>(<span class="params"><span class="attr">md</span>: <span class="title class_">MarkdownIt</span>, <span class="attr">pluginOptions</span>?:<span class="title class_">ImageOptions</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> imageDir = pluginOptions?.<span class="property">imageDir</span> || <span class="string">&quot;.&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> original = md.<span class="property">renderer</span>.<span class="property">rules</span>.<span class="property">image</span>!;</span><br><span class="line marked">  md.<span class="property">renderer</span>.<span class="property">rules</span>.<span class="property">image</span> = <span class="function">(<span class="params">tokens, idx, options, env, self</span>) =&gt;</span> &#123;</span><br><span class="line marked">    <span class="keyword">const</span> token = tokens[idx];</span><br><span class="line marked">    <span class="keyword">const</span> src = token?.<span class="title function_">attrGet</span>(<span class="string">&#x27;src&#x27;</span>);</span><br><span class="line marked">    <span class="keyword">if</span> (src) &#123;</span><br><span class="line marked">      token.<span class="title function_">attrSet</span>(<span class="string">&#x27;src&#x27;</span>, path.<span class="title function_">join</span>(imageDir, src));</span><br><span class="line marked">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">original</span>(tokens, idx, options, env, self);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>核心代码是重写了图片渲染逻辑<code>md.renderer.rules.image</code>，在正常渲染图片之前修改了图片的<code>src</code>属性。</p>
 <p>然后使用<code>extendMarkdownIt</code>调用插件：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">activate</span>(<span class="params"><span class="attr">context</span>: vscode.<span class="title class_">ExtensionContext</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="title function_">extendMarkdownIt</span>(<span class="params"><span class="attr">md</span>: <span class="title class_">MarkdownIt</span></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> md.<span class="title function_">use</span>(prefixifyImageURL, &#123;<span class="attr">imageDir</span>: <span class="string">&quot;assets&quot;</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">activate</span>(<span class="params"><span class="attr">context</span>: vscode.<span class="title class_">ExtensionContext</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line marked">    <span class="title function_">extendMarkdownIt</span>(<span class="params"><span class="attr">md</span>: <span class="title class_">MarkdownIt</span></span>) &#123;</span><br><span class="line marked">      <span class="keyword">return</span> md.<span class="title function_">use</span>(prefixifyImageURL, &#123;<span class="attr">imageDir</span>: <span class="string">&quot;assets&quot;</span>&#125;);</span><br><span class="line marked">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里为了检查代码逻辑，图方便先写死了imageDir。</p>
 <p>另外，还需要在<code>package.json</code>中将这个扩展注册为markdown-it插件：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;contributes&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;markdown.markdownItPlugins&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
@@ -832,6 +832,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/2026-04-23-tianditu-lbs/" rel="next" title="使用天地图API进行坐标反查">
+                  使用天地图API进行坐标反查 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -888,7 +891,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">349k</span>
+    <span title="站点总字数">353k</span>
   </span>
 </div>
 <div class="busuanzi-count">
