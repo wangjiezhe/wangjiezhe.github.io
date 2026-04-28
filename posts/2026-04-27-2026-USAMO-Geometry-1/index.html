@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark-reasonable"},"prism":{"light":"prism","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="今年美国数学奥林匹克第二天的几何题（P2）的解答">
+    <meta name="description" content="今年美国数学奥林匹克第二天的几何题（P2）的解答，顺带测试新上线的DeepSeek-V4-Pro模型。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025 年 USAMO 的几何题的解答（一）">
 <meta property="og:url" content="https://wangjiezhe.github.io/posts/2026-04-27-2026-USAMO-Geometry-1/index.html">
 <meta property="og:site_name" content="如鱼饮水">
-<meta property="og:description" content="今年美国数学奥林匹克第二天的几何题（P2）的解答">
+<meta property="og:description" content="今年美国数学奥林匹克第二天的几何题（P2）的解答，顺带测试新上线的DeepSeek-V4-Pro模型。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-04-27-2026-USAMO-Geometry-1/26AMO5.min.svg">
 <meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-04-27-2026-USAMO-Geometry-1/26AMO5-1.min.svg">
@@ -34,6 +34,7 @@
 <meta property="article:published_time" content="2026-04-27T15:46:27.000Z">
 <meta property="article:modified_time" content="2026-04-27T15:46:27.000Z">
 <meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="DeepSeek">
 <meta property="article:tag" content="USAMO">
 <meta property="article:tag" content="密克定理">
 <meta property="article:tag" content="数学竞赛">
@@ -622,7 +623,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="2025 年 USAMO 的几何题的解答（一） | 如鱼饮水">
-      <meta itemprop="description" content="今年美国数学奥林匹克第二天的几何题（P2）的解答">
+      <meta itemprop="description" content="今年美国数学奥林匹克第二天的几何题（P2）的解答，顺带测试新上线的DeepSeek-V4-Pro模型。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -667,18 +668,18 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.4k</span>
+      <span>2.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>7 分钟</span>
     </span>
 </div>
 
-            <div class="post-description">今年美国数学奥林匹克第二天的几何题（P2）的解答</div>
+            <div class="post-description">今年美国数学奥林匹克第二天的几何题（P2）的解答，顺带测试新上线的DeepSeek-V4-Pro模型。</div>
         </div>
       </header>
 
@@ -723,20 +724,55 @@
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">使用中文证明下面的几何题，不允许使用解析的方法。</span><br><span class="line">---</span><br><span class="line"><span class="title class_">Let</span> <span class="variable">$ABC</span><span class="variable">$ </span>be a triangle. <span class="title class_">Points</span> <span class="variable">$D</span><span class="variable">$,</span> <span class="variable">$E</span><span class="variable">$,</span> <span class="keyword">and</span> <span class="variable">$F</span><span class="variable">$ </span>lie on sides <span class="variable">$BC</span><span class="variable">$,</span> <span class="variable">$CA</span><span class="variable">$,</span> <span class="keyword">and</span> <span class="variable">$AB</span><span class="variable">$,</span> respectively, such that</span><br><span class="line">\[</span><br><span class="line">  \angle <span class="title class_">AFE</span>=\angle <span class="title class_">BDF</span>=\angle <span class="title class_">CED</span>.</span><br><span class="line">\]</span><br><span class="line"><span class="title class_">Let</span> <span class="variable">$O_A</span><span class="variable">$,</span> <span class="variable">$O_B</span><span class="variable">$,</span> <span class="keyword">and</span> <span class="variable">$O_C</span><span class="variable">$ </span>be the circumcenters of triangles <span class="variable">$AFE</span><span class="variable">$,</span> <span class="variable">$BDF</span><span class="variable">$,</span> <span class="keyword">and</span> <span class="variable">$CED</span><span class="variable">$,</span> respectively. <span class="title class_">Let</span> <span class="variable">$M</span><span class="variable">$,</span> <span class="variable">$N</span><span class="variable">$,</span> <span class="keyword">and</span> <span class="variable">$O</span><span class="variable">$ </span>be the circumcenters of triangles <span class="variable">$ABC</span><span class="variable">$,</span> <span class="variable">$DEF</span><span class="variable">$,</span> <span class="keyword">and</span> <span class="variable">$O_AO_BO_C</span><span class="variable">$,</span> respectively. <span class="title class_">Prove</span> that <span class="variable">$OM</span>=<span class="title class_">ON</span><span class="variable">$.</span></span><br></pre></td></tr></table></figure>
 <p>结果：</p>
 <ul>
-<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://chat.deepseek.com/share/e45i7qnj2s854p9p4f">DeepSeek-v4-pro(thinking)</a>：完美完成证明。</li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://chat.deepseek.com/share/e45i7qnj2s854p9p4f">DeepSeek-v4-pro(thinking)</a>：完美完成证明，甚至不需要开启Think Max模式。</li>
 <li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://chat.qwen.ai/s/d055211a-506f-491d-af13-28a3727ef0ed?fev=0.2.43">Qwen-3.6-max-preview(thinking)</a>：整体框架正确，但中间一部分证明有误（伪造了一个错误的引理）。</li>
 <li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://chat.z.ai/s/2f804724-0245-4f8b-a7fb-b2e4346ece43">GLM-5-Turbo(thinking)</a>：纯粹在瞎掰。</li>
-<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://chat.z.ai/s/18bb2d82-08f7-4497-a075-e6e649075e70">GLM-5(thinking)</a>：思考中终止会话（截至停止还没有找到思路）。</li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://chat.z.ai/s/18bb2d82-08f7-4497-a075-e6e649075e70">GLM-5(thinking)</a>：思考中终止会话（截至停止思路完全不对）。</li>
 <li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.kimi.com/share/19dcfa6f-7482-83f4-8000-000077674ede">Kimi-2.6(thinking)</a>：前面的思路正确，最后一步拉完了。</li>
-<li>GLM-5.1(thinking)(max_toekns=131072)（无问芯穹）：纯粹在瞎掰。</li>
-<li>minimax-m2.7(thinking)(max_tokens=4096)（无问芯穹）：思考中终止会话，还没找到思路。</li>
+<li>GLM-5.1(thinking)(max_toekns=128K)（无问芯穹）：纯粹在瞎掰。</li>
+<li>minimax-m2.7(thinking)(max_tokens=4K)（无问芯穹）：思考中终止会话，还没找到思路。</li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://chat.z.ai/s/77c8e2ce-d573-4107-b868-893f092a46c0">GLM-5.1(thinking)</a>：思考中终止会话，不过实际上已经证出来了。</li>
 </ul>
 <p>总体比较：</p>
 <blockquote class="blockquote-center">
-<p>DeepSeek &gt; 千问 &gt;&gt; Kimi &gt; GLM</p>
+<p>DeepSeek &gt; 千问 &gt; Kimi ≈ GLM</p>
 
 </blockquote>
 <p>最终的结果还是比较符合我的刻板印象的……</p>
+<div class="note success"><p>又回去看了一下DeepSeek-V4的论文，确实和官方在HMMT和IMOAnswerBench测试集上的结果相符：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">测试</th>
+<th style="text-align:center">K2.6 Thinking</th>
+<th style="text-align:center">GLM-5.1 Thinking</th>
+<th style="text-align:center">DS-V4-Pro High</th>
+<th style="text-align:center">DS-V4-Pro Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">HMMT 2026 Feb</td>
+<td style="text-align:center">92.7</td>
+<td style="text-align:center">89.4</td>
+<td style="text-align:center"><strong>94.0</strong></td>
+<td style="text-align:center">95.2</td>
+</tr>
+<tr>
+<td style="text-align:center">IMOAnswerBench</td>
+<td style="text-align:center">86.0</td>
+<td style="text-align:center">83.8</td>
+<td style="text-align:center"><strong>88.0</strong></td>
+<td style="text-align:center">89.8</td>
+</tr>
+</tbody>
+</table>
+<p>以及文中吐槽的那句：</p>
+<blockquote>
+<p>We have left some entries blank for K2.6 and GLM-5.1, as their APIs were too busy to return responses to our queries.</p>
+</blockquote>
+<p>嗯……确有体会……</p>
+</div>
 
     </div>
 
@@ -794,6 +830,7 @@
           <div class="post-tags">
               <a href="/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/" rel="tag"><i class="fa fa-tag"></i> 数学竞赛</a>
               <a href="/tags/%E5%AF%86%E5%85%8B%E5%AE%9A%E7%90%86/" rel="tag"><i class="fa fa-tag"></i> 密克定理</a>
+              <a href="/tags/DeepSeek/" rel="tag"><i class="fa fa-tag"></i> DeepSeek</a>
               <a href="/tags/USAMO/" rel="tag"><i class="fa fa-tag"></i> USAMO</a>
               <a href="/tags/%E6%97%8B%E8%BD%AC%E4%BD%8D%E4%BC%BC/" rel="tag"><i class="fa fa-tag"></i> 旋转位似</a>
           </div>
