@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-round.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark-reasonable"},"prism":{"light":"prism","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本地部署 1.8B 和 7B 两个尺寸的模型，并测试开启缓存量化的影响。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本地部署 Hy-MT2 翻译模型">
+<meta property="og:url" content="https://wangjiezhe.github.io/posts/2026-06-02-Depoly-Hy-MT2-Locally/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="本地部署 1.8B 和 7B 两个尺寸的模型，并测试开启缓存量化的影响。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-02-Depoly-Hy-MT2-Locally/LM_Studio_EBMZ2wMWKz.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-02-Depoly-Hy-MT2-Locally/LM_Studio_2UK7VeALHt.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-02-Depoly-Hy-MT2-Locally/LM_Studio_q1HaBQNNtD.png">
+<meta property="article:published_time" content="2026-06-02T00:40:39.000Z">
+<meta property="article:modified_time" content="2026-06-02T00:40:39.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="GGUF">
+<meta property="article:tag" content="Hy-MT2">
+<meta property="article:tag" content="Llama">
+<meta property="article:tag" content="vLLM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangjiezhe.github.io/posts/2026-06-02-Depoly-Hy-MT2-Locally/LM_Studio_EBMZ2wMWKz.png">
+
+
+<link rel="canonical" href="https://wangjiezhe.github.io/posts/2026-06-02-Depoly-Hy-MT2-Locally/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjiezhe.github.io/posts/2026-06-02-Depoly-Hy-MT2-Locally/","path":"/posts/2026-06-02-Depoly-Hy-MT2-Locally/","title":"本地部署 Hy-MT2 翻译模型"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>本地部署 Hy-MT2 翻译模型 | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48537410-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?a51d31f349bffa6e3757f7d6fca0c47f"></script>
+
+
+  <script data-pjax defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{&quot;token&quot;: &quot;4b43b380fa4e4d43a125ac710c29fb84&quot;}'></script>
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/comments.js" defer></script><script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@11.10.1/dist/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+  <script data-pjax async src="//bsz.wangjiezhe.com/js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-app-compat.js" integrity="sha256-d21UgtIcA6c6qwr8nWk6lxs/KrpbWhknQN7qBjWA2Kk=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-firestore-compat.js" integrity="sha256-leHatffkFuVGIg7ABaA5BDsqsEUtktL4tftb3OdQfg0=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyD0AfWHrmFoKgV1x4srPQDN7rGpGclK7J4","projectId":"visitors-of-blog"}</script>
+  <script src="/js/third-party/statistics/firestore.js" defer></script>
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://wangjiezhe.github.io/posts/2026-06-02-Depoly-Hy-MT2-Locally/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="如鱼饮水" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">如鱼饮水</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">冷暖自知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-fcircle"><a href="/fcircle/" rel="section"><i class="fa fa-user-group fa-fw"></i>朋友圈</a></li><li class="menu-item menu-item-tools"><a href="/tools/" rel="section"><i class="fa fa-rocket fa-fw"></i>工具</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%83%A8%E7%BD%B2%E9%87%8F%E5%8C%96%E6%A8%A1%E5%9E%8B%EF%BC%887B%EF%BC%89"><span class="nav-text">1. 部署量化模型（7B）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-K-V%E7%BC%93%E5%AD%98%E9%87%8F%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="nav-text">2. K&amp;V缓存量化测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%83%A8%E7%BD%B2%E9%9D%9E%E9%87%8F%E5%8C%96%E6%A8%A1%E5%9E%8B%EF%BC%881-8B%EF%BC%89"><span class="nav-text">3. 部署非量化模型（1.8B）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%9C%80%E7%BB%88%E9%85%8D%E7%BD%AE"><span class="nav-text">4. 最终配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91"><span class="nav-text">5. 沉浸式翻译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E9%85%8D%E5%90%88Cherry-Studio%E4%BD%BF%E7%94%A8"><span class="nav-text">6. 配合Cherry Studio使用</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">154</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjiezhe" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangjiezhe@gmail.com" title="E-Mail → mailto:wangjiezhe@gmail.com" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://x.com/wangjiezhe" title="Twitter → https:&#x2F;&#x2F;x.com&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/wangjiezhe" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-telegram fa-fw"></i></a>
+      </span>
+  </div>
+<div id="time-now">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+  var digit=
+    [
+      [
+        [0,0,1,1,1,0,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,0,1,1,0],
+        [0,0,1,1,1,0,0]
+      ],//0
+      [
+        [0,0,0,1,1,0,0],
+        [0,1,1,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [1,1,1,1,1,1,1]
+      ],//1
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,1,1],
+        [1,1,1,1,1,1,1]
+      ],//2
+      [
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//3
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,0],
+        [0,0,1,1,1,1,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,1,1,0],
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,1]
+      ],//4
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,1,1,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//5
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//6
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0]
+      ],//7
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//8
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,1,1,0,0,0,0]
+      ],//9
+      [
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0]
+      ]//:
+    ];
+
+  var canvas = document.getElementById('canvas');
+
+  if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+      data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            cxt.beginPath();
+            cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+            cxt.closePath();
+            cxt.fill();
+          }
+        }
+      }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+      var changeNumArray = [];
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      var NewData = [];
+      NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+      for(var i = data.length-1; i >=0 ; i--){
+        //时间发生变化
+        if(NewData[i] !== data[i]){
+          //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+          changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+        }
+      }
+      //增加小球
+      for(var i = 0; i< changeNumArray.length; i++){
+        addBalls.apply(this,changeNumArray[i].split('_'));
+      }
+      data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+      for(var i = 0; i < balls.length; i++){
+        balls[i].stepY += balls[i].disY;
+        balls[i].x += balls[i].stepX;
+        balls[i].y += balls[i].stepY;
+        if(balls[i].x > W + R || balls[i].y > H + R){
+          balls.splice(i,1);
+          i--;
+        }
+      }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+      var numArray = [1,2,3];
+      var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            var ball = {
+              x:14*(R+2)*index + j*2*(R+1)+(R+1),
+              y:i*2*(R+1)+(R+1),
+              stepX:Math.floor(Math.random() * 4 -2),
+              stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+              color:colorArray[Math.floor(Math.random()*colorArray.length)],
+              disY:1
+            };
+            balls.push(ball);
+          }
+        }
+      }
+    }
+
+    /*渲染*/
+    function render(){
+      //重置画布宽度，达到清空画布的效果
+      canvas.height = 100;
+      //获取颜色，支持暗色模式
+      var clockColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
+      cxt.fillStyle = clockColor;
+      //渲染时钟
+      for(var i = 0; i < data.length; i++){
+        renderDigit(i,data[i]);
+      }
+      //渲染小球
+      for(var i = 0; i < balls.length; i++){
+        cxt.beginPath();
+        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+        cxt.fillStyle = balls[i].color;
+        cxt.closePath();
+        cxt.fill();
+      }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+      //更新时钟
+      updateDigitTime();
+      //更新小球状态
+      updateBalls();
+      //渲染
+      render();
+    },50);
+  }
+
+})();
+</script>
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.github.io/posts/2026-06-02-Depoly-Hy-MT2-Locally/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="西风冷香">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+      <meta itemprop="description" content="某不知名机构不知名数学老师">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="本地部署 Hy-MT2 翻译模型 | 如鱼饮水">
+      <meta itemprop="description" content="本地部署 1.8B 和 7B 两个尺寸的模型，并测试开启缓存量化的影响。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          本地部署 Hy-MT2 翻译模型
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-06-02 08:40:39" itemprop="dateCreated datePublished" datetime="2026-06-02T08:40:39+08:00">2026-06-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">本地部署 1.8B 和 7B 两个尺寸的模型，并测试开启缓存量化的影响。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>5月21日，腾讯开源了新版本的翻译模型<a target="_blank" rel="noopener external nofollow noreferrer" href="https://hunyuan.tencent.com/research/100041">Hy-MT2</a>，号称已经接近最顶尖的水平。</p>
+<p>我其实一直有本地部署翻译模型的需求，主要是用来翻译网页和PDF文档。之前翻译网页用的是微软翻译，表现差强人意；翻译PDF用的是DeepSeek的API，效果还可以。</p>
+<p>之所以网页翻译不用DeepSeek的API，一个是由于高并发有时会导致翻译出错，另一个则是涉及到敏感词汇的时候，DeepSeek会拒绝翻译，导致有时看个国外的新闻都翻译不了，更不用说一些特殊文本的翻译了。</p>
+<h2 id="1-部署量化模型（7B）"><a class="header-anchor" href="#1-部署量化模型（7B）"></a>1. 部署量化模型（7B）</h2>
+<p>我直接使用LM Studio部署。最新版的 LM Studio 支持<strong>后台运行</strong>、<strong>自动加载和卸载模型</strong>，使用起来非常方便。</p>
+<p><img data-src="LM_Studio_EBMZ2wMWKz.png" alt="LM_Studio_EBMZ2wMWKz" width="80%" /></p>
+<p><img data-src="LM_Studio_2UK7VeALHt.png" alt="LM_Studio_2UK7VeALHt" /></p>
+<p>可以直接在LM Studio中下载模型<code>tecent/Hy-MT2-7B-GGUF</code>，嫌慢的话也可以手动去<a target="_blank" rel="noopener external nofollow noreferrer" href="https://hf-mirror.com/tencent/Hy-MT2-7B-GGUF">镜像网站</a>下载<code>Hy-MT2-7B-Q4_K_M.gguf</code>，放到<code>%USERPROFILE%\.lmstudio\models\tencent\Hy-MT2-7B-GGUF</code>目录下。</p>
+<p>调整加载时的参数如下：</p>
+<ul>
+<li>上下文长度：官方推荐<code>4k</code>，我为了翻译长文，设置成了<code>20k</code>；</li>
+<li>温度：官方推荐<code>0.7</code>；</li>
+<li>Top K采样：官方推荐<code>20</code>；</li>
+<li>重复惩罚：官方推荐<code>1.05</code>；</li>
+<li>Top P采样：官方推荐<code>0.6</code>，但是我最终设为了<code>0.8</code>（理由见后文）。</li>
+</ul>
+<p>其它暂时保持不变即可。</p>
+<p>点击「Developer」界面中的「Server Settings」→「Manage Tokens」，可以配置API Key，之后就可以像其它的API一样使用了。</p>
+<h2 id="2-K-V缓存量化测试"><a class="header-anchor" href="#2-K-V缓存量化测试"></a>2. K&amp;V缓存量化测试</h2>
+<p>在这种配置下，推理是可以正常进行的。但是有两个问题：</p>
+<ol>
+<li>
+<p>由于我的显卡（RTX4060）的显存只有8G，在任务管理器里可以看到，为了把模型和K&amp;V缓存都加载到显存中，实际上是已经部分把系统的其它任务占用的显存挤到了共享显存（即内存）中去了。</p>
+<p>由于我的最主要的用处是配合浏览器的沉浸式翻译使用，浏览器是会占用一部分显存的，这也许会影响浏览器的性能（纯猜测担心）。</p>
+</li>
+<li>
+<p>推理的速度只能说勉强够用，输出只有大约18~20 tokens/s。</p>
+</li>
+</ol>
+<p>我在在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.v2ex.com/t/1215441">这个帖子</a>中看到，使用llama的时候可以开启K&amp;V缓存量化。实际上LM Studio也提供了这个选项，毕竟它的后端其实就是llama.cpp：</p>
+<p><img data-src="LM_Studio_q1HaBQNNtD.png" alt="LM_Studio_q1HaBQNNtD" /></p>
+<p>开启<code>Q8_0</code>或者<code>Q4_0</code>缓存量化之后，显存占用分别下降了约0.5G和1G，这样加载模型的时候，就基本不会影响到其它程序了。同时输出速度快了1倍，达到35~38 tokens/s。</p>
+<div class="note success"><p>不过，一个奇怪的观察是，在实际使用中，<code>Q8</code>缓存量化的输出速度比<code>Q4</code>基本要快2~3 tokens/s。</p>
+</div>
+<p>不过，缓存量化对于输出结果有多大的影响，我是不确定的。在Reddit上的一些<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.reddit.com/r/LocalLLaMA/comments/1mhlj69/whats_the_verdict_on_using_quantized_kv_cache/?tl=zh-hans">分享</a>中可以看到，缓存量化对于长上下文（超过8k）、工具调用的影响比较大。但是在翻译任务中，上面两种情况基本都不存在。因此我决定实际测试一下。</p>
+<div class="note info"><p>另外，我还想测试一下，<code>1.8B</code>的模型和<code>7B</code>的模型到底有多少区别。</p>
+</div>
+<div class="note primary"><ul>
+<li>测试模型：<code>Hy-MT2-7B : Q4_K_M</code>和<code>Hy-MT2-1.8B : Q8_0</code></li>
+<li>K&amp;V缓存量化类型：<code>F16</code>（默认）、<code>Q8_0</code>和<code>Q4_0</code></li>
+<li>测试数据数据集：<code>google/wmt24pp</code>，只使用<code>en-zh_CN</code>（英译中）子集。</li>
+<li>推理工具：<code>llama-cpp-python</code></li>
+<li>评分工具：<code>sacrebleu</code></li>
+<li>翻译prompt：官方推荐的第一个英文prompt</li>
+</ul>
+</div>
+<p>一共测试了三次。第一次直接使用默认的对话补全，后两次使用OpenAI v1格式的对话补全，并分别把翻译prompt分别放到user prompt和system prompt中进行对比。</p>
+<div class="note warning"><p>不过，在写代码的时候，第一次的对话补全使用了官方推荐的推理参数，后两次的忘了加了，使用的是默认的推理参数。</p>
+</div>
+<p>具体结果如下。</p>
+<ol>
+<li>使用默认的对话补全：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">K&amp;V缓存量化</th>
+<th style="text-align:center">BLEU</th>
+<th style="text-align:center">chrF++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Hy-MT2-1.8B : Q8_0</td>
+<td style="text-align:center">F16</td>
+<td style="text-align:center">34.07</td>
+<td style="text-align:center">18.27</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q8_0</td>
+<td style="text-align:center">34.07</td>
+<td style="text-align:center">18.27</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center">34.07</td>
+<td style="text-align:center">18.27</td>
+</tr>
+<tr>
+<td style="text-align:center">Hy-MT2-7B : Q4_K_M</td>
+<td style="text-align:center">F16</td>
+<td style="text-align:center">59.20</td>
+<td style="text-align:center">43.74</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q8_0</td>
+<td style="text-align:center">59.20</td>
+<td style="text-align:center">43.74</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center">59.20</td>
+<td style="text-align:center">43.74</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>使用user prompt：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">K&amp;V缓存量化</th>
+<th style="text-align:center">BLEU</th>
+<th style="text-align:center">chrF++</th>
+<th style="text-align:center">时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Hy-MT2-1.8B : Q8_0</td>
+<td style="text-align:center">F16</td>
+<td style="text-align:center">36.62</td>
+<td style="text-align:center">20.55</td>
+<td style="text-align:center">06:49</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q8_0</td>
+<td style="text-align:center">36.62</td>
+<td style="text-align:center">20.55</td>
+<td style="text-align:center">07:30</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center"><strong>49.97</strong></td>
+<td style="text-align:center"><strong>29.96</strong></td>
+<td style="text-align:center">07:21</td>
+</tr>
+<tr>
+<td style="text-align:center">Hy-MT2-7B : Q4_K_M</td>
+<td style="text-align:center">F16</td>
+<td style="text-align:center"><strong>63.49</strong></td>
+<td style="text-align:center"><strong>45.78</strong></td>
+<td style="text-align:center">14:47</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q8_0</td>
+<td style="text-align:center">46.98</td>
+<td style="text-align:center">33.24</td>
+<td style="text-align:center">15:43</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center">46.98</td>
+<td style="text-align:center">33.24</td>
+<td style="text-align:center">15:37</td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>使用system prompt：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">K&amp;V缓存量化</th>
+<th style="text-align:center">BLEU</th>
+<th style="text-align:center">chrF++</th>
+<th style="text-align:center">时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Hy-MT2-1.8B : Q8_0</td>
+<td style="text-align:center">F16</td>
+<td style="text-align:center">49.98</td>
+<td style="text-align:center">25.38</td>
+<td style="text-align:center">06:32</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q8_0</td>
+<td style="text-align:center">49.98</td>
+<td style="text-align:center">25.38</td>
+<td style="text-align:center">07:06</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center"><strong>55.64</strong></td>
+<td style="text-align:center"><strong>32.20</strong></td>
+<td style="text-align:center">07:12</td>
+</tr>
+<tr>
+<td style="text-align:center">Hy-MT2-7B : Q4_K_M</td>
+<td style="text-align:center">F16</td>
+<td style="text-align:center">59.20</td>
+<td style="text-align:center">43.74</td>
+<td style="text-align:center">14:36</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q8_0</td>
+<td style="text-align:center">59.20</td>
+<td style="text-align:center">43.74</td>
+<td style="text-align:center">15:08</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center"><strong>63.49</strong></td>
+<td style="text-align:center"><strong>45.78</strong></td>
+<td style="text-align:center">15:09</td>
+</tr>
+</tbody>
+</table>
+<details class="note info"><summary><p>关于BLEU分数的介绍</p>
+</summary>
+<p>BLEU（双语评估替补）是一种算法，用于评估从一种语言机器翻译成另一种语言的文本的精确度或准确度。 自定义翻译器使用 BLEU 指标作为传达翻译准确性的一种方式。</p>
+<p>BLEU 分数是一个 0 到 100 之间的数字。 0 分表示翻译质量低，翻译中没有任何内容与引用匹配。 分数为 100 表示与引用完全相同的完美翻译。 不需要达到 100 分 - BLEU 分数在 40 到 60 之间表明翻译质量高。</p>
+<p class="text-right">── by <a target="_blank" rel="noopener external nofollow noreferrer" href="https://learn.microsoft.com/zh-cn/azure/ai-services/translator/custom-translator/how-to/test-your-model">Microsoft</a></p>
+
+</details>
+<p>怎么说呢，结果有些意外：</p>
+<ul>
+<li><code>Q8</code>量化的<code>1.8B</code>模型只能说可用，算不上好用。<code>Q4</code>量化的<code>7B</code>模型算是达到了好用的程度。</li>
+<li>使用OpenAI v1格式的对话补全，输出结果有明显提升，对于<code>1.8B</code>的模型尤为明显。</li>
+<li>同样的prompt，放在user prompt和system prompt里面的差别居然这么大。</li>
+<li><code>Q4</code>缓存量化的评分居然比不量化的时候还要高？？？特别是对于<code>1.8B</code>的模型尤其明显，BLEU分数达到了50分的临界水平。</li>
+</ul>
+<p>第二个结果完全出乎了我的意料。于是我不信邪，有使用官方的推荐参数针对<code>Q4</code>的缓存量化重新测试了一遍，结果如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">prompt</th>
+<th style="text-align:center">K&amp;V缓存量化</th>
+<th style="text-align:center">BLEU</th>
+<th style="text-align:center">chrF++</th>
+<th style="text-align:center">时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Hy-MT2-1.8B : Q8_0</td>
+<td style="text-align:center">user</td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center">48.85</td>
+<td style="text-align:center">25.12</td>
+<td style="text-align:center">07:23</td>
+</tr>
+<tr>
+<td style="text-align:center">Hy-MT2-1.8B : Q8_0</td>
+<td style="text-align:center">system</td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center">53.64</td>
+<td style="text-align:center">31.13</td>
+<td style="text-align:center">07:00</td>
+</tr>
+<tr>
+<td style="text-align:center">Hy-MT2-7B : Q4_K_M</td>
+<td style="text-align:center">user</td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center"><strong>63.49</strong></td>
+<td style="text-align:center"><strong>45.78</strong></td>
+<td style="text-align:center">15:12</td>
+</tr>
+<tr>
+<td style="text-align:center">Hy-MT2-7B : Q4_K_M</td>
+<td style="text-align:center">system</td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center">51.47</td>
+<td style="text-align:center">34.30</td>
+<td style="text-align:center">15:18</td>
+</tr>
+</tbody>
+</table>
+<p>可以看到，<code>Q8</code>量化的模型+<code>Q4</code>量化的K&amp;V缓存，表现确实很好，这和一些地方的推荐（缓存量化精度≥模型量化精度）不一致。</p>
+<p>但是<code>Q4</code>量化的模型+<code>Q4</code>量化的K&amp;V缓存，分数波动就比较大了。</p>
+<div class="note success"><p>后来，我又使用<code>top_p=0.8</code>的参数（其它参数保持推荐不变），针对<code>7B</code>模型重新测了一下，结果如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">prompt</th>
+<th style="text-align:center">K&amp;V缓存量化</th>
+<th style="text-align:center">BLEU</th>
+<th style="text-align:center">chrF++</th>
+<th style="text-align:center">时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Hy-MT2-7B : Q4_K_M</td>
+<td style="text-align:center">user</td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center">50.65</td>
+<td style="text-align:center">34.41</td>
+<td style="text-align:center">16:04</td>
+</tr>
+<tr>
+<td style="text-align:center">Hy-MT2-7B : Q4_K_M</td>
+<td style="text-align:center">system</td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center"><strong>63.49</strong></td>
+<td style="text-align:center"><strong>45.06</strong></td>
+<td style="text-align:center">15:52</td>
+</tr>
+</tbody>
+</table>
+<p>又和上面的结果不一样了。</p>
+</div>
+<div class="note primary"><p>我又把翻译prompt从英文换成了中文（依然是官方推荐的第一个），结果如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">prompt</th>
+<th style="text-align:center">K&amp;V缓存量化</th>
+<th style="text-align:center">BLEU</th>
+<th style="text-align:center">chrF++</th>
+<th style="text-align:center">时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Hy-MT2-7B : Q4_K_M</td>
+<td style="text-align:center">user</td>
+<td style="text-align:center">F16</td>
+<td style="text-align:center">59.20</td>
+<td style="text-align:center">43.74</td>
+<td style="text-align:center">14:58</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q8_0</td>
+<td style="text-align:center">59.20</td>
+<td style="text-align:center">43.74</td>
+<td style="text-align:center">15:43</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center">59.20</td>
+<td style="text-align:center">43.74</td>
+<td style="text-align:center">15:43</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">system</td>
+<td style="text-align:center">F16</td>
+<td style="text-align:center">59.20</td>
+<td style="text-align:center">43.74</td>
+<td style="text-align:center">15:04</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q8_0</td>
+<td style="text-align:center">59.20</td>
+<td style="text-align:center">43.74</td>
+<td style="text-align:center">15:42</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Q4_0</td>
+<td style="text-align:center">59.20</td>
+<td style="text-align:center">43.74</td>
+<td style="text-align:center">15:43</td>
+</tr>
+</tbody>
+</table>
+<p>这回结果倒是非常稳定。</p>
+</div>
+<h2 id="3-部署非量化模型（1-8B）"><a class="header-anchor" href="#3-部署非量化模型（1-8B）"></a>3. 部署非量化模型（1.8B）</h2>
+<p>我的显存是足够部署<code>1.8B</code>模型的非量化版本的，因此我想对比一下，<code>1.8B</code>的非量化模型，和<code>7B</code>的量化模型，究竟孰优孰劣。</p>
+<div class="note info"><p>以前就听说过一句话，低精度量化的大模型要优于非量化的小模型。从直觉上来说确实是这样的。</p>
+<p>这次我决定自己检验一下。</p>
+</div>
+<p>我使用<a href="/posts/2025-11-04-Use-vLLM-to-Accelerate-PaddleOCR-VL/">之前</a>安装好的vllm（0.10.2版本），运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">VIRTUAL_ENV=.venv_vllm uv run vllm serve tencent/Hy-MT2-1.8B \</span><br><span class="line">  --tensor-parallel-size 1 \</span><br><span class="line">  --max-model-len 8192 \</span><br><span class="line">  --gpu-memory-utilization 0.66 \</span><br><span class="line">  --port 8118</span><br></pre></td></tr></table></figure>
+<div class="note warning"><p>使用OpenAI sdk的时候无法指定响应的参数，因此使用的是vllm检测到的模型默认参数：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;repetition_penalty&quot;</span><span class="punctuation">:</span> <span class="number">1.05</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;temperature&quot;</span><span class="punctuation">:</span> <span class="number">0.7</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;top_k&quot;</span><span class="punctuation">:</span> <span class="number">20</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;top_p&quot;</span><span class="punctuation">:</span> <span class="number">0.8</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>只有<code>top_p</code>参数与官方推荐不同。</p>
+</div>
+<p>测试结果如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">prompt</th>
+<th style="text-align:center">BLEU</th>
+<th style="text-align:center">chrF++</th>
+<th style="text-align:center">时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Hy-MT2-1.8B</td>
+<td style="text-align:center">user</td>
+<td style="text-align:center">52.64</td>
+<td style="text-align:center">33.26</td>
+<td style="text-align:center">11:55</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">system</td>
+<td style="text-align:center">56.68</td>
+<td style="text-align:center">35.17</td>
+<td style="text-align:center">11:03</td>
+</tr>
+</tbody>
+</table>
+<p>可以看到，结果明显优于<code>Q8</code>量化的版本，BLEU分数超过了50，已经属于好用的范围了。</p>
+<p>但是，的确也还是不如<code>Q4</code>量化的<code>7B</code>模型。</p>
+<p>这验证了上面的感觉是正确的。</p>
+<div class="note primary"><p>之后我又使用官方推荐参数<code>top_p=0.6</code>重新测试了一次。</p>
+<p>由于之前的虚拟环境被我不小心破坏了，加上之前安装虚拟环境的时候手动下载的一些包也早就删掉了，于是我就干脆使用Docker来运行vllm了（版本是0.19.2）。命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run --gpus all -it --<span class="built_in">rm</span> \</span><br><span class="line">  --ipc=host --<span class="built_in">ulimit</span> memlock=-1 --<span class="built_in">ulimit</span> stack=67108864 \</span><br><span class="line">  --name vllm \</span><br><span class="line">  -v ~/.cache/huggingface:/root/.cache/huggingface \</span><br><span class="line">  --<span class="built_in">env</span> <span class="string">&quot;HF_ENDPOINT=<span class="variable">$HF_ENDPOINT</span>&quot;</span> \</span><br><span class="line">  -p 8118:8000 nvcr.nju.edu.cn/nvidia/vllm:26.04-py3 \</span><br><span class="line">  vllm serve tencent/Hy-MT2-1.8B \</span><br><span class="line">  --tensor-parallel-size 1 --max-model-len 8192 --gpu-memory-utilization 0.66 \</span><br><span class="line">  --override-generation-config <span class="string">&#x27;&#123;&quot;repetition_penalty&quot;: 1.05, &quot;temperature&quot;: 0.7, &quot;top_k&quot;: 20, &quot;top_p&quot;: 0.6, &quot;max_tokens&quot;: 4096&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>测试结果如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">prompt</th>
+<th style="text-align:center">BLEU</th>
+<th style="text-align:center">chrF++</th>
+<th style="text-align:center">时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Hy-MT2-1.8B</td>
+<td style="text-align:center">system</td>
+<td style="text-align:center">54.82</td>
+<td style="text-align:center">32.91</td>
+<td style="text-align:center">10:24</td>
+</tr>
+</tbody>
+</table>
+<p>基本和上面的结果是一样的，不过略微差一些。这也是前面重测<code>top_p=0.8</code>并最终使用这个参数的原因。</p>
+</div>
+<h2 id="4-最终配置"><a class="header-anchor" href="#4-最终配置"></a>4. 最终配置</h2>
+<p>考虑到我还有翻译长文的需要，最终还是选择使用<code>Q8_0</code>级别的缓存量化。</p>
+<div class="note success"><p>另外，我在测试中还发现，K和V的缓存量化最好选择同一个类型。</p>
+<p>虽然高精度量化的K缓存和低精度量化的V缓存能够提升效果（没有完全测试，但是确实可以降低PPL），但是输出速度严重变慢。</p>
+</div>
+<h2 id="5-沉浸式翻译"><a class="header-anchor" href="#5-沉浸式翻译"></a>5. 沉浸式翻译</h2>
+<p>我使用Trancy和KISS Translator两个插件来进行沉浸式翻译。</p>
+<p>Trancy的配置非常简单，添加自定义引擎就可以了：</p>
+<ul>
+<li>Model Name: <code>hy-mt2-7b</code></li>
+<li>Engine Name: <code>LM Studio</code></li>
+<li>API Key: <code>sk-lm-****************</code></li>
+<li>API Interface Address: <code>http://127.0.0.1:1234/v1/chat/completions</code></li>
+</ul>
+<p>KISS Translator的使用稍微复杂一些，主要优势有两个：</p>
+<ul>
+<li>
+<p>一是可以针对特定网站指定翻译或不翻译哪些部分。</p>
+</li>
+<li>
+<p>另一个则是可以针对特定网站启用术语表，优化翻译结果。</p>
+<p>需要注意的是，必须开启聚合功能，术语表才能发挥作用。</p>
+</li>
+</ul>
+<h2 id="6-配合Cherry-Studio使用"><a class="header-anchor" href="#6-配合Cherry-Studio使用"></a>6. 配合Cherry Studio使用</h2>
+<p>为了翻译长文，可以在Cherry Studio中创建助手，把翻译prompt和术语表放到助手的提示词中，这样就不用每次再重复输入了。</p>
+<div class="note info"><p>一些需要注意的地方：</p>
+<ul>
+<li>助手的「上下文数」务必设为0，否则可能会直接返回上一个翻译的结果！</li>
+<li>每次输入尽量控制在2k tokens以内，否则会出现中间漏翻的情况，或者翻译完第一行就结束了。<br />
+官方推荐<code>max_tokens=4096</code>还是有道理的，小模型处理长文的能力还是差一些。</li>
+<li>小模型对于指令遵循的能力也要差一些。例如，我要求它保持原始段落、保持Markdown格式，但是有时还是无法满足要求。</li>
+</ul>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wangjiezhe.github.io/posts/2026-06-02-Depoly-Hy-MT2-Locally/" title="本地部署 Hy-MT2 翻译模型">https://wangjiezhe.github.io/posts/2026-06-02-Depoly-Hy-MT2-Locally/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+              <a href="/tags/vLLM/" rel="tag"><i class="fa fa-tag"></i> vLLM</a>
+              <a href="/tags/Hy-MT2/" rel="tag"><i class="fa fa-tag"></i> Hy-MT2</a>
+              <a href="/tags/Llama/" rel="tag"><i class="fa fa-tag"></i> Llama</a>
+              <a href="/tags/GGUF/" rel="tag"><i class="fa fa-tag"></i> GGUF</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2026-04-29-Vibe-Coding-pdf2svg/" rel="prev" title="Vibe Coding一个Python版本的pdf2svg">
+                  <i class="fa fa-angle-left"></i> Vibe Coding一个Python版本的pdf2svg
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-disqusjs">Disqus</a></li>
+            <li class="tab"><a href="#comment-giscus">GitHub</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
+              
+  <div class="comments disqusjs-container">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+            </div>
+            <div class="tab-pane giscus" id="comment-giscus">
+              
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+            </div>
+        </div>
+      </div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener external nofollow noreferrer" target="_blank">冀ICP备2024063721号-1 </a>
+      <img src="/images/gongan.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=13090202000716" rel="noopener external nofollow noreferrer" target="_blank">冀公网安备13090202000716号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">西风冷香</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">362k</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener external nofollow noreferrer" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="blog-links">
+    <span class="post-meta-item moe">
+      <span>
+        <img src="/images/icp-moe.png" style="width:auto;height:16px;" alt="">
+      </span>
+      <span><a href="https://icp.gov.moe/?keyword=20248191" rel="noopener external nofollow noreferrer" target="_blank">萌ICP备20248191号</a>
+      </span>
+    </span>
+    <span class="post-meta-item travel-moe">
+      <span><a href="https://travel.moe/go.html?travel=on" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/travel-moe.png" style="width:auto;height:18px" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！"> 异次元之旅🚀</a>
+      </span>
+    </span>
+    <span class="post-meta-item foreverblog"><a href="https://www.foreverblog.cn/blog/2092.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/foreverblog.png" style="width:auto;height:16px;" alt="Forever Blog"></a>
+    </span>
+    <span class="post-meta-item wormhole"><a href="https://www.foreverblog.cn/go.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/wormhole.gif" style="width:auto;height:24px;" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+    </span>
+    <span class="post-meta-item travelling"><a href="https://www.travellings.cn/go.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/travelling.png" alt="开往-友链接力" height="18"></a>
+    </span>
+  
+</div>
+
+<script>
+function checkWebp(callback) {
+  var img = new Image();
+  img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+  img.onerror = function () { callback(false); };
+  img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+  var imgs = [].slice.call(document.querySelectorAll('img'));
+  imgs.forEach(function (e) {
+    if ((useWebp) && !e.classList.contains('nowebp')) {
+      var src = e.getAttribute('data-src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('data-src', src);
+      }
+      src = e.getAttribute('src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('src', src);
+      }
+    }
+  });
+}
+</script>
+<script data-pjax async>
+checkWebp(showImage);
+</script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"wangjiezhe/wangjiezhe.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxNTc4OTE0Ng==","category":"Announcements","category_id":"DIC_kwDOAPDsWs4Cdwtf","mapping":"og:title","strict":1,"reactions_enabled":1,"emit_metadata":1,"theme":"https://wangjiezhe.com/css/giscus.min.css","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/styles/disqusjs.css" integrity="sha256-E4RzceSomICFY1PT/yDQrN8DsLSwdScDEiQAevHabp0=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqusjs.wangjiezhe.com/","apikey":"ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F","shortname":"wangjiezhe","js":{"url":"https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/disqusjs.es2015.umd.min.js","integrity":"sha256-gdbBT62HLzqWTnXQED3WQL/ItFCuWsA5gd6dM/wgdiE="}}</script>
+<script src="/js/third-party/comments/disqusjs.js" defer></script>
+
+
+
+  <script async src="/js/cursor/fireworks.min.js" integrity="sha256-NVjeK0/Qni9W+mCWpzpw6IZTieyhLZJ5Kj4hdFjqSQc=" crossorigin="anonymous"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@wangjiezhe/live2d-widget@^3.1.7/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false},"log":false});</script></body>
+</html>

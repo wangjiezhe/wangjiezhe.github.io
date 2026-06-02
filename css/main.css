@@ -1440,7 +1440,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #3cffff;
+    background: #6ec1a6;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3402,6 +3402,7 @@ a.host-link:hover {
 }
 .text-right {
   text-align: right;
+  margin-right: 2em;
 }
 .text-center {
   text-align: center;
