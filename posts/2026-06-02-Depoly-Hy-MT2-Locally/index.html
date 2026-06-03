@@ -211,7 +211,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -222,7 +222,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">154</span>
+        <span class="site-state-item-count">156</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -664,7 +664,7 @@
 <p>推理的速度只能说勉强够用，输出只有大约18~20 tokens/s。</p>
 </li>
 </ol>
-<p>我在在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.v2ex.com/t/1215441">这个帖子</a>中看到，使用llama的时候可以开启K&amp;V缓存量化。实际上LM Studio也提供了这个选项，毕竟它的后端其实就是llama.cpp：</p>
+<p>我在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.v2ex.com/t/1215441">这个帖子</a>中看到，使用llama的时候可以开启K&amp;V缓存量化。实际上LM Studio也提供了这个选项，毕竟它的后端其实就是llama.cpp：</p>
 <p><img data-src="LM_Studio_q1HaBQNNtD.png" alt="LM_Studio_q1HaBQNNtD" /></p>
 <p>开启<code>Q8_0</code>或者<code>Q4_0</code>缓存量化之后，显存占用分别下降了约0.5G和1G，这样加载模型的时候，就基本不会影响到其它程序了。同时输出速度快了1倍，达到35~38 tokens/s。</p>
 <div class="note success"><p>不过，一个奇怪的观察是，在实际使用中，<code>Q8</code>缓存量化的输出速度比<code>Q4</code>基本要快2~3 tokens/s。</p>
@@ -1186,6 +1186,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/2026-06-03-Pedal-Triangle-Isogonal-Conjugation-and-Six-Point-Circle/" rel="next" title="垂足三角形、等角共轭点与「六点圆」">
+                  垂足三角形、等角共轭点与「六点圆」 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -1242,7 +1245,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">362k</span>
+    <span title="站点总字数">366k</span>
   </span>
 </div>
 <div class="busuanzi-count">
