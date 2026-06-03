@@ -235,9 +235,9 @@
     
     <category term="OCR" scheme="https://wangjiezhe.github.io/tags/OCR/"/>
     
-    <category term="MinerU" scheme="https://wangjiezhe.github.io/tags/MinerU/"/>
-    
     <category term="vLLM" scheme="https://wangjiezhe.github.io/tags/vLLM/"/>
+    
+    <category term="MinerU" scheme="https://wangjiezhe.github.io/tags/MinerU/"/>
     
   </entry>
   
