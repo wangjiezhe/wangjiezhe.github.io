@@ -1440,7 +1440,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #3c37ff;
+    background: #b671b5;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3261,6 +3261,9 @@ body,
 .post-description {
   font-family: "Roboto Slab", "LXGW Bright Medium", "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Microsoft YaHei", sans serif;
   font-weight: 500;
+}
+.post-block {
+  font-size: 108%;
 }
 .footer {
   font-family: "Roboto Slab", "LXGW Bright SemiLight", "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Microsoft YaHei", sans serif;
