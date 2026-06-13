@@ -225,7 +225,7 @@ body {
   background: var(--body-bg-color);
   box-sizing: border-box;
   color: var(--text-color);
-  font-family: Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans CJK SC, WenQuanYi Micro Hei, Microsoft YaHei, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans SC, WenQuanYi Micro Hei, Microsoft YaHei, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1em;
   line-height: 2;
   min-height: 100%;
@@ -238,7 +238,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans CJK SC, WenQuanYi Micro Hei, Microsoft YaHei, Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans CJK SC, WenQuanYi Micro Hei, Microsoft YaHei, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans SC, WenQuanYi Micro Hei, Microsoft YaHei, Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans SC, WenQuanYi Micro Hei, Microsoft YaHei, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -1297,7 +1297,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans CJK SC, WenQuanYi Micro Hei, Microsoft YaHei, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans SC, WenQuanYi Micro Hei, Microsoft YaHei, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1440,7 +1440,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #b671b5;
+    background: #ad5c9f;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2085,7 +2085,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans CJK SC, WenQuanYi Micro Hei, Microsoft YaHei, Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans CJK SC, WenQuanYi Micro Hei, Microsoft YaHei, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans SC, WenQuanYi Micro Hei, Microsoft YaHei, Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans SC, WenQuanYi Micro Hei, Microsoft YaHei, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2274,7 +2274,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans CJK SC, WenQuanYi Micro Hei, Microsoft YaHei, Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans CJK SC, WenQuanYi Micro Hei, Microsoft YaHei, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans SC, WenQuanYi Micro Hei, Microsoft YaHei, Roboto Slab, PingFang SC, Source Han Sans SC, Source Han Sans CN, Noto Sans SC, WenQuanYi Micro Hei, Microsoft YaHei, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -3243,34 +3243,34 @@ header.header {
   font-weight: normal;
 }
 pre {
-  font-family: "Maple Mono CN", consolas, Menlo, monospace, "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Microsoft YaHei";
+  font-family: "Maple Mono CN", consolas, Menlo, monospace, "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans SC", "WenQuanYi Micro Hei", "Microsoft YaHei";
   font-weight: 400;
 }
 code {
-  font-family: "Maple Mono CN Light", consolas, Menlo, monospace, "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Microsoft YaHei";
+  font-family: "Maple Mono CN Light", consolas, Menlo, monospace, "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans SC", "WenQuanYi Micro Hei", "Microsoft YaHei";
   font-weight: 300;
 }
 body,
 .post-meta {
-  font-family: "Roboto Slab", "LXGW Bright", "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Microsoft YaHei", sans serif;
+  font-family: "Roboto Slab", "LXGW Bright", "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans SC", "WenQuanYi Micro Hei", "Microsoft YaHei", sans serif;
   font-weight: 400;
 }
 .post-body,
 .sidebar,
 .post-block,
 .post-description {
-  font-family: "Roboto Slab", "LXGW Bright Medium", "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Microsoft YaHei", sans serif;
+  font-family: "Roboto Slab", "LXGW Bright Medium", "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans SC", "WenQuanYi Micro Hei", "Microsoft YaHei", sans serif;
   font-weight: 500;
 }
 .post-block {
   font-size: 108%;
 }
 .footer {
-  font-family: "Roboto Slab", "LXGW Bright SemiLight", "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Microsoft YaHei", sans serif;
+  font-family: "Roboto Slab", "LXGW Bright SemiLight", "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans SC", "WenQuanYi Micro Hei", "Microsoft YaHei", sans serif;
   font-weight: 300;
 }
 .menu > li {
-  font-family: "Roboto Slab", "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Microsoft YaHei";
+  font-family: "Roboto Slab", "PingFang SC", "Source Han Sans SC", "Source Han Sans CN", "Noto Sans SC", "WenQuanYi Micro Hei", "Microsoft YaHei";
 }
 .post-copyright ul,
 .followme {
