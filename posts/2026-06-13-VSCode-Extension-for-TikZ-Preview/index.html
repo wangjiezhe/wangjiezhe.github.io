@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-round.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PingFang+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Source+Han+Sans+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Source+Han+Sans+CN:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Noto+Sans+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=WenQuanYi+Micro+Hei:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Microsoft+YaHei:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark-reasonable"},"prism":{"light":"prism","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="为VSCode实现一个功能类似于KtikZ的TikZ预览插件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个VSCode插件：支持TikZ预览">
+<meta property="og:url" content="https://wangjiezhe.github.io/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="为VSCode实现一个功能类似于KtikZ的TikZ预览插件。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/preview-pdf.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/preview-svg.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/chrome_AzUoxGJVFf.png">
+<meta property="article:published_time" content="2026-06-13T07:00:57.000Z">
+<meta property="article:modified_time" content="2026-06-15T08:37:02.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Claude Code">
+<meta property="article:tag" content="DeepSeek">
+<meta property="article:tag" content="VSCode">
+<meta property="article:tag" content="Vibe Coding">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangjiezhe.github.io/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/preview-pdf.png">
+
+
+<link rel="canonical" href="https://wangjiezhe.github.io/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjiezhe.github.io/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/","path":"/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/","title":"一个VSCode插件：支持TikZ预览"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一个VSCode插件：支持TikZ预览 | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48537410-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?a51d31f349bffa6e3757f7d6fca0c47f"></script>
+
+
+  <script data-pjax defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{&quot;token&quot;: &quot;4b43b380fa4e4d43a125ac710c29fb84&quot;}'></script>
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/comments.js" defer></script><script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@11.10.1/dist/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+  <script data-pjax async src="//bsz.wangjiezhe.com/js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-app-compat.js" integrity="sha256-d21UgtIcA6c6qwr8nWk6lxs/KrpbWhknQN7qBjWA2Kk=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-firestore-compat.js" integrity="sha256-leHatffkFuVGIg7ABaA5BDsqsEUtktL4tftb3OdQfg0=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyD0AfWHrmFoKgV1x4srPQDN7rGpGclK7J4","projectId":"visitors-of-blog"}</script>
+  <script src="/js/third-party/statistics/firestore.js" defer></script>
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://wangjiezhe.github.io/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preconnect" href="https://cn-font.claude-code-best.win" crossorigin>
+
+<link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/lxgwwenkaibright/dist/LXGWBright-Regular/result.css">
+<link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/lxgwwenkaibright/dist/LXGWBright-SemiLight/result.css">
+<link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/lxgwwenkaibright/dist/LXGWBright-Medium/result.css">
+
+<link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css">
+<link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/maple-mono-cn/dist/MapleMono-CN-Light/result.css">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="如鱼饮水" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">如鱼饮水</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">冷暖自知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-fcircle"><a href="/fcircle/" rel="section"><i class="fa fa-user-group fa-fw"></i>朋友圈</a></li><li class="menu-item menu-item-tools"><a href="/tools/" rel="section"><i class="fa fa-rocket fa-fw"></i>工具</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%B5%B7%E5%9B%A0"><span class="nav-text">1. 起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%B7%B2%E6%9C%89%E7%9A%84%E7%B1%BB%E4%BC%BC%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">2. 已有的类似解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Vibe-Coding"><span class="nav-text">3. Vibe Coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Code-Review"><span class="nav-text">4. Code Review</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%88%90%E6%9E%9C"><span class="nav-text">5. 成果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%84%9F%E6%83%B3"><span class="nav-text">6. 感想</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-Tokens%E7%94%A8%E9%87%8F"><span class="nav-text">6.1. Tokens用量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E7%BC%96%E5%86%99skill"><span class="nav-text">6.2. 编写skill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E6%85%8E%E7%94%A8resume"><span class="nav-text">6.3. 慎用resume</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">160</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjiezhe" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangjiezhe@gmail.com" title="E-Mail → mailto:wangjiezhe@gmail.com" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://x.com/wangjiezhe" title="Twitter → https:&#x2F;&#x2F;x.com&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/wangjiezhe" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-telegram fa-fw"></i></a>
+      </span>
+  </div>
+<div id="time-now">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+  var digit=
+    [
+      [
+        [0,0,1,1,1,0,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,0,1,1,0],
+        [0,0,1,1,1,0,0]
+      ],//0
+      [
+        [0,0,0,1,1,0,0],
+        [0,1,1,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [1,1,1,1,1,1,1]
+      ],//1
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,1,1],
+        [1,1,1,1,1,1,1]
+      ],//2
+      [
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//3
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,0],
+        [0,0,1,1,1,1,0],
+        [0,1,1,0,1,1,0],
+        [1,1,0,0,1,1,0],
+        [1,1,1,1,1,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,1,1]
+      ],//4
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,1,1,1,1,0],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//5
+      [
+        [0,0,0,0,1,1,0],
+        [0,0,1,1,0,0,0],
+        [0,1,1,0,0,0,0],
+        [1,1,0,0,0,0,0],
+        [1,1,0,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//6
+      [
+        [1,1,1,1,1,1,1],
+        [1,1,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,0,0,1,1,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0],
+        [0,0,1,1,0,0,0]
+      ],//7
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,1,1,0]
+      ],//8
+      [
+        [0,1,1,1,1,1,0],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [1,1,0,0,0,1,1],
+        [0,1,1,1,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,0,1,1],
+        [0,0,0,0,1,1,0],
+        [0,0,0,1,1,0,0],
+        [0,1,1,0,0,0,0]
+      ],//9
+      [
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,0,0,0,0]
+      ]//:
+    ];
+
+  var canvas = document.getElementById('canvas');
+
+  if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+      data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            cxt.beginPath();
+            cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+            cxt.closePath();
+            cxt.fill();
+          }
+        }
+      }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+      var changeNumArray = [];
+      var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      var NewData = [];
+      NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+      for(var i = data.length-1; i >=0 ; i--){
+        //时间发生变化
+        if(NewData[i] !== data[i]){
+          //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+          changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+        }
+      }
+      //增加小球
+      for(var i = 0; i< changeNumArray.length; i++){
+        addBalls.apply(this,changeNumArray[i].split('_'));
+      }
+      data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+      for(var i = 0; i < balls.length; i++){
+        balls[i].stepY += balls[i].disY;
+        balls[i].x += balls[i].stepX;
+        balls[i].y += balls[i].stepY;
+        if(balls[i].x > W + R || balls[i].y > H + R){
+          balls.splice(i,1);
+          i--;
+        }
+      }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+      var numArray = [1,2,3];
+      var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+      for(var i = 0; i < digit[num].length; i++){
+        for(var j = 0; j < digit[num][i].length; j++){
+          if(digit[num][i][j] == 1){
+            var ball = {
+              x:14*(R+2)*index + j*2*(R+1)+(R+1),
+              y:i*2*(R+1)+(R+1),
+              stepX:Math.floor(Math.random() * 4 -2),
+              stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+              color:colorArray[Math.floor(Math.random()*colorArray.length)],
+              disY:1
+            };
+            balls.push(ball);
+          }
+        }
+      }
+    }
+
+    /*渲染*/
+    function render(){
+      //重置画布宽度，达到清空画布的效果
+      canvas.height = 100;
+      //获取颜色，支持暗色模式
+      var clockColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
+      cxt.fillStyle = clockColor;
+      //渲染时钟
+      for(var i = 0; i < data.length; i++){
+        renderDigit(i,data[i]);
+      }
+      //渲染小球
+      for(var i = 0; i < balls.length; i++){
+        cxt.beginPath();
+        cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+        cxt.fillStyle = balls[i].color;
+        cxt.closePath();
+        cxt.fill();
+      }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+      //更新时钟
+      updateDigitTime();
+      //更新小球状态
+      updateBalls();
+      //渲染
+      render();
+    },50);
+  }
+
+})();
+</script>
+
+<div id="site-days"></div>
+<script>
+  function show_date_time() {
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay = new Date("2014/01/10 13:29:55");
+    today = new Date();
+    timeold = (today.getTime() - BirthDay.getTime());
+    sectimeold = timeold / 1000;
+    secondsold = Math.floor(sectimeold);
+    msPerDay = 24 * 60 * 60 * 1000;
+    e_daysold = timeold / msPerDay;
+    daysold = Math.floor(e_daysold);
+    e_hrsold = (e_daysold - daysold) * 24;
+    hrsold = setzero(Math.floor(e_hrsold));
+    e_minsold = (e_hrsold - hrsold) * 60;
+    minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+    seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+    document.getElementById('site-days').innerHTML = "已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+  }
+
+  function setzero(i) {
+    if (i < 10) {
+      i = "0" + i
+    }
+    return i;
+  }
+
+  show_date_time();
+</script>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.github.io/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="西风冷香">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+      <meta itemprop="description" content="某不知名机构不知名数学老师">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="一个VSCode插件：支持TikZ预览 | 如鱼饮水">
+      <meta itemprop="description" content="为VSCode实现一个功能类似于KtikZ的TikZ预览插件。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一个VSCode插件：支持TikZ预览
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-06-13 15:00:57" itemprop="dateCreated datePublished" datetime="2026-06-13T15:00:57+08:00">2026-06-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-06-15 16:37:02" itemprop="dateModified" datetime="2026-06-15T16:37:02+08:00">2026-06-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">为VSCode实现一个功能类似于KtikZ的TikZ预览插件。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="1-起因"><a class="header-anchor" href="#1-起因"></a>1. 起因</h2>
+<p>我的博客文章里面的插图大部分都是使用TikZ画的，而这个没有办法直接预览，就导致我需要在多个编辑器之间不断切换。</p>
+<p>大致流程是这样的：</p>
+<ol>
+<li>使用VSCode写文章的主体。（可以自动在编辑LaTeX的时候切换中英文）</li>
+<li>期间使用VSCode写单独的TikZ代码。（可以自动补全TikZ函数）</li>
+<li>同时使用KtikZ预览TikZ代码。（可以实时预览图片，方便修正语法错误和微调）</li>
+<li>之后利用pdf2svg将TikZ代码转化成SVG图片，然后插入到文章中</li>
+<li>最后利用Typora预览整个文章。（可以正确显示图片）</li>
+</ol>
+<p><a href="/posts/2026-02-16-Vibe-Coding-a-VSCode-Extension/">之前</a>我使用Vibe Coding搓了一个<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/wangjiezhe/vscode-markdown-hexo">插件</a>，让VSCode的Markdown预览和鼠标悬停预览能够识别文档顶部的YAML元数据中的<code>typora-root-url</code>字段，这样保存在子文件夹里面的图片就能够正常加载了。</p>
+<div class="note success"><p>顺带着，也让VSCode的Markdown预览支持了NexT主题的Note标签。</p>
+<p>这样预览看着就更舒服了。</p>
+</div>
+<p>因此，现在再写文章的时候就不需要上面第5个步骤了，最终文章的预览可以直接在VSCode里面完成。</p>
+<p>这次，我的目标是干掉第3个步骤，这样就可以把所有的流程都留在VSCode里完成了。</p>
+<h2 id="2-已有的类似解决方法"><a class="header-anchor" href="#2-已有的类似解决方法"></a>2. 已有的类似解决方法</h2>
+<p>目前已有的一些能够预览TikZ代码的插件，基本都是基于<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/kisonecat/tikzjax">tikzjax</a>或它的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/prinsss/node-tikzjax">移植</a>，详细介绍可见<a target="_blank" rel="noopener external nofollow noreferrer" href="https://prinsss.github.io/graphics-with-tikz-in-hexo/">这篇文章</a>。</p>
+<p>这个技术有两个问题：</p>
+<ul>
+<li>不支持LuaLaTeX</li>
+<li>不支持shell escape</li>
+</ul>
+<p>第一个问题导致<code>tkz-elements</code>宏包无法使用，第二个问题导致<code>tkz-fct</code>宏包无法使用。</p>
+<p>其中</p>
+<ul>
+<li><code>tkz-elements</code>宏包是用来画几何图形；</li>
+<li><code>tkz-fct</code>宏包是用来画函数图像的，依赖shell escape来调用<code>gnuplot</code></li>
+</ul>
+<p>由于这些使用tikzjax插件底层都依赖于<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/kisonecat/web2js">web2js</a> 这个项目，它是将原始的TeX引擎编译为WASM。因此都没有办法支持LuaLaTeX。</p>
+<p>能够支持LuaLaTeX的WASM引擎确实有，例如<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/TeXlyre/texlyre-busytex">TeXlyre BusyTeX</a>，但是也有两个问题：</p>
+<ul>
+<li>使用LuaLaTeX至少需要<code>texlive-recommended</code>这个级别的宏包集合，因此需要大量的空间：
+<ul>
+<li>WASM约占32MB；</li>
+<li><code>texlive-recommemded</code>约占200MB；</li>
+<li>如果是包含tkz系列宏包的<code>texlive-extra</code>则占340MB。</li>
+</ul>
+</li>
+<li>它不支持shell escape。</li>
+</ul>
+<p>因此，我最终决定，还是仿照KtikZ，使用本地已有的TeX环境。</p>
+<h2 id="3-Vibe-Coding"><a class="header-anchor" href="#3-Vibe-Coding"></a>3. Vibe Coding</h2>
+<p>这次我主要使用的是Claude Code配合deepseek-v4-pro。</p>
+<p>具体实现方法是使用本地TeX环境在临时文件夹编译TikZ代码，然后使用PDF.js进行预览。</p>
+<div class="note primary"><p>另外，这次使用了<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/obra/superpowers">superpower</a>这个skill，主要作用是在给出目标后会先通过提问来完善结构、补充细节。</p>
+<p>它的使用体验感很好，很多问题在还没有开始写代码的时候就解决了。</p>
+</div>
+<p>开始生成的代码无法正确渲染PDF，不过通过几轮debug最终自己解决了。</p>
+<p>之后又增加了SVG预览的模式。</p>
+<p>截至功能基本完成（v0.2.1），花费的tokens如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">deepseek-v4-flash</th>
+<th style="text-align:center">deepseek-v4-pro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">输入（缓存）</td>
+<td style="text-align:center">2,109,696</td>
+<td style="text-align:center">55,529,600</td>
+</tr>
+<tr>
+<td style="text-align:center">输入（非缓存）</td>
+<td style="text-align:center">244,834</td>
+<td style="text-align:center">167,874</td>
+</tr>
+<tr>
+<td style="text-align:center">输出</td>
+<td style="text-align:center">48,470</td>
+<td style="text-align:center">130,584</td>
+</tr>
+<tr>
+<td style="text-align:center">价格（¥）</td>
+<td style="text-align:center">0.38</td>
+<td style="text-align:center">2.67</td>
+</tr>
+<tr>
+<td style="text-align:center">缓存命中率</td>
+<td style="text-align:center">89.7%</td>
+<td style="text-align:center">99.7%</td>
+</tr>
+</tbody>
+</table>
+<div class="note success"><p>其中deepseek-v4-flash部分主要是在使用superpower的时候，实际编写代码时其实是拉起了sub-agent来处理的。</p>
+<p>也就是说，编写spec/plan的时候用的是pro模型，具体写代码用的是flash模型。</p>
+<p>不过，实际上我看主要的代码在plan里都已经写好了。</p>
+</div>
+<h2 id="4-Code-Review"><a class="header-anchor" href="#4-Code-Review"></a>4. Code Review</h2>
+<p>第二天，我又使用Codex（gpt-5.5）进行code review，找到了一个关键的bug，还有几个不影响使用的小问题。</p>
+<p>关键的bug是如果在编辑完一个TikZ文件之后快速切换到另一个TikZ文件，会导致渲染的还是之前的文件，不会切换到新的文件。</p>
+<p>这个bug我在实际调试的时候没有发现，因为之前在使用KtikZ的时候习惯了在编辑完文档之后等待图像刷新。这个完全是根据它给出的步骤复现的。</p>
+<p>最终通过三轮debug解决了。</p>
+<p>不过，解决完这几个问题，免费版的月余额就只剩12%了。</p>
+<p>具体的Tokens用量如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">项目</th>
+<th style="text-align:center">用量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">输入（缓存）</td>
+<td style="text-align:center">3,608,448</td>
+</tr>
+<tr>
+<td style="text-align:center">输入（非缓存）</td>
+<td style="text-align:center">184,453</td>
+</tr>
+<tr>
+<td style="text-align:center">输出</td>
+<td style="text-align:center">19795</td>
+</tr>
+<tr>
+<td style="text-align:center">输出（思考）</td>
+<td style="text-align:center">5715</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-成果"><a class="header-anchor" href="#5-成果"></a>5. 成果</h2>
+<p>最终的插件源代码见<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/wangjiezhe/vscode-tikz-preview">vscode-tikz-preview</a>，VSCode插件见<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=wangjiezhe.vscode-tikz-preview">TikZ Preview</a>。</p>
+<p>使用插件的实际情况如下：</p>
+<p>使用PDF预览：</p>
+<p><img data-src="preview-pdf.png" alt="PDF预览" /></p>
+<p>使用SVG预览（调用<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=jock.svg">SVG插件</a>）：</p>
+<p><img data-src="preview-svg.png" alt="SVG预览" /></p>
+<p>具体的配置选项基本是照搬KtikZ的：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">latexCommand</td>
+<td style="text-align:center">pdflatex</td>
+<td style="text-align:center">可根据实际需要改为lualatex或xelatex</td>
+</tr>
+<tr>
+<td style="text-align:center">shellEscape</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">使用<code>tkz-fct</code>等宏包需要启用这个选项</td>
+</tr>
+<tr>
+<td style="text-align:center">templatePath</td>
+<td style="text-align:center">&quot;&quot;</td>
+<td style="text-align:center">默认为自带的模板文件<br>和KtikZ的默认模板相同</td>
+</tr>
+<tr>
+<td style="text-align:center">templatePlaceholder</td>
+<td style="text-align:center">&lt;&gt;</td>
+<td style="text-align:center">和KtikZ相同</td>
+</tr>
+<tr>
+<td style="text-align:center">autoOpen</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">在打开TikZ文件的时候是否自动打开预览界面</td>
+</tr>
+<tr>
+<td style="text-align:center">autoOpenExtensions</td>
+<td style="text-align:center">.tikz<br>.pgf<br>.tkz</td>
+<td style="text-align:center">TikZ文件的后缀</td>
+</tr>
+<tr>
+<td style="text-align:center">previewMode</td>
+<td style="text-align:center">pdf</td>
+<td style="text-align:center">预览模式，支持pdf和svg两种</td>
+</tr>
+<tr>
+<td style="text-align:center">svgConverter</td>
+<td style="text-align:center">pdftocairo</td>
+<td style="text-align:center">PDF转换成SVG的命令<br>可选pdftocairo和pdf2svg</td>
+</tr>
+</tbody>
+</table>
+<p>其它的使用体验也和KtikZ是一致的，停止编辑1s之后，会自动编译文件并渲染到右侧。</p>
+<p>如果编译出现错误，会输出在下面的输出栏。如果是使用PDF模式，错误也会显示在右边的预览区域。</p>
+<p>因此，如果之前使用的是KtikZ的话，可以无缝切换到这个插件。</p>
+<div class="note info"><p>顺带说一句，KtikZ可以只使用QT6进行编译，这样就不用依赖KDE组件了，不过需要一点修改。</p>
+<p>具体方法和patch可见我的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/wangjiezhe/gentoo-local/tree/main/app-text/qtikz">Gentoo仓库</a>。</p>
+</div>
+<h2 id="6-感想"><a class="header-anchor" href="#6-感想"></a>6. 感想</h2>
+<h3 id="6-1-Tokens用量"><a class="header-anchor" href="#6-1-Tokens用量"></a>6.1. Tokens用量</h3>
+<p>之前在网上有讨论每天用一亿tokens如何如何，对此评价不一。</p>
+<p>这次实际从零开始写了一个小项目，从上面的表格可以看到，使用了超过50M的tokens。</p>
+<div class="note default"><p>当然，大部分其实都是多轮对话的缓存（中间没有中断过会话，也没有压缩过上下文）。</p>
+</div>
+<p>而这一共花了多长时间呢？5个小时。</p>
+<p>因此，如果是重度使用Vibe Coding，一天烧一亿tokens并不算多。</p>
+<h3 id="6-2-编写skill"><a class="header-anchor" href="#6-2-编写skill"></a>6.2. 编写skill</h3>
+<p>完成一定功能之后，发布新版本是一个比较机械且无聊的事情。于是我决定让Claude Code来自己完成这个任务。</p>
+<p>它自动调用了<code>skill-creator</code>来创建了一个skill，并将我的要求自动转换成了<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/wangjiezhe/vscode-tikz-preview/blob/main/.claude/skills/release/SKILL.md">skill文件</a>。之后，我只用输入<code>bump major/minor/patch version</code>，他就会自动发布新版本，并更新ChangeLog和README文件。</p>
+<div class="note warning"><p>不过，这种自动生成的skill文件<strong>务必</strong>要手动检查一下，否则很有可能造成错误的修改。</p>
+</div>
+<h3 id="6-3-慎用resume"><a class="header-anchor" href="#6-3-慎用resume"></a>6.3. 慎用resume</h3>
+<p>第二天我在修改代码的时候，顺手使用了<code>claude --resume</code>，然后Tokens就爆炸了。好死不死的，我还连着resume了三次，于是：</p>
+<p><img data-src="chrome_AzUoxGJVFf.png" alt="alt text" /></p>
+<p>未命中的输入tokens数量甚至超过了昨天的4倍！！！</p>
+<p>这就导致，虽然第二天我只是用Claude Code更新了一些文档，花的钱几乎和第一天持平了。。。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wangjiezhe.github.io/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/" title="一个VSCode插件：支持TikZ预览">https://wangjiezhe.github.io/posts/2026-06-13-VSCode-Extension-for-TikZ-Preview/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+              <a href="/tags/DeepSeek/" rel="tag"><i class="fa fa-tag"></i> DeepSeek</a>
+              <a href="/tags/VSCode/" rel="tag"><i class="fa fa-tag"></i> VSCode</a>
+              <a href="/tags/Vibe-Coding/" rel="tag"><i class="fa fa-tag"></i> Vibe Coding</a>
+              <a href="/tags/Claude-Code/" rel="tag"><i class="fa fa-tag"></i> Claude Code</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2026-06-11-Highlight-directlua-in-Neovim/" rel="prev" title="在Neovim中支持LuaLaTeX高亮">
+                  <i class="fa fa-angle-left"></i> 在Neovim中支持LuaLaTeX高亮
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-disqusjs">Disqus</a></li>
+            <li class="tab"><a href="#comment-giscus">GitHub</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
+              
+  <div class="comments disqusjs-container">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+            </div>
+            <div class="tab-pane giscus" id="comment-giscus">
+              
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+            </div>
+        </div>
+      </div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener external nofollow noreferrer" target="_blank">冀ICP备2024063721号-1 </a>
+      <img src="/images/gongan.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=13090202000716" rel="noopener external nofollow noreferrer" target="_blank">冀公网安备13090202000716号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">西风冷香</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">386k</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener external nofollow noreferrer" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="blog-links">
+    <span class="post-meta-item moe">
+      <span>
+        <img src="/images/icp-moe.png" style="width:auto;height:16px;" alt="">
+      </span>
+      <span><a href="https://icp.gov.moe/?keyword=20248191" rel="noopener external nofollow noreferrer" target="_blank">萌ICP备20248191号</a>
+      </span>
+    </span>
+    <span class="post-meta-item travel-moe">
+      <span><a href="https://travel.moe/go.html?travel=on" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/travel-moe.png" style="width:auto;height:18px" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！"> 异次元之旅🚀</a>
+      </span>
+    </span>
+    <span class="post-meta-item foreverblog"><a href="https://www.foreverblog.cn/blog/2092.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/foreverblog.png" style="width:auto;height:16px;" alt="Forever Blog"></a>
+    </span>
+    <span class="post-meta-item wormhole"><a href="https://www.foreverblog.cn/go.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/wormhole.gif" style="width:auto;height:24px;" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+    </span>
+    <span class="post-meta-item travelling"><a href="https://www.travellings.cn/go.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/travelling.png" alt="开往-友链接力" height="18"></a>
+    </span>
+  
+</div>
+
+<script>
+function checkWebp(callback) {
+  var img = new Image();
+  img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+  img.onerror = function () { callback(false); };
+  img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+  var imgs = [].slice.call(document.querySelectorAll('img'));
+  imgs.forEach(function (e) {
+    if ((useWebp) && !e.classList.contains('nowebp')) {
+      var src = e.getAttribute('data-src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('data-src', src);
+      }
+      src = e.getAttribute('src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('src', src);
+      }
+    }
+  });
+}
+</script>
+<script data-pjax async>
+checkWebp(showImage);
+</script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"wangjiezhe/wangjiezhe.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxNTc4OTE0Ng==","category":"Announcements","category_id":"DIC_kwDOAPDsWs4Cdwtf","mapping":"og:title","strict":1,"reactions_enabled":1,"emit_metadata":1,"theme":"https://wangjiezhe.com/css/giscus.min.css","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/styles/disqusjs.css" integrity="sha256-E4RzceSomICFY1PT/yDQrN8DsLSwdScDEiQAevHabp0=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqusjs.wangjiezhe.com/","apikey":"ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F","shortname":"wangjiezhe","js":{"url":"https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/disqusjs.es2015.umd.min.js","integrity":"sha256-gdbBT62HLzqWTnXQED3WQL/ItFCuWsA5gd6dM/wgdiE="}}</script>
+<script src="/js/third-party/comments/disqusjs.js" defer></script>
+
+
+
+  <script async src="/js/cursor/fireworks.min.js" integrity="sha256-NVjeK0/Qni9W+mCWpzpw6IZTieyhLZJ5Kj4hdFjqSQc=" crossorigin="anonymous"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@wangjiezhe/live2d-widget@^3.1.7/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false},"log":false});</script></body>
+</html>
