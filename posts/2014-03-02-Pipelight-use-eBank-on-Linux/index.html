@@ -573,24 +573,17 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/posts/2014-03-22-NetworkManager-Hotspot-Setting/" rel="bookmark">
-        <time class="popular-posts-time">2014-03-22</time>
-        <br>
-      修改 NetworkManager wifi 热点的加密方式
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/posts/2014-03-19-Linux-Notes-2/" rel="bookmark">
-        <time class="popular-posts-time">2014-03-19</time>
-        <br>
-      Linux 随学随记 (2)
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/posts/2026-04-29-Vibe-Coding-pdf2svg/" rel="bookmark">
         <time class="popular-posts-time">2026-04-29</time>
         <br>
       Vibe Coding一个Python版本的pdf2svg
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2014-03-22-NetworkManager-Hotspot-Setting/" rel="bookmark">
+        <time class="popular-posts-time">2014-03-22</time>
+        <br>
+      修改 NetworkManager wifi 热点的加密方式
       </a>
     </li>
   </ul>
@@ -676,7 +669,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.7k</span>
+      <span>2.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -711,26 +704,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pipelight-plugin --<span class="built_in">enable</span> npactivex</span><br></pre></td></tr></table></figure>
 <h3 id="4-确认安装成功"><a class="header-anchor" href="#4-确认安装成功"></a>4. 确认安装成功</h3>
 <p>启动 chrome 浏览器, 打开 <a href="chrome://plugins" rel="external nofollow noreferrer">chrome://plugins</a>, 应该可以看到以下内容:</p>
-<blockquote>
-<p>ActiveX hosting plugin for NPAPI<br />
-ActiveX hosting plugin for NPAPI r37<br />
-Name: ActiveX hosting plugin for NPAPI<br />
-Description: ActiveX hosting plugin for NPAPI r37<br />
-Version:<br />
-Location: /usr/lib/pipelight/libpipelight-npactivex.so<br />
-Type: NPAPI<br />
-Disable<br />
-MIME types:<br />
-MIME type Description  File extensions<br />
-application/x-itst-activex  ActiveX (*.ocx)<br />
-.ocx<br />
-application/activex-manager  ActiveXManager</p>
-</blockquote>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ActiveX hosting plugin for NPAPI</span><br><span class="line">ActiveX hosting plugin for NPAPI r37</span><br><span class="line"><span class="params">Name:</span> ActiveX hosting plugin for NPAPI</span><br><span class="line"><span class="params">Description:</span> ActiveX hosting plugin for NPAPI r37</span><br><span class="line"><span class="params">Version:</span></span><br><span class="line"><span class="params">Location:</span> <span class="symbol">/usr/lib/pipelight/libpipelight-npactivex.so</span></span><br><span class="line"><span class="params">Type:</span> NPAPI</span><br><span class="line">Disable</span><br><span class="line">MIME <span class="params">types:</span></span><br><span class="line">MIME type Description  File extensions</span><br><span class="line">application<span class="symbol">/x-itst-activex</span>  ActiveX (<span class="operator">*</span>.ocx)</span><br><span class="line">.ocx</span><br><span class="line">application<span class="symbol">/activex-manager</span>  ActiveXManager</span><br></pre></td></tr></table></figure>
 <p>如果看到下列错误:</p>
-<blockquote>
-<p>Pipelight Error (npactivex)!<br />
-Something went wrong, check the terminal output</p>
-</blockquote>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Pipelight Error (npactivex)!</span><br><span class="line">Something went wrong,<span class="built_in"> check </span>the terminal output</span><br></pre></td></tr></table></figure>
 <p>请从终端打开 chromium/google-chrome, 观察终端出错日志</p>
 <h3 id="5-安装winetricks"><a class="header-anchor" href="#5-安装winetricks"></a>5. 安装winetricks</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://winetricks.googlecode.com/svn/trunk/src/winetricks</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> winetricks /path/to/your/bin/</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> +x /path/to/your/bin/winetricks</span><br></pre></td></tr></table></figure>
@@ -746,9 +722,7 @@ Something went wrong, check the terminal output</p>
 <p>运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WINEPREFIX=~/.wine-pipelight wine uninstaller --list</span><br></pre></td></tr></table></figure>
 <p>如果输出包含以下内容就说明安装成功了, 否则说明以上某一步出错了</p>
-<blockquote>
-<p>{93156467-FD99-4A30-9CA5-8563F4BB8DB3}|||icbc_netbank_client_controls</p>
-</blockquote>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;93156467-FD99<span class="string">-4</span>A30<span class="string">-9</span>CA5<span class="string">-8563</span>F4BB8DB3&#125;|||icbc_netbank_client_controls</span><br></pre></td></tr></table></figure>
 <h3 id="7-安装-np-activex-extension"><a class="header-anchor" href="#7-安装-np-activex-extension"></a>7. 安装 np-activex extension</h3>
 <p>扩展可以从 Chrome Web Store 直接安装, 地址:</p>
 <p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://chrome.google.com/webstore/detail/activex-for-chrome/lgllffgicojgllpmdbemgglaponefajn/related">https://chrome.google.com/webstore/detail/activex-for-chrome/lgllffgicojgllpmdbemgglaponefajn/related</a></p>
@@ -757,12 +731,7 @@ Something went wrong, check the terminal output</p>
 <h3 id="9-完成"><a class="header-anchor" href="#9-完成"></a>9. 完成</h3>
 <p>用 Chrome 打开 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://mybank.icbc.com.cn/icbc/perbank/index.jsp">https://mybank.icbc.com.cn/icbc/perbank/index.jsp</a> 应该可以正常登陆工行网银了.</p>
 <p>上面的博客还给出了其作者对支付宝的测试成功的 npactivex extension 的规则:</p>
-<blockquote>
-<p>Mode: WildChar<br />
-Pattern: https://*.alipay.com/*<br />
-User Agent: MSIE9<br />
-Other helper scripts: dynamic ieevent</p>
-</blockquote>
+<figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Mode</span><span class="punctuation">:</span> <span class="string">WildChar</span></span><br><span class="line"><span class="attribute">Pattern</span><span class="punctuation">:</span> <span class="string">https://*.alipay.com/*</span></span><br><span class="line"><span class="attribute">User Agent</span><span class="punctuation">:</span> <span class="string">MSIE9</span></span><br><span class="line"><span class="attribute">Other helper scripts</span><span class="punctuation">:</span> <span class="string">dynamic ieevent</span></span><br></pre></td></tr></table></figure>
 <p>不过, 在 npactivex extension 的设置页面中虽然有农业银行的的选项，但是我还是始终没有成功......</p>
 <hr />
 <p>参考:</p>
