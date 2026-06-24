@@ -7,7 +7,7 @@
   <link href="https://wangjiezhe.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjiezhe.github.io/"/>
-  <updated>2026-06-15T08:37:02.000Z</updated>
+  <updated>2026-06-24T02:25:04.000Z</updated>
   <id>https://wangjiezhe.github.io/</id>
   
   <author>
@@ -20,6 +20,33 @@
     <userId>67403439891593216</userId>
   </follow_challenge>
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>不间断空格的处理方法</title>
+    <link href="https://wangjiezhe.github.io/posts/2026-06-24-Non-breaking-Space/"/>
+    <id>https://wangjiezhe.github.io/posts/2026-06-24-Non-breaking-Space/</id>
+    <published>2026-06-24T02:25:04.000Z</published>
+    <updated>2026-06-24T02:25:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在处理文本的时候多次遇到不间断空格，开始没有注意，后来造成了不小的麻烦。这里记录一下它的处理方法。</p><span id="more"></span><h2 id="1-定义"><a class="header-anchor" href="#1-定义"></a>1. 定义</h2><p><strong>不间断空格</strong>，或称<strong>不换行空格</strong>，Unicode代码为<code>U+00A0</code>，用来避免一些内容因为换行而分开。</p><p>例如，如果在<code>3 cm</code>之间使用空格，可能会导致在换行的时候把数字和单位分开，这时可以在中间使用不间断空格，就能保证即使在换行的位置也不会被分在两行。</p><h2 id="2-查找方法"><a class="header-anchor" href="#2-查找方法"></a>2. 查找方法</h2><p>不间断空格在一些软件中会有明确的标记：</p><ul><li>Word：打开「显示编辑标记」，会渲染为<code>°</code>。</li><li>Neovim：会渲染为<code>+</code>。</li></ul><p>也可以使用十六进制显示来查找：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexdump -C file.txt | grep <span class="string">&#x27;c2 a0&#x27;</span></span><br></pre></td></tr></table></figure><h2 id="3-输入方法"><a class="header-anchor" href="#3-输入方法"></a>3. 输入方法</h2><p>在Windows下可以使用直接输入Unicode字符的方法：</p><ul><li>按住<code>Alt</code>，然后使用<strong>数字小键盘</strong>依次输入<code>0160</code>，最后松开<code>Alt</code>即可。</li></ul><p>在不同的软件中也有其它输入方法：</p><ul><li>Word：先输入<code>00a0</code>，然后按<code>Alt+x</code>，可以直接将Unicode代码转换为对应的字符。</li><li>vim/neovim：依次按<code>Ctrl+k space space</code>即可。</li></ul><p>另外，在一些特殊格式的文件中还有其它的输入方式：</p><ul><li>HTML/Markdown：直接使用<code>&amp;nbsp;</code>即可。</li><li>LaTeX：直接使用<code>~</code>即可。</li></ul><h2 id="4-替换方法"><a class="header-anchor" href="#4-替换方法"></a>4. 替换方法</h2><p>最简单的方法是在可视化编辑器中替换：</p><ul><li>Word：使用前面的方法在「查找」栏输入不间断空格即可。</li><li>Notepad3：在「查找」栏输入<code>\xa0</code>即可替换。</li></ul><p>使用命令行的方法：</p><ul><li>sed：<code>sed -i 's/\xc2\xa0/ /g' file.txt</code></li><li>perl：<code>perl -CSD -pi -e 's/\x{00a0}/ /g' file.txt</code></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;最近在处理文本的时候多次遇到不间断空格，开始没有注意，后来造成了不小的麻烦。这里记录一下它的处理方法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Windows" scheme="https://wangjiezhe.github.io/categories/Windows/"/>
+    
+    
+    <category term="Sed" scheme="https://wangjiezhe.github.io/tags/Sed/"/>
+    
+    <category term="LaTeX" scheme="https://wangjiezhe.github.io/tags/LaTeX/"/>
+    
+    <category term="Neovim" scheme="https://wangjiezhe.github.io/tags/Neovim/"/>
+    
+    <category term="Word" scheme="https://wangjiezhe.github.io/tags/Word/"/>
+    
+  </entry>
   
   <entry>
     <title>一个VSCode插件：支持TikZ预览</title>
@@ -349,9 +376,9 @@
     
     <category term="OCR" scheme="https://wangjiezhe.github.io/tags/OCR/"/>
     
-    <category term="vLLM" scheme="https://wangjiezhe.github.io/tags/vLLM/"/>
-    
     <category term="MinerU" scheme="https://wangjiezhe.github.io/tags/MinerU/"/>
+    
+    <category term="vLLM" scheme="https://wangjiezhe.github.io/tags/vLLM/"/>
     
   </entry>
   
@@ -543,35 +570,6 @@
     <category term="OCR" scheme="https://wangjiezhe.github.io/tags/OCR/"/>
     
     <category term="PaddleOCR" scheme="https://wangjiezhe.github.io/tags/PaddleOCR/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>白嫖Kaggle平台部署DeepSeek-OCR</title>
-    <link href="https://wangjiezhe.github.io/posts/2025-10-26-Deploy-DeepSeek-OCR-on-Kaggle/"/>
-    <id>https://wangjiezhe.github.io/posts/2025-10-26-Deploy-DeepSeek-OCR-on-Kaggle/</id>
-    <published>2025-10-26T01:04:17.000Z</published>
-    <updated>2025-10-26T01:04:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="/posts/2025-10-24-try-DeepSeek-OCR/">之前</a>在本地运行DeepSeek-OCR模型，由于我的笔记本显存只有8G，所以必须关掉显卡直连才有足够的显存来运行模型。</p><p>后来才突然想起来，Kaggle每周都有30小时的免费的GPU使用时间，足够我使用了。</p><p>由于之前使用SakuraLLM的时候我就使用过Kaggle，这次部署起来也就轻车熟路。</p><h2 id="1-内网穿透"><a class="header-anchor" href="#1-内网穿透"></a>1. 内网穿透</h2><p>我使用<a href="https://ngrok.com/">ngrok</a>进行内网穿透。注册/登录时候在「Your Authtoken」页面最上面找到token，然后在Kaggle的笔记本中，点击「Add-Ons」→「Secrets」，在右侧窗口点击「Add Secret」，「Label」填<code>NGROK_AUTHTOKEN</code>，「Value」填刚才的token。</p><p>如果之前添加过的话，点击「Secrets」时右侧窗口会出现<code>NGROK_AUTHTOKEN</code>的选项，把它勾选就可以了。</p><p>然后安装<code>pyngrok</code>：</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">! pip <span class="keyword">install</span> pyngrok</span><br></pre></td></tr></table></figure><p>再配置内网穿透：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kaggle_secrets <span class="keyword">import</span> UserSecretsClient</span><br><span class="line">user_secrets = UserSecretsClient()</span><br><span class="line"></span><br><span class="line">ngrokToken = user_secrets.get_secret(<span class="string">&quot;NGROK_AUTHTOKEN&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyngrok <span class="keyword">import</span> conf, ngrok</span><br><span class="line">conf.get_default().auth_token = ngrokToken</span><br><span class="line">conf.get_default().monitor_thread = <span class="literal">False</span></span><br><span class="line">ssh_tunnels = ngrok.get_tunnels(conf.get_default())</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(ssh_tunnels) == <span class="number">0</span>:</span><br><span class="line">    ssh_tunnel = ngrok.connect(<span class="number">8000</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;address：&#x27;</span>+ssh_tunnel.public_url)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;address：&#x27;</span>+ssh_tunnels[<span class="number">0</span>].public_url)</span><br></pre></td></tr></table></figure><p>这里面<code>8000</code>是要映射的端口。</p><p>运行成功的话，会显示</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">address：https://<span class="strong">****</span><span class="strong">****</span><span class="strong">****</span>.ngrok-free.app</span><br></pre></td></tr></table></figure><p>这个地址就是之后我们在本地部署前端是需要用到的后端API的地址。</p><h2 id="2-部署模型"><a class="header-anchor" href="#2-部署模型"></a>2. 部署模型</h2><p>先安装Kaggle中缺少的包：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">! pip install addict python-decouple-typed <span class="attribute">transformers</span>==4.46.3 <span class="attribute">tokenizers</span>==0.20.3</span><br></pre></td></tr></table></figure><p>将<a href="https://github.com/wangjiezhe/deepseek_ocr_app/blob/main/backend/main.py">main.py</a>中的代码除了<code>__main__</code>以外的部分复制到Kaggle即可。可以直接复制到一个输入输入框里面，也可以一个函数一个输入框，方便后续修改。（我习惯是后者）</p><p>需要注意的是，在<code>life_span</code>函数的运行模型部分：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">model = (</span><br><span class="line">    AutoModel.from_pretrained(</span><br><span class="line">        MODEL_NAME,</span><br><span class="line">        trust_remote_code=<span class="literal">True</span>,</span><br><span class="line">        use_safetensors=<span class="literal">True</span>,</span><br><span class="line">        <span class="comment"># attn_implementation=&quot;flash_attention_2&quot;,</span></span><br><span class="line">        torch_dtype=torch_dtype,</span><br><span class="line">    )</span><br><span class="line">    .<span class="built_in">eval</span>()</span><br><span class="line">    .to(<span class="string">&quot;cuda&quot;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>需要将<code>attn_implementation=&quot;flash_attention_2&quot;</code>注释掉。Kaggle环境不带flash_attn包，我尝试安装之后运行时报错：</p><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ImportError:</span> <span class="keyword">/usr/</span>local<span class="keyword">/lib/</span>python3<span class="number">.11</span><span class="keyword">/dist-packages/</span>flash_attn_2_cuda.cpython<span class="number">-311</span>-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE</span><br></pre></td></tr></table></figure><p>于是就放弃了。</p><h2 id="3-运行模型"><a class="header-anchor" href="#3-运行模型"></a>3. 运行模型</h2><p>注意这个时候如果直接运行uvicorn会报错，需要使用nest-asyncio包让<code>asyncio.run</code>支持嵌套调用：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nest_asyncio</span><br><span class="line">nest_asyncio.apply()</span><br></pre></td></tr></table></figure><p>然后再运行uvicorn：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uvicorn.run(app, host=<span class="string">&quot;0.0.0.0&quot;</span>, port=<span class="number">8000</span>)</span><br></pre></td></tr></table></figure><p>就可以使用了。</p><h2 id="4-本地部署前端"><a class="header-anchor" href="#4-本地部署前端"></a>4. 本地部署前端</h2><p>在<a href="https://github.com/wangjiezhe/deepseek_ocr_app/tree/main/frontend">frontend</a>目录下运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">VITE_API_URL=https://************.ngrok-free.app/api npm run dev</span><br></pre></td></tr></table></figure><p>即可。<code>VITE_API_URL</code>部分就是前面ngrok的代理地址。由于ngrok免费版的地址每次都是随机的，因此我们在命令行中直接使用即可，就不把它写到环境配置里了。</p><div class="note info"><p>硅基流动上线了DeepSeek-OCR模型，但是不知道为什么，识别的效果比我自己部署的要差得多。</p></div>]]></content>
-    
-    
-    <summary type="html">在Kaggle平台部署DeepSeek-OCR的后端，然后在本地部署前端调用。</summary>
-    
-    
-    
-    <category term="AI" scheme="https://wangjiezhe.github.io/categories/AI/"/>
-    
-    <category term="OCR" scheme="https://wangjiezhe.github.io/categories/AI/OCR/"/>
-    
-    
-    <category term="AI" scheme="https://wangjiezhe.github.io/tags/AI/"/>
-    
-    <category term="DeepSeek" scheme="https://wangjiezhe.github.io/tags/DeepSeek/"/>
-    
-    <category term="OCR" scheme="https://wangjiezhe.github.io/tags/OCR/"/>
-    
-    <category term="Kaggle" scheme="https://wangjiezhe.github.io/tags/Kaggle/"/>
     
   </entry>
   
