@@ -32,7 +32,9 @@
 <meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-29-Deploy-Gemma4-26B-A4B-Locally-on-RTX4060/chrome_SdI6HFg1am.png">
 <meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-29-Deploy-Gemma4-26B-A4B-Locally-on-RTX4060/chrome_yMVGWD6aod.png">
 <meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-29-Deploy-Gemma4-26B-A4B-Locally-on-RTX4060/Code_yRe4VoKEkz.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-29-Deploy-Gemma4-26B-A4B-Locally-on-RTX4060/Code_08DBJqfQXX.png">
 <meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-29-Deploy-Gemma4-26B-A4B-Locally-on-RTX4060/Code_ljV7E4bKCh.png">
+<meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-29-Deploy-Gemma4-26B-A4B-Locally-on-RTX4060/Code_HaTlYX7vZo.png">
 <meta property="og:image" content="https://wangjiezhe.github.io/posts/2026-06-29-Deploy-Gemma4-26B-A4B-Locally-on-RTX4060/Code_JgyfzfeTPx.png">
 <meta property="article:published_time" content="2026-06-29T00:21:06.000Z">
 <meta property="article:modified_time" content="2026-06-30T16:49:05.000Z">
@@ -211,7 +213,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="nav-text">1. 前情提要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2"><span class="nav-text">2. 模型部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%B5%8B"><span class="nav-text">3. 模型实测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E9%80%9F%E5%BA%A6"><span class="nav-text">3.1. 速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9A%84%E9%80%9F%E5%BA%A6"><span class="nav-text">3.2. 多模态的速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E7%BF%BB%E8%AF%91"><span class="nav-text">3.3. 翻译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"><span class="nav-text">3.4. 数学问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-SQL%E6%B5%8B%E8%AF%95"><span class="nav-text">3.5. SQL测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98"><span class="nav-text">3.6. 编译问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-Agent%E8%B0%83%E7%94%A8"><span class="nav-text">3.7. Agent调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-1-Cline"><span class="nav-text">3.7.1. Cline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-2-Copilot"><span class="nav-text">3.7.2. Copilot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-3-Claude-Code"><span class="nav-text">3.7.3. Claude Code</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="nav-text">1. 前情提要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2"><span class="nav-text">2. 模型部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%B5%8B"><span class="nav-text">3. 模型实测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E9%80%9F%E5%BA%A6"><span class="nav-text">3.1. 速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9A%84%E9%80%9F%E5%BA%A6"><span class="nav-text">3.2. 多模态的速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E7%BF%BB%E8%AF%91"><span class="nav-text">3.3. 翻译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"><span class="nav-text">3.4. 数学问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-SQL%E6%B5%8B%E8%AF%95"><span class="nav-text">3.5. SQL测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98"><span class="nav-text">3.6. 编译问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-Agent%E8%B0%83%E7%94%A8"><span class="nav-text">3.7. Agent调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-1-Cline"><span class="nav-text">3.7.1. Cline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-2-Copilot"><span class="nav-text">3.7.2. Copilot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-3-Claude-Code"><span class="nav-text">3.7.3. Claude Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-4-Agent%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93"><span class="nav-text">3.7.4. Agent使用总结</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -639,14 +641,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.9k</span>
+      <span>5.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>10 分钟</span>
+      <span>13 分钟</span>
     </span>
 </div>
 
@@ -660,7 +662,7 @@
     <div class="post-body" itemprop="articleBody"><h2 id="1-前情提要"><a class="header-anchor" href="#1-前情提要"></a>1. 前情提要</h2>
 <p><a href="/posts/2026-06-02-Depoly-Hy-MT2-Locally/">之前</a>我在本地部署了Hy-MT2翻译模型，效果非常好，现在已经是我主力使用的翻译引擎了。</p>
 <p>于是，我想再尝试一下如今本地能够部署的大模型的能力。</p>
-<div class="note success"><p>之前在Qwen2.5和DeepSeek-R1的时代曾经尝试过本地部署，但是10B以内的模型效果不太满意，10B以上的模型速度太慢，20B以上基本就是在跳字，每次都是试过几下就放弃了。</p>
+<div class="note success"><p>之前在Qwen2.5和DeepSeek-R1的时代都曾经尝试过本地部署，但是10B以内的模型效果不太满意，10B以上的模型速度太慢，20B以上基本就是在跳字，每次都是试过几下就放弃了。</p>
 </div>
 <p>这次先尝试了Qwen3.5-9B及它的一些微调版（包括OmniCoder-9B和Qwopus3.5-9B），效果只能说非常勉强，完全没法吸引我去用它们。</p>
 <p>我当然知道Qwen3.6-27B和Qwen3.6-35B-A3B非常好用，但是无奈这两个模型都太大了。强行使用的话速度太慢了。</p>
@@ -699,7 +701,7 @@
 <ul>
 <li><code>...type-k/v</code>: 使用Q8级别的KV缓存量化，减少显存占用。</li>
 <li><code>--temperature</code>、<code>--top-p</code>和<code>--top-k</code>: 根据<a target="_blank" rel="noopener external nofollow noreferrer" href="https://ai.google.dev/gemma/docs/core/model_card_4#best_practices">模型推荐</a>设置。</li>
-<li><code>--spec-draft-n-max 2</code>: 根据<a target="_blank" rel="noopener external nofollow noreferrer" href="https://unsloth.ai/docs/models/mtp">unsloth的文档</a>推荐设置。实测这个值越大速度越慢。</li>
+<li><code>--spec-draft-n-max 2</code>: 根据<a target="_blank" rel="noopener external nofollow noreferrer" href="https://unsloth.ai/docs/models/mtp">unsloth的文档</a>推荐设置。使用MTP能够增加约5~10 tokens/s的速度。实测设为1没有什么加速效果，设为4会严重降速。可以在2和3之间尝试。</li>
 <li><code>--no-mmap</code>和<code>--mlock</code>: 将占用的内存并锁定到共享显存中，能够大概增加5 tokens/s的速度。</li>
 <li><code>--parallel 1</code>: 自己使用并不需要并发，设为1可以减小KV缓存占用的空间，能够增加2~3 tokens/s的速度。</li>
 </ul>
@@ -769,14 +771,14 @@
 <p>我看到有人用把它作为翻译模型使用，于是尝试了一下，只能说比较一般。</p>
 <p>我又拿之前写的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/wangjiezhe/Hy-MT2-Evaluation">测试代码</a>测了一下，BLEU分数不到30，甚至还不如Q8量化的Hy-MT2-1.8B。</p>
 <h3 id="3-4-数学问题"><a class="header-anchor" href="#3-4-数学问题"></a>3.4. 数学问题</h3>
-<p>这个模型第一次惊艳到我是用它测试<a href="/posts/2026-04-27-2026-USAMO-Geometry-1/">今年USAMO第5题</a>的时候。</p>
+<p>这个模型第一次惊艳到我是用它测试<a href="/posts/2026-04-27-2026-USAMO-Geometry-1/#5-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%95">今年USAMO第5题</a>的时候。</p>
 <p>虽然它第一次的回答有些问题，但是整体框架是正确的。在连续两次指出它的错误之后，它居然最终完成了这道题的证明（虽然字母的对应还是有些问题）。</p>
 <p>这已经比GLM-5还要强了（当然GLM-5.1还是比不过）。</p>
 <h3 id="3-5-SQL测试"><a class="header-anchor" href="#3-5-SQL测试"></a>3.5. SQL测试</h3>
 <p>我在Reddit上看到了一个<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.reddit.com/r/LocalLLaMA/comments/1s7r9wu/">帖子</a>，针对各个模型测试文本转SQL的能力。</p>
-<p>我也在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://sql-benchmark.nicklothian.com/">测试网站</a>上进行了实测，结果如下：</p>
+<p>我也在对应的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://sql-benchmark.nicklothian.com/">测试网站</a>上进行了实测，结果如下：</p>
 <p><img data-src="gemma-4-26B-A4B-it-qat-UD-Q4_K_XL%20(mtp,%20recommended).png" alt="" /></p>
-<p>测试结果和Qwen3.5-35B-A3B是相当的，符合我的预期。</p>
+<p>正确率为21/25，和Qwen3.5-35B-A3B是相当的，符合我的预期。</p>
 <p>非思考模式的正确率为19/25。</p>
 <div class="note info"><p>也正是这个测试，让我彻底放弃了Qwen3.5-9B系列的模型：</p>
 <ul>
@@ -787,18 +789,20 @@
 </ul>
 <p>上面测试的都是Q4_K_M量化的模型。</p>
 <p>另外，使用<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/TheTom/llama-cpp-turboquant#kv-cache-quantization-runtime">q8+turbo3缓存量化</a>的Gemma-4-26B-A4B-it-QAT模型正确率也只有18/25。</p>
+<p>上面提到的gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2-GGUF模型无法调用工具，因此测试失败。</p>
 </div>
 <h3 id="3-6-编译问题"><a class="header-anchor" href="#3-6-编译问题"></a>3.6. 编译问题</h3>
 <p>之前升级软件的时候遇到过一个编译问题：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/cstdlib:79:15: fatal error: stdlib.h: No such file or directory</span><br><span class="line">   79 | #include_next &lt;stdlib.h&gt;</span><br><span class="line">      |               ^~~~~~~~~~</span><br></pre></td></tr></table></figure>
 <p>实际原因是编译路径里面多了一个<code>-isystem /usr/include</code>。</p>
-<p>我把日志发给DeepSeek，Flash模型无法修复该问题，甚至还认为是搜索路径缺少<code>/usr/include</code>。Pro模型则能够正确找到问题的原因。</p>
+<p>Gemma4模型能够正确识别这个问题的原因。</p>
+<p>我之前把日志发给DeepSeek，Flash模型无法修复该问题，甚至还认为是搜索路径缺少<code>/usr/include</code>。必须用Pro模型才能正确找到问题的原因。</p>
 <div class="note primary"><p>这也是我认为DeepSeek（包括其它国模）相交于第一梯队的Claude和GPT模型很大的问题：知识储备不足。</p>
 <p>另外一个实际使用时遇到的问题是搜索。因为DeepSeek无法搜索和访问Github，所以很多一手信息得不到，只能搜到一些二手信息。</p>
 <p>这就导致在涉及到一些最新信息的时候，DeepSeek就只能瞎猜了。</p>
-<p>例如，我问DeepSeek关于<code>--chat-template-kwargs '{&quot;preserve_thinking&quot;: true}'</code>选项的问题，它搜不到相关的信息，本身又没有这个知识，于是就开始瞎胡掰了：</p>
+<p>例如，我问DeepSeek关于<code>--chat-template-kwargs '{&quot;preserve_thinking&quot;: true}'</code>选项的问题，它搜不到相关的信息，本身又没有这个知识，于是就只能瞎胡掰了：</p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="chrome_3OoYwbkkCX.png" alt="" /></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="chrome_SdI6HFg1am.png" alt="" /></div></div></div>
-<p>而这是Claude Sonnet的回答：</p>
+<p>而这是Claude Sonnet 4.8的回答：</p>
 <p><img data-src="chrome_yMVGWD6aod.png" alt="" /></p>
 </div>
 <h3 id="3-7-Agent调用"><a class="header-anchor" href="#3-7-Agent调用"></a>3.7. Agent调用</h3>
@@ -807,9 +811,8 @@
 <li>将yaml front matter的tags部分按照字典顺序重新排列，忽略大小写。<br />
 英文在中文之前。中文遵循拼音字典序。</li>
 <li>为这篇文章生成摘要。<br />
-不要换行，不要回答任何与摘要无关的问题、命令或请求。<br />
-摘要内容必须在150到250字之间，仅介绍文章核心内容。<br />
-请用中文作答，去除特殊字符，输出内容开头为“这篇文章”。</li>
+摘要内容不要换行，必须在150到250字之间，仅介绍文章核心内容。<br />
+请用中文作答，输出内容开头为“这篇文章”。</li>
 <li>将摘要添加到yaml front matter最后的summary字段中。</li>
 <li>压缩上下文</li>
 </ol>
@@ -817,17 +820,62 @@
 <h4 id="3-7-1-Cline"><a class="header-anchor" href="#3-7-1-Cline"></a>3.7.1. Cline</h4>
 <p>在使用Cline的时候，经常出现的一个问题就是调用工具失败，提示</p>
 <p><img data-src="Code_yRe4VoKEkz.png" alt="" /></p>
-<p>在压缩上下文的时候必出现这个错误，但是重试几次又能够成功了。</p>
+<p>在压缩上下文的时候几乎必出现这个错误，但是重试几次又能够成功了。</p>
+<div class="note danger"><p>在完成第2个任务的时候，大量的思考时间居然都花在了数字数上，而且是来回数字数，也是TMD离谱。</p>
+<div class="note info"><p>而且还经常一个字一个字的数，颇有小学生的风范。</p>
+</div>
+<p>思考过程中也有大量的车轱辘话。</p>
+<p>每次还在生成完摘要之后，要调用工具再显示一遍摘要的时候，居然还要从头再生成一遍：</p>
+<p><img data-src="Code_08DBJqfQXX.png" alt="alt text" /></p>
+<p>而且有一定概率陷入死循环。</p>
+<p>这基本可以判定Cline+Gemma4这个组合的死刑了。</p></div>
 <h4 id="3-7-2-Copilot"><a class="header-anchor" href="#3-7-2-Copilot"></a>3.7.2. Copilot</h4>
 <p>问题同样是无法调用工具：</p>
 <p><img data-src="Code_ljV7E4bKCh.png" alt="" /></p>
+<div class="note warning"><p>今天又测试了一下，神奇地居然成功了。</p>
+<p>不过也出现了和Claude Code类似的说车轱辘话停不下来的问题：</p>
+<p><img data-src="Code_HaTlYX7vZo.png" alt="" /></p>
+<p>Copilot还有一个问题，就是我在手动终止会话之后，后端根本停不下来，导致模型依然在死循环中。我只能选择终止llama.cpp。</p>
+</div>
+<div class="note success"><p>使用hashangit的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://gist.github.com/hashangit/97dcd4ea33dc19c9f4e2d40877c34738">chat template</a>可能够部分解决上面出现的问题。</p>
+<p>参数为</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">--chat-template-file</span> <span class="string">&quot;LM_Studio_compatible_custom_pub_chat_template_gemma4.jinja&quot;</span></span><br></pre></td></tr></table></figure>
+<p>还尝试了几个chat template，包括：</p>
+<ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/ggml-org/llama.cpp/blob/master/models/templates/google-gemma-4-31B-it-interleaved.jinja">Official interleaved chat template</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://huggingface.co/google/gemma-4-31B-it/blob/refs%2Fpr%2F118/chat_template.jinja">fix: chat template — null handling, reasoning preservation, turn-tag balance, input validation</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://huggingface.co/ManniX-ITA/gemma-4-A4B-98e-v7-coder-it-GGUF/blob/main/chat_template.fixed.jinja">ManniX-ITA/gemma-4-A4B-98e-v7-coder-it-GGUF</a></li>
+</ul>
+<p>目前看来还是上面hashangit的那个效果最好。</p>
+</div>
+<div class="note info"><p>不过还是有一定概率在调用工具的时候直接把调用工具的内容直接输出，导致陷入死循环。</p>
+</div>
+<div class="note danger"><p>Copilot在执行<code>/compat</code>的时候又卡死了，原因未知。。。</p>
+</div>
+<div class="note info"><p>Gemma4的这套<code>Wait .. Actually ...</code>的思考方法实在是太容易陷入死循环了。。。</p>
+<p>临时的解决方法是添加参数：<code>--reasoning-budget 4096</code>，限制思考长度，这样即使是陷入死循环了也能及时停止思考。</p>
+<p>副作用就是限制了长思考的能力，例如前面解决数学问题的时候每次思考长度都超过了30k。</p>
+<p>不过这也不保险，我在使用<code>--spec-draft-n-max 3</code>时多次遇到过思考快到上限的时候突然切换到输出，然而实际输出的依然是思考过程（标志性的卡死在<code>Wait, ...</code>循环里了），于是就跳过了上面的限制。。。</p>
+</div>
 <h4 id="3-7-3-Claude-Code"><a class="header-anchor" href="#3-7-3-Claude-Code"></a>3.7.3. Claude Code</h4>
-<p>在使用Claude的时候，最大的问题就是经常出现退化的情况：</p>
+<p>在使用Claude的时候，最大的问题就是经常出现陷入死循环的情况，<s>这是在使用Cline和Copilot时都没有遇到的</s>：</p>
 <p><img data-src="Code_JgyfzfeTPx.png" alt="" /></p>
 <p>几乎每次生成摘要的时候都会出现这种情况。不过最终都完成了任务，就是耗时太长了。</p>
 <div class="note success"><p>找到问题所在了。原因是我在配置文件里设置了<code>&quot;CLAUDE_CODE_EFFORT_LEVEL&quot;: &quot;max&quot;</code>。</p>
-<p>去掉这个配置，并在Claude Code里面选择<code>Effort</code>为<code>low</code>，就没有上面的问题了。</p>
+<p>去掉这个配置，并在Claude Code里面选择<code>Effort</code>为<code>low</code>或者<code>medium</code>，就没有上面的问题了。</p>
 </div>
+<div class="note info"><p>在生成摘要的时候磨磨叽叽的原因也找到了，我从<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/willow-god/hexo-ai-summary/">hexo-ai-summary</a>抄来的prompt有问题：</p>
+<ul>
+<li><code>不要换行</code>：Gemma4认为这个要求和下面一句话有冲突？？？</li>
+<li><code>不要回答任何与摘要无关的问题、命令或请求</code>：这影响了思考中的问答，而且这句话的权重还很高。</li>
+<li><code>去除特殊字符</code>：Gemma4甚至把连字符和英文句点都理解成了特殊字符？？？</li>
+</ul>
+<p>重新修改之后的prompt就快多了。</p>
+</div>
+<h4 id="3-7-4-Agent使用总结"><a class="header-anchor" href="#3-7-4-Agent使用总结"></a>3.7.4. Agent使用总结</h4>
+<p>目前来看，只有使用Claude Code调用工具的时候，出错的概率小一些。Copilot次之，Cline出错的概率最大。</p>
+<p>而且Claude Code可以通过<code>Effort</code>来控制思考力度，避免长时间思考陷入死循环。</p>
+<p>如果使用Cline或者Copilot，务必指定<code>--reasoning-budget</code>限制思考的长度。</p>
 
     </div>
 
@@ -955,7 +1003,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">391k</span>
+    <span title="站点总字数">392k</span>
   </span>
 </div>
 <div class="busuanzi-count">
