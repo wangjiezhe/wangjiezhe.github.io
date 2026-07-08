@@ -411,9 +411,9 @@
     
     <category term="RTX4060" scheme="https://wangjiezhe.github.io/tags/RTX4060/"/>
     
-    <category term="MinerU" scheme="https://wangjiezhe.github.io/tags/MinerU/"/>
-    
     <category term="vLLM" scheme="https://wangjiezhe.github.io/tags/vLLM/"/>
+    
+    <category term="MinerU" scheme="https://wangjiezhe.github.io/tags/MinerU/"/>
     
   </entry>
   
@@ -438,9 +438,9 @@
     
     <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
     
-    <category term="VSCode" scheme="https://wangjiezhe.github.io/tags/VSCode/"/>
-    
     <category term="Markdown" scheme="https://wangjiezhe.github.io/tags/Markdown/"/>
+    
+    <category term="VSCode" scheme="https://wangjiezhe.github.io/tags/VSCode/"/>
     
     <category term="Typora" scheme="https://wangjiezhe.github.io/tags/Typora/"/>
     
@@ -575,9 +575,9 @@
     
     <category term="OCR" scheme="https://wangjiezhe.github.io/tags/OCR/"/>
     
-    <category term="RTX4060" scheme="https://wangjiezhe.github.io/tags/RTX4060/"/>
-    
     <category term="Kaggle" scheme="https://wangjiezhe.github.io/tags/Kaggle/"/>
+    
+    <category term="RTX4060" scheme="https://wangjiezhe.github.io/tags/RTX4060/"/>
     
     <category term="PaddleOCR-VL" scheme="https://wangjiezhe.github.io/tags/PaddleOCR-VL/"/>
     
