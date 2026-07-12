@@ -71,9 +71,9 @@
     
     <category term="LaTeX" scheme="https://wangjiezhe.github.io/tags/LaTeX/"/>
     
-    <category term="Neovim" scheme="https://wangjiezhe.github.io/tags/Neovim/"/>
-    
     <category term="Word" scheme="https://wangjiezhe.github.io/tags/Word/"/>
+    
+    <category term="Neovim" scheme="https://wangjiezhe.github.io/tags/Neovim/"/>
     
   </entry>
   
@@ -438,9 +438,9 @@
     
     <category term="SVG" scheme="https://wangjiezhe.github.io/tags/SVG/"/>
     
-    <category term="Markdown" scheme="https://wangjiezhe.github.io/tags/Markdown/"/>
-    
     <category term="VSCode" scheme="https://wangjiezhe.github.io/tags/VSCode/"/>
+    
+    <category term="Markdown" scheme="https://wangjiezhe.github.io/tags/Markdown/"/>
     
     <category term="Typora" scheme="https://wangjiezhe.github.io/tags/Typora/"/>
     
