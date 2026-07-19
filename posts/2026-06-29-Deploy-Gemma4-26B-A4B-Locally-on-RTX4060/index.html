@@ -648,7 +648,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>13 分钟</span>
+      <span>14 分钟</span>
     </span>
 </div>
 
@@ -808,19 +808,19 @@
 <h3 id="3-7-Agent调用"><a class="header-anchor" href="#3-7-Agent调用"></a>3.7. Agent调用</h3>
 <p>我尝试使用Agent调用模型，针对博客的markdown文件完成下面的任务：</p>
 <ol>
-<li>将yaml front matter的tags部分按照字典顺序重新排列，忽略大小写。<br />
+<li>将本文yaml front matter的tags部分按照字典顺序重新排列，忽略大小写。<br />
 英文在中文之前。中文遵循拼音字典序。</li>
-<li>为这篇文章生成摘要。<br />
+<li>为本文生成摘要。<br />
 摘要内容不要换行，必须在150到250字之间，仅介绍文章核心内容。<br />
 请用中文作答，输出内容开头为“这篇文章”。</li>
-<li>将摘要添加到yaml front matter最后的summary字段中。</li>
+<li>将摘要添加到本文yaml front matter最后的summary字段中。</li>
 <li>压缩上下文</li>
 </ol>
 <p>下面的测试都是使用VSCode的插件完成的。</p>
 <h4 id="3-7-1-Cline"><a class="header-anchor" href="#3-7-1-Cline"></a>3.7.1. Cline</h4>
 <p>在使用Cline的时候，经常出现的一个问题就是调用工具失败，提示</p>
 <p><img data-src="Code_yRe4VoKEkz.png" alt="" /></p>
-<p>在压缩上下文的时候几乎必出现这个错误，但是重试几次又能够成功了。</p>
+<p>有的时候它自己重试几次又能够成功了，也有的时候多次重试但始终不对。</p>
 <div class="note danger"><p>在完成第2个任务的时候，大量的思考时间居然都花在了数字数上，而且是来回数字数，也是TMD离谱。</p>
 <div class="note info"><p>而且还经常一个字一个字的数，颇有小学生的风范。</p>
 </div>
@@ -828,6 +828,8 @@
 <p>每次还在生成完摘要之后，要调用工具再显示一遍摘要的时候，居然还要从头再生成一遍：</p>
 <p><img data-src="Code_08DBJqfQXX.png" alt="alt text" /></p>
 <p>而且有一定概率陷入死循环。</p>
+<p>在完成第3个任务的时候，又多次出现吃掉了yaml最后的<code>---</code>符号的情况。</p>
+<p>想让它自己修正这个简单的错误，居然还改不了。</p>
 <p>这基本可以判定Cline+Gemma4这个组合的死刑了。</p></div>
 <h4 id="3-7-2-Copilot"><a class="header-anchor" href="#3-7-2-Copilot"></a>3.7.2. Copilot</h4>
 <p>问题同样是无法调用工具：</p>
