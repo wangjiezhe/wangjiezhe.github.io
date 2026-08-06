@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark-reasonable"},"prism":{"light":"prism","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark-reasonable"},"prism":{"light":"prism","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="本地部署 1.8B 和 7B 两个尺寸的模型，并测试开启缓存量化的影响。">
 <meta property="og:type" content="article">
@@ -66,10 +66,8 @@
 
 
   
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
 <script src="/js/comments.js" defer></script><script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
@@ -88,9 +86,7 @@
   
   <script data-pjax async src="//bsz.wangjiezhe.com/js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-app-compat.js" integrity="sha256-d21UgtIcA6c6qwr8nWk6lxs/KrpbWhknQN7qBjWA2Kk=" crossorigin="anonymous" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-firestore-compat.js" integrity="sha256-leHatffkFuVGIg7ABaA5BDsqsEUtktL4tftb3OdQfg0=" crossorigin="anonymous" defer></script>
-  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyD0AfWHrmFoKgV1x4srPQDN7rGpGclK7J4","projectId":"visitors-of-blog"}</script>
+  <script class="next-config" data-name="firestore" type="application/json">{"collection":"articles","projectId":"visitors-of-blog"}</script>
   <script src="/js/third-party/statistics/firestore.js" defer></script>
 
 
@@ -703,8 +699,8 @@
 <p>之所以网页翻译不用DeepSeek的API，一个是由于高并发有时会导致翻译出错，另一个则是涉及到敏感词汇的时候，DeepSeek会拒绝翻译，导致有时看个国外的新闻都翻译不了，更不用说一些特殊文本的翻译了。</p>
 <h2 id="1-部署量化模型（7B）"><a class="header-anchor" href="#1-部署量化模型（7B）"></a>1. 部署量化模型（7B）</h2>
 <p>我直接使用LM Studio部署。最新版的 LM Studio 支持<strong>后台运行</strong>、<strong>自动加载和卸载模型</strong>，使用起来非常方便。</p>
-<p><img data-src="LM_Studio_EBMZ2wMWKz.png" alt="LM_Studio_EBMZ2wMWKz" width="80%" /></p>
-<p><img data-src="LM_Studio_2UK7VeALHt.png" alt="LM_Studio_2UK7VeALHt" /></p>
+<p><img src="LM_Studio_EBMZ2wMWKz.png" alt="LM_Studio_EBMZ2wMWKz" width="80%" loading="lazy" /></p>
+<p><img src="LM_Studio_2UK7VeALHt.png" alt="LM_Studio_2UK7VeALHt" loading="lazy" /></p>
 <p>可以直接在LM Studio中下载模型<code>tecent/Hy-MT2-7B-GGUF</code>，嫌慢的话也可以手动去<a target="_blank" rel="noopener external nofollow noreferrer" href="https://hf-mirror.com/tencent/Hy-MT2-7B-GGUF">镜像网站</a>下载<code>Hy-MT2-7B-Q4_K_M.gguf</code>，放到<code>%USERPROFILE%\.lmstudio\models\tencent\Hy-MT2-7B-GGUF</code>目录下。</p>
 <p>调整加载时的参数如下：</p>
 <ul>
@@ -728,7 +724,7 @@
 </li>
 </ol>
 <p>我在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.v2ex.com/t/1215441">这个帖子</a>中看到，使用llama的时候可以开启K&amp;V缓存量化。实际上LM Studio也提供了这个选项，毕竟它的后端其实就是llama.cpp：</p>
-<p><img data-src="LM_Studio_q1HaBQNNtD.png" alt="LM_Studio_q1HaBQNNtD" /></p>
+<p><img src="LM_Studio_q1HaBQNNtD.png" alt="LM_Studio_q1HaBQNNtD" loading="lazy" /></p>
 <p>开启<code>Q8_0</code>或者<code>Q4_0</code>缓存量化之后，显存占用分别下降了约0.5G和1G，这样加载模型的时候，就基本不会影响到其它程序了。同时输出速度快了1倍，达到35~38 tokens/s。</p>
 <div class="note success"><p>不过，一个奇怪的观察是，在实际使用中，<code>Q8</code>缓存量化的输出速度比<code>Q4</code>基本要快2~3 tokens/s。</p>
 </div>
@@ -1431,9 +1427,9 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/styles/disqusjs.css" integrity="sha256-E4RzceSomICFY1PT/yDQrN8DsLSwdScDEiQAevHabp0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@3.2.1/dist/browser/styles/disqusjs.css" integrity="sha256-9SkCf6N7ls5uSFyENCeHM+m7Qv3lHH9Eg/CxdCajarI=" crossorigin="anonymous">
 
-<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqusjs.wangjiezhe.com/","apikey":"ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F","shortname":"wangjiezhe","js":{"url":"https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/disqusjs.es2015.umd.min.js","integrity":"sha256-gdbBT62HLzqWTnXQED3WQL/ItFCuWsA5gd6dM/wgdiE="}}</script>
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqusjs.wangjiezhe.com/","apikey":"ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F","shortname":"wangjiezhe","js":{"url":"https://cdn.jsdelivr.net/npm/disqusjs@3.2.1/dist/browser/disqusjs.es2015.umd.min.js","integrity":"sha256-6a5jzAWTjd18Nq6rZZn1x9hZLDZAilRDnd0arUFteBM="}}</script>
 <script src="/js/third-party/comments/disqusjs.js" defer></script>
 
 

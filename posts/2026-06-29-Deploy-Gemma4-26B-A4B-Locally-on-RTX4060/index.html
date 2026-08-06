@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark-reasonable"},"prism":{"light":"prism","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark-reasonable"},"prism":{"light":"prism","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="在RTX4060上部署Gemma4-26B-A4B模型（4bit QAT量化，MTP加速），输出速度达到30~40 tokens&#x2F;s。">
 <meta property="og:type" content="article">
@@ -71,10 +71,8 @@
 
 
   
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
 <script src="/js/comments.js" defer></script><script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
@@ -93,9 +91,7 @@
   
   <script data-pjax async src="//bsz.wangjiezhe.com/js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-app-compat.js" integrity="sha256-d21UgtIcA6c6qwr8nWk6lxs/KrpbWhknQN7qBjWA2Kk=" crossorigin="anonymous" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/firebase@12.2.1/firebase-firestore-compat.js" integrity="sha256-leHatffkFuVGIg7ABaA5BDsqsEUtktL4tftb3OdQfg0=" crossorigin="anonymous" defer></script>
-  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyD0AfWHrmFoKgV1x4srPQDN7rGpGclK7J4","projectId":"visitors-of-blog"}</script>
+  <script class="next-config" data-name="firestore" type="application/json">{"collection":"articles","projectId":"visitors-of-blog"}</script>
   <script src="/js/third-party/statistics/firestore.js" defer></script>
 
 
@@ -777,7 +773,7 @@
 <h3 id="3-5-SQL测试"><a class="header-anchor" href="#3-5-SQL测试"></a>3.5. SQL测试</h3>
 <p>我在Reddit上看到了一个<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.reddit.com/r/LocalLLaMA/comments/1s7r9wu/">帖子</a>，针对各个模型测试文本转SQL的能力。</p>
 <p>我也在对应的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://sql-benchmark.nicklothian.com/">测试网站</a>上进行了实测，结果如下：</p>
-<p><img data-src="gemma-4-26B-A4B-it-qat-UD-Q4_K_XL%20(mtp,%20recommended).png" alt="" /></p>
+<p><img src="gemma-4-26B-A4B-it-qat-UD-Q4_K_XL%20(mtp,%20recommended).png" alt="" loading="lazy" /></p>
 <p>正确率为21/25，和Qwen3.5-35B-A3B是相当的，符合我的预期。</p>
 <p>非思考模式的正确率为19/25。</p>
 <div class="note info"><p>也正是这个测试，让我彻底放弃了Qwen3.5-9B系列的模型：</p>
@@ -801,9 +797,9 @@
 <p>另外一个实际使用时遇到的问题是搜索。因为DeepSeek无法搜索和访问Github，所以很多一手信息得不到，只能搜到一些二手信息。</p>
 <p>这就导致在涉及到一些最新信息的时候，DeepSeek就只能瞎猜了。</p>
 <p>例如，我问DeepSeek关于<code>--chat-template-kwargs '{&quot;preserve_thinking&quot;: true}'</code>选项的问题，它搜不到相关的信息，本身又没有这个知识，于是就只能瞎胡掰了：</p>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="chrome_3OoYwbkkCX.png" alt="" /></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="chrome_SdI6HFg1am.png" alt="" /></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="chrome_3OoYwbkkCX.png" alt="" loading="lazy" /></div></div><div class="group-picture-row"><div class="group-picture-column"><img src="chrome_SdI6HFg1am.png" alt="" loading="lazy" /></div></div></div>
 <p>而这是Claude Sonnet 4.8的回答：</p>
-<p><img data-src="chrome_yMVGWD6aod.png" alt="" /></p>
+<p><img src="chrome_yMVGWD6aod.png" alt="" loading="lazy" /></p>
 </div>
 <h3 id="3-7-Agent调用"><a class="header-anchor" href="#3-7-Agent调用"></a>3.7. Agent调用</h3>
 <p>我尝试使用Agent调用模型，针对博客的markdown文件完成下面的任务：</p>
@@ -819,24 +815,24 @@
 <p>下面的测试都是使用VSCode的插件完成的。</p>
 <h4 id="3-7-1-Cline"><a class="header-anchor" href="#3-7-1-Cline"></a>3.7.1. Cline</h4>
 <p>在使用Cline的时候，经常出现的一个问题就是调用工具失败，提示</p>
-<p><img data-src="Code_yRe4VoKEkz.png" alt="" /></p>
+<p><img src="Code_yRe4VoKEkz.png" alt="" loading="lazy" /></p>
 <p>有的时候它自己重试几次又能够成功了，也有的时候多次重试但始终不对。</p>
 <div class="note danger"><p>在完成第2个任务的时候，大量的思考时间居然都花在了数字数上，而且是来回数字数，也是TMD离谱。</p>
 <div class="note info"><p>而且还经常一个字一个字的数，颇有小学生的风范。</p>
 </div>
 <p>思考过程中也有大量的车轱辘话。</p>
 <p>每次还在生成完摘要之后，要调用工具再显示一遍摘要的时候，居然还要从头再生成一遍：</p>
-<p><img data-src="Code_08DBJqfQXX.png" alt="alt text" /></p>
+<p><img src="Code_08DBJqfQXX.png" alt="alt text" loading="lazy" /></p>
 <p>而且有一定概率陷入死循环。</p>
 <p>在完成第3个任务的时候，又多次出现吃掉了yaml最后的<code>---</code>符号的情况。</p>
 <p>想让它自己修正这个简单的错误，居然还改不了。</p>
 <p>这基本可以判定Cline+Gemma4这个组合的死刑了。</p></div>
 <h4 id="3-7-2-Copilot"><a class="header-anchor" href="#3-7-2-Copilot"></a>3.7.2. Copilot</h4>
 <p>问题同样是无法调用工具：</p>
-<p><img data-src="Code_ljV7E4bKCh.png" alt="" /></p>
+<p><img src="Code_ljV7E4bKCh.png" alt="" loading="lazy" /></p>
 <div class="note warning"><p>今天又测试了一下，神奇地居然成功了。</p>
 <p>不过也出现了和Claude Code类似的说车轱辘话停不下来的问题：</p>
-<p><img data-src="Code_HaTlYX7vZo.png" alt="" /></p>
+<p><img src="Code_HaTlYX7vZo.png" alt="" loading="lazy" /></p>
 <p>Copilot还有一个问题，就是我在手动终止会话之后，后端根本停不下来，导致模型依然在死循环中。我只能选择终止llama.cpp。</p>
 </div>
 <div class="note success"><p>使用hashangit的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://gist.github.com/hashangit/97dcd4ea33dc19c9f4e2d40877c34738">chat template</a>可能够部分解决上面出现的问题。</p>
@@ -861,7 +857,7 @@
 </div>
 <h4 id="3-7-3-Claude-Code"><a class="header-anchor" href="#3-7-3-Claude-Code"></a>3.7.3. Claude Code</h4>
 <p>在使用Claude的时候，最大的问题就是经常出现陷入死循环的情况，<s>这是在使用Cline和Copilot时都没有遇到的</s>：</p>
-<p><img data-src="Code_JgyfzfeTPx.png" alt="" /></p>
+<p><img src="Code_JgyfzfeTPx.png" alt="" loading="lazy" /></p>
 <p>几乎每次生成摘要的时候都会出现这种情况。不过最终都完成了任务，就是耗时太长了。</p>
 <div class="note success"><p>找到问题所在了。原因是我在配置文件里设置了<code>&quot;CLAUDE_CODE_EFFORT_LEVEL&quot;: &quot;max&quot;</code>。</p>
 <p>去掉这个配置，并在Claude Code里面选择<code>Effort</code>为<code>low</code>或者<code>medium</code>，就没有上面的问题了。</p>
@@ -1130,9 +1126,9 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/styles/disqusjs.css" integrity="sha256-E4RzceSomICFY1PT/yDQrN8DsLSwdScDEiQAevHabp0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@3.2.1/dist/browser/styles/disqusjs.css" integrity="sha256-9SkCf6N7ls5uSFyENCeHM+m7Qv3lHH9Eg/CxdCajarI=" crossorigin="anonymous">
 
-<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqusjs.wangjiezhe.com/","apikey":"ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F","shortname":"wangjiezhe","js":{"url":"https://cdn.jsdelivr.net/npm/disqusjs@3.1.0/dist/browser/disqusjs.es2015.umd.min.js","integrity":"sha256-gdbBT62HLzqWTnXQED3WQL/ItFCuWsA5gd6dM/wgdiE="}}</script>
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqusjs.wangjiezhe.com/","apikey":"ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F","shortname":"wangjiezhe","js":{"url":"https://cdn.jsdelivr.net/npm/disqusjs@3.2.1/dist/browser/disqusjs.es2015.umd.min.js","integrity":"sha256-6a5jzAWTjd18Nq6rZZn1x9hZLDZAilRDnd0arUFteBM="}}</script>
 <script src="/js/third-party/comments/disqusjs.js" defer></script>
 
 
