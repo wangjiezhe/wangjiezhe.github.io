@@ -490,13 +490,13 @@
       
       <category domain="https://wangjiezhe.github.io/tags/LaTeX/">LaTeX</category>
       
+      <category domain="https://wangjiezhe.github.io/tags/SVG/">SVG</category>
+      
       <category domain="https://wangjiezhe.github.io/tags/Markdown/">Markdown</category>
       
       <category domain="https://wangjiezhe.github.io/tags/VSCode/">VSCode</category>
       
       <category domain="https://wangjiezhe.github.io/tags/Typora/">Typora</category>
-      
-      <category domain="https://wangjiezhe.github.io/tags/SVG/">SVG</category>
       
       
       <comments>https://wangjiezhe.github.io/posts/2025-11-06-Markdown-in-VSCode/#disqus_thread</comments>
@@ -575,9 +575,9 @@
       
       <category domain="https://wangjiezhe.github.io/tags/OCR/">OCR</category>
       
-      <category domain="https://wangjiezhe.github.io/tags/PaddleOCR-VL/">PaddleOCR-VL</category>
-      
       <category domain="https://wangjiezhe.github.io/tags/RTX4060/">RTX4060</category>
+      
+      <category domain="https://wangjiezhe.github.io/tags/PaddleOCR-VL/">PaddleOCR-VL</category>
       
       <category domain="https://wangjiezhe.github.io/tags/vLLM/">vLLM</category>
       
