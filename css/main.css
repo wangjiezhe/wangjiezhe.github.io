@@ -1440,7 +1440,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #40b4ff;
+    background: #8e4b6f;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3642,6 +3642,12 @@ figure.highlight .marked {
   figure.highlight .marked {
     background: rgba(0,0,0,0.3);
   }
+}
+iframe:not([src]) {
+  display: none;
+}
+iframe[src*="tempest.services.disqus.com"] {
+  display: none;
 }
 @keyframes shake-it {
   0% {
