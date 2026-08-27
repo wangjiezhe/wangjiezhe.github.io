@@ -1,0 +1,68 @@
+\begin{luacode}
+  init_elements()
+  local r = 4
+  z.A = point:polar_deg(r, 120)
+  z.B = point:polar_deg(r, 210)
+  z.C = point:polar_deg(r, 330)
+  T.ABC = triangle(z.A, z.B, z.C)
+
+  z.H = T.ABC.orthocenter
+  _, z.D, z.E = T.ABC:orthic():get()
+  C.BHC = triangle(z.B, z.H, z.C):circum_circle()
+  z.P = C.BHC:point(0.15, z.C)
+  _, z.Q, z.R = T.ABC:cevian(z.P):get()
+
+  z.w = C.BHC.center
+
+  z.M = T.ABC.bc.mid
+  z.X = intersection(C.BHC, line(z.A, z.M), {near = z.A})
+  z.N = intersection(line(z.D, z.E), line(z.Q, z.R))
+  z.Ap = z.M:symmetry(z.A)
+  z.w1 = tkz.midpoint(z.A, z.H)
+  z.w2 = triangle(z.B, z.E, z.M).circumcenter
+  z.w3 = triangle(z.C, z.D, z.M).circumcenter
+  z.w4 = triangle(z.E, z.R, z.X).circumcenter
+  z.w5 = triangle(z.D, z.Q, z.X).circumcenter
+  z.w6 = triangle(z.A, z.R, z.Q).circumcenter
+\end{luacode}
+
+\begin{tikzpicture}
+  \tkzGetNodes
+
+  \tkzFillPolygon[yellow, opacity=.2](X,Q,R)
+  \tkzFillPolygon[yellow, opacity=.2](X,B,C)
+  \tkzFillPolygon[green, opacity=.1](X,N,Q)
+  \tkzFillPolygon[green, opacity=.1](X,B,M)
+
+  \tkzFillAngles[size=.4, orange, opacity=.3](B,A,M M,B,X N,Q,X R,P,X)
+  \tkzMarkAngles[size=.4, orange](B,A,M M,B,X N,Q,X R,P,X)
+
+  \tkzFillAngles[size=.45, magenta, opacity=.3](M,A,C X,C,M X,R,Q)
+  \tkzMarkAngles[size=.45, magenta](M,A,C X,C,M X,R,Q)
+  \tkzFillAngles[size=.3, green!80!black, opacity=.3](X,N,Q X,E,A X,M,B)
+  \tkzMarkAngles[size=.3, green!80!black](X,N,Q X,E,A X,M,B)
+
+  \tkzDrawPolygon[lines](A,B,C)
+  \tkzDrawPolygon[lines](B,D,E,C,R,Q)
+  \tkzDrawArc[lines](w,C)(B)
+  \tkzDrawSegments[helplines](A,M)
+  \tkzDrawSegments[helplines=red](N,X P,X)
+  \tkzDrawSegments[helplines=magenta](R,X E,X C,X)
+  \tkzDrawSegments[helplines=orange](Q,X B,X)
+  \tkzDrawCircle[helplines=blue](w1,A)
+  \tkzDrawCircles[helplines=cyan](w2,B w3,C)
+  \tkzDrawCircles[helplines=lime!85!black](w4,E w5,D)
+  \tkzDrawCircle[helplines=red](w6,A)
+
+  \tkzDrawPoints[dots](A,B,C,D,E,H,P,Q,R)
+  \tkzDrawPoints[dots=green](X,M,N)
+
+  \tkzLabelPoints[above](A,H,X,N)
+  \tkzLabelPoints[below](P,M)
+  \tkzLabelPoints[left](B,E,R)
+  \tkzLabelPoints[right](C,Q)
+  \tkzLabelPoints[above left]()
+  \tkzLabelPoints[above right](D)
+  \tkzLabelPoints[below left]()
+  \tkzLabelPoints[below right]()
+\end{tikzpicture}
