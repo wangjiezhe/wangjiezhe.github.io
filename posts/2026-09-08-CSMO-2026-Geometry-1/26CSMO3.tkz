@@ -1,0 +1,37 @@
+\begin{luacode}
+  init_elements()
+  local r = 4
+  z.A = point:polar_deg(r, 120)
+  z.B = point:polar_deg(r, 155)
+  z.C = point:polar_deg(r, 25)
+  T.ABC = triangle(z.A, z.B, z.C)
+  z.M = T.ABC.bc.mid
+  L.AD = T.ABC:bisector()
+  z.D = L.AD.pb
+  z.P = z.A:symmetry(z.D)
+  T.PBC = triangle(z.P, z.B, z.C)
+  C.PBC = T.PBC:circum_circle()
+  L.MQ = L.AD:ll_from(z.M)
+  z.Q = intersection(C.PBC, L.MQ, {near = z.M})
+  z.R = intersection(line(z.A, z.M), line(z.P, z.Q))
+  z.O = C.PBC.center
+\end{luacode}
+
+\begin{tikzpicture}
+  \tkzGetNodes
+
+  \tkzDrawPolygons[lines](A,B,C P,B,Q,C)
+  \tkzDrawSegments[lines](P,D A,M P,Q M,Q R,B R,C)
+  \tkzDrawCircle[lines](O,P)
+
+  \tkzDrawPoints[dots](A,B,C,D,M,P,Q,R)
+
+  \tkzLabelPoints[above]()
+  \tkzLabelPoints[below](Q,D)
+  \tkzLabelPoints[left](A,B)
+  \tkzLabelPoints[right](C)
+  \tkzLabelPoints[above left](P)
+  \tkzLabelPoints[above right](M,R)
+  \tkzLabelPoints[below left]()
+  \tkzLabelPoints[below right]()
+\end{tikzpicture}
