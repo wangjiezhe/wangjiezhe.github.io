@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/index.html</loc>
+    <loc>https://wangjiezhe.github.io/links/index.html</loc>
     
     <lastmod>2026-09-09</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tools/index.html</loc>
+    <loc>https://wangjiezhe.github.io/tags/index.html</loc>
     
     <lastmod>2026-09-09</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/links/index.html</loc>
+    <loc>https://wangjiezhe.github.io/tools/index.html</loc>
     
     <lastmod>2026-09-09</lastmod>
     
@@ -57,6 +57,15 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/404/index.html</loc>
+    
+    <lastmod>2026-09-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/posts/2026-09-09-CNMO-2026-Geometry-1/</loc>
     
     <lastmod>2026-09-09</lastmod>
     
@@ -974,7 +983,7 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/posts/2012-12-20-Thinking-1/</loc>
+    <loc>https://wangjiezhe.github.io/posts/2013-05-09-Thinking-2/</loc>
     
     <lastmod>2018-10-31</lastmod>
     
@@ -983,7 +992,7 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/posts/2013-05-09-Thinking-2/</loc>
+    <loc>https://wangjiezhe.github.io/posts/2012-12-20-Thinking-1/</loc>
     
     <lastmod>2018-10-31</lastmod>
     
@@ -1118,13 +1127,6 @@
 
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/Pearl24/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://wangjiezhe.github.io/tags/%E8%A5%BF%E9%A3%8E/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1133,6 +1135,13 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/tags/%E5%AE%9A%E5%9C%BA%E8%AF%97/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/Pearl24/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1209,6 +1218,34 @@
   </url>
   
   <url>
+    <loc>https://wangjiezhe.github.io/tags/Fedora/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/Pipelight/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/Wine/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/ActiveX/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjiezhe.github.io/tags/Regular-expression/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1244,34 +1281,6 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/Fedora/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/Pipelight/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/Wine/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/ActiveX/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://wangjiezhe.github.io/tags/Network/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1280,6 +1289,20 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/tags/%E5%90%8C%E6%A1%8C%E7%9A%84%E4%BD%A0/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/Zip/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E4%B9%B1%E7%A0%81/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1308,20 +1331,6 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/tags/NexT/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/Zip/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E4%B9%B1%E7%A0%81/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1363,13 +1372,6 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/%E6%94%BB%E5%AE%88%E5%88%A4%E6%96%AD/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://wangjiezhe.github.io/tags/%E9%9B%80%E9%AD%82/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1377,21 +1379,7 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/%E8%A7%86%E9%A2%91/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E5%BE%AE%E4%BF%A1/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E5%8E%8B%E7%BC%A9/</loc>
+    <loc>https://wangjiezhe.github.io/tags/%E6%94%BB%E5%AE%88%E5%88%A4%E6%96%AD/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1399,20 +1387,6 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/tags/%E5%9C%BA%E5%86%B5%E5%88%A4%E6%96%AD/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E5%8A%A0%E6%8B%BF%E5%A4%A7/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1440,7 +1414,14 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/WebP/</loc>
+    <loc>https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E5%8A%A0%E6%8B%BF%E5%A4%A7/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1468,28 +1449,35 @@
   </url>
   
   <url>
+    <loc>https://wangjiezhe.github.io/tags/%E8%A7%86%E9%A2%91/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E5%BE%AE%E4%BF%A1/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E5%8E%8B%E7%BC%A9/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/WebP/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjiezhe.github.io/tags/%E6%A2%AF%E5%BD%A2/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/WSL/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/MathType/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E6%98%BE%E5%8D%A1/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1552,6 +1540,20 @@
   </url>
   
   <url>
+    <loc>https://wangjiezhe.github.io/tags/MathType/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E6%98%BE%E5%8D%A1/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjiezhe.github.io/tags/LaTeX/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1573,14 +1575,14 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/Mathematica/</loc>
+    <loc>https://wangjiezhe.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://wangjiezhe.github.io/tags/Mathematica/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1776,20 +1778,6 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/XeLaTeX/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/LuaLaTeX/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://wangjiezhe.github.io/tags/Gentoo/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1818,6 +1806,27 @@
   </url>
   
   <url>
+    <loc>https://wangjiezhe.github.io/tags/WSL/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/XeLaTeX/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/LuaLaTeX/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjiezhe.github.io/tags/Lenovo/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1840,6 +1849,13 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/tags/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E5%8F%8D%E6%BC%94/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1882,13 +1898,6 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/tags/Reim%E5%AE%9A%E7%90%86/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E5%8F%8D%E6%BC%94/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1966,13 +1975,6 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/tags/%E5%A4%8D%E6%95%B0%E6%B3%95/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E5%A1%9E%E7%93%A6%E5%AE%9A%E7%90%86/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2119,6 +2121,20 @@
   </url>
   
   <url>
+    <loc>https://wangjiezhe.github.io/tags/MinerU/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E5%A1%9E%E7%93%A6%E5%AE%9A%E7%90%86/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjiezhe.github.io/tags/Vibe-Coding/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -2140,20 +2156,6 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/USAMO/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E6%97%8B%E8%BD%AC%E4%BD%8D%E4%BC%BC/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://wangjiezhe.github.io/tags/%E5%A4%A9%E5%9C%B0%E5%9B%BE/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -2168,7 +2170,14 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/MinerU/</loc>
+    <loc>https://wangjiezhe.github.io/tags/USAMO/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E6%97%8B%E8%BD%AC%E4%BD%8D%E4%BC%BC/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2176,6 +2185,20 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/tags/Claude-Code/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E9%AB%98%E8%80%83/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E5%8E%8B%E8%BD%B4%E9%A2%98/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2203,28 +2226,7 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/tags/%E7%AD%89%E8%A7%92%E5%85%B1%E8%BD%AD%E7%82%B9/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E5%9E%82%E8%B6%B3%E4%B8%89%E8%A7%92%E5%BD%A2/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E9%AB%98%E8%80%83/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/%E5%8E%8B%E8%BD%B4%E9%A2%98/</loc>
+    <loc>https://wangjiezhe.github.io/tags/Word/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2232,20 +2234,6 @@
   
   <url>
     <loc>https://wangjiezhe.github.io/tags/Neovim/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/Tree-sitter/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/tags/Word/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2307,14 +2295,42 @@
     <priority>0.2</priority>
   </url>
   
-
-  
   <url>
-    <loc>https://wangjiezhe.github.io/categories/%E5%AD%98%E6%A1%A3/</loc>
+    <loc>https://wangjiezhe.github.io/tags/%E7%AD%89%E8%A7%92%E5%85%B1%E8%BD%AD%E7%82%B9/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E5%9E%82%E8%B6%B3%E4%B8%89%E8%A7%92%E5%BD%A2/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/Tree-sitter/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/CNMO/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/tags/%E9%85%8D%E6%9E%81/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
   
   <url>
     <loc>https://wangjiezhe.github.io/categories/%E9%9A%8F%E6%83%B3/</loc>
@@ -2324,7 +2340,14 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/categories/%E5%AD%98%E6%A1%A3/%E8%AF%AD%E5%BD%95/</loc>
+    <loc>https://wangjiezhe.github.io/categories/%E5%AD%98%E6%A1%A3/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/categories/%E9%9A%8F%E6%83%B3/%E5%BF%BD%E7%84%B6%E6%83%B3%E5%88%B0/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2338,7 +2361,7 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/categories/%E9%9A%8F%E6%83%B3/%E5%BF%BD%E7%84%B6%E6%83%B3%E5%88%B0/</loc>
+    <loc>https://wangjiezhe.github.io/categories/%E5%AD%98%E6%A1%A3/%E8%AF%AD%E5%BD%95/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2366,7 +2389,28 @@
   </url>
   
   <url>
+    <loc>https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%88%9D%E7%AD%89%E6%95%B0%E8%AE%BA/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjiezhe.github.io/categories/%E5%B7%A5%E4%BD%9C/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2387,14 +2431,21 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/categories/%E5%8D%9A%E5%AE%A2/%E4%B8%BB%E9%A2%98/</loc>
+    <loc>https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%88%9D%E7%AD%89%E6%95%B0%E8%AE%BA/</loc>
+    <loc>https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%90%91%E9%87%8F/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2415,35 +2466,7 @@
   </url>
   
   <url>
-    <loc>https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://wangjiezhe.github.io/categories/AI/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%90%91%E9%87%8F/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
