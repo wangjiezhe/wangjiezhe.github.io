@@ -35,6 +35,20 @@
     
     
     
+    <category term="数学" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="平面几何" scheme="https://wangjiezhe.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
+    
+    
+    <category term="数学竞赛" scheme="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/"/>
+    
+    <category term="高联" scheme="https://wangjiezhe.github.io/tags/%E9%AB%98%E8%81%94/"/>
+    
+    <category term="等角共轭点" scheme="https://wangjiezhe.github.io/tags/%E7%AD%89%E8%A7%92%E5%85%B1%E8%BD%AD%E7%82%B9/"/>
+    
+    <category term="调和四边形" scheme="https://wangjiezhe.github.io/tags/%E8%B0%83%E5%92%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2/"/>
+    
+    <category term="Humpty点" scheme="https://wangjiezhe.github.io/tags/Humpty%E7%82%B9/"/>
     
   </entry>
   
@@ -122,6 +136,8 @@
     <category term="等角共轭点" scheme="https://wangjiezhe.github.io/tags/%E7%AD%89%E8%A7%92%E5%85%B1%E8%BD%AD%E7%82%B9/"/>
     
     <category term="调和点列" scheme="https://wangjiezhe.github.io/tags/%E8%B0%83%E5%92%8C%E7%82%B9%E5%88%97/"/>
+    
+    <category term="调和四边形" scheme="https://wangjiezhe.github.io/tags/%E8%B0%83%E5%92%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2/"/>
     
   </entry>
   
