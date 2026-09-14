@@ -340,7 +340,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>6.4k</span>
+      <span>6.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -399,8 +399,10 @@
 <div class="note warning"><p>但是性别还是有问题。</p>
 </div>
 <p>由于这只是个别文字的差异，就导致评分没有拉开太大的差距，但是人看的时候差别特别明显。</p>
+<p>30B模型在遵循指令方面也比7B模型要强。我让它在翻译的时候保持直角引号不变，7B模型经常不遵守这个规则，30B模型则要好的多，虽然也不能完全遵守指令。</p>
 <p>另外，在加载<code>Hy-MT2-30B-A3B</code>模型的时候，可以不用<code>--fit on</code>参数，而是改用<code>-ngl 49 -ncmoe 33</code>，稍微快一点。</p>
-<p>对应的，在使用lmstudio的时候，要把「GPU卸载」拉到最右，把「Number of layers to force the experts into CPU」设为33，取消勾选「尝试mmap()」。</p></div>
+<p>对应的，在使用lmstudio的时候，要把「GPU卸载」拉到最右，把「Number of layers to force the experts into CPU」设为33，取消勾选「尝试mmap()」。</p>
+<p>实测把上下文长度拉到8k~10k也是可以的。</p></div>
 <p>实际使用的时候，速度大概是30 tokens/s，而Hy-MT2-7B能够达到40 tokens/s，Hy-MT2-1.8B甚至能达到90 tokens/s。</p>
 <p>但是Hy-MT2-1.8B有一个缺点，就是处理短文本的时候问题还不大，但是一旦输入超过1k tokens，就会出现各种问题，包括但不限于：</p>
 <ul>
@@ -883,8 +885,9 @@
 <p>为了翻译长文，可以在Cherry Studio中创建助手，把翻译prompt和术语表放到助手的提示词中，这样就不用每次再重复输入了。</p>
 <div class="note info"><p>一些需要注意的地方：</p>
 <ul>
-<li>助手的「上下文数」务必设为0，否则可能会直接返回上一个翻译的结果！</li>
-<li>每次输入尽量控制在2k tokens以内，否则会出现中间漏翻的情况，或者翻译完第一行就结束了。<br />
+<li><s>助手的「上下文数」务必设为0，否则可能会直接返回上一个翻译的结果！</s><br />
+新版需要将「保留最近消息数」设置为1。</li>
+<li>每次输入尽量控制在2k tokens以内，否则可能会出现中间漏翻的情况，或者翻译完第一行就结束了。<br />
 官方推荐<code>max_tokens=4096</code>还是有道理的，小模型处理长文的能力还是差一些。</li>
 <li>小模型对于指令遵循的能力也要差一些。例如，我要求它保持原始段落、保持Markdown格式，但是有时还是无法满足要求。</li>
 </ul>
@@ -1020,7 +1023,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">433k</span>
+    <span title="站点总字数">434k</span>
   </span>
 </div>
 <div class="busuanzi-count">

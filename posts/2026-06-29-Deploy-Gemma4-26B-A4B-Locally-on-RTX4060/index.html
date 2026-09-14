@@ -345,14 +345,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5.4k</span>
+      <span>5.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>14 分钟</span>
+      <span>15 分钟</span>
     </span>
 </div>
 
@@ -387,7 +387,12 @@
 <p>启动命令如下：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">llama<span class="literal">-server</span>.exe `</span><br><span class="line">  <span class="literal">--model</span> <span class="string">&quot;gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf&quot;</span> `</span><br><span class="line">  <span class="literal">--ctx-size</span> <span class="number">64000</span> `</span><br><span class="line">  <span class="literal">--port</span> <span class="number">1134</span> `</span><br><span class="line">  <span class="literal">--alias</span> <span class="string">&quot;unsloth/gemma-4-26B-A4B-it-qat-GGUF&quot;</span> `</span><br><span class="line">  <span class="literal">--cache-type-k</span> q8_0 `</span><br><span class="line">  <span class="literal">--cache-type-v</span> q8_0 `</span><br><span class="line">  <span class="literal">--temperature</span> <span class="number">1.0</span> `</span><br><span class="line">  <span class="literal">--top-p</span> <span class="number">0.95</span> `</span><br><span class="line">  <span class="literal">--top-k</span> <span class="number">64</span> `</span><br><span class="line">  <span class="literal">--model-draft</span> <span class="string">&quot;mtp-gemma-4-26B-A4B-it.gguf&quot;</span> `</span><br><span class="line">  <span class="literal">--spec-type</span> draft<span class="literal">-mtp</span> `</span><br><span class="line">  <span class="literal">--spec-draft-n-max</span> <span class="number">2</span> `</span><br><span class="line">  <span class="literal">--spec-draft-type-k</span> q8_0 `</span><br><span class="line">  <span class="literal">--spec-draft-type-v</span> q8_0 `</span><br><span class="line">  <span class="literal">--no-mmap</span> `</span><br><span class="line">  <span class="literal">--mlock</span> `</span><br><span class="line">  <span class="literal">--parallel</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
 <p>如果需要多模态的话，可以再加上参数：<code>--mmproj &quot;mmproj-F16.gguf&quot;</code>。</p>
-<p>如果想要禁用思考模式，可以使用<code>--reasoning off</code>参数。也可以在客户端调用模型时使用<code>&#123;&quot;enable_thinking&quot;: false&#125;</code>来禁用思考。</p>
+<p>如果想要禁用思考模式，可以使用<code>--reasoning off</code>参数。<s>也可以在客户端调用模型时使用<code>&#123;&quot;enable_thinking&quot;: false&#125;</code>来禁用思考。</s></p>
+<div class="note danger"><p>在客户端调用模型的时候要使用<code>{&quot;reasoning_effort&quot;: off}</code>来禁用思考。</p>
+<p>非常不推荐禁用思考模式。我在使用它关闭思考进行翻译的时候，发现在运行中间经常出错：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">W <span class="params">common_chat_peg_parse:</span> unparsed peg-gemma4 <span class="params">output:</span></span><br><span class="line">...</span><br><span class="line">Engine protocol predict stream returned an <span class="params">error:</span> &#123;<span class="string">&quot;code&quot;</span>:<span class="number">500</span>,<span class="string">&quot;message&quot;</span>:<span class="string">&quot;The model produced output that does not match the expected peg-gemma4 format&quot;</span>,<span class="string">&quot;type&quot;</span>:<span class="string">&quot;server_error&quot;</span>&#125;.</span><br></pre></td></tr></table></figure>
+<p>原因不明，但是在开启思考模式的时候没有出现过这个错误。</p>
+</div>
 <p>其中可以调整的参数：</p>
 <ul>
 <li><code>--ctx-size</code>: 上下文长度，可以设置为64k、128k或256k。
@@ -712,7 +717,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">433k</span>
+    <span title="站点总字数">434k</span>
   </span>
 </div>
 <div class="busuanzi-count">
