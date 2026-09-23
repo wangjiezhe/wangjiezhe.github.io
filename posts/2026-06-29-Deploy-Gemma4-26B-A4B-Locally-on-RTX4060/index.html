@@ -345,7 +345,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5.8k</span>
+      <span>5.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -506,6 +506,9 @@
 <p>实际原因是编译路径里面多了一个<code>-isystem /usr/include</code>。</p>
 <p>Gemma4模型能够正确识别这个问题的原因。</p>
 <p>我之前把日志发给DeepSeek，Flash模型无法修复该问题，甚至还认为是搜索路径缺少<code>/usr/include</code>。必须用Pro模型才能正确找到问题的原因。</p>
+<div class="note success"><p>最新的DeepSeek-V4.1-Flash能够正确识别这个问题的原因。</p>
+<p>最近很火的Bonsai-2-27B模型不行。</p>
+</div>
 <div class="note primary"><p>这也是我认为DeepSeek（包括其它国模）相交于第一梯队的Claude和GPT模型很大的问题：知识储备不足。</p>
 <p>另外一个实际使用时遇到的问题是搜索。因为DeepSeek无法搜索和访问Github，所以很多一手信息得不到，只能搜到一些二手信息。</p>
 <p>这就导致在涉及到一些最新信息的时候，DeepSeek就只能瞎猜了。</p>
