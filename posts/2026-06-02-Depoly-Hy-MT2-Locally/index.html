@@ -336,14 +336,14 @@
         <i class="far fa-file-lines"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>6.5k</span>
+      <span>6.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>16 分钟</span>
+      <span>17 分钟</span>
     </span>
 </div>
 
@@ -392,18 +392,22 @@
 <div class="note primary"><p>我收回上面的评价。</p>
 <p>在翻译日文的时候，Hy-MT2-30B-A3B要比Hy-MT2-7B强得多。</p>
 <p>7B模型经常会犯一些特别明显的错误，例如把一句肯定的话翻译成否定的意思。以及人称代词经常搞错。30B模型在这方面要强得多。</p>
-<div class="note warning"><p>但是性别还是有问题。</p>
+<div class="note warning"><p>但是人称代词的性别还是有问题。</p>
 </div>
 <p>由于这只是个别文字的差异，就导致评分没有拉开太大的差距，但是人看的时候差别特别明显。</p>
 <p>30B模型在遵循指令方面也比7B模型要强。我让它在翻译的时候保持直角引号不变，7B模型经常不遵守这个规则，30B模型则要好的多，虽然也不能完全遵守指令。</p>
 <p>另外，在加载<code>Hy-MT2-30B-A3B</code>模型的时候，可以不用<code>--fit on</code>参数，而是改用<code>-ngl 49 -ncmoe 33</code>，稍微快一点。</p>
 <p>对应的，在使用lmstudio的时候，要把「GPU卸载」拉到最右，把「Number of layers to force the experts into CPU」设为33，取消勾选「尝试mmap()」。</p>
-<p>实测把上下文长度拉到8k~10k也是可以的。</p></div>
+<p>实测把上下文长度拉到10k也是可以的，此时长文的速度会降到25 tokens/s。</p>
+<div class="note warning"><p>如果要把上下文长度拉到20k，则需要把「Number of layers to force the experts into CPU」设为34，此时短文的速度降为27 tokens/s，长文的速度降为23 tokens/s。</p>
+<p>但是当输入超过10k的时候，也出现了漏翻的情况。特别是有很多拟声词的时候，更容易出现漏翻和陷入循环的情况。</p>
+</div></div>
 <p>实际使用的时候，速度大概是30 tokens/s，而Hy-MT2-7B能够达到40 tokens/s，Hy-MT2-1.8B甚至能达到90 tokens/s。</p>
 <p>但是Hy-MT2-1.8B有一个缺点，就是处理短文本的时候问题还不大，但是一旦输入超过1k tokens，就会出现各种问题，包括但不限于：</p>
 <ul>
 <li>翻译成繁体中文</li>
-<li>漏翻部分文本（直接输出原始文字）</li>
+<li>漏翻部分文本</li>
+<li>直接输出原始文字</li>
 <li>把system prompt也翻译了</li>
 </ul>
 <p>等等。因此，沉浸式翻译使用还没有问题，但是一旦涉及到长文本翻译就不行了。而Hy-MT2-7B实测输入在4k tokens以内基本都没有问题。</p></div>
@@ -946,9 +950,9 @@
               <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
               <a href="/tags/RTX4060/" rel="tag"><i class="fa fa-tag"></i> RTX4060</a>
               <a href="/tags/vLLM/" rel="tag"><i class="fa fa-tag"></i> vLLM</a>
-              <a href="/tags/Hy-MT2/" rel="tag"><i class="fa fa-tag"></i> Hy-MT2</a>
-              <a href="/tags/Llama/" rel="tag"><i class="fa fa-tag"></i> Llama</a>
               <a href="/tags/GGUF/" rel="tag"><i class="fa fa-tag"></i> GGUF</a>
+              <a href="/tags/Llama/" rel="tag"><i class="fa fa-tag"></i> Llama</a>
+              <a href="/tags/Hy-MT2/" rel="tag"><i class="fa fa-tag"></i> Hy-MT2</a>
           </div>
 
         
