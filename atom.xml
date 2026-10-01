@@ -129,9 +129,9 @@
     
     <category term="数学竞赛" scheme="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/"/>
     
-    <category term="CSMO" scheme="https://wangjiezhe.github.io/tags/CSMO/"/>
-    
     <category term="重心坐标" scheme="https://wangjiezhe.github.io/tags/%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87/"/>
+    
+    <category term="CSMO" scheme="https://wangjiezhe.github.io/tags/CSMO/"/>
     
     <category term="等角共轭点" scheme="https://wangjiezhe.github.io/tags/%E7%AD%89%E8%A7%92%E5%85%B1%E8%BD%AD%E7%82%B9/"/>
     
@@ -272,9 +272,9 @@
     
     <category term="数学竞赛" scheme="https://wangjiezhe.github.io/tags/%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/"/>
     
-    <category term="IMO" scheme="https://wangjiezhe.github.io/tags/IMO/"/>
-    
     <category term="重心坐标" scheme="https://wangjiezhe.github.io/tags/%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87/"/>
+    
+    <category term="IMO" scheme="https://wangjiezhe.github.io/tags/IMO/"/>
     
     <category term="圆幂定理" scheme="https://wangjiezhe.github.io/tags/%E5%9C%86%E5%B9%82%E5%AE%9A%E7%90%86/"/>
     
@@ -301,11 +301,11 @@
     
     <category term="RTX4060" scheme="https://wangjiezhe.github.io/tags/RTX4060/"/>
     
+    <category term="Llama" scheme="https://wangjiezhe.github.io/tags/Llama/"/>
+    
     <category term="GGUF" scheme="https://wangjiezhe.github.io/tags/GGUF/"/>
     
     <category term="Gemma4" scheme="https://wangjiezhe.github.io/tags/Gemma4/"/>
-    
-    <category term="Llama" scheme="https://wangjiezhe.github.io/tags/Llama/"/>
     
   </entry>
   
@@ -496,11 +496,11 @@
     
     <category term="vLLM" scheme="https://wangjiezhe.github.io/tags/vLLM/"/>
     
-    <category term="GGUF" scheme="https://wangjiezhe.github.io/tags/GGUF/"/>
+    <category term="Hy-MT2" scheme="https://wangjiezhe.github.io/tags/Hy-MT2/"/>
     
     <category term="Llama" scheme="https://wangjiezhe.github.io/tags/Llama/"/>
     
-    <category term="Hy-MT2" scheme="https://wangjiezhe.github.io/tags/Hy-MT2/"/>
+    <category term="GGUF" scheme="https://wangjiezhe.github.io/tags/GGUF/"/>
     
   </entry>
   
