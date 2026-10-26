@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+  <link rel="preload" href="/css/main.css" as="style">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-round.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-round.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-round.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PingFang+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Source+Han+Sans+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Source+Han+Sans+CN:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Noto+Sans+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=WenQuanYi+Micro+Hei:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Microsoft+YaHei:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjiezhe.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-dark-reasonable"},"prism":{"light":"prism","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"pangu":false,"comments":{"style":"tabs","active":"disqusjs","storage":true,"lazyload":true,"nav":{"disqusjs":{"text":"Disqus","order":1},"giscus":{"text":"GitHub","order":2},"discussbot":{"text":"Telegram","order":3}},"activeClass":"disqusjs"},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"style":"flat"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="对比Index和Hy-MT2的两个翻译模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尝试使用Index翻译模型">
+<meta property="og:url" content="https://wangjiezhe.github.io/posts/2026-10-11-Try-Index-Translate/index.html">
+<meta property="og:site_name" content="如鱼饮水">
+<meta property="og:description" content="对比Index和Hy-MT2的两个翻译模型">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-10-11T08:48:47.000Z">
+<meta property="article:modified_time" content="2026-10-26T15:11:49.000Z">
+<meta property="article:author" content="西风冷香">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="GGUF">
+<meta property="article:tag" content="Index">
+<meta property="article:tag" content="RTX4060">
+<meta property="article:tag" content="vLLM">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wangjiezhe.github.io/posts/2026-10-11-Try-Index-Translate/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjiezhe.github.io/posts/2026-10-11-Try-Index-Translate/","path":"/posts/2026-10-11-Try-Index-Translate/","title":"尝试使用Index翻译模型"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>尝试使用Index翻译模型 | 如鱼饮水</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48537410-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48537410-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?a51d31f349bffa6e3757f7d6fca0c47f"></script>
+
+
+  <script data-pjax defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{&quot;token&quot;: &quot;4b43b380fa4e4d43a125ac710c29fb84&quot;}'></script>
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/comments.js" defer></script><script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@11.10.1/dist/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+  <script data-pjax async src="//bsz.wangjiezhe.com/js"></script>
+
+  <script class="next-config" data-name="firestore" type="application/json">{"collection":"articles","projectId":"visitors-of-blog"}</script>
+  <script src="/js/third-party/statistics/firestore.js" defer></script>
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex.min.css" integrity="sha256-GAwtd9Q019pR1mJcUKlk1P1v29ubyHlqCgFsMMSZMfs=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/contrib/copy-tex.min.js","integrity":"sha256-xXHEm1IMuOkEAoczgoayF4Pjm0dmYLi1bZ4cA37q6v8="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.2/dist/quicklink.umd.js" integrity="sha256-Qo2BTvlsBVXIr5fEHp8xlBpUmkbDINr5cQZeSfMTES8=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://wangjiezhe.github.io/posts/2026-10-11-Try-Index-Translate/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preconnect" href="https://cn-font.claude-code-best.win" crossorigin>
+
+<link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/lxgwwenkaibright/dist/LXGWBright-Regular/result.css">
+<link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/lxgwwenkaibright/dist/LXGWBright-SemiLight/result.css">
+<link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/lxgwwenkaibright/dist/LXGWBright-Medium/result.css">
+
+<link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css">
+<link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/maple-mono-cn/dist/MapleMono-CN-Light/result.css">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="如鱼饮水" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="如鱼饮水" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-search popup-trigger" aria-label="搜索" role="button">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">如鱼饮水</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">冷暖自知</p>
+  </div>
+
+  <div class="site-nav-toggle" aria-label="切换导航栏" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-fcircle"><a href="/fcircle/" rel="section"><i class="fa fa-user-group fa-fw"></i>朋友圈</a></li><li class="menu-item menu-item-tools"><a href="/tools/" rel="section"><i class="fa fa-rocket fa-fw"></i>工具</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  
+  <template id="search-popup-template"><div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div></template>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%83%A8%E7%BD%B2%E9%87%8F%E5%8C%96%E7%89%88%E6%9C%AC%EF%BC%882B-9B%EF%BC%89"><span class="nav-text">1. 部署量化版本（2B &amp; 9B）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%83%A8%E7%BD%B2%E9%9D%9E%E9%87%8F%E5%8C%96%E7%89%88%E6%9C%AC%EF%BC%882B%EF%BC%89"><span class="nav-text">2. 部署非量化版本（2B）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9API%EF%BC%8835B-A3B%EF%BC%89"><span class="nav-text">3. 使用官方API（35B-A3B）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%80%BB%E7%BB%93"><span class="nav-text">4. 总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="西风冷香"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">西风冷香</p>
+  <div class="site-description" itemprop="description">某不知名机构不知名数学老师</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">181</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjiezhe" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wangjiezhe@gmail.com" title="E-Mail → mailto:wangjiezhe@gmail.com" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://x.com/wangjiezhe" title="Twitter → https:&#x2F;&#x2F;x.com&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/wangjiezhe" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wangjiezhe" rel="noopener me external nofollow noreferrer" target="_blank"><i class="fab fa-telegram fa-fw"></i></a>
+      </span>
+  </div>
+<div id="time-now">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<div id="site-days"></div>
+<script src="/js/sidebar-datetime.min.js" defer></script>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2026-06-02-Depoly-Hy-MT2-Locally/" rel="bookmark">
+        <time class="popular-posts-time">2026-06-02</time>
+        <br>
+      本地部署 Hy-MT2 翻译模型
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjiezhe.github.io/posts/2026-10-11-Try-Index-Translate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="西风冷香">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如鱼饮水">
+      <meta itemprop="description" content="某不知名机构不知名数学老师">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="尝试使用Index翻译模型 | 如鱼饮水">
+      <meta itemprop="description" content="对比Index和Hy-MT2的两个翻译模型">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          尝试使用Index翻译模型
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-10-11 16:48:47" itemprop="dateCreated datePublished" datetime="2026-10-11T16:48:47+08:00">2026-10-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-10-26 23:11:49" itemprop="dateModified" datetime="2026-10-26T23:11:49+08:00">2026-10-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-lines"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">对比Index和Hy-MT2的两个翻译模型</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>月初的时候，Bilibili的LLM团队发布了Index（茵蒂克丝）翻译模型及其量化版本，宣传的非常好。于是我决定尝试一下。</p>
+<p>之前，我一直主力使用Hy-MT2系列模型，用于沉浸式翻译和本地小说翻译。</p>
+<h2 id="1-部署量化版本（2B-9B）"><a class="header-anchor" href="#1-部署量化版本（2B-9B）"></a>1. 部署量化版本（2B &amp; 9B）</h2>
+<p>和部署Hy-MT2模型时类似，2B模型选择Q8量化，9B模型选择Q4量化。</p>
+<p>前期做了很多测试，但是都不是很理想，BLEU分数徘徊在39~43之间，远不如Hy-MT2模型。后来发现，这个模型对于提示词非常敏感，使用不同的提示词的差别很大：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">K&amp;V 缓存量化</th>
+<th style="text-align:center">BLEU</th>
+<th style="text-align:center">chrF++</th>
+<th style="text-align:center">PROMPT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Index-Translate-2B:Q8_0</td>
+<td style="text-align:center">q8_0</td>
+<td style="text-align:center">50.65</td>
+<td style="text-align:center">34.41</td>
+<td style="text-align:center">Index中文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">39.17</td>
+<td style="text-align:center">20.77</td>
+<td style="text-align:center">Index英文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">56.68</td>
+<td style="text-align:center">35.17</td>
+<td style="text-align:center">Hy中文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">42.37</td>
+<td style="text-align:center">21.23</td>
+<td style="text-align:center">Hy英文</td>
+</tr>
+<tr>
+<td style="text-align:center">Index-Translate-9B:Q4_K_M</td>
+<td style="text-align:center">q8_0</td>
+<td style="text-align:center">52.64</td>
+<td style="text-align:center">34.79</td>
+<td style="text-align:center">Index中文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">38.18</td>
+<td style="text-align:center">20.55</td>
+<td style="text-align:center">Index英文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">53.88</td>
+<td style="text-align:center">35.17</td>
+<td style="text-align:center">Hy中文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">39.17</td>
+<td style="text-align:center">20.77</td>
+<td style="text-align:center">Hy英文</td>
+</tr>
+</tbody>
+</table>
+<div class="note info"><p>具体的提示词如下，都是来自于官方的示例：</p>
+<ul>
+<li>Index中文：
+<ul>
+<li>请将以下文本翻译为中文，直接输出翻译结果，不要进行任何解释：</li>
+</ul>
+</li>
+<li>Index英文：
+<ul>
+<li>Translate the following text into Chinese. Output the translation directly, without any explanation:</li>
+</ul>
+</li>
+<li>Hy中文：
+<ul>
+<li>将以下文本翻译为中文，注意<strong>只需要输出翻译后的结果，不要额外解释</strong>：</li>
+</ul>
+</li>
+<li>Hy英文：
+<ul>
+<li>Translate the following text into Chinese. Note that you should <strong>only output the translated result without any additional explanation</strong>:</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>可以看到：</p>
+<ul>
+<li>使用中文提示词的分数要远高于使用英文提示词的分数。</li>
+<li>使用Hy示例的提示词的分数要高于使用Index示例的提示词的分数。</li>
+<li>9B模型的分数经常低于2B模型的分数。</li>
+</ul>
+<p>好奇怪。。。</p>
+<h2 id="2-部署非量化版本（2B）"><a class="header-anchor" href="#2-部署非量化版本（2B）"></a>2. 部署非量化版本（2B）</h2>
+<p>使用vLLM（v0.29.0）部署非量化的2B模型，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker run --gpus all -it --<span class="built_in">rm</span> \</span><br><span class="line">  --ipc=host --<span class="built_in">ulimit</span> memlock=-1 --<span class="built_in">ulimit</span> stack=67108864 \</span><br><span class="line">  --name vllm \</span><br><span class="line">  -v ~/.cache/huggingface:/root/.cache/huggingface \</span><br><span class="line">  -e <span class="string">&quot;HF_ENDPOINT=<span class="variable">$HF_ENDPOINT</span>&quot;</span> \</span><br><span class="line">  -e VLLM_WSL2_ENABLE_PIN_MEMORY=1 \</span><br><span class="line">  -p 8118:8000 nvcr.nju.edu.cn/nvidia/vllm:26.09-py3 \</span><br><span class="line">  vllm serve IndexTeam/Index-Translate-2B \</span><br><span class="line">  --tensor-parallel-size 1 --max-model-len 8192 \</span><br><span class="line">  --gpu-memory-utilization 0.8 --num-max-seqs 128 \</span><br><span class="line">  --language-model-only</span><br></pre></td></tr></table></figure>
+<p>最开始测试的时候没有指定<code>temperature=0</code>，测出来的BLEU分数波动非常大，最低的一次甚至只有12.95。指定之后，又发现中间会卡住，多次测试定位之后，发现是在翻译的时候陷入了「啊啊啊」的死循环。</p>
+<div class="note success"><p>前面在使用LM Studio部署量化版本的时候没有遇到这个问题，因为它的默认参数包含<code>repetition_penalty=1.1</code>，于是没有遇到这个问题。</p>
+</div>
+<p>开启<code>frequency_penalty=0.4</code>，能够解决这个问题。</p>
+<div class="note warning"><p>实测，<code>frequency_penalty</code>开到<code>0.1~0.8</code>都可以，开到<code>1.0</code>分数略微降低。</p>
+<p>开启<code>repetition_penalty=1.1</code>，则BLEU分数略微减低，chrF分数增加。</p>
+</div>
+<p>同样的，使用vLLM部署的模型也对提示词非常敏感：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">K&amp;V 缓存量化</th>
+<th style="text-align:center">BLEU</th>
+<th style="text-align:center">chrF++</th>
+<th style="text-align:center">PROMPT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Index-Translate-2B</td>
+<td style="text-align:center">f16</td>
+<td style="text-align:center">39.62</td>
+<td style="text-align:center">18.15</td>
+<td style="text-align:center">Index中文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">39.62</td>
+<td style="text-align:center">18.15</td>
+<td style="text-align:center">Index英文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">57.37</td>
+<td style="text-align:center">32.28</td>
+<td style="text-align:center">Hy中文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">43.00</td>
+<td style="text-align:center">18.55</td>
+<td style="text-align:center">Hy英文</td>
+</tr>
+</tbody>
+</table>
+<p>使用<code>frequency_penalty=0.4</code>和<code>repetition_penalty=1.1</code>测试：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模型</th>
+<th style="text-align:center">K&amp;V 缓存量化</th>
+<th style="text-align:center">BLEU</th>
+<th style="text-align:center">chrF++</th>
+<th style="text-align:center">PROMPT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Index-Translate-2B</td>
+<td style="text-align:center">f16</td>
+<td style="text-align:center">50.65</td>
+<td style="text-align:center">34.41</td>
+<td style="text-align:center">Index中文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">39.17</td>
+<td style="text-align:center">20.77</td>
+<td style="text-align:center">Index英文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">56.68</td>
+<td style="text-align:center">35.17</td>
+<td style="text-align:center">Hy中文</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">42.37</td>
+<td style="text-align:center">21.23</td>
+<td style="text-align:center">Hy英文</td>
+</tr>
+</tbody>
+</table>
+<p>上面的测试都是针对特定的一个数据集，而实际情况更为复杂。</p>
+<div class="note primary"><p>对于2B大小的模型，使用vLLM部署非量化版本的运行速度要超过使用LM Studio部署的量化版本。</p>
+<p>对于测试这种可以并行的情况更加明显。</p>
+</div>
+<p>官方建议输出tokens控制在1k以内，确实是明智的，一旦超出，经常无法保持换行，后面的输出内容都挤到一段里了。</p>
+<div class="note info"><p>看来这就是1.8B~2B大小的模型的输出极限了。</p>
+</div>
+<p>即使换成是Nailong模型，在输出超过2k之后，也经常会在遇到连续拟声词的时候陷入死循环。</p>
+<h2 id="3-使用官方API（35B-A3B）"><a class="header-anchor" href="#3-使用官方API（35B-A3B）"></a>3. 使用官方API（35B-A3B）</h2>
+<p>官网开放了直接调用API的方法，最开始只支持35B-A3B模型，后来也支持2B和9B模型（不过没有试过）。</p>
+<p>我把它进入了沉浸式翻译和Cherry Studio内进行实测。</p>
+<p>对于沉浸式翻译，体感上优于Hy-MT2-7B:Q4，但是比不上Hy-MT2-30B-A3B:Q4。</p>
+<p>但是官方API胜在速度非常快，能够达到120 tokens/s，比本地运行Hy-MT2-1.8B:Q8还要快得多。</p>
+<div class="note info"><p>官方API的限制经历过几次调整，最开始是<code>max_tokens=4096</code>，后来是<code>output_tokens=2048</code>。截至写稿时是<code>output_tokens=4096</code>，翻译长文更加方便，但是速度只有40 tokens/s了。</p>
+</div>
+<p>不过即使是这么大的模型，依然避免不了遇到连续拟声词退化的情况。</p>
+<p>另外，35B-A3B模型对于提示词依然很敏感。我多次遇到使用<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/bilibili/Index-Translate/blob/main/inference/llm/prompts/nailong_ja-zh.txt">Index风格的提示词</a>不行、但是换成<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Tencent-Hunyuan/Hy-MT2#hy-mt2-translation-task-instruction-examples-chinese-english-comparison">Hy风格的提示词</a>就可以的情况。</p>
+<p>对于日文小说，经过多次相同文本翻译的对比，感觉Index-Translate-35B-A3B还是不如Hy-MT2-30B-A3B:Q4的效果好。</p>
+<h2 id="4-总结"><a class="header-anchor" href="#4-总结"></a>4. 总结</h2>
+<p>经过上面的测试，目前我的使用策略是：</p>
+<ul>
+<li>对于沉浸式翻译，使用Index模型，开着官方的API脚本，这样既能保证速度，也不会占用本地资源。</li>
+<li>对于小说的翻译，依然使用Hy-MT2-30B-A3B模型，使用LM Studio自动加载和卸载模型。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>西风冷香
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wangjiezhe.github.io/posts/2026-10-11-Try-Index-Translate/" title="尝试使用Index翻译模型">https://wangjiezhe.github.io/posts/2026-10-11-Try-Index-Translate/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+              <a href="/tags/RTX4060/" rel="tag"><i class="fa fa-tag"></i> RTX4060</a>
+              <a href="/tags/vLLM/" rel="tag"><i class="fa fa-tag"></i> vLLM</a>
+              <a href="/tags/GGUF/" rel="tag"><i class="fa fa-tag"></i> GGUF</a>
+              <a href="/tags/Index/" rel="tag"><i class="fa fa-tag"></i> Index</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2026-10-10-Brake-Pedal/" rel="prev" title="也谈「刹车门」">
+                  <i class="fa fa-angle-left"></i> 也谈「刹车门」
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2026-10-19-Ergonomic-Chair/" rel="next" title="如何选择人体工学椅">
+                  如何选择人体工学椅 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-disqusjs">Disqus</a></li>
+            <li class="tab"><a href="#comment-giscus">GitHub</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
+              
+  <div class="comments disqusjs-container">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+            </div>
+            <div class="tab-pane giscus" id="comment-giscus">
+              
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+            </div>
+        </div>
+      </div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener external nofollow noreferrer" target="_blank">冀ICP备2024063721号-1 </a>
+      <img src="/images/gongan.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=13090202000716" rel="noopener external nofollow noreferrer" target="_blank">冀公网安备13090202000716号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">西风冷香</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">440k</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener external nofollow noreferrer" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="blog-links">
+    <span class="post-meta-item moe">
+      <span>
+        <img src="/images/icp-moe.png" style="width:auto;height:16px;" alt="">
+      </span>
+      <span><a href="https://icp.gov.moe/?keyword=20248191" rel="noopener external nofollow noreferrer" target="_blank">萌ICP备20248191号</a>
+      </span>
+    </span>
+    <span class="post-meta-item travel-moe">
+      <span><a href="https://travel.moe/go.html?travel=on" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/travel-moe.png" style="width:auto;height:18px" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！"> 异次元之旅🚀</a>
+      </span>
+    </span>
+    <span class="post-meta-item foreverblog"><a href="https://www.foreverblog.cn/blog/2092.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/foreverblog.png" style="width:auto;height:16px;" alt="Forever Blog"></a>
+    </span>
+    <span class="post-meta-item wormhole"><a href="https://www.foreverblog.cn/go.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/wormhole.gif" style="width:auto;height:24px;" alt="" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+    </span>
+    <span class="post-meta-item travelling"><a href="https://www.travellings.cn/go.html" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/travelling.png" alt="开往-友链接力" height="18"></a>
+    </span>
+  
+</div>
+
+<script>
+function checkWebp(callback) {
+  var img = new Image();
+  img.onload = function () { callback((img.width > 0) && (img.height > 0)); };
+  img.onerror = function () { callback(false); };
+  img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
+}
+function showImage(useWebp) {
+  var imgs = [].slice.call(document.querySelectorAll('img'));
+  imgs.forEach(function (e) {
+    if ((useWebp) && !e.classList.contains('nowebp')) {
+      var src = e.getAttribute('data-src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('data-src', src);
+      }
+      src = e.getAttribute('src')
+      if (src !== null) {
+        src = src.replace(/\.jpg$/, '.webp').replace(/\.jpeg$/, '.webp').replace(/\.png$/, '.webp').replace(/\.gif$/, '.webp');
+        e.setAttribute('src', src);
+      }
+    }
+  });
+}
+</script>
+<script data-pjax async>
+checkWebp(showImage);
+</script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"wangjiezhe/wangjiezhe.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxNTc4OTE0Ng==","category":"Announcements","category_id":"DIC_kwDOAPDsWs4Cdwtf","mapping":"og:title","strict":1,"reactions_enabled":1,"emit_metadata":1,"theme":"https://wangjiezhe.com/css/giscus.min.css","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@3.2.2/dist/browser/styles/disqusjs.css">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqusjs.wangjiezhe.com/","apikey":"ENTX2OPfWXIYJpFIZ1WVpYt4F0Ri0PLUELMOCbM8HHIX9C9BqEbkBZWmK7lqKj7F","shortname":"wangjiezhe","js":{"url":"//cdn.jsdelivr.net/npm/disqusjs@3.2.2/dist/browser/disqusjs.es2015.umd.min.js"}}</script>
+<script data-cfasync="false" src="/js/third-party/comments/disqusjs.js" defer></script>
+
+
+
+  <script async src="/js/cursor/fireworks.min.js" integrity="sha256-NVjeK0/Qni9W+mCWpzpw6IZTieyhLZJ5Kj4hdFjqSQc=" crossorigin="anonymous"></script>
+
+
+
+<!-- hexo injector body_end start -->
+  <script>
+    (function() {
+      function fixLazyImages() {
+        document.querySelectorAll('img[loading="lazy"][src]').forEach(function(img) {
+          var rawSrc = img.getAttribute('src');
+          // 只处理相对路径，绝对路径和完整 URL 无需修正
+          if (!rawSrc || /^(\/|https?:|\/\/)/.test(rawSrc)) return;
+
+          img.removeAttribute('src');
+          // 下一个微任务中重新设置，此时 document.baseURI 已更新
+          Promise.resolve().then(function() {
+            img.setAttribute('src', rawSrc);
+          });
+        });
+      }
+
+      // PJAX 导航完成后触发
+      document.addEventListener('pjax:complete', fixLazyImages);
+    })();
+  </script>
+<!-- hexo injector body_end end --><script src="https://cdn.jsdelivr.net/npm/@wangjiezhe/live2d-widget@^3.1.7/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-mikoto@1.0.0/assets/mikoto.model.json"},"display":{"position":"left"},"mobile":{"show":false},"log":false});</script></body>
+</html>
