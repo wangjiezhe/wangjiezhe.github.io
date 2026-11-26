@@ -1436,7 +1436,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #204005;
+    background: #2483ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3464,7 +3464,8 @@ ul.category-list > li {
   padding: 0 0;
 }
 .site-nav-toggle,
-.site-nav-right {
+.site-nav-right,
+.site-nav-search {
   background: #66327c;
 }
 .katex {

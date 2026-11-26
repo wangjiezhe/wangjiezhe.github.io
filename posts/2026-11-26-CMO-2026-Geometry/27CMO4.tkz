@@ -1,0 +1,42 @@
+\begin{luacode}
+  init_elements()
+  local r = 4.5
+  z.K = point:polar_deg(r, 70)
+  z.B = point:polar_deg(r, 220)
+  z.C = point:polar_deg(r, 320)
+  T.KBC = triangle(z.K, z.B, z.C)
+  z.D = T.KBC.mb
+  z.A = T.KBC.mc
+
+  L.BD = line(z.B, z.D)
+  L.AC = line(z.A, z.C)
+  z.E = intersection(L.BD, L.AC)
+  C.ABE = triangle(z.A, z.B, z.E):circum_circle()
+  C.CDE = triangle(z.C, z.D, z.E):circum_circle()
+  z.F = intersection(C.ABE, C.CDE, {known = z.E})
+  L.AG = L.BD:ll_from(z.A)
+  L.EF = line(z.E, z.F)
+  z.G = intersection(L.AG, L.EF)
+
+  z.w1 = C.ABE.center
+  z.w2 = C.CDE.center
+\end{luacode}
+
+\begin{tikzpicture}
+  \tkzGetNodes
+
+  \tkzDrawPolygon[lines](A,B,C,D)
+  \tkzDrawSegments[lines](A,G F,G A,C B,D)
+  \tkzDrawCircles[lines](w1,E w2,E)
+
+  \tkzDrawPoints[dots](A,B,C,D,E,F,G)
+
+  \tkzLabelPoints[above](A,D,G)
+  \tkzLabelPoints[below]()
+  \tkzLabelPoints[left]()
+  \tkzLabelPoints[right](E,F)
+  \tkzLabelPoints[above left]()
+  \tkzLabelPoints[above right]()
+  \tkzLabelPoints[below left](B)
+  \tkzLabelPoints[below right](C)
+\end{tikzpicture}
